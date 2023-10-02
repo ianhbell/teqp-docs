@@ -1,6 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <tagfile doxygen_version="1.9.2" doxygen_gitid="ee54ebd4f0ad83d9c44f19a459146de64d0ffba2*">
   <compound kind="file">
+    <name>ancillary_builder.hpp</name>
+    <path>/github/workspace/externals/teqp/include/teqp/algorithms/</path>
+    <filename>ancillary__builder_8hpp.html</filename>
+  </compound>
+  <compound kind="file">
     <name>critical_pure.hpp</name>
     <path>/github/workspace/externals/teqp/include/teqp/algorithms/</path>
     <filename>critical__pure_8hpp.html</filename>
