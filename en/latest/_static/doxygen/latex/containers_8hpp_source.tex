@@ -1,0 +1,55 @@
+\hypertarget{containers_8hpp_source}{}\doxysection{containers.\+hpp}
+\label{containers_8hpp_source}\index{include/teqp/containers.hpp@{include/teqp/containers.hpp}}
+\mbox{\hyperlink{containers_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00003}00003 \textcolor{comment}{//template <typename T>}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00004}00004 \textcolor{comment}{//concept has\_meta = requires(T const\& m) \{}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00005}00005 \textcolor{comment}{//    \{ m.get\_meta() \};}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00006}00006 \textcolor{comment}{//\};}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00007}00007 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceteqp}{teqp}} \{ }
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00008}00008 \textcolor{keyword}{template}<\textcolor{keyword}{typename}... Args>}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00009}\mbox{\hyperlink{classteqp_1_1ModelContainer}{00009}} \textcolor{keyword}{class }\mbox{\hyperlink{classteqp_1_1ModelContainer}{ModelContainer}} \{}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00010}00010 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00011}\mbox{\hyperlink{classteqp_1_1ModelContainer_a1ee0136ee8d6a2790c6e96f21b756ee4}{00011}}     \textcolor{keyword}{using} \mbox{\hyperlink{classteqp_1_1ModelContainer_a1ee0136ee8d6a2790c6e96f21b756ee4}{mid}} = std::size\_t;}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00012}\mbox{\hyperlink{classteqp_1_1ModelContainer_aeff45d4d3d5213d7c72c00a9a97ab126}{00012}}     \textcolor{keyword}{using} \mbox{\hyperlink{classteqp_1_1ModelContainer_aeff45d4d3d5213d7c72c00a9a97ab126}{varModels}} = std::variant<Args...>;}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00013}00013 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00014}00014     \mbox{\hyperlink{classteqp_1_1ModelContainer_a1ee0136ee8d6a2790c6e96f21b756ee4}{mid}} last\_id = 0;}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00015}00015     std::map<mid, varModels> modcoll;}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00016}00016 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00017}\mbox{\hyperlink{classteqp_1_1ModelContainer_adab53ebb057d6078e05dffcf18fd425a}{00017}}     \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keyword}{const} \textcolor{keyword}{auto}\& \mbox{\hyperlink{classteqp_1_1ModelContainer_adab53ebb057d6078e05dffcf18fd425a}{get\_ref}}(\mbox{\hyperlink{classteqp_1_1ModelContainer_a1ee0136ee8d6a2790c6e96f21b756ee4}{mid}} \textcolor{keywordtype}{id}) \{ \textcolor{keywordflow}{return} std::get<T>(\mbox{\hyperlink{classteqp_1_1ModelContainer_af50aac7a6bb16f4c534f0238cdad83e4}{get\_model}}(\textcolor{keywordtype}{id})); \}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00019}\mbox{\hyperlink{classteqp_1_1ModelContainer_ae6994d8afc2b3c8dbd90f727bf7c5d88}{00019}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1ModelContainer_ae6994d8afc2b3c8dbd90f727bf7c5d88}{size}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} modcoll.size(); \}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00020}\mbox{\hyperlink{classteqp_1_1ModelContainer_a6cbf047e2adbc90110900fc9e6f30043}{00020}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1ModelContainer_a6cbf047e2adbc90110900fc9e6f30043}{new\_id}}() \{}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00021}00021         last\_id++;}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00022}00022         \textcolor{keywordflow}{return} last\_id;}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00023}00023     \}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00024}00024     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Instance>}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00025}\mbox{\hyperlink{classteqp_1_1ModelContainer_acbc62e257e0138953278d0a8dbf023d6}{00025}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1ModelContainer_acbc62e257e0138953278d0a8dbf023d6}{add\_model}}(Instance\&\& instance) \{}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00026}00026         \textcolor{keyword}{auto} uid = \mbox{\hyperlink{classteqp_1_1ModelContainer_a6cbf047e2adbc90110900fc9e6f30043}{new\_id}}();}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00027}00027         modcoll.emplace(uid, std::move(instance));}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00028}00028         \textcolor{keywordflow}{return} uid;}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00029}00029     \}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00031}\mbox{\hyperlink{classteqp_1_1ModelContainer_af50aac7a6bb16f4c534f0238cdad83e4}{00031}}     \textcolor{keyword}{const} \mbox{\hyperlink{classteqp_1_1ModelContainer_aeff45d4d3d5213d7c72c00a9a97ab126}{varModels}}\& \mbox{\hyperlink{classteqp_1_1ModelContainer_af50aac7a6bb16f4c534f0238cdad83e4}{get\_model}}(\mbox{\hyperlink{classteqp_1_1ModelContainer_a1ee0136ee8d6a2790c6e96f21b756ee4}{mid}} \textcolor{keywordtype}{id})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00032}00032         \textcolor{keywordflow}{return} modcoll.at(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00033}00033     \}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00035}00035     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Function>}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00036}\mbox{\hyperlink{classteqp_1_1ModelContainer_a578e6425ca798bc1d075d6afd056403d}{00036}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1ModelContainer_a578e6425ca798bc1d075d6afd056403d}{caller}}(\textcolor{keyword}{const} \mbox{\hyperlink{classteqp_1_1ModelContainer_a1ee0136ee8d6a2790c6e96f21b756ee4}{mid}}\& \mbox{\hyperlink{classteqp_1_1ModelContainer_a1ee0136ee8d6a2790c6e96f21b756ee4}{mid}}, \textcolor{keyword}{const} Function \&f)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00037}00037         \textcolor{keywordflow}{return} std::visit([\&](\textcolor{keyword}{auto}\& model) \{ \textcolor{keywordflow}{return} f(model); \}, \mbox{\hyperlink{classteqp_1_1ModelContainer_af50aac7a6bb16f4c534f0238cdad83e4}{get\_model}}(\mbox{\hyperlink{classteqp_1_1ModelContainer_a1ee0136ee8d6a2790c6e96f21b756ee4}{mid}}));}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00038}00038     \}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00040}00040     \textcolor{comment}{//nlohmann::json get\_meta(const mid\& mid) const \{}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00041}00041     \textcolor{comment}{//    const auto\& modvar = get\_model(mid);}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00042}00042     \textcolor{comment}{//    nlohmann::json result;}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00043}00043     \textcolor{comment}{//    std::visit([\&](auto\&\& model) \{}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00044}00044     \textcolor{comment}{//        if constexpr (has\_meta<decltype(model)>) \{ result = model.get\_meta(); \}}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00045}00045     \textcolor{comment}{//    \}, modvar);}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00046}00046     \textcolor{comment}{//    return result;}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00047}00047     \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00048}00048 \};}
+\DoxyCodeLine{\Hypertarget{containers_8hpp_source_l00049}00049 \}; \textcolor{comment}{// namespace teqp}}
+
+\end{DoxyCode}

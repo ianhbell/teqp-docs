@@ -1,0 +1,53 @@
+\hypertarget{bench__teqpcpp_8cpp_source}{}\doxysection{bench\+\_\+teqpcpp.\+cpp}
+\label{bench__teqpcpp_8cpp_source}\index{interface/CPP/test/bench\_teqpcpp.cpp@{interface/CPP/test/bench\_teqpcpp.cpp}}
+\mbox{\hyperlink{bench__teqpcpp_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include <catch2/catch\_test\_macros.hpp>}}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include <catch2/benchmark/catch\_benchmark\_all.hpp>}}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{teqpcpp_8hpp}{teqpcpp.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00006}00006 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespaceteqp_1_1cppinterface}{teqp::cppinterface}};}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00008}00008 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{derivs_8hpp}{teqp/derivs.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00009}00009 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{multifluid_8hpp}{teqp/models/multifluid.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00011}00011 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespaceteqp}{teqp}};}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00013}\mbox{\hyperlink{bench__teqpcpp_8cpp_a49565b5280fa251ea3489b614f111daa}{00013}} \mbox{\hyperlink{bench__teqpcpp_8cpp_a49565b5280fa251ea3489b614f111daa}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Test C++ interface"{}}, \textcolor{stringliteral}{"{}[C++]"{}})}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00014}00014 \{}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00015}00015     \textcolor{keyword}{auto} modelnovar = \mbox{\hyperlink{namespaceteqp_aa7cdea08428a2326129dcbe83de69802}{teqp::build\_multifluid\_model}}(\{ \textcolor{stringliteral}{"{}Methane"{}},\textcolor{stringliteral}{"{}Ethane"{}} \}, \textcolor{stringliteral}{"{}../mycp"{}});}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00016}00016     \textcolor{keyword}{auto} model = \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a667d9cdc8dabc48e3280d8b481e60ee3}{teqp::cppinterface::make\_multifluid\_model}}(\{ \textcolor{stringliteral}{"{}Methane"{}},\textcolor{stringliteral}{"{}Ethane"{}} \}, \textcolor{stringliteral}{"{}../mycp"{}});}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00017}00017     \textcolor{keyword}{auto} z = (Eigen::ArrayXd(2) << 0.5, 0.5).finished();}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00018}00018     SECTION(\textcolor{stringliteral}{"{}Ar01"{}}) \{}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00019}00019         \textcolor{keywordtype}{double} Ar01 = model-\/>get\_Arxy(0, 1, 300, 3, z);}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00020}00020     \}}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00021}00021     SECTION(\textcolor{stringliteral}{"{}critical trace"{}}) \{}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00022}00022         \textcolor{keywordtype}{double} Tc1 = modelnovar.redfunc.Tc(0);}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00023}00023         \textcolor{keyword}{auto} rhovec0 = (Eigen::ArrayXd(2) << 1/modelnovar.redfunc.vc(0), 0).finished();}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00024}00024         \textcolor{keyword}{auto} cr = model-\/>trace\_critical\_arclength\_binary(Tc1, rhovec0);}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00025}00025         std::cout << cr.dump(1) << std::endl;}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00026}00026     \}}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00027}00027 \}}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00029}\mbox{\hyperlink{bench__teqpcpp_8cpp_a5818b0eb41af20a87efbdca6431b3930}{00029}} \mbox{\hyperlink{bench__teqpcpp_8cpp_a49565b5280fa251ea3489b614f111daa}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Benchmark C++ interface"{}}, \textcolor{stringliteral}{"{}[C++]"{}})}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00030}00030 \{}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00031}00031     \textcolor{keyword}{auto} model = \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a667d9cdc8dabc48e3280d8b481e60ee3}{teqp::cppinterface::make\_multifluid\_model}}(\{ \textcolor{stringliteral}{"{}Methane"{}}, \textcolor{stringliteral}{"{}Ethane"{}}\}, \textcolor{stringliteral}{"{}../mycp"{}});}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00032}00032     \textcolor{keyword}{auto} z = (Eigen::ArrayXd(2) << 0.5, 0.5).finished();}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00033}00033     }
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00034}00034     \textcolor{keyword}{auto} model1novar = \mbox{\hyperlink{namespaceteqp_aa7cdea08428a2326129dcbe83de69802}{teqp::build\_multifluid\_model}}(\{ \textcolor{stringliteral}{"{}Methane"{}} \}, \textcolor{stringliteral}{"{}../mycp"{}});}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00035}00035     \textcolor{keyword}{auto} model1 = \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a667d9cdc8dabc48e3280d8b481e60ee3}{teqp::cppinterface::make\_multifluid\_model}}(\{ \textcolor{stringliteral}{"{}Methane"{}} \}, \textcolor{stringliteral}{"{}../mycp"{}});}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00036}00036     \textcolor{keyword}{auto} z1 = (Eigen::ArrayXd(1) << 1).finished();}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00037}00037     }
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00038}00038     BENCHMARK(\textcolor{stringliteral}{"{}Ar01 two components"{}}) \{}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00039}00039         \textcolor{keywordflow}{return} model-\/>get\_Arxy(0, 1, 300, 3, z);}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00040}00040     \}; }
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00041}00041     BENCHMARK(\textcolor{stringliteral}{"{}Ar01 one component w/ Arxy (C++ interface, runtime lookup)"{}}) \{}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00042}00042         \textcolor{keywordflow}{return} model-\/>get\_Arxy(0, 1, 300, 3, z1);}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00043}00043     \}; }
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00044}00044     BENCHMARK(\textcolor{stringliteral}{"{}Ar01 one component w/ Ar01 directly"{}}) \{}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00045}00045         \textcolor{keywordflow}{return} \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{TDXDerivatives}}<\textcolor{keyword}{decltype}(model1novar)>::get\_Arxy<0,1,ADBackends::autodiff>(model1novar, 300, 3, z1);}
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00046}00046     \}; }
+\DoxyCodeLine{\Hypertarget{bench__teqpcpp_8cpp_source_l00047}00047 \}}
+
+\end{DoxyCode}

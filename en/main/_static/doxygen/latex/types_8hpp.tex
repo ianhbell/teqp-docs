@@ -1,0 +1,56 @@
+\hypertarget{types_8hpp}{}\doxysection{include/teqp/types.hpp File Reference}
+\label{types_8hpp}\index{include/teqp/types.hpp@{include/teqp/types.hpp}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}Eigen/\+Dense\char`\"{}}\newline
+{\ttfamily \#include $<$valarray$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$autodiff/forward/dual.\+hpp$>$}\newline
+{\ttfamily \#include $<$autodiff/forward/real.\+hpp$>$}\newline
+{\ttfamily \#include $<$autodiff/forward/dual/eigen.\+hpp$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1is__container}{teqp\+::is\+\_\+container$<$ Container $>$}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1is__container_3_01std_1_1vector_3_01Ts_8_8_8_01_4_01_4}{teqp\+::is\+\_\+container$<$ std\+::vector$<$ Ts... $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1is__container_3_01std_1_1valarray_3_01Ts_8_8_8_01_4_01_4}{teqp\+::is\+\_\+container$<$ std\+::valarray$<$ Ts... $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1is__complex__t}{teqp\+::is\+\_\+complex\+\_\+t$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1is__complex__t_3_01std_1_1complex_3_01T_01_4_01_4}{teqp\+::is\+\_\+complex\+\_\+t$<$ std\+::complex$<$ T $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1is__mcx__t}{teqp\+::is\+\_\+mcx\+\_\+t$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1Timer}{teqp\+::\+Timer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespaceteqp_aa0812a3c14b8df38572406314014e130}{teqp\+::pow2}} (const T \&x)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespaceteqp_a1715f263d954e9d4e1dc686334ec4b98}{teqp\+::pow3}} (const T \&x)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_a54c35c0fca0f39185783efb600ccb586}{teqp\+::toeig}} (const std\+::vector$<$ double $>$ \&v) -\/$>$ Eigen\+::\+Array\+Xd
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{teqp\+::forceeval}} (T \&\&expr)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceteqp_abbf9e7fce9e140cb1b40e0513e1edb9e}{teqp\+::error\+\_\+if\+\_\+expr}} (T \&\&expr)
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a79c1a1ea4876acd80e74721bba2361ce}{teqp\+::getbaseval}} (const T \&expr)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{teqp\+::powi}} (const T \&x, int n)
+\begin{DoxyCompactList}\small\item\em From Ulrich Deiters. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a641966211d5ef71d493fc52d3bd11a53}{teqp\+::pow\+IVi}} (const T \&x, const Eigen\+::\+Array\+Xi \&e)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{teqp\+::pow}} (const double \&x, const double \&e)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_ac6aa96ef107cd0c3798d0ea26b70b73d}{teqp\+::pow}} (const double \&x, const int \&e)
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a241d67c75b258ca853af0cb3981b3c98}{teqp\+::pow}} (const std\+::complex$<$ T $>$ \&x, const Eigen\+::\+Array\+Xd \&e)
+\end{DoxyCompactItemize}

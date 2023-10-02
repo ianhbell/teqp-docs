@@ -1,0 +1,63 @@
+\hypertarget{fwd_8hpp}{}\doxysection{include/teqp/models/fwd.hpp File Reference}
+\label{fwd_8hpp}\index{include/teqp/models/fwd.hpp@{include/teqp/models/fwd.hpp}}
+{\ttfamily \#include $<$valarray$>$}\newline
+{\ttfamily \#include $<$variant$>$}\newline
+{\ttfamily \#include \char`\"{}teqp/models/vd\+W.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/models/cubics.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/models/\+CPA.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/models/pcsaft.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/models/saftvrmie.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/models/multifluid.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/models/multifluid\+\_\+mutant.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/models/\+ECSHuber\+Ely.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/ideal\+\_\+eosterms.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/models/ammonia\+\_\+water.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/models/model\+\_\+potentials/squarewell.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/models/model\+\_\+potentials/exp6.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/models/model\+\_\+potentials/2center\+\_\+ljf.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/models/mie/lennardjones.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/models/mie/mie.\+hpp\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}{teqp\+::vad}} = std\+::valarray$<$ double $>$
+\item 
+using \mbox{\hyperlink{namespaceteqp_a297494c9a5a0955b538cd578a5433b87}{teqp\+::vecs}} = std\+::vector$<$ std\+::string $>$
+\item 
+using \mbox{\hyperlink{namespaceteqp_a8027876ebce650ffd76a9f910ccb0d01}{teqp\+::canonical\+\_\+cubic\+\_\+t}} = decltype(canonical\+\_\+\+PR(vad\{\}, vad\{\}, vad\{\}))
+\item 
+using \mbox{\hyperlink{namespaceteqp_a37866267491a962d070ca5570372ca6d}{teqp\+::\+PCSAFT\+\_\+t}} = decltype(PCSAFT\+::\+PCSAFTfactory(nlohmann\+::json\{\}))
+\item 
+using \mbox{\hyperlink{namespaceteqp_ad7a4e31b3475d16c66dbf9c81f661065}{teqp\+::\+SAFTVRMie\+\_\+t}} = decltype(SAFTVRMie\+::\+SAFTVRMie\+Mixture(vecs\{\}))
+\item 
+using \mbox{\hyperlink{namespaceteqp_a23b78ffacd75fbc247a3066c213b08e5}{teqp\+::\+CPA\+\_\+t}} = decltype(CPA\+::\+CPAfactory(nlohmann\+::json\{\}))
+\item 
+using \mbox{\hyperlink{namespaceteqp_a31cd03d0561637bdcc2d6d6b6c21e5ad}{teqp\+::multifluid\+\_\+t}} = decltype(multifluidfactory(nlohmann\+::json\{\}))
+\item 
+using \mbox{\hyperlink{namespaceteqp_aafb595d691a7428e30e88ba4bf17448a}{teqp\+::multifluidmutant\+\_\+t}} = decltype(build\+\_\+multifluid\+\_\+mutant(multifluidfactory(nlohmann\+::json\{\}), nlohmann\+::json\{\}))
+\item 
+using \mbox{\hyperlink{namespaceteqp_a3c32d7676221bd3d9d4e96d34fe498ce}{teqp\+::ammonia\+\_\+water\+\_\+\+Tillner\+Roth\+\_\+t}} = Ammonia\+Water\+Tillner\+Roth
+\item 
+using \mbox{\hyperlink{namespaceteqp_a522fd870052b2f0d4095c56d7ac95fbe}{teqp\+::\+SW\+\_\+\+Espindola\+Heredia2009\+\_\+t}} = squarewell\+::\+Espindola\+Heredia2009
+\item 
+using \mbox{\hyperlink{namespaceteqp_aed976877c38424ac09a3c5eae2c649fd}{teqp\+::\+EXP6\+\_\+\+Kataoka1992\+\_\+t}} = exp6\+::\+Kataoka1992
+\item 
+using \mbox{\hyperlink{namespaceteqp_ae7a2145324d3ec655519a3f2bdfae140}{teqp\+::vd\+WEOS\+\_\+t}} = vd\+WEOS$<$ double $>$
+\item 
+using \mbox{\hyperlink{namespaceteqp_a38366c13c6b46865500b09193bfc2f4e}{teqp\+::twocenter\+LJF\+\_\+t}} = decltype(twocenterljf\+::build\+\_\+two\+\_\+center\+\_\+model\+\_\+dipole(std\+::string\{\}, double\{\}, double\{\}))
+\item 
+using \mbox{\hyperlink{namespaceteqp_a62c6d88e6bd3282628f7589cde83a7e8}{teqp\+::\+LJ126\+Kolafa\+Nezbeda1994\+\_\+t}} = LJ126\+Kolafa\+Nezbeda1994
+\item 
+using \mbox{\hyperlink{namespaceteqp_aa6a45d4617060fca1e7e7f0785712666}{teqp\+::\+LJ126\+Johnson1993\+\_\+t}} = LJ126\+Johnson1993
+\item 
+using \mbox{\hyperlink{namespaceteqp_a332e7af2ea4a06129a4192314fe46509}{teqp\+::\+Mie6\+Pohl2023\+\_\+t}} = Mie\+::\+Mie6\+Pohl2023
+\item 
+using \mbox{\hyperlink{namespaceteqp_ab8b77c7f9d7f12f3587c4b7ba020434a}{teqp\+::\+Quantum\+PR\+\_\+t}} = Quantum\+Corrected\+PR
+\item 
+using \mbox{\hyperlink{namespaceteqp_a7825c7434eaf91f4291932303594c882}{teqp\+::idealgas\+\_\+t}} = Ideal\+Helmholtz
+\end{DoxyCompactItemize}

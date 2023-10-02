@@ -1,0 +1,49 @@
+\hypertarget{VLE_8hpp}{}\doxysection{include/teqp/algorithms/\+VLE.hpp File Reference}
+\label{VLE_8hpp}\index{include/teqp/algorithms/VLE.hpp@{include/teqp/algorithms/VLE.hpp}}
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include \char`\"{}teqp/derivs.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/exceptions.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/algorithms/critical\+\_\+tracing.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/algorithms/critical\+\_\+pure.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/algorithms/\+VLE\+\_\+types.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/algorithms/\+VLE\+\_\+pure.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
+{\ttfamily \#include $<$boost/numeric/odeint/stepper/controlled\+\_\+runge\+\_\+kutta.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/numeric/odeint/stepper/runge\+\_\+kutta\+\_\+cash\+\_\+karp54.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/numeric/odeint/stepper/euler.\+hpp$>$}\newline
+{\ttfamily \#include $<$unsupported/\+Eigen/\+Non\+Linear\+Optimization$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1Functor}{teqp\+::\+Functor$<$ \+\_\+\+Scalar, NX, NY $>$}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1hybrj__functor____mix__VLE__Tp}{teqp\+::hybrj\+\_\+functor\+\_\+\+\_\+mix\+\_\+\+VLE\+\_\+\+Tp$<$ Model $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class A , class B $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a4fa49b70ad97e59d91d236f7437e899c}{teqp\+::linsolve}} (const A \&a, const B \&b)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_a5795b3879712fe63c9870a29cfd29905}{teqp\+::mix\+\_\+\+VLE\+\_\+\+Tx}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, double T, const Eigen\+::\+Array\+Xd \&rhovec\+L0, const Eigen\+::\+Array\+Xd \&rhovec\+V0, const Eigen\+::\+Array\+Xd \&xspec, double atol, double reltol, double axtol, double relxtol, int maxiter)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_ac09ec2a6e2dfb57a38f42ed084bc9f58}{teqp\+::mix\+\_\+\+VLE\+\_\+\+Tp}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, double T, double pgiven, const Eigen\+::\+Array\+Xd \&rhovec\+L0, const Eigen\+::\+Array\+Xd \&rhovec\+V0, const std\+::optional$<$ Mix\+VLETp\+Flags $>$ \&flags\+\_\+=std\+::nullopt)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_aa0e91cea3c6012535d2718e2874826b4}{teqp\+::mixture\+\_\+\+VLE\+\_\+px}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, double p\+\_\+spec, const Eigen\+::\+Array\+Xd \&xmolar\+\_\+spec, double T0, const Eigen\+::\+Array\+Xd \&rhovec\+L0, const Eigen\+::\+Array\+Xd \&rhovec\+V0, const std\+::optional$<$ Mix\+VLEpx\+Flags $>$ \&flags\+\_\+=std\+::nullopt)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_ad95f85237b414adcadafedae95c6ab43}{teqp\+::get\+\_\+drhovecdp\+\_\+\+Tsat}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const double \&T, const Eigen\+::\+Array\+Xd \&rhovecL, const Eigen\+::\+Array\+Xd \&rhovecV)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_af6e5d0686b44d8f1d32191349e7cae79}{teqp\+::get\+\_\+drhovecd\+T\+\_\+psat}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const double \&T, const Eigen\+::\+Array\+Xd \&rhovecL, const Eigen\+::\+Array\+Xd \&rhovecV)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_a9d9e7c2e7090d997b838ad7d722fe636}{teqp\+::get\+\_\+drhovecd\+T\+\_\+xsat}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const double \&T, const Eigen\+::\+Array\+Xd \&rhovecL, const Eigen\+::\+Array\+Xd \&rhovecV)
+\item 
+{\footnotesize template$<$typename Model  = Abstract\+Model$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a0c78e97744bd0ec82197f40149e03d4b}{teqp\+::get\+\_\+dpsat\+\_\+d\+Tsat\+\_\+isopleth}} (const Model \&model, const double \&T, const Eigen\+::\+Array\+Xd \&rhovecL, const Eigen\+::\+Array\+Xd \&rhovecV)
+\begin{DoxyCompactList}\small\item\em Derivative of pressure w.\+r.\+t. temperature along the isopleth of a phase envelope (at constant composition of the bulk phase with the first concentration array) \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceteqp_a56339c8078f4369f5a988a87cfc1344e}{teqp\+::trace\+\_\+\+VLE\+\_\+isotherm\+\_\+binary}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, double T, const Eigen\+::\+Array\+Xd \&rhovec\+L0, const Eigen\+::\+Array\+Xd \&rhovec\+V0, const std\+::optional$<$ TVLEOptions $>$ \&options=std\+::nullopt)
+\item 
+{\footnotesize template$<$typename Model  = Abstract\+Model$>$ }\\auto \mbox{\hyperlink{namespaceteqp_af320b714fb1758cc835cfe8bb1eb3fd2}{teqp\+::trace\+\_\+\+VLE\+\_\+isobar\+\_\+binary}} (const Model \&model, double p, double T0, const Eigen\+::\+Array\+Xd \&rhovec\+L0, const Eigen\+::\+Array\+Xd \&rhovec\+V0, const std\+::optional$<$ PVLEOptions $>$ \&options=std\+::nullopt)
+\end{DoxyCompactItemize}

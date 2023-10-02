@@ -1,0 +1,64 @@
+\hypertarget{multifluid_8hpp}{}\doxysection{include/teqp/models/multifluid.hpp File Reference}
+\label{multifluid_8hpp}\index{include/teqp/models/multifluid.hpp@{include/teqp/models/multifluid.hpp}}
+{\ttfamily \#include \char`\"{}nlohmann/json.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include $<$variant$>$}\newline
+{\ttfamily \#include \char`\"{}teqp/types.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/constants.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/filesystem.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/json\+\_\+tools.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/exceptions.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}multifluid\+\_\+eosterms.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}multifluid\+\_\+reducing.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}multifluid\+\_\+gas\+\_\+constant.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$boost/algorithm/string/join.\+hpp$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classteqp_1_1CorrespondingStatesContribution}{teqp\+::\+Corresponding\+States\+Contribution$<$ EOSCollection $>$}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1DepartureContribution}{teqp\+::\+Departure\+Contribution$<$ FCollection, Departure\+Function\+Collection $>$}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1MultiFluid}{teqp\+::\+Multi\+Fluid$<$ Corresponding\+Term, Departure\+Term $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{namespaceteqp_a75aa947e3267ff1660db269220f093d8}{teqp\+::get\+\_\+departure\+\_\+json}} (const std\+::string \&name, const std\+::string \&path)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_a7b0fed59cb3c840627e9799f0d36eb12}{teqp\+::build\+\_\+departure\+\_\+function}} (const nlohmann\+::json \&j)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_a794ca20d6c5c501592eccde9e87c5a2d}{teqp\+::get\+\_\+departure\+\_\+function\+\_\+matrix}} (const nlohmann\+::json \&depcollection, const nlohmann\+::json \&BIPcollection, const std\+::vector$<$ std\+::string $>$ \&components, const nlohmann\+::json \&flags)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_a081a632b9297fdfb078999a2eaabbe02}{teqp\+::get\+\_\+\+EOS\+\_\+terms}} (const nlohmann\+::json \&j)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_a427e105aec20374b74c7bef742ac5277}{teqp\+::get\+\_\+\+EOSs}} (const std\+::vector$<$ nlohmann\+::json $>$ \&pure\+JSON)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_acc467d95833da1186bdd6ce3f376ca8a}{teqp\+::collect\+\_\+component\+\_\+json}} (const std\+::vector$<$ std\+::string $>$ \&components, const std\+::string \&root)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_a68212bdd29484f7d4d6b2c8bc8d77256}{teqp\+::collect\+\_\+identifiers}} (const std\+::vector$<$ nlohmann\+::json $>$ \&pure\+JSON)
+\item 
+{\footnotesize template$<$typename mapvecstring $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a82165b861618513fd96dd11b6d0b57e8}{teqp\+::select\+\_\+identifier}} (const nlohmann\+::json \&BIPcollection, const mapvecstring \&identifierset, const nlohmann\+::json \&flags)
+\begin{DoxyCompactList}\small\item\em Iterate over the possible options for identifiers to determine which one will satisfy all the binary pairs. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceteqp_a4cd752ad64d2efe5ea4bcb0c3acb3f59}{teqp\+::build\+\_\+alias\+\_\+map}} (const std\+::string \&root)
+\begin{DoxyCompactList}\small\item\em Build a reverse-\/lookup map for finding a fluid JSON structure given a backup identifier. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceteqp_a0060a7132096aec89010bc037ab86cac}{teqp\+::\+\_\+build\+\_\+multifluid\+\_\+model}} (const std\+::vector$<$ nlohmann\+::json $>$ \&pure\+JSON, const nlohmann\+::json \&BIPcollection, const nlohmann\+::json \&depcollection, const nlohmann\+::json \&flags=\{\})
+\begin{DoxyCompactList}\small\item\em Internal method for actually constructing the model with the provided JSON data structures. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceteqp_a6c43d72f8b0ea5c812c0240c852a5135}{teqp\+::build\+\_\+multifluid\+\_\+\+JSONstr}} (const std\+::vector$<$ std\+::string $>$ \&component\+JSON, const std\+::string \&BIPJSON, const std\+::string \&departure\+JSON, const nlohmann\+::json \&flags=\{\})
+\begin{DoxyCompactList}\small\item\em A builder function where the JSON-\/formatted strings are provided explicitly rather than file paths. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceteqp_ac5791e9c69fafc070cecaca567dbc1bf}{teqp\+::make\+\_\+pure\+\_\+components\+\_\+\+JSON}} (const nlohmann\+::json \&components, const std\+::string \&root)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_aa7cdea08428a2326129dcbe83de69802}{teqp\+::build\+\_\+multifluid\+\_\+model}} (const std\+::vector$<$ std\+::string $>$ \&components, const std\+::string \&root, const std\+::string \&BIPcollectionpath=\{\}, const nlohmann\+::json \&flags=\{\}, const std\+::string \&departurepath=\{\})
+\item 
+auto \mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{teqp\+::multifluidfactory}} (const nlohmann\+::json \&spec)
+\begin{DoxyCompactList}\small\item\em Load a model from a JSON data structure. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceteqp_acf914908b8bfc56e964cd6bc6982366e}{teqp\+::multifluidfactory}} (const std\+::string \&specstring)
+\begin{DoxyCompactList}\small\item\em An overload of multifluidfactory that takes in a string. \end{DoxyCompactList}\end{DoxyCompactItemize}

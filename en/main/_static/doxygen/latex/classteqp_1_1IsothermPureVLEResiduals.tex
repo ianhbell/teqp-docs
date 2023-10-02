@@ -1,0 +1,185 @@
+\hypertarget{classteqp_1_1IsothermPureVLEResiduals}{}\doxysection{teqp\+::Isotherm\+Pure\+VLEResiduals\texorpdfstring{$<$}{<} Model, TYPE, backend \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classteqp_1_1IsothermPureVLEResiduals}\index{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}}
+
+
+{\ttfamily \#include $<$VLE\+\_\+pure.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_adebd07ab239cb540af4c1bd6e7d775d8}{Eigen\+Array}} = Eigen\+::\+Array$<$ TYPE, 2, 1 $>$
+\item 
+using \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_a05728307873ae454952f6c9fe36160b9}{Eigen\+Array1}} = Eigen\+::\+Array$<$ TYPE, 1, 1 $>$
+\item 
+using \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_a5d27b02614e4e3b464432afb8c87006c}{Eigen\+Matrix}} = Eigen\+::\+Array$<$ TYPE, 2, 2 $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_ad3b8d0594f4f9a1f06ca1ec99fe07bcf}{Isotherm\+Pure\+VLEResiduals}} (const Model \&model, const TYPE \&T, const std\+::optional$<$ Eigen\+::\+Array\+Xd $>$ \&molefracs\+\_\+=std\+::nullopt)
+\item 
+const auto \& \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_a3d10f6465b0f12433d5c71c30ceed272}{get\+\_\+errors}} ()
+\item 
+{\footnotesize template$<$typename Rho $>$ }\\auto \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_a7a127622cf9f7864dca1ec8190b3a808}{get\+\_\+der}} (const Rho \&rho)
+\item 
+auto \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_a06f1565905a8ffe4f77de1c53433044b}{call}} (const \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_adebd07ab239cb540af4c1bd6e7d775d8}{Eigen\+Array}} \&rhovec)
+\item 
+auto \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_aba765806d3c27687e08c652002fadb39}{Jacobian}} (const \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_adebd07ab239cb540af4c1bd6e7d775d8}{Eigen\+Array}} \&rhovec)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_a3c20b7db5499f794ccedf5e72cbfd5bd}{icall}} = 0
+\item 
+double \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_a070d854da15eae21b5c25c3fa799a5af}{Rr}}
+\item 
+double \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_a07e4a107a25638922d0d289790523616}{R0}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Model, typename TYPE = double, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} backend = ADBackends\+::autodiff$>$\newline
+class teqp\+::\+Isotherm\+Pure\+VLEResiduals$<$ Model, TYPE, backend $>$}
+
+
+Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classteqp_1_1IsothermPureVLEResiduals_adebd07ab239cb540af4c1bd6e7d775d8}\label{classteqp_1_1IsothermPureVLEResiduals_adebd07ab239cb540af4c1bd6e7d775d8}} 
+\index{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}!EigenArray@{EigenArray}}
+\index{EigenArray@{EigenArray}!teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}}
+\doxysubsubsection{\texorpdfstring{EigenArray}{EigenArray}}
+{\footnotesize\ttfamily template$<$typename Model , typename TYPE  = double, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} backend = ADBackends\+::autodiff$>$ \\
+using \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals}{teqp\+::\+Isotherm\+Pure\+VLEResiduals}}$<$ Model, TYPE, backend $>$\+::\mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_adebd07ab239cb540af4c1bd6e7d775d8}{Eigen\+Array}} =  Eigen\+::\+Array$<$TYPE, 2, 1$>$}
+
+
+
+Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1IsothermPureVLEResiduals_a05728307873ae454952f6c9fe36160b9}\label{classteqp_1_1IsothermPureVLEResiduals_a05728307873ae454952f6c9fe36160b9}} 
+\index{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}!EigenArray1@{EigenArray1}}
+\index{EigenArray1@{EigenArray1}!teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}}
+\doxysubsubsection{\texorpdfstring{EigenArray1}{EigenArray1}}
+{\footnotesize\ttfamily template$<$typename Model , typename TYPE  = double, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} backend = ADBackends\+::autodiff$>$ \\
+using \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals}{teqp\+::\+Isotherm\+Pure\+VLEResiduals}}$<$ Model, TYPE, backend $>$\+::\mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_a05728307873ae454952f6c9fe36160b9}{Eigen\+Array1}} =  Eigen\+::\+Array$<$TYPE, 1, 1$>$}
+
+
+
+Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1IsothermPureVLEResiduals_a5d27b02614e4e3b464432afb8c87006c}\label{classteqp_1_1IsothermPureVLEResiduals_a5d27b02614e4e3b464432afb8c87006c}} 
+\index{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}!EigenMatrix@{EigenMatrix}}
+\index{EigenMatrix@{EigenMatrix}!teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}}
+\doxysubsubsection{\texorpdfstring{EigenMatrix}{EigenMatrix}}
+{\footnotesize\ttfamily template$<$typename Model , typename TYPE  = double, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} backend = ADBackends\+::autodiff$>$ \\
+using \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals}{teqp\+::\+Isotherm\+Pure\+VLEResiduals}}$<$ Model, TYPE, backend $>$\+::\mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_a5d27b02614e4e3b464432afb8c87006c}{Eigen\+Matrix}} =  Eigen\+::\+Array$<$TYPE, 2, 2$>$}
+
+
+
+Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classteqp_1_1IsothermPureVLEResiduals_ad3b8d0594f4f9a1f06ca1ec99fe07bcf}\label{classteqp_1_1IsothermPureVLEResiduals_ad3b8d0594f4f9a1f06ca1ec99fe07bcf}} 
+\index{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}!IsothermPureVLEResiduals@{IsothermPureVLEResiduals}}
+\index{IsothermPureVLEResiduals@{IsothermPureVLEResiduals}!teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}}
+\doxysubsubsection{\texorpdfstring{IsothermPureVLEResiduals()}{IsothermPureVLEResiduals()}}
+{\footnotesize\ttfamily template$<$typename Model , typename TYPE  = double, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} backend = ADBackends\+::autodiff$>$ \\
+\mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals}{teqp\+::\+Isotherm\+Pure\+VLEResiduals}}$<$ Model, TYPE, backend $>$\+::\mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals}{Isotherm\+Pure\+VLEResiduals}} (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const TYPE \&}]{T,  }\item[{const std\+::optional$<$ Eigen\+::\+Array\+Xd $>$ \&}]{molefracs\+\_\+ = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classteqp_1_1IsothermPureVLEResiduals_a06f1565905a8ffe4f77de1c53433044b}\label{classteqp_1_1IsothermPureVLEResiduals_a06f1565905a8ffe4f77de1c53433044b}} 
+\index{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}!call@{call}}
+\index{call@{call}!teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}}
+\doxysubsubsection{\texorpdfstring{call()}{call()}}
+{\footnotesize\ttfamily template$<$typename Model , typename TYPE  = double, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} backend = ADBackends\+::autodiff$>$ \\
+auto \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals}{teqp\+::\+Isotherm\+Pure\+VLEResiduals}}$<$ Model, TYPE, backend $>$\+::call (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_adebd07ab239cb540af4c1bd6e7d775d8}{Eigen\+Array}} \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00059}{59}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1IsothermPureVLEResiduals_a7a127622cf9f7864dca1ec8190b3a808}\label{classteqp_1_1IsothermPureVLEResiduals_a7a127622cf9f7864dca1ec8190b3a808}} 
+\index{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}!get\_der@{get\_der}}
+\index{get\_der@{get\_der}!teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}}
+\doxysubsubsection{\texorpdfstring{get\_der()}{get\_der()}}
+{\footnotesize\ttfamily template$<$typename Model , typename TYPE  = double, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} backend = ADBackends\+::autodiff$>$ \\
+template$<$typename Rho $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals}{teqp\+::\+Isotherm\+Pure\+VLEResiduals}}$<$ Model, TYPE, backend $>$\+::get\+\_\+der (\begin{DoxyParamCaption}\item[{const Rho \&}]{rho }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1IsothermPureVLEResiduals_a3d10f6465b0f12433d5c71c30ceed272}\label{classteqp_1_1IsothermPureVLEResiduals_a3d10f6465b0f12433d5c71c30ceed272}} 
+\index{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}!get\_errors@{get\_errors}}
+\index{get\_errors@{get\_errors}!teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}}
+\doxysubsubsection{\texorpdfstring{get\_errors()}{get\_errors()}}
+{\footnotesize\ttfamily template$<$typename Model , typename TYPE  = double, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} backend = ADBackends\+::autodiff$>$ \\
+const auto \& \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals}{teqp\+::\+Isotherm\+Pure\+VLEResiduals}}$<$ Model, TYPE, backend $>$\+::get\+\_\+errors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1IsothermPureVLEResiduals_aba765806d3c27687e08c652002fadb39}\label{classteqp_1_1IsothermPureVLEResiduals_aba765806d3c27687e08c652002fadb39}} 
+\index{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}!Jacobian@{Jacobian}}
+\index{Jacobian@{Jacobian}!teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}}
+\doxysubsubsection{\texorpdfstring{Jacobian()}{Jacobian()}}
+{\footnotesize\ttfamily template$<$typename Model , typename TYPE  = double, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} backend = ADBackends\+::autodiff$>$ \\
+auto \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals}{teqp\+::\+Isotherm\+Pure\+VLEResiduals}}$<$ Model, TYPE, backend $>$\+::Jacobian (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_adebd07ab239cb540af4c1bd6e7d775d8}{Eigen\+Array}} \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00092}{92}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classteqp_1_1IsothermPureVLEResiduals_a3c20b7db5499f794ccedf5e72cbfd5bd}\label{classteqp_1_1IsothermPureVLEResiduals_a3c20b7db5499f794ccedf5e72cbfd5bd}} 
+\index{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}!icall@{icall}}
+\index{icall@{icall}!teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}}
+\doxysubsubsection{\texorpdfstring{icall}{icall}}
+{\footnotesize\ttfamily template$<$typename Model , typename TYPE  = double, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} backend = ADBackends\+::autodiff$>$ \\
+std\+::size\+\_\+t \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals}{teqp\+::\+Isotherm\+Pure\+VLEResiduals}}$<$ Model, TYPE, backend $>$\+::icall = 0}
+
+
+
+Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1IsothermPureVLEResiduals_a07e4a107a25638922d0d289790523616}\label{classteqp_1_1IsothermPureVLEResiduals_a07e4a107a25638922d0d289790523616}} 
+\index{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}!R0@{R0}}
+\index{R0@{R0}!teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}}
+\doxysubsubsection{\texorpdfstring{R0}{R0}}
+{\footnotesize\ttfamily template$<$typename Model , typename TYPE  = double, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} backend = ADBackends\+::autodiff$>$ \\
+double \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals}{teqp\+::\+Isotherm\+Pure\+VLEResiduals}}$<$ Model, TYPE, backend $>$\+::R0}
+
+
+
+Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1IsothermPureVLEResiduals_a070d854da15eae21b5c25c3fa799a5af}\label{classteqp_1_1IsothermPureVLEResiduals_a070d854da15eae21b5c25c3fa799a5af}} 
+\index{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}!Rr@{Rr}}
+\index{Rr@{Rr}!teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$@{teqp::IsothermPureVLEResiduals$<$ Model, TYPE, backend $>$}}
+\doxysubsubsection{\texorpdfstring{Rr}{Rr}}
+{\footnotesize\ttfamily template$<$typename Model , typename TYPE  = double, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} backend = ADBackends\+::autodiff$>$ \\
+double \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals}{teqp\+::\+Isotherm\+Pure\+VLEResiduals}}$<$ Model, TYPE, backend $>$\+::Rr}
+
+
+
+Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{VLE__pure_8hpp}{VLE\+\_\+pure.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,1029 @@
+\hypertarget{saftvrmie_8hpp_source}{}\doxysection{saftvrmie.\+hpp}
+\label{saftvrmie_8hpp_source}\index{include/teqp/models/saftvrmie.hpp@{include/teqp/models/saftvrmie.hpp}}
+\mbox{\hyperlink{saftvrmie_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00001}00001 \textcolor{comment}{/***}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00002}00002 \textcolor{comment}{ }}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00003}00003 \textcolor{comment}{ \(\backslash\)brief This file contains the contributions that can be composed together to form SAFT models}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00004}00004 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00005}00005 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00007}00007 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00009}00009 \textcolor{preprocessor}{\#include "{}nlohmann/json.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00010}00010 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{types_8hpp}{teqp/types.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{json__tools_8hpp}{teqp/json\_tools.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{exceptions_8hpp}{teqp/exceptions.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{constants_8hpp}{teqp/constants.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{quadrature_8hpp}{teqp/math/quadrature.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{polar__terms_8hpp}{teqp/models/saft/polar\_terms.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00016}00016 \textcolor{preprocessor}{\#include <optional>}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00017}00017 \textcolor{preprocessor}{\#include <variant>}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00019}00019 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceteqp}{teqp}} \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00020}\mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie}{00020}} \textcolor{keyword}{namespace }SAFTVRMie \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00023}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs}{00023}} \textcolor{keyword}{struct }\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs}{SAFTVRMieCoeffs}} \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00024}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a8fb5d0c15b0183ba1467d8270cadedf3}{00024}}     std::string \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a8fb5d0c15b0183ba1467d8270cadedf3}{name}}; }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00025}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_aad3cf7f9fd8a64fe6d6ea15445447bad}{00025}}     \textcolor{keywordtype}{double} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_aad3cf7f9fd8a64fe6d6ea15445447bad}{m}} = -\/1, }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00026}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_aa01e4b90c07dde3874de0187a1a47141}{00026}}         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_aa01e4b90c07dde3874de0187a1a47141}{sigma\_m}} = -\/1, }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00027}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a7c612d78e09ab78feea46bc0fff2a41a}{00027}}         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a7c612d78e09ab78feea46bc0fff2a41a}{epsilon\_over\_k}} = -\/1, }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00028}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_acc1681cf70c08281c3ca03bbe81c9f4b}{00028}}         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_acc1681cf70c08281c3ca03bbe81c9f4b}{lambda\_a}} = -\/1, }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00029}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a256b6e4978ef30f133768eb23d79480c}{00029}}         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a256b6e4978ef30f133768eb23d79480c}{lambda\_r}} = -\/1, }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00030}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a94aa0dd6ac19030c0e9f32d32f27fd9a}{00030}}         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a94aa0dd6ac19030c0e9f32d32f27fd9a}{mustar2}} = 0, }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00031}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a479cbf56162d5cc0bab08dce2b0b95f8}{00031}}         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a479cbf56162d5cc0bab08dce2b0b95f8}{nmu}} = 0, }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00032}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_af6bdd0876e09def6e270acf9ead8c799}{00032}}         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_af6bdd0876e09def6e270acf9ead8c799}{Qstar2}} = 0, }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00033}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a467a794f7fe98dee9ca46568fc68584b}{00033}}         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a467a794f7fe98dee9ca46568fc68584b}{nQ}} = 0; }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00034}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a37b6af7de7feaea55a7f60f0d973c338}{00034}}     std::string \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a37b6af7de7feaea55a7f60f0d973c338}{BibTeXKey}}; }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00035}00035 \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00037}\mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99d}{00037}} \textcolor{keyword}{enum class} \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99d}{EpsilonijFlags}} \{ \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99dab10913c938482a8aa4ba85b7a1116cb4}{kInvalid}}, \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99daf0ee04bf8c31686e49ba222bfad4fd19}{kLorentzBerthelot}}, \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99da3e49737fec08c6d5766a83d7a12ad8c1}{kLafitte}} \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00039}00039 \textcolor{comment}{// map EpsilonijFlags values to JSON as strings}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00040}\mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a9b1ff4f2503590a86493036f25deee24}{00040}} \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a9b1ff4f2503590a86493036f25deee24}{NLOHMANN\_JSON\_SERIALIZE\_ENUM}}( \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99d}{EpsilonijFlags}}, \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00041}00041     \{\mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99dab10913c938482a8aa4ba85b7a1116cb4}{EpsilonijFlags::kInvalid}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00042}00042     \{\mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99daf0ee04bf8c31686e49ba222bfad4fd19}{EpsilonijFlags::kLorentzBerthelot}}, \textcolor{stringliteral}{"{}Lorentz-\/Berthelot"{}}\},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00043}00043     \{\mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99da3e49737fec08c6d5766a83d7a12ad8c1}{EpsilonijFlags::kLafitte}}, \textcolor{stringliteral}{"{}Lafitte"{}}\},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00044}00044 \})}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00047}00047 \textcolor{keyword}{class} SAFTVRMieLibrary \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00048}00048     std::map<std::string, SAFTVRMieCoeffs> coeffs;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00049}00049 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00050}00050     SAFTVRMieLibrary() \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00051}00051         insert\_normal\_fluid(\textcolor{stringliteral}{"{}Methane"{}}, 1.0000, 3.7412e-\/10, 153.36, 12.650, 6, \textcolor{stringliteral}{"{}Lafitte-\/JCP-\/2001"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00052}00052         insert\_normal\_fluid(\textcolor{stringliteral}{"{}Ethane"{}}, 1.4373, 3.7257e-\/10, 206.12, 12.400, 6, \textcolor{stringliteral}{"{}Lafitte-\/JCP-\/2001"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00053}00053         insert\_normal\_fluid(\textcolor{stringliteral}{"{}Propane"{}}, 1.6845, 3.9056e-\/10, 239.89, 13.006, 6, \textcolor{stringliteral}{"{}Lafitte-\/JCP-\/2001"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00054}00054     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00055}00055     \textcolor{keywordtype}{void} insert\_normal\_fluid(\textcolor{keyword}{const} std::string\& name, \textcolor{keywordtype}{double} m, \textcolor{keyword}{const} \textcolor{keywordtype}{double} sigma\_m, \textcolor{keyword}{const} \textcolor{keywordtype}{double} epsilon\_over\_k, \textcolor{keyword}{const} \textcolor{keywordtype}{double} lambda\_r, \textcolor{keyword}{const} \textcolor{keywordtype}{double} lambda\_a, \textcolor{keyword}{const} std::string\& BibTeXKey) \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00056}00056         SAFTVRMieCoeffs coeff;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00057}00057         coeff.name = name;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00058}00058         coeff.m = m;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00059}00059         coeff.sigma\_m = sigma\_m;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00060}00060         coeff.epsilon\_over\_k = epsilon\_over\_k;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00061}00061         coeff.lambda\_r = lambda\_r;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00062}00062         coeff.lambda\_a = lambda\_a;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00063}00063         coeff.BibTeXKey = BibTeXKey;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00064}00064         coeffs.insert(std::pair<std::string, SAFTVRMieCoeffs>(name, coeff));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00065}00065     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00066}00066     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& get\_normal\_fluid(\textcolor{keyword}{const} std::string\& name) \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00067}00067         \textcolor{keyword}{auto} it = coeffs.find(name);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00068}00068         \textcolor{keywordflow}{if} (it != coeffs.end()) \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00069}00069             \textcolor{keywordflow}{return} it-\/>second;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00070}00070         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00071}00071         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00072}00072             \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}Bad name:"{}} + name);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00073}00073         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00074}00074     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00075}00075     \textcolor{keyword}{auto} get\_coeffs(\textcolor{keyword}{const} std::vector<std::string>\& names)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00076}00076         std::vector<SAFTVRMieCoeffs> c;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00077}00077         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} n : names)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00078}00078             c.push\_back(get\_normal\_fluid(n));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00079}00079         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00080}00080         \textcolor{keywordflow}{return} c;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00081}00081     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00082}00082 \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00085}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms}{00085}} \textcolor{keyword}{struct }\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms}{SAFTVRMieChainContributionTerms}}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00086}00086     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00087}00087     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00089}00089     \textcolor{keyword}{const} Eigen::Matrix<double, 7, 7> phi\{(Eigen::Matrix<double, 7, 7>() <<}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00090}00090         7.5365557, -\/359.44,  1550.9, -\/1.19932,  -\/1911.28,    9236.9,   10,}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00091}00091         -\/37.60463, 1825.6,   -\/5070.1, 9.063632,  21390.175, -\/129430,   10,}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00092}00092         71.745953, -\/3168.0,  6534.6, -\/17.9482,  -\/51320.7,    357230,   0.57,}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00093}00093         -\/46.83552, 1884.2,   -\/3288.7, 11.34027,  37064.54,   -\/315530,   -\/6.7,}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00094}00094         -\/2.467982, -\/0.82376, -\/2.7171, 20.52142,  1103.742,    1390.2,   -\/8,}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00095}00095         -\/0.50272,  -\/3.1935,  2.0883, -\/56.6377,  -\/3264.61,    -\/4518.2,   0,}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00096}00096         8.0956883, 3.7090,   0,       40.53683,  2556.181,    4241.6,   0 ).finished()\};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00097}00097     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00099}00099     \textcolor{keyword}{const} Eigen::Matrix<double, 4, 4> A\{(Eigen::Matrix<double, 4, 4>() <<}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00100}00100          0.81096,  1.7888, -\/37.578,  92.284,}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00101}00101          1.0205,  -\/19.341,  151.26, -\/463.50,}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00102}00102          -\/1.9057, 22.845,  -\/228.14,  973.92,}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00103}00103          1.0885,  -\/6.1962,  106.98, -\/677.64).finished()\};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00105}00105     \textcolor{comment}{// Eq. A48}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00106}00106     \textcolor{keyword}{auto} get\_lambda\_k\_ij(\textcolor{keyword}{const} Eigen::ArrayXd\& lambda\_k)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00107}00107         Eigen::ArrayXXd mat(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}},\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00108}00108         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < lambda\_k.size(); ++i)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00109}00109             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} j = i; j < lambda\_k.size(); ++j)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00110}00110                 mat(i,j) = 3 + sqrt((lambda\_k(i)-\/3)*(lambda\_k(j)-\/3));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00111}00111                 mat(j,i) = mat(i,j);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00112}00112             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00113}00113         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00114}00114         \textcolor{keywordflow}{return} mat;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00115}00115     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00118}00118     \textcolor{keyword}{auto} get\_C\_ij()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00119}00119         Eigen::ArrayXXd C(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}},\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00120}00120         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++i)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00121}00121             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} j = i; j < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++j)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00122}00122                 C(i,j) = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j)/(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j)-\/\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j))*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j)/\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j)/(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j)-\/\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j)));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00123}00123                 C(j,i) = C(i,j); \textcolor{comment}{// symmetric}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00124}00124             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00125}00125         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00126}00126         \textcolor{keywordflow}{return} C;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00127}00127     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00128}00128     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00129}00129     \textcolor{comment}{// Eq. A26}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00130}00130     \textcolor{keyword}{auto} get\_fkij()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00131}00131         std::vector<Eigen::ArrayXXd> f\_(8); \textcolor{comment}{// 0-\/th element is present, but not initialized}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00132}00132         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} k = 1; k < 8; ++k)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00133}00133             f\_[k].resize(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}},\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00134}00134         \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00135}00135         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} k = 1; k < 8; ++k)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00136}00136             \textcolor{keyword}{auto} phik = phi.col(k-\/1); \textcolor{comment}{// phi matrix is indexed to start at 1, but our matrix starts at 0}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00137}00137             Eigen::ArrayXXd num(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}},\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}), den(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}},\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}); num.setZero(), den.setZero();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00138}00138             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} n = 0; n < 4; ++n)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00139}00139                 num += phik[n]*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a395dd0980f10ac232d401fc3f8ff20b9}{alpha\_ij}}, n);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00140}00140             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00141}00141             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} n = 4; n < 7; ++n)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00142}00142                 den += phik[n]*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a395dd0980f10ac232d401fc3f8ff20b9}{alpha\_ij}}, n-\/3);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00143}00143             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00144}00144             f\_[k] = num/(1 + den);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00145}00145         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00146}00146         \textcolor{keywordflow}{return} f\_;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00147}00147     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00148}00148     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00150}00150     \textcolor{keyword}{auto} get\_sigma\_ij()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00151}00151         Eigen::ArrayXXd sigma(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}},\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00152}00152         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++i)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00153}00153             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} j = i; j < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++j)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00154}00154                 sigma(i,j) = (\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a6c21115516923ed0598e67b656883b6a}{sigma\_A}}(i) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a6c21115516923ed0598e67b656883b6a}{sigma\_A}}(j))/2.0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00155}00155                 sigma(j,i) = sigma(i,j); \textcolor{comment}{// symmetric}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00156}00156             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00157}00157         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00158}00158         \textcolor{keywordflow}{return} sigma;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00159}00159     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00160}00160     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00164}00164     \textcolor{keyword}{auto} get\_epsilon\_ij()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00165}00165         \textcolor{keywordflow}{if} (\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a2aff3e1bd76a481de88389b25a73b4d5}{epsilon\_ij\_flag}} == \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99da3e49737fec08c6d5766a83d7a12ad8c1}{EpsilonijFlags::kLafitte}})\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00167}00167             Eigen::ArrayXXd eps\_(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}},\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00168}00168             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++i)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00169}00169                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} j = i; j < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++j)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00170}00170                     eps\_(i,j) = (1.0-\/\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1dfb96fc987212c7b8e4eff244f2c021}{kmat}}(i,j))*sqrt(\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1bdee0641e1ac071933c703a4d3e7cc8}{sigma\_ij}}(i,i),3)*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1bdee0641e1ac071933c703a4d3e7cc8}{sigma\_ij}}(j,j),3)*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}{epsilon\_over\_k}}(i)*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}{epsilon\_over\_k}}(j))/\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1bdee0641e1ac071933c703a4d3e7cc8}{sigma\_ij}}(i,j), 3);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00171}00171                     eps\_(j,i) = eps\_(i,j); \textcolor{comment}{// symmetric}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00172}00172                 \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00173}00173             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00174}00174             \textcolor{keywordflow}{return} eps\_;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00175}00175         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00176}00176         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a2aff3e1bd76a481de88389b25a73b4d5}{epsilon\_ij\_flag}} == \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99daf0ee04bf8c31686e49ba222bfad4fd19}{EpsilonijFlags::kLorentzBerthelot}})\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00177}00177             Eigen::ArrayXXd eps\_(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}},\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00178}00178             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++i)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00179}00179                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} j = i; j < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++j)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00180}00180                     eps\_(i,j) = (1.0-\/\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1dfb96fc987212c7b8e4eff244f2c021}{kmat}}(i,j))*sqrt(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}{epsilon\_over\_k}}(i)*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}{epsilon\_over\_k}}(j));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00181}00181                     eps\_(j,i) = eps\_(i,j); \textcolor{comment}{// symmetric}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00182}00182                 \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00183}00183             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00184}00184             \textcolor{keywordflow}{return} eps\_;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00185}00185         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00186}00186         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00187}00187             \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}epsilon\_ij\_flag is invalid"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00188}00188         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00189}00189     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00190}00190     std::size\_t get\_N()\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00191}00191         \textcolor{keyword}{auto} sizes = (Eigen::ArrayX<Eigen::Index>(5) << \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}{m}}.size(), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}{epsilon\_over\_k}}.size(), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a6c21115516923ed0598e67b656883b6a}{sigma\_A}}.size(), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a3494497fb5d10507eeb716a136e7d745}{lambda\_a}}.size(), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a412bc13d14ac47f445dc22da5f649eab}{lambda\_r}}.size()).finished();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00192}00192         \textcolor{keywordflow}{if} (sizes.maxCoeff() != sizes.minCoeff())\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00193}00193             \textcolor{keywordflow}{throw} \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}sizes of pure component arrays are not all the same"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00194}00194         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00195}00195         \textcolor{keywordflow}{return} sizes[0];}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00196}00196     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00197}00197 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00199}00199     \textcolor{keyword}{auto} get\_cij(\textcolor{keyword}{const} Eigen::ArrayXXd\& lambdaij)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00200}00200         std::vector<Eigen::ArrayXXd> cij(4);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00201}00201         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} n = 0; n < 4; ++n)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00202}00202             cij[n].resize(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}},\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00203}00203         \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00204}00204         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++i)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00205}00205             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} j = i; j < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++j)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00206}00206                 \textcolor{keyword}{using} CV = Eigen::Vector<double, 4>;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00207}00207                 \textcolor{keyword}{const} CV b\{(CV() << 1, 1.0/lambdaij(i,j), 1.0/\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambdaij(i,j),2), 1.0/\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambdaij(i,j),3)).finished()\};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00208}00208                 \textcolor{keyword}{auto} c1234 = (A*b).eval();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00209}00209                 cij[0](i,j) = c1234(0);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00210}00210                 cij[1](i,j) = c1234(1);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00211}00211                 cij[2](i,j) = c1234(2);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00212}00212                 cij[3](i,j) = c1234(3);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00213}00213             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00214}00214         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00215}00215         \textcolor{keywordflow}{return} cij;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00216}00216     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00217}00217         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00219}00219     \textcolor{keyword}{auto} get\_canij()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00220}00220         \textcolor{keywordflow}{return} get\_cij(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00221}00221     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00223}00223     \textcolor{keyword}{auto} get\_c2anij()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00224}00224         \textcolor{keywordflow}{return} get\_cij(2.0*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00225}00225     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00227}00227     \textcolor{keyword}{auto} get\_crnij()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00228}00228         \textcolor{keywordflow}{return} get\_cij(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00229}00229     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00231}00231     \textcolor{keyword}{auto} get\_c2rnij()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00232}00232         \textcolor{keywordflow}{return} get\_cij(2.0*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00233}00233     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00235}00235     \textcolor{keyword}{auto} get\_carnij()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00236}00236         \textcolor{keywordflow}{return} get\_cij(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}} + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00237}00237     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00238}00238     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00239}00239     \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99d}{EpsilonijFlags}} get\_epsilon\_ij(\textcolor{keyword}{const} std::optional<nlohmann::json>\& flags)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00240}00240         \textcolor{keywordflow}{if} (flags)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00241}00241             \textcolor{keyword}{const} nlohmann::json\& j = flags.value();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00242}00242             \textcolor{keywordflow}{if} (j.contains(\textcolor{stringliteral}{"{}epsilon\_ij"{}}))\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00243}00243                 \textcolor{keywordflow}{return} j.at(\textcolor{stringliteral}{"{}epsilon\_ij"{}}).get<\mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99d}{EpsilonijFlags}}>();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00244}00244             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00245}00245         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00246}00246         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99da3e49737fec08c6d5766a83d7a12ad8c1}{EpsilonijFlags::kLafitte}};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00247}00247     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00248}00248     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00249}00249     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00250}00250     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00251}00251     \textcolor{comment}{// One entry per component}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00252}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}{00252}}     \textcolor{keyword}{const} Eigen::ArrayXd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}{m}}, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}{epsilon\_over\_k}}, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a6c21115516923ed0598e67b656883b6a}{sigma\_A}}, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a3494497fb5d10507eeb716a136e7d745}{lambda\_a}}, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a412bc13d14ac47f445dc22da5f649eab}{lambda\_r}};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00253}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1dfb96fc987212c7b8e4eff244f2c021}{00253}}     \textcolor{keyword}{const} Eigen::ArrayXXd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1dfb96fc987212c7b8e4eff244f2c021}{kmat}};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00254}00254 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00255}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{00255}}     \textcolor{keyword}{const} std::size\_t \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00256}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a2aff3e1bd76a481de88389b25a73b4d5}{00256}}     \textcolor{keyword}{const} \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99d}{EpsilonijFlags}} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a2aff3e1bd76a481de88389b25a73b4d5}{epsilon\_ij\_flag}} = \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99da3e49737fec08c6d5766a83d7a12ad8c1}{EpsilonijFlags::kLafitte}};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00257}00257 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00258}00258     \textcolor{comment}{// Calculated matrices for the ij pair}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00259}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a395dd0980f10ac232d401fc3f8ff20b9}{00259}}     \textcolor{keyword}{const} Eigen::ArrayXXd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a41b3236eedccecea26f2d4594a0ba601}{C\_ij}}, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a395dd0980f10ac232d401fc3f8ff20b9}{alpha\_ij}}, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1bdee0641e1ac071933c703a4d3e7cc8}{sigma\_ij}}, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a5a6a2c3051bb7a0e2188ba676934684a}{epsilon\_ij}}; \textcolor{comment}{// Matrices of parameters}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00260}00260 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00261}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abf03de2fc8c17e8094eba114bac12a2c}{00261}}     \textcolor{keyword}{const} std::vector<Eigen::ArrayXXd> \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa1c61bab525fb55ac60f45eb8399de0d}{crnij}}, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ace4b65dd34c5ec3ff2200dc4f304110c}{canij}}, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae07460a54a3f407084427a03359eb301}{c2rnij}}, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abf03de2fc8c17e8094eba114bac12a2c}{c2anij}}, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa46cd860bb925047d1040cec128bcca3}{carnij}};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00262}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a09a23ce25043a61c60598a2721f3b4d1}{00262}}     \textcolor{keyword}{const} std::vector<Eigen::ArrayXXd> \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a09a23ce25043a61c60598a2721f3b4d1}{fkij}}; \textcolor{comment}{// Matrices of parameters}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00263}00263 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00264}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a29d73ad071227eec0a65b321c1ba9acd}{00264}}     \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a29d73ad071227eec0a65b321c1ba9acd}{SAFTVRMieChainContributionTerms}}(}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00265}00265             \textcolor{keyword}{const} Eigen::ArrayXd\& \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}{m}},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00266}00266             \textcolor{keyword}{const} Eigen::ArrayXd\& \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}{epsilon\_over\_k}},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00267}00267             \textcolor{keyword}{const} Eigen::ArrayXd\& sigma\_m,}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00268}00268             \textcolor{keyword}{const} Eigen::ArrayXd\& \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a412bc13d14ac47f445dc22da5f649eab}{lambda\_r}},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00269}00269             \textcolor{keyword}{const} Eigen::ArrayXd\& \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a3494497fb5d10507eeb716a136e7d745}{lambda\_a}},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00270}00270             \textcolor{keyword}{const} Eigen::ArrayXXd\& \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1dfb96fc987212c7b8e4eff244f2c021}{kmat}},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00271}00271             \textcolor{keyword}{const} std::optional<nlohmann::json> \& flags = std::nullopt)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00272}00272     :   \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}{m}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}{m}}), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}{epsilon\_over\_k}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}{epsilon\_over\_k}}), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a6c21115516923ed0598e67b656883b6a}{sigma\_A}}(sigma\_m*1e10), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a3494497fb5d10507eeb716a136e7d745}{lambda\_a}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a3494497fb5d10507eeb716a136e7d745}{lambda\_a}}), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a412bc13d14ac47f445dc22da5f649eab}{lambda\_r}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a412bc13d14ac47f445dc22da5f649eab}{lambda\_r}}), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1dfb96fc987212c7b8e4eff244f2c021}{kmat}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1dfb96fc987212c7b8e4eff244f2c021}{kmat}}),}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00273}00273         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}(get\_N()),}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00274}00274         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a2aff3e1bd76a481de88389b25a73b4d5}{epsilon\_ij\_flag}}(get\_epsilon\_ij(flags)),}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00275}00275         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(get\_lambda\_k\_ij(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a412bc13d14ac47f445dc22da5f649eab}{lambda\_r}})), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(get\_lambda\_k\_ij(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a3494497fb5d10507eeb716a136e7d745}{lambda\_a}})),}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00276}00276         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a41b3236eedccecea26f2d4594a0ba601}{C\_ij}}(get\_C\_ij()), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a395dd0980f10ac232d401fc3f8ff20b9}{alpha\_ij}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a41b3236eedccecea26f2d4594a0ba601}{C\_ij}}*(1/(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}-\/3) -\/ 1/(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}-\/3))),}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00277}00277         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1bdee0641e1ac071933c703a4d3e7cc8}{sigma\_ij}}(get\_sigma\_ij()), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a5a6a2c3051bb7a0e2188ba676934684a}{epsilon\_ij}}(get\_epsilon\_ij()),}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00278}00278         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa1c61bab525fb55ac60f45eb8399de0d}{crnij}}(get\_crnij()), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ace4b65dd34c5ec3ff2200dc4f304110c}{canij}}(get\_canij()),}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00279}00279         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae07460a54a3f407084427a03359eb301}{c2rnij}}(get\_c2rnij()), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abf03de2fc8c17e8094eba114bac12a2c}{c2anij}}(get\_c2anij()), \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa46cd860bb925047d1040cec128bcca3}{carnij}}(get\_carnij()),}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00280}00280         \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a09a23ce25043a61c60598a2721f3b4d1}{fkij}}(get\_fkij())}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00281}00281     \{\}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00282}00282     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00284}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a4a1b4917391033a6b611253a72c6205b}{00284}}     \textcolor{keyword}{auto} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a4a1b4917391033a6b611253a72c6205b}{get\_EPSKIJ\_K\_matrix}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a5a6a2c3051bb7a0e2188ba676934684a}{epsilon\_ij}}; \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00286}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a84f592805af2d5c8bb32effe319d0d04}{00286}}     \textcolor{keyword}{auto} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a84f592805af2d5c8bb32effe319d0d04}{get\_SIGMAIJ\_m\_matrix}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1bdee0641e1ac071933c703a4d3e7cc8}{sigma\_ij}}/1e10; \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00287}00287     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00289}00289     \textcolor{keyword}{template}<\textcolor{keyword}{typename} RType>}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00290}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a244a918405b32006ea0b29db861e24ec}{00290}}     \textcolor{keyword}{auto} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a244a918405b32006ea0b29db861e24ec}{get\_uii\_over\_kB}}(std::size\_t i, \textcolor{keyword}{const} RType\& r)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00291}00291         \textcolor{keyword}{auto} rstarinv = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a6c21115516923ed0598e67b656883b6a}{sigma\_A}}[i]/r);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00292}00292         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a41b3236eedccecea26f2d4594a0ba601}{C\_ij}}(i,i)*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}{epsilon\_over\_k}}[i]*(\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(rstarinv, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a412bc13d14ac47f445dc22da5f649eab}{lambda\_r}}[i]) -\/ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(rstarinv, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a3494497fb5d10507eeb716a136e7d745}{lambda\_a}}[i])));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00293}00293     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00294}00294     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00296}00296     \textcolor{keyword}{template} <\textcolor{keyword}{typename} TType>}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00297}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a8e23439864c149a8078682c5e84692dd}{00297}}     \textcolor{keyword}{auto} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a8e23439864c149a8078682c5e84692dd}{get\_j\_cutoff\_dii}}(std::size\_t i, \textcolor{keyword}{const} TType \&T)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00298}00298         \textcolor{keyword}{auto} lambda\_a\_ = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a3494497fb5d10507eeb716a136e7d745}{lambda\_a}}(i), lambda\_r\_ = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a412bc13d14ac47f445dc22da5f649eab}{lambda\_r}}(i);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00299}00299         \textcolor{keyword}{auto} EPS = std::numeric\_limits<\textcolor{keyword}{decltype}(\mbox{\hyperlink{namespaceteqp_a79c1a1ea4876acd80e74721bba2361ce}{getbaseval}}(T))>::epsilon();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00300}00300         \textcolor{keyword}{auto} K = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(log(-\/log(EPS)*T/(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a41b3236eedccecea26f2d4594a0ba601}{C\_ij}}(i,i)*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a5a6a2c3051bb7a0e2188ba676934684a}{epsilon\_ij}}(i,i))));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00301}00301         \textcolor{keyword}{auto} j0 = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(exp(K/lambda\_r\_)); \textcolor{comment}{// this was proposed by longemen3000 (Andrés Riedemann)}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00302}00302         \textcolor{keyword}{auto} kappa = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a41b3236eedccecea26f2d4594a0ba601}{C\_ij}}(i,i)*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a5a6a2c3051bb7a0e2188ba676934684a}{epsilon\_ij}}(i,i);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00303}00303         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00304}00304         \textcolor{comment}{// Function to return residual and its derivatives w.r.t.}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00305}00305         \textcolor{keyword}{auto} fgh = [\&kappa, \&lambda\_r\_, \&lambda\_a\_, \&T, \&EPS](\textcolor{keyword}{auto} j)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00306}00306             \textcolor{keyword}{auto} jlr = \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(j, lambda\_r\_), jla = \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(j, lambda\_a\_);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00307}00307             \textcolor{keyword}{auto} u = kappa*(jlr -\/ jla);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00308}00308             \textcolor{keyword}{auto} uprime = kappa*(lambda\_r\_*jlr -\/ lambda\_a\_*jla)/j;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00309}00309             \textcolor{keyword}{auto} uprime2 = kappa*(lambda\_r\_*(lambda\_r\_-\/1.0)*jlr -\/ lambda\_a\_*(lambda\_a\_-\/1.0)*jla)/(j*j);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00310}00310             \textcolor{keywordflow}{return} std::make\_tuple(\mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(-\/u/T-\/log(EPS)), \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(-\/uprime/T), \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(-\/uprime2/T));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00311}00311         \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00312}00312         TType j = j0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00313}00313         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} counter = 0; counter <= 3; ++counter)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00314}00314             \textcolor{comment}{// Halley's method steps}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00315}00315             \textcolor{keyword}{auto} [R, Rprime, Rprime2] = fgh(j);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00316}00316             \textcolor{keyword}{auto} denominator = 2.0*Rprime*Rprime-\/R*Rprime2;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00317}00317             \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespaceteqp_a79c1a1ea4876acd80e74721bba2361ce}{getbaseval}}(denominator) < EPS)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00318}00318                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00319}00319             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00320}00320             j -\/= 2.0*R*Rprime/denominator;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00321}00321         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00322}00322         \textcolor{keywordtype}{double} jbase = \mbox{\hyperlink{namespaceteqp_a79c1a1ea4876acd80e74721bba2361ce}{getbaseval}}(j);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00323}00323         \textcolor{keywordflow}{if} (jbase < 1.0)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00324}00324             \textcolor{keywordflow}{throw} \mbox{\hyperlink{classteqp_1_1IterationFailure}{teqp::IterationFailure}}(\textcolor{stringliteral}{"{}Cannot obtain a value of j"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00325}00325         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00326}00326         \textcolor{keywordflow}{return} j;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00327}00327     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00328}00328     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00361}00361     \textcolor{keyword}{template} <\textcolor{keyword}{typename} TType>}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00362}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_adfc9fa817c43364e662f767a302d7135}{00362}}     TType \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_adfc9fa817c43364e662f767a302d7135}{get\_dii}}(std::size\_t i, \textcolor{keyword}{const} TType \&T)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00363}00363         std::function<TType(TType)> integrand = [\textcolor{keyword}{this}, i, \&T](\textcolor{keyword}{const} TType\& r)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00364}00364             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(1.0-\/exp(-\/this-\/>\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a244a918405b32006ea0b29db861e24ec}{get\_uii\_over\_kB}}(i, r)/T));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00365}00365         \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00366}00366         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00367}00367         \textcolor{comment}{// Sum of the two integrals, one is constant, the other is from integration}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00368}00368         \textcolor{keyword}{auto} rcut = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a6c21115516923ed0598e67b656883b6a}{sigma\_A}}[i]/\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a8e23439864c149a8078682c5e84692dd}{get\_j\_cutoff\_dii}}(i, T));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00369}00369         \textcolor{keyword}{auto} integral\_contribution = quad<10, TType, TType>(integrand, rcut, \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a6c21115516923ed0598e67b656883b6a}{sigma\_A}}[i]);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00370}00370         \textcolor{keyword}{auto} d = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(rcut + integral\_contribution);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00371}00371         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00372}00372         \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespaceteqp_a79c1a1ea4876acd80e74721bba2361ce}{getbaseval}}(d) > \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a6c21115516923ed0598e67b656883b6a}{sigma\_A}}[i])\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00373}00373             \textcolor{keywordflow}{throw} \mbox{\hyperlink{classteqp_1_1IterationFailure}{teqp::IterationFailure}}(\textcolor{stringliteral}{"{}Value of d is larger than sigma; this is impossible"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00374}00374         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00375}00375         \textcolor{keywordflow}{return} d;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00376}00376     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00377}00377     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00378}00378     \textcolor{keyword}{template} <\textcolor{keyword}{typename} TType>}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00379}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af209404299da205d87d41b3d64fd3b27}{00379}}     \textcolor{keyword}{auto} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af209404299da205d87d41b3d64fd3b27}{get\_dmat}}(\textcolor{keyword}{const} TType \&T)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00380}00380         Eigen::Array<TType, Eigen::Dynamic, Eigen::Dynamic> d(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}},\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00381}00381         \textcolor{comment}{// For the pure components, by integration}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00382}00382         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++i)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00383}00383             d(i,i) = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_adfc9fa817c43364e662f767a302d7135}{get\_dii}}(i, T);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00384}00384         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00385}00385         \textcolor{comment}{// The cross terms, using the linear mixing rule}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00386}00386         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++i)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00387}00387             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} j = i+1; j < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++j)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00388}00388                 d(i,j) = (d(i,i) + d(j,j))/2.0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00389}00389                 d(j,i) = d(i,j);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00390}00390             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00391}00391         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00392}00392         \textcolor{keywordflow}{return} d;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00393}00393     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00394}00394     \textcolor{comment}{// Calculate core parameters that depend on temperature, volume, and composition}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00395}00395     \textcolor{keyword}{template} <\textcolor{keyword}{typename} TType, \textcolor{keyword}{typename} RhoType, \textcolor{keyword}{typename} VecType>}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00396}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a43474ab4250245d612dc0706af2eac6b}{00396}}     \textcolor{keyword}{auto} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a43474ab4250245d612dc0706af2eac6b}{get\_core\_calcs}}(\textcolor{keyword}{const} TType\& T, \textcolor{keyword}{const} RhoType\& rhomolar, \textcolor{keyword}{const} VecType\& molefracs)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00397}00397         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00398}00398         \textcolor{keywordflow}{if} (molefracs.size() != \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}})\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00399}00399             \textcolor{keywordflow}{throw} \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}Length of molefracs of "{}}+std::to\_string(molefracs.size()) + \textcolor{stringliteral}{"{} does not match the model size of"{}}+std::to\_string(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00400}00400         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00401}00401         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00402}00402         \textcolor{keyword}{using} FracType = std::decay\_t<\textcolor{keyword}{decltype}(molefracs[0])>;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00403}00403         \textcolor{keyword}{using} NumType = std::common\_type\_t<TType, RhoType, FracType>;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00404}00404         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00405}00405         \textcolor{comment}{// Things that are easy to calculate}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00406}00406         \textcolor{comment}{// ....}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00407}00407         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00408}00408         \textcolor{keyword}{auto} dmat = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af209404299da205d87d41b3d64fd3b27}{get\_dmat}}(T); \textcolor{comment}{// Matrix of diameters of pure and cross terms}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00409}00409         \textcolor{keyword}{auto} rhoN = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(rhomolar*\mbox{\hyperlink{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85}{N\_A}}); \textcolor{comment}{// Number density, in molecules/m\string^3}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00410}00410         \textcolor{keyword}{auto} mbar = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}((molefracs*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}{m}}).sum()); \textcolor{comment}{// Mean number of segments, dimensionless}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00411}00411         \textcolor{keyword}{auto} rhos = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(rhoN*mbar/1e30); \textcolor{comment}{// Mean segment number density, in segments/A\string^3}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00412}00412         \textcolor{keyword}{auto} xs = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}((\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}{m}}*molefracs/mbar).eval()); \textcolor{comment}{// Segment fractions}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00413}00413         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00414}00414         \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} MY\_PI = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(EIGEN\_PI);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00415}00415         \textcolor{keyword}{auto} pi6 = MY\_PI/6;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00416}00416         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00417}00417         \textcolor{keyword}{using} TRHOType = std::common\_type\_t<std::decay\_t<TType>, std::decay\_t<RhoType>, std::decay\_t<\textcolor{keyword}{decltype}(molefracs[0])>, std::decay\_t<\textcolor{keyword}{decltype}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}{m}}[0])>>;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00418}00418         Eigen::Array<TRHOType, 4, 1> zeta;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00419}00419         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} l = 0; l < 4; ++l)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00420}00420             TRHOType summer = 0.0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00421}00421             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++i)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00422}00422                 summer += xs(i)*\mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(dmat(i,i), l);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00423}00423             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00424}00424             zeta(l) = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(pi6*rhos*summer);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00425}00425         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00426}00426         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00427}00427         NumType summer\_zeta\_x = 0.0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00428}00428         TRHOType summer\_zeta\_x\_bar = 0.0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00429}00429         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++i)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00430}00430             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} j = 0; j < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++j)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00431}00431                 summer\_zeta\_x += xs(i)*xs(j)*\mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(dmat(i,j), 3)*rhos;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00432}00432                 summer\_zeta\_x\_bar += xs(i)*xs(j)*\mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1bdee0641e1ac071933c703a4d3e7cc8}{sigma\_ij}}(i,j), 3);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00433}00433             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00434}00434         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00435}00435         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00436}00436         \textcolor{keyword}{auto} zeta\_x = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(pi6*summer\_zeta\_x); \textcolor{comment}{// Eq. A13}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00437}00437         \textcolor{keyword}{auto} zeta\_x\_bar = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(pi6*rhos*summer\_zeta\_x\_bar); \textcolor{comment}{// Eq. A23}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00438}00438         \textcolor{keyword}{auto} zeta\_x\_bar5 = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x\_bar)*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta\_x\_bar)); \textcolor{comment}{// (zeta\_x\_bar)\string^5}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00439}00439         \textcolor{keyword}{auto} zeta\_x\_bar8 = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(zeta\_x\_bar5*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta\_x\_bar)); \textcolor{comment}{// (zeta\_x\_bar)\string^8}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00440}00440         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00441}00441         \textcolor{comment}{// Coefficients in the gdHSij term, do not depend on component,}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00442}00442         \textcolor{comment}{// so calculate them here}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00443}00443         \textcolor{keyword}{auto} \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}} = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(1.0 -\/ zeta\_x)), X3 = \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00444}00444         \textcolor{keyword}{auto} X2 = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(1.0 -\/ zeta\_x));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00445}00445         \textcolor{keyword}{auto} k0 = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(-\/log(1.0-\/zeta\_x) + (42.0*zeta\_x -\/ 39.0*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x) + 9.0*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta\_x) -\/ 2.0*\mbox{\hyperlink{namespaceteqp_af0a89b87ac5474fa2520f64cab3c5430}{POW4}}(zeta\_x))/(6.0*X3)); \textcolor{comment}{// Eq. A30}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00446}00446         \textcolor{keyword}{auto} k1 = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}((\mbox{\hyperlink{namespaceteqp_af0a89b87ac5474fa2520f64cab3c5430}{POW4}}(zeta\_x) + 6.0*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x) -\/ 12.0*zeta\_x)/(2.0*X3));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00447}00447         \textcolor{keyword}{auto} k2 = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(-\/3.0*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x)/(8.0*X2));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00448}00448         \textcolor{keyword}{auto} k3 = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}((-\/\mbox{\hyperlink{namespaceteqp_af0a89b87ac5474fa2520f64cab3c5430}{POW4}}(zeta\_x) + 3.0*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x) + 3.0*zeta\_x)/(6.0*X3));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00449}00449         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00450}00450         \textcolor{comment}{// Pre-\/calculate the cubes of the diameters}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00451}00451         \textcolor{keyword}{auto} dmat3 = dmat.array().cube().eval();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00452}00452         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00453}00453         NumType a1kB = 0.0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00454}00454         NumType a2kB2 = 0.0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00455}00455         NumType a3kB3 = 0.0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00456}00456         NumType alphar\_chain = 0.0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00457}00457         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00458}00458         NumType K\_HS = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ab9b5e7b32dfe69a9d0278ac957740d57}{get\_KHS}}(zeta\_x);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00459}00459         NumType rho\_dK\_HS\_drho = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aeecec063f712c546d7060e306006bc61}{get\_rhos\_dK\_HS\_drhos}}(zeta\_x);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00460}00460         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00461}00461         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++i)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00462}00462             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} j = i; j < \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}; ++j)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00463}00463                 NumType x\_0\_ij = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1bdee0641e1ac071933c703a4d3e7cc8}{sigma\_ij}}(i,j)/dmat(i, j);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00464}00464                 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00465}00465                 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00466}00466                 \textcolor{comment}{// Calculations for a\_1/kB}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00467}00467                 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00468}00468                 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00469}00469                 \textcolor{keyword}{auto} I = [\&x\_0\_ij](\textcolor{keywordtype}{double} lambda\_ij)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00470}00470                     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(-\/(\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(x\_0\_ij, 3-\/lambda\_ij)-\/1.0)/(lambda\_ij-\/3.0)); \textcolor{comment}{// Eq. A14}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00471}00471                 \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00472}00472                 \textcolor{keyword}{auto} J = [\&x\_0\_ij](\textcolor{keywordtype}{double} lambda\_ij)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00473}00473                     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(-\/(\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(x\_0\_ij, 4-\/lambda\_ij)*(lambda\_ij-\/3.0)-\/\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(x\_0\_ij, 3.0-\/lambda\_ij)*(lambda\_ij-\/4.0)-\/1.0)/((lambda\_ij-\/3.0)*(lambda\_ij-\/4.0))); \textcolor{comment}{// Eq. A15}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00474}00474                 \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00475}00475                 \textcolor{keyword}{auto} Bhatij\_a = this-\/>\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a66860f58dcefa0dae70c84cc53ecab62}{get\_Bhatij}}(zeta\_x, \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}, I(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j)), J(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j)));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00476}00476                 \textcolor{keyword}{auto} Bhatij\_2a = this-\/>\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a66860f58dcefa0dae70c84cc53ecab62}{get\_Bhatij}}(zeta\_x, \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}, I(2*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j)), J(2*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j)));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00477}00477                 \textcolor{keyword}{auto} Bhatij\_r = this-\/>\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a66860f58dcefa0dae70c84cc53ecab62}{get\_Bhatij}}(zeta\_x, \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}, I(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j)), J(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j)));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00478}00478                 \textcolor{keyword}{auto} Bhatij\_2r = this-\/>\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a66860f58dcefa0dae70c84cc53ecab62}{get\_Bhatij}}(zeta\_x, \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}, I(2*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j)), J(2*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j)));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00479}00479                 \textcolor{keyword}{auto} Bhatij\_ar = this-\/>\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a66860f58dcefa0dae70c84cc53ecab62}{get\_Bhatij}}(zeta\_x, \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}, I(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j)+\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j)), J(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j)+\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j)));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00480}00480                                                  }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00481}00481                 \textcolor{keyword}{auto} one\_term =  [\textcolor{keyword}{this}, \&x\_0\_ij, \&I, \&J, \&zeta\_x, \&\mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}](\textcolor{keywordtype}{double} lambda\_ij, \textcolor{keyword}{const} NumType\& zeta\_x\_eff)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00482}00482                     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00483}00483                        \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(x\_0\_ij, lambda\_ij)*(}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00484}00484                          this-\/>\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a66860f58dcefa0dae70c84cc53ecab62}{get\_Bhatij}}(zeta\_x, \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}, I(lambda\_ij), J(lambda\_ij))}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00485}00485                        + this-\/>\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3d38a4cd33c2027d66970e601449bbb}{get\_a1Shatij}}(zeta\_x\_eff, lambda\_ij)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00486}00486                        )}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00487}00487                      );}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00488}00488                 \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00489}00489                 NumType zeta\_x\_eff\_r = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa1c61bab525fb55ac60f45eb8399de0d}{crnij}}[0](i,j)*zeta\_x + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa1c61bab525fb55ac60f45eb8399de0d}{crnij}}[1](i,j)*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa1c61bab525fb55ac60f45eb8399de0d}{crnij}}[2](i,j)*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta\_x) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa1c61bab525fb55ac60f45eb8399de0d}{crnij}}[3](i,j)*\mbox{\hyperlink{namespaceteqp_af0a89b87ac5474fa2520f64cab3c5430}{POW4}}(zeta\_x);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00490}00490                 NumType zeta\_x\_eff\_a = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ace4b65dd34c5ec3ff2200dc4f304110c}{canij}}[0](i,j)*zeta\_x + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ace4b65dd34c5ec3ff2200dc4f304110c}{canij}}[1](i,j)*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ace4b65dd34c5ec3ff2200dc4f304110c}{canij}}[2](i,j)*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta\_x) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ace4b65dd34c5ec3ff2200dc4f304110c}{canij}}[3](i,j)*\mbox{\hyperlink{namespaceteqp_af0a89b87ac5474fa2520f64cab3c5430}{POW4}}(zeta\_x);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00491}00491                 NumType dzeta\_x\_eff\_dzetax\_r = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa1c61bab525fb55ac60f45eb8399de0d}{crnij}}[0](i,j) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa1c61bab525fb55ac60f45eb8399de0d}{crnij}}[1](i,j)*2*zeta\_x + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa1c61bab525fb55ac60f45eb8399de0d}{crnij}}[2](i,j)*3*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa1c61bab525fb55ac60f45eb8399de0d}{crnij}}[3](i,j)*4*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta\_x);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00492}00492                 NumType dzeta\_x\_eff\_dzetax\_a = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ace4b65dd34c5ec3ff2200dc4f304110c}{canij}}[0](i,j) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ace4b65dd34c5ec3ff2200dc4f304110c}{canij}}[1](i,j)*2*zeta\_x + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ace4b65dd34c5ec3ff2200dc4f304110c}{canij}}[2](i,j)*3*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ace4b65dd34c5ec3ff2200dc4f304110c}{canij}}[3](i,j)*4*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta\_x);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00493}00493 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00494}00494                 NumType a1ij = 2.0*MY\_PI*rhos*dmat3(i,j)*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a5a6a2c3051bb7a0e2188ba676934684a}{epsilon\_ij}}(i,j)*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a41b3236eedccecea26f2d4594a0ba601}{C\_ij}}(i,j)*(}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00495}00495                     one\_term(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j), zeta\_x\_eff\_a) -\/ one\_term(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j), zeta\_x\_eff\_r)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00496}00496                 ); \textcolor{comment}{// divided by k\_B}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00497}00497                                     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00498}00498                 NumType contribution = xs(i)*xs(j)*a1ij;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00499}00499                 \textcolor{keywordtype}{double} factor = (i == j) ? 1.0 : 2.0; \textcolor{comment}{// Off-\/diagonal terms contribute twice}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00500}00500                 a1kB += contribution*factor;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00501}00501                 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00502}00502                 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00503}00503                 \textcolor{comment}{// Calculations for a\_2/k\_B\string^2}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00504}00504                 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00505}00505                 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00506}00506                 NumType zeta\_x\_eff\_2r = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae07460a54a3f407084427a03359eb301}{c2rnij}}[0](i,j)*zeta\_x + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae07460a54a3f407084427a03359eb301}{c2rnij}}[1](i,j)*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae07460a54a3f407084427a03359eb301}{c2rnij}}[2](i,j)*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta\_x) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae07460a54a3f407084427a03359eb301}{c2rnij}}[3](i,j)*\mbox{\hyperlink{namespaceteqp_af0a89b87ac5474fa2520f64cab3c5430}{POW4}}(zeta\_x);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00507}00507                 NumType zeta\_x\_eff\_2a = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abf03de2fc8c17e8094eba114bac12a2c}{c2anij}}[0](i,j)*zeta\_x + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abf03de2fc8c17e8094eba114bac12a2c}{c2anij}}[1](i,j)*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abf03de2fc8c17e8094eba114bac12a2c}{c2anij}}[2](i,j)*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta\_x) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abf03de2fc8c17e8094eba114bac12a2c}{c2anij}}[3](i,j)*\mbox{\hyperlink{namespaceteqp_af0a89b87ac5474fa2520f64cab3c5430}{POW4}}(zeta\_x);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00508}00508                 NumType zeta\_x\_eff\_ar = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa46cd860bb925047d1040cec128bcca3}{carnij}}[0](i,j)*zeta\_x + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa46cd860bb925047d1040cec128bcca3}{carnij}}[1](i,j)*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa46cd860bb925047d1040cec128bcca3}{carnij}}[2](i,j)*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta\_x) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa46cd860bb925047d1040cec128bcca3}{carnij}}[3](i,j)*\mbox{\hyperlink{namespaceteqp_af0a89b87ac5474fa2520f64cab3c5430}{POW4}}(zeta\_x);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00509}00509                 NumType dzeta\_x\_eff\_dzetax\_2r = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae07460a54a3f407084427a03359eb301}{c2rnij}}[0](i,j) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae07460a54a3f407084427a03359eb301}{c2rnij}}[1](i,j)*2*zeta\_x + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae07460a54a3f407084427a03359eb301}{c2rnij}}[2](i,j)*3*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae07460a54a3f407084427a03359eb301}{c2rnij}}[3](i,j)*4*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta\_x);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00510}00510                 NumType dzeta\_x\_eff\_dzetax\_ar = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa46cd860bb925047d1040cec128bcca3}{carnij}}[0](i,j) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa46cd860bb925047d1040cec128bcca3}{carnij}}[1](i,j)*2*zeta\_x + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa46cd860bb925047d1040cec128bcca3}{carnij}}[2](i,j)*3*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa46cd860bb925047d1040cec128bcca3}{carnij}}[3](i,j)*4*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta\_x);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00511}00511                 NumType dzeta\_x\_eff\_dzetax\_2a = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abf03de2fc8c17e8094eba114bac12a2c}{c2anij}}[0](i,j) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abf03de2fc8c17e8094eba114bac12a2c}{c2anij}}[1](i,j)*2*zeta\_x + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abf03de2fc8c17e8094eba114bac12a2c}{c2anij}}[2](i,j)*3*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x) + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abf03de2fc8c17e8094eba114bac12a2c}{c2anij}}[3](i,j)*4*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta\_x);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00512}00512                 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00513}00513                 NumType chi\_ij = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a09a23ce25043a61c60598a2721f3b4d1}{fkij}}[1](i,j)*zeta\_x\_bar + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a09a23ce25043a61c60598a2721f3b4d1}{fkij}}[2](i,j)*zeta\_x\_bar5 + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a09a23ce25043a61c60598a2721f3b4d1}{fkij}}[3](i,j)*zeta\_x\_bar8;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00514}00514                 \textcolor{keyword}{auto} a2ij = 0.5*K\_HS*(1.0+chi\_ij)*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a5a6a2c3051bb7a0e2188ba676934684a}{epsilon\_ij}}(i,j)*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a41b3236eedccecea26f2d4594a0ba601}{C\_ij}}(i,j))*(2*MY\_PI*rhos*dmat3(i,j)*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a5a6a2c3051bb7a0e2188ba676934684a}{epsilon\_ij}}(i,j))*(}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00515}00515                      one\_term(2.0*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j), zeta\_x\_eff\_2a)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00516}00516                   -\/2.0*one\_term(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j)+\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j), zeta\_x\_eff\_ar)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00517}00517                     +one\_term(2.0*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j), zeta\_x\_eff\_2r)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00518}00518                 ); \textcolor{comment}{// divided by k\_B\string^2}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00519}00519                                     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00520}00520                 NumType contributiona2 = xs(i)*xs(j)*a2ij; \textcolor{comment}{// Eq. A19}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00521}00521                 a2kB2 += contributiona2*factor;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00522}00522                 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00523}00523                 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00524}00524                 \textcolor{comment}{// Calculations for a\_3/k\_B\string^3}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00525}00525                 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00526}00526                 \textcolor{keyword}{auto} a3ij = -\/\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a5a6a2c3051bb7a0e2188ba676934684a}{epsilon\_ij}}(i,j))*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a09a23ce25043a61c60598a2721f3b4d1}{fkij}}[4](i,j)*zeta\_x\_bar*exp(}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00527}00527                      \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a09a23ce25043a61c60598a2721f3b4d1}{fkij}}[5](i,j)*zeta\_x\_bar + \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a09a23ce25043a61c60598a2721f3b4d1}{fkij}}[6](i,j)*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x\_bar)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00528}00528                 ); \textcolor{comment}{// divided by k\_B\string^3}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00529}00529                 NumType contributiona3 = xs(i)*xs(j)*a3ij; \textcolor{comment}{// Eq. A25}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00530}00530                 a3kB3 += contributiona3*factor;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00531}00531                 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00532}00532                 \textcolor{keywordflow}{if} (i == j)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00533}00533                     \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00534}00534                     \textcolor{comment}{// Chain contribution}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00535}00535                     \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00536}00536                     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00537}00537                     \textcolor{comment}{// Eq. A29}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00538}00538                     \textcolor{keyword}{auto} gdHSii = exp(k0 + k1*x\_0\_ij + k2*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(x\_0\_ij) + k3*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(x\_0\_ij));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00539}00539                     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00540}00540                     \textcolor{comment}{// The g1 terms}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00541}00541                     \textcolor{comment}{// ....}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00542}00542                     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00543}00543                     \textcolor{comment}{// This is the function for the second part (not the partial) that goes in g\_\{1,ii\},}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00544}00544                     \textcolor{comment}{// divided by 2*PI*d\_ij\string^3*epsilon*rhos}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00545}00545                     \textcolor{keyword}{auto} g1\_term = [\&one\_term](\textcolor{keywordtype}{double} lambda\_ij, \textcolor{keyword}{const} NumType\& zeta\_x\_eff)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00546}00546                         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(lambda\_ij*one\_term(lambda\_ij, zeta\_x\_eff));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00547}00547                     \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00548}00548                     \textcolor{keyword}{auto} g1\_noderivterm = -\/\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a41b3236eedccecea26f2d4594a0ba601}{C\_ij}}(i,i)*(g1\_term(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,i), zeta\_x\_eff\_a)-\/g1\_term(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,i), zeta\_x\_eff\_r));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00549}00549                     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00550}00550                     \textcolor{comment}{// Bhat = B*rho*kappa; diff(Bhat, rho) = Bhat + rho*dBhat/drho; kappa = 2*pi*eps*d\string^3}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00551}00551                     \textcolor{comment}{// This is the function for the partial derivative rhos*(da1ij/drhos),}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00552}00552                     \textcolor{comment}{// divided by 2*PI*d\_ij\string^3*epsilon*rhos}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00553}00553                     \textcolor{keyword}{auto} rhosda1iidrhos\_term = [\textcolor{keyword}{this}, \&x\_0\_ij, \&I, \&J, \&zeta\_x, \&\mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}](\textcolor{keywordtype}{double} lambda\_ij, \textcolor{keyword}{const} NumType\& zeta\_x\_eff, \textcolor{keyword}{const} NumType\& dzetaxeff\_dzetax, \textcolor{keyword}{const} NumType\& Bhatij)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00554}00554                         \textcolor{keyword}{auto} I\_ = I(lambda\_ij);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00555}00555                         \textcolor{keyword}{auto} J\_ = J(lambda\_ij);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00556}00556                         \textcolor{keyword}{auto} rhosda1Sdrhos = this-\/>\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a0cf1f2436720624284b9ac8706a7ffac}{get\_rhoda1Shatijdrho}}(zeta\_x, zeta\_x\_eff, dzetaxeff\_dzetax, lambda\_ij);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00557}00557                         \textcolor{keyword}{auto} rhosdBdrhos = this-\/>\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a9a15ad0ad86577a67308c1faff59904d}{get\_rhodBijdrho}}(zeta\_x, \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}, I\_, J\_, Bhatij);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00558}00558                         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(x\_0\_ij, lambda\_ij)*(rhosda1Sdrhos + rhosdBdrhos));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00559}00559                     \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00560}00560                     \textcolor{comment}{// This is rhos*d(a\_1ij)/drhos/(2*pi*d\string^3*eps*rhos)}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00561}00561                     \textcolor{keyword}{auto} da1iidrhos\_term = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a41b3236eedccecea26f2d4594a0ba601}{C\_ij}}(i,j)*(}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00562}00562                          rhosda1iidrhos\_term(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,i), zeta\_x\_eff\_a, dzeta\_x\_eff\_dzetax\_a, Bhatij\_a)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00563}00563                         -\/rhosda1iidrhos\_term(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,i), zeta\_x\_eff\_r, dzeta\_x\_eff\_dzetax\_r, Bhatij\_r)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00564}00564                     );}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00565}00565                     \textcolor{keyword}{auto} g1ii = 3.0*da1iidrhos\_term + g1\_noderivterm;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00566}00566                     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00567}00567                     \textcolor{comment}{// The g2 terms}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00568}00568                     \textcolor{comment}{// ....}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00569}00569                     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00570}00570                     \textcolor{comment}{// This is the second part (not the partial deriv.) that goes in g\_\{2,ii\},}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00571}00571                     \textcolor{comment}{// divided by 2*PI*d\_ij\string^3*epsilon*rhos}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00572}00572                     \textcolor{keyword}{auto} g2\_noderivterm = -\/\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a41b3236eedccecea26f2d4594a0ba601}{C\_ij}}(i,i))*K\_HS*(}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00573}00573                        \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j)*one\_term(2*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j), zeta\_x\_eff\_2a)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00574}00574                        -\/(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j)+\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j))*one\_term(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j)+\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j), zeta\_x\_eff\_ar)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00575}00575                        +\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j)*one\_term(2*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j), zeta\_x\_eff\_2r)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00576}00576                     );}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00577}00577                     \textcolor{comment}{// This is [rhos*d(a\_2ij/(1+chi\_ij))/drhos]/(2*pi*d\string^3*eps*rhos)}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00578}00578                     \textcolor{keyword}{auto} da2iidrhos\_term = 0.5*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a41b3236eedccecea26f2d4594a0ba601}{C\_ij}}(i,j))*(}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00579}00579                         rho\_dK\_HS\_drho*(}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00580}00580                             one\_term(2.0*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j), zeta\_x\_eff\_2a)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00581}00581                             -\/2.0*one\_term(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,j)+\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j), zeta\_x\_eff\_ar)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00582}00582                             +one\_term(2.0*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,j), zeta\_x\_eff\_2r))}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00583}00583                         +K\_HS*(}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00584}00584                             rhosda1iidrhos\_term(2.0*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,i), zeta\_x\_eff\_2a, dzeta\_x\_eff\_dzetax\_2a, Bhatij\_2a)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00585}00585                             -\/2.0*rhosda1iidrhos\_term(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\_a\_ij}}(i,i)+\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,i), zeta\_x\_eff\_ar, dzeta\_x\_eff\_dzetax\_ar, Bhatij\_ar)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00586}00586                             +rhosda1iidrhos\_term(2.0*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\_r\_ij}}(i,i), zeta\_x\_eff\_2r, dzeta\_x\_eff\_dzetax\_2r, Bhatij\_2r)}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00587}00587                             )}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00588}00588                         );}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00589}00589                     \textcolor{keyword}{auto} g2MCAij = 3.0*da2iidrhos\_term + g2\_noderivterm;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00590}00590                     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00591}00591                     \textcolor{keyword}{auto} betaepsilon = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a5a6a2c3051bb7a0e2188ba676934684a}{epsilon\_ij}}(i,i)/T; \textcolor{comment}{// (1/(kB*T))/epsilon}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00592}00592                     \textcolor{keyword}{auto} theta = exp(betaepsilon)-\/1.0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00593}00593                     \textcolor{keyword}{auto} phi7 = phi.col(6);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00594}00594                     \textcolor{keyword}{auto} gamma\_cij = phi7(0)*(-\/tanh(phi7(1)*(phi7(2)-\/\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a395dd0980f10ac232d401fc3f8ff20b9}{alpha\_ij}}(i,j)))+1.0)*zeta\_x\_bar*theta*exp(phi7(3)*zeta\_x\_bar + phi7(4)*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x\_bar)); \textcolor{comment}{// Eq. A37}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00595}00595                     \textcolor{keyword}{auto} g2ii = (1.0+gamma\_cij)*g2MCAij;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00596}00596                     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00597}00597                     NumType giiMie = gdHSii*exp((betaepsilon*g1ii + \mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(betaepsilon)*g2ii)/gdHSii);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00598}00598                     alphar\_chain -\/= molefracs[i]*(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}{m}}[i]-\/1.0)*log(giiMie);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00599}00599                 \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00600}00600             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00601}00601         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00602}00602         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00603}00603         \textcolor{keyword}{auto} ahs = \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aad6a2029a7c349a977876baa09867748}{get\_a\_HS}}(rhos, zeta);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00604}00604         \textcolor{comment}{// Eq. A5 from Lafitte, multiplied by mbar}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00605}00605         \textcolor{keyword}{auto} alphar\_mono = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(mbar*(ahs + a1kB/T + a2kB2/(T*T) + a3kB3/(T*T*T)));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00606}00606         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00607}00607         \textcolor{keyword}{using} dmat\_t = \textcolor{keyword}{decltype}(dmat);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00608}00608         \textcolor{keyword}{using} rhos\_t = \textcolor{keyword}{decltype}(rhos);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00609}00609         \textcolor{keyword}{using} rhoN\_t = \textcolor{keyword}{decltype}(rhoN);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00610}00610         \textcolor{keyword}{using} mbar\_t = \textcolor{keyword}{decltype}(mbar);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00611}00611         \textcolor{keyword}{using} xs\_t = \textcolor{keyword}{decltype}(xs);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00612}00612         \textcolor{keyword}{using} zeta\_t = \textcolor{keyword}{decltype}(zeta);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00613}00613         \textcolor{keyword}{using} zeta\_x\_t = \textcolor{keyword}{decltype}(zeta\_x);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00614}00614         \textcolor{keyword}{using} zeta\_x\_bar\_t = \textcolor{keyword}{decltype}(zeta\_x\_bar);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00615}00615         \textcolor{keyword}{using} alphar\_mono\_t = \textcolor{keyword}{decltype}(alphar\_mono);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00616}00616         \textcolor{keyword}{using} a1kB\_t = \textcolor{keyword}{decltype}(a1kB);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00617}00617         \textcolor{keyword}{using} a2kB2\_t = \textcolor{keyword}{decltype}(a2kB2);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00618}00618         \textcolor{keyword}{using} a3kB3\_t = \textcolor{keyword}{decltype}(a3kB3);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00619}00619         \textcolor{keyword}{using} alphar\_chain\_t = \textcolor{keyword}{decltype}(alphar\_chain);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00620}00620         \textcolor{keyword}{struct }vals\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00621}00621             dmat\_t dmat;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00622}00622             rhos\_t rhos;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00623}00623             rhoN\_t rhoN;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00624}00624             mbar\_t mbar;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00625}00625             xs\_t xs;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00626}00626             zeta\_t zeta;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00627}00627             zeta\_x\_t zeta\_x;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00628}00628             zeta\_x\_bar\_t zeta\_x\_bar;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00629}00629             alphar\_mono\_t alphar\_mono;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00630}00630             a1kB\_t a1kB;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00631}00631             a2kB2\_t a2kB2;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00632}00632             a3kB3\_t a3kB3;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00633}00633             alphar\_chain\_t alphar\_chain;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00634}00634         \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00635}00635         \textcolor{keywordflow}{return} vals\{dmat, rhos, rhoN, mbar, xs, zeta, zeta\_x, zeta\_x\_bar, alphar\_mono, a1kB, a2kB2, a3kB3, alphar\_chain\};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00636}00636     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00637}00637     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00639}00639     \textcolor{keyword}{template}<\textcolor{keyword}{typename} RhoType>}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00640}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ab9b5e7b32dfe69a9d0278ac957740d57}{00640}}     \textcolor{keyword}{auto} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ab9b5e7b32dfe69a9d0278ac957740d57}{get\_KHS}}(\textcolor{keyword}{const} RhoType\& pf)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00641}00641         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(1.0-\/pf,4)/(1.0 + 4.0*pf + 4.0*pf*pf -\/ 4.0*pf*pf*pf + pf*pf*pf*pf));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00642}00642     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00643}00643     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00649}00649     \textcolor{keyword}{template}<\textcolor{keyword}{typename} RhoType>}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00650}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aeecec063f712c546d7060e306006bc61}{00650}}     \textcolor{keyword}{auto} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aeecec063f712c546d7060e306006bc61}{get\_rhos\_dK\_HS\_drhos}}(\textcolor{keyword}{const} RhoType\& zeta\_x)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00651}00651         \textcolor{keyword}{auto} num = -\/4.0*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta\_x -\/ 1.0)*(\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x) -\/ 5.0*zeta\_x -\/ 2.0);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00652}00652         \textcolor{keyword}{auto} den = \mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(\mbox{\hyperlink{namespaceteqp_af0a89b87ac5474fa2520f64cab3c5430}{POW4}}(zeta\_x) -\/ 4.0*\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta\_x) + 4.0*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta\_x) + 4.0*zeta\_x + 1.0);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00653}00653         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(num/den*zeta\_x);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00654}00654     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00655}00655     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00657}00657     \textcolor{keyword}{template}<\textcolor{keyword}{typename} RhoType, \textcolor{keyword}{typename} ZetaType>}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00658}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aad6a2029a7c349a977876baa09867748}{00658}}     \textcolor{keyword}{auto} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aad6a2029a7c349a977876baa09867748}{get\_a\_HS}}(\textcolor{keyword}{const} RhoType\& rhos, \textcolor{keyword}{const} Eigen::Array<ZetaType, 4, 1>\& zeta)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00659}00659         \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} MY\_PI = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(EIGEN\_PI);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00660}00660         \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespaceteqp_a79c1a1ea4876acd80e74721bba2361ce}{getbaseval}}(rhos) == 0)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00661}00661             \textcolor{comment}{// The way in which the function goes to zero is subtle, and the factor of 4 accounts for the contributions from each term}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00662}00662             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(4.0*zeta[3]);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00663}00663         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00664}00664         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00665}00665             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(6.0/(MY\_PI*rhos)*(3.0*zeta[1]*zeta[2]/(1.0-\/zeta[3]) + \mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta[2])/(zeta[3]*\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(1.0-\/zeta[3])) + (\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(zeta[2])/\mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}}(zeta[3])-\/zeta[0])*log(1.0-\/zeta[3])));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00666}00666         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00667}00667     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00668}00668     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00677}00677     \textcolor{keyword}{template}<\textcolor{keyword}{typename} ZetaType, \textcolor{keyword}{typename} IJ>}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00678}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a66860f58dcefa0dae70c84cc53ecab62}{00678}}     \textcolor{keyword}{auto} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a66860f58dcefa0dae70c84cc53ecab62}{get\_Bhatij}}(\textcolor{keyword}{const} ZetaType\& zeta\_x, \textcolor{keyword}{const} ZetaType\& one\_minus\_zeta\_x3, \textcolor{keyword}{const} IJ\& I, \textcolor{keyword}{const} IJ\& J)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00679}00679         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00680}00680              (1.0-\/zeta\_x/2.0)/one\_minus\_zeta\_x3*I -\/ 9.0*zeta\_x*(1.0+zeta\_x)/(2.0*one\_minus\_zeta\_x3)*J}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00681}00681         );}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00682}00682     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00683}00683     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00696}00696     \textcolor{keyword}{template}<\textcolor{keyword}{typename} ZetaType, \textcolor{keyword}{typename} IJ>}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00697}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a9a15ad0ad86577a67308c1faff59904d}{00697}}     \textcolor{keyword}{auto} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a9a15ad0ad86577a67308c1faff59904d}{get\_rhodBijdrho}}(\textcolor{keyword}{const} ZetaType\& zeta\_x, \textcolor{keyword}{const} ZetaType\& one\_minus\_zeta\_x3, \textcolor{keyword}{const} IJ\& I, \textcolor{keyword}{const} IJ\& J, \textcolor{keyword}{const} ZetaType\& Bhatij)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00698}00698         \textcolor{keyword}{auto} dBhatdzetax = (-\/3.0*I*(zeta\_x -\/ 2.0) -\/ 27.0*J*zeta\_x*(zeta\_x + 1.0) + (zeta\_x -\/ 1.0)*(I + 9.0*J*zeta\_x + 9.0*J*(zeta\_x + 1.0)))/(2.0*\mbox{\hyperlink{namespaceteqp_af0a89b87ac5474fa2520f64cab3c5430}{POW4}}(1.0-\/zeta\_x));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00699}00699         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(Bhatij + dBhatdzetax*zeta\_x);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00700}00700     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00701}00701     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00713}00713     \textcolor{keyword}{template}<\textcolor{keyword}{typename} ZetaType>}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00714}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3d38a4cd33c2027d66970e601449bbb}{00714}}     \textcolor{keyword}{auto} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3d38a4cd33c2027d66970e601449bbb}{get\_a1Shatij}}(\textcolor{keyword}{const} ZetaType\& zeta\_x\_eff, \textcolor{keywordtype}{double} lambda\_ij)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00715}00715         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00716}00716             -\/1.0/(lambda\_ij-\/3.0)*(1.0-\/zeta\_x\_eff/2.0)/\mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}}(\mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(1.0-\/zeta\_x\_eff))}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00717}00717         );}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00718}00718     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00719}00719     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00731}00731     \textcolor{keyword}{template}<\textcolor{keyword}{typename} ZetaType>}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00732}\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a0cf1f2436720624284b9ac8706a7ffac}{00732}}     \textcolor{keyword}{auto} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a0cf1f2436720624284b9ac8706a7ffac}{get\_rhoda1Shatijdrho}}(\textcolor{keyword}{const} ZetaType\& zeta\_x, \textcolor{keyword}{const} ZetaType\& zeta\_x\_eff, \textcolor{keyword}{const} ZetaType\& dzetaxeffdzetax, \textcolor{keywordtype}{double} lambda\_ij)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00733}00733         \textcolor{keyword}{auto} zetaxda1Shatdzetax = ((2.0*zeta\_x\_eff -\/ 5.0)*dzetaxeffdzetax)/(2.0*(lambda\_ij-\/3)*\mbox{\hyperlink{namespaceteqp_af0a89b87ac5474fa2520f64cab3c5430}{POW4}}(zeta\_x\_eff-\/1.0))*zeta\_x;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00734}00734         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3d38a4cd33c2027d66970e601449bbb}{get\_a1Shatij}}(zeta\_x\_eff, lambda\_ij) + zetaxda1Shatdzetax);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00735}00735     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00736}00736 \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00737}00737 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00741}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{00741}} \textcolor{keyword}{class }\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMieMixture}} \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00742}00742 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00743}00743     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00744}00744     std::vector<std::string> names, bibtex;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00745}00745     \textcolor{keyword}{const} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms}{SAFTVRMieChainContributionTerms}} terms;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00746}00746     \textcolor{keyword}{const} std::optional<SAFTpolar::multipolar\_contributions\_variant> polar; \textcolor{comment}{// Can be present or not}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00747}00747 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00748}00748     \textcolor{keyword}{static} \textcolor{keywordtype}{void} check\_kmat(\textcolor{keyword}{const} Eigen::ArrayXXd\& kmat, std::size\_t N) \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00749}00749         \textcolor{keywordflow}{if} (kmat.size() == 0)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00750}00750             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00751}00751         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00752}00752         \textcolor{keywordflow}{if} (kmat.cols() != kmat.rows()) \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00753}00753             \textcolor{keywordflow}{throw} \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}kmat rows and columns are not identical"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00754}00754         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00755}00755         \textcolor{keywordflow}{if} (kmat.cols() != N) \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00756}00756             \textcolor{keywordflow}{throw} \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}kmat needs to be a square matrix the same size as the number of components"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00757}00757         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00758}00758     \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00759}00759     \textcolor{keyword}{static} \textcolor{keyword}{auto} get\_coeffs\_from\_names(\textcolor{keyword}{const} std::vector<std::string> \&names)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00760}00760         SAFTVRMieLibrary library;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00761}00761         \textcolor{keywordflow}{return} library.get\_coeffs(names);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00762}00762     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00763}00763     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa5f7be2694175cedaeefb1d6f8425ea3}{get\_names}}(\textcolor{keyword}{const} std::vector<SAFTVRMieCoeffs> \&coeffs)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00764}00764         std::vector<std::string> names\_;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00765}00765         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} c : coeffs)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00766}00766             names\_.push\_back(c.name);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00767}00767         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00768}00768         \textcolor{keywordflow}{return} names\_;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00769}00769     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00770}00770     \textcolor{keyword}{auto} get\_bibtex(\textcolor{keyword}{const} std::vector<SAFTVRMieCoeffs> \&coeffs)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00771}00771         std::vector<std::string> keys\_;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00772}00772         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} c : coeffs)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00773}00773             keys\_.push\_back(c.BibTeXKey);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00774}00774         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00775}00775         \textcolor{keywordflow}{return} keys\_;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00776}00776     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00777}00777 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00778}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_af4a05584817b825d3db4f8291d9941ce}{00778}}     \textcolor{keyword}{static} \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_af4a05584817b825d3db4f8291d9941ce}{build\_chain}}(\textcolor{keyword}{const} std::vector<SAFTVRMieCoeffs> \&coeffs, \textcolor{keyword}{const} std::optional<Eigen::ArrayXXd>\& kmat, \textcolor{keyword}{const} std::optional<nlohmann::json>\& flags = std::nullopt)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00779}00779         \textcolor{keywordflow}{if} (kmat)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00780}00780             check\_kmat(kmat.value(), coeffs.size());}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00781}00781         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00782}00782         \textcolor{keyword}{const} std::size\_t N = coeffs.size();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00783}00783         Eigen::ArrayXd m(N), epsilon\_over\_k(N), sigma\_m(N), lambda\_r(N), lambda\_a(N);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00784}00784         \textcolor{keyword}{auto} i = 0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00785}00785         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&coeff : coeffs) \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00786}00786             m[i] = coeff.m;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00787}00787             epsilon\_over\_k[i] = coeff.epsilon\_over\_k;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00788}00788             sigma\_m[i] = coeff.sigma\_m;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00789}00789             lambda\_r[i] = coeff.lambda\_r;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00790}00790             lambda\_a[i] = coeff.lambda\_a;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00791}00791             i++;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00792}00792         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00793}00793         \textcolor{keywordflow}{if} (kmat)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00794}00794             \textcolor{keywordflow}{return} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms}{SAFTVRMieChainContributionTerms}}(m, epsilon\_over\_k, sigma\_m, lambda\_r, lambda\_a, std::move(kmat.value()), flags);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00795}00795         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00796}00796         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00797}00797             \textcolor{keyword}{auto} mat = Eigen::ArrayXXd::Zero(N,N);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00798}00798             \textcolor{keywordflow}{return} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms}{SAFTVRMieChainContributionTerms}}(m, epsilon\_over\_k, sigma\_m, lambda\_r, lambda\_a, std::move(mat), flags);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00799}00799         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00800}00800     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00801}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aaf9839c5410dd674ad6a98c69ab82795}{00801}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aaf9839c5410dd674ad6a98c69ab82795}{build\_polar}}(\textcolor{keyword}{const} std::vector<SAFTVRMieCoeffs> \&coeffs) -\/> \textcolor{keyword}{decltype}(this-\/>polar)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00802}00802         Eigen::ArrayXd mustar2(coeffs.size()), nmu(coeffs.size()), Qstar2(coeffs.size()), nQ(coeffs.size());}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00803}00803         \textcolor{keyword}{auto} i = 0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00804}00804         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&coeff : coeffs) \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00805}00805             mustar2[i] = coeff.mustar2;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00806}00806             nmu[i] = coeff.nmu;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00807}00807             Qstar2[i] = coeff.Qstar2;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00808}00808             nQ[i] = coeff.nQ;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00809}00809             i++;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00810}00810         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00811}00811         \textcolor{keywordtype}{bool} has\_dipolar = ((mustar2*nmu).cwiseAbs().sum() == 0);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00812}00812         \textcolor{keywordtype}{bool} has\_quadrupolar = ((Qstar2*nQ).cwiseAbs().sum() == 0);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00813}00813         \textcolor{keywordflow}{if} (!has\_dipolar \&\& !has\_quadrupolar)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00814}00814             \textcolor{keywordflow}{return} std::nullopt; \textcolor{comment}{// No dipolar or quadrupolar contribution is present}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00815}00815         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00816}00816         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00817}00817             \textcolor{comment}{// The dispersive and hard chain initialization has already happened at this point}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00818}00818             \textcolor{keywordflow}{return} \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrossVrabec}{SAFTpolar::MultipolarContributionGrossVrabec}}(terms.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}{m}}, terms.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a6c21115516923ed0598e67b656883b6a}{sigma\_A}}, terms.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}{epsilon\_over\_k}}, mustar2, nmu, Qstar2, nQ);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00819}00819         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00820}00820     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00821}00821     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00822}00822 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00823}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_ab91cd69e4ba51fc32456eaa8f6c851c5}{00823}}     \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_ab91cd69e4ba51fc32456eaa8f6c851c5}{SAFTVRMieMixture}}(\textcolor{keyword}{const} std::vector<std::string> \&names, \textcolor{keyword}{const} std::optional<Eigen::ArrayXXd>\& kmat = std::nullopt, \textcolor{keyword}{const} std::optional<nlohmann::json>\&flags = std::nullopt) : \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMieMixture}}(get\_coeffs\_from\_names(names), kmat, flags)\{\};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00824}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a9dc1aba0b30f8b9efb2039ac648f6c6c}{00824}}     \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a9dc1aba0b30f8b9efb2039ac648f6c6c}{SAFTVRMieMixture}}(\textcolor{keyword}{const} std::vector<SAFTVRMieCoeffs> \&coeffs, \textcolor{keyword}{const} std::optional<Eigen::ArrayXXd> \&kmat = std::nullopt, \textcolor{keyword}{const} std::optional<nlohmann::json>\&flags = std::nullopt) : names(\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa5f7be2694175cedaeefb1d6f8425ea3}{get\_names}}(coeffs)), bibtex(get\_bibtex(coeffs)), terms(\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_af4a05584817b825d3db4f8291d9941ce}{build\_chain}}(coeffs, kmat, flags)), polar(\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aaf9839c5410dd674ad6a98c69ab82795}{build\_polar}}(coeffs)) \{\};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00825}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa49c306f0d05163bcdd8d576e36b1ad2}{00825}}     \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa49c306f0d05163bcdd8d576e36b1ad2}{SAFTVRMieMixture}}(\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms}{SAFTVRMieChainContributionTerms}}\&\& terms, \textcolor{keyword}{const} std::vector<SAFTVRMieCoeffs> \&coeffs, std::optional<SAFTpolar::multipolar\_contributions\_variant> \&\&polar = std::nullopt) : names(\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa5f7be2694175cedaeefb1d6f8425ea3}{get\_names}}(coeffs)), bibtex(get\_bibtex(coeffs)), terms(std::move(terms)), polar(std::move(polar)) \{\};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00826}00826     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00827}00827     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00828}00828 \textcolor{comment}{//    PCSAFTMixture( const PCSAFTMixture\& ) = delete; // non construction-\/copyable}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00829}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a2405f18510e2e5b8b248dc9f24cdcbac}{00829}}     \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMieMixture}}\& \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a2405f18510e2e5b8b248dc9f24cdcbac}{operator=}}( \textcolor{keyword}{const} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMieMixture}}\& ) = \textcolor{keyword}{delete}; \textcolor{comment}{// non copyable}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00830}00830     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00831}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_ab6f00ba446e30a6736b1f0ee9d9df829}{00831}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_ab6f00ba446e30a6736b1f0ee9d9df829}{chain\_factory}}(\textcolor{keyword}{const} std::vector<SAFTVRMieCoeffs> \&coeffs, \textcolor{keyword}{const} std::optional<Eigen::ArrayXXd>\& kmat)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00832}00832         \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_af4a05584817b825d3db4f8291d9941ce}{SAFTVRMieMixture::build\_chain}}(coeffs, kmat);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00833}00833     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00834}00834     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00835}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a6bb65e83e1f862d6250e78217ba676a1}{00835}}     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a6bb65e83e1f862d6250e78217ba676a1}{get\_polar}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} polar; \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00836}00836     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00837}00837     \textcolor{comment}{// Checker for whether a polar term is present}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00838}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa875978d5dffc43aee0fdedd497423f3}{00838}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa875978d5dffc43aee0fdedd497423f3}{has\_polar}}()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} polar.has\_value(); \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00839}00839     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00840}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_adf65e18340de53eac3f550e5f8548780}{00840}}     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_adf65e18340de53eac3f550e5f8548780}{get\_terms}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} terms; \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00841}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a6af2015abccadf535ed28da78d7cf4f7}{00841}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a6af2015abccadf535ed28da78d7cf4f7}{get\_core\_calcs}}(\textcolor{keywordtype}{double} T, \textcolor{keywordtype}{double} rhomolar, \textcolor{keyword}{const} Eigen::ArrayXd\& mole\_fractions)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00842}00842         \textcolor{keyword}{auto} val = terms.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a43474ab4250245d612dc0706af2eac6b}{get\_core\_calcs}}(T, rhomolar, mole\_fractions);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00843}00843         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00844}00844         \textcolor{keyword}{auto} fromArrayX = [](\textcolor{keyword}{const} Eigen::ArrayXd \&x)\{std::valarray<double>n(x.size()); \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i =0; i < n.size(); ++i)\{ n[i] = x[i];\} \textcolor{keywordflow}{return} n;\};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00845}00845         \textcolor{keyword}{auto} fromArrayXX = [](\textcolor{keyword}{const} Eigen::ArrayXXd \&x)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00846}00846             std::size\_t N = x.rows();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00847}00847             std::vector<std::vector<double>> n; n.resize(N);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00848}00848             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < N; ++i)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00849}00849                 n[i].resize(N);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00850}00850                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} j = 0; j < N; ++j)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00851}00851                     n[i][j] = x(i,j);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00852}00852                 \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00853}00853             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00854}00854             \textcolor{keywordflow}{return} n;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00855}00855         \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00856}00856         \textcolor{keywordflow}{return} nlohmann::json\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00857}00857             \{\textcolor{stringliteral}{"{}dmat"{}}, fromArrayXX(val.dmat)\},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00858}00858             \{\textcolor{stringliteral}{"{}rhos"{}}, val.rhos\},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00859}00859             \{\textcolor{stringliteral}{"{}rhoN"{}}, val.rhoN\},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00860}00860             \{\textcolor{stringliteral}{"{}mbar"{}}, val.mbar\},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00861}00861             \{\textcolor{stringliteral}{"{}xs"{}}, fromArrayX(val.xs)\},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00862}00862             \{\textcolor{stringliteral}{"{}zeta"{}}, fromArrayX(val.zeta)\},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00863}00863             \{\textcolor{stringliteral}{"{}zeta\_x"{}}, val.zeta\_x\},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00864}00864             \{\textcolor{stringliteral}{"{}zeta\_x\_bar"{}}, val.zeta\_x\_bar\},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00865}00865             \{\textcolor{stringliteral}{"{}alphar\_mono"{}}, val.alphar\_mono\},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00866}00866             \{\textcolor{stringliteral}{"{}a1kB"{}}, val.a1kB\},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00867}00867             \{\textcolor{stringliteral}{"{}a2kB2"{}}, val.a2kB2\},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00868}00868             \{\textcolor{stringliteral}{"{}a3kB3"{}}, val.a3kB3\},}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00869}00869             \{\textcolor{stringliteral}{"{}alphar\_chain"{}}, val.alphar\_chain\}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00870}00870         \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00871}00871     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00872}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa5f7be2694175cedaeefb1d6f8425ea3}{00872}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa5f7be2694175cedaeefb1d6f8425ea3}{get\_names}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} names; \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00873}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a2c9155447f528395ca7289289fe7613e}{00873}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a2c9155447f528395ca7289289fe7613e}{get\_BibTeXKeys}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} bibtex; \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00874}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a7f511a2e65761ab8c3be5ebd0755142a}{00874}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a7f511a2e65761ab8c3be5ebd0755142a}{get\_m}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} terms.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}{m}}; \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00875}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a3318aeea8555f09c40df8d1f4f96657b}{00875}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a3318aeea8555f09c40df8d1f4f96657b}{get\_sigma\_Angstrom}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} (terms.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a6c21115516923ed0598e67b656883b6a}{sigma\_A}}).eval(); \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00876}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a3e0f29dead60d6c81f3f9c37708e6538}{00876}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a3e0f29dead60d6c81f3f9c37708e6538}{get\_sigma\_m}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} terms.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a6c21115516923ed0598e67b656883b6a}{sigma\_A}}/1e10; \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00877}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_ae2c8855f0b835cdf1fb0fd02a53532f9}{00877}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_ae2c8855f0b835cdf1fb0fd02a53532f9}{get\_epsilon\_over\_k\_K}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} terms.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}{epsilon\_over\_k}}; \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00878}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a25be2fd11025e40365d1553c7dfc2fc1}{00878}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a25be2fd11025e40365d1553c7dfc2fc1}{get\_kmat}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} terms.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1dfb96fc987212c7b8e4eff244f2c021}{kmat}}; \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00879}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a303fd843512d8d9f65b5514cb702f6c1}{00879}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a303fd843512d8d9f65b5514cb702f6c1}{get\_lambda\_r}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} terms.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a412bc13d14ac47f445dc22da5f649eab}{lambda\_r}}; \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00880}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a555e33ef99ab39499b4e55887d6d0484}{00880}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a555e33ef99ab39499b4e55887d6d0484}{get\_lambda\_a}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} terms.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a3494497fb5d10507eeb716a136e7d745}{lambda\_a}}; \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00881}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a4e7fed24aa2db3baef428f3d1ef22007}{00881}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a4e7fed24aa2db3baef428f3d1ef22007}{get\_EPSKIJ\_matrix}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} terms.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a4a1b4917391033a6b611253a72c6205b}{get\_EPSKIJ\_K\_matrix}}(); \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00882}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a914d98be3d90768c930b0c405b228ceb}{00882}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a914d98be3d90768c930b0c405b228ceb}{get\_SIGMAIJ\_matrix}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} terms.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a84f592805af2d5c8bb32effe319d0d04}{get\_SIGMAIJ\_m\_matrix}}(); \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00883}00883     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00884}00884     \textcolor{comment}{// template<typename VecType>}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00885}00885     \textcolor{comment}{// double max\_rhoN(const double T, const VecType\& mole\_fractions) const \{}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00886}00886     \textcolor{comment}{//     auto N = mole\_fractions.size();}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00887}00887     \textcolor{comment}{//     Eigen::ArrayX<double> d(N);}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00888}00888     \textcolor{comment}{//     for (auto i = 0; i < N; ++i) \{}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00889}00889     \textcolor{comment}{//         d[i] = sigma\_Angstrom[i] * (1.0 -\/ 0.12 * exp(-\/3.0 * epsilon\_over\_k[i] / T));}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00890}00890     \textcolor{comment}{//     \}}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00891}00891     \textcolor{comment}{//     return 6 * 0.74 / EIGEN\_PI / (mole\_fractions*m*powvec(d, 3)).sum()*1e30; // particles/m\string^3}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00892}00892     \textcolor{comment}{// \}}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00893}00893     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00894}00894     \textcolor{keyword}{template}<\textcolor{keyword}{class} VecType>}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00895}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a701652b70a2e8559c728b248156dce1c}{00895}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a701652b70a2e8559c728b248156dce1c}{R}}(\textcolor{keyword}{const} VecType\& molefrac)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00896}00896         \textcolor{keywordflow}{return} get\_R\_gas<decltype(molefrac[0])>();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00897}00897     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00898}00898 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00899}00899     \textcolor{keyword}{template}<\textcolor{keyword}{typename} TTYPE, \textcolor{keyword}{typename} RhoType, \textcolor{keyword}{typename} VecType>}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00900}\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a9725debdf80800d766eb37a502ca02bb}{00900}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a9725debdf80800d766eb37a502ca02bb}{alphar}}(\textcolor{keyword}{const} TTYPE\& T, \textcolor{keyword}{const} RhoType\& rhomolar, \textcolor{keyword}{const} VecType\& mole\_fractions)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00901}00901         \textcolor{comment}{// First values for the Mie chain with dispersion (always included)}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00902}00902         \mbox{\hyperlink{namespaceteqp_abbf9e7fce9e140cb1b40e0513e1edb9e}{error\_if\_expr}}(T); \mbox{\hyperlink{namespaceteqp_abbf9e7fce9e140cb1b40e0513e1edb9e}{error\_if\_expr}}(rhomolar);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00903}00903         \textcolor{keyword}{auto} vals = terms.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a43474ab4250245d612dc0706af2eac6b}{get\_core\_calcs}}(T, rhomolar, mole\_fractions);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00904}00904         \textcolor{keyword}{using} type = std::common\_type\_t<TTYPE, RhoType, \textcolor{keyword}{decltype}(mole\_fractions[0])>;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00905}00905         type \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a9725debdf80800d766eb37a502ca02bb}{alphar}} = vals.alphar\_mono + vals.alphar\_chain;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00906}00906         type packing\_fraction = vals.zeta[3];}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00907}00907         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00908}00908        \textcolor{keywordflow}{if} (polar)\{ \textcolor{comment}{// polar term is present}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00909}00909            \textcolor{keyword}{using} mas = \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a2f5ab14e51a33eaebd269cabb7ba214c}{SAFTpolar::multipolar\_argument\_spec}};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00910}00910            \textcolor{keyword}{auto} visitor = [\&T, \&rhomolar, \&mole\_fractions, \&packing\_fraction](\textcolor{keyword}{const} \textcolor{keyword}{auto}\& contrib) -\/> type \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00911}00911                }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00912}00912                \textcolor{keyword}{constexpr} mas arg\_spec = std::decay\_t<\textcolor{keyword}{decltype}(contrib)>::arg\_spec;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00913}00913                \textcolor{keywordflow}{if} \textcolor{keyword}{constexpr}(arg\_spec == mas::TK\_rhoNA3\_packingfraction\_molefractions)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00914}00914                    RhoType rho\_A3 = rhomolar*\mbox{\hyperlink{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85}{N\_A}}*1e-\/30;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00915}00915                    type alpha = contrib.eval(T, rho\_A3, packing\_fraction, mole\_fractions).alpha;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00916}00916                    \textcolor{keywordflow}{return} alpha;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00917}00917                \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00918}00918                \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} \textcolor{keyword}{constexpr}(arg\_spec == mas::TK\_rhoNm3\_rhostar\_molefractions)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00919}00919                    RhoType rhoN\_m3 = rhomolar*\mbox{\hyperlink{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85}{N\_A}};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00920}00920                    \textcolor{keyword}{auto} rhostar = contrib.get\_rhostar(rhoN\_m3, packing\_fraction, mole\_fractions);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00921}00921                    \textcolor{keywordflow}{return} contrib.eval(T, rhoN\_m3, rhostar, mole\_fractions).alpha;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00922}00922                \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00923}00923                \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00924}00924                    \textcolor{keywordflow}{throw} \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}Don't know how to handle this kind of arguments in polar term"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00925}00925                \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00926}00926            \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00927}00927            \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a9725debdf80800d766eb37a502ca02bb}{alphar}} += std::visit(visitor, polar.value());}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00928}00928        \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00929}00929         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00930}00930         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a9725debdf80800d766eb37a502ca02bb}{alphar}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00931}00931     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00932}00932 \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00933}00933                                                                                                                                                          }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00934}\mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a3db9c6fdd21d21e572b62b5ba469ef3d}{00934}} \textcolor{keyword}{inline} \textcolor{keyword}{auto} \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a3db9c6fdd21d21e572b62b5ba469ef3d}{SAFTVRMiefactory}}(\textcolor{keyword}{const} nlohmann::json \& spec)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00935}00935 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00936}00936     std::optional<Eigen::ArrayXXd> kmat;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00937}00937     \textcolor{keywordflow}{if} (spec.contains(\textcolor{stringliteral}{"{}kmat"{}}) \&\& spec.at(\textcolor{stringliteral}{"{}kmat"{}}).is\_array() \&\& spec.at(\textcolor{stringliteral}{"{}kmat"{}}).size() > 0)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00938}00938         kmat = \mbox{\hyperlink{namespaceteqp_a0387f578fa55e79f0da380ebd38b22e9}{build\_square\_matrix}}(spec[\textcolor{stringliteral}{"{}kmat"{}}]);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00939}00939     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00940}00940     }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00941}00941     \textcolor{keywordflow}{if} (spec.contains(\textcolor{stringliteral}{"{}names"{}}))\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00942}00942         std::vector<std::string> names = spec[\textcolor{stringliteral}{"{}names"{}}];}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00943}00943         \textcolor{keywordflow}{if} (kmat \&\& kmat.value().rows() != names.size())\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00944}00944             \textcolor{keywordflow}{throw} \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}Provided length of names of "{}} + std::to\_string(names.size()) + \textcolor{stringliteral}{"{} does not match the dimension of the kmat of "{}} + std::to\_string(kmat.value().rows()));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00945}00945         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00946}00946         \textcolor{keywordflow}{return} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMieMixture}}(names, kmat);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00947}00947     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00948}00948     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (spec.contains(\textcolor{stringliteral}{"{}coeffs"{}}))\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00949}00949         \textcolor{keywordtype}{bool} something\_polar = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00950}00950         std::vector<SAFTVRMieCoeffs> coeffs;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00951}00951         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} j : spec[\textcolor{stringliteral}{"{}coeffs"{}}]) \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00952}00952             \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs}{SAFTVRMieCoeffs}} c;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00953}00953             c.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a8fb5d0c15b0183ba1467d8270cadedf3}{name}} = j.at(\textcolor{stringliteral}{"{}name"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00954}00954             c.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_aad3cf7f9fd8a64fe6d6ea15445447bad}{m}} = j.at(\textcolor{stringliteral}{"{}m"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00955}00955             c.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_aa01e4b90c07dde3874de0187a1a47141}{sigma\_m}} = (j.contains(\textcolor{stringliteral}{"{}sigma\_m"{}})) ? j.at(\textcolor{stringliteral}{"{}sigma\_m"{}}).get<\textcolor{keywordtype}{double}>() : j.at(\textcolor{stringliteral}{"{}sigma\_Angstrom"{}}).get<\textcolor{keywordtype}{double}>()/1e10;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00956}00956             c.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a7c612d78e09ab78feea46bc0fff2a41a}{epsilon\_over\_k}} = j.at(\textcolor{stringliteral}{"{}epsilon\_over\_k"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00957}00957             c.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a256b6e4978ef30f133768eb23d79480c}{lambda\_r}} = j.at(\textcolor{stringliteral}{"{}lambda\_r"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00958}00958             c.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_acc1681cf70c08281c3ca03bbe81c9f4b}{lambda\_a}} = j.at(\textcolor{stringliteral}{"{}lambda\_a"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00959}00959             c.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a37b6af7de7feaea55a7f60f0d973c338}{BibTeXKey}} = j.at(\textcolor{stringliteral}{"{}BibTeXKey"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00960}00960             }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00961}00961             \textcolor{comment}{// These are legacy definitions of the polar moments}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00962}00962             \textcolor{keywordflow}{if} (j.contains(\textcolor{stringliteral}{"{}(mu\string^*)\string^2"{}}) \&\& j.contains(\textcolor{stringliteral}{"{}nmu"{}}))\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00963}00963                 c.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a94aa0dd6ac19030c0e9f32d32f27fd9a}{mustar2}} = j.at(\textcolor{stringliteral}{"{}(mu\string^*)\string^2"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00964}00964                 c.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a479cbf56162d5cc0bab08dce2b0b95f8}{nmu}} = j.at(\textcolor{stringliteral}{"{}nmu"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00965}00965                 something\_polar = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00966}00966             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00967}00967             \textcolor{keywordflow}{if} (j.contains(\textcolor{stringliteral}{"{}(Q\string^*)\string^2"{}}) \&\& j.contains(\textcolor{stringliteral}{"{}nQ"{}}))\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00968}00968                 c.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_af6bdd0876e09def6e270acf9ead8c799}{Qstar2}} = j.at(\textcolor{stringliteral}{"{}(Q\string^*)\string^2"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00969}00969                 c.\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs_a467a794f7fe98dee9ca46568fc68584b}{nQ}} = j.at(\textcolor{stringliteral}{"{}nQ"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00970}00970                 something\_polar = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00971}00971             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00972}00972             \textcolor{keywordflow}{if} (j.contains(\textcolor{stringliteral}{"{}Q\_Cm2"{}}) || j.contains(\textcolor{stringliteral}{"{}Q\_DA"{}}) || j.contains(\textcolor{stringliteral}{"{}mu\_Cm"{}}) || j.contains(\textcolor{stringliteral}{"{}mu\_D"{}}))\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00973}00973                 something\_polar = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00974}00974             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00975}00975             coeffs.push\_back(c);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00976}00976         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00977}00977         \textcolor{keywordflow}{if} (kmat \&\& kmat.value().rows() != coeffs.size())\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00978}00978             \textcolor{keywordflow}{throw} \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}Provided length of coeffs of "{}} + std::to\_string(coeffs.size()) + \textcolor{stringliteral}{"{} does not match the dimension of the kmat of "{}} +  std::to\_string(kmat.value().rows()));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00979}00979         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00980}00980         }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00981}00981         \textcolor{keywordflow}{if} (!something\_polar)\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00982}00982             \textcolor{comment}{// Nonpolar, just m, epsilon, sigma and possibly a kmat matrix with kij coefficients}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00983}00983             \textcolor{keywordflow}{return} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMieMixture}}(\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_af4a05584817b825d3db4f8291d9941ce}{SAFTVRMieMixture::build\_chain}}(coeffs, kmat), coeffs);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00984}00984         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00985}00985         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00986}00986             \textcolor{comment}{// Polar term is also provided, along with the chain terms}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00987}00987             std::string polar\_model = \textcolor{stringliteral}{"{}GrossVrabec"{}}; \textcolor{comment}{// This is the default, as it was the first one implemented}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00988}00988             \textcolor{keywordflow}{if} (spec.contains(\textcolor{stringliteral}{"{}polar\_model"{}}))\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00989}00989                 polar\_model = spec[\textcolor{stringliteral}{"{}polar\_model"{}}];}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00990}00990             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00991}00991             std::optional<nlohmann::json> SAFTVRMie\_flags = std::nullopt;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00992}00992             \textcolor{keywordflow}{if} (spec.contains(\textcolor{stringliteral}{"{}SAFTVRMie\_flags"{}}))\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00993}00993                 SAFTVRMie\_flags = spec[\textcolor{stringliteral}{"{}SAFTVRMie\_flags"{}}];}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00994}00994             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00995}00995             std::optional<nlohmann::json> polar\_flags = std::nullopt;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00996}00996             \textcolor{keywordflow}{if} (spec.contains(\textcolor{stringliteral}{"{}polar\_flags"{}}))\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00997}00997                 polar\_flags = spec[\textcolor{stringliteral}{"{}polar\_flags"{}}];}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00998}00998             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00999}00999             \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01000}01000                 \textcolor{comment}{// Set to the default value}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01001}01001                 polar\_flags = nlohmann::json\{\{\textcolor{stringliteral}{"{}approach"{}}, \textcolor{stringliteral}{"{}use\_packing\_fraction"{}}\}\};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01002}01002             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01003}01003             }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01004}01004             \textcolor{comment}{// Go back and extract the dipolar and quadrupolar terms from}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01005}01005             \textcolor{comment}{// the JSON, in base SI units}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01006}01006             \textcolor{keyword}{const} \textcolor{keywordtype}{double} D\_to\_Cm = 3.33564e-\/30; \textcolor{comment}{// C m/D}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01007}01007             \textcolor{keyword}{const} \textcolor{keywordtype}{double} mustar2factor = 1.0/(4*\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(EIGEN\_PI)*8.8541878128e-\/12*1.380649e-\/23); \textcolor{comment}{// factor=1/(4*pi*epsilon\_0*k\_B), such that (mu\string^*)\string^2 := factor*mu[Cm]\string^2/((epsilon/kB)[K]*sigma[m]\string^3)}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01008}01008             \textcolor{keyword}{const} \textcolor{keywordtype}{double} Qstar2factor = 1.0/(4*\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(EIGEN\_PI)*8.8541878128e-\/12*1.380649e-\/23); \textcolor{comment}{// same as mustar2factor}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01009}01009             \textcolor{keyword}{auto} N = coeffs.size();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01010}01010             Eigen::ArrayXd ms(N), epsks(N), sigma\_ms(N), mu\_Cm(N), Q\_Cm2(N), nQ(N), nmu(N);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01011}01011             Eigen::Index i = 0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01012}01012             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} j : spec[\textcolor{stringliteral}{"{}coeffs"{}}]) \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01013}01013                 \textcolor{keywordtype}{double} m = j.at(\textcolor{stringliteral}{"{}m"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01014}01014                 \textcolor{keywordtype}{double} sigma\_m = (j.contains(\textcolor{stringliteral}{"{}sigma\_m"{}})) ? j.at(\textcolor{stringliteral}{"{}sigma\_m"{}}).get<\textcolor{keywordtype}{double}>() : j.at(\textcolor{stringliteral}{"{}sigma\_Angstrom"{}}).get<\textcolor{keywordtype}{double}>()/1e10;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01015}01015                 \textcolor{keywordtype}{double} epsilon\_over\_k = j.at(\textcolor{stringliteral}{"{}epsilon\_over\_k"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01016}01016                 \textcolor{keyword}{auto} get\_dipole\_Cm = [\&]() -\/> \textcolor{keywordtype}{double} \{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01017}01017                     \textcolor{keywordflow}{if} (j.contains(\textcolor{stringliteral}{"{}(mu\string^*)\string^2"{}}) \&\& j.contains(\textcolor{stringliteral}{"{}nmu"{}}))\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01018}01018                         \textcolor{comment}{// Terms defined like in Gross\&Vrabec; backwards-\/compatibility}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01019}01019                         \textcolor{keywordtype}{double} mustar2 = j.at(\textcolor{stringliteral}{"{}(mu\string^*)\string^2"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01020}01020                         \textcolor{keywordflow}{return} sqrt(mustar2*(m*epsilon\_over\_k*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(sigma\_m, 3))/mustar2factor);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01021}01021                     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01022}01022                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (j.contains(\textcolor{stringliteral}{"{}mu\_Cm"{}}))\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01023}01023                         \textcolor{keywordflow}{return} j.at(\textcolor{stringliteral}{"{}mu\_Cm"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01024}01024                     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01025}01025                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (j.contains(\textcolor{stringliteral}{"{}mu\_D"{}}))\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01026}01026                         \textcolor{keywordflow}{return} j.at(\textcolor{stringliteral}{"{}mu\_D"{}}).get<\textcolor{keywordtype}{double}>()*D\_to\_Cm;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01027}01027                     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01028}01028                     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01029}01029                         \textcolor{keywordflow}{return} 0.0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01030}01030                     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01031}01031                 \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01032}01032                 \textcolor{keyword}{auto} get\_quadrupole\_Cm2 = [\&]() -\/> \textcolor{keywordtype}{double}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01033}01033                     \textcolor{keywordflow}{if} (j.contains(\textcolor{stringliteral}{"{}(Q\string^*)\string^2"{}}) \&\& j.contains(\textcolor{stringliteral}{"{}nQ"{}}))\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01034}01034                         \textcolor{comment}{// Terms defined like in Gross\&Vrabec; backwards-\/compatibility}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01035}01035                         \textcolor{keywordtype}{double} Qstar2 = j.at(\textcolor{stringliteral}{"{}(Q\string^*)\string^2"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01036}01036                         \textcolor{keywordflow}{return} sqrt(Qstar2*(m*epsilon\_over\_k*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(sigma\_m, 5))/Qstar2factor);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01037}01037                     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01038}01038                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (j.contains(\textcolor{stringliteral}{"{}Q\_Cm2"{}}))\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01039}01039                         \textcolor{keywordflow}{return} j.at(\textcolor{stringliteral}{"{}Q\_Cm2"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01040}01040                     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01041}01041                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (j.contains(\textcolor{stringliteral}{"{}Q\_DA"{}}))\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01042}01042                         \textcolor{keywordflow}{return} j.at(\textcolor{stringliteral}{"{}Q\_DA"{}}).get<\textcolor{keywordtype}{double}>()*D\_to\_Cm/1e10;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01043}01043                     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01044}01044                     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01045}01045                         \textcolor{keywordflow}{return} 0.0;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01046}01046                     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01047}01047                 \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01048}01048                 ms(i) = m; sigma\_ms(i) = sigma\_m; epsks(i) = epsilon\_over\_k; mu\_Cm(i) = get\_dipole\_Cm(); Q\_Cm2(i) = get\_quadrupole\_Cm2();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01049}01049                 nmu(i) = (j.contains(\textcolor{stringliteral}{"{}nmu"{}}) ? j[\textcolor{stringliteral}{"{}nmu"{}}].get<\textcolor{keywordtype}{double}>() : 0.0);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01050}01050                 nQ(i) = (j.contains(\textcolor{stringliteral}{"{}nQ"{}}) ? j[\textcolor{stringliteral}{"{}nQ"{}}].get<\textcolor{keywordtype}{double}>() : 0.0);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01051}01051                 i++;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01052}01052             \};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01053}01053             nlohmann::json SAFTVRMieFlags;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01054}01054             }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01055}01055             \textcolor{keyword}{auto} chain = \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_af4a05584817b825d3db4f8291d9941ce}{SAFTVRMieMixture::build\_chain}}(coeffs, kmat, SAFTVRMie\_flags);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01056}01056             \textcolor{keyword}{auto} EPSKIJ = chain.get\_EPSKIJ\_K\_matrix(); \textcolor{comment}{// In units of K}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01057}01057             \textcolor{keyword}{auto} SIGMAIJ = chain.get\_SIGMAIJ\_m\_matrix(); \textcolor{comment}{// In units of m}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01058}01058             }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01059}01059             \textcolor{keyword}{using namespace }SAFTpolar;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01060}01060             \textcolor{keywordflow}{if} (polar\_model == \textcolor{stringliteral}{"{}GrossVrabec"{}})\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01061}01061                 \textcolor{keyword}{auto} mustar2 = (mustar2factor*mu\_Cm.pow(2)/(ms*epsks*sigma\_ms.pow(3))).eval();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01062}01062                 \textcolor{keyword}{auto} Qstar2 = (Qstar2factor*Q\_Cm2.pow(2)/(ms*epsks*sigma\_ms.pow(5))).eval();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01063}01063                 \textcolor{keyword}{auto} polar = MultipolarContributionGrossVrabec(ms, sigma\_ms*1e10, epsks, mustar2, nmu, Qstar2, nQ);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01064}01064                 \textcolor{keywordflow}{return} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMieMixture}}(std::move(chain), coeffs, std::move(polar));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01065}01065             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01066}01066             \textcolor{keywordflow}{if} (polar\_model == \textcolor{stringliteral}{"{}GubbinsTwu+Luckas"{}})\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01067}01067                 \textcolor{keyword}{using} MCGTL = MultipolarContributionGubbinsTwu<LuckasJIntegral, LuckasKIntegral>;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01068}01068                 \textcolor{keyword}{auto} mubar2 = (mustar2factor*mu\_Cm.pow(2)/(epsks*sigma\_ms.pow(3))).eval();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01069}01069                 \textcolor{keyword}{auto} Qbar2 = (Qstar2factor*Q\_Cm2.pow(2)/(epsks*sigma\_ms.pow(5))).eval();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01070}01070                 \textcolor{keyword}{auto} polar = MCGTL(sigma\_ms, epsks, mubar2, Qbar2, multipolar\_rhostar\_approach::use\_packing\_fraction);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01071}01071                 \textcolor{keywordflow}{return} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMieMixture}}(std::move(chain), coeffs, std::move(polar));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01072}01072             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01073}01073             \textcolor{keywordflow}{if} (polar\_model == \textcolor{stringliteral}{"{}GubbinsTwu+GubbinsTwu"{}})\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01074}01074                 \textcolor{keyword}{using} MCGG = MultipolarContributionGubbinsTwu<GubbinsTwuJIntegral, GubbinsTwuKIntegral>;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01075}01075                 \textcolor{keyword}{auto} mubar2 = (mustar2factor*mu\_Cm.pow(2)/(epsks*sigma\_ms.pow(3))).eval();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01076}01076                 \textcolor{keyword}{auto} Qbar2 = (Qstar2factor*Q\_Cm2.pow(2)/(epsks*sigma\_ms.pow(5))).eval();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01077}01077                 \textcolor{keyword}{auto} polar = MCGG(sigma\_ms, epsks, mubar2, Qbar2, multipolar\_rhostar\_approach::use\_packing\_fraction);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01078}01078                 \textcolor{keywordflow}{return} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMieMixture}}(std::move(chain), coeffs, std::move(polar));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01079}01079             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01080}01080             \textcolor{keywordflow}{if} (polar\_model == \textcolor{stringliteral}{"{}GubbinsTwu+Gottschalk"{}})\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01081}01081                 \textcolor{keyword}{using} MCGG = MultipolarContributionGubbinsTwu<GottschalkJIntegral, GottschalkKIntegral>;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01082}01082                 \textcolor{keyword}{auto} mubar2 = (mustar2factor*mu\_Cm.pow(2)/(epsks*sigma\_ms.pow(3))).eval();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01083}01083                 \textcolor{keyword}{auto} Qbar2 = (Qstar2factor*Q\_Cm2.pow(2)/(epsks*sigma\_ms.pow(5))).eval();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01084}01084                 \textcolor{keyword}{auto} polar = MCGG(sigma\_ms, epsks, mubar2, Qbar2, multipolar\_rhostar\_approach::use\_packing\_fraction);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01085}01085                 \textcolor{keywordflow}{return} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMieMixture}}(std::move(chain), coeffs, std::move(polar));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01086}01086             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01087}01087             }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01088}01088             \textcolor{keywordflow}{if} (polar\_model == \textcolor{stringliteral}{"{}GrayGubbins+GubbinsTwu"{}})\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01089}01089                 \textcolor{keyword}{using} MCGG = MultipolarContributionGrayGubbins<GubbinsTwuJIntegral, GubbinsTwuKIntegral>;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01090}01090                 \textcolor{keyword}{auto} polar = MCGG(sigma\_ms, epsks, SIGMAIJ, EPSKIJ, mu\_Cm, Q\_Cm2, polar\_flags);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01091}01091                 \textcolor{keywordflow}{return} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMieMixture}}(std::move(chain), coeffs, std::move(polar));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01092}01092             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01093}01093 \textcolor{comment}{//            if (polar\_model == "{}GrayGubbins+Gottschalk"{})\{}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01094}01094 \textcolor{comment}{//                using MCGG = MultipolarContributionGrayGubbins<GottschalkJIntegral, GottschalkKIntegral>;}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01095}01095 \textcolor{comment}{//                auto polar = MCGG(sigma\_ms, epsks, mu\_Cm, Q\_Cm2, polar\_flags);}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01096}01096 \textcolor{comment}{//                return SAFTVRMieMixture(std::move(chain), std::move(polar));}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01097}01097 \textcolor{comment}{//            \}}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01098}01098             \textcolor{keywordflow}{if} (polar\_model == \textcolor{stringliteral}{"{}GrayGubbins+Luckas"{}})\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01099}01099                 \textcolor{keyword}{using} MCGG = MultipolarContributionGrayGubbins<LuckasJIntegral, LuckasKIntegral>;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01100}01100                 \textcolor{keyword}{auto} polar = MCGG(sigma\_ms, epsks, SIGMAIJ, EPSKIJ, mu\_Cm, Q\_Cm2, polar\_flags);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01101}01101                 \textcolor{keywordflow}{return} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMieMixture}}(std::move(chain), coeffs, std::move(polar));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01102}01102             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01103}01103             }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01104}01104             }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01105}01105             \textcolor{keywordflow}{if} (polar\_model == \textcolor{stringliteral}{"{}GubbinsTwu+Luckas+GubbinsTwuRhostar"{}})\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01106}01106                 \textcolor{keyword}{using} MCGTL = MultipolarContributionGubbinsTwu<LuckasJIntegral, LuckasKIntegral>;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01107}01107                 \textcolor{keyword}{auto} mubar2 = (mustar2factor*mu\_Cm.pow(2)/(epsks*sigma\_ms.pow(3))).eval();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01108}01108                 \textcolor{keyword}{auto} Qbar2 = (Qstar2factor*Q\_Cm2.pow(2)/(epsks*sigma\_ms.pow(5))).eval();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01109}01109                 \textcolor{keyword}{auto} polar = MCGTL(sigma\_ms, epsks, mubar2, Qbar2, multipolar\_rhostar\_approach::calculate\_Gubbins\_rhostar);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01110}01110                 \textcolor{keywordflow}{return} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMieMixture}}(std::move(chain), coeffs, std::move(polar));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01111}01111             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01112}01112             \textcolor{keywordflow}{if} (polar\_model == \textcolor{stringliteral}{"{}GubbinsTwu+GubbinsTwu+GubbinsTwuRhostar"{}})\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01113}01113                 \textcolor{keyword}{using} MCGG = MultipolarContributionGubbinsTwu<GubbinsTwuJIntegral, GubbinsTwuKIntegral>;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01114}01114                 \textcolor{keyword}{auto} mubar2 = (mustar2factor*mu\_Cm.pow(2)/(epsks*sigma\_ms.pow(3))).eval();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01115}01115                 \textcolor{keyword}{auto} Qbar2 = (Qstar2factor*Q\_Cm2.pow(2)/(epsks*sigma\_ms.pow(5))).eval();}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01116}01116                 \textcolor{keyword}{auto} polar = MCGG(sigma\_ms, epsks, mubar2, Qbar2, multipolar\_rhostar\_approach::calculate\_Gubbins\_rhostar);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01117}01117                 \textcolor{keywordflow}{return} \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMieMixture}}(std::move(chain), coeffs, std::move(polar));}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01118}01118             \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01119}01119             \textcolor{keywordflow}{throw} \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}didn't understand this polar\_model:"{}}+polar\_model);}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01120}01120         \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01121}01121     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01122}01122     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01123}01123         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}you must provide names or coeffs, but not both"{}});}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01124}01124     \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01125}01125 \}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01126}01126 }
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01127}01127 \} \textcolor{comment}{/* namespace SAFTVRMie */}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l01128}01128 \}; \textcolor{comment}{// namespace teqp}}
+
+\end{DoxyCode}

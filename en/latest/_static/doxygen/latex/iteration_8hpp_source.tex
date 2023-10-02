@@ -1,0 +1,60 @@
+\hypertarget{iteration_8hpp_source}{}\doxysection{iteration.\+hpp}
+\label{iteration_8hpp_source}\index{include/teqp/algorithms/iteration.hpp@{include/teqp/algorithms/iteration.hpp}}
+\mbox{\hyperlink{iteration_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{teqpcpp_8hpp}{teqp/cpp/teqpcpp.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00004}00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{cpp_2derivs_8hpp}{teqp/cpp/derivs.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00006}00006 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceteqp}{teqp}} \{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00007}\mbox{\hyperlink{namespaceteqp_1_1iteration}{00007}} \textcolor{keyword}{namespace }iteration \{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00009}00009 \textcolor{keyword}{using namespace }cppinterface;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00014}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator}{00014}} \textcolor{keyword}{class }\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator}{NRIterator}}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00015}00015 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00016}00016     \textcolor{keyword}{const} \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{AbstractModel}} *ar, *aig;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00017}00017     \textcolor{keyword}{const} std::vector<char>  vars;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00018}00018     \textcolor{keyword}{const} Eigen::Ref<const Eigen::ArrayXd> vals;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00019}00019     \textcolor{keywordtype}{double} T, rho;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00020}00020     \textcolor{keyword}{const} Eigen::Ref<const Eigen::ArrayXd> z;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00021}00021     }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00022}00022 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00023}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_af15a9a362bbd635afe7a150b3b4cb5fc}{00023}}     \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_af15a9a362bbd635afe7a150b3b4cb5fc}{NRIterator}}(\textcolor{keyword}{const} \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{AbstractModel}}* ar, \textcolor{keyword}{const} \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{AbstractModel}}* aig, \textcolor{keyword}{const} std::vector<char>\& vars, \textcolor{keyword}{const} Eigen::Ref<const Eigen::ArrayXd>\& vals, \textcolor{keywordtype}{double} T, \textcolor{keywordtype}{double} rho, \textcolor{keyword}{const} Eigen::Ref<const Eigen::ArrayXd>\& z) : ar(ar), aig(aig), vars(vars), vals(vals), T(T), rho(rho), z(z)\{\}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00024}00024     }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00026}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a1c429a1b2b15583bb3e13da0e693cf41}{00026}}     std::vector<char> \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a1c429a1b2b15583bb3e13da0e693cf41}{get\_vars}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} vars; \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00028}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_ae028f002452b71bab31f76901de9ce99}{00028}}     Eigen::ArrayXd \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_ae028f002452b71bab31f76901de9ce99}{get\_vals}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} vals; \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00030}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a49c949373f28a4d0de7a40353d58bf0c}{00030}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a49c949373f28a4d0de7a40353d58bf0c}{get\_T}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} T; \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00032}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a5b12df1e0349a9e93dc3c7dd2342e8b4}{00032}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a5b12df1e0349a9e93dc3c7dd2342e8b4}{get\_rho}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} rho; \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00034}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a048d638c0415c0941345e721a2fa0383}{00034}}     Eigen::ArrayXd \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a048d638c0415c0941345e721a2fa0383}{get\_molefrac}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} z; \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00035}00035     }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00041}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a80f7693d568d8b915fd2fc1a7573b96f}{00041}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a80f7693d568d8b915fd2fc1a7573b96f}{calc\_step}}(\textcolor{keywordtype}{double} T, \textcolor{keywordtype}{double} rho)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00042}00042         \textcolor{keyword}{auto} Ar = ar-\/>\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a5f86b60b6ecc932c51e7f9fc81745f20}{get\_deriv\_mat2}}(T, rho, z);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00043}00043         \textcolor{keyword}{auto} Aig = aig-\/>\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a5f86b60b6ecc932c51e7f9fc81745f20}{get\_deriv\_mat2}}(T, rho, z);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00044}00044         \textcolor{keyword}{auto} R = ar-\/>\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a38884acb6a2663fe18967760e9438b68}{get\_R}}(z);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00045}00045         \textcolor{keyword}{auto} im = \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2bcecf3d939d9f0f6b45d39dfe9e830d}{build\_iteration\_Jv}}(vars, Ar, Aig, R, T, rho, z);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00046}00046         \textcolor{keywordflow}{return} std::make\_tuple((im.J.matrix().colPivHouseholderQr().solve((-\/(im.v-\/vals)).matrix())).eval(), im);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00047}00047     \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00048}00048     }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00050}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a4526d5ba96b15732fabe79d6322bfa24}{00050}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a4526d5ba96b15732fabe79d6322bfa24}{take\_step}}()\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00051}00051         \textcolor{keyword}{auto} [dx, im] = \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a80f7693d568d8b915fd2fc1a7573b96f}{calc\_step}}(T, rho);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00052}00052         T += dx(0);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00053}00053         rho += dx(1);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00054}00054         \textcolor{keywordflow}{return} (im.v-\/vals).eval();}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00055}00055     \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00056}00056     }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00060}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a80e975486efc70992f8b0f3eaac11e69}{00060}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a80e975486efc70992f8b0f3eaac11e69}{take\_steps}}(\textcolor{keywordtype}{int} N)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00061}00061         \textcolor{keywordflow}{if} (N <= 0)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00062}00062             \textcolor{keywordflow}{throw} \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}N must be greater than 0"{}});}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00063}00063         \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00064}00064         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < N; ++i)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00065}00065             \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a4526d5ba96b15732fabe79d6322bfa24}{take\_step}}();}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00066}00066         \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00067}00067     \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00068}00068 \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00071}00071 \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00072}00072 \}}
+
+\end{DoxyCode}

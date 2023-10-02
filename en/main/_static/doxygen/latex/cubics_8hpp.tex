@@ -1,0 +1,50 @@
+\hypertarget{cubics_8hpp}{}\doxysection{include/teqp/models/cubics.hpp File Reference}
+\label{cubics_8hpp}\index{include/teqp/models/cubics.hpp@{include/teqp/models/cubics.hpp}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$variant$>$}\newline
+{\ttfamily \#include $<$valarray$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include \char`\"{}teqp/types.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/constants.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/exceptions.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cubicsuperancillary.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/json\+\_\+tools.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/math/pow\+\_\+templates.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}nlohmann/json.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classteqp_1_1BasicAlphaFunction}{teqp\+::\+Basic\+Alpha\+Function$<$ Num\+Type $>$}}
+\begin{DoxyCompactList}\small\item\em The standard alpha function used by Peng-\/\+Robinson and SRK. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classteqp_1_1TwuAlphaFunction}{teqp\+::\+Twu\+Alpha\+Function$<$ Num\+Type $>$}}
+\begin{DoxyCompactList}\small\item\em The Twu alpha function used by Peng-\/\+Robinson and SRK. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classteqp_1_1MathiasCopemanAlphaFunction}{teqp\+::\+Mathias\+Copeman\+Alpha\+Function$<$ Num\+Type $>$}}
+\begin{DoxyCompactList}\small\item\em The Mathias-\/\+Copeman alpha function used by Peng-\/\+Robinson and SRK. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic$<$ Num\+Type, Alpha\+Functions $>$}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR}{teqp\+::\+Quantum\+Corrected\+PR}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceteqp_a330c9d06e0d39b8464bd798700df73b9}{teqp\+::\+Alpha\+Function\+Options}} = std\+::variant$<$ Basic\+Alpha\+Function$<$ double $>$, Twu\+Alpha\+Function$<$ double $>$, Mathias\+Copeman\+Alpha\+Function$<$ double $>$ $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename TCType , typename PCType , typename Acentric\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a6a646a52ddd0010dc37a5161e8353148}{teqp\+::canonical\+\_\+\+SRK}} (TCType Tc\+\_\+K, PCType pc\+\_\+\+Pa, Acentric\+Type acentric, const std\+::optional$<$ Eigen\+::\+Array\+XXd $>$ \&kmat=std\+::nullopt)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_acfec86ec5ae6cae32421445beaae20e9}{teqp\+::make\+\_\+canonical\+SRK}} (const nlohmann\+::json \&spec)
+\begin{DoxyCompactList}\small\item\em A JSON-\/based factory function for the canonical SRK model. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TCType , typename PCType , typename Acentric\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a388557f5b1209cf4a37a2bb3b9a6f9d5}{teqp\+::canonical\+\_\+\+PR}} (TCType Tc\+\_\+K, PCType pc\+\_\+\+Pa, Acentric\+Type acentric, const std\+::optional$<$ Eigen\+::\+Array\+XXd $>$ \&kmat=std\+::nullopt)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_a86f985a767c5c10c7b64cba83e288db4}{teqp\+::make\+\_\+canonical\+PR}} (const nlohmann\+::json \&spec)
+\begin{DoxyCompactList}\small\item\em A JSON-\/based factory function for the canonical SRK model. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceteqp_a334093a8fbd62d4f6445df5d8d330e32}{teqp\+::make\+\_\+generalizedcubic}} (const nlohmann\+::json \&spec)
+\begin{DoxyCompactList}\small\item\em A JSON-\/based factory function for the generalized cubic + alpha. \end{DoxyCompactList}\end{DoxyCompactItemize}

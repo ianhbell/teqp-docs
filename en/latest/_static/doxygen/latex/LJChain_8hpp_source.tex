@@ -1,0 +1,67 @@
+\hypertarget{LJChain_8hpp_source}{}\doxysection{LJChain.\+hpp}
+\label{LJChain_8hpp_source}\index{include/teqp/models/model\_potentials/LJChain.hpp@{include/teqp/models/model\_potentials/LJChain.hpp}}
+\mbox{\hyperlink{LJChain_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{types_8hpp}{teqp/types.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00004}00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{exceptions_8hpp}{teqp/exceptions.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00005}00005 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00007}00007 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceteqp}{teqp}} \{}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00008}\mbox{\hyperlink{namespaceteqp_1_1LJChain}{00008}}     \textcolor{keyword}{namespace }\mbox{\hyperlink{classteqp_1_1LJChain_1_1LJChain}{LJChain}} \{}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00009}00009     }
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00013}00013     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Monomer>}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00014}\mbox{\hyperlink{classteqp_1_1LJChain_1_1LJChain}{00014}}     \textcolor{keyword}{class }\mbox{\hyperlink{classteqp_1_1LJChain_1_1LJChain}{LJChain}} \{}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00015}00015     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00016}00016         \textcolor{keyword}{const} Monomer monomer;}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00017}00017         \textcolor{keywordtype}{double} m;}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00018}00018         \textcolor{keyword}{const} std::valarray<std::valarray<double>> aij\_Johnson = \{}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00019}00019             \{\},}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00020}00020             \{0, 0.49304346593882,  2.1528349894745 ,-\/15.955682329017,  24.035999666294 , -\/8.6437958513990\},}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00021}00021             \{0,-\/0.47031983115362,  1.1471647487376 , 37.889828024211, -\/84.667121491179 , 39.643914108411\},}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00022}00022             \{0, 5.0325486243620 ,-\/25.915399226419  ,-\/18.862251310090, 107.63707381726  ,-\/66.602649735720\},}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00023}00023             \{0,-\/7.3633150434385 , 51.553565337453  ,-\/40.519369256098, -\/38.796692647218 , 44.605139198378\},}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00024}00024             \{0, 2.9043607296043 ,-\/24.478812869291  , 31.500186765040,  -\/5.3368920371407, -\/9.5183440180133\}}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00025}00025         \};}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00026}00026         }
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00027}00027     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00028}\mbox{\hyperlink{classteqp_1_1LJChain_1_1LJChain_a23390cf708d2d3b5195d3e56dde7ece4}{00028}}         \mbox{\hyperlink{classteqp_1_1LJChain_1_1LJChain_a23390cf708d2d3b5195d3e56dde7ece4}{LJChain}}(Monomer \&\&monomer, \textcolor{keywordtype}{double} m) : monomer(monomer), m(m)\{\};}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00030}00030         \textcolor{keyword}{template}<\textcolor{keyword}{typename} TType, \textcolor{keyword}{typename} RhoType>}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00031}\mbox{\hyperlink{classteqp_1_1LJChain_1_1LJChain_ad90d93bd34dd9c4d3a9b7f63df968129}{00031}}         \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1LJChain_1_1LJChain_ad90d93bd34dd9c4d3a9b7f63df968129}{g\_LJ}}(\textcolor{keyword}{const} TType\& Tstar, \textcolor{keyword}{const} RhoType\& rhostar\_monomer)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00032}00032             std::common\_type\_t<TType, RhoType> summer = 1.0;}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00033}00033             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 1; i < 6; ++i)\{}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00034}00034                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} j = 1; j < 6; ++j)\{}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00035}00035                     summer += aij\_Johnson[i][j]*\mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(rhostar\_monomer,i)*\mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(Tstar, 1-\/j);}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00036}00036                 \}}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00037}00037             \}}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00038}00038             \textcolor{keywordflow}{return} summer;}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00039}00039         \}}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00041}00041         \textcolor{keyword}{template}<\textcolor{keyword}{typename} TType, \textcolor{keyword}{typename} RhoType>}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00042}\mbox{\hyperlink{classteqp_1_1LJChain_1_1LJChain_a85d7983d6fea7f7faa5c55d603cb6069}{00042}}         \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1LJChain_1_1LJChain_a85d7983d6fea7f7faa5c55d603cb6069}{get\_lnyR}}(\textcolor{keyword}{const} TType\& Tstar, \textcolor{keyword}{const} RhoType\& rhostar\_monomer)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00043}00043             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(log(\mbox{\hyperlink{classteqp_1_1LJChain_1_1LJChain_ad90d93bd34dd9c4d3a9b7f63df968129}{g\_LJ}}(Tstar, rhostar\_monomer)));}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00044}00044         \}}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00046}00046         \textcolor{keyword}{template}<\textcolor{keyword}{typename} TType, \textcolor{keyword}{typename} RhoType, \textcolor{keyword}{typename} MoleFracType>}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00047}\mbox{\hyperlink{classteqp_1_1LJChain_1_1LJChain_af8d315780b78b56bab0d43b99893c564}{00047}}         \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1LJChain_1_1LJChain_af8d315780b78b56bab0d43b99893c564}{alphar}}(\textcolor{keyword}{const} TType\& Tstar,}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00048}00048             \textcolor{keyword}{const} RhoType\& rho\_chain\_star,}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00049}00049             \textcolor{keyword}{const} MoleFracType\& molefrac)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00050}00050 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00051}00051             \textcolor{keyword}{auto} rhostar\_monomer = \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(rho\_chain\_star*m);}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00052}00052             \textcolor{keyword}{auto} alphar\_monomer = m*monomer.alphar(Tstar, rhostar\_monomer, molefrac);}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00053}00053             \textcolor{keyword}{auto} alphar\_chain = (1-\/m)*\mbox{\hyperlink{classteqp_1_1LJChain_1_1LJChain_a85d7983d6fea7f7faa5c55d603cb6069}{get\_lnyR}}(Tstar, rhostar\_monomer);}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00054}00054             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(alphar\_chain + alphar\_monomer);}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00055}00055         \}}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00057}00057         \textcolor{keyword}{template}<\textcolor{keyword}{class} VecType>}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00058}\mbox{\hyperlink{classteqp_1_1LJChain_1_1LJChain_a368970bdd64dfc01478df0e872a8cd32}{00058}}         \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1LJChain_1_1LJChain_a368970bdd64dfc01478df0e872a8cd32}{R}}(\textcolor{keyword}{const} VecType\& molefrac)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00059}00059             \textcolor{keywordflow}{return} 1.0;}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00060}00060         \}}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00061}00061     \};}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00062}00062     }
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00063}00063     \} \textcolor{comment}{// namespace LJChain}}
+\DoxyCodeLine{\Hypertarget{LJChain_8hpp_source_l00064}00064 \}; \textcolor{comment}{// namespace teqp}}
+
+\end{DoxyCode}

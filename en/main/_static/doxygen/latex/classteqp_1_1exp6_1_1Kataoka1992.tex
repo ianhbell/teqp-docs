@@ -1,0 +1,95 @@
+\hypertarget{classteqp_1_1exp6_1_1Kataoka1992}{}\doxysection{teqp\+::exp6\+::Kataoka1992 Class Reference}
+\label{classteqp_1_1exp6_1_1Kataoka1992}\index{teqp::exp6::Kataoka1992@{teqp::exp6::Kataoka1992}}
+
+
+{\ttfamily \#include $<$exp6.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992_ab71669b75d721efbc6d2c29739f2f000}{Kataoka1992}} (double alpha)
+\item 
+{\footnotesize template$<$typename Mole\+Frac\+Type $>$ }\\double \mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992_a8ebdbe255d4c8939f577ff2557241877}{R}} (const Mole\+Frac\+Type \&) const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992_a1a18e59f41f567eeef5d1a35df53de75}{get\+\_\+alpha}} () const
+\begin{DoxyCompactList}\small\item\em Return the alpha parameter. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992_ad4b00b0eeb05d0b36b930e051f9bcede}{alphar}} (const TType \&Tstar, const Rho\+Type \&rhostar, const Mole\+Frac\+Type \&molefrac) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Empirical EOS from\+: Yosuke Kataoka, Equation of State of the Fluid Defined by the Modified Buckingham (exp-\/6) Potential Derived by Molecular Dynamics Simulations Bulletin of the Chemical Society of Japan, 1992; 65, 2093-\/2103 \href{https://doi.org/10.1246/bcsj.65.2093}{\texttt{ https\+://doi.\+org/10.\+1246/bcsj.\+65.\+2093}} 
+
+Definition at line \mbox{\hyperlink{exp6_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{exp6_8hpp_source}{exp6.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classteqp_1_1exp6_1_1Kataoka1992_ab71669b75d721efbc6d2c29739f2f000}\label{classteqp_1_1exp6_1_1Kataoka1992_ab71669b75d721efbc6d2c29739f2f000}} 
+\index{teqp::exp6::Kataoka1992@{teqp::exp6::Kataoka1992}!Kataoka1992@{Kataoka1992}}
+\index{Kataoka1992@{Kataoka1992}!teqp::exp6::Kataoka1992@{teqp::exp6::Kataoka1992}}
+\doxysubsubsection{\texorpdfstring{Kataoka1992()}{Kataoka1992()}}
+{\footnotesize\ttfamily teqp\+::exp6\+::\+Kataoka1992\+::\+Kataoka1992 (\begin{DoxyParamCaption}\item[{double}]{alpha }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em alpha} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{exp6_8hpp_source_l00104}{104}} of file \mbox{\hyperlink{exp6_8hpp_source}{exp6.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classteqp_1_1exp6_1_1Kataoka1992_ad4b00b0eeb05d0b36b930e051f9bcede}\label{classteqp_1_1exp6_1_1Kataoka1992_ad4b00b0eeb05d0b36b930e051f9bcede}} 
+\index{teqp::exp6::Kataoka1992@{teqp::exp6::Kataoka1992}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::exp6::Kataoka1992@{teqp::exp6::Kataoka1992}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ \\
+auto teqp\+::exp6\+::\+Kataoka1992\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{Tstar,  }\item[{const Rho\+Type \&}]{rhostar,  }\item[{const Mole\+Frac\+Type \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tstar} & $T^*=T/\epsilon/k $ \\
+\hline
+{\em rhostar} & $\rho^*=\rho_{\rm N}\sigma^3 $ \\
+\hline
+{\em molefrac} & mole fractions \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{exp6_8hpp_source_l00121}{121}} of file \mbox{\hyperlink{exp6_8hpp_source}{exp6.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1exp6_1_1Kataoka1992_a1a18e59f41f567eeef5d1a35df53de75}\label{classteqp_1_1exp6_1_1Kataoka1992_a1a18e59f41f567eeef5d1a35df53de75}} 
+\index{teqp::exp6::Kataoka1992@{teqp::exp6::Kataoka1992}!get\_alpha@{get\_alpha}}
+\index{get\_alpha@{get\_alpha}!teqp::exp6::Kataoka1992@{teqp::exp6::Kataoka1992}}
+\doxysubsubsection{\texorpdfstring{get\_alpha()}{get\_alpha()}}
+{\footnotesize\ttfamily auto teqp\+::exp6\+::\+Kataoka1992\+::get\+\_\+alpha (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the alpha parameter. 
+
+
+
+Definition at line \mbox{\hyperlink{exp6_8hpp_source_l00111}{111}} of file \mbox{\hyperlink{exp6_8hpp_source}{exp6.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1exp6_1_1Kataoka1992_a8ebdbe255d4c8939f577ff2557241877}\label{classteqp_1_1exp6_1_1Kataoka1992_a8ebdbe255d4c8939f577ff2557241877}} 
+\index{teqp::exp6::Kataoka1992@{teqp::exp6::Kataoka1992}!R@{R}}
+\index{R@{R}!teqp::exp6::Kataoka1992@{teqp::exp6::Kataoka1992}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily template$<$typename Mole\+Frac\+Type $>$ \\
+double teqp\+::exp6\+::\+Kataoka1992\+::R (\begin{DoxyParamCaption}\item[{const Mole\+Frac\+Type \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{exp6_8hpp_source_l00108}{108}} of file \mbox{\hyperlink{exp6_8hpp_source}{exp6.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/model\+\_\+potentials/\mbox{\hyperlink{exp6_8hpp}{exp6.\+hpp}}\end{DoxyCompactItemize}

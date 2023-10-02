@@ -1,0 +1,125 @@
+\hypertarget{exp6_8hpp_source}{}\doxysection{exp6.\+hpp}
+\label{exp6_8hpp_source}\index{include/teqp/models/model\_potentials/exp6.hpp@{include/teqp/models/model\_potentials/exp6.hpp}}
+\mbox{\hyperlink{exp6_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00003}00003 \textcolor{preprocessor}{\#include <valarray>}}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00004}00004 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00006}00006 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceteqp}{teqp}}\{}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00007}\mbox{\hyperlink{namespaceteqp_1_1exp6}{00007}} \textcolor{keyword}{namespace }exp6\{}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00009}00009 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{types_8hpp}{teqp/types.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00019}\mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992}{00019}} \textcolor{keyword}{class }\mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992}{Kataoka1992}}\{}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00020}00020 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00021}00021     }
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00022}00022     \textcolor{keyword}{const} std::vector<std::valarray<double>> c = \{}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00023}00023         \{1,0.0,-\/0.50,-\/0.6850148\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00024}00024         \{1,0.25,-\/0.50,0.4524021\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00025}00025         \{1,1.00,-\/0.50,-\/0.9978102\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00026}00026         \{1,2.00,-\/0.50,-\/1.7569237\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00027}00027         \{1,3.00,-\/0.50,0.5178725\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00028}00028         \{1,0.0,0.0,0.9798958\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00029}00029         \{1,0.25,0.0,2.0371027\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00030}00030         \{1,1.00,0.0,-\/5.3831902\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00031}00031         \{1,2.00,0.0,2.5157204\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00032}00032         \{1,3.00,0.0,-\/1.3160448\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00033}00033         \{1,0.0,1.50,0.1106332\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00034}00034         \{1,0.25,1.50,0.0221654\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00035}00035         \{1,1.00,1.50,-\/0.0927995\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00036}00036         \{1,2.00,1.50,0.0685976\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00037}00037         \{1,3.00,1.50,0.0455256\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00038}00038         \{2,0.0,-\/0.50,3.2473965\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00039}00039         \{2,0.25,-\/0.50,-\/7.1216450\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00040}00040         \{2,1.00,-\/0.50,6.3146334\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00041}00041         \{2,2.00,-\/0.50,3.9169369\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00042}00042         \{2,3.00,-\/0.50,-\/5.7430820\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00043}00043         \{2,0.0,0.0,-\/2.6474066\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00044}00044         \{2,0.25,0.0,6.5439167\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00045}00045         \{2,1.00,0.0,-\/4.2844410\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00046}00046         \{2,2.00,0.0,-\/0.1870927\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00047}00047         \{2,3.00,0.0,-\/0.6190643\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00048}00048         \{2,0.0,1.50,1.1307259\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00049}00049         \{2,0.25,1.50,-\/2.2454348\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00050}00050         \{2,1.00,1.50,0.9304036\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00051}00051         \{2,2.00,1.50,0.8111790\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00052}00052         \{2,3.00,1.50,-\/0.6701541\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00053}00053         \{3,0.0,-\/0.50,-\/5.2004805\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00054}00054         \{3,0.25,-\/0.50,9.9220171\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00055}00055         \{3,1.00,-\/0.50,-\/8.3147421\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00056}00056         \{3,2.00,-\/0.50,-\/10.7043695\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00057}00057         \{3,3.00,-\/0.50,16.3647919\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00058}00058         \{3,0.0,0.0,0.4470198\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00059}00059         \{3,0.25,0.0,1.8149662\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00060}00060         \{3,1.00,0.0,-\/6.1030884\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00061}00061         \{3,2.00,0.0,-\/6.6081009\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00062}00062         \{3,3.00,0.0,12.0017595\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00063}00063         \{3,0.0,1.50,-\/2.4980745\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00064}00064         \{3,0.25,1.50,6.4317245\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00065}00065         \{3,1.00,1.50,-\/0.2996140\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00066}00066         \{3,2.00,1.50,-\/4.2253304\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00067}00067         \{3,3.00,1.50,1.9814978\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00068}00068         \{4,0.0,-\/0.50,1.3786678\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00069}00069         \{4,0.25,-\/0.50,-\/3.8790855\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00070}00070         \{4,1.00,-\/0.50,1.2802448\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00071}00071         \{4,2.00,-\/0.50,15.9196701\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00072}00072         \{4,3.00,-\/0.50,-\/17.1450195\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00073}00073         \{4,0.0,0.0,1.8664589\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00074}00074         \{4,0.25,0.0,-\/2.6899223\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00075}00075         \{4,1.00,0.0,10.8094797\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00076}00076         \{4,2.00,0.0,6.9019051\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00077}00077         \{4,3.00,0.0,-\/18.3938751\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00078}00078         \{4,0.0,1.50,3.4184790\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00079}00079         \{4,0.25,1.50,-\/8.8453131\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00080}00080         \{4,1.00,1.50,-\/2.0526648\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00081}00081         \{4,2.00,1.50,6.2798786\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00082}00082         \{4,3.00,1.50,-\/2.0717278\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00083}00083         \{5,0.0,-\/0.50,1.0566063\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00084}00084         \{5,0.25,-\/0.50,-\/1.1453161\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00085}00085         \{5,1.00,-\/0.50,1.9671011\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00086}00086         \{5,2.00,-\/0.50,-\/7.9601946\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00087}00087         \{5,3.00,-\/0.50,6.1615953\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00088}00088         \{5,0.0,0.0,-\/1.5089417\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00089}00089         \{5,0.25,0.0,1.0174732\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00090}00090         \{5,1.00,0.0,-\/2.4891043\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00091}00091         \{5,2.00,0.0,-\/2.3425989\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00092}00092         \{5,3.00,0.0,8.2107668\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00093}00093         \{5,0.0,1.50,-\/1.7408895\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00094}00094         \{5,0.25,1.50,5.0178003\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00095}00095         \{5,1.00,1.50,1.4885798\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00096}00096         \{5,2.00,1.50,-\/3.0418901\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00097}00097         \{5,3.00,1.50,0.7206789\},}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00098}00098     \};}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00099}00099     \textcolor{keyword}{const} \textcolor{keywordtype}{double} alphastar;}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00100}00100     }
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00101}00101 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00104}\mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992_ab71669b75d721efbc6d2c29739f2f000}{00104}}     \mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992_ab71669b75d721efbc6d2c29739f2f000}{Kataoka1992}}(\textcolor{keywordtype}{double} alpha) : alphastar((alpha-\/8)/10)\{\};}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00105}00105     }
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00106}00106     \textcolor{comment}{// We are in "{}simulation units"{}, so R is 1.0, and T and rho are T\string^* and rho\string^*}}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00107}00107     \textcolor{keyword}{template}<\textcolor{keyword}{typename} MoleFracType>}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00108}\mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992_a8ebdbe255d4c8939f577ff2557241877}{00108}}     \textcolor{keywordtype}{double} \mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992_a8ebdbe255d4c8939f577ff2557241877}{R}}(\textcolor{keyword}{const} MoleFracType \&)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} 1.0; \}}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00109}00109     }
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00111}\mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992_a1a18e59f41f567eeef5d1a35df53de75}{00111}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992_a1a18e59f41f567eeef5d1a35df53de75}{get\_alpha}}()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00112}00112         \textcolor{keywordflow}{return} alphastar*10+8;}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00113}00113     \}}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00114}00114     }
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00120}00120     \textcolor{keyword}{template}<\textcolor{keyword}{typename} TType, \textcolor{keyword}{typename} RhoType, \textcolor{keyword}{typename} MoleFracType>}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00121}\mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992_ad4b00b0eeb05d0b36b930e051f9bcede}{00121}}     \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992_ad4b00b0eeb05d0b36b930e051f9bcede}{alphar}}(\textcolor{keyword}{const} TType\& Tstar,}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00122}00122         \textcolor{keyword}{const} RhoType\& rhostar,}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00123}00123         \textcolor{keyword}{const} MoleFracType\& molefrac)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00124}00124 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00125}00125         std::common\_type\_t<TType, RhoType> o = 0.0;}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00126}00126         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} el : c)\{}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00127}00127             \textcolor{keyword}{auto} p = el[0], q = el[1], r = el[2], Apqr = el[3];}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00128}00128             o = o + Apqr * \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(rhostar, p) * \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(Tstar, -\/q) * \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(alphastar, r);}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00129}00129         \}}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00130}00130         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(o);}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00131}00131     \}}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00132}00132 \};}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00133}00133 }
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00134}00134 \}}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00135}00135 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,54 @@
+\hypertarget{pcsaft_8hpp}{}\doxysection{include/teqp/models/pcsaft.hpp File Reference}
+\label{pcsaft_8hpp}\index{include/teqp/models/pcsaft.hpp@{include/teqp/models/pcsaft.hpp}}
+{\ttfamily \#include \char`\"{}nlohmann/json.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/types.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/exceptions.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/constants.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/json\+\_\+tools.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/models/saft/polar\+\_\+terms.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1PCSAFT_1_1SAFTCoeffs}{teqp\+::\+PCSAFT\+::\+SAFTCoeffs}}
+\begin{DoxyCompactList}\small\item\em Coefficients for one fluid. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classteqp_1_1PCSAFT_1_1PCSAFTLibrary}{teqp\+::\+PCSAFT\+::\+PCSAFTLibrary}}
+\begin{DoxyCompactList}\small\item\em Manager class for \mbox{\hyperlink{namespaceteqp_1_1PCSAFT}{PCSAFT}} coefficients. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classteqp_1_1PCSAFT_1_1SAFTCalc}{teqp\+::\+PCSAFT\+::\+SAFTCalc$<$ Num\+Type, Product\+Type $>$}}
+\begin{DoxyCompactList}\small\item\em Parameters for model evaluation. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classteqp_1_1PCSAFT_1_1PCSAFTHardChainContribution}{teqp\+::\+PCSAFT\+::\+PCSAFTHard\+Chain\+Contribution}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1PCSAFT_1_1PCSAFTMixture}{teqp\+::\+PCSAFT\+::\+PCSAFTMixture}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1PCSAFT}{teqp\+::\+PCSAFT}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Eta , typename Mbar $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1PCSAFT_a8fc2c645e2079aaa7458dd1aa11f2e3d}{teqp\+::\+PCSAFT\+::\+C1}} (const Eta \&eta, Mbar mbar)
+\item 
+{\footnotesize template$<$typename Eta , typename Mbar $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1PCSAFT_a9357cae753b010f325ebf74bd650cf9e}{teqp\+::\+PCSAFT\+::\+C2}} (const Eta \&eta, Mbar mbar)
+\begin{DoxyCompactList}\small\item\em Eqn. A.\+31. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1PCSAFT_a85066f94e2e01f8633c3789965fae6de}{teqp\+::\+PCSAFT\+::get\+\_\+a}} (TYPE mbar)
+\begin{DoxyCompactList}\small\item\em Eqn. A.\+18. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1PCSAFT_ad53015a713d1dc4b14d70f1d3844ae09}{teqp\+::\+PCSAFT\+::get\+\_\+b}} (TYPE mbar)
+\begin{DoxyCompactList}\small\item\em Eqn. A.\+19. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1PCSAFT_ae2be64354a14563364837d557d0dfa64}{teqp\+::\+PCSAFT\+::get\+\_\+alphar\+\_\+hs}} (const Vec\+Type \&zeta)
+\begin{DoxyCompactList}\small\item\em Residual contribution to alphar from hard-\/sphere (Eqn. A.\+6) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename z\+Vec\+Type , typename d\+Vec\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1PCSAFT_a72473731c044cc66fb209f5b1ba09ec5}{teqp\+::\+PCSAFT\+::gij\+\_\+\+HS}} (const z\+Vec\+Type \&zeta, const d\+Vec\+Type \&d, std\+::size\+\_\+t i, std\+::size\+\_\+t j)
+\begin{DoxyCompactList}\small\item\em Term from Eqn. A.\+7. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Eta , typename Mbar\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1PCSAFT_a71ce216e3c8fa0bcba479d3223c3031a}{teqp\+::\+PCSAFT\+::get\+\_\+\+I1}} (const Eta \&eta, Mbar\+Type mbar)
+\begin{DoxyCompactList}\small\item\em Eqn. A.\+16, Eqn. A.\+29. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Eta , typename Mbar\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1PCSAFT_a5b6725f768f7bbc396adfbe0217cdc4f}{teqp\+::\+PCSAFT\+::get\+\_\+\+I2}} (const Eta \&eta, Mbar\+Type mbar)
+\begin{DoxyCompactList}\small\item\em Eqn. A.\+17, Eqn. A.\+30. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Vec\+Type1 , typename NType $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1PCSAFT_a52a2250dd447216c7ba3ec789c1b59b2}{teqp\+::\+PCSAFT\+::powvec}} (const Vec\+Type1 \&v1, NType n)
+\item 
+{\footnotesize template$<$typename Vec\+Type1 , typename Vec\+Type2 , typename Vec\+Type3 $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1PCSAFT_ad19edc4b424e1b67d9e503a9eb30df85}{teqp\+::\+PCSAFT\+::sumproduct}} (const Vec\+Type1 \&v1, const Vec\+Type2 \&v2, const Vec\+Type3 \&v3)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1PCSAFT_aa5526ea705fa284efc14bf790640b5a8}{teqp\+::\+PCSAFT\+::\+PCSAFTfactory}} (const nlohmann\+::json \&spec)
+\begin{DoxyCompactList}\small\item\em A JSON-\/based factory function for the PC-\/\+SAFT model. \end{DoxyCompactList}\end{DoxyCompactItemize}

@@ -1,0 +1,51 @@
+\hypertarget{ideal__eosterms_8hpp}{}\doxysection{include/teqp/ideal\+\_\+eosterms.hpp File Reference}
+\label{ideal__eosterms_8hpp}\index{include/teqp/ideal\_eosterms.hpp@{include/teqp/ideal\_eosterms.hpp}}
+{\ttfamily \#include $<$variant$>$}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
+{\ttfamily \#include \char`\"{}teqp/types.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/exceptions.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/json\+\_\+tools.\+hpp\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classteqp_1_1IdealHelmholtzConstant}{teqp\+::\+Ideal\+Helmholtz\+Constant}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1IdealHelmholtzLogT}{teqp\+::\+Ideal\+Helmholtz\+LogT}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1IdealHelmholtzLead}{teqp\+::\+Ideal\+Helmholtz\+Lead}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1IdealHelmholtzPowerT}{teqp\+::\+Ideal\+Helmholtz\+PowerT}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1IdealHelmholtzPlanckEinstein}{teqp\+::\+Ideal\+Helmholtz\+Planck\+Einstein}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1IdealHelmholtzPlanckEinsteinGeneralized}{teqp\+::\+Ideal\+Helmholtz\+Planck\+Einstein\+Generalized}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1IdealHelmholtzGERG2004Cosh}{teqp\+::\+Ideal\+Helmholtz\+GERG2004\+Cosh}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1IdealHelmholtzGERG2004Sinh}{teqp\+::\+Ideal\+Helmholtz\+GERG2004\+Sinh}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1IdealHelmholtzCp0Constant}{teqp\+::\+Ideal\+Helmholtz\+Cp0\+Constant}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1IdealHelmholtzCp0PowerT}{teqp\+::\+Ideal\+Helmholtz\+Cp0\+PowerT}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1PureIdealHelmholtz}{teqp\+::\+Pure\+Ideal\+Helmholtz}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1IdealHelmholtz}{teqp\+::\+Ideal\+Helmholtz}}
+\begin{DoxyCompactList}\small\item\em Ideal-\/gas Helmholtz energy container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceteqp_aff9f1b2203c1156901f43d9c02c12c22}{teqp\+::\+Ideal\+Helmholtz\+Terms}} = std\+::variant$<$ Ideal\+Helmholtz\+Constant, Ideal\+Helmholtz\+Lead, Ideal\+Helmholtz\+LogT, Ideal\+Helmholtz\+PowerT, Ideal\+Helmholtz\+Planck\+Einstein, Ideal\+Helmholtz\+Planck\+Einstein\+Generalized, Ideal\+Helmholtz\+GERG2004\+Cosh, Ideal\+Helmholtz\+GERG2004\+Sinh, Ideal\+Helmholtz\+Cp0\+Constant, Ideal\+Helmholtz\+Cp0\+PowerT $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+nlohmann\+::json \mbox{\hyperlink{namespaceteqp_a7a981a876b9ae93df09b98744a1f66ef}{teqp\+::\+Cool\+Prop2teqp\+\_\+alphaig\+\_\+term\+\_\+reformatter}} (const nlohmann\+::json \&term, double Tri, double rhori, double R)
+\item 
+nlohmann\+::json \mbox{\hyperlink{namespaceteqp_ac3923ac078dc5b9aa1ddbe7ee81c5613}{teqp\+::convert\+\_\+\+Cool\+Prop\+\_\+idealgas}} (const std\+::string \&s, int index)
+\begin{DoxyCompactList}\small\item\em Convert the ideal-\/gas term for a term from Cool\+Prop-\/formatted JSON structure. \end{DoxyCompactList}\end{DoxyCompactItemize}

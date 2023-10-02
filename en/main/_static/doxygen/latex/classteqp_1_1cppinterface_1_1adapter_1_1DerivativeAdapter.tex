@@ -1,0 +1,230 @@
+\hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{}\doxysection{teqp\+::cppinterface\+::adapter\+::Derivative\+Adapter\texorpdfstring{$<$}{<} Model\+Pack \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}\index{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}}
+
+
+{\ttfamily \#include $<$deriv\+\_\+adapter.\+hpp$>$}
+
+Inheritance diagram for teqp\+::cppinterface\+::adapter\+::Derivative\+Adapter\texorpdfstring{$<$}{<} Model\+Pack \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \& \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a2d50016e8f455344ed6e23cb06cb59af}{get\+\_\+\+Model\+Pack\+\_\+ref}} ()
+\item 
+const auto \& \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_af67ec0060c538578e25c6b9cf614a4e7}{get\+\_\+\+Model\+Pack\+\_\+cref}} () const
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a46de90c1d2f43051fe7cc73297fa3e66}{Derivative\+Adapter}} (\mbox{\hyperlink{structteqp_1_1cppinterface_1_1adapter_1_1internal_1_1tag}{internal\+::tag}}$<$ T $>$ tag\+\_\+, const T \&\&mp)
+\item 
+const std\+::type\+\_\+index \& \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a201ccbab772993f8905b519316697412}{get\+\_\+type\+\_\+index}} () const override
+\item 
+virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a9989376191d71a3d970393452ea5f07a}{get\+\_\+R}} (const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&molefrac) const override
+\item 
+virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a6e487c7c6a6ee6011cc9001c3c5656b6}{get\+\_\+\+Arxy}} (const int NT, const int ND, const double T, const double rhomolar, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&molefrac) const override
+\item 
+virtual \mbox{\hyperlink{teqpcpp_8hpp_a0dc12e3dd11b62bf2f28c6de447b2710}{AR0\+N\+\_\+args}} double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_aa33b07b35d350f9960cee16ede1b2b31}{get\+\_\+\+B2vir}} (const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&z) const override
+\item 
+virtual std\+::map$<$ int, double $>$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a59576db398d3bd5c75a06550ef54f2d8}{get\+\_\+\+Bnvir}} (const int Nderiv, const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&z) const override
+\item 
+virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_ab11a93647d19d6fa05859d3942c54fd5}{get\+\_\+\+B12vir}} (const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&z) const override
+\item 
+virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a2d33a7c80e441714b809e6ca11e84231}{get\+\_\+dm\+Bnvird\+Tm}} (const int Nderiv, const int NTderiv, const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&molefrac) const override
+\item 
+virtual \mbox{\hyperlink{teqpcpp_8hpp_a63f88652f783b174c28db6ed17a8716a}{ISOCHORIC\+\_\+multimatrix\+\_\+args}} Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a1251825e0a63098d225678316fcc86c3}{get\+\_\+\+Psir\+\_\+sigma\+\_\+derivs}} (const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&v) const override
+\item 
+virtual \mbox{\hyperlink{teqpcpp_8hpp_a33b6664eaa863cb2cde7788fd750ecfb}{EArray33d}} \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a36716c64a2c80572073232884e4da1ba}{get\+\_\+deriv\+\_\+mat2}} (const double T, double rho, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&z) const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Model\+Pack$>$\newline
+class teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter$<$ Model\+Pack $>$}
+This class holds a const reference to a class, and exposes an interface that matches that used in \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}}
+
+The exposed methods cover all the derivative methods that are obtained by derivatives of the model 
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a46de90c1d2f43051fe7cc73297fa3e66}\label{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a46de90c1d2f43051fe7cc73297fa3e66}} 
+\index{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}!DerivativeAdapter@{DerivativeAdapter}}
+\index{DerivativeAdapter@{DerivativeAdapter}!teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}}
+\doxysubsubsection{\texorpdfstring{DerivativeAdapter()}{DerivativeAdapter()}}
+{\footnotesize\ttfamily template$<$typename Model\+Pack $>$ \\
+template$<$typename T $>$ \\
+\mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter}}$<$ Model\+Pack $>$\+::\mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{Derivative\+Adapter}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structteqp_1_1cppinterface_1_1adapter_1_1internal_1_1tag}{internal\+::tag}}$<$ T $>$}]{tag\+\_\+,  }\item[{const T \&\&}]{mp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a6e487c7c6a6ee6011cc9001c3c5656b6}\label{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a6e487c7c6a6ee6011cc9001c3c5656b6}} 
+\index{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}!get\_Arxy@{get\_Arxy}}
+\index{get\_Arxy@{get\_Arxy}!teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}}
+\doxysubsubsection{\texorpdfstring{get\_Arxy()}{get\_Arxy()}}
+{\footnotesize\ttfamily template$<$typename Model\+Pack $>$ \\
+virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter}}$<$ Model\+Pack $>$\+::get\+\_\+\+Arxy (\begin{DoxyParamCaption}\item[{const int}]{NT,  }\item[{const int}]{ND,  }\item[{const double}]{T,  }\item[{const double}]{rhomolar,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_ae89e2b0bcefe1f1562d4564ff9447541}{teqp\+::cppinterface\+::\+Abstract\+Model}}.
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00068}{68}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_ab11a93647d19d6fa05859d3942c54fd5}\label{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_ab11a93647d19d6fa05859d3942c54fd5}} 
+\index{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}!get\_B12vir@{get\_B12vir}}
+\index{get\_B12vir@{get\_B12vir}!teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}}
+\doxysubsubsection{\texorpdfstring{get\_B12vir()}{get\_B12vir()}}
+{\footnotesize\ttfamily template$<$typename Model\+Pack $>$ \\
+virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter}}$<$ Model\+Pack $>$\+::get\+\_\+\+B12vir (\begin{DoxyParamCaption}\item[{const double}]{T,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_af3fb55dc5f552edc99d2b08a9905ca14}{teqp\+::cppinterface\+::\+Abstract\+Model}}.
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00088}{88}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_aa33b07b35d350f9960cee16ede1b2b31}\label{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_aa33b07b35d350f9960cee16ede1b2b31}} 
+\index{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}!get\_B2vir@{get\_B2vir}}
+\index{get\_B2vir@{get\_B2vir}!teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}}
+\doxysubsubsection{\texorpdfstring{get\_B2vir()}{get\_B2vir()}}
+{\footnotesize\ttfamily template$<$typename Model\+Pack $>$ \\
+virtual \mbox{\hyperlink{teqpcpp_8hpp_a0dc12e3dd11b62bf2f28c6de447b2710}{AR0\+N\+\_\+args}} double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter}}$<$ Model\+Pack $>$\+::get\+\_\+\+B2vir (\begin{DoxyParamCaption}\item[{const double}]{T,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a5050606cbd4f943dd92c6616919c4e5e}{teqp\+::cppinterface\+::\+Abstract\+Model}}.
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00082}{82}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a59576db398d3bd5c75a06550ef54f2d8}\label{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a59576db398d3bd5c75a06550ef54f2d8}} 
+\index{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}!get\_Bnvir@{get\_Bnvir}}
+\index{get\_Bnvir@{get\_Bnvir}!teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}}
+\doxysubsubsection{\texorpdfstring{get\_Bnvir()}{get\_Bnvir()}}
+{\footnotesize\ttfamily template$<$typename Model\+Pack $>$ \\
+virtual std\+::map$<$ int, double $>$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter}}$<$ Model\+Pack $>$\+::get\+\_\+\+Bnvir (\begin{DoxyParamCaption}\item[{const int}]{Nderiv,  }\item[{const double}]{T,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a226531170c444c9d6eeda8d4114afa8f}{teqp\+::cppinterface\+::\+Abstract\+Model}}.
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00085}{85}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a36716c64a2c80572073232884e4da1ba}\label{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a36716c64a2c80572073232884e4da1ba}} 
+\index{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}!get\_deriv\_mat2@{get\_deriv\_mat2}}
+\index{get\_deriv\_mat2@{get\_deriv\_mat2}!teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}}
+\doxysubsubsection{\texorpdfstring{get\_deriv\_mat2()}{get\_deriv\_mat2()}}
+{\footnotesize\ttfamily template$<$typename Model\+Pack $>$ \\
+virtual \mbox{\hyperlink{teqpcpp_8hpp_a33b6664eaa863cb2cde7788fd750ecfb}{EArray33d}} \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter}}$<$ Model\+Pack $>$\+::get\+\_\+deriv\+\_\+mat2 (\begin{DoxyParamCaption}\item[{const double}]{T,  }\item[{double}]{rho,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a5f86b60b6ecc932c51e7f9fc81745f20}{teqp\+::cppinterface\+::\+Abstract\+Model}}.
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00112}{112}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a2d33a7c80e441714b809e6ca11e84231}\label{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a2d33a7c80e441714b809e6ca11e84231}} 
+\index{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}!get\_dmBnvirdTm@{get\_dmBnvirdTm}}
+\index{get\_dmBnvirdTm@{get\_dmBnvirdTm}!teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}}
+\doxysubsubsection{\texorpdfstring{get\_dmBnvirdTm()}{get\_dmBnvirdTm()}}
+{\footnotesize\ttfamily template$<$typename Model\+Pack $>$ \\
+virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter}}$<$ Model\+Pack $>$\+::get\+\_\+dm\+Bnvird\+Tm (\begin{DoxyParamCaption}\item[{const int}]{Nderiv,  }\item[{const int}]{NTderiv,  }\item[{const double}]{T,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_acc09f8048ab148e04f74a8461d9d3b4f}{teqp\+::cppinterface\+::\+Abstract\+Model}}.
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00091}{91}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_af67ec0060c538578e25c6b9cf614a4e7}\label{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_af67ec0060c538578e25c6b9cf614a4e7}} 
+\index{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}!get\_ModelPack\_cref@{get\_ModelPack\_cref}}
+\index{get\_ModelPack\_cref@{get\_ModelPack\_cref}!teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}}
+\doxysubsubsection{\texorpdfstring{get\_ModelPack\_cref()}{get\_ModelPack\_cref()}}
+{\footnotesize\ttfamily template$<$typename Model\+Pack $>$ \\
+const auto \& \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter}}$<$ Model\+Pack $>$\+::get\+\_\+\+Model\+Pack\+\_\+cref (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a2d50016e8f455344ed6e23cb06cb59af}\label{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a2d50016e8f455344ed6e23cb06cb59af}} 
+\index{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}!get\_ModelPack\_ref@{get\_ModelPack\_ref}}
+\index{get\_ModelPack\_ref@{get\_ModelPack\_ref}!teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}}
+\doxysubsubsection{\texorpdfstring{get\_ModelPack\_ref()}{get\_ModelPack\_ref()}}
+{\footnotesize\ttfamily template$<$typename Model\+Pack $>$ \\
+auto \& \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter}}$<$ Model\+Pack $>$\+::get\+\_\+\+Model\+Pack\+\_\+ref (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a1251825e0a63098d225678316fcc86c3}\label{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a1251825e0a63098d225678316fcc86c3}} 
+\index{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}!get\_Psir\_sigma\_derivs@{get\_Psir\_sigma\_derivs}}
+\index{get\_Psir\_sigma\_derivs@{get\_Psir\_sigma\_derivs}!teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}}
+\doxysubsubsection{\texorpdfstring{get\_Psir\_sigma\_derivs()}{get\_Psir\_sigma\_derivs()}}
+{\footnotesize\ttfamily template$<$typename Model\+Pack $>$ \\
+virtual \mbox{\hyperlink{teqpcpp_8hpp_a63f88652f783b174c28db6ed17a8716a}{ISOCHORIC\+\_\+multimatrix\+\_\+args}} Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter}}$<$ Model\+Pack $>$\+::get\+\_\+\+Psir\+\_\+sigma\+\_\+derivs (\begin{DoxyParamCaption}\item[{const double}]{T,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{rhovec,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a241d7dac7fb3788ab9c5053402c56a03}{teqp\+::cppinterface\+::\+Abstract\+Model}}.
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00108}{108}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a9989376191d71a3d970393452ea5f07a}\label{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a9989376191d71a3d970393452ea5f07a}} 
+\index{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}!get\_R@{get\_R}}
+\index{get\_R@{get\_R}!teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}}
+\doxysubsubsection{\texorpdfstring{get\_R()}{get\_R()}}
+{\footnotesize\ttfamily template$<$typename Model\+Pack $>$ \\
+virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter}}$<$ Model\+Pack $>$\+::get\+\_\+R (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a38884acb6a2663fe18967760e9438b68}{teqp\+::cppinterface\+::\+Abstract\+Model}}.
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00064}{64}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a201ccbab772993f8905b519316697412}\label{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a201ccbab772993f8905b519316697412}} 
+\index{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}!get\_type\_index@{get\_type\_index}}
+\index{get\_type\_index@{get\_type\_index}!teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$@{teqp::cppinterface::adapter::DerivativeAdapter$<$ ModelPack $>$}}
+\doxysubsubsection{\texorpdfstring{get\_type\_index()}{get\_type\_index()}}
+{\footnotesize\ttfamily template$<$typename Model\+Pack $>$ \\
+const std\+::type\+\_\+index \& \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter}}$<$ Model\+Pack $>$\+::get\+\_\+type\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_ad53192877dd4a739c30ebe98098b8e81}{teqp\+::cppinterface\+::\+Abstract\+Model}}.
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/cpp/\mbox{\hyperlink{deriv__adapter_8hpp}{deriv\+\_\+adapter.\+hpp}}\end{DoxyCompactItemize}

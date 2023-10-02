@@ -1,0 +1,472 @@
+\hypertarget{structteqp_1_1IsochoricDerivatives}{}\doxysection{teqp\+::Isochoric\+Derivatives\texorpdfstring{$<$}{<} Model, Scalar, Vector\+Type \texorpdfstring{$>$}{>} Struct Template Reference}
+\label{structteqp_1_1IsochoricDerivatives}\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+
+
+{\ttfamily \#include $<$derivs.\+hpp$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a3e3b11f6d647d33c737137d7064d6a8d}{get\+\_\+splus}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a85fb1d49ed9a7a675461d6ac957bfcd7}{get\+\_\+pr}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_adbf7b7cc9495fca2162f42bfcbfe3c0f}{get\+\_\+\+Ar00}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a776e50cea118738e6985ee5b2129245a}{get\+\_\+\+Ar10}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_ab6f32bddc8c49a34eaba30764af2c1da}{get\+\_\+\+Ar01}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a9bee1fb0121acae156cd3a800ab20a92}{get\+\_\+\+Psir}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a0440679e0e5a84a50f1f0eed777baab5}{get\+\_\+d\+Psird\+T\+\_\+constrhovec}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a10b83afc151769f751ad7453ad0abd8c}{build\+\_\+\+Psir\+\_\+\+Hessian\+\_\+autodiff}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rho)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a61764c389c22ad79d765c923eeae423f}{build\+\_\+\+Psir\+\_\+fgrad\+Hessian\+\_\+autodiff}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rho)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a434b96c6415d8f8038209820bf0f3359}{build\+\_\+\+Psi\+\_\+\+Hessian\+\_\+autodiff}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rho)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a79f11135d0bcb03c9b2aa93b5458b0cd}{build\+\_\+\+Psir\+\_\+gradient\+\_\+autodiff}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rho)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a9bf82554ed2e3bb9f2932c662380fe5b}{build\+\_\+\+Psir\+\_\+gradient\+\_\+complex\+\_\+step}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rho)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_afccf91630dcc8b34deff6f6d2576aa82}{build\+\_\+\+Psir\+\_\+gradient}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rho)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_aef74834c53ba83b87137a1209f70903f}{get\+\_\+chempot\+VLE\+\_\+autodiff}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rho)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_ad49ee0b2004f065c5f0fc1901b5897b2}{get\+\_\+fugacity\+\_\+coefficients}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a2da39c9acf728a415ff268df931aee08}{get\+\_\+ln\+\_\+fugacity\+\_\+coefficients}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_ae737caceed09417b4ff288b404291c7f}{get\+\_\+ln\+\_\+fugacity\+\_\+coefficients\+\_\+\+Trhomolefracs}} (const Model \&model, const Scalar \&T, const Scalar \&rhotot, const Vector\+Type \&molefrac)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_ae78f8aa33f178faf1313dcbe7dd6774c}{get\+\_\+ln\+\_\+fugacity\+\_\+coefficients1}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_ab89d429b0fa1400b9f5f96759058f660}{get\+\_\+ln\+\_\+fugacity\+\_\+coefficients2}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+static Eigen\+::\+Array\+Xd \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a40708f772a06de7ce7f509690e0b5303}{build\+\_\+d2\+Psird\+Tdrhoi\+\_\+autodiff}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rho)
+\item 
+static Eigen\+::\+Array\+Xd \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a283356750dc0186d103080a8462e3c3b}{build\+\_\+d2alphardrhodxi\+\_\+constT}} (const Model \&model, const Scalar \&T, const Scalar \&rhomolar, const Vector\+Type \&molefrac)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_aa80511012392fd587e7af797f875b106}{get\+\_\+d\+\_\+ln\+\_\+fugacity\+\_\+coefficients\+\_\+d\+T\+\_\+constrhovec}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a96237738d755d1b7f98fb829c818c411}{get\+\_\+ln\+Z\+\_\+\+Z\+\_\+d\+Zdrho}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a58d87b13440ae780e7d7441e9f8d2396}{get\+\_\+d\+\_\+ln\+\_\+fugacity\+\_\+coefficients\+\_\+drho\+\_\+const\+Tmolefracs}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a180b574ac439fcafee6cbaf28368914b}{get\+\_\+d\+\_\+ln\+\_\+fugacity\+\_\+coefficients\+\_\+dv\+\_\+const\+Tmolefracs}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a7e31501ef6c975d5a6a9d80fbc7523af}{get\+\_\+d\+\_\+ln\+\_\+fugacity\+\_\+coefficients\+\_\+dmolefracs\+\_\+const\+Trho}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a29314dfce9c595f982710d761285d246}{get\+\_\+d\+\_\+ln\+\_\+fugacity\+\_\+coefficients\+\_\+dmolefracs\+\_\+const\+Trho1}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_af190dd7ed0374e3a60f39e420a422269}{get\+\_\+dchempotd\+T\+\_\+autodiff}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_ab76742c41e469800eaa64d5507df6dda}{get\+\_\+dpd\+T\+\_\+constrhovec}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_ab8e5c434b8b1f7cad86b9f0080cca392}{get\+\_\+dpdrhovec\+\_\+constT}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_a071d28bec44ab32405e418d234804388}{get\+\_\+partial\+\_\+molar\+\_\+volumes}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec)
+\item 
+static Vector\+Type \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives_afa1c39d763b4442a07c6f33482445926}{get\+\_\+\+Psir\+\_\+sigma\+\_\+derivs}} (const Model \&model, const Scalar \&T, const Vector\+Type \&rhovec, const Vector\+Type \&v)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Model, typename Scalar = double, typename Vector\+Type = Eigen\+::\+Array\+Xd$>$\newline
+struct teqp\+::\+Isochoric\+Derivatives$<$ Model, Scalar, Vector\+Type $>$}
+In the isochoric formalism, the fugacity coefficient array can be obtained by the gradient of the residual Helmholtz energy density (which is a scalar) and the compressibility factor $Z$ (which is also a scalar) in terms of the temperature $T$ and the molar concentration vector $\vec\rho$\+: \textbackslash{}begin\{equation\} \textbackslash{}ln\textbackslash{}vec\textbackslash{}phi = \textbackslash{}frac\{1\}\{RT\}\textbackslash{}frac\{\textbackslash{}partial \textbackslash{}\+Psi$^\wedge$r\}\{d\textbackslash{}vec\textbackslash{}rho\} -\/ \textbackslash{}ln(Z) \textbackslash{}end\{equation\}
+
+\textbackslash{}textbf\{Easy\}\+: temperature derivative at constant molar concentrations (implying constant volume and molar composition) \textbackslash{}begin\{equation\} \textbackslash{}deriv\{ \textbackslash{}ln\textbackslash{}vec\textbackslash{}phi\}\{T\}\{\textbackslash{}vec\textbackslash{}rho\} = \textbackslash{}frac\{1\}\{RT\}\textbackslash{}frac\{\textbackslash{}partial$^\wedge$2 \textbackslash{}\+Psi$^\wedge$r\}\{\textbackslash{}partial \textbackslash{}vec\textbackslash{}rho\textbackslash{}partial T\} + \textbackslash{}frac\{-\/1\}\{RT$^\wedge$2\}\textbackslash{}deriv\{\textbackslash{}\+Psi$^\wedge$r\}\{\textbackslash{}vec\textbackslash{}rho\}\{T\} -\/ \textbackslash{}frac\{1\}\{Z\}\textbackslash{}deriv\{Z\}\{T\}\{\textbackslash{}vec\textbackslash{}rho\} \textbackslash{}end\{equation\}
+
+\textbackslash{}textbf\{Medium\}\+: molar density derivative at constant temperature and mole fractions \textbackslash{}begin\{equation\} \textbackslash{}deriv\{ \textbackslash{}ln\textbackslash{}vec\textbackslash{}phi\}\{\textbackslash{}rho\}\{T,\textbackslash{}vec x\} = \textbackslash{}frac\{1\}\{RT\}\textbackslash{}frac\{\textbackslash{}partial$^\wedge$2 \textbackslash{}\+Psi$^\wedge$r\}\{\textbackslash{}partial \textbackslash{}vec\textbackslash{}rho\textbackslash{}partial \textbackslash{}rho\} -\/ \textbackslash{}frac\{1\}\{Z\}\textbackslash{}deriv\{Z\}\{\textbackslash{}rho\}\{T,\textbackslash{}vec x\} \textbackslash{}end\{equation\} \textbackslash{}begin\{equation\} Z = 1+\textbackslash{}rho\textbackslash{}deriv\{\textbackslash{}alpha$^\wedge$r\}\{\textbackslash{}rho\}\{T\} \textbackslash{}end\{equation\} \textbackslash{}begin\{equation\} \textbackslash{}deriv\{Z\}\{\textbackslash{}rho\}\{T,\textbackslash{}vec x\} = \textbackslash{}rho\textbackslash{}deriv\{$^\wedge$2\textbackslash{}alpha$^\wedge$r\}\{\textbackslash{}rho$^\wedge$2\}\{T\} + \textbackslash{}deriv\{\textbackslash{}alpha$^\wedge$r\}\{\textbackslash{}rho\}\{T\} \textbackslash{}end\{equation\}
+
+Back to basics, for a quantity $\chi$ that is a function of $T$ and $\vec\rho$, and then the derivative taken w.\+r.\+t. density at constant temperature and mole fractions\+: \textbackslash{}begin\{equation\} \textbackslash{}deriv\{\textbackslash{}chi\}\{\textbackslash{}rho\}\{T, \textbackslash{}vec x\} = \textbackslash{}deriv\{\textbackslash{}chi\}\{T\}\{\textbackslash{}vec \textbackslash{}rho\}\textbackslash{}cancelto\{0\}\{\textbackslash{}deriv\{T\}\{\textbackslash{}rho\}\{T\}\} + \textbackslash{}sum\+\_\+i\textbackslash{}deriv\{\textbackslash{}chi\}\{\textbackslash{}rho\+\_\+i\}\{T, \textbackslash{}rho\+\_\+\{j\textbackslash{}neq i\}\}\textbackslash{}deriv\{\textbackslash{}rho\+\_\+i\}\{\textbackslash{}rho\}\{T,\textbackslash{}vec x\} \textbackslash{}end\{equation\} with $\rho_i =x_i\rho$ \textbackslash{}begin\{equation\} \textbackslash{}deriv\{\textbackslash{}rho\+\_\+i\}\{\textbackslash{}rho\}\{T, \textbackslash{}vec x\} = x\+\_\+i \textbackslash{}end\{equation\} thus \textbackslash{}begin\{equation\}\textbackslash{} \textbackslash{}deriv\{\textbackslash{}chi\}\{\textbackslash{}rho\}\{T, \textbackslash{}vec x\} = \textbackslash{}sum\+\_\+i\textbackslash{}deriv\{\textbackslash{}chi\}\{\textbackslash{}rho\+\_\+i\}\{T, \textbackslash{}rho\+\_\+\{j\textbackslash{}neq i\}\}x\+\_\+i \textbackslash{}end\{equation\}
+
+and following the pattern yields \textbackslash{}begin\{equation\} \textbackslash{}frac\{\textbackslash{}partial$^\wedge$2 \textbackslash{}\+Psi$^\wedge$r\}\{\textbackslash{}partial \textbackslash{}vec\textbackslash{}rho\textbackslash{}partial \textbackslash{}rho\} = \textbackslash{}sum\+\_\+i\textbackslash{}deriv\{\textbackslash{}frac\{\textbackslash{}partial \textbackslash{}\+Psi$^\wedge$r\}\{d\textbackslash{}vec\textbackslash{}rho\} \}\{\textbackslash{}rho\+\_\+i\}\{T, \textbackslash{}rho\+\_\+\{j\textbackslash{}neq i\}\}x\+\_\+i \textbackslash{}end\{equation\} where the big thing is the Hessian of the residual Hessian matrix of the residual Helmholtz energy density. This uses terms that are already developed.
+
+\textbackslash{}textbf\{Medium+\}\+: Volume derivative, based on the density derivative
+
+\textbackslash{}begin\{equation\} \textbackslash{}deriv\{ \textbackslash{}ln\textbackslash{}vec\textbackslash{}phi\}\{v\}\{T,\textbackslash{}vec x\} = \textbackslash{}deriv\{ \textbackslash{}ln\textbackslash{}vec\textbackslash{}phi\}\{\textbackslash{}rho\}\{T,\textbackslash{}vec x\}\textbackslash{}deriv\{ \textbackslash{}rho\}\{v\}\{\} \textbackslash{}end\{equation\} \textbackslash{}begin\{equation\} \textbackslash{}deriv\{\textbackslash{}rho\}\{v\}\{\} = -\/1/v$^\wedge$2 = -\/\textbackslash{}rho$^\wedge$2 \textbackslash{}end\{equation\}
+
+\textbackslash{}textbf\{Hard\}\+: mole fraction derivatives (this results in a matrix rather than a vector) \textbackslash{}begin\{equation\} \textbackslash{}deriv\{ \textbackslash{}ln\textbackslash{}vec\textbackslash{}phi\}\{\textbackslash{}vec x\}\{T,\textbackslash{}rho\} = ? \textbackslash{}end\{equation\}
+
+The first term is conceptually tricky. Again, considering a generic quantity \$\textbackslash{}chi\$ \textbackslash{}begin\{equation\} \textbackslash{}deriv\{\textbackslash{}chi\}\{x\+\_\+i\}\{T, \textbackslash{}rho, x\+\_\+\{j\textbackslash{}neq i\}\} = \textbackslash{}deriv\{\textbackslash{}chi\}\{T\}\{\textbackslash{}vec \textbackslash{}rho\}\textbackslash{}cancelto\{0\}\{\textbackslash{}deriv\{T\}\{x\+\_\+i\}\{T,\textbackslash{}rho,x\+\_\+\{j\textbackslash{}neq i\}\}\} + \textbackslash{}sum\+\_\+i\textbackslash{}deriv\{\textbackslash{}chi\}\{\textbackslash{}rho\+\_\+i\}\{T, \textbackslash{}rho\+\_\+\{j\textbackslash{}neq i\}\}\textbackslash{}deriv\{\textbackslash{}rho\+\_\+i\}\{x\+\_\+i\}\{T,\textbackslash{}rho, x\+\_\+\{j\textbackslash{}neq i\}\} \textbackslash{}end\{equation\} yields \textbackslash{}begin\{equation\} \textbackslash{}deriv\{\textbackslash{}chi\}\{x\+\_\+i\}\{T, \textbackslash{}rho, x\+\_\+\{j\textbackslash{}neq i\}\} = \textbackslash{}rho \textbackslash{}sum\+\_\+i\textbackslash{}deriv\{\textbackslash{}chi\}\{\textbackslash{}rho\+\_\+i\}\{T, \textbackslash{}rho\+\_\+\{j\textbackslash{}neq i\}\} \textbackslash{}end\{equation\} so the first part becomes \textbackslash{}begin\{equation\} \textbackslash{}deriv\{\textbackslash{}frac\{\textbackslash{}partial \textbackslash{}\+Psi$^\wedge$r\}\{d\textbackslash{}vec\textbackslash{}rho\}\}\{x\+\_\+i\}\{T, \textbackslash{}rho, x\+\_\+\{j\textbackslash{}neq i\}\} = \textbackslash{}rho \textbackslash{}sum\+\_\+i\textbackslash{}deriv\{\textbackslash{}frac\{\textbackslash{}partial \textbackslash{}\+Psi$^\wedge$r\}\{d\textbackslash{}vec\textbackslash{}rho\}\}\{\textbackslash{}rho\+\_\+i\}\{T, \textbackslash{}rho\+\_\+\{j\textbackslash{}neq i\}\} \textbackslash{}end\{equation\} or \textbackslash{}begin\{equation\} \textbackslash{}deriv\{$^\wedge$2\textbackslash{}partial \textbackslash{}\+Psi$^\wedge$r\}\{\textbackslash{}vec\textbackslash{}rho \textbackslash{}partial \textbackslash{}vec x\}\{T, \textbackslash{}rho\} = \textbackslash{}rho H(\textbackslash{}\+Psi$^\wedge$r) \textbackslash{}end\{equation\} which is somewhat surprising because the order of derivatives with respect to composition and density doesn\textquotesingle{}t matter, as the Hessian is symmetric
+
+The second part, from derivatives of $\ln Z$, with $Z$ given by \textbackslash{}begin\{equation\} Z = 1+\textbackslash{}rho\textbackslash{}deriv\{\textbackslash{}alpha$^\wedge$r\}\{\textbackslash{}rho\}\{T, \textbackslash{}vec x\} \textbackslash{}end\{equation\} yields \textbackslash{}begin\{equation\} \textbackslash{}deriv\{\textbackslash{}ln Z\}\{x\+\_\+i\}\{T,\textbackslash{}rho,x\+\_\+\{k \textbackslash{}neq j\}\} = \textbackslash{}frac\{1\}\{Z\}\textbackslash{}deriv\{Z\}\{x\+\_\+i\}\{T,\textbackslash{}rho,x\+\_\+\{k \textbackslash{}neq i\}\} \textbackslash{}end\{equation\} which results in a vector because you have \textbackslash{}begin\{equation\} \textbackslash{}deriv\{Z\}\{x\+\_\+i\}\{T,\textbackslash{}rho,x\+\_\+\{k \textbackslash{}neq i\}\} = \textbackslash{}rho \textbackslash{}deriv\{$^\wedge$2\textbackslash{}alpha$^\wedge$r\}\{\textbackslash{}rho\textbackslash{}partial x\+\_\+i\}\{T\} \textbackslash{}end\{equation\} 
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00728}{728}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a283356750dc0186d103080a8462e3c3b}\label{structteqp_1_1IsochoricDerivatives_a283356750dc0186d103080a8462e3c3b}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!build\_d2alphardrhodxi\_constT@{build\_d2alphardrhodxi\_constT}}
+\index{build\_d2alphardrhodxi\_constT@{build\_d2alphardrhodxi\_constT}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{build\_d2alphardrhodxi\_constT()}{build\_d2alphardrhodxi\_constT()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static Eigen\+::\+Array\+Xd \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::build\+\_\+d2alphardrhodxi\+\_\+constT (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Scalar \&}]{rhomolar,  }\item[{const Vector\+Type \&}]{molefrac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01051}{1051}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a40708f772a06de7ce7f509690e0b5303}\label{structteqp_1_1IsochoricDerivatives_a40708f772a06de7ce7f509690e0b5303}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!build\_d2PsirdTdrhoi\_autodiff@{build\_d2PsirdTdrhoi\_autodiff}}
+\index{build\_d2PsirdTdrhoi\_autodiff@{build\_d2PsirdTdrhoi\_autodiff}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{build\_d2PsirdTdrhoi\_autodiff()}{build\_d2PsirdTdrhoi\_autodiff()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static Eigen\+::\+Array\+Xd \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::build\+\_\+d2\+Psird\+Tdrhoi\+\_\+autodiff (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rho }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01033}{1033}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a434b96c6415d8f8038209820bf0f3359}\label{structteqp_1_1IsochoricDerivatives_a434b96c6415d8f8038209820bf0f3359}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!build\_Psi\_Hessian\_autodiff@{build\_Psi\_Hessian\_autodiff}}
+\index{build\_Psi\_Hessian\_autodiff@{build\_Psi\_Hessian\_autodiff}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{build\_Psi\_Hessian\_autodiff()}{build\_Psi\_Hessian\_autodiff()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::build\+\_\+\+Psi\+\_\+\+Hessian\+\_\+autodiff (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rho }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00847}{847}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a61764c389c22ad79d765c923eeae423f}\label{structteqp_1_1IsochoricDerivatives_a61764c389c22ad79d765c923eeae423f}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!build\_Psir\_fgradHessian\_autodiff@{build\_Psir\_fgradHessian\_autodiff}}
+\index{build\_Psir\_fgradHessian\_autodiff@{build\_Psir\_fgradHessian\_autodiff}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{build\_Psir\_fgradHessian\_autodiff()}{build\_Psir\_fgradHessian\_autodiff()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::build\+\_\+\+Psir\+\_\+fgrad\+Hessian\+\_\+autodiff (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rho }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00822}{822}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_afccf91630dcc8b34deff6f6d2576aa82}\label{structteqp_1_1IsochoricDerivatives_afccf91630dcc8b34deff6f6d2576aa82}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!build\_Psir\_gradient@{build\_Psir\_gradient}}
+\index{build\_Psir\_gradient@{build\_Psir\_gradient}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{build\_Psir\_gradient()}{build\_Psir\_gradient()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::build\+\_\+\+Psir\+\_\+gradient (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rho }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00944}{944}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a79f11135d0bcb03c9b2aa93b5458b0cd}\label{structteqp_1_1IsochoricDerivatives_a79f11135d0bcb03c9b2aa93b5458b0cd}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!build\_Psir\_gradient\_autodiff@{build\_Psir\_gradient\_autodiff}}
+\index{build\_Psir\_gradient\_autodiff@{build\_Psir\_gradient\_autodiff}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{build\_Psir\_gradient\_autodiff()}{build\_Psir\_gradient\_autodiff()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::build\+\_\+\+Psir\+\_\+gradient\+\_\+autodiff (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rho }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00886}{886}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a9bf82554ed2e3bb9f2932c662380fe5b}\label{structteqp_1_1IsochoricDerivatives_a9bf82554ed2e3bb9f2932c662380fe5b}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!build\_Psir\_gradient\_complex\_step@{build\_Psir\_gradient\_complex\_step}}
+\index{build\_Psir\_gradient\_complex\_step@{build\_Psir\_gradient\_complex\_step}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{build\_Psir\_gradient\_complex\_step()}{build\_Psir\_gradient\_complex\_step()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::build\+\_\+\+Psir\+\_\+gradient\+\_\+complex\+\_\+step (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rho }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00923}{923}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a10b83afc151769f751ad7453ad0abd8c}\label{structteqp_1_1IsochoricDerivatives_a10b83afc151769f751ad7453ad0abd8c}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!build\_Psir\_Hessian\_autodiff@{build\_Psir\_Hessian\_autodiff}}
+\index{build\_Psir\_Hessian\_autodiff@{build\_Psir\_Hessian\_autodiff}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{build\_Psir\_Hessian\_autodiff()}{build\_Psir\_Hessian\_autodiff()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::build\+\_\+\+Psir\+\_\+\+Hessian\+\_\+autodiff (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rho }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00802}{802}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_adbf7b7cc9495fca2162f42bfcbfe3c0f}\label{structteqp_1_1IsochoricDerivatives_adbf7b7cc9495fca2162f42bfcbfe3c0f}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Ar00@{get\_Ar00}}
+\index{get\_Ar00@{get\_Ar00}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_Ar00()}{get\_Ar00()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+Ar00 (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00751}{751}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_ab6f32bddc8c49a34eaba30764af2c1da}\label{structteqp_1_1IsochoricDerivatives_ab6f32bddc8c49a34eaba30764af2c1da}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Ar01@{get\_Ar01}}
+\index{get\_Ar01@{get\_Ar01}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_Ar01()}{get\_Ar01()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+Ar01 (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00763}{763}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a776e50cea118738e6985ee5b2129245a}\label{structteqp_1_1IsochoricDerivatives_a776e50cea118738e6985ee5b2129245a}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Ar10@{get\_Ar10}}
+\index{get\_Ar10@{get\_Ar10}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_Ar10()}{get\_Ar10()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+Ar10 (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00757}{757}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_aef74834c53ba83b87137a1209f70903f}\label{structteqp_1_1IsochoricDerivatives_aef74834c53ba83b87137a1209f70903f}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_chempotVLE\_autodiff@{get\_chempotVLE\_autodiff}}
+\index{get\_chempotVLE\_autodiff@{get\_chempotVLE\_autodiff}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_chempotVLE\_autodiff()}{get\_chempotVLE\_autodiff()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+chempot\+VLE\+\_\+autodiff (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rho }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00965}{965}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a7e31501ef6c975d5a6a9d80fbc7523af}\label{structteqp_1_1IsochoricDerivatives_a7e31501ef6c975d5a6a9d80fbc7523af}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_d\_ln\_fugacity\_coefficients\_dmolefracs\_constTrho@{get\_d\_ln\_fugacity\_coefficients\_dmolefracs\_constTrho}}
+\index{get\_d\_ln\_fugacity\_coefficients\_dmolefracs\_constTrho@{get\_d\_ln\_fugacity\_coefficients\_dmolefracs\_constTrho}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_d\_ln\_fugacity\_coefficients\_dmolefracs\_constTrho()}{get\_d\_ln\_fugacity\_coefficients\_dmolefracs\_constTrho()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+d\+\_\+ln\+\_\+fugacity\+\_\+coefficients\+\_\+dmolefracs\+\_\+const\+Trho (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01144}{1144}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a29314dfce9c595f982710d761285d246}\label{structteqp_1_1IsochoricDerivatives_a29314dfce9c595f982710d761285d246}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_d\_ln\_fugacity\_coefficients\_dmolefracs\_constTrho1@{get\_d\_ln\_fugacity\_coefficients\_dmolefracs\_constTrho1}}
+\index{get\_d\_ln\_fugacity\_coefficients\_dmolefracs\_constTrho1@{get\_d\_ln\_fugacity\_coefficients\_dmolefracs\_constTrho1}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_d\_ln\_fugacity\_coefficients\_dmolefracs\_constTrho1()}{get\_d\_ln\_fugacity\_coefficients\_dmolefracs\_constTrho1()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+d\+\_\+ln\+\_\+fugacity\+\_\+coefficients\+\_\+dmolefracs\+\_\+const\+Trho1 (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01165}{1165}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a58d87b13440ae780e7d7441e9f8d2396}\label{structteqp_1_1IsochoricDerivatives_a58d87b13440ae780e7d7441e9f8d2396}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_d\_ln\_fugacity\_coefficients\_drho\_constTmolefracs@{get\_d\_ln\_fugacity\_coefficients\_drho\_constTmolefracs}}
+\index{get\_d\_ln\_fugacity\_coefficients\_drho\_constTmolefracs@{get\_d\_ln\_fugacity\_coefficients\_drho\_constTmolefracs}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_d\_ln\_fugacity\_coefficients\_drho\_constTmolefracs()}{get\_d\_ln\_fugacity\_coefficients\_drho\_constTmolefracs()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+d\+\_\+ln\+\_\+fugacity\+\_\+coefficients\+\_\+drho\+\_\+const\+Tmolefracs (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01113}{1113}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_aa80511012392fd587e7af797f875b106}\label{structteqp_1_1IsochoricDerivatives_aa80511012392fd587e7af797f875b106}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_d\_ln\_fugacity\_coefficients\_dT\_constrhovec@{get\_d\_ln\_fugacity\_coefficients\_dT\_constrhovec}}
+\index{get\_d\_ln\_fugacity\_coefficients\_dT\_constrhovec@{get\_d\_ln\_fugacity\_coefficients\_dT\_constrhovec}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_d\_ln\_fugacity\_coefficients\_dT\_constrhovec()}{get\_d\_ln\_fugacity\_coefficients\_dT\_constrhovec()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+d\+\_\+ln\+\_\+fugacity\+\_\+coefficients\+\_\+d\+T\+\_\+constrhovec (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01076}{1076}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a180b574ac439fcafee6cbaf28368914b}\label{structteqp_1_1IsochoricDerivatives_a180b574ac439fcafee6cbaf28368914b}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_d\_ln\_fugacity\_coefficients\_dv\_constTmolefracs@{get\_d\_ln\_fugacity\_coefficients\_dv\_constTmolefracs}}
+\index{get\_d\_ln\_fugacity\_coefficients\_dv\_constTmolefracs@{get\_d\_ln\_fugacity\_coefficients\_dv\_constTmolefracs}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_d\_ln\_fugacity\_coefficients\_dv\_constTmolefracs()}{get\_d\_ln\_fugacity\_coefficients\_dv\_constTmolefracs()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+d\+\_\+ln\+\_\+fugacity\+\_\+coefficients\+\_\+dv\+\_\+const\+Tmolefracs (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01130}{1130}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_af190dd7ed0374e3a60f39e420a422269}\label{structteqp_1_1IsochoricDerivatives_af190dd7ed0374e3a60f39e420a422269}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_dchempotdT\_autodiff@{get\_dchempotdT\_autodiff}}
+\index{get\_dchempotdT\_autodiff@{get\_dchempotdT\_autodiff}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_dchempotdT\_autodiff()}{get\_dchempotdT\_autodiff()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+dchempotd\+T\+\_\+autodiff (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01180}{1180}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_ab8e5c434b8b1f7cad86b9f0080cca392}\label{structteqp_1_1IsochoricDerivatives_ab8e5c434b8b1f7cad86b9f0080cca392}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_dpdrhovec\_constT@{get\_dpdrhovec\_constT}}
+\index{get\_dpdrhovec\_constT@{get\_dpdrhovec\_constT}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_dpdrhovec\_constT()}{get\_dpdrhovec\_constT()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+dpdrhovec\+\_\+constT (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01200}{1200}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_ab76742c41e469800eaa64d5507df6dda}\label{structteqp_1_1IsochoricDerivatives_ab76742c41e469800eaa64d5507df6dda}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_dpdT\_constrhovec@{get\_dpdT\_constrhovec}}
+\index{get\_dpdT\_constrhovec@{get\_dpdT\_constrhovec}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_dpdT\_constrhovec()}{get\_dpdT\_constrhovec()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+dpd\+T\+\_\+constrhovec (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01190}{1190}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a0440679e0e5a84a50f1f0eed777baab5}\label{structteqp_1_1IsochoricDerivatives_a0440679e0e5a84a50f1f0eed777baab5}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_dPsirdT\_constrhovec@{get\_dPsirdT\_constrhovec}}
+\index{get\_dPsirdT\_constrhovec@{get\_dPsirdT\_constrhovec}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_dPsirdT\_constrhovec()}{get\_dPsirdT\_constrhovec()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+d\+Psird\+T\+\_\+constrhovec (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00789}{789}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_ad49ee0b2004f065c5f0fc1901b5897b2}\label{structteqp_1_1IsochoricDerivatives_ad49ee0b2004f065c5f0fc1901b5897b2}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_fugacity\_coefficients@{get\_fugacity\_coefficients}}
+\index{get\_fugacity\_coefficients@{get\_fugacity\_coefficients}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_fugacity\_coefficients()}{get\_fugacity\_coefficients()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+fugacity\+\_\+coefficients (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00978}{978}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a2da39c9acf728a415ff268df931aee08}\label{structteqp_1_1IsochoricDerivatives_a2da39c9acf728a415ff268df931aee08}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_ln\_fugacity\_coefficients@{get\_ln\_fugacity\_coefficients}}
+\index{get\_ln\_fugacity\_coefficients@{get\_ln\_fugacity\_coefficients}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_ln\_fugacity\_coefficients()}{get\_ln\_fugacity\_coefficients()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+ln\+\_\+fugacity\+\_\+coefficients (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00989}{989}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_ae78f8aa33f178faf1313dcbe7dd6774c}\label{structteqp_1_1IsochoricDerivatives_ae78f8aa33f178faf1313dcbe7dd6774c}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_ln\_fugacity\_coefficients1@{get\_ln\_fugacity\_coefficients1}}
+\index{get\_ln\_fugacity\_coefficients1@{get\_ln\_fugacity\_coefficients1}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_ln\_fugacity\_coefficients1()}{get\_ln\_fugacity\_coefficients1()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+ln\+\_\+fugacity\+\_\+coefficients1 (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01014}{1014}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_ab89d429b0fa1400b9f5f96759058f660}\label{structteqp_1_1IsochoricDerivatives_ab89d429b0fa1400b9f5f96759058f660}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_ln\_fugacity\_coefficients2@{get\_ln\_fugacity\_coefficients2}}
+\index{get\_ln\_fugacity\_coefficients2@{get\_ln\_fugacity\_coefficients2}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_ln\_fugacity\_coefficients2()}{get\_ln\_fugacity\_coefficients2()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+ln\+\_\+fugacity\+\_\+coefficients2 (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01025}{1025}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_ae737caceed09417b4ff288b404291c7f}\label{structteqp_1_1IsochoricDerivatives_ae737caceed09417b4ff288b404291c7f}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_ln\_fugacity\_coefficients\_Trhomolefracs@{get\_ln\_fugacity\_coefficients\_Trhomolefracs}}
+\index{get\_ln\_fugacity\_coefficients\_Trhomolefracs@{get\_ln\_fugacity\_coefficients\_Trhomolefracs}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_ln\_fugacity\_coefficients\_Trhomolefracs()}{get\_ln\_fugacity\_coefficients\_Trhomolefracs()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+ln\+\_\+fugacity\+\_\+coefficients\+\_\+\+Trhomolefracs (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Scalar \&}]{rhotot,  }\item[{const Vector\+Type \&}]{molefrac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01002}{1002}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a96237738d755d1b7f98fb829c818c411}\label{structteqp_1_1IsochoricDerivatives_a96237738d755d1b7f98fb829c818c411}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_lnZ\_Z\_dZdrho@{get\_lnZ\_Z\_dZdrho}}
+\index{get\_lnZ\_Z\_dZdrho@{get\_lnZ\_Z\_dZdrho}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_lnZ\_Z\_dZdrho()}{get\_lnZ\_Z\_dZdrho()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+ln\+Z\+\_\+\+Z\+\_\+d\+Zdrho (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01094}{1094}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a071d28bec44ab32405e418d234804388}\label{structteqp_1_1IsochoricDerivatives_a071d28bec44ab32405e418d234804388}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_partial\_molar\_volumes@{get\_partial\_molar\_volumes}}
+\index{get\_partial\_molar\_volumes@{get\_partial\_molar\_volumes}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_partial\_molar\_volumes()}{get\_partial\_molar\_volumes()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+partial\+\_\+molar\+\_\+volumes (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01215}{1215}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a85fb1d49ed9a7a675461d6ac957bfcd7}\label{structteqp_1_1IsochoricDerivatives_a85fb1d49ed9a7a675461d6ac957bfcd7}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_pr@{get\_pr}}
+\index{get\_pr@{get\_pr}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_pr()}{get\_pr()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+pr (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00742}{742}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a9bee1fb0121acae156cd3a800ab20a92}\label{structteqp_1_1IsochoricDerivatives_a9bee1fb0121acae156cd3a800ab20a92}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Psir@{get\_Psir}}
+\index{get\_Psir@{get\_Psir}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_Psir()}{get\_Psir()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+Psir (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00780}{780}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_afa1c39d763b4442a07c6f33482445926}\label{structteqp_1_1IsochoricDerivatives_afa1c39d763b4442a07c6f33482445926}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Psir\_sigma\_derivs@{get\_Psir\_sigma\_derivs}}
+\index{get\_Psir\_sigma\_derivs@{get\_Psir\_sigma\_derivs}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_Psir\_sigma\_derivs()}{get\_Psir\_sigma\_derivs()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static Vector\+Type \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+Psir\+\_\+sigma\+\_\+derivs (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec,  }\item[{const Vector\+Type \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l01229}{1229}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1IsochoricDerivatives_a3e3b11f6d647d33c737137d7064d6a8d}\label{structteqp_1_1IsochoricDerivatives_a3e3b11f6d647d33c737137d7064d6a8d}} 
+\index{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}!get\_splus@{get\_splus}}
+\index{get\_splus@{get\_splus}!teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::IsochoricDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_splus()}{get\_splus()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1IsochoricDerivatives}{teqp\+::\+Isochoric\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+splus (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00733}{733}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/\mbox{\hyperlink{derivs_8hpp}{derivs.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,197 @@
+\hypertarget{structteqp_1_1Functor}{}\doxysection{teqp\+::Functor\texorpdfstring{$<$}{<} \+\_\+\+Scalar, NX, NY \texorpdfstring{$>$}{>} Struct Template Reference}
+\label{structteqp_1_1Functor}\index{teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}}
+
+
+{\ttfamily \#include $<$VLE.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \mbox{\hyperlink{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a868d5cb9eff1e987d6ecaacf91ef6f84}{Inputs\+At\+Compile\+Time}} = NX
+, \mbox{\hyperlink{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a0c22369601e09b2f6c55c3c52c9503a3}{Values\+At\+Compile\+Time}} = NY
+ \}
+\item 
+typedef \+\_\+\+Scalar \mbox{\hyperlink{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}{Scalar}}
+\item 
+typedef Matrix$<$ \mbox{\hyperlink{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}{Scalar}}, \mbox{\hyperlink{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a868d5cb9eff1e987d6ecaacf91ef6f84}{Inputs\+At\+Compile\+Time}}, 1 $>$ \mbox{\hyperlink{structteqp_1_1Functor_a4c38d2ab7f7e6c4feec90fe82f15631d}{Input\+Type}}
+\item 
+typedef Matrix$<$ \mbox{\hyperlink{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}{Scalar}}, \mbox{\hyperlink{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a0c22369601e09b2f6c55c3c52c9503a3}{Values\+At\+Compile\+Time}}, 1 $>$ \mbox{\hyperlink{structteqp_1_1Functor_aaf222ec048e89e35047208ea1ec556fc}{Value\+Type}}
+\item 
+typedef Matrix$<$ \mbox{\hyperlink{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}{Scalar}}, \mbox{\hyperlink{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a0c22369601e09b2f6c55c3c52c9503a3}{Values\+At\+Compile\+Time}}, \mbox{\hyperlink{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a868d5cb9eff1e987d6ecaacf91ef6f84}{Inputs\+At\+Compile\+Time}} $>$ \mbox{\hyperlink{structteqp_1_1Functor_a675bc74fbcc555923391eda4e8556712}{Jacobian\+Type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structteqp_1_1Functor_ab1d9afb59e5dd89a3cfcda2aa3f383f0}{Functor}} ()
+\item 
+\mbox{\hyperlink{structteqp_1_1Functor_aa118cb4381f177eb52b7021fe62aa796}{Functor}} (int \mbox{\hyperlink{structteqp_1_1Functor_a20e2bb3e5e6dc44d2a2bf6c774b17965}{inputs}}, int \mbox{\hyperlink{structteqp_1_1Functor_a0ac25ef2d9745e7504326ff32b80497e}{values}})
+\item 
+int \mbox{\hyperlink{structteqp_1_1Functor_a20e2bb3e5e6dc44d2a2bf6c774b17965}{inputs}} () const
+\item 
+int \mbox{\hyperlink{structteqp_1_1Functor_a0ac25ef2d9745e7504326ff32b80497e}{values}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{structteqp_1_1Functor_a5b603d8e26b295623a49750e6d23c7cc}{m\+\_\+inputs}}
+\item 
+const int \mbox{\hyperlink{structteqp_1_1Functor_ac7b84e8f3f8e74f7139dbe481bcc8d93}{m\+\_\+values}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename \+\_\+\+Scalar, int NX = Dynamic, int NY = Dynamic$>$\newline
+struct teqp\+::\+Functor$<$ \+\_\+\+Scalar, NX, NY $>$}
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{structteqp_1_1Functor_a4c38d2ab7f7e6c4feec90fe82f15631d}\label{structteqp_1_1Functor_a4c38d2ab7f7e6c4feec90fe82f15631d}} 
+\index{teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}!InputType@{InputType}}
+\index{InputType@{InputType}!teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}}
+\doxysubsubsection{\texorpdfstring{InputType}{InputType}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Scalar , int NX = Dynamic, int NY = Dynamic$>$ \\
+typedef Matrix$<$\mbox{\hyperlink{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}{Scalar}}, \mbox{\hyperlink{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a868d5cb9eff1e987d6ecaacf91ef6f84}{Inputs\+At\+Compile\+Time}}, 1$>$ \mbox{\hyperlink{structteqp_1_1Functor}{teqp\+::\+Functor}}$<$ \+\_\+\+Scalar, NX, NY $>$\+::\mbox{\hyperlink{structteqp_1_1Functor_a4c38d2ab7f7e6c4feec90fe82f15631d}{Input\+Type}}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1Functor_a675bc74fbcc555923391eda4e8556712}\label{structteqp_1_1Functor_a675bc74fbcc555923391eda4e8556712}} 
+\index{teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}!JacobianType@{JacobianType}}
+\index{JacobianType@{JacobianType}!teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}}
+\doxysubsubsection{\texorpdfstring{JacobianType}{JacobianType}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Scalar , int NX = Dynamic, int NY = Dynamic$>$ \\
+typedef Matrix$<$\mbox{\hyperlink{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}{Scalar}}, \mbox{\hyperlink{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a0c22369601e09b2f6c55c3c52c9503a3}{Values\+At\+Compile\+Time}}, \mbox{\hyperlink{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a868d5cb9eff1e987d6ecaacf91ef6f84}{Inputs\+At\+Compile\+Time}}$>$ \mbox{\hyperlink{structteqp_1_1Functor}{teqp\+::\+Functor}}$<$ \+\_\+\+Scalar, NX, NY $>$\+::\mbox{\hyperlink{structteqp_1_1Functor_a675bc74fbcc555923391eda4e8556712}{Jacobian\+Type}}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}\label{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}} 
+\index{teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}}
+\doxysubsubsection{\texorpdfstring{Scalar}{Scalar}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Scalar , int NX = Dynamic, int NY = Dynamic$>$ \\
+typedef \+\_\+\+Scalar \mbox{\hyperlink{structteqp_1_1Functor}{teqp\+::\+Functor}}$<$ \+\_\+\+Scalar, NX, NY $>$\+::\mbox{\hyperlink{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}{Scalar}}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1Functor_aaf222ec048e89e35047208ea1ec556fc}\label{structteqp_1_1Functor_aaf222ec048e89e35047208ea1ec556fc}} 
+\index{teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}!ValueType@{ValueType}}
+\index{ValueType@{ValueType}!teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}}
+\doxysubsubsection{\texorpdfstring{ValueType}{ValueType}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Scalar , int NX = Dynamic, int NY = Dynamic$>$ \\
+typedef Matrix$<$\mbox{\hyperlink{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}{Scalar}}, \mbox{\hyperlink{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a0c22369601e09b2f6c55c3c52c9503a3}{Values\+At\+Compile\+Time}}, 1$>$ \mbox{\hyperlink{structteqp_1_1Functor}{teqp\+::\+Functor}}$<$ \+\_\+\+Scalar, NX, NY $>$\+::\mbox{\hyperlink{structteqp_1_1Functor_aaf222ec048e89e35047208ea1ec556fc}{Value\+Type}}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1}\label{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Scalar , int NX = Dynamic, int NY = Dynamic$>$ \\
+anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{InputsAtCompileTime@{InputsAtCompileTime}!teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}}\index{teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}!InputsAtCompileTime@{InputsAtCompileTime}}}\mbox{\Hypertarget{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a868d5cb9eff1e987d6ecaacf91ef6f84}\label{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a868d5cb9eff1e987d6ecaacf91ef6f84}} 
+Inputs\+At\+Compile\+Time&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ValuesAtCompileTime@{ValuesAtCompileTime}!teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}}\index{teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}!ValuesAtCompileTime@{ValuesAtCompileTime}}}\mbox{\Hypertarget{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a0c22369601e09b2f6c55c3c52c9503a3}\label{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a0c22369601e09b2f6c55c3c52c9503a3}} 
+Values\+At\+Compile\+Time&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structteqp_1_1Functor_ab1d9afb59e5dd89a3cfcda2aa3f383f0}\label{structteqp_1_1Functor_ab1d9afb59e5dd89a3cfcda2aa3f383f0}} 
+\index{teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}!Functor@{Functor}}
+\index{Functor@{Functor}!teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}}
+\doxysubsubsection{\texorpdfstring{Functor()}{Functor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Scalar , int NX = Dynamic, int NY = Dynamic$>$ \\
+\mbox{\hyperlink{structteqp_1_1Functor}{teqp\+::\+Functor}}$<$ \+\_\+\+Scalar, NX, NY $>$\+::\mbox{\hyperlink{structteqp_1_1Functor}{Functor}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1Functor_aa118cb4381f177eb52b7021fe62aa796}\label{structteqp_1_1Functor_aa118cb4381f177eb52b7021fe62aa796}} 
+\index{teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}!Functor@{Functor}}
+\index{Functor@{Functor}!teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}}
+\doxysubsubsection{\texorpdfstring{Functor()}{Functor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Scalar , int NX = Dynamic, int NY = Dynamic$>$ \\
+\mbox{\hyperlink{structteqp_1_1Functor}{teqp\+::\+Functor}}$<$ \+\_\+\+Scalar, NX, NY $>$\+::\mbox{\hyperlink{structteqp_1_1Functor}{Functor}} (\begin{DoxyParamCaption}\item[{int}]{inputs,  }\item[{int}]{values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structteqp_1_1Functor_a20e2bb3e5e6dc44d2a2bf6c774b17965}\label{structteqp_1_1Functor_a20e2bb3e5e6dc44d2a2bf6c774b17965}} 
+\index{teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}!inputs@{inputs}}
+\index{inputs@{inputs}!teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}}
+\doxysubsubsection{\texorpdfstring{inputs()}{inputs()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Scalar , int NX = Dynamic, int NY = Dynamic$>$ \\
+int \mbox{\hyperlink{structteqp_1_1Functor}{teqp\+::\+Functor}}$<$ \+\_\+\+Scalar, NX, NY $>$\+::inputs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1Functor_a0ac25ef2d9745e7504326ff32b80497e}\label{structteqp_1_1Functor_a0ac25ef2d9745e7504326ff32b80497e}} 
+\index{teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}!values@{values}}
+\index{values@{values}!teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}}
+\doxysubsubsection{\texorpdfstring{values()}{values()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Scalar , int NX = Dynamic, int NY = Dynamic$>$ \\
+int \mbox{\hyperlink{structteqp_1_1Functor}{teqp\+::\+Functor}}$<$ \+\_\+\+Scalar, NX, NY $>$\+::values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structteqp_1_1Functor_a5b603d8e26b295623a49750e6d23c7cc}\label{structteqp_1_1Functor_a5b603d8e26b295623a49750e6d23c7cc}} 
+\index{teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}!m\_inputs@{m\_inputs}}
+\index{m\_inputs@{m\_inputs}!teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}}
+\doxysubsubsection{\texorpdfstring{m\_inputs}{m\_inputs}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Scalar , int NX = Dynamic, int NY = Dynamic$>$ \\
+const int \mbox{\hyperlink{structteqp_1_1Functor}{teqp\+::\+Functor}}$<$ \+\_\+\+Scalar, NX, NY $>$\+::m\+\_\+inputs}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1Functor_ac7b84e8f3f8e74f7139dbe481bcc8d93}\label{structteqp_1_1Functor_ac7b84e8f3f8e74f7139dbe481bcc8d93}} 
+\index{teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}!m\_values@{m\_values}}
+\index{m\_values@{m\_values}!teqp::Functor$<$ \_Scalar, NX, NY $>$@{teqp::Functor$<$ \_Scalar, NX, NY $>$}}
+\doxysubsubsection{\texorpdfstring{m\_values}{m\_values}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Scalar , int NX = Dynamic, int NY = Dynamic$>$ \\
+const int \mbox{\hyperlink{structteqp_1_1Functor}{teqp\+::\+Functor}}$<$ \+\_\+\+Scalar, NX, NY $>$\+::m\+\_\+values}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{VLE_8hpp}{VLE.\+hpp}}\end{DoxyCompactItemize}

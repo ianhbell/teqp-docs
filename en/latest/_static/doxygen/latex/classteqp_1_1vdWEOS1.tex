@@ -1,0 +1,156 @@
+\hypertarget{classteqp_1_1vdWEOS1}{}\doxysection{teqp\+::vd\+WEOS1 Class Reference}
+\label{classteqp_1_1vdWEOS1}\index{teqp::vdWEOS1@{teqp::vdWEOS1}}
+
+
+A (very) simple implementation of the van der Waals EOS.  
+
+
+
+
+{\ttfamily \#include $<$vd\+W.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1vdWEOS1_acc17de42d37bd52adb0f0503d7dcee67}{vd\+WEOS1}} (double a, double b)
+\begin{DoxyCompactList}\small\item\em Intializer, taking the a and b constants directly. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classteqp_1_1vdWEOS1_ad1332897821d9e572aa5ef8174f50b88}{get\+\_\+a}} () const
+\begin{DoxyCompactList}\small\item\em Accessor functions. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classteqp_1_1vdWEOS1_a43e2c3b9b69b1ce265c6ee0a08a326ce}{get\+\_\+b}} () const
+\item 
+{\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1vdWEOS1_a87b54720a30bc9e5c4e7275ae891a132}{R}} (const Vec\+Type \&) const
+\begin{DoxyCompactList}\small\item\em Get the universal gas constant. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1vdWEOS1_afeb31140f46c7480dc716966267f12ed}{alphar}} (const TType \&T, const Rho\+Type \&rhotot, const Vec\+Type \&molefrac) const
+\item 
+double \mbox{\hyperlink{classteqp_1_1vdWEOS1_a6a5aedaf389bbe58a7782d9a5d1fa4b9}{p}} (double T, double v)
+\begin{DoxyCompactList}\small\item\em For testing, provide the pressure explicit form of the EOS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{classteqp_1_1vdWEOS1_afafe7adffb4fe02a735891d7f9974c73}{Ru}} = 1.\+380649e-\/23 $\ast$ 6.\+02214076e23
+\begin{DoxyCompactList}\small\item\em Exact value, given by k\+\_\+\+B$\ast$\+N\+\_\+A. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A (very) simple implementation of the van der Waals EOS. 
+
+Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classteqp_1_1vdWEOS1_acc17de42d37bd52adb0f0503d7dcee67}\label{classteqp_1_1vdWEOS1_acc17de42d37bd52adb0f0503d7dcee67}} 
+\index{teqp::vdWEOS1@{teqp::vdWEOS1}!vdWEOS1@{vdWEOS1}}
+\index{vdWEOS1@{vdWEOS1}!teqp::vdWEOS1@{teqp::vdWEOS1}}
+\doxysubsubsection{\texorpdfstring{vdWEOS1()}{vdWEOS1()}}
+{\footnotesize\ttfamily teqp\+::vd\+WEOS1\+::vd\+WEOS1 (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Intializer, taking the a and b constants directly. 
+
+
+
+Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classteqp_1_1vdWEOS1_afeb31140f46c7480dc716966267f12ed}\label{classteqp_1_1vdWEOS1_afeb31140f46c7480dc716966267f12ed}} 
+\index{teqp::vdWEOS1@{teqp::vdWEOS1}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::vdWEOS1@{teqp::vdWEOS1}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily template$<$typename TType , typename Rho\+Type , typename Vec\+Type $>$ \\
+auto teqp\+::vd\+WEOS1\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Rho\+Type \&}]{rhotot,  }\item[{const Vec\+Type \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+The evaluation of $ \alpha^{\rm r}=a/(RT) $ 
+\begin{DoxyParams}{Parameters}
+{\em T} & The temperature \\
+\hline
+{\em rhotot} & The molar density \\
+\hline
+{\em molefrac} & The mole fractions of each component \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1vdWEOS1_ad1332897821d9e572aa5ef8174f50b88}\label{classteqp_1_1vdWEOS1_ad1332897821d9e572aa5ef8174f50b88}} 
+\index{teqp::vdWEOS1@{teqp::vdWEOS1}!get\_a@{get\_a}}
+\index{get\_a@{get\_a}!teqp::vdWEOS1@{teqp::vdWEOS1}}
+\doxysubsubsection{\texorpdfstring{get\_a()}{get\_a()}}
+{\footnotesize\ttfamily double teqp\+::vd\+WEOS1\+::get\+\_\+a (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accessor functions. 
+
+
+
+Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1vdWEOS1_a43e2c3b9b69b1ce265c6ee0a08a326ce}\label{classteqp_1_1vdWEOS1_a43e2c3b9b69b1ce265c6ee0a08a326ce}} 
+\index{teqp::vdWEOS1@{teqp::vdWEOS1}!get\_b@{get\_b}}
+\index{get\_b@{get\_b}!teqp::vdWEOS1@{teqp::vdWEOS1}}
+\doxysubsubsection{\texorpdfstring{get\_b()}{get\_b()}}
+{\footnotesize\ttfamily double teqp\+::vd\+WEOS1\+::get\+\_\+b (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1vdWEOS1_a6a5aedaf389bbe58a7782d9a5d1fa4b9}\label{classteqp_1_1vdWEOS1_a6a5aedaf389bbe58a7782d9a5d1fa4b9}} 
+\index{teqp::vdWEOS1@{teqp::vdWEOS1}!p@{p}}
+\index{p@{p}!teqp::vdWEOS1@{teqp::vdWEOS1}}
+\doxysubsubsection{\texorpdfstring{p()}{p()}}
+{\footnotesize\ttfamily double teqp\+::vd\+WEOS1\+::p (\begin{DoxyParamCaption}\item[{double}]{T,  }\item[{double}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+For testing, provide the pressure explicit form of the EOS. 
+
+
+
+Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1vdWEOS1_a87b54720a30bc9e5c4e7275ae891a132}\label{classteqp_1_1vdWEOS1_a87b54720a30bc9e5c4e7275ae891a132}} 
+\index{teqp::vdWEOS1@{teqp::vdWEOS1}!R@{R}}
+\index{R@{R}!teqp::vdWEOS1@{teqp::vdWEOS1}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily template$<$class Vec\+Type $>$ \\
+auto teqp\+::vd\+WEOS1\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the universal gas constant. 
+
+\begin{DoxyNote}{Note}
+Here the real universal gas constant, with no composition dependence 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classteqp_1_1vdWEOS1_afafe7adffb4fe02a735891d7f9974c73}\label{classteqp_1_1vdWEOS1_afafe7adffb4fe02a735891d7f9974c73}} 
+\index{teqp::vdWEOS1@{teqp::vdWEOS1}!Ru@{Ru}}
+\index{Ru@{Ru}!teqp::vdWEOS1@{teqp::vdWEOS1}}
+\doxysubsubsection{\texorpdfstring{Ru}{Ru}}
+{\footnotesize\ttfamily const double teqp\+::vd\+WEOS1\+::\+Ru = 1.\+380649e-\/23 $\ast$ 6.\+02214076e23}
+
+
+
+Exact value, given by k\+\_\+\+B$\ast$\+N\+\_\+A. 
+
+
+
+Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\mbox{\hyperlink{vdW_8hpp}{vd\+W.\+hpp}}\end{DoxyCompactItemize}

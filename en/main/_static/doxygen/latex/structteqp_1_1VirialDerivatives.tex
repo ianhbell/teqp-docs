@@ -1,0 +1,155 @@
+\hypertarget{structteqp_1_1VirialDerivatives}{}\doxysection{teqp\+::Virial\+Derivatives\texorpdfstring{$<$}{<} Model, Scalar, Vector\+Type \texorpdfstring{$>$}{>} Struct Template Reference}
+\label{structteqp_1_1VirialDerivatives}\index{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$}}
+
+
+{\ttfamily \#include $<$derivs.\+hpp$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1VirialDerivatives_a5d60c6048852b3c082f631deb32685d7}{get\+\_\+\+B2vir}} (const Model \&model, const Scalar \&T, const Vector\+Type \&molefrac)
+\item 
+{\footnotesize template$<$int Nderiv, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1VirialDerivatives_a59f9816fa70bb9847da2d4f9daf4b015}{get\+\_\+\+Bnvir}} (const Model \&model, const Scalar \&T, const Vector\+Type \&molefrac)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1VirialDerivatives_a8e7954105a6a23692811850d8eaeadc6}{get\+\_\+\+Bnvir\+\_\+runtime}} (const int Nderiv, const Model \&model, const Scalar \&T, const Vector\+Type \&molefrac)
+\item 
+{\footnotesize template$<$int Nderiv, int NTderiv, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1VirialDerivatives_a04906fed21d0910051b25961d82e1e78}{get\+\_\+dm\+Bnvird\+Tm}} (const Model \&model, const Scalar \&T, const Vector\+Type \&molefrac)
+\begin{DoxyCompactList}\small\item\em Temperature derivatives of a virial coefficient. \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1VirialDerivatives_a4f3c46316f56b478f2beb4ed306986b5}{get\+\_\+dm\+Bnvird\+Tm\+\_\+runtime}} (const int Nderiv, const int NTderiv, const Model \&model, const Scalar \&T, const Vector\+Type \&molefrac)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1VirialDerivatives_a341849ff03bd0f24f5672930d97af80b}{get\+\_\+\+B12vir}} (const Model \&model, const Scalar \&T, const Vector\+Type \&molefrac)
+\begin{DoxyCompactList}\small\item\em Calculate the cross-\/virial coefficient $B_{12}$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Model, typename Scalar = double, typename Vector\+Type = Eigen\+::\+Array\+Xd$>$\newline
+struct teqp\+::\+Virial\+Derivatives$<$ Model, Scalar, Vector\+Type $>$}
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00465}{465}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structteqp_1_1VirialDerivatives_a341849ff03bd0f24f5672930d97af80b}\label{structteqp_1_1VirialDerivatives_a341849ff03bd0f24f5672930d97af80b}} 
+\index{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$}!get\_B12vir@{get\_B12vir}}
+\index{get\_B12vir@{get\_B12vir}!teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_B12vir()}{get\_B12vir()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1VirialDerivatives}{teqp\+::\+Virial\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+B12vir (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{molefrac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Calculate the cross-\/virial coefficient $B_{12}$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & The model to use \\
+\hline
+{\em T} & temperature \\
+\hline
+{\em molefrac} & mole fractions \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00627}{627}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1VirialDerivatives_a5d60c6048852b3c082f631deb32685d7}\label{structteqp_1_1VirialDerivatives_a5d60c6048852b3c082f631deb32685d7}} 
+\index{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$}!get\_B2vir@{get\_B2vir}}
+\index{get\_B2vir@{get\_B2vir}!teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_B2vir()}{get\_B2vir()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1VirialDerivatives}{teqp\+::\+Virial\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+B2vir (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{molefrac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00467}{467}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1VirialDerivatives_a59f9816fa70bb9847da2d4f9daf4b015}\label{structteqp_1_1VirialDerivatives_a59f9816fa70bb9847da2d4f9daf4b015}} 
+\index{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Bnvir@{get\_Bnvir}}
+\index{get\_Bnvir@{get\_Bnvir}!teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_Bnvir()}{get\_Bnvir()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$int Nderiv, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1VirialDerivatives}{teqp\+::\+Virial\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+Bnvir (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{molefrac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+$ B_n = \frac{1}{(n-2)!} \lim_{\rho\to 0} \left(\frac{\partial ^{n-1}\alpha^{\rm r}}{\partial \rho^{n-1}}\right)_{T,z} $ 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Nderiv} & The maximum virial coefficient to return; e.\+g. 5\+: B\+\_\+2, B\+\_\+3, ..., B\+\_\+5 \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em model} & The model providing the alphar function \\
+\hline
+{\em T} & Temperature \\
+\hline
+{\em molefrac} & The mole fractions \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00485}{485}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1VirialDerivatives_a8e7954105a6a23692811850d8eaeadc6}\label{structteqp_1_1VirialDerivatives_a8e7954105a6a23692811850d8eaeadc6}} 
+\index{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Bnvir\_runtime@{get\_Bnvir\_runtime}}
+\index{get\_Bnvir\_runtime@{get\_Bnvir\_runtime}!teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_Bnvir\_runtime()}{get\_Bnvir\_runtime()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1VirialDerivatives}{teqp\+::\+Virial\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+Bnvir\+\_\+runtime (\begin{DoxyParamCaption}\item[{const int}]{Nderiv,  }\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{molefrac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+This version of the get\+\_\+\+Bnvir takes the maximum number of derivatives as a runtime argument and then forwards all arguments to the corresponding templated function 
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00528}{528}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1VirialDerivatives_a04906fed21d0910051b25961d82e1e78}\label{structteqp_1_1VirialDerivatives_a04906fed21d0910051b25961d82e1e78}} 
+\index{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$}!get\_dmBnvirdTm@{get\_dmBnvirdTm}}
+\index{get\_dmBnvirdTm@{get\_dmBnvirdTm}!teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_dmBnvirdTm()}{get\_dmBnvirdTm()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$int Nderiv, int NTderiv, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1VirialDerivatives}{teqp\+::\+Virial\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+dm\+Bnvird\+Tm (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{molefrac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Temperature derivatives of a virial coefficient. 
+
+$ \left(\frac{\partial^m{B_n}}{\partial T^m}\right) = \frac{1}{(n-2)!} \lim_{\rho\to 0} \left(\frac{\partial ^{(n-1)+m}\alpha^{\rm r}}{\partial T^m \partial \rho^{n-1}}\right)_{T, z} $ 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Nderiv} & The virial coefficient to return; e.\+g. 5\+: B\+\_\+5 \\
+\hline
+{\em NTderiv} & The number of temperature derivatives to calculate \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em model} & The model providing the alphar function \\
+\hline
+{\em T} & Temperature \\
+\hline
+{\em molefrac} & The mole fractions \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00555}{555}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\mbox{\Hypertarget{structteqp_1_1VirialDerivatives_a4f3c46316f56b478f2beb4ed306986b5}\label{structteqp_1_1VirialDerivatives_a4f3c46316f56b478f2beb4ed306986b5}} 
+\index{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$}!get\_dmBnvirdTm\_runtime@{get\_dmBnvirdTm\_runtime}}
+\index{get\_dmBnvirdTm\_runtime@{get\_dmBnvirdTm\_runtime}!teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::VirialDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_dmBnvirdTm\_runtime()}{get\_dmBnvirdTm\_runtime()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$\mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1VirialDerivatives}{teqp\+::\+Virial\+Derivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+dm\+Bnvird\+Tm\+\_\+runtime (\begin{DoxyParamCaption}\item[{const int}]{Nderiv,  }\item[{const int}]{NTderiv,  }\item[{const Model \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vector\+Type \&}]{molefrac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+This version of the get\+\_\+dm\+Bnvird\+Tm takes the maximum number of derivatives as runtime arguments and then forwards all arguments to the templated function 
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00588}{588}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/\mbox{\hyperlink{derivs_8hpp}{derivs.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,44 @@
+\hypertarget{test__teqpcpp_8cpp_source}{}\doxysection{test\+\_\+teqpcpp.\+cpp}
+\label{test__teqpcpp_8cpp_source}\index{interface/CPP/test/test\_teqpcpp.cpp@{interface/CPP/test/test\_teqpcpp.cpp}}
+\mbox{\hyperlink{test__teqpcpp_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00011}00011 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{teqpcpp_8hpp}{teqp/cpp/teqpcpp.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{cpp_2derivs_8hpp}{teqp/cpp/derivs.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00015}\mbox{\hyperlink{test__teqpcpp_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00015}} \textcolor{keywordtype}{int} \mbox{\hyperlink{test__teqpcpp_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}() \{}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00016}00016     nlohmann::json j = \{ }
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00017}00017         \{\textcolor{stringliteral}{"{}kind"{}}, \textcolor{stringliteral}{"{}multifluid"{}}\}, }
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00018}00018         \{\textcolor{stringliteral}{"{}model"{}}, \{}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00019}00019             \{\textcolor{stringliteral}{"{}components"{}}, \{\textcolor{stringliteral}{"{}../mycp/dev/fluids/Methane.json"{}},\textcolor{stringliteral}{"{}../mycp/dev/fluids/Ethane.json"{}}\}\},}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00020}00020             \{\textcolor{stringliteral}{"{}BIP"{}}, \textcolor{stringliteral}{"{}../mycp/dev/mixtures/mixture\_binary\_pairs.json"{}}\},}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00021}00021             \{\textcolor{stringliteral}{"{}departure"{}}, \textcolor{stringliteral}{"{}../mycp/dev/mixtures/mixture\_departure\_functions.json"{}}\}}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00022}00022         \}}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00023}00023     \}\};}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00024}00024     \textcolor{comment}{//std::cout << j.dump(2);}}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00025}00025     \textcolor{keyword}{auto} am = \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a0e731ebdf104bc67dc7832e33a523d4f}{teqp::cppinterface::make\_model}}(j);}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00027}00027     \textcolor{keyword}{auto} z = (Eigen::ArrayXd(2) << 0.5, 0.5).finished();}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00028}00028     \textcolor{keywordtype}{double} Ar01 = am-\/>get\_Arxy(0, 1, 300, 3, z);}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00029}00029     std::cout << Ar01 << std::endl;}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00030}00030     }
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00031}00031     \textcolor{keyword}{auto} fugcoeff = am-\/>get\_fugacity\_coefficients(300.0, z*300.0);}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00032}00032     std::cout << fugcoeff << std::endl;}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00033}00033     }
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00034}00034     \textcolor{keyword}{auto} vhat = am-\/>get\_partial\_molar\_volumes(300.0, z*300.0);}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00035}00035     std::cout << vhat << std::endl;}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00036}00036     }
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00037}00037     \textcolor{keyword}{auto} mat = am-\/>get\_deriv\_mat2(300.0, 300.0, z);}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00038}00038     std::cout << mat << std::endl;}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00039}00039     }
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00040}00040     \textcolor{keyword}{const} std::vector<char> vars = \{\textcolor{charliteral}{'T'},\textcolor{charliteral}{'D'},\textcolor{charliteral}{'P'},\textcolor{charliteral}{'S'}\};}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00041}00041     \textcolor{keyword}{auto} im = \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2bcecf3d939d9f0f6b45d39dfe9e830d}{teqp::cppinterface::build\_iteration\_Jv}}(vars, mat, mat, 8.3144, 300.0, 300.0, z);}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00042}00042     std::cout << im.J << std::endl;}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00043}00043     }
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00044}00044     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& p = std::get<teqp::multifluid\_t>(am-\/>get\_model());}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00045}00045     std::cout << p.get\_meta() << std::endl;}
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00046}00046     }
+\DoxyCodeLine{\Hypertarget{test__teqpcpp_8cpp_source_l00047}00047 \}}
+
+\end{DoxyCode}

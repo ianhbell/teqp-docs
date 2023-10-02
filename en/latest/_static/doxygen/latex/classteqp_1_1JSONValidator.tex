@@ -1,0 +1,93 @@
+\hypertarget{classteqp_1_1JSONValidator}{}\doxysection{teqp\+::JSONValidator Class Reference}
+\label{classteqp_1_1JSONValidator}\index{teqp::JSONValidator@{teqp::JSONValidator}}
+
+
+{\ttfamily \#include $<$json\+\_\+tools.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1JSONValidator_a0535c8fb572f81615dbb30513b43b3fd}{JSONValidator}} (const nlohmann\+::json \&\mbox{\hyperlink{classteqp_1_1JSONValidator_a69d79bd81bf5df9cbb1ff0ab9e81cc5a}{schema}})
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classteqp_1_1JSONValidator_a81eb972abf14e0000e7cf1bfeaefc757}{get\+\_\+validation\+\_\+errors}} (const nlohmann\+::json \&j) const
+\item 
+bool \mbox{\hyperlink{classteqp_1_1JSONValidator_a5c05c2f997256a8bcd6370111cdd46f0}{is\+\_\+valid}} (const nlohmann\+::json \&j) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const nlohmann\+::json \mbox{\hyperlink{classteqp_1_1JSONValidator_a69d79bd81bf5df9cbb1ff0ab9e81cc5a}{schema}}
+\item 
+json\+\_\+validator \mbox{\hyperlink{classteqp_1_1JSONValidator_a2b35809941f4177ba29d0f6fe18586cc}{validator}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is not thread-\/safe for construction because the validator is not 
+
+Definition at line \mbox{\hyperlink{json__tools_8hpp_source_l00118}{118}} of file \mbox{\hyperlink{json__tools_8hpp_source}{json\+\_\+tools.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classteqp_1_1JSONValidator_a0535c8fb572f81615dbb30513b43b3fd}\label{classteqp_1_1JSONValidator_a0535c8fb572f81615dbb30513b43b3fd}} 
+\index{teqp::JSONValidator@{teqp::JSONValidator}!JSONValidator@{JSONValidator}}
+\index{JSONValidator@{JSONValidator}!teqp::JSONValidator@{teqp::JSONValidator}}
+\doxysubsubsection{\texorpdfstring{JSONValidator()}{JSONValidator()}}
+{\footnotesize\ttfamily teqp\+::\+JSONValidator\+::\+JSONValidator (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{schema }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{json__tools_8hpp_source_l00125}{125}} of file \mbox{\hyperlink{json__tools_8hpp_source}{json\+\_\+tools.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classteqp_1_1JSONValidator_a81eb972abf14e0000e7cf1bfeaefc757}\label{classteqp_1_1JSONValidator_a81eb972abf14e0000e7cf1bfeaefc757}} 
+\index{teqp::JSONValidator@{teqp::JSONValidator}!get\_validation\_errors@{get\_validation\_errors}}
+\index{get\_validation\_errors@{get\_validation\_errors}!teqp::JSONValidator@{teqp::JSONValidator}}
+\doxysubsubsection{\texorpdfstring{get\_validation\_errors()}{get\_validation\_errors()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ teqp\+::\+JSONValidator\+::get\+\_\+validation\+\_\+errors (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{json__tools_8hpp_source_l00130}{130}} of file \mbox{\hyperlink{json__tools_8hpp_source}{json\+\_\+tools.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1JSONValidator_a5c05c2f997256a8bcd6370111cdd46f0}\label{classteqp_1_1JSONValidator_a5c05c2f997256a8bcd6370111cdd46f0}} 
+\index{teqp::JSONValidator@{teqp::JSONValidator}!is\_valid@{is\_valid}}
+\index{is\_valid@{is\_valid}!teqp::JSONValidator@{teqp::JSONValidator}}
+\doxysubsubsection{\texorpdfstring{is\_valid()}{is\_valid()}}
+{\footnotesize\ttfamily bool teqp\+::\+JSONValidator\+::is\+\_\+valid (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{json__tools_8hpp_source_l00150}{150}} of file \mbox{\hyperlink{json__tools_8hpp_source}{json\+\_\+tools.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classteqp_1_1JSONValidator_a69d79bd81bf5df9cbb1ff0ab9e81cc5a}\label{classteqp_1_1JSONValidator_a69d79bd81bf5df9cbb1ff0ab9e81cc5a}} 
+\index{teqp::JSONValidator@{teqp::JSONValidator}!schema@{schema}}
+\index{schema@{schema}!teqp::JSONValidator@{teqp::JSONValidator}}
+\doxysubsubsection{\texorpdfstring{schema}{schema}}
+{\footnotesize\ttfamily const nlohmann\+::json teqp\+::\+JSONValidator\+::schema}
+
+
+
+Definition at line \mbox{\hyperlink{json__tools_8hpp_source_l00120}{120}} of file \mbox{\hyperlink{json__tools_8hpp_source}{json\+\_\+tools.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1JSONValidator_a2b35809941f4177ba29d0f6fe18586cc}\label{classteqp_1_1JSONValidator_a2b35809941f4177ba29d0f6fe18586cc}} 
+\index{teqp::JSONValidator@{teqp::JSONValidator}!validator@{validator}}
+\index{validator@{validator}!teqp::JSONValidator@{teqp::JSONValidator}}
+\doxysubsubsection{\texorpdfstring{validator}{validator}}
+{\footnotesize\ttfamily json\+\_\+validator teqp\+::\+JSONValidator\+::validator}
+
+
+
+Definition at line \mbox{\hyperlink{json__tools_8hpp_source_l00122}{122}} of file \mbox{\hyperlink{json__tools_8hpp_source}{json\+\_\+tools.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/\mbox{\hyperlink{json__tools_8hpp}{json\+\_\+tools.\+hpp}}\end{DoxyCompactItemize}

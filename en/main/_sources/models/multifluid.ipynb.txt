@@ -1,0 +1,585 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Multi-fluid EOS\n",
+    "\n",
+    "Peering into the innards of teqp"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:03.748840Z",
+     "iopub.status.busy": "2023-10-02T21:19:03.748424Z",
+     "iopub.status.idle": "2023-10-02T21:19:04.046337Z",
+     "shell.execute_reply": "2023-10-02T21:19:04.045367Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'0.17.0'"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import timeit, json\n",
+    "import pandas\n",
+    "import numpy as np\n",
+    "import teqp\n",
+    "teqp.__version__"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Ancillary Equations"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Ancillary equations are provided along with multiparameter equations of state. The give a good *approximation* to the phase equilibrium densities.  There are routines in teqp to use the ancillary equations provided with the EOS. First a class containing the ancillary equations is obtained, then methods on that class are called"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:04.082724Z",
+     "iopub.status.busy": "2023-10-02T21:19:04.081863Z",
+     "iopub.status.idle": "2023-10-02T21:19:04.093562Z",
+     "shell.execute_reply": "2023-10-02T21:19:04.092953Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Densities are: 27357.335621492966 42.04100696197727 mol/m^3\n"
+     ]
+    }
+   ],
+   "source": [
+    "model = teqp.build_multifluid_model([\"Methane\"], teqp.get_datapath())\n",
+    "anc = model.build_ancillaries()\n",
+    "T = 100.0 # [K]\n",
+    "rhoL, rhoV = anc.rhoL(T), anc.rhoV(T)\n",
+    "print('Densities are:', rhoL, rhoV, 'mol/m^3')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "But those densities do not correspond to the *true* phase equilibrium solution, so we need to polish the solution:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:04.096755Z",
+     "iopub.status.busy": "2023-10-02T21:19:04.096215Z",
+     "iopub.status.idle": "2023-10-02T21:19:04.100154Z",
+     "shell.execute_reply": "2023-10-02T21:19:04.099623Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "VLE densities are: 27357.147019094467 42.047982278351704 mol/m^3\n"
+     ]
+    }
+   ],
+   "source": [
+    "Niter = 10\n",
+    "rhoLtrue, rhoVtrue = model.pure_VLE_T(T, rhoL, rhoV, Niter)\n",
+    "print('VLE densities are:', rhoLtrue, rhoVtrue, 'mol/m^3')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "And looking the densities, they are slightly different after the phase equilibrium calculation"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Ammonia-Water\n",
+    "\n",
+    "Tillner-Roth and Friend provided a hard-coded model that is in a form not compatible with the other multi-fluid models. It is available via the high-level factory function"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:04.103157Z",
+     "iopub.status.busy": "2023-10-02T21:19:04.102624Z",
+     "iopub.status.idle": "2023-10-02T21:19:04.108984Z",
+     "shell.execute_reply": "2023-10-02T21:19:04.108382Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "-0.09731055757504622"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "AW = teqp.AmmoniaWaterTillnerRoth()\n",
+    "AW.get_Ar01(300, 300, np.array([0.9, 0.0]))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Pure fluid loading"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:04.111927Z",
+     "iopub.status.busy": "2023-10-02T21:19:04.111470Z",
+     "iopub.status.idle": "2023-10-02T21:19:10.962773Z",
+     "shell.execute_reply": "2023-10-02T21:19:10.962135Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "827 µs ± 10.1 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)\n"
+     ]
+    }
+   ],
+   "source": [
+    "# By default teqp looks for fluids relative to the set of fluids in ROOT/dev/fluids\n",
+    "# The name (case-sensitive) should match the .json file, without the json extension.\n",
+    "%timeit model = teqp.build_multifluid_model([\"Methane\"], teqp.get_datapath())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:10.965789Z",
+     "iopub.status.busy": "2023-10-02T21:19:10.965250Z",
+     "iopub.status.idle": "2023-10-02T21:19:14.696391Z",
+     "shell.execute_reply": "2023-10-02T21:19:14.695476Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "46 ms ± 787 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)\n"
+     ]
+    }
+   ],
+   "source": [
+    "# And if you provide valid aliases, alias lookup will be used to resolve the name\n",
+    "# But beware, this is rather a lot slower than the above because all fluid files need to be read\n",
+    "# in to build the alias map\n",
+    "%timeit model = teqp.build_multifluid_model([\"n-C1H4\"], teqp.get_datapath())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "So, how to make it faster? Only do it once and cache"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:14.700469Z",
+     "iopub.status.busy": "2023-10-02T21:19:14.700035Z",
+     "iopub.status.idle": "2023-10-02T21:19:18.403921Z",
+     "shell.execute_reply": "2023-10-02T21:19:18.403140Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "44.7 ms ± 452 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "['1,2-DICHLOROETHANE',\n",
+       " '1,2-dichloroethane',\n",
+       " '1-BUTENE',\n",
+       " '1-Butene',\n",
+       " '100-41-4',\n",
+       " '10024-97-2',\n",
+       " '102687-65-0',\n",
+       " '106-42-3',\n",
+       " '106-97-8',\n",
+       " '106-98-9']"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Here is the set of possible aliases to absolute paths of files\n",
+    "# Building this map takes a little while (somewhat faster in C++) due to all the file reads\n",
+    "# If you know your files will not change, good idea to build this alias map yourself.\n",
+    "%timeit aliasmap = teqp.build_alias_map(teqp.get_datapath())\n",
+    "aliasmap = teqp.build_alias_map(teqp.get_datapath())\n",
+    "list(aliasmap.keys())[0:10] # the first 10 aliases in the dict"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:18.407197Z",
+     "iopub.status.busy": "2023-10-02T21:19:18.406597Z",
+     "iopub.status.idle": "2023-10-02T21:19:25.043836Z",
+     "shell.execute_reply": "2023-10-02T21:19:25.042761Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "802 µs ± 21.4 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Then load the absolute paths from the alias map, \n",
+    "# which will guarantee that you hit exactly what you were looking for,\n",
+    "# resolving aliases as needed\n",
+    "identifiers = [aliasmap[n] for n in [\"n-C1H4\"]]\n",
+    "%timeit model = teqp.build_multifluid_model(identifiers, teqp.get_datapath())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "At some point soon teqp will support in-memory loading of JSON data for the pure components, without requiring reads from the operating system"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:25.048030Z",
+     "iopub.status.busy": "2023-10-02T21:19:25.047313Z",
+     "iopub.status.idle": "2023-10-02T21:19:25.052283Z",
+     "shell.execute_reply": "2023-10-02T21:19:25.051637Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# And you can also load the JSON that teqp is loading for the pure fluids\n",
+    "pureJSON = teqp.collect_component_json(['Neon','Hydrogen'], teqp.get_datapath())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Mixture model loading"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:25.055399Z",
+     "iopub.status.busy": "2023-10-02T21:19:25.054788Z",
+     "iopub.status.idle": "2023-10-02T21:19:25.061505Z",
+     "shell.execute_reply": "2023-10-02T21:19:25.060952Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Load the default JSON for the binary interaction parameters\n",
+    "BIP = json.load(open(teqp.get_datapath()+'/dev/mixtures/mixture_binary_pairs.json'))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:25.064171Z",
+     "iopub.status.busy": "2023-10-02T21:19:25.063773Z",
+     "iopub.status.idle": "2023-10-02T21:19:25.073974Z",
+     "shell.execute_reply": "2023-10-02T21:19:25.073421Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'BibTeX': 'Kunz-JCED-2012',\n",
+       " 'CAS1': '74-82-8',\n",
+       " 'CAS2': '74-84-0',\n",
+       " 'F': 1.0,\n",
+       " 'Name1': 'Methane',\n",
+       " 'Name2': 'Ethane',\n",
+       " 'betaT': 0.996336508,\n",
+       " 'betaV': 0.997547866,\n",
+       " 'function': 'Methane-Ethane',\n",
+       " 'gammaT': 1.049707697,\n",
+       " 'gammaV': 1.006617867}"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# You can obtain interaction parameters either by pairs of names, where name is the name that teqp uses, the [\"INFO\"][\"NAME\"] field\n",
+    "params, swap_needed = teqp.get_BIPdep(BIP, ['Methane','Ethane'])\n",
+    "params"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:25.076512Z",
+     "iopub.status.busy": "2023-10-02T21:19:25.076241Z",
+     "iopub.status.idle": "2023-10-02T21:19:25.084205Z",
+     "shell.execute_reply": "2023-10-02T21:19:25.083689Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'BibTeX': 'Kunz-JCED-2012',\n",
+       " 'CAS1': '74-82-8',\n",
+       " 'CAS2': '74-84-0',\n",
+       " 'F': 1.0,\n",
+       " 'Name1': 'Methane',\n",
+       " 'Name2': 'Ethane',\n",
+       " 'betaT': 0.996336508,\n",
+       " 'betaV': 0.997547866,\n",
+       " 'function': 'Methane-Ethane',\n",
+       " 'gammaT': 1.049707697,\n",
+       " 'gammaV': 1.006617867}"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Or also by CAS#\n",
+    "params, swap_needed = teqp.get_BIPdep(BIP, ['74-82-8','74-84-0'])\n",
+    "params"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:25.086488Z",
+     "iopub.status.busy": "2023-10-02T21:19:25.086109Z",
+     "iopub.status.idle": "2023-10-02T21:19:25.269363Z",
+     "shell.execute_reply": "2023-10-02T21:19:25.268613Z"
+    },
+    "tags": [
+     "raises-exception"
+    ]
+   },
+   "outputs": [
+    {
+     "ename": "ValueError",
+     "evalue": "Can't match the binary pair for: 74-82-8/Ethane",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mValueError\u001b[0m                                Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[13], line 2\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[38;5;66;03m# But mixing is not allowed\u001b[39;00m\n\u001b[0;32m----> 2\u001b[0m params, swap_needed \u001b[38;5;241m=\u001b[39m \u001b[43mteqp\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mget_BIPdep\u001b[49m\u001b[43m(\u001b[49m\u001b[43mBIP\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43m[\u001b[49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[38;5;124;43m74-82-8\u001b[39;49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[43m,\u001b[49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[38;5;124;43mEthane\u001b[39;49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[43m]\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m      3\u001b[0m params\n",
+      "\u001b[0;31mValueError\u001b[0m: Can't match the binary pair for: 74-82-8/Ethane"
+     ]
+    }
+   ],
+   "source": [
+    "# But mixing is not allowed\n",
+    "params, swap_needed = teqp.get_BIPdep(BIP, ['74-82-8','Ethane'])\n",
+    "params"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Estimation of interaction parameters\n",
+    "\n",
+    "Estimation of interaction parameters can be used when no mixture model is present.  The ``flags`` keyword argument allows the user to control how estimation is applied. The ``flags`` keyword argument should be a dictionary, with keys of ``\"estimate\"`` to provide the desired estimation scheme as-needed. For now, the only allowed estimation scheme is ``Lorentz-Berthelot``. \n",
+    "\n",
+    "If it is desired to force the estimation, the ``\"force-estimate\"`` to force the use of the provided estimation scheme for all binaries, even when a proper mixture model is available. The value associated with ``\"force-estimate\"`` is ignored."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:25.272487Z",
+     "iopub.status.busy": "2023-10-02T21:19:25.271897Z",
+     "iopub.status.idle": "2023-10-02T21:19:25.283175Z",
+     "shell.execute_reply": "2023-10-02T21:19:25.282661Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'F': 0.0, 'betaT': 1.0, 'betaV': 1.0, 'gammaT': 1.0, 'gammaV': 1.0}"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "params, swap_needed = teqp.get_BIPdep(BIP, ['74-82-8','74-84-0'], flags={'force-estimate':'yes', 'estimate': 'Lorentz-Berthelot'})\n",
+    "params"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:25.285713Z",
+     "iopub.status.busy": "2023-10-02T21:19:25.285309Z",
+     "iopub.status.idle": "2023-10-02T21:19:25.293863Z",
+     "shell.execute_reply": "2023-10-02T21:19:25.293281Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'BibTeX': 'Kunz-JCED-2012',\n",
+       " 'CAS1': '74-82-8',\n",
+       " 'CAS2': '74-84-0',\n",
+       " 'F': 1.0,\n",
+       " 'Name1': 'Methane',\n",
+       " 'Name2': 'Ethane',\n",
+       " 'betaT': 0.996336508,\n",
+       " 'betaV': 0.997547866,\n",
+       " 'function': 'Methane-Ethane',\n",
+       " 'gammaT': 1.049707697,\n",
+       " 'gammaV': 1.006617867}"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# And without the force, the forcing is ignored\n",
+    "params, swap_needed = teqp.get_BIPdep(BIP, ['74-82-8','74-84-0'], flags={'estimate': 'Lorentz-Berthelot'})\n",
+    "params"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-10-02T21:19:25.296668Z",
+     "iopub.status.busy": "2023-10-02T21:19:25.296259Z",
+     "iopub.status.idle": "2023-10-02T21:19:25.355652Z",
+     "shell.execute_reply": "2023-10-02T21:19:25.354730Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# And the same flags can be passed to the multifluid model constructor\n",
+    "model = teqp.build_multifluid_model(\n",
+    "    ['74-82-8','74-84-0'], \n",
+    "    teqp.get_datapath(), \n",
+    "    flags={'force-estimate':'yes', 'estimate': 'Lorentz-Berthelot'})"
+   ]
+  }
+ ],
+ "metadata": {
+  "celltoolbar": "Edit Metadata",
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

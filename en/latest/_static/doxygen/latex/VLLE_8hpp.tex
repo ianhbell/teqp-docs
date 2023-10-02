@@ -1,0 +1,36 @@
+\hypertarget{VLLE_8hpp}{}\doxysection{include/teqp/algorithms/\+VLLE.hpp File Reference}
+\label{VLLE_8hpp}\index{include/teqp/algorithms/VLLE.hpp@{include/teqp/algorithms/VLLE.hpp}}
+{\ttfamily \#include \char`\"{}teqp/derivs.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/exceptions.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/algorithms/\+VLLE\+\_\+types.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teqp/cpp/teqpcpp.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$boost/numeric/odeint/stepper/controlled\+\_\+runge\+\_\+kutta.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/numeric/odeint/stepper/runge\+\_\+kutta\+\_\+cash\+\_\+karp54.\+hpp$>$}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1VLLE}{teqp\+::\+VLLE}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_ae25bbb62557baebe155d55f4f1aa850d}{teqp\+::\+VLLE\+::mix\+\_\+\+VLLE\+\_\+T}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+Vinit, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L1init, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L2init, double atol, double reltol, double axtol, double relxtol, int maxiter)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_a7d999c4035b914065f050670121e84b8}{teqp\+::\+VLLE\+::mix\+\_\+\+VLLE\+\_\+p}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, double p, double Tinit, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+Vinit, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L1init, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L2init, double atol, double reltol, double axtol, double relxtol, int maxiter)
+\item 
+{\footnotesize template$<$typename Iterable $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_ad553eb6ef7c3a743bd25e41d2d4b803d}{teqp\+::\+VLLE\+::get\+\_\+self\+\_\+intersections}} (Iterable \&x, Iterable \&y)
+\item 
+{\footnotesize template$<$typename Iterable $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_a25c672abedcc4ff0aee012da5be0581f}{teqp\+::\+VLLE\+::get\+\_\+cross\+\_\+intersections}} (Iterable \&x1, Iterable \&y1, Iterable \&x2, Iterable \&y2)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_a904fdf34279116df5ec4e4fc47cc6ba2}{teqp\+::\+VLLE\+::find\+\_\+\+VLLE\+\_\+gen\+\_\+binary}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const std\+::vector$<$ nlohmann\+::json $>$ \&traces, const std\+::string \&key, const std\+::optional$<$ VLLEFinder\+Options $>$ options=std\+::nullopt)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_a6075d7e6604eab8bdc5c3afdff70fdd0}{teqp\+::\+VLLE\+::find\+\_\+\+VLLE\+\_\+\+T\+\_\+binary}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const std\+::vector$<$ nlohmann\+::json $>$ \&traces, const std\+::optional$<$ VLLEFinder\+Options $>$ \&options=std\+::nullopt)
+\begin{DoxyCompactList}\small\item\em Given an isothermal VLE trace(s) for a binary mixture, obtain the \mbox{\hyperlink{namespaceteqp_1_1VLLE}{VLLE}} solution. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_a50513eeeb0a1fb8ff795de5967f2195d}{teqp\+::\+VLLE\+::find\+\_\+\+VLLE\+\_\+p\+\_\+binary}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const std\+::vector$<$ nlohmann\+::json $>$ \&traces, const std\+::optional$<$ VLLEFinder\+Options $>$ \&options=std\+::nullopt)
+\begin{DoxyCompactList}\small\item\em Given an isobaric VLE trace(s) for a binary mixture, obtain the \mbox{\hyperlink{namespaceteqp_1_1VLLE}{VLLE}} solution. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_ac4d9bef0a8743dda20d148593f1d892f}{teqp\+::\+VLLE\+::get\+\_\+drhovecd\+T\+\_\+\+VLLE\+\_\+binary}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovecV, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L1, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L2)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_a0b7c589416929bd8506bfb4843b7df8e}{teqp\+::\+VLLE\+::trace\+\_\+\+VLLE\+\_\+binary}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::\+VLLE\+::\+Abstract\+Model}} \&model, const double Tinit, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovecV, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L1, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L2, const std\+::optional$<$ VLLETracer\+Options $>$ \&options\+\_\+=std\+::nullopt)
+\begin{DoxyCompactList}\small\item\em Given an initial \mbox{\hyperlink{namespaceteqp_1_1VLLE}{VLLE}} solution, trace the \mbox{\hyperlink{namespaceteqp_1_1VLLE}{VLLE}} curve. We know the \mbox{\hyperlink{namespaceteqp_1_1VLLE}{VLLE}} curve is a function of only one state variable by Gibbs\textquotesingle{} rule. \end{DoxyCompactList}\end{DoxyCompactItemize}

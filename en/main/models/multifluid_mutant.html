@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Multfluid mutant &#8212; teqp 0.17.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=0c3dd48d"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SAFT-VR-Mie" href="SAFT-VR-Mie.html" />
+    <link rel="prev" title="Multi-fluid EOS" href="multifluid.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="Multfluid-mutant">
+<h1>Multfluid mutant<a class="headerlink" href="#Multfluid-mutant" title="Link to this heading">¶</a></h1>
+<p>These adapted multifluid models are used for fitting departure functions. The pure fluids remain fixed while you can adjust the mixture model, both the interaction parameters as well as the departure function terms</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">teqp</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">teqp</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.17.0&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">basemodel</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">build_multifluid_model</span><span class="p">([</span><span class="s1">&#39;Nitrogen&#39;</span><span class="p">,</span><span class="s1">&#39;Ethane&#39;</span><span class="p">],</span> <span class="n">teqp</span><span class="o">.</span><span class="n">get_datapath</span><span class="p">())</span>
+<span class="n">s</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;0&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;BIP&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;betaT&quot;</span><span class="p">:</span> <span class="mf">1.1</span><span class="p">,</span>
+                <span class="s2">&quot;gammaT&quot;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
+                <span class="s2">&quot;betaV&quot;</span><span class="p">:</span> <span class="mf">1.05</span><span class="p">,</span>
+                <span class="s2">&quot;gammaV&quot;</span><span class="p">:</span> <span class="mf">1.3</span><span class="p">,</span>
+                <span class="s2">&quot;Fij&quot;</span><span class="p">:</span> <span class="mf">1.0</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;departure&quot;</span><span class="p">:{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">mutant</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">build_multifluid_mutant</span><span class="p">(</span><span class="n">basemodel</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> teqp.build_multifluid_mutant(basemodel, s)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+35.7 µs ± 2.81 µs per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mutant</span><span class="o">.</span><span class="n">get_Ar01</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-0.00017517184039893556
+</pre></div></div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Models</a><ul>
+      <li>Previous: <a href="multifluid.html" title="previous chapter">Multi-fluid EOS</a></li>
+      <li>Next: <a href="SAFT-VR-Mie.html" title="next chapter">SAFT-VR-Mie</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/multifluid_mutant.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/multifluid_mutant.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

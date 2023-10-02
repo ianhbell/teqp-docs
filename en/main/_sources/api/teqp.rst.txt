@@ -1,0 +1,21 @@
+teqp package
+============
+
+Submodules
+----------
+
+teqp.teqp module
+----------------
+
+.. automodule:: teqp.teqp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: teqp
+   :members:
+   :undoc-members:
+   :show-inheritance:

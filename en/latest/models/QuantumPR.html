@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Quantum PR &#8212; teqp 0.17.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=0c3dd48d"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Model Potentials" href="model_potentials.html" />
+    <link rel="prev" title="General cubics" href="cubics.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="Quantum-PR">
+<h1>Quantum PR<a class="headerlink" href="#Quantum-PR" title="Link to this heading">¶</a></h1>
+<p>The quantum-corrected Peng-Robinson model of Aasen <em>et al.</em> (<a class="reference external" href="https://doi.org/10.1063/1.5111364">https://doi.org/10.1063/1.5111364</a>) can be used to account for quantum effects by empirical fits to the Feynman-Hibbs corrections.</p>
+<p>The conventional Peng-Robinson approach is used, with an adjusted covolume <span class="math notranslate nohighlight">\(b_i\)</span> given by</p>
+<div class="math notranslate nohighlight">
+\[b_i = b_{i, PR}\beta_i(T)\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[\beta_i(T) = \left(\frac{1+A_i/(T+B_i)}{1+A_i/(T_{ci} + B_i)}\right)^3\]</div>
+<p>and Twu alpha functions are used to correct the attractive part.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span><span class="o">,</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">CoolProp.CoolProp</span> <span class="k">as</span> <span class="nn">CP</span>
+
+<span class="kn">import</span> <span class="nn">teqp</span>
+<span class="n">teqp</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.17.0&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kij_library</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">(</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;Ne&#39;</span><span class="p">):</span> <span class="mf">0.18</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;He&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">):</span> <span class="mf">0.17</span>
+<span class="p">}</span>
+<span class="n">lij_library</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">(</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;Ne&#39;</span><span class="p">):</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;He&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">):</span> <span class="o">-</span><span class="mf">0.16</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">c_factor</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">param_library</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;H2&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Ls&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">156.21</span><span class="p">],</span>
+            <span class="s2">&quot;Ms&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.0062072</span><span class="p">],</span>
+            <span class="s2">&quot;Ns&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">5.047</span><span class="p">],</span>
+            <span class="s2">&quot;As&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.0696</span><span class="p">],</span>
+            <span class="s2">&quot;Bs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">12.682</span><span class="p">],</span>
+            <span class="s2">&quot;cs / m^3/mol&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">c_factor</span><span class="o">*-</span><span class="mf">3.8139e-6</span><span class="p">],</span>
+            <span class="s2">&quot;Tcrit / K&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">33.19</span><span class="p">],</span>
+            <span class="s2">&quot;pcrit / Pa&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">12.964e5</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;Ne&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Ls&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.40453</span><span class="p">],</span>
+            <span class="s2">&quot;Ms&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.95861</span><span class="p">],</span>
+            <span class="s2">&quot;Ns&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.8396</span><span class="p">],</span>
+            <span class="s2">&quot;As&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.4673</span><span class="p">],</span>
+            <span class="s2">&quot;Bs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.4634</span><span class="p">],</span>
+            <span class="s2">&quot;cs / m^3/mol&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">c_factor</span><span class="o">*-</span><span class="mf">2.4665e-6</span><span class="p">],</span>
+            <span class="s2">&quot;Tcrit / K&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">44.492</span><span class="p">],</span>
+            <span class="s2">&quot;pcrit / Pa&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">26.79e5</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;He&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Ls&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.48558</span><span class="p">],</span>
+            <span class="s2">&quot;Ms&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.7173</span><span class="p">],</span>
+            <span class="s2">&quot;Ns&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.30271</span><span class="p">],</span>
+            <span class="s2">&quot;As&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.4912</span><span class="p">],</span>
+            <span class="s2">&quot;Bs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.2634</span><span class="p">],</span>
+            <span class="s2">&quot;cs / m^3/mol&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">c_factor</span><span class="o">*-</span><span class="mf">3.1791e-6</span><span class="p">],</span>
+            <span class="s2">&quot;Tcrit / K&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">5.1953</span><span class="p">],</span>
+            <span class="s2">&quot;pcrit / Pa&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.276e5</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">[</span><span class="n">param_library</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="p">[</span><span class="n">param</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">params</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Ls&#39;</span><span class="p">,</span><span class="s1">&#39;Ms&#39;</span><span class="p">,</span><span class="s1">&#39;Ns&#39;</span><span class="p">,</span><span class="s1">&#39;As&#39;</span><span class="p">,</span><span class="s1">&#39;Bs&#39;</span><span class="p">,</span><span class="s1">&#39;cs / m^3/mol&#39;</span><span class="p">,</span><span class="s1">&#39;Tcrit / K&#39;</span><span class="p">,</span><span class="s1">&#39;pcrit / Pa&#39;</span><span class="p">]}</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;kmat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;lmat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">kij</span> <span class="o">=</span> <span class="n">kij_library</span><span class="p">[</span><span class="n">names</span><span class="p">]</span>
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;kmat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">kij</span><span class="p">],[</span><span class="n">kij</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="n">lij</span> <span class="o">=</span> <span class="n">lij_library</span><span class="p">[</span><span class="n">names</span><span class="p">]</span>
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;lmat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">lij</span><span class="p">],[</span><span class="n">lij</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+
+    <span class="n">j</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;QCPRAasen&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">model</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">j</span><span class="p">),</span> <span class="n">j</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">get_model</span><span class="p">((</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;Ne&#39;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">modelH2</span> <span class="o">=</span> <span class="n">get_model</span><span class="p">((</span><span class="s1">&#39;H2&#39;</span><span class="p">,))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">modelNe</span> <span class="o">=</span> <span class="n">get_model</span><span class="p">((</span><span class="s1">&#39;Ne&#39;</span><span class="p">,))[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">get_traces</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">ipures</span><span class="p">):</span>
+    <span class="n">traces</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ipure</span> <span class="ow">in</span> <span class="n">ipures</span><span class="p">:</span>
+        <span class="n">rhovecL0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+        <span class="n">rhovecV0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">ipure</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span> <span class="o">=</span> <span class="n">modelNe</span><span class="o">.</span><span class="n">superanc_rhoLV</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span> <span class="o">=</span> <span class="n">modelH2</span><span class="o">.</span><span class="n">superanc_rhoLV</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">rhovecL0</span><span class="p">[</span><span class="n">ipure</span><span class="p">]</span> <span class="o">=</span> <span class="n">rhoL</span>
+        <span class="n">rhovecV0</span><span class="p">[</span><span class="n">ipure</span><span class="p">]</span> <span class="o">=</span> <span class="n">rhoV</span>
+
+        <span class="n">opt</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">TVLEOptions</span><span class="p">();</span>
+<span class="c1">#         opt.polish=True;</span>
+<span class="c1">#         opt.integration_order=5; opt.rel_err=1e-10;</span>
+<span class="c1">#         opt.calc_criticality = True;</span>
+        <span class="n">opt</span><span class="o">.</span><span class="n">crit_termination</span><span class="o">=</span><span class="mf">1e-10</span>
+        <span class="n">trace</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">trace_VLE_isotherm_binary</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhovecL0</span><span class="p">,</span> <span class="n">rhovecV0</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+        <span class="n">traces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">traces</span>
+
+<span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">24.59</span><span class="p">,</span> <span class="mf">28.0</span><span class="p">,</span> <span class="mf">34.66</span><span class="p">,</span> <span class="mf">39.57</span><span class="p">,</span> <span class="mf">42.50</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">T</span> <span class="o">&lt;</span> <span class="mf">26.0</span><span class="p">:</span>
+        <span class="n">traces</span> <span class="o">=</span> <span class="n">get_traces</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">traces</span> <span class="o">=</span> <span class="n">get_traces</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">traces</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+
+        <span class="c1"># Plot the VLE solution</span>
+        <span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;xL_0 / mole frac.&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pL / Pa&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">1e5</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;xV_0 / mole frac.&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pL / Pa&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">1e5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">line</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+
+    <span class="c1"># Plot the VLLE solution if found</span>
+    <span class="k">for</span> <span class="n">soln</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">find_VLLE_T_binary</span><span class="p">(</span><span class="n">traces</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">rhovec</span> <span class="ow">in</span> <span class="n">soln</span><span class="p">[</span><span class="s1">&#39;polished&#39;</span><span class="p">]:</span>
+            <span class="n">rhovec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rhovec</span><span class="p">)</span>
+            <span class="n">rhotot</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">rhovec</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">rhovec</span><span class="o">/</span><span class="n">rhotot</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">rhotot</span><span class="o">*</span><span class="n">model</span><span class="o">.</span><span class="n">get_R</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">T</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar01</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhotot</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="o">/</span><span class="mf">1e5</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">line</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+            <span class="c1"># print(T, rhovec, x[0], p/1e5, &#39;bar&#39;)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;x/y H$_2$&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;$P$ / bar&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/models_QuantumPR_2_0.png" src="../_images/models_QuantumPR_2_0.png" />
+</div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Models</a><ul>
+      <li>Previous: <a href="cubics.html" title="previous chapter">General cubics</a></li>
+      <li>Next: <a href="model_potentials.html" title="next chapter">Model Potentials</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/QuantumPR.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/QuantumPR.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

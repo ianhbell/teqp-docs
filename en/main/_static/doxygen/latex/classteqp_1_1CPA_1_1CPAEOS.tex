@@ -1,0 +1,102 @@
+\hypertarget{classteqp_1_1CPA_1_1CPAEOS}{}\doxysection{teqp\+::CPA\+::CPAEOS\texorpdfstring{$<$}{<} Cubic, Assoc \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classteqp_1_1CPA_1_1CPAEOS}\index{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$@{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$}}
+
+
+{\ttfamily \#include $<$CPA.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1CPA_1_1CPAEOS_a6e382e40c6227d4b6631679453492039}{R}} (const Vec\+Type \&molefrac) const
+\item 
+\mbox{\hyperlink{classteqp_1_1CPA_1_1CPAEOS_aa41d286b7e73d68b83e5eabe61437cca}{CPAEOS}} (Cubic \&\&\mbox{\hyperlink{classteqp_1_1CPA_1_1CPAEOS_a527c509b5791e6c53856942852adfc6f}{cubic}}, Assoc \&\&\mbox{\hyperlink{classteqp_1_1CPA_1_1CPAEOS_aca2efb258eb0d6f27585f4a4f0ccb7de}{assoc}})
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1CPA_1_1CPAEOS_a36d9075202beaf79e846ea01ab503249}{alphar}} (const TType \&T, const Rho\+Type \&rhomolar, const Vec\+Type \&molefrac) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const Cubic \mbox{\hyperlink{classteqp_1_1CPA_1_1CPAEOS_a527c509b5791e6c53856942852adfc6f}{cubic}}
+\item 
+const Assoc \mbox{\hyperlink{classteqp_1_1CPA_1_1CPAEOS_aca2efb258eb0d6f27585f4a4f0ccb7de}{assoc}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Cubic, typename Assoc$>$\newline
+class teqp\+::\+CPA\+::\+CPAEOS$<$ Cubic, Assoc $>$}
+
+
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00236}{236}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classteqp_1_1CPA_1_1CPAEOS_aa41d286b7e73d68b83e5eabe61437cca}\label{classteqp_1_1CPA_1_1CPAEOS_aa41d286b7e73d68b83e5eabe61437cca}} 
+\index{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$@{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$}!CPAEOS@{CPAEOS}}
+\index{CPAEOS@{CPAEOS}!teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$@{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$}}
+\doxysubsubsection{\texorpdfstring{CPAEOS()}{CPAEOS()}}
+{\footnotesize\ttfamily template$<$typename Cubic , typename Assoc $>$ \\
+\mbox{\hyperlink{classteqp_1_1CPA_1_1CPAEOS}{teqp\+::\+CPA\+::\+CPAEOS}}$<$ Cubic, Assoc $>$\+::\mbox{\hyperlink{classteqp_1_1CPA_1_1CPAEOS}{CPAEOS}} (\begin{DoxyParamCaption}\item[{Cubic \&\&}]{cubic,  }\item[{Assoc \&\&}]{assoc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00246}{246}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classteqp_1_1CPA_1_1CPAEOS_a36d9075202beaf79e846ea01ab503249}\label{classteqp_1_1CPA_1_1CPAEOS_a36d9075202beaf79e846ea01ab503249}} 
+\index{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$@{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$@{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily template$<$typename Cubic , typename Assoc $>$ \\
+template$<$typename TType , typename Rho\+Type , typename Vec\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1CPA_1_1CPAEOS}{teqp\+::\+CPA\+::\+CPAEOS}}$<$ Cubic, Assoc $>$\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Rho\+Type \&}]{rhomolar,  }\item[{const Vec\+Type \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Residual dimensionless Helmholtz energy from the SRK or PR core and contribution due to association alphar = a/(R$\ast$T) where a and R are both molar quantities 
+
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00252}{252}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1CPA_1_1CPAEOS_a6e382e40c6227d4b6631679453492039}\label{classteqp_1_1CPA_1_1CPAEOS_a6e382e40c6227d4b6631679453492039}} 
+\index{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$@{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$}!R@{R}}
+\index{R@{R}!teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$@{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily template$<$typename Cubic , typename Assoc $>$ \\
+template$<$class Vec\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1CPA_1_1CPAEOS}{teqp\+::\+CPA\+::\+CPAEOS}}$<$ Cubic, Assoc $>$\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00242}{242}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classteqp_1_1CPA_1_1CPAEOS_aca2efb258eb0d6f27585f4a4f0ccb7de}\label{classteqp_1_1CPA_1_1CPAEOS_aca2efb258eb0d6f27585f4a4f0ccb7de}} 
+\index{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$@{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$}!assoc@{assoc}}
+\index{assoc@{assoc}!teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$@{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$}}
+\doxysubsubsection{\texorpdfstring{assoc}{assoc}}
+{\footnotesize\ttfamily template$<$typename Cubic , typename Assoc $>$ \\
+const Assoc \mbox{\hyperlink{classteqp_1_1CPA_1_1CPAEOS}{teqp\+::\+CPA\+::\+CPAEOS}}$<$ Cubic, Assoc $>$\+::assoc}
+
+
+
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00239}{239}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1CPA_1_1CPAEOS_a527c509b5791e6c53856942852adfc6f}\label{classteqp_1_1CPA_1_1CPAEOS_a527c509b5791e6c53856942852adfc6f}} 
+\index{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$@{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$}!cubic@{cubic}}
+\index{cubic@{cubic}!teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$@{teqp::CPA::CPAEOS$<$ Cubic, Assoc $>$}}
+\doxysubsubsection{\texorpdfstring{cubic}{cubic}}
+{\footnotesize\ttfamily template$<$typename Cubic , typename Assoc $>$ \\
+const Cubic \mbox{\hyperlink{classteqp_1_1CPA_1_1CPAEOS}{teqp\+::\+CPA\+::\+CPAEOS}}$<$ Cubic, Assoc $>$\+::cubic}
+
+
+
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00238}{238}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\mbox{\hyperlink{CPA_8hpp}{CPA.\+hpp}}\end{DoxyCompactItemize}

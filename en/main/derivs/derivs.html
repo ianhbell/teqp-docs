@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Thermodynamic Derivatives &#8212; teqp 0.17.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=0c3dd48d"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Term conversion" href="ideal_gas.html" />
+    <link rel="prev" title="Derivatives" href="index.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="Thermodynamic-Derivatives">
+<h1>Thermodynamic Derivatives<a class="headerlink" href="#Thermodynamic-Derivatives" title="Link to this heading">¶</a></h1>
+<section id="Helmholtz-energy-derivatives">
+<h2>Helmholtz energy derivatives<a class="headerlink" href="#Helmholtz-energy-derivatives" title="Link to this heading">¶</a></h2>
+<p>Thermodynamic derivatives are at the very heart of teqp. All models are defined in the form <span class="math notranslate nohighlight">\(\alpha^r(T, \rho, z)\)</span>, where <span class="math notranslate nohighlight">\(\rho\)</span> is the molar density, and z are mole fractions. There are exceptions for models for which the independent variables are in simulation units (Lennard-Jones and its ilk).</p>
+<p>Thereofore, to obtain the residual pressure, it is obtained as a derivative:</p>
+<div class="math notranslate nohighlight">
+\[p^r = \rho R T \left( \rho \left(\frac{\partial \alpha^r}{\partial \rho}\right)_{T}\right)\]</div>
+<p>and other residual thermodynamic properties are defined likewise.</p>
+<p>We can define the concise derivative</p>
+<div class="math notranslate nohighlight">
+\[\Lambda^r_{xy} = (1/T)^x(\rho)^y\left(\frac{\partial^{x+y}(\alpha^r)}{\partial (1/T)^x\partial \rho^y}\right)\]</div>
+<p>so we can re-write the derivative above as</p>
+<div class="math notranslate nohighlight">
+\[p^r = \rho R T \Lambda^r_{01}\]</div>
+<p>Similar definitions apply for all the other thermodynamic properties, with the tot superscript indicating it is the sum of the residual and ideal-gas (not included in teqp) contributions:</p>
+<div class="math notranslate nohighlight">
+\[\frac{p}{\rho R T}  = 1 + \Lambda^r_{01}\]</div>
+<p>Internal energy (<span class="math notranslate nohighlight">\(u= a+Ts\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\frac{u}{RT} = \Lambda^{\rm tot}_{10}\]</div>
+<p>Enthalpy (<span class="math notranslate nohighlight">\(h= u+p/\rho\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\frac{h}{RT} = 1+\Lambda^r_{01} + \Lambda^{\rm tot}_{10}\]</div>
+<p>Entropy (<span class="math notranslate nohighlight">\(s\equiv -(\partial a/\partial T)_v\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\frac{s}{R} = \Lambda^{\rm tot}_{10}-\Lambda^{\rm tot}_{00}\]</div>
+<p>Gibbs energy (<span class="math notranslate nohighlight">\(g= h-Ts\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\frac{g}{RT} = 1+\Lambda^r_{01}+\Lambda^{\rm tot}_{00}\]</div>
+<p>Derivatives of pressure:</p>
+<div class="math notranslate nohighlight">
+\[\left(\frac{\partial p}{\partial \rho}\right)_{T} = RT\left(1+2\Lambda^r_{01}+\Lambda^r_{02}\right)\]</div>
+<div class="math notranslate nohighlight">
+\[\left(\frac{\partial p}{\partial T}\right)_{\rho} = R\rho\left(1+\Lambda^r_{01}-\Lambda^r_{11}\right)\]</div>
+<p>Isochoric specific heat (<span class="math notranslate nohighlight">\(c_v\equiv (\partial u/\partial T)_v\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\frac{c_v}{R} = -\Lambda^{\rm tot}_{20}\]</div>
+<p>Isobaric specific heat (<span class="math notranslate nohighlight">\(c_p\equiv (\partial h/\partial T)_p\)</span>; see Eq. 3.56 from Span <span class="math">\cite{Span-BOOK-2000}</span> for the derivation):</p>
+<div class="math notranslate nohighlight">
+\[\frac{c_p}{R} = -\Lambda^{\rm tot}_{20}+\frac{(1+\Lambda^r_{01}-\Lambda^r_{11})^2}{1+2\Lambda^r_{01}+\Lambda^r_{02}}\]</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">teqp</span>
+<span class="n">teqp</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.17.0&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Tc_K</span> <span class="o">=</span> <span class="p">[</span><span class="mi">300</span><span class="p">]</span>
+<span class="n">pc_Pa</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4e6</span><span class="p">]</span>
+<span class="n">acentric</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">]</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">canonical_PR</span><span class="p">(</span><span class="n">Tc_K</span><span class="p">,</span> <span class="n">pc_Pa</span><span class="p">,</span> <span class="n">acentric</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+<span class="n">model</span><span class="o">.</span><span class="n">get_Ar01</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-0.06836660379313926
+</pre></div></div>
+</div>
+<p>And there are additional methods to obtain all the derivatives up to a given order:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar06n</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="c1"># derivatives 00, 01, 02, ... 06</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([-6.96613834e-02, -6.83666038e-02,  2.53578225e-03, -1.57011622e-04,
+        1.68186288e-05, -2.23059409e-06,  3.82592585e-07])
+</pre></div></div>
+</div>
+<p>But more derivatives are slower than fewer:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> model.get_Ar01(300,300,z)
+<span class="o">%</span><span class="k">timeit</span> model.get_Ar04n(300,300,z)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+787 ns ± 16.8 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+1.42 µs ± 72.2 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+</pre></div></div>
+</div>
+<p>Note: calling overhead is usually on the order of 1 microsecond</p>
+</section>
+<section id="Virial-coefficients">
+<h2>Virial coefficients<a class="headerlink" href="#Virial-coefficients" title="Link to this heading">¶</a></h2>
+<p>Virial coefficients represent the thermodynamics of the interaction of two-, three-, … bodies interacting with each other. They can be obtained rigorously if the potential energy surface of interaction is fully known. In general, such a surface can only be constructed for small rigid molecules. Many simple thermodynamic models do a poor job of predicting the thermodynamics captured by the virial coefficients.</p>
+<p>The i-th virial coefficient is defined by</p>
+<div class="math notranslate nohighlight">
+\[B_i = \frac{(\alpha^r)^{(i-1)}}{(i-2)!}\]</div>
+<p>with the concise derivative term</p>
+<div class="math notranslate nohighlight">
+\[(\alpha^r)^{(i)} = \lim_{\rho \to 0} \left(\frac{\partial^{i}\alpha^r}{\partial \rho^{i}}\right)_{T,\vec{x}}\]</div>
+<p>teqp supports the virial coefficient directly, there is the <code class="docutils literal notranslate"><span class="pre">get_B2vir</span></code> method for the second virial coefficient:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">get_B2vir</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-0.00023661263734465424
+</pre></div></div>
+</div>
+<p>And the <code class="docutils literal notranslate"><span class="pre">get_Bnvir</span></code> method that allows for the calculation of higher virial coefficients:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">get_Bnvir</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{2: -0.0002366126373446542,
+ 3: 3.001768410777936e-08,
+ 4: -3.2409760373816364e-12,
+ 5: 3.961781646633723e-16,
+ 6: -4.5529239838367004e-20,
+ 7: 5.375927851118494e-24}
+</pre></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">get_Bnvir</span></code> method was implemented because when doing automatic differentiation, all the intermediate derivatives are also retained.</p>
+<p>There is also a method to calculate temperature derivatives of a given virial coefficient</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">get_dmBnvirdTm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="c1"># third temperature derivative of the second virial coefficient</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.0095625628421257e-10
+</pre></div></div>
+</div>
+</section>
+<section id="Isochoric-Thermodynamics-Derivatives">
+<h2>Isochoric Thermodynamics Derivatives<a class="headerlink" href="#Isochoric-Thermodynamics-Derivatives" title="Link to this heading">¶</a></h2>
+<p>In the isochoric thermodynamics formalism, the EOS is expressed in the Helmholtz energy density <span class="math notranslate nohighlight">\(\Psi\)</span> as a function of temperature and molar densities <span class="math notranslate nohighlight">\(\vec\rho\)</span>. This formalism is handy because it allows for a concise mathematical structure, well suited to implementation in teqp. For instance the pressure is obtained from (see <a class="reference external" href="https://doi.org/10.1002/aic.16074">https://doi.org/10.1002/aic.16074</a>):</p>
+<div class="math notranslate nohighlight">
+\[p=-\Psi + \sum_{i=1}^N\rho_i\mu_i\]</div>
+<p>with the chemical potential <span class="math notranslate nohighlight">\(\mu_i\)</span> obtained from</p>
+<div class="math notranslate nohighlight">
+\[\mu_i = \left(\frac{\partial \Psi}{\partial \rho_i}\right)_{T,\rho_{j\neq i}}\]</div>
+<p>The molar densities <span class="math notranslate nohighlight">\(\rho_i\)</span> are related to the total density and the mole fractions:</p>
+<div class="math notranslate nohighlight">
+\[\rho_i = x_i\rho\]</div>
+<p>In teqp, the isochoric derivative functions like <code class="docutils literal notranslate"><span class="pre">get_fugacity_coefficients</span></code>, <code class="docutils literal notranslate"><span class="pre">get_partial_molar_volumes</span></code> take as arguments the temperature <code class="docutils literal notranslate"><span class="pre">T</span></code> and the vector of molar concentrations <code class="docutils literal notranslate"><span class="pre">rhovec</span></code>=<span class="math notranslate nohighlight">\(\vec\rho\)</span>, which are obtained by multiplying the mole fractions by the total density.</p>
+<p>Example:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">build_multifluid_model</span><span class="p">([</span><span class="s2">&quot;CO2&quot;</span><span class="p">,</span><span class="s2">&quot;Argon&quot;</span><span class="p">],</span> <span class="n">teqp</span><span class="o">.</span><span class="n">get_datapath</span><span class="p">())</span>
+<span class="n">T</span><span class="p">,</span> <span class="n">rhovec</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.4</span><span class="p">])</span><span class="o">*</span><span class="mi">300</span> <span class="c1"># K, mol/m^3</span>
+<span class="n">display</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_fugacity_coefficients</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhovec</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_partial_molar_volumes</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhovec</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([0.97884567, 0.99866748])
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([0.00470644, 0.00480351])
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Thermodynamic Derivatives</a><ul>
+<li><a class="reference internal" href="#Helmholtz-energy-derivatives">Helmholtz energy derivatives</a></li>
+<li><a class="reference internal" href="#Virial-coefficients">Virial coefficients</a></li>
+<li><a class="reference internal" href="#Isochoric-Thermodynamics-Derivatives">Isochoric Thermodynamics Derivatives</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Derivatives</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Derivatives</a></li>
+      <li>Next: <a href="ideal_gas.html" title="next chapter">Term conversion</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/derivs/derivs.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/derivs/derivs.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

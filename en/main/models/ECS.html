@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Extended Corresponding States &#8212; teqp 0.17.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=0c3dd48d"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Derivatives" href="../derivs/index.html" />
+    <link rel="prev" title="SAFT-VR-Mie with polar contributions" href="SAFT-VR-Mie-Polar.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="Extended-Corresponding-States">
+<h1>Extended Corresponding States<a class="headerlink" href="#Extended-Corresponding-States" title="Link to this heading">¶</a></h1>
+<p>This implements the method of Huber and Ely: <a class="reference external" href="https://doi.org/10.1016/0140-7007(94)90083-3">https://doi.org/10.1016/0140-7007(94)90083-3</a></p>
+<p>It does not include the undocumented temperature and density terms that are included in REFPROP</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">teqp</span>
+<span class="n">teqp</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.17.0&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">CoolProp.CoolProp</span> <span class="k">as</span> <span class="nn">CP</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># These parameters are from Huber &amp; Ely</span>
+<span class="n">j</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;multifluid-ECS-HuberEly1994&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;reference_fluid&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">teqp</span><span class="o">.</span><span class="n">get_datapath</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;/dev/fluids/R134a.json&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;acentric&quot;</span><span class="p">:</span> <span class="mf">0.326680</span><span class="p">,</span>
+            <span class="s2">&quot;Z_crit&quot;</span><span class="p">:</span> <span class="mf">4.056e6</span><span class="o">/</span><span class="p">(</span><span class="mf">5030.8</span><span class="o">*</span><span class="mf">8.314471</span><span class="o">*</span><span class="mf">374.179</span><span class="p">),</span>
+            <span class="s2">&quot;T_crit / K&quot;</span><span class="p">:</span> <span class="mf">374.179</span><span class="p">,</span>
+            <span class="s2">&quot;rhomolar_crit / mol/m^3&quot;</span><span class="p">:</span> <span class="mf">5030.8</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;fluid&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;R143a&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;f_T_coeffs&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="o">-</span><span class="mf">0.22807e-1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.64746</span><span class="p">],</span>
+            <span class="s2">&quot;h_T_coeffs&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">0.36563</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.26004e-1</span><span class="p">],</span>
+            <span class="s2">&quot;acentric&quot;</span><span class="p">:</span> <span class="mf">0.25540</span><span class="p">,</span>
+            <span class="s2">&quot;T_crit / K&quot;</span><span class="p">:</span> <span class="mf">346.3</span><span class="p">,</span>
+            <span class="s2">&quot;rhomolar_crit / mol/m^3&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">0.194</span><span class="o">*</span><span class="mi">1000</span><span class="p">),</span>
+            <span class="s2">&quot;Z_crit&quot;</span><span class="p">:</span> <span class="mf">3.76e6</span><span class="o">/</span><span class="p">(</span><span class="mf">346.3</span><span class="o">*</span><span class="mf">8.314471</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">0.194</span><span class="o">*</span><span class="mi">1000</span><span class="p">))</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_R</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="n">T</span><span class="p">,</span> <span class="n">rho</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">2600</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">rho</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar01</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="s1">&#39;pressure from ECS:&#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s1">&#39;pressure from EOS:&#39;</span><span class="p">,</span> <span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="s1">&#39;Dmolar&#39;</span><span class="p">,</span><span class="n">rho</span><span class="p">,</span><span class="s1">&#39;R143a&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;pressure from ECS:&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+5556329.442047298
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;pressure from EOS:&#39;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+5478978.746656995
+</pre></div></div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Models</a><ul>
+      <li>Previous: <a href="SAFT-VR-Mie-Polar.html" title="previous chapter">SAFT-VR-Mie with polar contributions</a></li>
+      <li>Next: <a href="../derivs/index.html" title="next chapter">Derivatives</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/ECS.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/ECS.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

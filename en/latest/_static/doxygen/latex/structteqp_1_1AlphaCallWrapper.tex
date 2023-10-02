@@ -1,0 +1,82 @@
+\hypertarget{structteqp_1_1AlphaCallWrapper}{}\doxysection{teqp\+::Alpha\+Call\+Wrapper\texorpdfstring{$<$}{<} o, Model \texorpdfstring{$>$}{>} Struct Template Reference}
+\label{structteqp_1_1AlphaCallWrapper}\index{teqp::AlphaCallWrapper$<$ o, Model $>$@{teqp::AlphaCallWrapper$<$ o, Model $>$}}
+
+
+This class is used to wrap a model that exposes the generic functions alphar, alphaig, etc., and allow the desired member function to be called at runtime via perfect forwarding.  
+
+
+
+
+{\ttfamily \#include $<$derivs.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structteqp_1_1AlphaCallWrapper_acd527e0125592bf052396fd97fa37b82}{Alpha\+Call\+Wrapper}} (const Model \&model)
+\item 
+{\footnotesize template$<$typename ... Args$>$ }\\auto \mbox{\hyperlink{structteqp_1_1AlphaCallWrapper_abe1a7bdb252ff896767bad532ca28a4d}{alpha}} (const Args \&... args) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const Model \& \mbox{\hyperlink{structteqp_1_1AlphaCallWrapper_a7faca22437a6f6029e6863caaade965b}{m\+\_\+model}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$\mbox{\hyperlink{namespaceteqp_abb423904db0ac1c8261912ca4efc3272}{Alpha\+Wrapper\+Option}} o, class Model$>$\newline
+struct teqp\+::\+Alpha\+Call\+Wrapper$<$ o, Model $>$}
+This class is used to wrap a model that exposes the generic functions alphar, alphaig, etc., and allow the desired member function to be called at runtime via perfect forwarding. 
+
+This class is needed because conventional binding methods (e.\+g., std\+::bind) require the argument types to be known, and they are not known in this case so we give the hard work of managing the argument types to the compiler 
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00100}{100}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structteqp_1_1AlphaCallWrapper_acd527e0125592bf052396fd97fa37b82}\label{structteqp_1_1AlphaCallWrapper_acd527e0125592bf052396fd97fa37b82}} 
+\index{teqp::AlphaCallWrapper$<$ o, Model $>$@{teqp::AlphaCallWrapper$<$ o, Model $>$}!AlphaCallWrapper@{AlphaCallWrapper}}
+\index{AlphaCallWrapper@{AlphaCallWrapper}!teqp::AlphaCallWrapper$<$ o, Model $>$@{teqp::AlphaCallWrapper$<$ o, Model $>$}}
+\doxysubsubsection{\texorpdfstring{AlphaCallWrapper()}{AlphaCallWrapper()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespaceteqp_abb423904db0ac1c8261912ca4efc3272}{Alpha\+Wrapper\+Option}} o, class Model $>$ \\
+\mbox{\hyperlink{structteqp_1_1AlphaCallWrapper}{teqp\+::\+Alpha\+Call\+Wrapper}}$<$ o, Model $>$\+::\mbox{\hyperlink{structteqp_1_1AlphaCallWrapper}{Alpha\+Call\+Wrapper}} (\begin{DoxyParamCaption}\item[{const Model \&}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00102}{102}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structteqp_1_1AlphaCallWrapper_abe1a7bdb252ff896767bad532ca28a4d}\label{structteqp_1_1AlphaCallWrapper_abe1a7bdb252ff896767bad532ca28a4d}} 
+\index{teqp::AlphaCallWrapper$<$ o, Model $>$@{teqp::AlphaCallWrapper$<$ o, Model $>$}!alpha@{alpha}}
+\index{alpha@{alpha}!teqp::AlphaCallWrapper$<$ o, Model $>$@{teqp::AlphaCallWrapper$<$ o, Model $>$}}
+\doxysubsubsection{\texorpdfstring{alpha()}{alpha()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespaceteqp_abb423904db0ac1c8261912ca4efc3272}{Alpha\+Wrapper\+Option}} o, class Model $>$ \\
+template$<$typename ... Args$>$ \\
+auto \mbox{\hyperlink{structteqp_1_1AlphaCallWrapper}{teqp\+::\+Alpha\+Call\+Wrapper}}$<$ o, Model $>$\+::alpha (\begin{DoxyParamCaption}\item[{const Args \&...}]{args }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00105}{105}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structteqp_1_1AlphaCallWrapper_a7faca22437a6f6029e6863caaade965b}\label{structteqp_1_1AlphaCallWrapper_a7faca22437a6f6029e6863caaade965b}} 
+\index{teqp::AlphaCallWrapper$<$ o, Model $>$@{teqp::AlphaCallWrapper$<$ o, Model $>$}!m\_model@{m\_model}}
+\index{m\_model@{m\_model}!teqp::AlphaCallWrapper$<$ o, Model $>$@{teqp::AlphaCallWrapper$<$ o, Model $>$}}
+\doxysubsubsection{\texorpdfstring{m\_model}{m\_model}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespaceteqp_abb423904db0ac1c8261912ca4efc3272}{Alpha\+Wrapper\+Option}} o, class Model $>$ \\
+const Model\& \mbox{\hyperlink{structteqp_1_1AlphaCallWrapper}{teqp\+::\+Alpha\+Call\+Wrapper}}$<$ o, Model $>$\+::m\+\_\+model}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00101}{101}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/\mbox{\hyperlink{derivs_8hpp}{derivs.\+hpp}}\end{DoxyCompactItemize}

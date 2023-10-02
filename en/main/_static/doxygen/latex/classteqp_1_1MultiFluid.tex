@@ -1,0 +1,195 @@
+\hypertarget{classteqp_1_1MultiFluid}{}\doxysection{teqp\+::Multi\+Fluid\texorpdfstring{$<$}{<} Corresponding\+Term, Departure\+Term \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classteqp_1_1MultiFluid}\index{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}}
+
+
+{\ttfamily \#include $<$multifluid.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classteqp_1_1MultiFluid_a9a3c01567a5d050377c63646706875a9}{Gas\+Constant\+Calculator}} = \mbox{\hyperlink{namespaceteqp_1_1multifluid_1_1gasconstant_a73944544b3f482f370e4b79e1d0a1c75}{multifluid\+::gasconstant\+::\+Gas\+Constant\+Calculator}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1MultiFluid_ada2734f7246b838e218cb2b439538c32}{R}} (const Vec\+Type \&molefracs) const
+\item 
+void \mbox{\hyperlink{classteqp_1_1MultiFluid_a78d7e3c6c69575dd65f9fea3ec516a0c}{set\+\_\+meta}} (const std\+::string \&m)
+\begin{DoxyCompactList}\small\item\em Store some sort of metadata in string form (perhaps a JSON representation of the model?) \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classteqp_1_1MultiFluid_a35c747f02392e81b72c51bdf8aff19d4}{get\+\_\+meta}} () const
+\begin{DoxyCompactList}\small\item\em Get the metadata stored in string form. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classteqp_1_1MultiFluid_a7c68902bdab541b24dc6edb9aa7c7067}{Multi\+Fluid}} (\mbox{\hyperlink{namespaceteqp_af507b2d1ed6ef92181c6baec26db1a18}{Reducing\+Functions}} \&\&\mbox{\hyperlink{classteqp_1_1MultiFluid_aa9fa8272348a800360121fe4f8ff9c24}{redfunc}}, Corresponding\+Term \&\&\mbox{\hyperlink{classteqp_1_1MultiFluid_a28a6d18f587f3d1169b2d62942503caa}{corr}}, Departure\+Term \&\&\mbox{\hyperlink{classteqp_1_1MultiFluid_a6306c3f78e68dee4cc7cabbf9d07c645}{dep}}, \mbox{\hyperlink{classteqp_1_1MultiFluid_a9a3c01567a5d050377c63646706875a9}{Gas\+Constant\+Calculator}} \&\&\mbox{\hyperlink{classteqp_1_1MultiFluid_ab1475d85e81ecde89258fafa50d7c559}{Rcalc}})
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1MultiFluid_aca44f88a72712fbb163f1b632a212c69}{alphar}} (TType T, const Rho\+Type \&rhovec, const std\+::optional$<$ typename Rho\+Type\+::value\+\_\+type $>$ rhotot=std\+::nullopt) const
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1MultiFluid_a03a32488ccb0f1ac2cef5e2dea4708c0}{alphar}} (const TType \&T, const Rho\+Type \&rho, const Mole\+Frac\+Type \&molefrac) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{namespaceteqp_af507b2d1ed6ef92181c6baec26db1a18}{Reducing\+Functions}} \mbox{\hyperlink{classteqp_1_1MultiFluid_aa9fa8272348a800360121fe4f8ff9c24}{redfunc}}
+\item 
+const Corresponding\+Term \mbox{\hyperlink{classteqp_1_1MultiFluid_a28a6d18f587f3d1169b2d62942503caa}{corr}}
+\item 
+const Departure\+Term \mbox{\hyperlink{classteqp_1_1MultiFluid_a6306c3f78e68dee4cc7cabbf9d07c645}{dep}}
+\item 
+const \mbox{\hyperlink{classteqp_1_1MultiFluid_a9a3c01567a5d050377c63646706875a9}{Gas\+Constant\+Calculator}} \mbox{\hyperlink{classteqp_1_1MultiFluid_ab1475d85e81ecde89258fafa50d7c559}{Rcalc}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Corresponding\+Term, typename Departure\+Term$>$\newline
+class teqp\+::\+Multi\+Fluid$<$ Corresponding\+Term, Departure\+Term $>$}
+
+
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00115}{115}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classteqp_1_1MultiFluid_a9a3c01567a5d050377c63646706875a9}\label{classteqp_1_1MultiFluid_a9a3c01567a5d050377c63646706875a9}} 
+\index{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}!GasConstantCalculator@{GasConstantCalculator}}
+\index{GasConstantCalculator@{GasConstantCalculator}!teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}}
+\doxysubsubsection{\texorpdfstring{GasConstantCalculator}{GasConstantCalculator}}
+{\footnotesize\ttfamily template$<$typename Corresponding\+Term , typename Departure\+Term $>$ \\
+using \mbox{\hyperlink{classteqp_1_1MultiFluid}{teqp\+::\+Multi\+Fluid}}$<$ Corresponding\+Term, Departure\+Term $>$\+::\mbox{\hyperlink{classteqp_1_1MultiFluid_a9a3c01567a5d050377c63646706875a9}{Gas\+Constant\+Calculator}} =  \mbox{\hyperlink{namespaceteqp_1_1multifluid_1_1gasconstant_a73944544b3f482f370e4b79e1d0a1c75}{multifluid\+::gasconstant\+::\+Gas\+Constant\+Calculator}}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00123}{123}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classteqp_1_1MultiFluid_a7c68902bdab541b24dc6edb9aa7c7067}\label{classteqp_1_1MultiFluid_a7c68902bdab541b24dc6edb9aa7c7067}} 
+\index{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}!MultiFluid@{MultiFluid}}
+\index{MultiFluid@{MultiFluid}!teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}}
+\doxysubsubsection{\texorpdfstring{MultiFluid()}{MultiFluid()}}
+{\footnotesize\ttfamily template$<$typename Corresponding\+Term , typename Departure\+Term $>$ \\
+\mbox{\hyperlink{classteqp_1_1MultiFluid}{teqp\+::\+Multi\+Fluid}}$<$ Corresponding\+Term, Departure\+Term $>$\+::\mbox{\hyperlink{classteqp_1_1MultiFluid}{Multi\+Fluid}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceteqp_af507b2d1ed6ef92181c6baec26db1a18}{Reducing\+Functions}} \&\&}]{redfunc,  }\item[{Corresponding\+Term \&\&}]{corr,  }\item[{Departure\+Term \&\&}]{dep,  }\item[{\mbox{\hyperlink{classteqp_1_1MultiFluid_a9a3c01567a5d050377c63646706875a9}{Gas\+Constant\+Calculator}} \&\&}]{Rcalc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00136}{136}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classteqp_1_1MultiFluid_a03a32488ccb0f1ac2cef5e2dea4708c0}\label{classteqp_1_1MultiFluid_a03a32488ccb0f1ac2cef5e2dea4708c0}} 
+\index{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Corresponding\+Term , typename Departure\+Term $>$ \\
+template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1MultiFluid}{teqp\+::\+Multi\+Fluid}}$<$ Corresponding\+Term, Departure\+Term $>$\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Rho\+Type \&}]{rho,  }\item[{const Mole\+Frac\+Type \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00149}{149}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1MultiFluid_aca44f88a72712fbb163f1b632a212c69}\label{classteqp_1_1MultiFluid_aca44f88a72712fbb163f1b632a212c69}} 
+\index{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Corresponding\+Term , typename Departure\+Term $>$ \\
+template$<$typename TType , typename Rho\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1MultiFluid}{teqp\+::\+Multi\+Fluid}}$<$ Corresponding\+Term, Departure\+Term $>$\+::alphar (\begin{DoxyParamCaption}\item[{TType}]{T,  }\item[{const Rho\+Type \&}]{rhovec,  }\item[{const std\+::optional$<$ typename Rho\+Type\+::value\+\_\+type $>$}]{rhotot = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00139}{139}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1MultiFluid_a35c747f02392e81b72c51bdf8aff19d4}\label{classteqp_1_1MultiFluid_a35c747f02392e81b72c51bdf8aff19d4}} 
+\index{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}!get\_meta@{get\_meta}}
+\index{get\_meta@{get\_meta}!teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}}
+\doxysubsubsection{\texorpdfstring{get\_meta()}{get\_meta()}}
+{\footnotesize\ttfamily template$<$typename Corresponding\+Term , typename Departure\+Term $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1MultiFluid}{teqp\+::\+Multi\+Fluid}}$<$ Corresponding\+Term, Departure\+Term $>$\+::get\+\_\+meta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the metadata stored in string form. 
+
+
+
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00134}{134}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1MultiFluid_ada2734f7246b838e218cb2b439538c32}\label{classteqp_1_1MultiFluid_ada2734f7246b838e218cb2b439538c32}} 
+\index{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}!R@{R}}
+\index{R@{R}!teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily template$<$typename Corresponding\+Term , typename Departure\+Term $>$ \\
+template$<$class Vec\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1MultiFluid}{teqp\+::\+Multi\+Fluid}}$<$ Corresponding\+Term, Departure\+Term $>$\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{molefracs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00127}{127}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1MultiFluid_a78d7e3c6c69575dd65f9fea3ec516a0c}\label{classteqp_1_1MultiFluid_a78d7e3c6c69575dd65f9fea3ec516a0c}} 
+\index{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}!set\_meta@{set\_meta}}
+\index{set\_meta@{set\_meta}!teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}}
+\doxysubsubsection{\texorpdfstring{set\_meta()}{set\_meta()}}
+{\footnotesize\ttfamily template$<$typename Corresponding\+Term , typename Departure\+Term $>$ \\
+void \mbox{\hyperlink{classteqp_1_1MultiFluid}{teqp\+::\+Multi\+Fluid}}$<$ Corresponding\+Term, Departure\+Term $>$\+::set\+\_\+meta (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Store some sort of metadata in string form (perhaps a JSON representation of the model?) 
+
+
+
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00132}{132}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classteqp_1_1MultiFluid_a28a6d18f587f3d1169b2d62942503caa}\label{classteqp_1_1MultiFluid_a28a6d18f587f3d1169b2d62942503caa}} 
+\index{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}!corr@{corr}}
+\index{corr@{corr}!teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}}
+\doxysubsubsection{\texorpdfstring{corr}{corr}}
+{\footnotesize\ttfamily template$<$typename Corresponding\+Term , typename Departure\+Term $>$ \\
+const Corresponding\+Term \mbox{\hyperlink{classteqp_1_1MultiFluid}{teqp\+::\+Multi\+Fluid}}$<$ Corresponding\+Term, Departure\+Term $>$\+::corr}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00121}{121}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1MultiFluid_a6306c3f78e68dee4cc7cabbf9d07c645}\label{classteqp_1_1MultiFluid_a6306c3f78e68dee4cc7cabbf9d07c645}} 
+\index{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}!dep@{dep}}
+\index{dep@{dep}!teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}}
+\doxysubsubsection{\texorpdfstring{dep}{dep}}
+{\footnotesize\ttfamily template$<$typename Corresponding\+Term , typename Departure\+Term $>$ \\
+const Departure\+Term \mbox{\hyperlink{classteqp_1_1MultiFluid}{teqp\+::\+Multi\+Fluid}}$<$ Corresponding\+Term, Departure\+Term $>$\+::dep}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00122}{122}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1MultiFluid_ab1475d85e81ecde89258fafa50d7c559}\label{classteqp_1_1MultiFluid_ab1475d85e81ecde89258fafa50d7c559}} 
+\index{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}!Rcalc@{Rcalc}}
+\index{Rcalc@{Rcalc}!teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}}
+\doxysubsubsection{\texorpdfstring{Rcalc}{Rcalc}}
+{\footnotesize\ttfamily template$<$typename Corresponding\+Term , typename Departure\+Term $>$ \\
+const \mbox{\hyperlink{classteqp_1_1MultiFluid_a9a3c01567a5d050377c63646706875a9}{Gas\+Constant\+Calculator}} \mbox{\hyperlink{classteqp_1_1MultiFluid}{teqp\+::\+Multi\+Fluid}}$<$ Corresponding\+Term, Departure\+Term $>$\+::Rcalc}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00124}{124}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+
+\mbox{\Hypertarget{classteqp_1_1MultiFluid_aa9fa8272348a800360121fe4f8ff9c24}\label{classteqp_1_1MultiFluid_aa9fa8272348a800360121fe4f8ff9c24}} 
+\index{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}!redfunc@{redfunc}}
+\index{redfunc@{redfunc}!teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$@{teqp::MultiFluid$<$ CorrespondingTerm, DepartureTerm $>$}}
+\doxysubsubsection{\texorpdfstring{redfunc}{redfunc}}
+{\footnotesize\ttfamily template$<$typename Corresponding\+Term , typename Departure\+Term $>$ \\
+const \mbox{\hyperlink{namespaceteqp_af507b2d1ed6ef92181c6baec26db1a18}{Reducing\+Functions}} \mbox{\hyperlink{classteqp_1_1MultiFluid}{teqp\+::\+Multi\+Fluid}}$<$ Corresponding\+Term, Departure\+Term $>$\+::redfunc}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00120}{120}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\mbox{\hyperlink{multifluid_8hpp}{multifluid.\+hpp}}\end{DoxyCompactItemize}
