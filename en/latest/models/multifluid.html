@@ -149,7 +149,7 @@ VLE densities are: 27357.147019094467 42.047982278351704 mol/m^3
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-902 µs ± 2.9 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+754 µs ± 3.94 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -168,7 +168,7 @@ VLE densities are: 27357.147019094467 42.047982278351704 mol/m^3
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-50.5 ms ± 123 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+42 ms ± 342 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div></div>
 </div>
 <p>So, how to make it faster? Only do it once and cache</p>
@@ -190,7 +190,7 @@ VLE densities are: 27357.147019094467 42.047982278351704 mol/m^3
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-53.1 ms ± 105 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+41.4 ms ± 63.5 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -228,7 +228,7 @@ VLE densities are: 27357.147019094467 42.047982278351704 mol/m^3
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-904 µs ± 1.98 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+751 µs ± 537 ns per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div></div>
 </div>
 <p>At some point soon teqp will support in-memory loading of JSON data for the pure components, without requiring reads from the operating system</p>
