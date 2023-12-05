@@ -1,9 +1,9 @@
-\hypertarget{deriv__adapter_8hpp}{}\doxysection{include/teqp/cpp/deriv\+\_\+adapter.hpp File Reference}
-\label{deriv__adapter_8hpp}\index{include/teqp/cpp/deriv\_adapter.hpp@{include/teqp/cpp/deriv\_adapter.hpp}}
-{\ttfamily \#include \char`\"{}teqp/derivs.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teqp/cpp/teqpcpp.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teqp/exceptions.\+hpp\char`\"{}}\newline
-\doxysubsection*{Classes}
+\doxysection{include/teqp/cpp/deriv\+\_\+adapter.hpp File Reference}
+\hypertarget{deriv__adapter_8hpp}{}\label{deriv__adapter_8hpp}\index{include/teqp/cpp/deriv\_adapter.hpp@{include/teqp/cpp/deriv\_adapter.hpp}}
+{\ttfamily \#include "{}teqp/derivs.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/cpp/teqpcpp.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/exceptions.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structteqp_1_1cppinterface_1_1adapter_1_1Owner}{teqp\+::cppinterface\+::adapter\+::\+Owner$<$ Model\+Type $>$}}
@@ -14,7 +14,7 @@ struct \mbox{\hyperlink{structteqp_1_1cppinterface_1_1adapter_1_1internal_1_1tag
 \item 
 class \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter$<$ Model\+Pack $>$}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Namespaces}
+\doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
@@ -25,7 +25,7 @@ namespace \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter}{teqp\+::cpp
 \item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_1_1internal}{teqp\+::cppinterface\+::adapter\+::internal}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Macros}
+\doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{deriv__adapter_8hpp_a57db0a1939348979cf0b385d13ef09ba}{X}}(i,  j)~virtual double get\+\_\+\+Ar \#\# i \#\# j(const double T, const double rho, const \mbox{\hyperlink{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}{REArrayd}}\& molefrac) const  override \{ return TDXDerivatives$<$decltype(mp.\+get\+\_\+cref()), double, \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}$>$\+::template get\+\_\+\+Arxy$<$i,j$>$(mp.\+get\+\_\+cref(), T, rho, molefrac); \};
@@ -40,7 +40,7 @@ namespace \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_1_1internal}
 \item 
 \#define \mbox{\hyperlink{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(f)~virtual std\+::tuple$<$double, Eigen\+::\+Array\+Xd, Eigen\+::\+Matrix\+Xd$>$ f(const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\& rhovec) const override \{ return Isochoric\+Derivatives$<$decltype(mp.\+get\+\_\+cref()), double, \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}$>$\+::f(mp.\+get\+\_\+cref(), T, rhovec); \};
 \end{DoxyCompactItemize}
-\doxysubsection*{Functions}
+\doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename Templated\+Model $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a39a57d164c9ab5bc08627135ad8f7930}{teqp\+::cppinterface\+::adapter\+::view}} (const Templated\+Model \&tp)
@@ -51,14 +51,14 @@ namespace \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_1_1internal}
 \item 
 {\footnotesize template$<$typename Templated\+Model $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a2547bd09dd15d77df96d24ffe436dd91}{teqp\+::cppinterface\+::adapter\+::make\+\_\+cview}} (const Templated\+Model \&tmodel)
 \item 
-{\footnotesize template$<$typename Model\+Type $>$ }\\const Model\+Type \& \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_af51f148c792bf18aeb0d8c1324b98a40}{teqp\+::cppinterface\+::adapter\+::get\+\_\+model\+\_\+cref}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} $\ast$am)
+{\footnotesize template$<$typename Model\+Type $>$ }\\const Model\+Type \& \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_af51f148c792bf18aeb0d8c1324b98a40}{teqp\+::cppinterface\+::adapter\+::get\+\_\+model\+\_\+cref}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \texorpdfstring{$\ast$}{*}am)
 \item 
-{\footnotesize template$<$typename Model\+Type $>$ }\\Model\+Type \& \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a4d3ac82dad3193fc633f226be831dfce}{teqp\+::cppinterface\+::adapter\+::get\+\_\+model\+\_\+ref}} (\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} $\ast$am)
+{\footnotesize template$<$typename Model\+Type $>$ }\\Model\+Type \& \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a4d3ac82dad3193fc633f226be831dfce}{teqp\+::cppinterface\+::adapter\+::get\+\_\+model\+\_\+ref}} (\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \texorpdfstring{$\ast$}{*}am)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
-\mbox{\Hypertarget{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f}} 
+\Hypertarget{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f} 
 \index{deriv\_adapter.hpp@{deriv\_adapter.hpp}!X@{X}}
 \index{X@{X}!deriv\_adapter.hpp@{deriv\_adapter.hpp}}
 \doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
@@ -66,9 +66,9 @@ namespace \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_1_1internal}
 
 
 
-Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00105}{105}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00073}{73}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
 
-\mbox{\Hypertarget{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f}} 
+\Hypertarget{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f} 
 \index{deriv\_adapter.hpp@{deriv\_adapter.hpp}!X@{X}}
 \index{X@{X}!deriv\_adapter.hpp@{deriv\_adapter.hpp}}
 \doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
@@ -76,9 +76,9 @@ Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00105}{105}} of 
 
 
 
-Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00105}{105}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00073}{73}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
 
-\mbox{\Hypertarget{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f}} 
+\Hypertarget{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f} 
 \index{deriv\_adapter.hpp@{deriv\_adapter.hpp}!X@{X}}
 \index{X@{X}!deriv\_adapter.hpp@{deriv\_adapter.hpp}}
 \doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
@@ -86,9 +86,9 @@ Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00105}{105}} of 
 
 
 
-Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00105}{105}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00073}{73}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
 
-\mbox{\Hypertarget{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f}} 
+\Hypertarget{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{deriv__adapter_8hpp_a3e0ee787dc4704f51dcecb65616b234f} 
 \index{deriv\_adapter.hpp@{deriv\_adapter.hpp}!X@{X}}
 \index{X@{X}!deriv\_adapter.hpp@{deriv\_adapter.hpp}}
 \doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
@@ -96,9 +96,9 @@ Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00105}{105}} of 
 
 
 
-Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00105}{105}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00073}{73}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
 
-\mbox{\Hypertarget{deriv__adapter_8hpp_a3c23c2da17712d95e32cd500f6e10216}\label{deriv__adapter_8hpp_a3c23c2da17712d95e32cd500f6e10216}} 
+\Hypertarget{deriv__adapter_8hpp_a3c23c2da17712d95e32cd500f6e10216}\label{deriv__adapter_8hpp_a3c23c2da17712d95e32cd500f6e10216} 
 \index{deriv\_adapter.hpp@{deriv\_adapter.hpp}!X@{X}}
 \index{X@{X}!deriv\_adapter.hpp@{deriv\_adapter.hpp}}
 \doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
@@ -106,9 +106,9 @@ Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00105}{105}} of 
 
 
 
-Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00105}{105}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00073}{73}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
 
-\mbox{\Hypertarget{deriv__adapter_8hpp_a57db0a1939348979cf0b385d13ef09ba}\label{deriv__adapter_8hpp_a57db0a1939348979cf0b385d13ef09ba}} 
+\Hypertarget{deriv__adapter_8hpp_a57db0a1939348979cf0b385d13ef09ba}\label{deriv__adapter_8hpp_a57db0a1939348979cf0b385d13ef09ba} 
 \index{deriv\_adapter.hpp@{deriv\_adapter.hpp}!X@{X}}
 \index{X@{X}!deriv\_adapter.hpp@{deriv\_adapter.hpp}}
 \doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
@@ -116,5 +116,5 @@ Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00105}{105}} of 
 
 
 
-Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00105}{105}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00073}{73}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
 

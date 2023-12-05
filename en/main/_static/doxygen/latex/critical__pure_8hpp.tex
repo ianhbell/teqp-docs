@@ -1,26 +1,26 @@
-\hypertarget{critical__pure_8hpp}{}\doxysection{include/teqp/algorithms/critical\+\_\+pure.hpp File Reference}
-\label{critical__pure_8hpp}\index{include/teqp/algorithms/critical\_pure.hpp@{include/teqp/algorithms/critical\_pure.hpp}}
-{\ttfamily \#include \char`\"{}nlohmann/json.\+hpp\char`\"{}}\newline
+\doxysection{include/teqp/algorithms/critical\+\_\+pure.hpp File Reference}
+\hypertarget{critical__pure_8hpp}{}\label{critical__pure_8hpp}\index{include/teqp/algorithms/critical\_pure.hpp@{include/teqp/algorithms/critical\_pure.hpp}}
+{\ttfamily \#include "{}nlohmann/json.\+hpp"{}}\newline
 {\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
-{\ttfamily \#include \char`\"{}teqp/derivs.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teqp/algorithms/rootfinding.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teqp/exceptions.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teqp/cpp/teqpcpp.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teqp/cpp/deriv\+\_\+adapter.\+hpp\char`\"{}}\newline
+{\ttfamily \#include "{}teqp/derivs.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/algorithms/rootfinding.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/exceptions.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/cpp/teqpcpp.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/cpp/deriv\+\_\+adapter.\+hpp"{}}\newline
 {\ttfamily \#include $<$optional$>$}\newline
-\doxysubsection*{Namespaces}
+\doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Functions}
+\doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 auto \mbox{\hyperlink{namespaceteqp_a80148acc481909c3c660d5f4d8e8678f}{teqp\+::get\+\_\+pure\+\_\+critical\+\_\+conditions\+\_\+\+Jacobian}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const double T, const double rho, const std\+::optional$<$ std\+::size\+\_\+t $>$ \&alternative\+\_\+pure\+\_\+index=std\+::nullopt, const std\+::optional$<$ std\+::size\+\_\+t $>$ \&alternative\+\_\+length=std\+::nullopt)
 \item 
-{\footnotesize template$<$typename Model , typename Scalar , ADBackends backend = ADBackends\+::autodiff, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_afd502fd9cf21cd403305ec755c536aa5}{teqp\+::get\+\_\+pure\+\_\+critical\+\_\+conditions\+\_\+\+Jacobian}} (const Model \&model, const Scalar T, const Scalar rho, const std\+::optional$<$ std\+::size\+\_\+t $>$ \&alternative\+\_\+pure\+\_\+index=std\+::nullopt, const std\+::optional$<$ std\+::size\+\_\+t $>$ \&alternative\+\_\+length=std\+::nullopt)
+{\footnotesize template$<$typename Model , typename Scalar , \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} backend = ADBackends\+::autodiff, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_afd502fd9cf21cd403305ec755c536aa5}{teqp\+::get\+\_\+pure\+\_\+critical\+\_\+conditions\+\_\+\+Jacobian}} (const Model \&model, const Scalar T, const Scalar rho, const std\+::optional$<$ std\+::size\+\_\+t $>$ \&alternative\+\_\+pure\+\_\+index=std\+::nullopt, const std\+::optional$<$ std\+::size\+\_\+t $>$ \&alternative\+\_\+length=std\+::nullopt)
 \item 
-{\footnotesize template$<$typename Model , typename Scalar , ADBackends backend = ADBackends\+::autodiff, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a582c949fe26e5a5c2605613c73a3c73b}{teqp\+::solve\+\_\+pure\+\_\+critical}} (const Model \&model, const Scalar T0, const Scalar rho0, const std\+::optional$<$ nlohmann\+::json $>$ \&flags=std\+::nullopt)
+{\footnotesize template$<$typename Model , typename Scalar , \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} backend = ADBackends\+::autodiff, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a582c949fe26e5a5c2605613c73a3c73b}{teqp\+::solve\+\_\+pure\+\_\+critical}} (const Model \&model, const Scalar T0, const Scalar rho0, const std\+::optional$<$ nlohmann\+::json $>$ \&flags=std\+::nullopt)
 \item 
 auto \mbox{\hyperlink{namespaceteqp_aaa9d7d044c02e240dc249340f7a48a93}{teqp\+::solve\+\_\+pure\+\_\+critical}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const double T0, const double rho0, const std\+::optional$<$ nlohmann\+::json $>$ \&flags=std\+::nullopt)
 \item 

@@ -1,34 +1,34 @@
-\hypertarget{VLE__pure_8hpp}{}\doxysection{include/teqp/algorithms/\+VLE\+\_\+pure.hpp File Reference}
-\label{VLE__pure_8hpp}\index{include/teqp/algorithms/VLE\_pure.hpp@{include/teqp/algorithms/VLE\_pure.hpp}}
+\doxysection{include/teqp/algorithms/\+VLE\+\_\+pure.hpp File Reference}
+\hypertarget{VLE__pure_8hpp}{}\label{VLE__pure_8hpp}\index{include/teqp/algorithms/VLE\_pure.hpp@{include/teqp/algorithms/VLE\_pure.hpp}}
 {\ttfamily \#include $<$type\+\_\+traits$>$}\newline
-{\ttfamily \#include \char`\"{}teqp/cpp/teqpcpp.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teqp/derivs.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teqp/algorithms/critical\+\_\+pure.\+hpp\char`\"{}}\newline
-\doxysubsection*{Classes}
+{\ttfamily \#include "{}teqp/cpp/teqpcpp.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/derivs.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/algorithms/critical\+\_\+pure.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals}{teqp\+::\+Isotherm\+Pure\+VLEResiduals$<$ Model, TYPE, backend $>$}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Namespaces}
+\doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Macros}
+\doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{VLE__pure_8hpp_a3b413f8df15578cc653d9ca2dd045d06}{VLE\+\_\+\+PURE\+\_\+\+FUNCTIONS\+\_\+\+TO\+\_\+\+WRAP}}
 \item 
 \#define \mbox{\hyperlink{VLE__pure_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(f)
 \end{DoxyCompactItemize}
-\doxysubsection*{Typedefs}
+\doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename Model $>$ }\\using \mbox{\hyperlink{namespaceteqp_abf4178adee8264741ab6d892f09a05a9}{teqp\+::is\+\_\+\+Abstract\+Model}} = typename std\+::is\+\_\+base\+\_\+of$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}}, Model $>$
 \item 
-{\footnotesize template$<$typename Model $>$ }\\using \mbox{\hyperlink{namespaceteqp_a3c6fcfa03eb6572863697cc040b7d75a}{teqp\+::is\+\_\+not\+\_\+\+Abstract\+Model}} = std\+::negation$<$ is\+\_\+\+Abstract\+Model$<$ Model $>$ $>$
+{\footnotesize template$<$typename Model $>$ }\\using \mbox{\hyperlink{namespaceteqp_a3c6fcfa03eb6572863697cc040b7d75a}{teqp\+::is\+\_\+not\+\_\+\+Abstract\+Model}} = std\+::negation$<$ \mbox{\hyperlink{namespaceteqp_abf4178adee8264741ab6d892f09a05a9}{is\+\_\+\+Abstract\+Model}}$<$ Model $>$ $>$
 \end{DoxyCompactItemize}
-\doxysubsection*{Functions}
+\doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename Residual , typename Scalar  = double$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a403c09e2eab732de1e77faec4b50863a}{teqp\+::do\+\_\+pure\+\_\+\+VLE\+\_\+T}} (Residual \&resid, Scalar rhoL, Scalar rhoV, int maxiter)
@@ -48,7 +48,7 @@ auto \mbox{\hyperlink{namespaceteqp_a2408f7de3e451a2f68a0919f821df98e}{teqp\+::p
 
 
 \doxysubsection{Macro Definition Documentation}
-\mbox{\Hypertarget{VLE__pure_8hpp_a3b413f8df15578cc653d9ca2dd045d06}\label{VLE__pure_8hpp_a3b413f8df15578cc653d9ca2dd045d06}} 
+\Hypertarget{VLE__pure_8hpp_a3b413f8df15578cc653d9ca2dd045d06}\label{VLE__pure_8hpp_a3b413f8df15578cc653d9ca2dd045d06} 
 \index{VLE\_pure.hpp@{VLE\_pure.hpp}!VLE\_PURE\_FUNCTIONS\_TO\_WRAP@{VLE\_PURE\_FUNCTIONS\_TO\_WRAP}}
 \index{VLE\_PURE\_FUNCTIONS\_TO\_WRAP@{VLE\_PURE\_FUNCTIONS\_TO\_WRAP}!VLE\_pure.hpp@{VLE\_pure.hpp}}
 \doxysubsubsection{\texorpdfstring{VLE\_PURE\_FUNCTIONS\_TO\_WRAP}{VLE\_PURE\_FUNCTIONS\_TO\_WRAP}}
@@ -56,16 +56,16 @@ auto \mbox{\hyperlink{namespaceteqp_a2408f7de3e451a2f68a0919f821df98e}{teqp\+::p
 
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{    \mbox{\hyperlink{VLE__pure_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(\mbox{\hyperlink{namespaceteqp_ac53b2168b7749cca0f41c93e58cd2cdf}{dpsatdT\_pure}}) \(\backslash\)}
-\DoxyCodeLine{    X(\mbox{\hyperlink{namespaceteqp_a60702a999ed3d15ebe25ac67a2351a6c}{pure\_VLE\_T}}) \(\backslash\)}
-\DoxyCodeLine{    X(\mbox{\hyperlink{namespaceteqp_aa86ef0e9fc4dadf2179f0748608c83e5}{pure\_trace\_VLE}})}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{VLE__pure_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(dpsatdT\_pure)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(pure\_VLE\_T)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(pure\_trace\_VLE)}
 
 \end{DoxyCode}
 
 
 Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00243}{243}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{VLE__pure_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{VLE__pure_8hpp_a3e0ee787dc4704f51dcecb65616b234f}} 
+\Hypertarget{VLE__pure_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{VLE__pure_8hpp_a3e0ee787dc4704f51dcecb65616b234f} 
 \index{VLE\_pure.hpp@{VLE\_pure.hpp}!X@{X}}
 \index{X@{X}!VLE\_pure.hpp@{VLE\_pure.hpp}}
 \doxysubsubsection{\texorpdfstring{X}{X}}
@@ -73,12 +73,12 @@ Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00243}{243}} of file 
 
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{template} <\textcolor{keyword}{typename} TemplatedModel, \textcolor{keyword}{typename} ...Params, \(\backslash\)}
-\DoxyCodeLine{typename = \textcolor{keyword}{typename} std::enable\_if<is\_not\_AbstractModel<TemplatedModel>::value>::type> \(\backslash\)}
-\DoxyCodeLine{inline \textcolor{keyword}{auto} f(\textcolor{keyword}{const} TemplatedModel\& model, Params\&\&... params)\{ \(\backslash\)}
-\DoxyCodeLine{    auto \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a39a57d164c9ab5bc08627135ad8f7930}{view}} = \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a2547bd09dd15d77df96d24ffe436dd91}{teqp::cppinterface::adapter::make\_cview}}(model); \(\backslash\)}
-\DoxyCodeLine{    const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{AbstractModel}}\& am = *\mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a39a57d164c9ab5bc08627135ad8f7930}{view}}.get(); \(\backslash\)}
-\DoxyCodeLine{    return f(am, std::forward<Params>(params)...); \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TemplatedModel,\ \textcolor{keyword}{typename}\ ...Params,\ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<is\_not\_AbstractModel<TemplatedModel>::value>::type>\ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ f(\textcolor{keyword}{const}\ TemplatedModel\&\ model,\ Params\&\&...\ params)\{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a39a57d164c9ab5bc08627135ad8f7930}{view}}\ =\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a2547bd09dd15d77df96d24ffe436dd91}{teqp::cppinterface::adapter::make\_cview}}(model);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{AbstractModel}}\&\ am\ =\ *\mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a39a57d164c9ab5bc08627135ad8f7930}{view}}.get();\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ f(am,\ std::forward<Params>(params)...);\ \(\backslash\)}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}

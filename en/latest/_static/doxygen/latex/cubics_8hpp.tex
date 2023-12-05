@@ -1,18 +1,18 @@
-\hypertarget{cubics_8hpp}{}\doxysection{include/teqp/models/cubics.hpp File Reference}
-\label{cubics_8hpp}\index{include/teqp/models/cubics.hpp@{include/teqp/models/cubics.hpp}}
+\doxysection{include/teqp/models/cubics.hpp File Reference}
+\hypertarget{cubics_8hpp}{}\label{cubics_8hpp}\index{include/teqp/models/cubics.hpp@{include/teqp/models/cubics.hpp}}
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include $<$variant$>$}\newline
 {\ttfamily \#include $<$valarray$>$}\newline
 {\ttfamily \#include $<$optional$>$}\newline
-{\ttfamily \#include \char`\"{}teqp/types.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teqp/constants.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teqp/exceptions.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}cubicsuperancillary.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teqp/json\+\_\+tools.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teqp/math/pow\+\_\+templates.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}nlohmann/json.\+hpp\char`\"{}}\newline
+{\ttfamily \#include "{}teqp/types.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/constants.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/exceptions.\+hpp"{}}\newline
+{\ttfamily \#include "{}cubicsuperancillary.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/json\+\_\+tools.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/math/pow\+\_\+templates.\+hpp"{}}\newline
+{\ttfamily \#include "{}nlohmann/json.\+hpp"{}}\newline
 {\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
-\doxysubsection*{Classes}
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classteqp_1_1BasicAlphaFunction}{teqp\+::\+Basic\+Alpha\+Function$<$ Num\+Type $>$}}
@@ -25,17 +25,17 @@ class \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic$<$ Nu
 \item 
 class \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR}{teqp\+::\+Quantum\+Corrected\+PR}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Namespaces}
+\doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Typedefs}
+\doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-using \mbox{\hyperlink{namespaceteqp_a330c9d06e0d39b8464bd798700df73b9}{teqp\+::\+Alpha\+Function\+Options}} = std\+::variant$<$ Basic\+Alpha\+Function$<$ double $>$, Twu\+Alpha\+Function$<$ double $>$, Mathias\+Copeman\+Alpha\+Function$<$ double $>$ $>$
+using \mbox{\hyperlink{namespaceteqp_a330c9d06e0d39b8464bd798700df73b9}{teqp\+::\+Alpha\+Function\+Options}} = std\+::variant$<$ \mbox{\hyperlink{classteqp_1_1BasicAlphaFunction}{Basic\+Alpha\+Function}}$<$ double $>$, \mbox{\hyperlink{classteqp_1_1TwuAlphaFunction}{Twu\+Alpha\+Function}}$<$ double $>$, \mbox{\hyperlink{classteqp_1_1MathiasCopemanAlphaFunction}{Mathias\+Copeman\+Alpha\+Function}}$<$ double $>$ $>$
 \end{DoxyCompactItemize}
-\doxysubsection*{Functions}
+\doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename TCType , typename PCType , typename Acentric\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a6a646a52ddd0010dc37a5161e8353148}{teqp\+::canonical\+\_\+\+SRK}} (TCType Tc\+\_\+K, PCType pc\+\_\+\+Pa, Acentric\+Type acentric, const std\+::optional$<$ Eigen\+::\+Array\+XXd $>$ \&kmat=std\+::nullopt)

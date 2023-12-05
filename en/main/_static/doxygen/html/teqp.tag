@@ -1,85 +1,29 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
-<tagfile doxygen_version="1.9.2" doxygen_gitid="ee54ebd4f0ad83d9c44f19a459146de64d0ffba2*">
+<tagfile doxygen_version="1.9.8" doxygen_gitid="00ffe3cd98343427b08707e059559021fb36a4b1*">
   <compound kind="file">
     <name>ancillary_builder.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/algorithms/</path>
+    <path>include/teqp/algorithms/</path>
     <filename>ancillary__builder_8hpp.html</filename>
   </compound>
   <compound kind="file">
     <name>critical_pure.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/algorithms/</path>
+    <path>include/teqp/algorithms/</path>
     <filename>critical__pure_8hpp.html</filename>
-    <includes id="derivs_8hpp" name="derivs.hpp" local="yes" imported="no">teqp/derivs.hpp</includes>
-    <includes id="rootfinding_8hpp" name="rootfinding.hpp" local="yes" imported="no">teqp/algorithms/rootfinding.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
-    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" imported="no">teqp/cpp/teqpcpp.hpp</includes>
-    <includes id="deriv__adapter_8hpp" name="deriv_adapter.hpp" local="yes" imported="no">teqp/cpp/deriv_adapter.hpp</includes>
+    <includes id="derivs_8hpp" name="derivs.hpp" local="yes" import="no" module="no" objc="no">teqp/derivs.hpp</includes>
+    <includes id="rootfinding_8hpp" name="rootfinding.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/rootfinding.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
+    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/teqpcpp.hpp</includes>
+    <includes id="deriv__adapter_8hpp" name="deriv_adapter.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/deriv_adapter.hpp</includes>
     <namespace>teqp</namespace>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_pure_critical_conditions_Jacobian</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a80148acc481909c3c660d5f4d8e8678f</anchor>
-      <arglist>(const AbstractModel &amp;model, const double T, const double rho, const std::optional&lt; std::size_t &gt; &amp;alternative_pure_index=std::nullopt, const std::optional&lt; std::size_t &gt; &amp;alternative_length=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_pure_critical_conditions_Jacobian</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>afd502fd9cf21cd403305ec755c536aa5</anchor>
-      <arglist>(const Model &amp;model, const Scalar T, const Scalar rho, const std::optional&lt; std::size_t &gt; &amp;alternative_pure_index=std::nullopt, const std::optional&lt; std::size_t &gt; &amp;alternative_length=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>solve_pure_critical</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a582c949fe26e5a5c2605613c73a3c73b</anchor>
-      <arglist>(const Model &amp;model, const Scalar T0, const Scalar rho0, const std::optional&lt; nlohmann::json &gt; &amp;flags=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>solve_pure_critical</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>aaa9d7d044c02e240dc249340f7a48a93</anchor>
-      <arglist>(const AbstractModel &amp;model, const double T0, const double rho0, const std::optional&lt; nlohmann::json &gt; &amp;flags=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>Scalar</type>
-      <name>get_Brho_critical_extrap</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a8ce59a6988a1b97c70059a109d391179</anchor>
-      <arglist>(const Model &amp;model, const Scalar &amp;Tc, const Scalar &amp;rhoc, const std::optional&lt; Eigen::ArrayXd &gt; &amp;z=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>Eigen::Array&lt; double, 2, 1 &gt;</type>
-      <name>extrapolate_from_critical</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a5fdf71d9e1ef7e3c69e2410aff33fa21</anchor>
-      <arglist>(const Model &amp;model, const Scalar &amp;Tc, const Scalar &amp;rhoc, const Scalar &amp;T, const std::optional&lt; Eigen::ArrayXd &gt; &amp;z=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>get_Brho_critical_extrap</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>ae35043cfb022979a4b38811d30c06bf5</anchor>
-      <arglist>(const AbstractModel &amp;model, const double &amp;Tc, const double &amp;rhoc, const std::optional&lt; Eigen::ArrayXd &gt; &amp;z=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>extrapolate_from_critical</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a89cd15390f44c8b74130c7e27f4f23c3</anchor>
-      <arglist>(const AbstractModel &amp;model, const double &amp;Tc, const double &amp;rhoc, const double &amp;T, const std::optional&lt; Eigen::ArrayXd &gt; &amp;z=std::nullopt)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>critical_tracing.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/algorithms/</path>
+    <path>include/teqp/algorithms/</path>
     <filename>critical__tracing_8hpp.html</filename>
-    <includes id="rootfinding_8hpp" name="rootfinding.hpp" local="yes" imported="no">teqp/algorithms/rootfinding.hpp</includes>
-    <includes id="critical__pure_8hpp" name="critical_pure.hpp" local="yes" imported="no">teqp/algorithms/critical_pure.hpp</includes>
-    <includes id="critical__tracing__types_8hpp" name="critical_tracing_types.hpp" local="yes" imported="no">teqp/algorithms/critical_tracing_types.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
+    <includes id="rootfinding_8hpp" name="rootfinding.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/rootfinding.hpp</includes>
+    <includes id="critical__pure_8hpp" name="critical_pure.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/critical_pure.hpp</includes>
+    <includes id="critical__tracing__types_8hpp" name="critical_tracing_types.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/critical_tracing_types.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
     <class kind="struct">teqp::CriticalTracing</class>
     <class kind="struct">teqp::CriticalTracing::psi1derivs</class>
     <namespace>teqp</namespace>
@@ -100,7 +44,7 @@
   </compound>
   <compound kind="file">
     <name>critical_tracing_types.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/algorithms/</path>
+    <path>include/teqp/algorithms/</path>
     <filename>critical__tracing__types_8hpp.html</filename>
     <class kind="struct">teqp::TCABOptions</class>
     <class kind="struct">teqp::EigenData</class>
@@ -108,118 +52,55 @@
   </compound>
   <compound kind="file">
     <name>iteration.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/algorithms/</path>
+    <path>include/teqp/algorithms/</path>
     <filename>iteration_8hpp.html</filename>
-    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" imported="no">teqp/cpp/teqpcpp.hpp</includes>
-    <includes id="cpp_2derivs_8hpp" name="derivs.hpp" local="yes" imported="no">teqp/cpp/derivs.hpp</includes>
+    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/teqpcpp.hpp</includes>
+    <includes id="cpp_2derivs_8hpp" name="derivs.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/derivs.hpp</includes>
     <class kind="class">teqp::iteration::NRIterator</class>
     <namespace>teqp</namespace>
     <namespace>teqp::iteration</namespace>
   </compound>
   <compound kind="file">
     <name>rootfinding.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/algorithms/</path>
+    <path>include/teqp/algorithms/</path>
     <filename>rootfinding_8hpp.html</filename>
     <namespace>teqp</namespace>
-    <member kind="function">
-      <type>auto</type>
-      <name>NewtonRaphson</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a4c8982c69544d149d39b057cbd1fcd7e</anchor>
-      <arglist>(Callable f, const Inputs &amp;args, double tol)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>VLE.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/algorithms/</path>
+    <path>include/teqp/algorithms/</path>
     <filename>VLE_8hpp.html</filename>
-    <includes id="derivs_8hpp" name="derivs.hpp" local="yes" imported="no">teqp/derivs.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
-    <includes id="critical__tracing_8hpp" name="critical_tracing.hpp" local="yes" imported="no">teqp/algorithms/critical_tracing.hpp</includes>
-    <includes id="critical__pure_8hpp" name="critical_pure.hpp" local="yes" imported="no">teqp/algorithms/critical_pure.hpp</includes>
-    <includes id="VLE__types_8hpp" name="VLE_types.hpp" local="yes" imported="no">teqp/algorithms/VLE_types.hpp</includes>
-    <includes id="VLE__pure_8hpp" name="VLE_pure.hpp" local="yes" imported="no">teqp/algorithms/VLE_pure.hpp</includes>
+    <includes id="derivs_8hpp" name="derivs.hpp" local="yes" import="no" module="no" objc="no">teqp/derivs.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
+    <includes id="critical__tracing_8hpp" name="critical_tracing.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/critical_tracing.hpp</includes>
+    <includes id="critical__pure_8hpp" name="critical_pure.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/critical_pure.hpp</includes>
+    <includes id="VLE__types_8hpp" name="VLE_types.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/VLE_types.hpp</includes>
+    <includes id="VLE__pure_8hpp" name="VLE_pure.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/VLE_pure.hpp</includes>
     <class kind="struct">teqp::Functor</class>
     <class kind="struct">teqp::hybrj_functor__mix_VLE_Tp</class>
     <namespace>teqp</namespace>
-    <member kind="function">
-      <type>auto</type>
-      <name>linsolve</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a4fa49b70ad97e59d91d236f7437e899c</anchor>
-      <arglist>(const A &amp;a, const B &amp;b)</arglist>
+    <member kind="define">
+      <type>#define</type>
+      <name>VLE_FUNCTIONS_TO_WRAP</name>
+      <anchorfile>VLE_8hpp.html</anchorfile>
+      <anchor>a91292bd9d012ce957434d4aa14bbfa3f</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>mix_VLE_Tx</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a5795b3879712fe63c9870a29cfd29905</anchor>
-      <arglist>(const AbstractModel &amp;model, double T, const Eigen::ArrayXd &amp;rhovecL0, const Eigen::ArrayXd &amp;rhovecV0, const Eigen::ArrayXd &amp;xspec, double atol, double reltol, double axtol, double relxtol, int maxiter)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>mix_VLE_Tp</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>ac09ec2a6e2dfb57a38f42ed084bc9f58</anchor>
-      <arglist>(const AbstractModel &amp;model, double T, double pgiven, const Eigen::ArrayXd &amp;rhovecL0, const Eigen::ArrayXd &amp;rhovecV0, const std::optional&lt; MixVLETpFlags &gt; &amp;flags_=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>mixture_VLE_px</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>aa0e91cea3c6012535d2718e2874826b4</anchor>
-      <arglist>(const AbstractModel &amp;model, double p_spec, const Eigen::ArrayXd &amp;xmolar_spec, double T0, const Eigen::ArrayXd &amp;rhovecL0, const Eigen::ArrayXd &amp;rhovecV0, const std::optional&lt; MixVLEpxFlags &gt; &amp;flags_=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_drhovecdp_Tsat</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>ad95f85237b414adcadafedae95c6ab43</anchor>
-      <arglist>(const AbstractModel &amp;model, const double &amp;T, const Eigen::ArrayXd &amp;rhovecL, const Eigen::ArrayXd &amp;rhovecV)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_drhovecdT_psat</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>af6e5d0686b44d8f1d32191349e7cae79</anchor>
-      <arglist>(const AbstractModel &amp;model, const double &amp;T, const Eigen::ArrayXd &amp;rhovecL, const Eigen::ArrayXd &amp;rhovecV)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_drhovecdT_xsat</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a9d9e7c2e7090d997b838ad7d722fe636</anchor>
-      <arglist>(const AbstractModel &amp;model, const double &amp;T, const Eigen::ArrayXd &amp;rhovecL, const Eigen::ArrayXd &amp;rhovecV)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_dpsat_dTsat_isopleth</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a0c78e97744bd0ec82197f40149e03d4b</anchor>
-      <arglist>(const Model &amp;model, const double &amp;T, const Eigen::ArrayXd &amp;rhovecL, const Eigen::ArrayXd &amp;rhovecV)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>trace_VLE_isotherm_binary</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a56339c8078f4369f5a988a87cfc1344e</anchor>
-      <arglist>(const AbstractModel &amp;model, double T, const Eigen::ArrayXd &amp;rhovecL0, const Eigen::ArrayXd &amp;rhovecV0, const std::optional&lt; TVLEOptions &gt; &amp;options=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>trace_VLE_isobar_binary</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>af320b714fb1758cc835cfe8bb1eb3fd2</anchor>
-      <arglist>(const Model &amp;model, double p, double T0, const Eigen::ArrayXd &amp;rhovecL0, const Eigen::ArrayXd &amp;rhovecV0, const std::optional&lt; PVLEOptions &gt; &amp;options=std::nullopt)</arglist>
+    <member kind="define">
+      <type>#define</type>
+      <name>X</name>
+      <anchorfile>VLE_8hpp.html</anchorfile>
+      <anchor>a3e0ee787dc4704f51dcecb65616b234f</anchor>
+      <arglist>(f)</arglist>
     </member>
   </compound>
   <compound kind="file">
     <name>VLE_pure.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/algorithms/</path>
+    <path>include/teqp/algorithms/</path>
     <filename>VLE__pure_8hpp.html</filename>
-    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" imported="no">teqp/cpp/teqpcpp.hpp</includes>
-    <includes id="derivs_8hpp" name="derivs.hpp" local="yes" imported="no">teqp/derivs.hpp</includes>
-    <includes id="critical__pure_8hpp" name="critical_pure.hpp" local="yes" imported="no">teqp/algorithms/critical_pure.hpp</includes>
+    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/teqpcpp.hpp</includes>
+    <includes id="derivs_8hpp" name="derivs.hpp" local="yes" import="no" module="no" objc="no">teqp/derivs.hpp</includes>
+    <includes id="critical__pure_8hpp" name="critical_pure.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/critical_pure.hpp</includes>
     <class kind="class">teqp::IsothermPureVLEResiduals</class>
     <namespace>teqp</namespace>
     <member kind="define">
@@ -236,73 +117,10 @@
       <anchor>a3e0ee787dc4704f51dcecb65616b234f</anchor>
       <arglist>(f)</arglist>
     </member>
-    <member kind="typedef">
-      <type>typename std::is_base_of&lt; teqp::cppinterface::AbstractModel, Model &gt;</type>
-      <name>is_AbstractModel</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>abf4178adee8264741ab6d892f09a05a9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::negation&lt; is_AbstractModel&lt; Model &gt; &gt;</type>
-      <name>is_not_AbstractModel</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a3c6fcfa03eb6572863697cc040b7d75a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>do_pure_VLE_T</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a403c09e2eab732de1e77faec4b50863a</anchor>
-      <arglist>(Residual &amp;resid, Scalar rhoL, Scalar rhoV, int maxiter)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>pure_VLE_T</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a92911152e3677223eedb7045a0b224b1</anchor>
-      <arglist>(const teqp::cppinterface::AbstractModel &amp;model, double T, double rhoL, double rhoV, int maxiter, const std::optional&lt; Eigen::ArrayXd &gt; &amp;molefracs=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>dpsatdT_pure</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a725528c9f3af447069508a622b26c84d</anchor>
-      <arglist>(const teqp::cppinterface::AbstractModel &amp;model, double T, double rhoL, double rhoV, const std::optional&lt; Eigen::ArrayXd &gt; &amp;molefracs=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>pure_trace_VLE</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a2408f7de3e451a2f68a0919f821df98e</anchor>
-      <arglist>(const teqp::cppinterface::AbstractModel &amp;model, const double T, const nlohmann::json &amp;spec)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>dpsatdT_pure</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>ac53b2168b7749cca0f41c93e58cd2cdf</anchor>
-      <arglist>(const TemplatedModel &amp;model, Params &amp;&amp;... params)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>pure_VLE_T</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a60702a999ed3d15ebe25ac67a2351a6c</anchor>
-      <arglist>(const TemplatedModel &amp;model, Params &amp;&amp;... params)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>pure_trace_VLE</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>aa86ef0e9fc4dadf2179f0748608c83e5</anchor>
-      <arglist>(const TemplatedModel &amp;model, Params &amp;&amp;... params)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>VLE_types.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/algorithms/</path>
+    <path>include/teqp/algorithms/</path>
     <filename>VLE__types_8hpp.html</filename>
     <class kind="struct">teqp::TVLEOptions</class>
     <class kind="struct">teqp::PVLEOptions</class>
@@ -310,157 +128,56 @@
     <class kind="struct">teqp::MixVLETpFlags</class>
     <class kind="struct">teqp::MixVLEReturn</class>
     <namespace>teqp</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>VLE_return_code</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a60d3915f4002f9de425a211673a7d877</anchor>
-      <arglist></arglist>
-      <enumvalue file="namespaceteqp.html" anchor="a60d3915f4002f9de425a211673a7d877ae2181b5014a67159cc230c8fe0d6c5b6">unset</enumvalue>
-      <enumvalue file="namespaceteqp.html" anchor="a60d3915f4002f9de425a211673a7d877a79529417e6e5d5a8ee4a87fe543d9164">xtol_satisfied</enumvalue>
-      <enumvalue file="namespaceteqp.html" anchor="a60d3915f4002f9de425a211673a7d877a558e548fc28bae980b285c3a760e7de5">functol_satisfied</enumvalue>
-      <enumvalue file="namespaceteqp.html" anchor="a60d3915f4002f9de425a211673a7d877a1344a1e40f93c4a363ddc3329548c828">maxfev_met</enumvalue>
-      <enumvalue file="namespaceteqp.html" anchor="a60d3915f4002f9de425a211673a7d877aea3fe0c0ce1dbcf56ed2f32841fc181b">maxiter_met</enumvalue>
-      <enumvalue file="namespaceteqp.html" anchor="a60d3915f4002f9de425a211673a7d877ad0f511a094e26f725086a7b205ccadde">notfinite_step</enumvalue>
-    </member>
   </compound>
   <compound kind="file">
     <name>VLLE.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/algorithms/</path>
+    <path>include/teqp/algorithms/</path>
     <filename>VLLE_8hpp.html</filename>
-    <includes id="derivs_8hpp" name="derivs.hpp" local="yes" imported="no">teqp/derivs.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
-    <includes id="VLLE__types_8hpp" name="VLLE_types.hpp" local="yes" imported="no">teqp/algorithms/VLLE_types.hpp</includes>
-    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" imported="no">teqp/cpp/teqpcpp.hpp</includes>
+    <includes id="derivs_8hpp" name="derivs.hpp" local="yes" import="no" module="no" objc="no">teqp/derivs.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
+    <includes id="VLLE__types_8hpp" name="VLLE_types.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/VLLE_types.hpp</includes>
+    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/teqpcpp.hpp</includes>
     <namespace>teqp</namespace>
     <namespace>teqp::VLLE</namespace>
-    <member kind="function">
-      <type>auto</type>
-      <name>mix_VLLE_T</name>
-      <anchorfile>namespaceteqp_1_1VLLE.html</anchorfile>
-      <anchor>ae25bbb62557baebe155d55f4f1aa850d</anchor>
-      <arglist>(const AbstractModel &amp;model, double T, const EArrayd &amp;rhovecVinit, const EArrayd &amp;rhovecL1init, const EArrayd &amp;rhovecL2init, double atol, double reltol, double axtol, double relxtol, int maxiter)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>mix_VLLE_p</name>
-      <anchorfile>namespaceteqp_1_1VLLE.html</anchorfile>
-      <anchor>a7d999c4035b914065f050670121e84b8</anchor>
-      <arglist>(const AbstractModel &amp;model, double p, double Tinit, const EArrayd &amp;rhovecVinit, const EArrayd &amp;rhovecL1init, const EArrayd &amp;rhovecL2init, double atol, double reltol, double axtol, double relxtol, int maxiter)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_self_intersections</name>
-      <anchorfile>namespaceteqp_1_1VLLE.html</anchorfile>
-      <anchor>ad553eb6ef7c3a743bd25e41d2d4b803d</anchor>
-      <arglist>(Iterable &amp;x, Iterable &amp;y)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_cross_intersections</name>
-      <anchorfile>namespaceteqp_1_1VLLE.html</anchorfile>
-      <anchor>a25c672abedcc4ff0aee012da5be0581f</anchor>
-      <arglist>(Iterable &amp;x1, Iterable &amp;y1, Iterable &amp;x2, Iterable &amp;y2)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>find_VLLE_gen_binary</name>
-      <anchorfile>namespaceteqp_1_1VLLE.html</anchorfile>
-      <anchor>a904fdf34279116df5ec4e4fc47cc6ba2</anchor>
-      <arglist>(const AbstractModel &amp;model, const std::vector&lt; nlohmann::json &gt; &amp;traces, const std::string &amp;key, const std::optional&lt; VLLEFinderOptions &gt; options=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>find_VLLE_T_binary</name>
-      <anchorfile>namespaceteqp_1_1VLLE.html</anchorfile>
-      <anchor>a6075d7e6604eab8bdc5c3afdff70fdd0</anchor>
-      <arglist>(const AbstractModel &amp;model, const std::vector&lt; nlohmann::json &gt; &amp;traces, const std::optional&lt; VLLEFinderOptions &gt; &amp;options=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>find_VLLE_p_binary</name>
-      <anchorfile>namespaceteqp_1_1VLLE.html</anchorfile>
-      <anchor>a50513eeeb0a1fb8ff795de5967f2195d</anchor>
-      <arglist>(const AbstractModel &amp;model, const std::vector&lt; nlohmann::json &gt; &amp;traces, const std::optional&lt; VLLEFinderOptions &gt; &amp;options=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_drhovecdT_VLLE_binary</name>
-      <anchorfile>namespaceteqp_1_1VLLE.html</anchorfile>
-      <anchor>ac4d9bef0a8743dda20d148593f1d892f</anchor>
-      <arglist>(const AbstractModel &amp;model, double T, const EArrayd &amp;rhovecV, const EArrayd &amp;rhovecL1, const EArrayd &amp;rhovecL2)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>trace_VLLE_binary</name>
-      <anchorfile>namespaceteqp_1_1VLLE.html</anchorfile>
-      <anchor>a0b7c589416929bd8506bfb4843b7df8e</anchor>
-      <arglist>(const teqp::VLLE::AbstractModel &amp;model, const double Tinit, const EArrayd &amp;rhovecV, const EArrayd &amp;rhovecL1, const EArrayd &amp;rhovecL2, const std::optional&lt; VLLETracerOptions &gt; &amp;options_=std::nullopt)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>VLLE_types.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/algorithms/</path>
+    <path>include/teqp/algorithms/</path>
     <filename>VLLE__types_8hpp.html</filename>
     <class kind="struct">teqp::VLLE::SelfIntersectionSolution</class>
     <class kind="struct">teqp::VLLE::VLLEFinderOptions</class>
     <class kind="struct">teqp::VLLE::VLLETracerOptions</class>
     <namespace>teqp</namespace>
     <namespace>teqp::VLLE</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>VLLE_return_code</name>
-      <anchorfile>namespaceteqp_1_1VLLE.html</anchorfile>
-      <anchor>a9e02d5eeb772dafa11b8f5f96e48373d</anchor>
-      <arglist></arglist>
-      <enumvalue file="namespaceteqp_1_1VLLE.html" anchor="a9e02d5eeb772dafa11b8f5f96e48373dae2181b5014a67159cc230c8fe0d6c5b6">unset</enumvalue>
-      <enumvalue file="namespaceteqp_1_1VLLE.html" anchor="a9e02d5eeb772dafa11b8f5f96e48373da79529417e6e5d5a8ee4a87fe543d9164">xtol_satisfied</enumvalue>
-      <enumvalue file="namespaceteqp_1_1VLLE.html" anchor="a9e02d5eeb772dafa11b8f5f96e48373da558e548fc28bae980b285c3a760e7de5">functol_satisfied</enumvalue>
-      <enumvalue file="namespaceteqp_1_1VLLE.html" anchor="a9e02d5eeb772dafa11b8f5f96e48373daea3fe0c0ce1dbcf56ed2f32841fc181b">maxiter_met</enumvalue>
-    </member>
   </compound>
   <compound kind="file">
     <name>constants.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/</path>
+    <path>include/teqp/</path>
     <filename>constants_8hpp.html</filename>
     <namespace>teqp</namespace>
-    <member kind="function">
-      <type>const auto</type>
-      <name>get_R_gas</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a2b7e9f6c1e890797284b6bd57d251379</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable">
-      <type>const double</type>
-      <name>N_A</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a21d8c7a2956df07d9199d33aeb642f85</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>containers.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/</path>
+    <path>include/teqp/</path>
     <filename>containers_8hpp.html</filename>
     <class kind="class">teqp::ModelContainer</class>
     <namespace>teqp</namespace>
   </compound>
   <compound kind="file">
     <name>core.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/</path>
+    <path>include/teqp/</path>
     <filename>core_8hpp.html</filename>
-    <includes id="constants_8hpp" name="constants.hpp" local="yes" imported="no">teqp/constants.hpp</includes>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
-    <includes id="derivs_8hpp" name="derivs.hpp" local="yes" imported="no">teqp/derivs.hpp</includes>
+    <includes id="constants_8hpp" name="constants.hpp" local="yes" import="no" module="no" objc="no">teqp/constants.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
+    <includes id="derivs_8hpp" name="derivs.hpp" local="yes" import="no" module="no" objc="no">teqp/derivs.hpp</includes>
   </compound>
   <compound kind="file">
     <name>deriv_adapter.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/cpp/</path>
+    <path>include/teqp/cpp/</path>
     <filename>deriv__adapter_8hpp.html</filename>
-    <includes id="derivs_8hpp" name="derivs.hpp" local="yes" imported="no">teqp/derivs.hpp</includes>
-    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" imported="no">teqp/cpp/teqpcpp.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
+    <includes id="derivs_8hpp" name="derivs.hpp" local="yes" import="no" module="no" objc="no">teqp/derivs.hpp</includes>
+    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/teqpcpp.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
     <class kind="struct">teqp::cppinterface::adapter::Owner</class>
     <class kind="struct">teqp::cppinterface::adapter::ConstViewer</class>
     <class kind="struct">teqp::cppinterface::adapter::internal::tag</class>
@@ -511,70 +228,21 @@
       <anchor>a3e0ee787dc4704f51dcecb65616b234f</anchor>
       <arglist>(f)</arglist>
     </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>view</name>
-      <anchorfile>namespaceteqp_1_1cppinterface_1_1adapter.html</anchorfile>
-      <anchor>a39a57d164c9ab5bc08627135ad8f7930</anchor>
-      <arglist>(const TemplatedModel &amp;tp)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>own</name>
-      <anchorfile>namespaceteqp_1_1cppinterface_1_1adapter.html</anchorfile>
-      <anchor>a2f4ff8e58ed42e90166d7ba043f1f049</anchor>
-      <arglist>(const TemplatedModel &amp;&amp;tp)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>make_owned</name>
-      <anchorfile>namespaceteqp_1_1cppinterface_1_1adapter.html</anchorfile>
-      <anchor>a8815be35c71d998189588fefb08f3032</anchor>
-      <arglist>(const TemplatedModel &amp;tmodel)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>make_cview</name>
-      <anchorfile>namespaceteqp_1_1cppinterface_1_1adapter.html</anchorfile>
-      <anchor>a2547bd09dd15d77df96d24ffe436dd91</anchor>
-      <arglist>(const TemplatedModel &amp;tmodel)</arglist>
-    </member>
-    <member kind="function">
-      <type>const ModelType &amp;</type>
-      <name>get_model_cref</name>
-      <anchorfile>namespaceteqp_1_1cppinterface_1_1adapter.html</anchorfile>
-      <anchor>af51f148c792bf18aeb0d8c1324b98a40</anchor>
-      <arglist>(const AbstractModel *am)</arglist>
-    </member>
-    <member kind="function">
-      <type>ModelType &amp;</type>
-      <name>get_model_ref</name>
-      <anchorfile>namespaceteqp_1_1cppinterface_1_1adapter.html</anchorfile>
-      <anchor>a4d3ac82dad3193fc633f226be831dfce</anchor>
-      <arglist>(AbstractModel *am)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>derivs.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/cpp/</path>
+    <path>include/teqp/cpp/</path>
     <filename>cpp_2derivs_8hpp.html</filename>
     <class kind="struct">teqp::cppinterface::IterationMatrices</class>
     <namespace>teqp</namespace>
     <namespace>teqp::cppinterface</namespace>
-    <member kind="function">
-      <type>auto</type>
-      <name>build_iteration_Jv</name>
-      <anchorfile>namespaceteqp_1_1cppinterface.html</anchorfile>
-      <anchor>a2bcecf3d939d9f0f6b45d39dfe9e830d</anchor>
-      <arglist>(const std::vector&lt; char &gt; &amp;vars, const Eigen::Array&lt; double, 3, 3 &gt; &amp;Ar, const Eigen::Array&lt; double, 3, 3 &gt; &amp;Aig, const double R, const double T, const double rho, const Array &amp;z)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>derivs.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/</path>
+    <path>include/teqp/</path>
     <filename>derivs_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
     <class kind="struct">teqp::wrt_helper</class>
     <class kind="struct">teqp::AlphaCallWrapper</class>
     <class kind="struct">teqp::TDXDerivatives</class>
@@ -582,60 +250,14 @@
     <class kind="struct">teqp::IsochoricDerivatives</class>
     <class kind="class">teqp::DerivativeHolderSquare</class>
     <namespace>teqp</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>AlphaWrapperOption</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>abb423904db0ac1c8261912ca4efc3272</anchor>
-      <arglist></arglist>
-      <enumvalue file="namespaceteqp.html" anchor="abb423904db0ac1c8261912ca4efc3272a4db598f63d4aea6a3c8eaddfe5c2b1e9">residual</enumvalue>
-      <enumvalue file="namespaceteqp.html" anchor="abb423904db0ac1c8261912ca4efc3272a99849a7e0c94a6066ed3faac395459be">idealgas</enumvalue>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>ADBackends</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>aa915939e34912de1f87776858de32f9d</anchor>
-      <arglist></arglist>
-      <enumvalue file="namespaceteqp.html" anchor="aa915939e34912de1f87776858de32f9da1f9f65b69bb4d16b7fd15a809c59d6e6">autodiff</enumvalue>
-      <enumvalue file="namespaceteqp.html" anchor="aa915939e34912de1f87776858de32f9dad8c387494b54ef11d7d960ed7311d4bf">complex_step</enumvalue>
-    </member>
-    <member kind="function">
-      <type>ContainerType::value_type</type>
-      <name>derivT</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a673824cda5d54f74d80f6746bb8a0d4d</anchor>
-      <arglist>(const FuncType &amp;f, TType T, const ContainerType &amp;rho)</arglist>
-    </member>
-    <member kind="function">
-      <type>ContainerType::value_type</type>
-      <name>derivrhoi</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>ae0e2c714a07ef9263b390b6814c4c00a</anchor>
-      <arglist>(const FuncType &amp;f, TType T, const ContainerType &amp;rho, Integer i)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>build_duplicated_tuple_impl</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>aab18d321f888443bbe10184550a862e9</anchor>
-      <arglist>(const T &amp;val, std::index_sequence&lt; I... &gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>build_duplicated_tuple</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>abb52b388df385acbdbcb78efa7783c1b</anchor>
-      <arglist>(const T &amp;val)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>teqpcpp.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/cpp/</path>
+    <path>include/teqp/cpp/</path>
     <filename>teqpcpp_8hpp.html</filename>
-    <includes id="critical__tracing__types_8hpp" name="critical_tracing_types.hpp" local="yes" imported="no">teqp/algorithms/critical_tracing_types.hpp</includes>
-    <includes id="VLE__types_8hpp" name="VLE_types.hpp" local="yes" imported="no">teqp/algorithms/VLE_types.hpp</includes>
-    <includes id="VLLE__types_8hpp" name="VLLE_types.hpp" local="yes" imported="no">teqp/algorithms/VLLE_types.hpp</includes>
+    <includes id="critical__tracing__types_8hpp" name="critical_tracing_types.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/critical_tracing_types.hpp</includes>
+    <includes id="VLE__types_8hpp" name="VLE_types.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/VLE_types.hpp</includes>
+    <includes id="VLLE__types_8hpp" name="VLLE_types.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/VLLE_types.hpp</includes>
     <class kind="class">teqp::cppinterface::AbstractModel</class>
     <namespace>teqp</namespace>
     <namespace>teqp::cppinterface</namespace>
@@ -765,52 +387,10 @@
       <anchor>afbe5e6d9906a43e1999ef561223d69ca</anchor>
       <arglist></arglist>
     </member>
-    <member kind="typedef">
-      <type>std::function&lt; std::unique_ptr&lt; teqp::cppinterface::AbstractModel &gt;(const nlohmann::json &amp;j)&gt;</type>
-      <name>ModelPointerFactoryFunction</name>
-      <anchorfile>namespaceteqp_1_1cppinterface.html</anchorfile>
-      <anchor>af38152c18fd82d7ed79728552ac785fb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; AbstractModel &gt;</type>
-      <name>make_model</name>
-      <anchorfile>namespaceteqp_1_1cppinterface.html</anchorfile>
-      <anchor>a0e731ebdf104bc67dc7832e33a523d4f</anchor>
-      <arglist>(const nlohmann::json &amp;, bool validate=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; AbstractModel &gt;</type>
-      <name>make_multifluid_model</name>
-      <anchorfile>namespaceteqp_1_1cppinterface.html</anchorfile>
-      <anchor>a667d9cdc8dabc48e3280d8b481e60ee3</anchor>
-      <arglist>(const std::vector&lt; std::string &gt; &amp;components, const std::string &amp;coolprop_root, const std::string &amp;BIPcollectionpath={}, const nlohmann::json &amp;flags={}, const std::string &amp;departurepath={})</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; AbstractModel &gt;</type>
-      <name>build_model_ptr</name>
-      <anchorfile>namespaceteqp_1_1cppinterface.html</anchorfile>
-      <anchor>ab4863d72627c8e55868bb4fca25192a6</anchor>
-      <arglist>(const nlohmann::json &amp;json, bool validate=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>nlohmann::json</type>
-      <name>get_model_schema</name>
-      <anchorfile>namespaceteqp_1_1cppinterface.html</anchorfile>
-      <anchor>af204b0796feb1504c577749f82e496a2</anchor>
-      <arglist>(const std::string &amp;kind)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>add_model_pointer_factory_function</name>
-      <anchorfile>namespaceteqp_1_1cppinterface.html</anchorfile>
-      <anchor>a99c55e372f03fbc42f067db77bac520a</anchor>
-      <arglist>(const std::string &amp;key, ModelPointerFactoryFunction &amp;func)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>exceptions.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/</path>
+    <path>include/teqp/</path>
     <filename>exceptions_8hpp.html</filename>
     <class kind="class">teqp::teqpcException</class>
     <class kind="class">teqp::teqpException</class>
@@ -819,46 +399,32 @@
     <class kind="class">teqp::NotImplementedError</class>
     <class kind="class">teqp::JSONValidationError</class>
     <namespace>teqp</namespace>
-    <member kind="typedef">
-      <type>IterationFailure</type>
-      <name>IterationError</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a10145ce83657c36965b09f8aa745378d</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>filesystem.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/</path>
+    <path>include/teqp/</path>
     <filename>filesystem_8hpp.html</filename>
     <namespace>teqp</namespace>
   </compound>
   <compound kind="file">
     <name>finite_derivs.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/</path>
+    <path>include/teqp/</path>
     <filename>finite__derivs_8hpp.html</filename>
-    <includes id="math_2finite__derivs_8hpp" name="finite_derivs.hpp" local="no" imported="no">teqp/math/finite_derivs.hpp</includes>
+    <includes id="math_2finite__derivs_8hpp" name="finite_derivs.hpp" local="no" import="no" module="no" objc="no">teqp/math/finite_derivs.hpp</includes>
   </compound>
   <compound kind="file">
     <name>finite_derivs.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/math/</path>
+    <path>include/teqp/math/</path>
     <filename>math_2finite__derivs_8hpp.html</filename>
     <namespace>teqp</namespace>
-    <member kind="function">
-      <type>auto</type>
-      <name>centered_diff</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a12e535a8d5233799f0230d606e3e036e</anchor>
-      <arglist>(const Function &amp;f, const Scalar x, const Scalar h)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>ideal_eosterms.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/</path>
+    <path>include/teqp/</path>
     <filename>ideal__eosterms_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
-    <includes id="json__tools_8hpp" name="json_tools.hpp" local="yes" imported="no">teqp/json_tools.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
+    <includes id="json__tools_8hpp" name="json_tools.hpp" local="yes" import="no" module="no" objc="no">teqp/json_tools.hpp</includes>
     <class kind="class">teqp::IdealHelmholtzConstant</class>
     <class kind="class">teqp::IdealHelmholtzLogT</class>
     <class kind="class">teqp::IdealHelmholtzLead</class>
@@ -872,618 +438,137 @@
     <class kind="class">teqp::PureIdealHelmholtz</class>
     <class kind="class">teqp::IdealHelmholtz</class>
     <namespace>teqp</namespace>
-    <member kind="typedef">
-      <type>std::variant&lt; IdealHelmholtzConstant, IdealHelmholtzLead, IdealHelmholtzLogT, IdealHelmholtzPowerT, IdealHelmholtzPlanckEinstein, IdealHelmholtzPlanckEinsteinGeneralized, IdealHelmholtzGERG2004Cosh, IdealHelmholtzGERG2004Sinh, IdealHelmholtzCp0Constant, IdealHelmholtzCp0PowerT &gt;</type>
-      <name>IdealHelmholtzTerms</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>aff9f1b2203c1156901f43d9c02c12c22</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>nlohmann::json</type>
-      <name>CoolProp2teqp_alphaig_term_reformatter</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a7a981a876b9ae93df09b98744a1f66ef</anchor>
-      <arglist>(const nlohmann::json &amp;term, double Tri, double rhori, double R)</arglist>
-    </member>
-    <member kind="function">
-      <type>nlohmann::json</type>
-      <name>convert_CoolProp_idealgas</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>ac3923ac078dc5b9aa1ddbe7ee81c5613</anchor>
-      <arglist>(const std::string &amp;s, int index)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>json_builder.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/</path>
+    <path>include/teqp/</path>
     <filename>json__builder_8hpp.html</filename>
-    <includes id="fwd_8hpp" name="fwd.hpp" local="yes" imported="no">teqp/models/fwd.hpp</includes>
-    <includes id="lennardjones_8hpp" name="lennardjones.hpp" local="yes" imported="no">teqp/models/mie/lennardjones.hpp</includes>
-    <includes id="mie_8hpp" name="mie.hpp" local="yes" imported="no">teqp/models/mie/mie.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
-    <includes id="deriv__adapter_8hpp" name="deriv_adapter.hpp" local="yes" imported="no">teqp/cpp/deriv_adapter.hpp</includes>
+    <includes id="fwd_8hpp" name="fwd.hpp" local="yes" import="no" module="no" objc="no">teqp/models/fwd.hpp</includes>
+    <includes id="lennardjones_8hpp" name="lennardjones.hpp" local="yes" import="no" module="no" objc="no">teqp/models/mie/lennardjones.hpp</includes>
+    <includes id="mie_8hpp" name="mie.hpp" local="yes" import="no" module="no" objc="no">teqp/models/mie/mie.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
+    <includes id="deriv__adapter_8hpp" name="deriv_adapter.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/deriv_adapter.hpp</includes>
     <namespace>teqp</namespace>
   </compound>
   <compound kind="file">
     <name>json_tools.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/</path>
+    <path>include/teqp/</path>
     <filename>json__tools_8hpp.html</filename>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
     <class kind="class">teqp::JSONValidator</class>
     <namespace>teqp</namespace>
-    <member kind="function">
-      <type>nlohmann::json</type>
-      <name>load_a_JSON_file</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a5f3efac006a4e11eff65affdbc051469</anchor>
-      <arglist>(const std::string &amp;path)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>all_same_length</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a82028c79c5797818e7bbba8f88b4d4a6</anchor>
-      <arglist>(const nlohmann::json &amp;j, const std::vector&lt; std::string &gt; &amp;ks)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>multilevel_JSON_load</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>ad4771b0bb9c922bc937e72f81b4431df</anchor>
-      <arglist>(const nlohmann::json &amp;j, const std::string &amp;default_path)</arglist>
-    </member>
-    <member kind="variable">
-      <type>auto</type>
-      <name>build_square_matrix</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a0387f578fa55e79f0da380ebd38b22e9</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>pow_templates.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/math/</path>
+    <path>include/teqp/math/</path>
     <filename>pow__templates_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
     <namespace>teqp</namespace>
-    <member kind="function">
-      <type>auto</type>
-      <name>POW2</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a01b1fe27193906c0f3159b7ee15e2262</anchor>
-      <arglist>(const A &amp;x)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>POW3</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a6a4ffed646587349cad3579d28b07d48</anchor>
-      <arglist>(const A &amp;x)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>POW4</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>af0a89b87ac5474fa2520f64cab3c5430</anchor>
-      <arglist>(const A &amp;x)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>POW5</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a3a062dbd736e54019b61f41a88af3403</anchor>
-      <arglist>(const A &amp;x)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>POW7</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a2b7e453562132328e144abdb38c8130d</anchor>
-      <arglist>(const A &amp;x)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>POW8</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a442509e211008be95bb7b39c11af28e0</anchor>
-      <arglist>(const A &amp;x)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>POW10</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a30254f4d72e62f32a251a5103cbacaee</anchor>
-      <arglist>(const A &amp;x)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>POW12</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a79552705cf1b6854e543c4fcd3cd2549</anchor>
-      <arglist>(const A &amp;x)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>quadrature.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/math/</path>
+    <path>include/teqp/math/</path>
     <filename>quadrature_8hpp.html</filename>
     <namespace>teqp</namespace>
-    <member kind="function">
-      <type>auto</type>
-      <name>quad</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a9c9294e48d5b5ae2258bb0f19c1d0d48</anchor>
-      <arglist>(const std::function&lt; T(Double)&gt; &amp;F, const Double &amp;a, const Double &amp;b)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>ammonia_water.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/</path>
+    <path>include/teqp/models/</path>
     <filename>ammonia__water_8hpp.html</filename>
-    <includes id="multifluid_8hpp" name="multifluid.hpp" local="yes" imported="no">teqp/models/multifluid.hpp</includes>
+    <includes id="multifluid_8hpp" name="multifluid.hpp" local="yes" import="no" module="no" objc="no">teqp/models/multifluid.hpp</includes>
   </compound>
   <compound kind="file">
     <name>CPA.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/</path>
+    <path>include/teqp/models/</path>
     <filename>CPA_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
     <class kind="class">teqp::CPA::CPACubic</class>
     <class kind="class">teqp::CPA::CPAAssociation</class>
     <class kind="class">teqp::CPA::CPAEOS</class>
     <namespace>teqp</namespace>
     <namespace>teqp::CPA</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>association_classes</name>
-      <anchorfile>namespaceteqp_1_1CPA.html</anchorfile>
-      <anchor>a90da9ae7578303110472dd2c86daba93</anchor>
-      <arglist></arglist>
-      <enumvalue file="namespaceteqp_1_1CPA.html" anchor="a90da9ae7578303110472dd2c86daba93a0de8ddf24fd4424e2a0d29a21de4880e">not_set</enumvalue>
-      <enumvalue file="namespaceteqp_1_1CPA.html" anchor="a90da9ae7578303110472dd2c86daba93a2157d29d0465deacbe112062f5947e1c">a1A</enumvalue>
-      <enumvalue file="namespaceteqp_1_1CPA.html" anchor="a90da9ae7578303110472dd2c86daba93a876cb7111e19c397cca9d026c87254eb">a2B</enumvalue>
-      <enumvalue file="namespaceteqp_1_1CPA.html" anchor="a90da9ae7578303110472dd2c86daba93a74e1c3529c0ef0acd44fd62fd5cb7f13">a3B</enumvalue>
-      <enumvalue file="namespaceteqp_1_1CPA.html" anchor="a90da9ae7578303110472dd2c86daba93a9a250c2c87241fd5402dc131ee2f5e59">a4C</enumvalue>
-      <enumvalue file="namespaceteqp_1_1CPA.html" anchor="a90da9ae7578303110472dd2c86daba93a7c06311c696cd974a378c8077ae4575b">not_associating</enumvalue>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>radial_dist</name>
-      <anchorfile>namespaceteqp_1_1CPA.html</anchorfile>
-      <anchor>a1e2049d65c0db615e69429c1de7bc36b</anchor>
-      <arglist></arglist>
-      <enumvalue file="namespaceteqp_1_1CPA.html" anchor="a1e2049d65c0db615e69429c1de7bc36ba8d7e99c73cd5a10adaaf4c9f9a520368">CS</enumvalue>
-      <enumvalue file="namespaceteqp_1_1CPA.html" anchor="a1e2049d65c0db615e69429c1de7bc36ba56d721ccadb8bbfd8b47390d82a6ea4b">KG</enumvalue>
-      <enumvalue file="namespaceteqp_1_1CPA.html" anchor="a1e2049d65c0db615e69429c1de7bc36ba583dce1e7a2507b30a9eb71314c47d1c">OT</enumvalue>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>cubic_flag</name>
-      <anchorfile>namespaceteqp_1_1CPA.html</anchorfile>
-      <anchor>a117b6f3032c46b46f6a1e9d2b5980e2a</anchor>
-      <arglist></arglist>
-      <enumvalue file="namespaceteqp_1_1CPA.html" anchor="a117b6f3032c46b46f6a1e9d2b5980e2aa0de8ddf24fd4424e2a0d29a21de4880e">not_set</enumvalue>
-      <enumvalue file="namespaceteqp_1_1CPA.html" anchor="a117b6f3032c46b46f6a1e9d2b5980e2aa0fe75a5189c2ea3f123621d098ddd03e">PR</enumvalue>
-      <enumvalue file="namespaceteqp_1_1CPA.html" anchor="a117b6f3032c46b46f6a1e9d2b5980e2aa31cb32d8fba23675ce53bc31bae80705">SRK</enumvalue>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>POW2</name>
-      <anchorfile>namespaceteqp_1_1CPA.html</anchorfile>
-      <anchor>a2b7d1e2c552e215b664220fc3ad14c56</anchor>
-      <arglist>(X x)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>POW3</name>
-      <anchorfile>namespaceteqp_1_1CPA.html</anchorfile>
-      <anchor>a51dafbeda4f006118e5777a21502ca0f</anchor>
-      <arglist>(X x)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_association_classes</name>
-      <anchorfile>namespaceteqp_1_1CPA.html</anchorfile>
-      <anchor>a980253b3943f534e22fafd1a85fa4b1e</anchor>
-      <arglist>(const std::string &amp;s)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_DeltaAB_pure</name>
-      <anchorfile>namespaceteqp_1_1CPA.html</anchorfile>
-      <anchor>a3339d3657cc079aec3a1c557e55ef4e6</anchor>
-      <arglist>(radial_dist dist, double epsABi, double betaABi, BType b_cubic, TType RT, RhoType rhomolar, const VecType &amp;molefrac)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>XA_calc_pure</name>
-      <anchorfile>namespaceteqp_1_1CPA.html</anchorfile>
-      <anchor>aeb9e26142c7e425fa03e448f1c43fa3c</anchor>
-      <arglist>(int N_sites, association_classes scheme, double epsABi, double betaABi, const BType b_cubic, const TType RT, const RhoType rhomolar, const VecType &amp;molefrac)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_cubic_flag</name>
-      <anchorfile>namespaceteqp_1_1CPA.html</anchorfile>
-      <anchor>aef8996d5cc168e4e919b4caf3e63eb97</anchor>
-      <arglist>(const std::string &amp;s)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>CPAfactory</name>
-      <anchorfile>namespaceteqp_1_1CPA.html</anchorfile>
-      <anchor>aac7faad3d0f09b4600630c7ae67d56ea</anchor>
-      <arglist>(const nlohmann::json &amp;j)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>cubics.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/</path>
+    <path>include/teqp/models/</path>
     <filename>cubics_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
-    <includes id="constants_8hpp" name="constants.hpp" local="yes" imported="no">teqp/constants.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
-    <includes id="cubicsuperancillary_8hpp" name="cubicsuperancillary.hpp" local="yes" imported="no">cubicsuperancillary.hpp</includes>
-    <includes id="json__tools_8hpp" name="json_tools.hpp" local="yes" imported="no">teqp/json_tools.hpp</includes>
-    <includes id="pow__templates_8hpp" name="pow_templates.hpp" local="yes" imported="no">teqp/math/pow_templates.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
+    <includes id="constants_8hpp" name="constants.hpp" local="yes" import="no" module="no" objc="no">teqp/constants.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
+    <includes id="cubicsuperancillary_8hpp" name="cubicsuperancillary.hpp" local="yes" import="no" module="no" objc="no">cubicsuperancillary.hpp</includes>
+    <includes id="json__tools_8hpp" name="json_tools.hpp" local="yes" import="no" module="no" objc="no">teqp/json_tools.hpp</includes>
+    <includes id="pow__templates_8hpp" name="pow_templates.hpp" local="yes" import="no" module="no" objc="no">teqp/math/pow_templates.hpp</includes>
     <class kind="class">teqp::BasicAlphaFunction</class>
     <class kind="class">teqp::TwuAlphaFunction</class>
     <class kind="class">teqp::MathiasCopemanAlphaFunction</class>
     <class kind="class">teqp::GenericCubic</class>
     <class kind="class">teqp::QuantumCorrectedPR</class>
     <namespace>teqp</namespace>
-    <member kind="typedef">
-      <type>std::variant&lt; BasicAlphaFunction&lt; double &gt;, TwuAlphaFunction&lt; double &gt;, MathiasCopemanAlphaFunction&lt; double &gt; &gt;</type>
-      <name>AlphaFunctionOptions</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a330c9d06e0d39b8464bd798700df73b9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>canonical_SRK</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a6a646a52ddd0010dc37a5161e8353148</anchor>
-      <arglist>(TCType Tc_K, PCType pc_Pa, AcentricType acentric, const std::optional&lt; Eigen::ArrayXXd &gt; &amp;kmat=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>make_canonicalSRK</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>acfec86ec5ae6cae32421445beaae20e9</anchor>
-      <arglist>(const nlohmann::json &amp;spec)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>canonical_PR</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a388557f5b1209cf4a37a2bb3b9a6f9d5</anchor>
-      <arglist>(TCType Tc_K, PCType pc_Pa, AcentricType acentric, const std::optional&lt; Eigen::ArrayXXd &gt; &amp;kmat=std::nullopt)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>make_canonicalPR</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a86f985a767c5c10c7b64cba83e288db4</anchor>
-      <arglist>(const nlohmann::json &amp;spec)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>make_generalizedcubic</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a334093a8fbd62d4f6445df5d8d330e32</anchor>
-      <arglist>(const nlohmann::json &amp;spec)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>cubicsuperancillary.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/</path>
+    <path>include/teqp/models/</path>
     <filename>cubicsuperancillary_8hpp.html</filename>
     <class kind="struct">teqp::CubicSuperAncillary::Chebyshev</class>
     <class kind="struct">teqp::CubicSuperAncillary::SuperAncillary</class>
     <namespace>teqp</namespace>
     <namespace>teqp::CubicSuperAncillary</namespace>
-    <member kind="variable">
-      <type>const auto</type>
-      <name>vdW_p</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>a6a72d89ecd85366c8f407bfa1d2d2bdf</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const auto</type>
-      <name>vdW_rhoL</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>ac70fe3bd70cfb98233c8cc4b18dc103b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const auto</type>
-      <name>vdW_rhoV</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>a4ff72f15d39e571beb6c302da184b762</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const auto</type>
-      <name>SRK_p</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>a598a975ceae4d724906b5f1dfca845eb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const auto</type>
-      <name>SRK_rhoL</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>af1fee7e2a23192ae517d047ac82c00a5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const auto</type>
-      <name>SRK_rhoV</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>ac1ee563798aa36cd74a9d1c2cfd306d8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const auto</type>
-      <name>PR_p</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>ac2b5c90bd12f0e7496382d590ab60f2c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const auto</type>
-      <name>PR_rhoL</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>a99be15a5ecc48f0427020b29b02d9b6d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const auto</type>
-      <name>PR_rhoV</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>a5b813cc775f5427a8d2b9ca193acce83</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const int</type>
-      <name>VDW_CODE</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>a9cd57ffec3e0aac739b74d14b3b9f9ff</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const int</type>
-      <name>SRK_CODE</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>a6336fbb14a316fd6128ccb3fe59a19a7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const int</type>
-      <name>PR_CODE</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>a4f1aff916639fada1bf5e2cde841eb5b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const int</type>
-      <name>UNKNOWN_CODE</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>a1be95e042b1adc0d03ded632eda8b062</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const int</type>
-      <name>P_CODE</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>a63a722782f62af07e1acf8d0f667f992</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const int</type>
-      <name>RHOL_CODE</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>aee080b43ff70495feedeca2f7470da4b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const int</type>
-      <name>RHOV_CODE</name>
-      <anchorfile>namespaceteqp_1_1CubicSuperAncillary.html</anchorfile>
-      <anchor>a0535c12733fe7977db75ac6357af7034</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>ECSHuberEly.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/</path>
+    <path>include/teqp/models/</path>
     <filename>ECSHuberEly_8hpp.html</filename>
-    <includes id="multifluid_8hpp" name="multifluid.hpp" local="yes" imported="no">teqp/models/multifluid.hpp</includes>
+    <includes id="multifluid_8hpp" name="multifluid.hpp" local="yes" import="no" module="no" objc="no">teqp/models/multifluid.hpp</includes>
     <class kind="class">teqp::ECSHuberEly::ECSHuberEly1994</class>
     <namespace>teqp</namespace>
     <namespace>teqp::ECSHuberEly</namespace>
   </compound>
   <compound kind="file">
     <name>fwd.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/</path>
+    <path>include/teqp/models/</path>
     <filename>fwd_8hpp.html</filename>
-    <includes id="vdW_8hpp" name="vdW.hpp" local="yes" imported="no">teqp/models/vdW.hpp</includes>
-    <includes id="cubics_8hpp" name="cubics.hpp" local="yes" imported="no">teqp/models/cubics.hpp</includes>
-    <includes id="CPA_8hpp" name="CPA.hpp" local="yes" imported="no">teqp/models/CPA.hpp</includes>
-    <includes id="pcsaft_8hpp" name="pcsaft.hpp" local="yes" imported="no">teqp/models/pcsaft.hpp</includes>
-    <includes id="saftvrmie_8hpp" name="saftvrmie.hpp" local="yes" imported="no">teqp/models/saftvrmie.hpp</includes>
-    <includes id="multifluid_8hpp" name="multifluid.hpp" local="yes" imported="no">teqp/models/multifluid.hpp</includes>
-    <includes id="multifluid__mutant_8hpp" name="multifluid_mutant.hpp" local="yes" imported="no">teqp/models/multifluid_mutant.hpp</includes>
-    <includes id="ECSHuberEly_8hpp" name="ECSHuberEly.hpp" local="yes" imported="no">teqp/models/ECSHuberEly.hpp</includes>
-    <includes id="ideal__eosterms_8hpp" name="ideal_eosterms.hpp" local="yes" imported="no">teqp/ideal_eosterms.hpp</includes>
-    <includes id="ammonia__water_8hpp" name="ammonia_water.hpp" local="yes" imported="no">teqp/models/ammonia_water.hpp</includes>
-    <includes id="squarewell_8hpp" name="squarewell.hpp" local="yes" imported="no">teqp/models/model_potentials/squarewell.hpp</includes>
-    <includes id="exp6_8hpp" name="exp6.hpp" local="yes" imported="no">teqp/models/model_potentials/exp6.hpp</includes>
-    <includes id="2center__ljf_8hpp" name="2center_ljf.hpp" local="yes" imported="no">teqp/models/model_potentials/2center_ljf.hpp</includes>
-    <includes id="lennardjones_8hpp" name="lennardjones.hpp" local="yes" imported="no">teqp/models/mie/lennardjones.hpp</includes>
-    <includes id="mie_8hpp" name="mie.hpp" local="yes" imported="no">teqp/models/mie/mie.hpp</includes>
+    <includes id="vdW_8hpp" name="vdW.hpp" local="yes" import="no" module="no" objc="no">teqp/models/vdW.hpp</includes>
+    <includes id="cubics_8hpp" name="cubics.hpp" local="yes" import="no" module="no" objc="no">teqp/models/cubics.hpp</includes>
+    <includes id="CPA_8hpp" name="CPA.hpp" local="yes" import="no" module="no" objc="no">teqp/models/CPA.hpp</includes>
+    <includes id="pcsaft_8hpp" name="pcsaft.hpp" local="yes" import="no" module="no" objc="no">teqp/models/pcsaft.hpp</includes>
+    <includes id="saftvrmie_8hpp" name="saftvrmie.hpp" local="yes" import="no" module="no" objc="no">teqp/models/saftvrmie.hpp</includes>
+    <includes id="multifluid_8hpp" name="multifluid.hpp" local="yes" import="no" module="no" objc="no">teqp/models/multifluid.hpp</includes>
+    <includes id="multifluid__mutant_8hpp" name="multifluid_mutant.hpp" local="yes" import="no" module="no" objc="no">teqp/models/multifluid_mutant.hpp</includes>
+    <includes id="ECSHuberEly_8hpp" name="ECSHuberEly.hpp" local="yes" import="no" module="no" objc="no">teqp/models/ECSHuberEly.hpp</includes>
+    <includes id="ideal__eosterms_8hpp" name="ideal_eosterms.hpp" local="yes" import="no" module="no" objc="no">teqp/ideal_eosterms.hpp</includes>
+    <includes id="ammonia__water_8hpp" name="ammonia_water.hpp" local="yes" import="no" module="no" objc="no">teqp/models/ammonia_water.hpp</includes>
+    <includes id="squarewell_8hpp" name="squarewell.hpp" local="yes" import="no" module="no" objc="no">teqp/models/model_potentials/squarewell.hpp</includes>
+    <includes id="exp6_8hpp" name="exp6.hpp" local="yes" import="no" module="no" objc="no">teqp/models/model_potentials/exp6.hpp</includes>
+    <includes id="2center__ljf_8hpp" name="2center_ljf.hpp" local="yes" import="no" module="no" objc="no">teqp/models/model_potentials/2center_ljf.hpp</includes>
+    <includes id="lennardjones_8hpp" name="lennardjones.hpp" local="yes" import="no" module="no" objc="no">teqp/models/mie/lennardjones.hpp</includes>
+    <includes id="mie_8hpp" name="mie.hpp" local="yes" import="no" module="no" objc="no">teqp/models/mie/mie.hpp</includes>
     <namespace>teqp</namespace>
-    <member kind="typedef">
-      <type>std::valarray&lt; double &gt;</type>
-      <name>vad</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a127ee40325fdff7b82e5c08d7bbd9148</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::vector&lt; std::string &gt;</type>
-      <name>vecs</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a297494c9a5a0955b538cd578a5433b87</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>decltype(canonical_PR(vad{}, vad{}, vad{}))</type>
-      <name>canonical_cubic_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a8027876ebce650ffd76a9f910ccb0d01</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>decltype(PCSAFT::PCSAFTfactory(nlohmann::json{}))</type>
-      <name>PCSAFT_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a37866267491a962d070ca5570372ca6d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>decltype(SAFTVRMie::SAFTVRMieMixture(vecs{}))</type>
-      <name>SAFTVRMie_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>ad7a4e31b3475d16c66dbf9c81f661065</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>decltype(CPA::CPAfactory(nlohmann::json{}))</type>
-      <name>CPA_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a23b78ffacd75fbc247a3066c213b08e5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>decltype(multifluidfactory(nlohmann::json{}))</type>
-      <name>multifluid_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a31cd03d0561637bdcc2d6d6b6c21e5ad</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>decltype(build_multifluid_mutant(multifluidfactory(nlohmann::json{}), nlohmann::json{}))</type>
-      <name>multifluidmutant_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>aafb595d691a7428e30e88ba4bf17448a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>AmmoniaWaterTillnerRoth</type>
-      <name>ammonia_water_TillnerRoth_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a3c32d7676221bd3d9d4e96d34fe498ce</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>squarewell::EspindolaHeredia2009</type>
-      <name>SW_EspindolaHeredia2009_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a522fd870052b2f0d4095c56d7ac95fbe</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>exp6::Kataoka1992</type>
-      <name>EXP6_Kataoka1992_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>aed976877c38424ac09a3c5eae2c649fd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>vdWEOS&lt; double &gt;</type>
-      <name>vdWEOS_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>ae7a2145324d3ec655519a3f2bdfae140</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>decltype(twocenterljf::build_two_center_model_dipole(std::string{}, double{}, double{}))</type>
-      <name>twocenterLJF_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a38366c13c6b46865500b09193bfc2f4e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>LJ126KolafaNezbeda1994</type>
-      <name>LJ126KolafaNezbeda1994_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a62c6d88e6bd3282628f7589cde83a7e8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>LJ126Johnson1993</type>
-      <name>LJ126Johnson1993_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>aa6a45d4617060fca1e7e7f0785712666</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>Mie::Mie6Pohl2023</type>
-      <name>Mie6Pohl2023_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a332e7af2ea4a06129a4192314fe46509</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>QuantumCorrectedPR</type>
-      <name>QuantumPR_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>ab8b77c7f9d7f12f3587c4b7ba020434a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>IdealHelmholtz</type>
-      <name>idealgas_t</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a7825c7434eaf91f4291932303594c882</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>lennardjones.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/mie/</path>
+    <path>include/teqp/models/mie/</path>
     <filename>lennardjones_8hpp.html</filename>
-    <includes id="multifluid_8hpp" name="multifluid.hpp" local="yes" imported="no">teqp/models/multifluid.hpp</includes>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
+    <includes id="multifluid_8hpp" name="multifluid.hpp" local="yes" import="no" module="no" objc="no">teqp/models/multifluid.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
     <class kind="class">teqp::LJ126KolafaNezbeda1994</class>
     <class kind="class">teqp::LJ126Johnson1993</class>
     <namespace>teqp</namespace>
-    <member kind="function">
-      <type>auto</type>
-      <name>build_LJ126_TholJPCRD2016</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a72a0d74913275be5bbc29a3791ca5eb0</anchor>
-      <arglist>()</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>mie.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/mie/</path>
+    <path>include/teqp/models/mie/</path>
     <filename>mie_8hpp.html</filename>
-    <includes id="multifluid_8hpp" name="multifluid.hpp" local="yes" imported="no">teqp/models/multifluid.hpp</includes>
+    <includes id="multifluid_8hpp" name="multifluid.hpp" local="yes" import="no" module="no" objc="no">teqp/models/multifluid.hpp</includes>
     <class kind="class">teqp::Mie::Mie6Pohl2023</class>
     <namespace>teqp</namespace>
     <namespace>teqp::Mie</namespace>
   </compound>
   <compound kind="file">
     <name>2center_ljf.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/model_potentials/</path>
+    <path>include/teqp/models/model_potentials/</path>
     <filename>2center__ljf_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
     <class kind="class">teqp::twocenterljf::ParameterContainer</class>
     <class kind="class">teqp::twocenterljf::ReducingDensity</class>
     <class kind="class">teqp::twocenterljf::ReducingTemperature</class>
@@ -1494,253 +579,66 @@
     <class kind="class">teqp::twocenterljf::Twocenterljf</class>
     <namespace>teqp</namespace>
     <namespace>teqp::twocenterljf</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>model_types_2CLJF</name>
-      <anchorfile>namespaceteqp_1_1twocenterljf.html</anchorfile>
-      <anchor>af90332e11b68d61c27f179417a858aed</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>MECKE</name>
-      <anchorfile>namespaceteqp_1_1twocenterljf.html</anchorfile>
-      <anchor>af90332e11b68d61c27f179417a858aeda96ce1306a27a6470a2e8703754996225</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>LISAL</name>
-      <anchorfile>namespaceteqp_1_1twocenterljf.html</anchorfile>
-      <anchor>af90332e11b68d61c27f179417a858aeda74a6896cd733f596df3a2639d96e79d5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_density_reducing</name>
-      <anchorfile>namespaceteqp_1_1twocenterljf.html</anchorfile>
-      <anchor>a026c0f5249f84336b3fa4c69da6460c6</anchor>
-      <arglist>(const std::string &amp;name)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_temperature_reducing</name>
-      <anchorfile>namespaceteqp_1_1twocenterljf.html</anchorfile>
-      <anchor>a6d2993fd7b97889813b1b96c568c5a50</anchor>
-      <arglist>(const std::string &amp;name)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_Attractive_contribution</name>
-      <anchorfile>namespaceteqp_1_1twocenterljf.html</anchorfile>
-      <anchor>adee63356aeebf7cf7bc35ac1a4e5caa3</anchor>
-      <arglist>(const std::string &amp;name)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_HardSphere_contribution</name>
-      <anchorfile>namespaceteqp_1_1twocenterljf.html</anchorfile>
-      <anchor>a733046f43eafd3a60682b025ed3a670b</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_Dipolar_contribution</name>
-      <anchorfile>namespaceteqp_1_1twocenterljf.html</anchorfile>
-      <anchor>a5abbc08d29eca7b03e038dd1963adeed</anchor>
-      <arglist>(const std::string &amp;name)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_Quadrupolar_contribution</name>
-      <anchorfile>namespaceteqp_1_1twocenterljf.html</anchorfile>
-      <anchor>a1f2fae1f4c5e0755659f524f55f65eb1</anchor>
-      <arglist>(const std::string &amp;name)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>build_two_center_model_dipole</name>
-      <anchorfile>namespaceteqp_1_1twocenterljf.html</anchorfile>
-      <anchor>a741b94ae9616bd833cf30553e67bf369</anchor>
-      <arglist>(const std::string &amp;model_version, const double &amp;L=0.0, const double &amp;mu_sq=0.0)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>build_two_center_model_quadrupole</name>
-      <anchorfile>namespaceteqp_1_1twocenterljf.html</anchorfile>
-      <anchor>a94cf94083af55fd0dcd2a1e232b132b6</anchor>
-      <arglist>(const std::string &amp;model_version, const double &amp;L=0.0, const double &amp;Q_sq=0.0)</arglist>
-    </member>
-    <member kind="variable">
-      <type>const std::map&lt; std::string, model_types_2CLJF &gt;</type>
-      <name>modelmap</name>
-      <anchorfile>namespaceteqp_1_1twocenterljf.html</anchorfile>
-      <anchor>a62ffe3d8b169fe7b5cc36bef485f3080</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>exp6.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/model_potentials/</path>
+    <path>include/teqp/models/model_potentials/</path>
     <filename>exp6_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
     <class kind="class">teqp::exp6::Kataoka1992</class>
     <namespace>teqp</namespace>
     <namespace>teqp::exp6</namespace>
   </compound>
   <compound kind="file">
     <name>LJChain.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/model_potentials/</path>
+    <path>include/teqp/models/model_potentials/</path>
     <filename>LJChain_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
     <class kind="class">teqp::LJChain::LJChain</class>
     <namespace>teqp</namespace>
     <namespace>teqp::LJChain</namespace>
   </compound>
   <compound kind="file">
     <name>squarewell.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/model_potentials/</path>
+    <path>include/teqp/models/model_potentials/</path>
     <filename>squarewell_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
     <class kind="class">teqp::squarewell::EspindolaHeredia2009</class>
     <namespace>teqp</namespace>
     <namespace>teqp::squarewell</namespace>
   </compound>
   <compound kind="file">
     <name>multifluid.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/</path>
+    <path>include/teqp/models/</path>
     <filename>multifluid_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
-    <includes id="constants_8hpp" name="constants.hpp" local="yes" imported="no">teqp/constants.hpp</includes>
-    <includes id="filesystem_8hpp" name="filesystem.hpp" local="yes" imported="no">teqp/filesystem.hpp</includes>
-    <includes id="json__tools_8hpp" name="json_tools.hpp" local="yes" imported="no">teqp/json_tools.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
-    <includes id="multifluid__eosterms_8hpp" name="multifluid_eosterms.hpp" local="yes" imported="no">multifluid_eosterms.hpp</includes>
-    <includes id="multifluid__reducing_8hpp" name="multifluid_reducing.hpp" local="yes" imported="no">multifluid_reducing.hpp</includes>
-    <includes id="multifluid__gas__constant_8hpp" name="multifluid_gas_constant.hpp" local="yes" imported="no">multifluid_gas_constant.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
+    <includes id="constants_8hpp" name="constants.hpp" local="yes" import="no" module="no" objc="no">teqp/constants.hpp</includes>
+    <includes id="filesystem_8hpp" name="filesystem.hpp" local="yes" import="no" module="no" objc="no">teqp/filesystem.hpp</includes>
+    <includes id="json__tools_8hpp" name="json_tools.hpp" local="yes" import="no" module="no" objc="no">teqp/json_tools.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
+    <includes id="multifluid__eosterms_8hpp" name="multifluid_eosterms.hpp" local="yes" import="no" module="no" objc="no">multifluid_eosterms.hpp</includes>
+    <includes id="multifluid__reducing_8hpp" name="multifluid_reducing.hpp" local="yes" import="no" module="no" objc="no">multifluid_reducing.hpp</includes>
+    <includes id="multifluid__gas__constant_8hpp" name="multifluid_gas_constant.hpp" local="yes" import="no" module="no" objc="no">multifluid_gas_constant.hpp</includes>
     <class kind="class">teqp::CorrespondingStatesContribution</class>
     <class kind="class">teqp::DepartureContribution</class>
     <class kind="class">teqp::MultiFluid</class>
     <namespace>teqp</namespace>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_departure_json</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a75aa947e3267ff1660db269220f093d8</anchor>
-      <arglist>(const std::string &amp;name, const std::string &amp;path)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>build_departure_function</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a7b0fed59cb3c840627e9799f0d36eb12</anchor>
-      <arglist>(const nlohmann::json &amp;j)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_departure_function_matrix</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a794ca20d6c5c501592eccde9e87c5a2d</anchor>
-      <arglist>(const nlohmann::json &amp;depcollection, const nlohmann::json &amp;BIPcollection, const std::vector&lt; std::string &gt; &amp;components, const nlohmann::json &amp;flags)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_EOS_terms</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a081a632b9297fdfb078999a2eaabbe02</anchor>
-      <arglist>(const nlohmann::json &amp;j)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_EOSs</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a427e105aec20374b74c7bef742ac5277</anchor>
-      <arglist>(const std::vector&lt; nlohmann::json &gt; &amp;pureJSON)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>collect_component_json</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>acc467d95833da1186bdd6ce3f376ca8a</anchor>
-      <arglist>(const std::vector&lt; std::string &gt; &amp;components, const std::string &amp;root)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>collect_identifiers</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a68212bdd29484f7d4d6b2c8bc8d77256</anchor>
-      <arglist>(const std::vector&lt; nlohmann::json &gt; &amp;pureJSON)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>select_identifier</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a82165b861618513fd96dd11b6d0b57e8</anchor>
-      <arglist>(const nlohmann::json &amp;BIPcollection, const mapvecstring &amp;identifierset, const nlohmann::json &amp;flags)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>build_alias_map</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a4cd752ad64d2efe5ea4bcb0c3acb3f59</anchor>
-      <arglist>(const std::string &amp;root)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>_build_multifluid_model</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a0060a7132096aec89010bc037ab86cac</anchor>
-      <arglist>(const std::vector&lt; nlohmann::json &gt; &amp;pureJSON, const nlohmann::json &amp;BIPcollection, const nlohmann::json &amp;depcollection, const nlohmann::json &amp;flags={})</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>build_multifluid_JSONstr</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a6c43d72f8b0ea5c812c0240c852a5135</anchor>
-      <arglist>(const std::vector&lt; std::string &gt; &amp;componentJSON, const std::string &amp;BIPJSON, const std::string &amp;departureJSON, const nlohmann::json &amp;flags={})</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>make_pure_components_JSON</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>ac5791e9c69fafc070cecaca567dbc1bf</anchor>
-      <arglist>(const nlohmann::json &amp;components, const std::string &amp;root)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>build_multifluid_model</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>aa7cdea08428a2326129dcbe83de69802</anchor>
-      <arglist>(const std::vector&lt; std::string &gt; &amp;components, const std::string &amp;root, const std::string &amp;BIPcollectionpath={}, const nlohmann::json &amp;flags={}, const std::string &amp;departurepath={})</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>multifluidfactory</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a9ce99f137423d59ed25fd88cc63c57dd</anchor>
-      <arglist>(const nlohmann::json &amp;spec)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>multifluidfactory</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>acf914908b8bfc56e964cd6bc6982366e</anchor>
-      <arglist>(const std::string &amp;specstring)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>multifluid_ancillaries.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/</path>
+    <path>include/teqp/models/</path>
     <filename>multifluid__ancillaries_8hpp.html</filename>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
     <class kind="struct">teqp::VLEAncillary</class>
     <class kind="struct">teqp::MultiFluidVLEAncillaries</class>
     <namespace>teqp</namespace>
   </compound>
   <compound kind="file">
     <name>multifluid_eosterms.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/</path>
+    <path>include/teqp/models/</path>
     <filename>multifluid__eosterms_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
     <class kind="class">teqp::JustPowerEOSTerm</class>
     <class kind="class">teqp::PowerEOSTerm</class>
     <class kind="class">teqp::ExponentialEOSTerm</class>
@@ -1754,115 +652,45 @@
     <class kind="class">teqp::NonAnalyticEOSTerm</class>
     <class kind="class">teqp::EOSTermContainer</class>
     <namespace>teqp</namespace>
-    <member kind="typedef">
-      <type>EOSTermContainer&lt; JustPowerEOSTerm, PowerEOSTerm, GaussianEOSTerm, NonAnalyticEOSTerm, Lemmon2005EOSTerm, GaoBEOSTerm, ExponentialEOSTerm, DoubleExponentialEOSTerm &gt;</type>
-      <name>EOSTerms</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a0ac5566ba3d16f124735fb13f0e91c11</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>EOSTermContainer&lt; JustPowerEOSTerm, PowerEOSTerm, GaussianEOSTerm, GERG2004EOSTerm, NullEOSTerm, DoubleExponentialEOSTerm, Chebyshev2DEOSTerm &gt;</type>
-      <name>DepartureTerms</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a3457986094019eccb5242d3845925aca</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>multifluid_gas_constant.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/</path>
+    <path>include/teqp/models/</path>
     <filename>multifluid__gas__constant_8hpp.html</filename>
-    <includes id="constants_8hpp" name="constants.hpp" local="yes" imported="no">teqp/constants.hpp</includes>
+    <includes id="constants_8hpp" name="constants.hpp" local="yes" import="no" module="no" objc="no">teqp/constants.hpp</includes>
     <class kind="class">teqp::multifluid::gasconstant::MoleFractionWeighted</class>
     <class kind="class">teqp::multifluid::gasconstant::CODATA</class>
     <namespace>teqp</namespace>
     <namespace>teqp::multifluid</namespace>
     <namespace>teqp::multifluid::gasconstant</namespace>
-    <member kind="typedef">
-      <type>std::variant&lt; MoleFractionWeighted, CODATA &gt;</type>
-      <name>GasConstantCalculator</name>
-      <anchorfile>namespaceteqp_1_1multifluid_1_1gasconstant.html</anchorfile>
-      <anchor>a73944544b3f482f370e4b79e1d0a1c75</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>multifluid_mutant.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/</path>
+    <path>include/teqp/models/</path>
     <filename>multifluid__mutant_8hpp.html</filename>
     <class kind="class">teqp::MultiFluidAdapter</class>
     <namespace>teqp</namespace>
-    <member kind="function">
-      <type>auto</type>
-      <name>build_multifluid_mutant</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a67c30f6c7f5a9888c1ffd32962194f07</anchor>
-      <arglist>(const Model &amp;model, const nlohmann::json &amp;jj)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>multifluid_reducing.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/</path>
+    <path>include/teqp/models/</path>
     <filename>multifluid__reducing_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
     <class kind="class">teqp::MultiFluidReducingFunction</class>
     <class kind="class">teqp::MultiFluidInvariantReducingFunction</class>
     <class kind="class">teqp::ReducingTermContainer</class>
     <namespace>teqp</namespace>
     <namespace>teqp::reducing</namespace>
-    <member kind="typedef">
-      <type>ReducingTermContainer&lt; MultiFluidReducingFunction, MultiFluidInvariantReducingFunction &gt;</type>
-      <name>ReducingFunctions</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>af507b2d1ed6ef92181c6baec26db1a18</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_BIPdep</name>
-      <anchorfile>namespaceteqp_1_1reducing.html</anchorfile>
-      <anchor>a969c80144237886a9d5a167a6490cd8f</anchor>
-      <arglist>(const nlohmann::json &amp;collection, const std::vector&lt; std::string &gt; &amp;identifiers, const nlohmann::json &amp;flags)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_binary_interaction_double</name>
-      <anchorfile>namespaceteqp_1_1reducing.html</anchorfile>
-      <anchor>a14883afaae55de5ee4d51a95c16f000c</anchor>
-      <arglist>(const nlohmann::json &amp;collection, const std::vector&lt; std::string &gt; &amp;identifiers, const nlohmann::json &amp;flags, const std::vector&lt; double &gt; &amp;Tc, const std::vector&lt; double &gt; &amp;vc)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_BIP_matrices</name>
-      <anchorfile>namespaceteqp_1_1reducing.html</anchorfile>
-      <anchor>add7f58519ca95ee6f25b8bde8e2cfbd9</anchor>
-      <arglist>(const nlohmann::json &amp;collection, const std::vector&lt; std::string &gt; &amp;components, const nlohmann::json &amp;flags, const Tcvec &amp;Tc, const vcvec &amp;vc)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_Tcvc</name>
-      <anchorfile>namespaceteqp_1_1reducing.html</anchorfile>
-      <anchor>a4e29d71c9df6126028ff8decdebfd685</anchor>
-      <arglist>(const std::vector&lt; nlohmann::json &gt; &amp;pureJSON)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_F_matrix</name>
-      <anchorfile>namespaceteqp_1_1reducing.html</anchorfile>
-      <anchor>a67622bd570e4dccfdf83cd5b9f32dbfa</anchor>
-      <arglist>(const nlohmann::json &amp;collection, const std::vector&lt; std::string &gt; &amp;identifiers, const nlohmann::json &amp;flags)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>pcsaft.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/</path>
+    <path>include/teqp/models/</path>
     <filename>pcsaft_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
-    <includes id="constants_8hpp" name="constants.hpp" local="yes" imported="no">teqp/constants.hpp</includes>
-    <includes id="json__tools_8hpp" name="json_tools.hpp" local="yes" imported="no">teqp/json_tools.hpp</includes>
-    <includes id="polar__terms_8hpp" name="polar_terms.hpp" local="yes" imported="no">teqp/models/saft/polar_terms.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
+    <includes id="constants_8hpp" name="constants.hpp" local="yes" import="no" module="no" objc="no">teqp/constants.hpp</includes>
+    <includes id="json__tools_8hpp" name="json_tools.hpp" local="yes" import="no" module="no" objc="no">teqp/json_tools.hpp</includes>
+    <includes id="polar__terms_8hpp" name="polar_terms.hpp" local="yes" import="no" module="no" objc="no">teqp/models/saft/polar_terms.hpp</includes>
     <class kind="struct">teqp::PCSAFT::SAFTCoeffs</class>
     <class kind="class">teqp::PCSAFT::PCSAFTLibrary</class>
     <class kind="class">teqp::PCSAFT::SAFTCalc</class>
@@ -1870,90 +698,13 @@
     <class kind="class">teqp::PCSAFT::PCSAFTMixture</class>
     <namespace>teqp</namespace>
     <namespace>teqp::PCSAFT</namespace>
-    <member kind="function">
-      <type>auto</type>
-      <name>C1</name>
-      <anchorfile>namespaceteqp_1_1PCSAFT.html</anchorfile>
-      <anchor>a8fc2c645e2079aaa7458dd1aa11f2e3d</anchor>
-      <arglist>(const Eta &amp;eta, Mbar mbar)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>C2</name>
-      <anchorfile>namespaceteqp_1_1PCSAFT.html</anchorfile>
-      <anchor>a9357cae753b010f325ebf74bd650cf9e</anchor>
-      <arglist>(const Eta &amp;eta, Mbar mbar)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_a</name>
-      <anchorfile>namespaceteqp_1_1PCSAFT.html</anchorfile>
-      <anchor>a85066f94e2e01f8633c3789965fae6de</anchor>
-      <arglist>(TYPE mbar)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_b</name>
-      <anchorfile>namespaceteqp_1_1PCSAFT.html</anchorfile>
-      <anchor>ad53015a713d1dc4b14d70f1d3844ae09</anchor>
-      <arglist>(TYPE mbar)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_alphar_hs</name>
-      <anchorfile>namespaceteqp_1_1PCSAFT.html</anchorfile>
-      <anchor>ae2be64354a14563364837d557d0dfa64</anchor>
-      <arglist>(const VecType &amp;zeta)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>gij_HS</name>
-      <anchorfile>namespaceteqp_1_1PCSAFT.html</anchorfile>
-      <anchor>a72473731c044cc66fb209f5b1ba09ec5</anchor>
-      <arglist>(const zVecType &amp;zeta, const dVecType &amp;d, std::size_t i, std::size_t j)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_I1</name>
-      <anchorfile>namespaceteqp_1_1PCSAFT.html</anchorfile>
-      <anchor>a71ce216e3c8fa0bcba479d3223c3031a</anchor>
-      <arglist>(const Eta &amp;eta, MbarType mbar)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_I2</name>
-      <anchorfile>namespaceteqp_1_1PCSAFT.html</anchorfile>
-      <anchor>a5b6725f768f7bbc396adfbe0217cdc4f</anchor>
-      <arglist>(const Eta &amp;eta, MbarType mbar)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>powvec</name>
-      <anchorfile>namespaceteqp_1_1PCSAFT.html</anchorfile>
-      <anchor>a52a2250dd447216c7ba3ec789c1b59b2</anchor>
-      <arglist>(const VecType1 &amp;v1, NType n)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>sumproduct</name>
-      <anchorfile>namespaceteqp_1_1PCSAFT.html</anchorfile>
-      <anchor>ad19edc4b424e1b67d9e503a9eb30df85</anchor>
-      <arglist>(const VecType1 &amp;v1, const VecType2 &amp;v2, const VecType3 &amp;v3)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>PCSAFTfactory</name>
-      <anchorfile>namespaceteqp_1_1PCSAFT.html</anchorfile>
-      <anchor>aa5526ea705fa284efc14bf790640b5a8</anchor>
-      <arglist>(const nlohmann::json &amp;spec)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>correlation_integrals.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/saft/</path>
+    <path>include/teqp/models/saft/</path>
     <filename>correlation__integrals_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
     <class kind="class">teqp::SAFTpolar::LuckasJIntegral</class>
     <class kind="class">teqp::SAFTpolar::LuckasKIntegral</class>
     <class kind="class">teqp::SAFTpolar::GubbinsTwuJIntegral</class>
@@ -1962,22 +713,15 @@
     <class kind="class">teqp::SAFTpolar::GottschalkKIntegral</class>
     <namespace>teqp</namespace>
     <namespace>teqp::SAFTpolar</namespace>
-    <member kind="function">
-      <type>auto</type>
-      <name>differentiable_abs</name>
-      <anchorfile>namespaceteqp_1_1SAFTpolar.html</anchorfile>
-      <anchor>aa11cf42833b8b398a34a6abfa854976c</anchor>
-      <arglist>(const X &amp;x)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>polar_terms.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/saft/</path>
+    <path>include/teqp/models/saft/</path>
     <filename>polar__terms_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
-    <includes id="correlation__integrals_8hpp" name="correlation_integrals.hpp" local="yes" imported="no">correlation_integrals.hpp</includes>
-    <includes id="pow__templates_8hpp" name="pow_templates.hpp" local="yes" imported="no">teqp/math/pow_templates.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
+    <includes id="correlation__integrals_8hpp" name="correlation_integrals.hpp" local="yes" import="no" module="no" objc="no">correlation_integrals.hpp</includes>
+    <includes id="pow__templates_8hpp" name="pow_templates.hpp" local="yes" import="no" module="no" objc="no">teqp/math/pow_templates.hpp</includes>
     <class kind="class">teqp::SAFTpolar::DipolarContributionGrossVrabec</class>
     <class kind="class">teqp::SAFTpolar::QuadrupolarContributionGross</class>
     <class kind="class">teqp::SAFTpolar::DipolarQuadrupolarContributionVrabecGross</class>
@@ -1987,150 +731,37 @@
     <class kind="class">teqp::SAFTpolar::MultipolarContributionGrayGubbins</class>
     <namespace>teqp</namespace>
     <namespace>teqp::SAFTpolar</namespace>
-    <member kind="typedef">
-      <type>std::variant&lt; MultipolarContributionGrossVrabec, MultipolarContributionGrayGubbins&lt; GubbinsTwuJIntegral, GubbinsTwuKIntegral &gt;, MultipolarContributionGrayGubbins&lt; GottschalkJIntegral, GottschalkKIntegral &gt;, MultipolarContributionGrayGubbins&lt; LuckasJIntegral, LuckasKIntegral &gt;, MultipolarContributionGubbinsTwu&lt; LuckasJIntegral, LuckasKIntegral &gt;, MultipolarContributionGubbinsTwu&lt; GubbinsTwuJIntegral, GubbinsTwuKIntegral &gt;, MultipolarContributionGubbinsTwu&lt; GottschalkJIntegral, GottschalkKIntegral &gt; &gt;</type>
-      <name>multipolar_contributions_variant</name>
-      <anchorfile>namespaceteqp_1_1SAFTpolar.html</anchorfile>
-      <anchor>a641a1295a90c75b69b546626bd4e1562</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>multipolar_argument_spec</name>
-      <anchorfile>namespaceteqp_1_1SAFTpolar.html</anchorfile>
-      <anchor>a2f5ab14e51a33eaebd269cabb7ba214c</anchor>
-      <arglist></arglist>
-      <enumvalue file="namespaceteqp_1_1SAFTpolar.html" anchor="a2f5ab14e51a33eaebd269cabb7ba214cae4984baf6ecaaab75e12d45efbc846dd">TK_rhoNA3_packingfraction_molefractions</enumvalue>
-      <enumvalue file="namespaceteqp_1_1SAFTpolar.html" anchor="a2f5ab14e51a33eaebd269cabb7ba214ca3cbd679acd26dbde6cf6773a2136b4da">TK_rhoNm3_rhostar_molefractions</enumvalue>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>multipolar_rhostar_approach</name>
-      <anchorfile>namespaceteqp_1_1SAFTpolar.html</anchorfile>
-      <anchor>a938f7067a9f6e5947aa3bb61cbf82cb8</anchor>
-      <arglist></arglist>
-      <enumvalue file="namespaceteqp_1_1SAFTpolar.html" anchor="a938f7067a9f6e5947aa3bb61cbf82cb8ab10913c938482a8aa4ba85b7a1116cb4">kInvalid</enumvalue>
-      <enumvalue file="namespaceteqp_1_1SAFTpolar.html" anchor="a938f7067a9f6e5947aa3bb61cbf82cb8a5c80bd10e93d4e1b2d5a8e4299e14088">use_packing_fraction</enumvalue>
-      <enumvalue file="namespaceteqp_1_1SAFTpolar.html" anchor="a938f7067a9f6e5947aa3bb61cbf82cb8a29fb96bc9fe7cf5fe940dbcb34f304f9">calculate_Gubbins_rhostar</enumvalue>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_JDD_2ij</name>
-      <anchorfile>namespaceteqp_1_1SAFTpolar.html</anchorfile>
-      <anchor>af00a11510490656fee7e413d2546c4fb</anchor>
-      <arglist>(const Eta &amp;eta, const MType &amp;mij, const TType &amp;Tstarij)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_JDD_3ijk</name>
-      <anchorfile>namespaceteqp_1_1SAFTpolar.html</anchorfile>
-      <anchor>af8cef5fe90ad3faf72ad3bb0c19d81b6</anchor>
-      <arglist>(const Eta &amp;eta, const MType &amp;mijk)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_JQQ_2ij</name>
-      <anchorfile>namespaceteqp_1_1SAFTpolar.html</anchorfile>
-      <anchor>a1b6b6ec03d51fbb14ed31fcc962c2195</anchor>
-      <arglist>(const Eta &amp;eta, const MType &amp;mij, const TType &amp;Tstarij)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_JQQ_3ijk</name>
-      <anchorfile>namespaceteqp_1_1SAFTpolar.html</anchorfile>
-      <anchor>a092a2ef35ec917e5332afa73e05906ba</anchor>
-      <arglist>(const Eta &amp;eta, const MType &amp;mijk)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_JDQ_2ij</name>
-      <anchorfile>namespaceteqp_1_1SAFTpolar.html</anchorfile>
-      <anchor>a2affd7d4401da61d0691273f2a605eff</anchor>
-      <arglist>(const Eta &amp;eta, const MType &amp;mij, const TType &amp;Tstarij)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_JDQ_3ijk</name>
-      <anchorfile>namespaceteqp_1_1SAFTpolar.html</anchorfile>
-      <anchor>abaa83ae8caa3fcf4f4c192f71ff7a7cb</anchor>
-      <arglist>(const Eta &amp;eta, const MType &amp;mijk)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>NLOHMANN_JSON_SERIALIZE_ENUM</name>
-      <anchorfile>namespaceteqp_1_1SAFTpolar.html</anchorfile>
-      <anchor>a0894ec069d6f9d6324c7f9677d0b6999</anchor>
-      <arglist>(multipolar_rhostar_approach, { {multipolar_rhostar_approach::kInvalid, nullptr}, {multipolar_rhostar_approach::use_packing_fraction, &quot;use_packing_fraction&quot;}, {multipolar_rhostar_approach::calculate_Gubbins_rhostar, &quot;calculate_Gubbins_rhostar&quot;}, }) template&lt; typename type &gt; struct MultipolarContributionGrossVrabecTerms</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_Kijk</name>
-      <anchorfile>namespaceteqp_1_1SAFTpolar.html</anchorfile>
-      <anchor>add453153c0bf4ad52769915a24fccb36</anchor>
-      <arglist>(const KType &amp;Kint, const RhoType &amp;rhostar, const Txy &amp;Tstarij, const Txy &amp;Tstarik, const Txy &amp;Tstarjk)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>get_Kijk_334445</name>
-      <anchorfile>namespaceteqp_1_1SAFTpolar.html</anchorfile>
-      <anchor>ad948b6383f62db0d646bf24646035179</anchor>
-      <arglist>(const KType &amp;Kint, const RhoType &amp;rhostar, const Txy &amp;Tstarij, const Txy &amp;Tstarik, const Txy &amp;Tstarjk)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>saftvrmie.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/</path>
+    <path>include/teqp/models/</path>
     <filename>saftvrmie_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
-    <includes id="json__tools_8hpp" name="json_tools.hpp" local="yes" imported="no">teqp/json_tools.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
-    <includes id="constants_8hpp" name="constants.hpp" local="yes" imported="no">teqp/constants.hpp</includes>
-    <includes id="quadrature_8hpp" name="quadrature.hpp" local="yes" imported="no">teqp/math/quadrature.hpp</includes>
-    <includes id="polar__terms_8hpp" name="polar_terms.hpp" local="yes" imported="no">teqp/models/saft/polar_terms.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
+    <includes id="json__tools_8hpp" name="json_tools.hpp" local="yes" import="no" module="no" objc="no">teqp/json_tools.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
+    <includes id="constants_8hpp" name="constants.hpp" local="yes" import="no" module="no" objc="no">teqp/constants.hpp</includes>
+    <includes id="quadrature_8hpp" name="quadrature.hpp" local="yes" import="no" module="no" objc="no">teqp/math/quadrature.hpp</includes>
+    <includes id="polar__terms_8hpp" name="polar_terms.hpp" local="yes" import="no" module="no" objc="no">teqp/models/saft/polar_terms.hpp</includes>
     <class kind="struct">teqp::SAFTVRMie::SAFTVRMieCoeffs</class>
     <class kind="struct">teqp::SAFTVRMie::SAFTVRMieChainContributionTerms</class>
     <class kind="class">teqp::SAFTVRMie::SAFTVRMieMixture</class>
     <namespace>teqp</namespace>
     <namespace>teqp::SAFTVRMie</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>EpsilonijFlags</name>
-      <anchorfile>namespaceteqp_1_1SAFTVRMie.html</anchorfile>
-      <anchor>a1fb827f6b306ec5429e1b48f911ee99d</anchor>
-      <arglist></arglist>
-      <enumvalue file="namespaceteqp_1_1SAFTVRMie.html" anchor="a1fb827f6b306ec5429e1b48f911ee99dab10913c938482a8aa4ba85b7a1116cb4">kInvalid</enumvalue>
-      <enumvalue file="namespaceteqp_1_1SAFTVRMie.html" anchor="a1fb827f6b306ec5429e1b48f911ee99daf0ee04bf8c31686e49ba222bfad4fd19">kLorentzBerthelot</enumvalue>
-      <enumvalue file="namespaceteqp_1_1SAFTVRMie.html" anchor="a1fb827f6b306ec5429e1b48f911ee99da3e49737fec08c6d5766a83d7a12ad8c1">kLafitte</enumvalue>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>NLOHMANN_JSON_SERIALIZE_ENUM</name>
-      <anchorfile>namespaceteqp_1_1SAFTVRMie.html</anchorfile>
-      <anchor>a9b1ff4f2503590a86493036f25deee24</anchor>
-      <arglist>(EpsilonijFlags, { {EpsilonijFlags::kInvalid, nullptr}, {EpsilonijFlags::kLorentzBerthelot, &quot;Lorentz-Berthelot&quot;}, {EpsilonijFlags::kLafitte, &quot;Lafitte&quot;}, }) class SAFTVRMieLibrary</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>SAFTVRMiefactory</name>
-      <anchorfile>namespaceteqp_1_1SAFTVRMie.html</anchorfile>
-      <anchor>a3db9c6fdd21d21e572b62b5ba469ef3d</anchor>
-      <arglist>(const nlohmann::json &amp;spec)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>vdW.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/models/</path>
+    <path>include/teqp/models/</path>
     <filename>vdW_8hpp.html</filename>
-    <includes id="constants_8hpp" name="constants.hpp" local="yes" imported="no">teqp/constants.hpp</includes>
-    <includes id="types_8hpp" name="types.hpp" local="yes" imported="no">teqp/types.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" imported="no">teqp/exceptions.hpp</includes>
+    <includes id="constants_8hpp" name="constants.hpp" local="yes" import="no" module="no" objc="no">teqp/constants.hpp</includes>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
     <class kind="class">teqp::vdWEOS1</class>
     <class kind="class">teqp::vdWEOS</class>
     <namespace>teqp</namespace>
   </compound>
   <compound kind="file">
     <name>types.hpp</name>
-    <path>/github/workspace/externals/teqp/include/teqp/</path>
+    <path>include/teqp/</path>
     <filename>types_8hpp.html</filename>
     <class kind="struct">teqp::is_container</class>
     <class kind="struct">teqp::is_container&lt; std::vector&lt; Ts... &gt; &gt;</class>
@@ -2140,171 +771,38 @@
     <class kind="struct">teqp::is_mcx_t</class>
     <class kind="class">teqp::Timer</class>
     <namespace>teqp</namespace>
-    <member kind="function">
-      <type>T</type>
-      <name>pow2</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>aa0812a3c14b8df38572406314014e130</anchor>
-      <arglist>(const T &amp;x)</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>pow3</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a1715f263d954e9d4e1dc686334ec4b98</anchor>
-      <arglist>(const T &amp;x)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>toeig</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a54c35c0fca0f39185783efb600ccb586</anchor>
-      <arglist>(const std::vector&lt; double &gt; &amp;v) -&gt; Eigen::ArrayXd</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>forceeval</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>adc93f32478a2bc846371e04d6b5ac726</anchor>
-      <arglist>(T &amp;&amp;expr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>error_if_expr</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>abbf9e7fce9e140cb1b40e0513e1edb9e</anchor>
-      <arglist>(T &amp;&amp;expr)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>getbaseval</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a79c1a1ea4876acd80e74721bba2361ce</anchor>
-      <arglist>(const T &amp;expr)</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>powi</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a98adaf39b4207a01c2b8352de2640a68</anchor>
-      <arglist>(const T &amp;x, int n)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>powIVi</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a641966211d5ef71d493fc52d3bd11a53</anchor>
-      <arglist>(const T &amp;x, const Eigen::ArrayXi &amp;e)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>pow</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>ad47d847ff6ba42d73eb1ffc3fcf270c8</anchor>
-      <arglist>(const double &amp;x, const double &amp;e)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>pow</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>ac6aa96ef107cd0c3798d0ea26b70b73d</anchor>
-      <arglist>(const double &amp;x, const int &amp;e)</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>pow</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a241d67c75b258ca853af0cb3981b3c98</anchor>
-      <arglist>(const std::complex&lt; T &gt; &amp;x, const Eigen::ArrayXd &amp;e)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>AbstractModel_implementation.cpp</name>
-    <path>/github/workspace/externals/teqp/interface/CPP/</path>
+    <path>interface/CPP/</path>
     <filename>AbstractModel__implementation_8cpp.html</filename>
-    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" imported="no">teqp/cpp/teqpcpp.hpp</includes>
-    <includes id="critical__pure_8hpp" name="critical_pure.hpp" local="yes" imported="no">teqp/algorithms/critical_pure.hpp</includes>
-    <includes id="VLE__pure_8hpp" name="VLE_pure.hpp" local="yes" imported="no">teqp/algorithms/VLE_pure.hpp</includes>
-    <includes id="VLE_8hpp" name="VLE.hpp" local="yes" imported="no">teqp/algorithms/VLE.hpp</includes>
-    <includes id="VLLE_8hpp" name="VLLE.hpp" local="yes" imported="no">teqp/algorithms/VLLE.hpp</includes>
+    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/teqpcpp.hpp</includes>
+    <includes id="critical__pure_8hpp" name="critical_pure.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/critical_pure.hpp</includes>
+    <includes id="VLE__pure_8hpp" name="VLE_pure.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/VLE_pure.hpp</includes>
+    <includes id="VLE_8hpp" name="VLE.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/VLE.hpp</includes>
+    <includes id="VLLE_8hpp" name="VLLE.hpp" local="yes" import="no" module="no" objc="no">teqp/algorithms/VLLE.hpp</includes>
     <namespace>teqp</namespace>
     <namespace>teqp::cppinterface</namespace>
   </compound>
   <compound kind="file">
     <name>model_factories.cpp</name>
-    <path>/github/workspace/externals/teqp/interface/CPP/</path>
+    <path>interface/CPP/</path>
     <filename>model__factories_8cpp.html</filename>
-    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" imported="no">teqp/cpp/teqpcpp.hpp</includes>
-    <includes id="deriv__adapter_8hpp" name="deriv_adapter.hpp" local="yes" imported="no">teqp/cpp/deriv_adapter.hpp</includes>
-    <includes id="saftvrmie_8hpp" name="saftvrmie.hpp" local="yes" imported="no">teqp/models/saftvrmie.hpp</includes>
+    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/teqpcpp.hpp</includes>
+    <includes id="deriv__adapter_8hpp" name="deriv_adapter.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/deriv_adapter.hpp</includes>
+    <includes id="saftvrmie_8hpp" name="saftvrmie.hpp" local="yes" import="no" module="no" objc="no">teqp/models/saftvrmie.hpp</includes>
     <namespace>teqp</namespace>
     <namespace>teqp::cppinterface</namespace>
-    <member kind="function">
-      <type>std::unique_ptr&lt; teqp::cppinterface::AbstractModel &gt;</type>
-      <name>make_SAFTVRMie</name>
-      <anchorfile>namespaceteqp_1_1cppinterface.html</anchorfile>
-      <anchor>a432d204a25bfde3ea0cfc27bf3007526</anchor>
-      <arglist>(const nlohmann::json &amp;j)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>teqp_impl_factory.cpp</name>
-    <path>/github/workspace/externals/teqp/interface/CPP/</path>
+    <path>interface/CPP/</path>
     <filename>teqp__impl__factory_8cpp.html</filename>
-    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" imported="no">teqp/cpp/teqpcpp.hpp</includes>
-    <includes id="fwd_8hpp" name="fwd.hpp" local="yes" imported="no">teqp/models/fwd.hpp</includes>
-    <includes id="deriv__adapter_8hpp" name="deriv_adapter.hpp" local="yes" imported="no">teqp/cpp/deriv_adapter.hpp</includes>
+    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/teqpcpp.hpp</includes>
+    <includes id="fwd_8hpp" name="fwd.hpp" local="yes" import="no" module="no" objc="no">teqp/models/fwd.hpp</includes>
+    <includes id="deriv__adapter_8hpp" name="deriv_adapter.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/deriv_adapter.hpp</includes>
     <namespace>teqp</namespace>
     <namespace>teqp::cppinterface</namespace>
-    <member kind="typedef">
-      <type>ModelPointerFactoryFunction</type>
-      <name>makefunc</name>
-      <anchorfile>namespaceteqp_1_1cppinterface.html</anchorfile>
-      <anchor>a23932c37884522f70dd24de23a3ed49f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; teqp::cppinterface::AbstractModel &gt;</type>
-      <name>make_SAFTVRMie</name>
-      <anchorfile>namespaceteqp_1_1cppinterface.html</anchorfile>
-      <anchor>a432d204a25bfde3ea0cfc27bf3007526</anchor>
-      <arglist>(const nlohmann::json &amp;j)</arglist>
-    </member>
-    <member kind="function">
-      <type>nlohmann::json</type>
-      <name>get_model_schema</name>
-      <anchorfile>namespaceteqp_1_1cppinterface.html</anchorfile>
-      <anchor>af204b0796feb1504c577749f82e496a2</anchor>
-      <arglist>(const std::string &amp;kind)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; AbstractModel &gt;</type>
-      <name>build_model_ptr</name>
-      <anchorfile>namespaceteqp_1_1cppinterface.html</anchorfile>
-      <anchor>ab4863d72627c8e55868bb4fca25192a6</anchor>
-      <arglist>(const nlohmann::json &amp;json, bool validate=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; AbstractModel &gt;</type>
-      <name>make_multifluid_model</name>
-      <anchorfile>namespaceteqp_1_1cppinterface.html</anchorfile>
-      <anchor>a667d9cdc8dabc48e3280d8b481e60ee3</anchor>
-      <arglist>(const std::vector&lt; std::string &gt; &amp;components, const std::string &amp;coolprop_root, const std::string &amp;BIPcollectionpath={}, const nlohmann::json &amp;flags={}, const std::string &amp;departurepath={})</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; AbstractModel &gt;</type>
-      <name>make_model</name>
-      <anchorfile>namespaceteqp_1_1cppinterface.html</anchorfile>
-      <anchor>a0e731ebdf104bc67dc7832e33a523d4f</anchor>
-      <arglist>(const nlohmann::json &amp;, bool validate=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>add_model_pointer_factory_function</name>
-      <anchorfile>namespaceteqp_1_1cppinterface.html</anchorfile>
-      <anchor>a99c55e372f03fbc42f067db77bac520a</anchor>
-      <arglist>(const std::string &amp;key, ModelPointerFactoryFunction &amp;func)</arglist>
-    </member>
     <member kind="variable">
       <type>const nlohmann::json</type>
       <name>model_schema_library</name>
@@ -2315,11 +813,11 @@
   </compound>
   <compound kind="file">
     <name>bench_teqpcpp.cpp</name>
-    <path>/github/workspace/externals/teqp/interface/CPP/test/</path>
+    <path>interface/CPP/test/</path>
     <filename>bench__teqpcpp_8cpp.html</filename>
-    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" imported="no">teqpcpp.hpp</includes>
-    <includes id="derivs_8hpp" name="derivs.hpp" local="yes" imported="no">teqp/derivs.hpp</includes>
-    <includes id="multifluid_8hpp" name="multifluid.hpp" local="yes" imported="no">teqp/models/multifluid.hpp</includes>
+    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" import="no" module="no" objc="no">teqpcpp.hpp</includes>
+    <includes id="derivs_8hpp" name="derivs.hpp" local="yes" import="no" module="no" objc="no">teqp/derivs.hpp</includes>
+    <includes id="multifluid_8hpp" name="multifluid.hpp" local="yes" import="no" module="no" objc="no">teqp/models/multifluid.hpp</includes>
     <member kind="function">
       <type></type>
       <name>TEST_CASE</name>
@@ -2337,10 +835,10 @@
   </compound>
   <compound kind="file">
     <name>test_teqpcpp.cpp</name>
-    <path>/github/workspace/externals/teqp/interface/CPP/test/</path>
+    <path>interface/CPP/test/</path>
     <filename>test__teqpcpp_8cpp.html</filename>
-    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" imported="no">teqp/cpp/teqpcpp.hpp</includes>
-    <includes id="cpp_2derivs_8hpp" name="derivs.hpp" local="yes" imported="no">teqp/cpp/derivs.hpp</includes>
+    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/teqpcpp.hpp</includes>
+    <includes id="cpp_2derivs_8hpp" name="derivs.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/derivs.hpp</includes>
     <member kind="function">
       <type>int</type>
       <name>main</name>
@@ -10110,6 +8608,76 @@
       <anchorfile>namespaceteqp.html</anchorfile>
       <anchor>af320b714fb1758cc835cfe8bb1eb3fd2</anchor>
       <arglist>(const Model &amp;model, double p, double T0, const Eigen::ArrayXd &amp;rhovecL0, const Eigen::ArrayXd &amp;rhovecV0, const std::optional&lt; PVLEOptions &gt; &amp;options=std::nullopt)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>trace_VLE_isobar_binary</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>ad8ed28be253b638ae6d36c2264e906c6</anchor>
+      <arglist>(const TemplatedModel &amp;model, Params &amp;&amp;... params)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>trace_VLE_isotherm_binary</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>aa22c5614274353738a4581d42e8a602c</anchor>
+      <arglist>(const TemplatedModel &amp;model, Params &amp;&amp;... params)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_dpsat_dTsat_isopleth</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>a6c919b765714374b997319b849386ef0</anchor>
+      <arglist>(const TemplatedModel &amp;model, Params &amp;&amp;... params)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_drhovecdT_xsat</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>a2f0531eeb36c04568a4ca02586f72ccf</anchor>
+      <arglist>(const TemplatedModel &amp;model, Params &amp;&amp;... params)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_drhovecdT_psat</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>ac6b850d418acefcc77b51a2de52c06c8</anchor>
+      <arglist>(const TemplatedModel &amp;model, Params &amp;&amp;... params)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_drhovecdp_Tsat</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>abba198d50880f29905a1133ffaf40868</anchor>
+      <arglist>(const TemplatedModel &amp;model, Params &amp;&amp;... params)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>trace_critical_arclength_binary</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>a9692edf46f169b11b22991ee0145df6b</anchor>
+      <arglist>(const TemplatedModel &amp;model, Params &amp;&amp;... params)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>mixture_VLE_px</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>ad8574895c4ac11f4afc0c44c99e610a4</anchor>
+      <arglist>(const TemplatedModel &amp;model, Params &amp;&amp;... params)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>mix_VLE_Tp</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>a857c08f14bb6d19558b186416c152474</anchor>
+      <arglist>(const TemplatedModel &amp;model, Params &amp;&amp;... params)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>mix_VLE_Tx</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>a44b67c5bb411fe3aa4589f51c11747eb</anchor>
+      <arglist>(const TemplatedModel &amp;model, Params &amp;&amp;... params)</arglist>
     </member>
     <member kind="function">
       <type>auto</type>

@@ -1,6 +1,6 @@
-\hypertarget{namespaceteqp}{}\doxysection{teqp Namespace Reference}
-\label{namespaceteqp}\index{teqp@{teqp}}
-\doxysubsection*{Namespaces}
+\doxysection{teqp Namespace Reference}
+\hypertarget{namespaceteqp}{}\label{namespaceteqp}\index{teqp@{teqp}}
+\doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1CPA}{CPA}}
@@ -35,7 +35,7 @@ namespace \mbox{\hyperlink{namespaceteqp_1_1twocenterljf}{twocenterljf}}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1VLLE}{VLLE}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Classes}
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structteqp_1_1AlphaCallWrapper}{Alpha\+Call\+Wrapper}}
@@ -186,7 +186,7 @@ struct \mbox{\hyperlink{structteqp_1_1VLEAncillary}{VLEAncillary}}
 \item 
 struct \mbox{\hyperlink{structteqp_1_1wrt__helper}{wrt\+\_\+helper}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Typedefs}
+\doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename Model $>$ }\\using \mbox{\hyperlink{namespaceteqp_abf4178adee8264741ab6d892f09a05a9}{is\+\_\+\+Abstract\+Model}} = typename std\+::is\+\_\+base\+\_\+of$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}}, Model $>$
@@ -241,7 +241,7 @@ using \mbox{\hyperlink{namespaceteqp_a3457986094019eccb5242d3845925aca}{Departur
 \item 
 using \mbox{\hyperlink{namespaceteqp_af507b2d1ed6ef92181c6baec26db1a18}{Reducing\+Functions}} = \mbox{\hyperlink{classteqp_1_1ReducingTermContainer}{Reducing\+Term\+Container}}$<$ \mbox{\hyperlink{classteqp_1_1MultiFluidReducingFunction}{Multi\+Fluid\+Reducing\+Function}}, \mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction}{Multi\+Fluid\+Invariant\+Reducing\+Function}} $>$
 \end{DoxyCompactItemize}
-\doxysubsection*{Enumerations}
+\doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
 enum class \mbox{\hyperlink{namespaceteqp_a60d3915f4002f9de425a211673a7d877}{VLE\+\_\+return\+\_\+code}} \{ \newline
@@ -262,7 +262,7 @@ enum class \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADB
 , \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9dad8c387494b54ef11d7d960ed7311d4bf}{complex\+\_\+step}}
  \}
 \end{DoxyCompactItemize}
-\doxysubsection*{Functions}
+\doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 auto \mbox{\hyperlink{namespaceteqp_a80148acc481909c3c660d5f4d8e8678f}{get\+\_\+pure\+\_\+critical\+\_\+conditions\+\_\+\+Jacobian}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const double T, const double rho, const std\+::optional$<$ std\+::size\+\_\+t $>$ \&alternative\+\_\+pure\+\_\+index=std\+::nullopt, const std\+::optional$<$ std\+::size\+\_\+t $>$ \&alternative\+\_\+length=std\+::nullopt)
@@ -302,6 +302,26 @@ auto \mbox{\hyperlink{namespaceteqp_a9d9e7c2e7090d997b838ad7d722fe636}{get\+\_\+
 auto \mbox{\hyperlink{namespaceteqp_a56339c8078f4369f5a988a87cfc1344e}{trace\+\_\+\+VLE\+\_\+isotherm\+\_\+binary}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, double T, const Eigen\+::\+Array\+Xd \&rhovec\+L0, const Eigen\+::\+Array\+Xd \&rhovec\+V0, const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1TVLEOptions}{TVLEOptions}} $>$ \&options=std\+::nullopt)
 \item 
 {\footnotesize template$<$typename Model  = Abstract\+Model$>$ }\\auto \mbox{\hyperlink{namespaceteqp_af320b714fb1758cc835cfe8bb1eb3fd2}{trace\+\_\+\+VLE\+\_\+isobar\+\_\+binary}} (const Model \&model, double p, double T0, const Eigen\+::\+Array\+Xd \&rhovec\+L0, const Eigen\+::\+Array\+Xd \&rhovec\+V0, const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1PVLEOptions}{PVLEOptions}} $>$ \&options=std\+::nullopt)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_ad8ed28be253b638ae6d36c2264e906c6}{trace\+\_\+\+VLE\+\_\+isobar\+\_\+binary}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_aa22c5614274353738a4581d42e8a602c}{trace\+\_\+\+VLE\+\_\+isotherm\+\_\+binary}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a6c919b765714374b997319b849386ef0}{get\+\_\+dpsat\+\_\+d\+Tsat\+\_\+isopleth}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a2f0531eeb36c04568a4ca02586f72ccf}{get\+\_\+drhovecd\+T\+\_\+xsat}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_ac6b850d418acefcc77b51a2de52c06c8}{get\+\_\+drhovecd\+T\+\_\+psat}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_abba198d50880f29905a1133ffaf40868}{get\+\_\+drhovecdp\+\_\+\+Tsat}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a9692edf46f169b11b22991ee0145df6b}{trace\+\_\+critical\+\_\+arclength\+\_\+binary}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_ad8574895c4ac11f4afc0c44c99e610a4}{mixture\+\_\+\+VLE\+\_\+px}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a857c08f14bb6d19558b186416c152474}{mix\+\_\+\+VLE\+\_\+\+Tp}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a44b67c5bb411fe3aa4589f51c11747eb}{mix\+\_\+\+VLE\+\_\+\+Tx}} (const Templated\+Model \&model, Params \&\&... params)
 \item 
 {\footnotesize template$<$typename Residual , typename Scalar  = double$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a403c09e2eab732de1e77faec4b50863a}{do\+\_\+pure\+\_\+\+VLE\+\_\+T}} (Residual \&resid, Scalar rhoL, Scalar rhoV, int maxiter)
 \item 
@@ -423,7 +443,7 @@ auto \mbox{\hyperlink{namespaceteqp_ac6aa96ef107cd0c3798d0ea26b70b73d}{pow}} (co
 \item 
 {\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a241d67c75b258ca853af0cb3981b3c98}{pow}} (const std\+::complex$<$ T $>$ \&x, const Eigen\+::\+Array\+Xd \&e)
 \end{DoxyCompactItemize}
-\doxysubsection*{Variables}
+\doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 const double \mbox{\hyperlink{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85}{N\+\_\+A}} = 6.\+02214076e23
@@ -435,7 +455,7 @@ auto \mbox{\hyperlink{namespaceteqp_a0387f578fa55e79f0da380ebd38b22e9}{build\+\_
 \doxysubsection{Detailed Description}
 Routines for finite differentiation, useful for testing derivatives obtained by other methods
 
-From\+: Bengt Fornberg, 1988, \char`\"{}\+Coefficients from Generation of Finite Difference Formulas on Arbitrarily Spaced Grids\char`\"{}, MATHEMATICS OF COMPUTATION, v. 51, n. 184, pp. 699-\/706
+From\+: Bengt Fornberg, 1988, "{}\+Coefficients from Generation of Finite Difference Formulas on Arbitrarily Spaced Grids"{}, MATHEMATICS OF COMPUTATION, v. 51, n. 184, pp. 699-\/706
 
 Higher derivatives should always be done in extended precision mathematics!
 
@@ -454,7 +474,7 @@ This header contains methods that pertain to polar contributions to SAFT models
 Initially the contribution of Gross and Vrabec were implemented for PC-\/\+SAFT, but they can be used with other non-\/polar base models as well, so this header collects all the things in one place 
 
 \doxysubsection{Typedef Documentation}
-\mbox{\Hypertarget{namespaceteqp_a330c9d06e0d39b8464bd798700df73b9}\label{namespaceteqp_a330c9d06e0d39b8464bd798700df73b9}} 
+\Hypertarget{namespaceteqp_a330c9d06e0d39b8464bd798700df73b9}\label{namespaceteqp_a330c9d06e0d39b8464bd798700df73b9} 
 \index{teqp@{teqp}!AlphaFunctionOptions@{AlphaFunctionOptions}}
 \index{AlphaFunctionOptions@{AlphaFunctionOptions}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{AlphaFunctionOptions}{AlphaFunctionOptions}}
@@ -464,7 +484,7 @@ Initially the contribution of Gross and Vrabec were implemented for PC-\/\+SAFT,
 
 Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00095}{95}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a3c32d7676221bd3d9d4e96d34fe498ce}\label{namespaceteqp_a3c32d7676221bd3d9d4e96d34fe498ce}} 
+\Hypertarget{namespaceteqp_a3c32d7676221bd3d9d4e96d34fe498ce}\label{namespaceteqp_a3c32d7676221bd3d9d4e96d34fe498ce} 
 \index{teqp@{teqp}!ammonia\_water\_TillnerRoth\_t@{ammonia\_water\_TillnerRoth\_t}}
 \index{ammonia\_water\_TillnerRoth\_t@{ammonia\_water\_TillnerRoth\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{ammonia\_water\_TillnerRoth\_t}{ammonia\_water\_TillnerRoth\_t}}
@@ -474,7 +494,7 @@ Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00095}{95}} of file \mbo
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a8027876ebce650ffd76a9f910ccb0d01}\label{namespaceteqp_a8027876ebce650ffd76a9f910ccb0d01}} 
+\Hypertarget{namespaceteqp_a8027876ebce650ffd76a9f910ccb0d01}\label{namespaceteqp_a8027876ebce650ffd76a9f910ccb0d01} 
 \index{teqp@{teqp}!canonical\_cubic\_t@{canonical\_cubic\_t}}
 \index{canonical\_cubic\_t@{canonical\_cubic\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{canonical\_cubic\_t}{canonical\_cubic\_t}}
@@ -484,7 +504,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00043}{43}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a23b78ffacd75fbc247a3066c213b08e5}\label{namespaceteqp_a23b78ffacd75fbc247a3066c213b08e5}} 
+\Hypertarget{namespaceteqp_a23b78ffacd75fbc247a3066c213b08e5}\label{namespaceteqp_a23b78ffacd75fbc247a3066c213b08e5} 
 \index{teqp@{teqp}!CPA\_t@{CPA\_t}}
 \index{CPA\_t@{CPA\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{CPA\_t}{CPA\_t}}
@@ -494,7 +514,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00037}{37}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a3457986094019eccb5242d3845925aca}\label{namespaceteqp_a3457986094019eccb5242d3845925aca}} 
+\Hypertarget{namespaceteqp_a3457986094019eccb5242d3845925aca}\label{namespaceteqp_a3457986094019eccb5242d3845925aca} 
 \index{teqp@{teqp}!DepartureTerms@{DepartureTerms}}
 \index{DepartureTerms@{DepartureTerms}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{DepartureTerms}{DepartureTerms}}
@@ -504,7 +524,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00040}{40}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{multifluid__eosterms_8hpp_source_l00372}{372}} of file \mbox{\hyperlink{multifluid__eosterms_8hpp_source}{multifluid\+\_\+eosterms.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a0ac5566ba3d16f124735fb13f0e91c11}\label{namespaceteqp_a0ac5566ba3d16f124735fb13f0e91c11}} 
+\Hypertarget{namespaceteqp_a0ac5566ba3d16f124735fb13f0e91c11}\label{namespaceteqp_a0ac5566ba3d16f124735fb13f0e91c11} 
 \index{teqp@{teqp}!EOSTerms@{EOSTerms}}
 \index{EOSTerms@{EOSTerms}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{EOSTerms}{EOSTerms}}
@@ -514,7 +534,7 @@ Definition at line \mbox{\hyperlink{multifluid__eosterms_8hpp_source_l00372}{372
 
 Definition at line \mbox{\hyperlink{multifluid__eosterms_8hpp_source_l00370}{370}} of file \mbox{\hyperlink{multifluid__eosterms_8hpp_source}{multifluid\+\_\+eosterms.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_aed976877c38424ac09a3c5eae2c649fd}\label{namespaceteqp_aed976877c38424ac09a3c5eae2c649fd}} 
+\Hypertarget{namespaceteqp_aed976877c38424ac09a3c5eae2c649fd}\label{namespaceteqp_aed976877c38424ac09a3c5eae2c649fd} 
 \index{teqp@{teqp}!EXP6\_Kataoka1992\_t@{EXP6\_Kataoka1992\_t}}
 \index{EXP6\_Kataoka1992\_t@{EXP6\_Kataoka1992\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{EXP6\_Kataoka1992\_t}{EXP6\_Kataoka1992\_t}}
@@ -524,7 +544,7 @@ Definition at line \mbox{\hyperlink{multifluid__eosterms_8hpp_source_l00370}{370
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a7825c7434eaf91f4291932303594c882}\label{namespaceteqp_a7825c7434eaf91f4291932303594c882}} 
+\Hypertarget{namespaceteqp_a7825c7434eaf91f4291932303594c882}\label{namespaceteqp_a7825c7434eaf91f4291932303594c882} 
 \index{teqp@{teqp}!idealgas\_t@{idealgas\_t}}
 \index{idealgas\_t@{idealgas\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{idealgas\_t}{idealgas\_t}}
@@ -534,7 +554,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00045}{45}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_aff9f1b2203c1156901f43d9c02c12c22}\label{namespaceteqp_aff9f1b2203c1156901f43d9c02c12c22}} 
+\Hypertarget{namespaceteqp_aff9f1b2203c1156901f43d9c02c12c22}\label{namespaceteqp_aff9f1b2203c1156901f43d9c02c12c22} 
 \index{teqp@{teqp}!IdealHelmholtzTerms@{IdealHelmholtzTerms}}
 \index{IdealHelmholtzTerms@{IdealHelmholtzTerms}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{IdealHelmholtzTerms}{IdealHelmholtzTerms}}
@@ -544,7 +564,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00053}{53}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{ideal__eosterms_8hpp_source_l00228}{228}} of file \mbox{\hyperlink{ideal__eosterms_8hpp_source}{ideal\+\_\+eosterms.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_abf4178adee8264741ab6d892f09a05a9}\label{namespaceteqp_abf4178adee8264741ab6d892f09a05a9}} 
+\Hypertarget{namespaceteqp_abf4178adee8264741ab6d892f09a05a9}\label{namespaceteqp_abf4178adee8264741ab6d892f09a05a9} 
 \index{teqp@{teqp}!is\_AbstractModel@{is\_AbstractModel}}
 \index{is\_AbstractModel@{is\_AbstractModel}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{is\_AbstractModel}{is\_AbstractModel}}
@@ -555,7 +575,7 @@ using \mbox{\hyperlink{namespaceteqp_abf4178adee8264741ab6d892f09a05a9}{teqp\+::
 
 Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a3c6fcfa03eb6572863697cc040b7d75a}\label{namespaceteqp_a3c6fcfa03eb6572863697cc040b7d75a}} 
+\Hypertarget{namespaceteqp_a3c6fcfa03eb6572863697cc040b7d75a}\label{namespaceteqp_a3c6fcfa03eb6572863697cc040b7d75a} 
 \index{teqp@{teqp}!is\_not\_AbstractModel@{is\_not\_AbstractModel}}
 \index{is\_not\_AbstractModel@{is\_not\_AbstractModel}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{is\_not\_AbstractModel}{is\_not\_AbstractModel}}
@@ -566,7 +586,7 @@ using \mbox{\hyperlink{namespaceteqp_a3c6fcfa03eb6572863697cc040b7d75a}{teqp\+::
 
 Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a10145ce83657c36965b09f8aa745378d}\label{namespaceteqp_a10145ce83657c36965b09f8aa745378d}} 
+\Hypertarget{namespaceteqp_a10145ce83657c36965b09f8aa745378d}\label{namespaceteqp_a10145ce83657c36965b09f8aa745378d} 
 \index{teqp@{teqp}!IterationError@{IterationError}}
 \index{IterationError@{IterationError}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{IterationError}{IterationError}}
@@ -576,7 +596,7 @@ Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00016}{16}} of file \
 
 Definition at line \mbox{\hyperlink{exceptions_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{exceptions_8hpp_source}{exceptions.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_aa6a45d4617060fca1e7e7f0785712666}\label{namespaceteqp_aa6a45d4617060fca1e7e7f0785712666}} 
+\Hypertarget{namespaceteqp_aa6a45d4617060fca1e7e7f0785712666}\label{namespaceteqp_aa6a45d4617060fca1e7e7f0785712666} 
 \index{teqp@{teqp}!LJ126Johnson1993\_t@{LJ126Johnson1993\_t}}
 \index{LJ126Johnson1993\_t@{LJ126Johnson1993\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{LJ126Johnson1993\_t}{LJ126Johnson1993\_t}}
@@ -586,7 +606,7 @@ Definition at line \mbox{\hyperlink{exceptions_8hpp_source_l00039}{39}} of file 
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a62c6d88e6bd3282628f7589cde83a7e8}\label{namespaceteqp_a62c6d88e6bd3282628f7589cde83a7e8}} 
+\Hypertarget{namespaceteqp_a62c6d88e6bd3282628f7589cde83a7e8}\label{namespaceteqp_a62c6d88e6bd3282628f7589cde83a7e8} 
 \index{teqp@{teqp}!LJ126KolafaNezbeda1994\_t@{LJ126KolafaNezbeda1994\_t}}
 \index{LJ126KolafaNezbeda1994\_t@{LJ126KolafaNezbeda1994\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{LJ126KolafaNezbeda1994\_t}{LJ126KolafaNezbeda1994\_t}}
@@ -596,7 +616,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00049}{49}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a332e7af2ea4a06129a4192314fe46509}\label{namespaceteqp_a332e7af2ea4a06129a4192314fe46509}} 
+\Hypertarget{namespaceteqp_a332e7af2ea4a06129a4192314fe46509}\label{namespaceteqp_a332e7af2ea4a06129a4192314fe46509} 
 \index{teqp@{teqp}!Mie6Pohl2023\_t@{Mie6Pohl2023\_t}}
 \index{Mie6Pohl2023\_t@{Mie6Pohl2023\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{Mie6Pohl2023\_t}{Mie6Pohl2023\_t}}
@@ -606,7 +626,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00048}{48}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a31cd03d0561637bdcc2d6d6b6c21e5ad}\label{namespaceteqp_a31cd03d0561637bdcc2d6d6b6c21e5ad}} 
+\Hypertarget{namespaceteqp_a31cd03d0561637bdcc2d6d6b6c21e5ad}\label{namespaceteqp_a31cd03d0561637bdcc2d6d6b6c21e5ad} 
 \index{teqp@{teqp}!multifluid\_t@{multifluid\_t}}
 \index{multifluid\_t@{multifluid\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{multifluid\_t}{multifluid\_t}}
@@ -616,7 +636,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00050}{50}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_aafb595d691a7428e30e88ba4bf17448a}\label{namespaceteqp_aafb595d691a7428e30e88ba4bf17448a}} 
+\Hypertarget{namespaceteqp_aafb595d691a7428e30e88ba4bf17448a}\label{namespaceteqp_aafb595d691a7428e30e88ba4bf17448a} 
 \index{teqp@{teqp}!multifluidmutant\_t@{multifluidmutant\_t}}
 \index{multifluidmutant\_t@{multifluidmutant\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{multifluidmutant\_t}{multifluidmutant\_t}}
@@ -626,7 +646,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00041}{41}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a37866267491a962d070ca5570372ca6d}\label{namespaceteqp_a37866267491a962d070ca5570372ca6d}} 
+\Hypertarget{namespaceteqp_a37866267491a962d070ca5570372ca6d}\label{namespaceteqp_a37866267491a962d070ca5570372ca6d} 
 \index{teqp@{teqp}!PCSAFT\_t@{PCSAFT\_t}}
 \index{PCSAFT\_t@{PCSAFT\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{PCSAFT\_t}{PCSAFT\_t}}
@@ -636,7 +656,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00042}{42}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_ab8b77c7f9d7f12f3587c4b7ba020434a}\label{namespaceteqp_ab8b77c7f9d7f12f3587c4b7ba020434a}} 
+\Hypertarget{namespaceteqp_ab8b77c7f9d7f12f3587c4b7ba020434a}\label{namespaceteqp_ab8b77c7f9d7f12f3587c4b7ba020434a} 
 \index{teqp@{teqp}!QuantumPR\_t@{QuantumPR\_t}}
 \index{QuantumPR\_t@{QuantumPR\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{QuantumPR\_t}{QuantumPR\_t}}
@@ -646,7 +666,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00038}{38}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_af507b2d1ed6ef92181c6baec26db1a18}\label{namespaceteqp_af507b2d1ed6ef92181c6baec26db1a18}} 
+\Hypertarget{namespaceteqp_af507b2d1ed6ef92181c6baec26db1a18}\label{namespaceteqp_af507b2d1ed6ef92181c6baec26db1a18} 
 \index{teqp@{teqp}!ReducingFunctions@{ReducingFunctions}}
 \index{ReducingFunctions@{ReducingFunctions}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{ReducingFunctions}{ReducingFunctions}}
@@ -656,7 +676,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00051}{51}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00282}{282}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_ad7a4e31b3475d16c66dbf9c81f661065}\label{namespaceteqp_ad7a4e31b3475d16c66dbf9c81f661065}} 
+\Hypertarget{namespaceteqp_ad7a4e31b3475d16c66dbf9c81f661065}\label{namespaceteqp_ad7a4e31b3475d16c66dbf9c81f661065} 
 \index{teqp@{teqp}!SAFTVRMie\_t@{SAFTVRMie\_t}}
 \index{SAFTVRMie\_t@{SAFTVRMie\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{SAFTVRMie\_t}{SAFTVRMie\_t}}
@@ -666,7 +686,7 @@ Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00282}{282
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a522fd870052b2f0d4095c56d7ac95fbe}\label{namespaceteqp_a522fd870052b2f0d4095c56d7ac95fbe}} 
+\Hypertarget{namespaceteqp_a522fd870052b2f0d4095c56d7ac95fbe}\label{namespaceteqp_a522fd870052b2f0d4095c56d7ac95fbe} 
 \index{teqp@{teqp}!SW\_EspindolaHeredia2009\_t@{SW\_EspindolaHeredia2009\_t}}
 \index{SW\_EspindolaHeredia2009\_t@{SW\_EspindolaHeredia2009\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{SW\_EspindolaHeredia2009\_t}{SW\_EspindolaHeredia2009\_t}}
@@ -676,7 +696,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00039}{39}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a38366c13c6b46865500b09193bfc2f4e}\label{namespaceteqp_a38366c13c6b46865500b09193bfc2f4e}} 
+\Hypertarget{namespaceteqp_a38366c13c6b46865500b09193bfc2f4e}\label{namespaceteqp_a38366c13c6b46865500b09193bfc2f4e} 
 \index{teqp@{teqp}!twocenterLJF\_t@{twocenterLJF\_t}}
 \index{twocenterLJF\_t@{twocenterLJF\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{twocenterLJF\_t}{twocenterLJF\_t}}
@@ -686,7 +706,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00044}{44}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}\label{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}} 
+\Hypertarget{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}\label{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148} 
 \index{teqp@{teqp}!vad@{vad}}
 \index{vad@{vad}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{vad}{vad}}
@@ -696,7 +716,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00047}{47}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_ae7a2145324d3ec655519a3f2bdfae140}\label{namespaceteqp_ae7a2145324d3ec655519a3f2bdfae140}} 
+\Hypertarget{namespaceteqp_ae7a2145324d3ec655519a3f2bdfae140}\label{namespaceteqp_ae7a2145324d3ec655519a3f2bdfae140} 
 \index{teqp@{teqp}!vdWEOS\_t@{vdWEOS\_t}}
 \index{vdWEOS\_t@{vdWEOS\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{vdWEOS\_t}{vdWEOS\_t}}
@@ -706,7 +726,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00032}{32}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a297494c9a5a0955b538cd578a5433b87}\label{namespaceteqp_a297494c9a5a0955b538cd578a5433b87}} 
+\Hypertarget{namespaceteqp_a297494c9a5a0955b538cd578a5433b87}\label{namespaceteqp_a297494c9a5a0955b538cd578a5433b87} 
 \index{teqp@{teqp}!vecs@{vecs}}
 \index{vecs@{vecs}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{vecs}{vecs}}
@@ -719,18 +739,18 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00033}{33}} of file \mbox{\
 
 
 \doxysubsection{Enumeration Type Documentation}
-\mbox{\Hypertarget{namespaceteqp_aa915939e34912de1f87776858de32f9d}\label{namespaceteqp_aa915939e34912de1f87776858de32f9d}} 
+\Hypertarget{namespaceteqp_aa915939e34912de1f87776858de32f9d}\label{namespaceteqp_aa915939e34912de1f87776858de32f9d} 
 \index{teqp@{teqp}!ADBackends@{ADBackends}}
 \index{ADBackends@{ADBackends}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{ADBackends}{ADBackends}}
 {\footnotesize\ttfamily enum class \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{teqp\+::\+ADBackends}}\hspace{0.3cm}{\ttfamily [strong]}}
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{autodiff@{autodiff}!teqp@{teqp}}\index{teqp@{teqp}!autodiff@{autodiff}}}\mbox{\Hypertarget{namespaceteqp_aa915939e34912de1f87776858de32f9da1f9f65b69bb4d16b7fd15a809c59d6e6}\label{namespaceteqp_aa915939e34912de1f87776858de32f9da1f9f65b69bb4d16b7fd15a809c59d6e6}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{autodiff@{autodiff}!teqp@{teqp}}\index{teqp@{teqp}!autodiff@{autodiff}}}\Hypertarget{namespaceteqp_aa915939e34912de1f87776858de32f9da1f9f65b69bb4d16b7fd15a809c59d6e6}\label{namespaceteqp_aa915939e34912de1f87776858de32f9da1f9f65b69bb4d16b7fd15a809c59d6e6} 
 autodiff&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{complex\_step@{complex\_step}!teqp@{teqp}}\index{teqp@{teqp}!complex\_step@{complex\_step}}}\mbox{\Hypertarget{namespaceteqp_aa915939e34912de1f87776858de32f9dad8c387494b54ef11d7d960ed7311d4bf}\label{namespaceteqp_aa915939e34912de1f87776858de32f9dad8c387494b54ef11d7d960ed7311d4bf}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{complex\_step@{complex\_step}!teqp@{teqp}}\index{teqp@{teqp}!complex\_step@{complex\_step}}}\Hypertarget{namespaceteqp_aa915939e34912de1f87776858de32f9dad8c387494b54ef11d7d960ed7311d4bf}\label{namespaceteqp_aa915939e34912de1f87776858de32f9dad8c387494b54ef11d7d960ed7311d4bf} 
 complex\+\_\+step&\\
 \hline
 
@@ -739,18 +759,18 @@ complex\+\_\+step&\\
 
 Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00118}{118}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_abb423904db0ac1c8261912ca4efc3272}\label{namespaceteqp_abb423904db0ac1c8261912ca4efc3272}} 
+\Hypertarget{namespaceteqp_abb423904db0ac1c8261912ca4efc3272}\label{namespaceteqp_abb423904db0ac1c8261912ca4efc3272} 
 \index{teqp@{teqp}!AlphaWrapperOption@{AlphaWrapperOption}}
 \index{AlphaWrapperOption@{AlphaWrapperOption}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{AlphaWrapperOption}{AlphaWrapperOption}}
 {\footnotesize\ttfamily enum class \mbox{\hyperlink{namespaceteqp_abb423904db0ac1c8261912ca4efc3272}{teqp\+::\+Alpha\+Wrapper\+Option}}\hspace{0.3cm}{\ttfamily [strong]}}
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{residual@{residual}!teqp@{teqp}}\index{teqp@{teqp}!residual@{residual}}}\mbox{\Hypertarget{namespaceteqp_abb423904db0ac1c8261912ca4efc3272a4db598f63d4aea6a3c8eaddfe5c2b1e9}\label{namespaceteqp_abb423904db0ac1c8261912ca4efc3272a4db598f63d4aea6a3c8eaddfe5c2b1e9}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{residual@{residual}!teqp@{teqp}}\index{teqp@{teqp}!residual@{residual}}}\Hypertarget{namespaceteqp_abb423904db0ac1c8261912ca4efc3272a4db598f63d4aea6a3c8eaddfe5c2b1e9}\label{namespaceteqp_abb423904db0ac1c8261912ca4efc3272a4db598f63d4aea6a3c8eaddfe5c2b1e9} 
 residual&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{idealgas@{idealgas}!teqp@{teqp}}\index{teqp@{teqp}!idealgas@{idealgas}}}\mbox{\Hypertarget{namespaceteqp_abb423904db0ac1c8261912ca4efc3272a99849a7e0c94a6066ed3faac395459be}\label{namespaceteqp_abb423904db0ac1c8261912ca4efc3272a99849a7e0c94a6066ed3faac395459be}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{idealgas@{idealgas}!teqp@{teqp}}\index{teqp@{teqp}!idealgas@{idealgas}}}\Hypertarget{namespaceteqp_abb423904db0ac1c8261912ca4efc3272a99849a7e0c94a6066ed3faac395459be}\label{namespaceteqp_abb423904db0ac1c8261912ca4efc3272a99849a7e0c94a6066ed3faac395459be} 
 idealgas&\\
 \hline
 
@@ -759,34 +779,34 @@ idealgas&\\
 
 Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00089}{89}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a60d3915f4002f9de425a211673a7d877}\label{namespaceteqp_a60d3915f4002f9de425a211673a7d877}} 
+\Hypertarget{namespaceteqp_a60d3915f4002f9de425a211673a7d877}\label{namespaceteqp_a60d3915f4002f9de425a211673a7d877} 
 \index{teqp@{teqp}!VLE\_return\_code@{VLE\_return\_code}}
 \index{VLE\_return\_code@{VLE\_return\_code}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{VLE\_return\_code}{VLE\_return\_code}}
 {\footnotesize\ttfamily enum class \mbox{\hyperlink{namespaceteqp_a60d3915f4002f9de425a211673a7d877}{teqp\+::\+VLE\+\_\+return\+\_\+code}}\hspace{0.3cm}{\ttfamily [strong]}}
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{unset@{unset}!teqp@{teqp}}\index{teqp@{teqp}!unset@{unset}}}\mbox{\Hypertarget{namespaceteqp_a60d3915f4002f9de425a211673a7d877ae2181b5014a67159cc230c8fe0d6c5b6}\label{namespaceteqp_a60d3915f4002f9de425a211673a7d877ae2181b5014a67159cc230c8fe0d6c5b6}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{unset@{unset}!teqp@{teqp}}\index{teqp@{teqp}!unset@{unset}}}\Hypertarget{namespaceteqp_a60d3915f4002f9de425a211673a7d877ae2181b5014a67159cc230c8fe0d6c5b6}\label{namespaceteqp_a60d3915f4002f9de425a211673a7d877ae2181b5014a67159cc230c8fe0d6c5b6} 
 unset&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{xtol\_satisfied@{xtol\_satisfied}!teqp@{teqp}}\index{teqp@{teqp}!xtol\_satisfied@{xtol\_satisfied}}}\mbox{\Hypertarget{namespaceteqp_a60d3915f4002f9de425a211673a7d877a79529417e6e5d5a8ee4a87fe543d9164}\label{namespaceteqp_a60d3915f4002f9de425a211673a7d877a79529417e6e5d5a8ee4a87fe543d9164}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{xtol\_satisfied@{xtol\_satisfied}!teqp@{teqp}}\index{teqp@{teqp}!xtol\_satisfied@{xtol\_satisfied}}}\Hypertarget{namespaceteqp_a60d3915f4002f9de425a211673a7d877a79529417e6e5d5a8ee4a87fe543d9164}\label{namespaceteqp_a60d3915f4002f9de425a211673a7d877a79529417e6e5d5a8ee4a87fe543d9164} 
 xtol\+\_\+satisfied&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{functol\_satisfied@{functol\_satisfied}!teqp@{teqp}}\index{teqp@{teqp}!functol\_satisfied@{functol\_satisfied}}}\mbox{\Hypertarget{namespaceteqp_a60d3915f4002f9de425a211673a7d877a558e548fc28bae980b285c3a760e7de5}\label{namespaceteqp_a60d3915f4002f9de425a211673a7d877a558e548fc28bae980b285c3a760e7de5}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{functol\_satisfied@{functol\_satisfied}!teqp@{teqp}}\index{teqp@{teqp}!functol\_satisfied@{functol\_satisfied}}}\Hypertarget{namespaceteqp_a60d3915f4002f9de425a211673a7d877a558e548fc28bae980b285c3a760e7de5}\label{namespaceteqp_a60d3915f4002f9de425a211673a7d877a558e548fc28bae980b285c3a760e7de5} 
 functol\+\_\+satisfied&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{maxfev\_met@{maxfev\_met}!teqp@{teqp}}\index{teqp@{teqp}!maxfev\_met@{maxfev\_met}}}\mbox{\Hypertarget{namespaceteqp_a60d3915f4002f9de425a211673a7d877a1344a1e40f93c4a363ddc3329548c828}\label{namespaceteqp_a60d3915f4002f9de425a211673a7d877a1344a1e40f93c4a363ddc3329548c828}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{maxfev\_met@{maxfev\_met}!teqp@{teqp}}\index{teqp@{teqp}!maxfev\_met@{maxfev\_met}}}\Hypertarget{namespaceteqp_a60d3915f4002f9de425a211673a7d877a1344a1e40f93c4a363ddc3329548c828}\label{namespaceteqp_a60d3915f4002f9de425a211673a7d877a1344a1e40f93c4a363ddc3329548c828} 
 maxfev\+\_\+met&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{maxiter\_met@{maxiter\_met}!teqp@{teqp}}\index{teqp@{teqp}!maxiter\_met@{maxiter\_met}}}\mbox{\Hypertarget{namespaceteqp_a60d3915f4002f9de425a211673a7d877aea3fe0c0ce1dbcf56ed2f32841fc181b}\label{namespaceteqp_a60d3915f4002f9de425a211673a7d877aea3fe0c0ce1dbcf56ed2f32841fc181b}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{maxiter\_met@{maxiter\_met}!teqp@{teqp}}\index{teqp@{teqp}!maxiter\_met@{maxiter\_met}}}\Hypertarget{namespaceteqp_a60d3915f4002f9de425a211673a7d877aea3fe0c0ce1dbcf56ed2f32841fc181b}\label{namespaceteqp_a60d3915f4002f9de425a211673a7d877aea3fe0c0ce1dbcf56ed2f32841fc181b} 
 maxiter\+\_\+met&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{notfinite\_step@{notfinite\_step}!teqp@{teqp}}\index{teqp@{teqp}!notfinite\_step@{notfinite\_step}}}\mbox{\Hypertarget{namespaceteqp_a60d3915f4002f9de425a211673a7d877ad0f511a094e26f725086a7b205ccadde}\label{namespaceteqp_a60d3915f4002f9de425a211673a7d877ad0f511a094e26f725086a7b205ccadde}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{notfinite\_step@{notfinite\_step}!teqp@{teqp}}\index{teqp@{teqp}!notfinite\_step@{notfinite\_step}}}\Hypertarget{namespaceteqp_a60d3915f4002f9de425a211673a7d877ad0f511a094e26f725086a7b205ccadde}\label{namespaceteqp_a60d3915f4002f9de425a211673a7d877ad0f511a094e26f725086a7b205ccadde} 
 notfinite\+\_\+step&\\
 \hline
 
@@ -798,7 +818,7 @@ Definition at line \mbox{\hyperlink{VLE__types_8hpp_source_l00038}{38}} of file 
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{namespaceteqp_a0060a7132096aec89010bc037ab86cac}\label{namespaceteqp_a0060a7132096aec89010bc037ab86cac}} 
+\Hypertarget{namespaceteqp_a0060a7132096aec89010bc037ab86cac}\label{namespaceteqp_a0060a7132096aec89010bc037ab86cac} 
 \index{teqp@{teqp}!\_build\_multifluid\_model@{\_build\_multifluid\_model}}
 \index{\_build\_multifluid\_model@{\_build\_multifluid\_model}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{\_build\_multifluid\_model()}{\_build\_multifluid\_model()}}
@@ -812,7 +832,7 @@ Internal method for actually constructing the model with the provided JSON data 
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00827}{827}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a82028c79c5797818e7bbba8f88b4d4a6}\label{namespaceteqp_a82028c79c5797818e7bbba8f88b4d4a6}} 
+\Hypertarget{namespaceteqp_a82028c79c5797818e7bbba8f88b4d4a6}\label{namespaceteqp_a82028c79c5797818e7bbba8f88b4d4a6} 
 \index{teqp@{teqp}!all\_same\_length@{all\_same\_length}}
 \index{all\_same\_length@{all\_same\_length}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{all\_same\_length()}{all\_same\_length()}}
@@ -822,7 +842,7 @@ Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00827}{827}} of file
 
 Definition at line \mbox{\hyperlink{json__tools_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{json__tools_8hpp_source}{json\+\_\+tools.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a4cd752ad64d2efe5ea4bcb0c3acb3f59}\label{namespaceteqp_a4cd752ad64d2efe5ea4bcb0c3acb3f59}} 
+\Hypertarget{namespaceteqp_a4cd752ad64d2efe5ea4bcb0c3acb3f59}\label{namespaceteqp_a4cd752ad64d2efe5ea4bcb0c3acb3f59} 
 \index{teqp@{teqp}!build\_alias\_map@{build\_alias\_map}}
 \index{build\_alias\_map@{build\_alias\_map}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{build\_alias\_map()}{build\_alias\_map()}}
@@ -836,7 +856,7 @@ Build a reverse-\/lookup map for finding a fluid JSON structure given a backup i
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00786}{786}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a7b0fed59cb3c840627e9799f0d36eb12}\label{namespaceteqp_a7b0fed59cb3c840627e9799f0d36eb12}} 
+\Hypertarget{namespaceteqp_a7b0fed59cb3c840627e9799f0d36eb12}\label{namespaceteqp_a7b0fed59cb3c840627e9799f0d36eb12} 
 \index{teqp@{teqp}!build\_departure\_function@{build\_departure\_function}}
 \index{build\_departure\_function@{build\_departure\_function}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{build\_departure\_function()}{build\_departure\_function()}}
@@ -846,7 +866,7 @@ Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00786}{786}} of file
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00192}{192}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_abb52b388df385acbdbcb78efa7783c1b}\label{namespaceteqp_abb52b388df385acbdbcb78efa7783c1b}} 
+\Hypertarget{namespaceteqp_abb52b388df385acbdbcb78efa7783c1b}\label{namespaceteqp_abb52b388df385acbdbcb78efa7783c1b} 
 \index{teqp@{teqp}!build\_duplicated\_tuple@{build\_duplicated\_tuple}}
 \index{build\_duplicated\_tuple@{build\_duplicated\_tuple}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{build\_duplicated\_tuple()}{build\_duplicated\_tuple()}}
@@ -861,7 +881,7 @@ A function to generate a tuple of N repeated copies of argument val at compile-\
 
 Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_aab18d321f888443bbe10184550a862e9}\label{namespaceteqp_aab18d321f888443bbe10184550a862e9}} 
+\Hypertarget{namespaceteqp_aab18d321f888443bbe10184550a862e9}\label{namespaceteqp_aab18d321f888443bbe10184550a862e9} 
 \index{teqp@{teqp}!build\_duplicated\_tuple\_impl@{build\_duplicated\_tuple\_impl}}
 \index{build\_duplicated\_tuple\_impl@{build\_duplicated\_tuple\_impl}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{build\_duplicated\_tuple\_impl()}{build\_duplicated\_tuple\_impl()}}
@@ -872,7 +892,7 @@ Helper function for build\+\_\+duplicated\+\_\+tuple See example here for the ge
 
 Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00068}{68}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a72a0d74913275be5bbc29a3791ca5eb0}\label{namespaceteqp_a72a0d74913275be5bbc29a3791ca5eb0}} 
+\Hypertarget{namespaceteqp_a72a0d74913275be5bbc29a3791ca5eb0}\label{namespaceteqp_a72a0d74913275be5bbc29a3791ca5eb0} 
 \index{teqp@{teqp}!build\_LJ126\_TholJPCRD2016@{build\_LJ126\_TholJPCRD2016}}
 \index{build\_LJ126\_TholJPCRD2016@{build\_LJ126\_TholJPCRD2016}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{build\_LJ126\_TholJPCRD2016()}{build\_LJ126\_TholJPCRD2016()}}
@@ -882,7 +902,7 @@ The EOS of Monika Thol and colleagues. DOI\+:10.\+1063/1.4945000
 
 Definition at line \mbox{\hyperlink{lennardjones_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{lennardjones_8hpp_source}{lennardjones.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a6c43d72f8b0ea5c812c0240c852a5135}\label{namespaceteqp_a6c43d72f8b0ea5c812c0240c852a5135}} 
+\Hypertarget{namespaceteqp_a6c43d72f8b0ea5c812c0240c852a5135}\label{namespaceteqp_a6c43d72f8b0ea5c812c0240c852a5135} 
 \index{teqp@{teqp}!build\_multifluid\_JSONstr@{build\_multifluid\_JSONstr}}
 \index{build\_multifluid\_JSONstr@{build\_multifluid\_JSONstr}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{build\_multifluid\_JSONstr()}{build\_multifluid\_JSONstr()}}
@@ -896,7 +916,7 @@ A builder function where the JSON-\/formatted strings are provided explicitly ra
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00877}{877}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_aa7cdea08428a2326129dcbe83de69802}\label{namespaceteqp_aa7cdea08428a2326129dcbe83de69802}} 
+\Hypertarget{namespaceteqp_aa7cdea08428a2326129dcbe83de69802}\label{namespaceteqp_aa7cdea08428a2326129dcbe83de69802} 
 \index{teqp@{teqp}!build\_multifluid\_model@{build\_multifluid\_model}}
 \index{build\_multifluid\_model@{build\_multifluid\_model}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{build\_multifluid\_model()}{build\_multifluid\_model()}}
@@ -906,7 +926,7 @@ Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00877}{877}} of file
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00962}{962}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}\label{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}} 
+\Hypertarget{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}\label{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07} 
 \index{teqp@{teqp}!build\_multifluid\_mutant@{build\_multifluid\_mutant}}
 \index{build\_multifluid\_mutant@{build\_multifluid\_mutant}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{build\_multifluid\_mutant()}{build\_multifluid\_mutant()}}
@@ -917,7 +937,7 @@ Store the model spec in the adapted multifluid class
 
 Definition at line \mbox{\hyperlink{multifluid__mutant_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{multifluid__mutant_8hpp_source}{multifluid\+\_\+mutant.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a388557f5b1209cf4a37a2bb3b9a6f9d5}\label{namespaceteqp_a388557f5b1209cf4a37a2bb3b9a6f9d5}} 
+\Hypertarget{namespaceteqp_a388557f5b1209cf4a37a2bb3b9a6f9d5}\label{namespaceteqp_a388557f5b1209cf4a37a2bb3b9a6f9d5} 
 \index{teqp@{teqp}!canonical\_PR@{canonical\_PR}}
 \index{canonical\_PR@{canonical\_PR}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{canonical\_PR()}{canonical\_PR()}}
@@ -928,7 +948,7 @@ auto teqp\+::canonical\+\_\+\+PR (\begin{DoxyParamCaption}\item[{TCType}]{Tc\+\_
 
 Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00246}{246}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a6a646a52ddd0010dc37a5161e8353148}\label{namespaceteqp_a6a646a52ddd0010dc37a5161e8353148}} 
+\Hypertarget{namespaceteqp_a6a646a52ddd0010dc37a5161e8353148}\label{namespaceteqp_a6a646a52ddd0010dc37a5161e8353148} 
 \index{teqp@{teqp}!canonical\_SRK@{canonical\_SRK}}
 \index{canonical\_SRK@{canonical\_SRK}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{canonical\_SRK()}{canonical\_SRK()}}
@@ -939,7 +959,7 @@ auto teqp\+::canonical\+\_\+\+SRK (\begin{DoxyParamCaption}\item[{TCType}]{Tc\+\
 
 Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00208}{208}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a12e535a8d5233799f0230d606e3e036e}\label{namespaceteqp_a12e535a8d5233799f0230d606e3e036e}} 
+\Hypertarget{namespaceteqp_a12e535a8d5233799f0230d606e3e036e}\label{namespaceteqp_a12e535a8d5233799f0230d606e3e036e} 
 \index{teqp@{teqp}!centered\_diff@{centered\_diff}}
 \index{centered\_diff@{centered\_diff}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{centered\_diff()}{centered\_diff()}}
@@ -950,7 +970,7 @@ auto teqp\+::centered\+\_\+diff (\begin{DoxyParamCaption}\item[{const Function \
 
 Definition at line \mbox{\hyperlink{math_2finite__derivs_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{math_2finite__derivs_8hpp_source}{finite\+\_\+derivs.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_acc467d95833da1186bdd6ce3f376ca8a}\label{namespaceteqp_acc467d95833da1186bdd6ce3f376ca8a}} 
+\Hypertarget{namespaceteqp_acc467d95833da1186bdd6ce3f376ca8a}\label{namespaceteqp_acc467d95833da1186bdd6ce3f376ca8a} 
 \index{teqp@{teqp}!collect\_component\_json@{collect\_component\_json}}
 \index{collect\_component\_json@{collect\_component\_json}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{collect\_component\_json()}{collect\_component\_json()}}
@@ -960,7 +980,7 @@ Definition at line \mbox{\hyperlink{math_2finite__derivs_8hpp_source_l00019}{19}
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00725}{725}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a68212bdd29484f7d4d6b2c8bc8d77256}\label{namespaceteqp_a68212bdd29484f7d4d6b2c8bc8d77256}} 
+\Hypertarget{namespaceteqp_a68212bdd29484f7d4d6b2c8bc8d77256}\label{namespaceteqp_a68212bdd29484f7d4d6b2c8bc8d77256} 
 \index{teqp@{teqp}!collect\_identifiers@{collect\_identifiers}}
 \index{collect\_identifiers@{collect\_identifiers}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{collect\_identifiers()}{collect\_identifiers()}}
@@ -970,7 +990,7 @@ Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00725}{725}} of file
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00748}{748}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_ac3923ac078dc5b9aa1ddbe7ee81c5613}\label{namespaceteqp_ac3923ac078dc5b9aa1ddbe7ee81c5613}} 
+\Hypertarget{namespaceteqp_ac3923ac078dc5b9aa1ddbe7ee81c5613}\label{namespaceteqp_ac3923ac078dc5b9aa1ddbe7ee81c5613} 
 \index{teqp@{teqp}!convert\_CoolProp\_idealgas@{convert\_CoolProp\_idealgas}}
 \index{convert\_CoolProp\_idealgas@{convert\_CoolProp\_idealgas}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{convert\_CoolProp\_idealgas()}{convert\_CoolProp\_idealgas()}}
@@ -994,7 +1014,7 @@ The key difference in the approach in Cool\+Prop and teqp is that the contributi
 
 Definition at line \mbox{\hyperlink{ideal__eosterms_8hpp_source_l00489}{489}} of file \mbox{\hyperlink{ideal__eosterms_8hpp_source}{ideal\+\_\+eosterms.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a7a981a876b9ae93df09b98744a1f66ef}\label{namespaceteqp_a7a981a876b9ae93df09b98744a1f66ef}} 
+\Hypertarget{namespaceteqp_a7a981a876b9ae93df09b98744a1f66ef}\label{namespaceteqp_a7a981a876b9ae93df09b98744a1f66ef} 
 \index{teqp@{teqp}!CoolProp2teqp\_alphaig\_term\_reformatter@{CoolProp2teqp\_alphaig\_term\_reformatter}}
 \index{CoolProp2teqp\_alphaig\_term\_reformatter@{CoolProp2teqp\_alphaig\_term\_reformatter}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{CoolProp2teqp\_alphaig\_term\_reformatter()}{CoolProp2teqp\_alphaig\_term\_reformatter()}}
@@ -1004,7 +1024,7 @@ Definition at line \mbox{\hyperlink{ideal__eosterms_8hpp_source_l00489}{489}} of
 
 Definition at line \mbox{\hyperlink{ideal__eosterms_8hpp_source_l00359}{359}} of file \mbox{\hyperlink{ideal__eosterms_8hpp_source}{ideal\+\_\+eosterms.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_ae0e2c714a07ef9263b390b6814c4c00a}\label{namespaceteqp_ae0e2c714a07ef9263b390b6814c4c00a}} 
+\Hypertarget{namespaceteqp_ae0e2c714a07ef9263b390b6814c4c00a}\label{namespaceteqp_ae0e2c714a07ef9263b390b6814c4c00a} 
 \index{teqp@{teqp}!derivrhoi@{derivrhoi}}
 \index{derivrhoi@{derivrhoi}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{derivrhoi()}{derivrhoi()}}
@@ -1015,7 +1035,7 @@ Container\+Type\+::value\+\_\+type teqp\+::derivrhoi (\begin{DoxyParamCaption}\i
 
 Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a673824cda5d54f74d80f6746bb8a0d4d}\label{namespaceteqp_a673824cda5d54f74d80f6746bb8a0d4d}} 
+\Hypertarget{namespaceteqp_a673824cda5d54f74d80f6746bb8a0d4d}\label{namespaceteqp_a673824cda5d54f74d80f6746bb8a0d4d} 
 \index{teqp@{teqp}!derivT@{derivT}}
 \index{derivT@{derivT}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{derivT()}{derivT()}}
@@ -1026,7 +1046,7 @@ Container\+Type\+::value\+\_\+type teqp\+::derivT (\begin{DoxyParamCaption}\item
 
 Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a403c09e2eab732de1e77faec4b50863a}\label{namespaceteqp_a403c09e2eab732de1e77faec4b50863a}} 
+\Hypertarget{namespaceteqp_a403c09e2eab732de1e77faec4b50863a}\label{namespaceteqp_a403c09e2eab732de1e77faec4b50863a} 
 \index{teqp@{teqp}!do\_pure\_VLE\_T@{do\_pure\_VLE\_T}}
 \index{do\_pure\_VLE\_T@{do\_pure\_VLE\_T}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{do\_pure\_VLE\_T()}{do\_pure\_VLE\_T()}}
@@ -1037,7 +1057,7 @@ auto teqp\+::do\+\_\+pure\+\_\+\+VLE\+\_\+T (\begin{DoxyParamCaption}\item[{Resi
 
 Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00107}{107}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_ac53b2168b7749cca0f41c93e58cd2cdf}\label{namespaceteqp_ac53b2168b7749cca0f41c93e58cd2cdf}} 
+\Hypertarget{namespaceteqp_ac53b2168b7749cca0f41c93e58cd2cdf}\label{namespaceteqp_ac53b2168b7749cca0f41c93e58cd2cdf} 
 \index{teqp@{teqp}!dpsatdT\_pure@{dpsatdT\_pure}}
 \index{dpsatdT\_pure@{dpsatdT\_pure}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{dpsatdT\_pure()}{dpsatdT\_pure()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -1048,7 +1068,7 @@ auto teqp\+::dpsatd\+T\+\_\+pure (\begin{DoxyParamCaption}\item[{const Templated
 
 Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00255}{255}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a725528c9f3af447069508a622b26c84d}\label{namespaceteqp_a725528c9f3af447069508a622b26c84d}} 
+\Hypertarget{namespaceteqp_a725528c9f3af447069508a622b26c84d}\label{namespaceteqp_a725528c9f3af447069508a622b26c84d} 
 \index{teqp@{teqp}!dpsatdT\_pure@{dpsatdT\_pure}}
 \index{dpsatdT\_pure@{dpsatdT\_pure}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{dpsatdT\_pure()}{dpsatdT\_pure()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -1058,7 +1078,7 @@ Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00255}{255}} of file 
 
 Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00158}{158}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_abbf9e7fce9e140cb1b40e0513e1edb9e}\label{namespaceteqp_abbf9e7fce9e140cb1b40e0513e1edb9e}} 
+\Hypertarget{namespaceteqp_abbf9e7fce9e140cb1b40e0513e1edb9e}\label{namespaceteqp_abbf9e7fce9e140cb1b40e0513e1edb9e} 
 \index{teqp@{teqp}!error\_if\_expr@{error\_if\_expr}}
 \index{error\_if\_expr@{error\_if\_expr}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{error\_if\_expr()}{error\_if\_expr()}}
@@ -1069,7 +1089,7 @@ A constexpr function for ensuring that an argument to a function is NOT an expr,
 
 Definition at line \mbox{\hyperlink{types_8hpp_source_l00063}{63}} of file \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a89cd15390f44c8b74130c7e27f4f23c3}\label{namespaceteqp_a89cd15390f44c8b74130c7e27f4f23c3}} 
+\Hypertarget{namespaceteqp_a89cd15390f44c8b74130c7e27f4f23c3}\label{namespaceteqp_a89cd15390f44c8b74130c7e27f4f23c3} 
 \index{teqp@{teqp}!extrapolate\_from\_critical@{extrapolate\_from\_critical}}
 \index{extrapolate\_from\_critical@{extrapolate\_from\_critical}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{extrapolate\_from\_critical()}{extrapolate\_from\_critical()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -1079,7 +1099,7 @@ Definition at line \mbox{\hyperlink{types_8hpp_source_l00063}{63}} of file \mbox
 
 Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00213}{213}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a5fdf71d9e1ef7e3c69e2410aff33fa21}\label{namespaceteqp_a5fdf71d9e1ef7e3c69e2410aff33fa21}} 
+\Hypertarget{namespaceteqp_a5fdf71d9e1ef7e3c69e2410aff33fa21}\label{namespaceteqp_a5fdf71d9e1ef7e3c69e2410aff33fa21} 
 \index{teqp@{teqp}!extrapolate\_from\_critical@{extrapolate\_from\_critical}}
 \index{extrapolate\_from\_critical@{extrapolate\_from\_critical}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{extrapolate\_from\_critical()}{extrapolate\_from\_critical()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -1090,7 +1110,7 @@ Eigen\+::\+Array$<$ double, 2, 1 $>$ teqp\+::extrapolate\+\_\+from\+\_\+critical
 
 Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00181}{181}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}\label{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}} 
+\Hypertarget{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}\label{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726} 
 \index{teqp@{teqp}!forceeval@{forceeval}}
 \index{forceeval@{forceeval}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{forceeval()}{forceeval()}}
@@ -1101,7 +1121,7 @@ auto teqp\+::forceeval (\begin{DoxyParamCaption}\item[{T \&\&}]{expr }\end{DoxyP
 
 Definition at line \mbox{\hyperlink{types_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_ae35043cfb022979a4b38811d30c06bf5}\label{namespaceteqp_ae35043cfb022979a4b38811d30c06bf5}} 
+\Hypertarget{namespaceteqp_ae35043cfb022979a4b38811d30c06bf5}\label{namespaceteqp_ae35043cfb022979a4b38811d30c06bf5} 
 \index{teqp@{teqp}!get\_Brho\_critical\_extrap@{get\_Brho\_critical\_extrap}}
 \index{get\_Brho\_critical\_extrap@{get\_Brho\_critical\_extrap}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{get\_Brho\_critical\_extrap()}{get\_Brho\_critical\_extrap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -1111,7 +1131,7 @@ Definition at line \mbox{\hyperlink{types_8hpp_source_l00046}{46}} of file \mbox
 
 Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00195}{195}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a8ce59a6988a1b97c70059a109d391179}\label{namespaceteqp_a8ce59a6988a1b97c70059a109d391179}} 
+\Hypertarget{namespaceteqp_a8ce59a6988a1b97c70059a109d391179}\label{namespaceteqp_a8ce59a6988a1b97c70059a109d391179} 
 \index{teqp@{teqp}!get\_Brho\_critical\_extrap@{get\_Brho\_critical\_extrap}}
 \index{get\_Brho\_critical\_extrap@{get\_Brho\_critical\_extrap}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{get\_Brho\_critical\_extrap()}{get\_Brho\_critical\_extrap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -1122,7 +1142,7 @@ Scalar teqp\+::get\+\_\+\+Brho\+\_\+critical\+\_\+extrap (\begin{DoxyParamCaptio
 
 Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00160}{160}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a794ca20d6c5c501592eccde9e87c5a2d}\label{namespaceteqp_a794ca20d6c5c501592eccde9e87c5a2d}} 
+\Hypertarget{namespaceteqp_a794ca20d6c5c501592eccde9e87c5a2d}\label{namespaceteqp_a794ca20d6c5c501592eccde9e87c5a2d} 
 \index{teqp@{teqp}!get\_departure\_function\_matrix@{get\_departure\_function\_matrix}}
 \index{get\_departure\_function\_matrix@{get\_departure\_function\_matrix}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{get\_departure\_function\_matrix()}{get\_departure\_function\_matrix()}}
@@ -1132,7 +1152,7 @@ Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00160}{160}} of 
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00438}{438}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a75aa947e3267ff1660db269220f093d8}\label{namespaceteqp_a75aa947e3267ff1660db269220f093d8}} 
+\Hypertarget{namespaceteqp_a75aa947e3267ff1660db269220f093d8}\label{namespaceteqp_a75aa947e3267ff1660db269220f093d8} 
 \index{teqp@{teqp}!get\_departure\_json@{get\_departure\_json}}
 \index{get\_departure\_json@{get\_departure\_json}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{get\_departure\_json()}{get\_departure\_json()}}
@@ -1142,10 +1162,10 @@ Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00438}{438}} of file
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00171}{171}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a0c78e97744bd0ec82197f40149e03d4b}\label{namespaceteqp_a0c78e97744bd0ec82197f40149e03d4b}} 
+\Hypertarget{namespaceteqp_a0c78e97744bd0ec82197f40149e03d4b}\label{namespaceteqp_a0c78e97744bd0ec82197f40149e03d4b} 
 \index{teqp@{teqp}!get\_dpsat\_dTsat\_isopleth@{get\_dpsat\_dTsat\_isopleth}}
 \index{get\_dpsat\_dTsat\_isopleth@{get\_dpsat\_dTsat\_isopleth}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{get\_dpsat\_dTsat\_isopleth()}{get\_dpsat\_dTsat\_isopleth()}}
+\doxysubsubsection{\texorpdfstring{get\_dpsat\_dTsat\_isopleth()}{get\_dpsat\_dTsat\_isopleth()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename Model  = Abstract\+Model$>$ \\
 auto teqp\+::get\+\_\+dpsat\+\_\+d\+Tsat\+\_\+isopleth (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const double \&}]{T,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovecL,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovecV }\end{DoxyParamCaption})}
 
@@ -1153,43 +1173,97 @@ auto teqp\+::get\+\_\+dpsat\+\_\+d\+Tsat\+\_\+isopleth (\begin{DoxyParamCaption}
 
 Derivative of pressure w.\+r.\+t. temperature along the isopleth of a phase envelope (at constant composition of the bulk phase with the first concentration array) 
 
-Express $p(T,\rho,\vec x)$, so its total differential is \[ dp = \left(\frac{\partial p}{\partial T}\right)_{T,\vec x}dT + \left(\frac{\partial p}{\partial \rho}\right)_{T,\vec x} d\rho + \sum_{k} \left(\frac{\partial p}{\partial x_k}\right)_{T,\rho,x_{j\neq k}} dx_k \] And for the derivative taken along the phase envelope at constant composition (along an isopleth so the composition part drops out)\+: \[ \left(\frac{dp}{dT}\right)_{x, \sigma} = \left(\frac{\partial p}{\partial T}\right)_{T,\vec x}\frac{dT}{dT} + \left(\frac{\partial p}{\partial \rho}\right)_{T,\vec x} \left(\frac{d\rho}{dT}\right)_{\vec x,\sigma} \] where \[ \left(\frac{d\rho}{dT}\right)_{\vec x,\sigma} = \sum_k\left(\frac{d\rho_k}{dT}\right)_{\vec x,\sigma} \]
+Express $p(T,\rho,\vec x)$, so its total differential is  \[
+  dp = \left(\frac{\partial p}{\partial T}\right)_{T,\vec x}dT + \left(\frac{\partial p}{\partial \rho}\right)_{T,\vec x} d\rho + \sum_{k} \left(\frac{\partial p}{\partial x_k}\right)_{T,\rho,x_{j\neq k}} dx_k
+  \] And for the derivative taken along the phase envelope at constant composition (along an isopleth so the composition part drops out)\+:  \[
+  \left(\frac{dp}{dT}\right)_{x, \sigma} = \left(\frac{\partial p}{\partial T}\right)_{T,\vec x}\frac{dT}{dT} + \left(\frac{\partial p}{\partial \rho}\right)_{T,\vec x} \left(\frac{d\rho}{dT}\right)_{\vec x,\sigma}
+  \] where  \[
+\left(\frac{d\rho}{dT}\right)_{\vec x,\sigma} = \sum_k\left(\frac{d\rho_k}{dT}\right)_{\vec x,\sigma}
+  \]
 
-In the isochoric framework, a similar analysis would apply, which yields the identical result. Express $p(T,\vec\rho)$, so its total differential is \[ dp = \left(\frac{\partial p}{\partial T}\right)_{\vec\rho}dT + \sum_k \left(\frac{\partial p}{\partial \rho_k}\right)_{T,\rho_{j\neq k}} d\rho_k \] And for the derivative taken along the phase envelope at constant composition (along an isopleth)\+: \[ \left(\frac{dp}{dT}\right)_{x, \sigma} = \left(\frac{\partial p}{\partial T}\right)_{\vec\rho}\frac{dT}{dT} + \sum_k \left(\frac{\partial p}{\partial \rho_k}\right)_{T,\rho_{j\neq k}} \left(\frac{\partial \rho_k}{\partial T}\right)_{x,\sigma} \] 
+In the isochoric framework, a similar analysis would apply, which yields the identical result. Express $p(T,\vec\rho)$, so its total differential is  \[
+  dp = \left(\frac{\partial p}{\partial T}\right)_{\vec\rho}dT + \sum_k \left(\frac{\partial p}{\partial \rho_k}\right)_{T,\rho_{j\neq k}} d\rho_k
+  \] And for the derivative taken along the phase envelope at constant composition (along an isopleth)\+:  \[
+  \left(\frac{dp}{dT}\right)_{x, \sigma} = \left(\frac{\partial p}{\partial T}\right)_{\vec\rho}\frac{dT}{dT} + \sum_k \left(\frac{\partial p}{\partial \rho_k}\right)_{T,\rho_{j\neq k}} \left(\frac{\partial \rho_k}{\partial T}\right)_{x,\sigma}
+  \] 
 
 Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00764}{764}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_ad95f85237b414adcadafedae95c6ab43}\label{namespaceteqp_ad95f85237b414adcadafedae95c6ab43}} 
+\Hypertarget{namespaceteqp_a6c919b765714374b997319b849386ef0}\label{namespaceteqp_a6c919b765714374b997319b849386ef0} 
+\index{teqp@{teqp}!get\_dpsat\_dTsat\_isopleth@{get\_dpsat\_dTsat\_isopleth}}
+\index{get\_dpsat\_dTsat\_isopleth@{get\_dpsat\_dTsat\_isopleth}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{get\_dpsat\_dTsat\_isopleth()}{get\_dpsat\_dTsat\_isopleth()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+auto teqp\+::get\+\_\+dpsat\+\_\+d\+Tsat\+\_\+isopleth (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_ad95f85237b414adcadafedae95c6ab43}\label{namespaceteqp_ad95f85237b414adcadafedae95c6ab43} 
 \index{teqp@{teqp}!get\_drhovecdp\_Tsat@{get\_drhovecdp\_Tsat}}
 \index{get\_drhovecdp\_Tsat@{get\_drhovecdp\_Tsat}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{get\_drhovecdp\_Tsat()}{get\_drhovecdp\_Tsat()}}
+\doxysubsubsection{\texorpdfstring{get\_drhovecdp\_Tsat()}{get\_drhovecdp\_Tsat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily auto teqp\+::get\+\_\+drhovecdp\+\_\+\+Tsat (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const double \&}]{T,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovecL,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovecV }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00524}{524}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_af6e5d0686b44d8f1d32191349e7cae79}\label{namespaceteqp_af6e5d0686b44d8f1d32191349e7cae79}} 
+\Hypertarget{namespaceteqp_abba198d50880f29905a1133ffaf40868}\label{namespaceteqp_abba198d50880f29905a1133ffaf40868} 
+\index{teqp@{teqp}!get\_drhovecdp\_Tsat@{get\_drhovecdp\_Tsat}}
+\index{get\_drhovecdp\_Tsat@{get\_drhovecdp\_Tsat}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{get\_drhovecdp\_Tsat()}{get\_drhovecdp\_Tsat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+auto teqp\+::get\+\_\+drhovecdp\+\_\+\+Tsat (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_af6e5d0686b44d8f1d32191349e7cae79}\label{namespaceteqp_af6e5d0686b44d8f1d32191349e7cae79} 
 \index{teqp@{teqp}!get\_drhovecdT\_psat@{get\_drhovecdT\_psat}}
 \index{get\_drhovecdT\_psat@{get\_drhovecdT\_psat}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{get\_drhovecdT\_psat()}{get\_drhovecdT\_psat()}}
+\doxysubsubsection{\texorpdfstring{get\_drhovecdT\_psat()}{get\_drhovecdT\_psat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily auto teqp\+::get\+\_\+drhovecd\+T\+\_\+psat (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const double \&}]{T,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovecL,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovecV }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Derivative of molar concentration vectors w.\+r.\+t. p along an isobar of the phase envelope for binary mixtures 
 
 Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00598}{598}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a9d9e7c2e7090d997b838ad7d722fe636}\label{namespaceteqp_a9d9e7c2e7090d997b838ad7d722fe636}} 
+\Hypertarget{namespaceteqp_ac6b850d418acefcc77b51a2de52c06c8}\label{namespaceteqp_ac6b850d418acefcc77b51a2de52c06c8} 
+\index{teqp@{teqp}!get\_drhovecdT\_psat@{get\_drhovecdT\_psat}}
+\index{get\_drhovecdT\_psat@{get\_drhovecdT\_psat}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{get\_drhovecdT\_psat()}{get\_drhovecdT\_psat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+auto teqp\+::get\+\_\+drhovecd\+T\+\_\+psat (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a9d9e7c2e7090d997b838ad7d722fe636}\label{namespaceteqp_a9d9e7c2e7090d997b838ad7d722fe636} 
 \index{teqp@{teqp}!get\_drhovecdT\_xsat@{get\_drhovecdT\_xsat}}
 \index{get\_drhovecdT\_xsat@{get\_drhovecdT\_xsat}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{get\_drhovecdT\_xsat()}{get\_drhovecdT\_xsat()}}
+\doxysubsubsection{\texorpdfstring{get\_drhovecdT\_xsat()}{get\_drhovecdT\_xsat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily auto teqp\+::get\+\_\+drhovecd\+T\+\_\+xsat (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const double \&}]{T,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovecL,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovecV }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00712}{712}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a081a632b9297fdfb078999a2eaabbe02}\label{namespaceteqp_a081a632b9297fdfb078999a2eaabbe02}} 
+\Hypertarget{namespaceteqp_a2f0531eeb36c04568a4ca02586f72ccf}\label{namespaceteqp_a2f0531eeb36c04568a4ca02586f72ccf} 
+\index{teqp@{teqp}!get\_drhovecdT\_xsat@{get\_drhovecdT\_xsat}}
+\index{get\_drhovecdT\_xsat@{get\_drhovecdT\_xsat}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{get\_drhovecdT\_xsat()}{get\_drhovecdT\_xsat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+auto teqp\+::get\+\_\+drhovecd\+T\+\_\+xsat (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a081a632b9297fdfb078999a2eaabbe02}\label{namespaceteqp_a081a632b9297fdfb078999a2eaabbe02} 
 \index{teqp@{teqp}!get\_EOS\_terms@{get\_EOS\_terms}}
 \index{get\_EOS\_terms@{get\_EOS\_terms}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{get\_EOS\_terms()}{get\_EOS\_terms()}}
@@ -1199,7 +1273,7 @@ lambda function for adding non-\/analytic terms
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00478}{478}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a427e105aec20374b74c7bef742ac5277}\label{namespaceteqp_a427e105aec20374b74c7bef742ac5277}} 
+\Hypertarget{namespaceteqp_a427e105aec20374b74c7bef742ac5277}\label{namespaceteqp_a427e105aec20374b74c7bef742ac5277} 
 \index{teqp@{teqp}!get\_EOSs@{get\_EOSs}}
 \index{get\_EOSs@{get\_EOSs}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{get\_EOSs()}{get\_EOSs()}}
@@ -1209,7 +1283,7 @@ Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00478}{478}} of file
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00716}{716}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a80148acc481909c3c660d5f4d8e8678f}\label{namespaceteqp_a80148acc481909c3c660d5f4d8e8678f}} 
+\Hypertarget{namespaceteqp_a80148acc481909c3c660d5f4d8e8678f}\label{namespaceteqp_a80148acc481909c3c660d5f4d8e8678f} 
 \index{teqp@{teqp}!get\_pure\_critical\_conditions\_Jacobian@{get\_pure\_critical\_conditions\_Jacobian}}
 \index{get\_pure\_critical\_conditions\_Jacobian@{get\_pure\_critical\_conditions\_Jacobian}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{get\_pure\_critical\_conditions\_Jacobian()}{get\_pure\_critical\_conditions\_Jacobian()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -1219,7 +1293,7 @@ Calculate the criticality conditions for a pure fluid and its Jacobian w.\+r.\+t
 
 Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_afd502fd9cf21cd403305ec755c536aa5}\label{namespaceteqp_afd502fd9cf21cd403305ec755c536aa5}} 
+\Hypertarget{namespaceteqp_afd502fd9cf21cd403305ec755c536aa5}\label{namespaceteqp_afd502fd9cf21cd403305ec755c536aa5} 
 \index{teqp@{teqp}!get\_pure\_critical\_conditions\_Jacobian@{get\_pure\_critical\_conditions\_Jacobian}}
 \index{get\_pure\_critical\_conditions\_Jacobian@{get\_pure\_critical\_conditions\_Jacobian}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{get\_pure\_critical\_conditions\_Jacobian()}{get\_pure\_critical\_conditions\_Jacobian()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -1230,7 +1304,7 @@ auto teqp\+::get\+\_\+pure\+\_\+critical\+\_\+conditions\+\_\+\+Jacobian (\begin
 
 Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00084}{84}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a2b7e9f6c1e890797284b6bd57d251379}\label{namespaceteqp_a2b7e9f6c1e890797284b6bd57d251379}} 
+\Hypertarget{namespaceteqp_a2b7e9f6c1e890797284b6bd57d251379}\label{namespaceteqp_a2b7e9f6c1e890797284b6bd57d251379} 
 \index{teqp@{teqp}!get\_R\_gas@{get\_R\_gas}}
 \index{get\_R\_gas@{get\_R\_gas}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{get\_R\_gas()}{get\_R\_gas()}}
@@ -1243,7 +1317,7 @@ const auto teqp\+::get\+\_\+\+R\+\_\+gas (\begin{DoxyParamCaption}{ }\end{DoxyPa
 
 Definition at line \mbox{\hyperlink{constants_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{constants_8hpp_source}{constants.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a79c1a1ea4876acd80e74721bba2361ce}\label{namespaceteqp_a79c1a1ea4876acd80e74721bba2361ce}} 
+\Hypertarget{namespaceteqp_a79c1a1ea4876acd80e74721bba2361ce}\label{namespaceteqp_a79c1a1ea4876acd80e74721bba2361ce} 
 \index{teqp@{teqp}!getbaseval@{getbaseval}}
 \index{getbaseval@{getbaseval}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{getbaseval()}{getbaseval()}}
@@ -1254,7 +1328,7 @@ auto teqp\+::getbaseval (\begin{DoxyParamCaption}\item[{const T \&}]{expr }\end{
 
 Definition at line \mbox{\hyperlink{types_8hpp_source_l00084}{84}} of file \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a4fa49b70ad97e59d91d236f7437e899c}\label{namespaceteqp_a4fa49b70ad97e59d91d236f7437e899c}} 
+\Hypertarget{namespaceteqp_a4fa49b70ad97e59d91d236f7437e899c}\label{namespaceteqp_a4fa49b70ad97e59d91d236f7437e899c} 
 \index{teqp@{teqp}!linsolve@{linsolve}}
 \index{linsolve@{linsolve}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{linsolve()}{linsolve()}}
@@ -1265,7 +1339,7 @@ auto teqp\+::linsolve (\begin{DoxyParamCaption}\item[{const A \&}]{a,  }\item[{c
 
 Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a5f3efac006a4e11eff65affdbc051469}\label{namespaceteqp_a5f3efac006a4e11eff65affdbc051469}} 
+\Hypertarget{namespaceteqp_a5f3efac006a4e11eff65affdbc051469}\label{namespaceteqp_a5f3efac006a4e11eff65affdbc051469} 
 \index{teqp@{teqp}!load\_a\_JSON\_file@{load\_a\_JSON\_file}}
 \index{load\_a\_JSON\_file@{load\_a\_JSON\_file}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{load\_a\_JSON\_file()}{load\_a\_JSON\_file()}}
@@ -1279,7 +1353,7 @@ Load a JSON file from a specified file.
 
 Definition at line \mbox{\hyperlink{json__tools_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{json__tools_8hpp_source}{json\+\_\+tools.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a86f985a767c5c10c7b64cba83e288db4}\label{namespaceteqp_a86f985a767c5c10c7b64cba83e288db4}} 
+\Hypertarget{namespaceteqp_a86f985a767c5c10c7b64cba83e288db4}\label{namespaceteqp_a86f985a767c5c10c7b64cba83e288db4} 
 \index{teqp@{teqp}!make\_canonicalPR@{make\_canonicalPR}}
 \index{make\_canonicalPR@{make\_canonicalPR}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{make\_canonicalPR()}{make\_canonicalPR()}}
@@ -1293,7 +1367,7 @@ A JSON-\/based factory function for the canonical SRK model.
 
 Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00280}{280}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_acfec86ec5ae6cae32421445beaae20e9}\label{namespaceteqp_acfec86ec5ae6cae32421445beaae20e9}} 
+\Hypertarget{namespaceteqp_acfec86ec5ae6cae32421445beaae20e9}\label{namespaceteqp_acfec86ec5ae6cae32421445beaae20e9} 
 \index{teqp@{teqp}!make\_canonicalSRK@{make\_canonicalSRK}}
 \index{make\_canonicalSRK@{make\_canonicalSRK}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{make\_canonicalSRK()}{make\_canonicalSRK()}}
@@ -1307,7 +1381,7 @@ A JSON-\/based factory function for the canonical SRK model.
 
 Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00236}{236}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a334093a8fbd62d4f6445df5d8d330e32}\label{namespaceteqp_a334093a8fbd62d4f6445df5d8d330e32}} 
+\Hypertarget{namespaceteqp_a334093a8fbd62d4f6445df5d8d330e32}\label{namespaceteqp_a334093a8fbd62d4f6445df5d8d330e32} 
 \index{teqp@{teqp}!make\_generalizedcubic@{make\_generalizedcubic}}
 \index{make\_generalizedcubic@{make\_generalizedcubic}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{make\_generalizedcubic()}{make\_generalizedcubic()}}
@@ -1321,7 +1395,7 @@ A JSON-\/based factory function for the generalized cubic + alpha.
 
 Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00290}{290}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_ac5791e9c69fafc070cecaca567dbc1bf}\label{namespaceteqp_ac5791e9c69fafc070cecaca567dbc1bf}} 
+\Hypertarget{namespaceteqp_ac5791e9c69fafc070cecaca567dbc1bf}\label{namespaceteqp_ac5791e9c69fafc070cecaca567dbc1bf} 
 \index{teqp@{teqp}!make\_pure\_components\_JSON@{make\_pure\_components\_JSON}}
 \index{make\_pure\_components\_JSON@{make\_pure\_components\_JSON}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{make\_pure\_components\_JSON()}{make\_pure\_components\_JSON()}}
@@ -1339,37 +1413,70 @@ There are 4 options\+:
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00899}{899}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_ac09ec2a6e2dfb57a38f42ed084bc9f58}\label{namespaceteqp_ac09ec2a6e2dfb57a38f42ed084bc9f58}} 
+\Hypertarget{namespaceteqp_ac09ec2a6e2dfb57a38f42ed084bc9f58}\label{namespaceteqp_ac09ec2a6e2dfb57a38f42ed084bc9f58} 
 \index{teqp@{teqp}!mix\_VLE\_Tp@{mix\_VLE\_Tp}}
 \index{mix\_VLE\_Tp@{mix\_VLE\_Tp}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{mix\_VLE\_Tp()}{mix\_VLE\_Tp()}}
+\doxysubsubsection{\texorpdfstring{mix\_VLE\_Tp()}{mix\_VLE\_Tp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily auto teqp\+::mix\+\_\+\+VLE\+\_\+\+Tp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{double}]{T,  }\item[{double}]{pgiven,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovec\+L0,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovec\+V0,  }\item[{const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1MixVLETpFlags}{Mix\+VLETp\+Flags}} $>$ \&}]{flags\+\_\+ = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00287}{287}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a5795b3879712fe63c9870a29cfd29905}\label{namespaceteqp_a5795b3879712fe63c9870a29cfd29905}} 
+\Hypertarget{namespaceteqp_a857c08f14bb6d19558b186416c152474}\label{namespaceteqp_a857c08f14bb6d19558b186416c152474} 
+\index{teqp@{teqp}!mix\_VLE\_Tp@{mix\_VLE\_Tp}}
+\index{mix\_VLE\_Tp@{mix\_VLE\_Tp}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{mix\_VLE\_Tp()}{mix\_VLE\_Tp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+auto teqp\+::mix\+\_\+\+VLE\+\_\+\+Tp (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a5795b3879712fe63c9870a29cfd29905}\label{namespaceteqp_a5795b3879712fe63c9870a29cfd29905} 
 \index{teqp@{teqp}!mix\_VLE\_Tx@{mix\_VLE\_Tx}}
 \index{mix\_VLE\_Tx@{mix\_VLE\_Tx}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{mix\_VLE\_Tx()}{mix\_VLE\_Tx()}}
+\doxysubsubsection{\texorpdfstring{mix\_VLE\_Tx()}{mix\_VLE\_Tx()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily auto teqp\+::mix\+\_\+\+VLE\+\_\+\+Tx (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{double}]{T,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovec\+L0,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovec\+V0,  }\item[{const Eigen\+::\+Array\+Xd \&}]{xspec,  }\item[{double}]{atol,  }\item[{double}]{reltol,  }\item[{double}]{axtol,  }\item[{double}]{relxtol,  }\item[{int}]{maxiter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00076}{76}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_aa0e91cea3c6012535d2718e2874826b4}\label{namespaceteqp_aa0e91cea3c6012535d2718e2874826b4}} 
+\Hypertarget{namespaceteqp_a44b67c5bb411fe3aa4589f51c11747eb}\label{namespaceteqp_a44b67c5bb411fe3aa4589f51c11747eb} 
+\index{teqp@{teqp}!mix\_VLE\_Tx@{mix\_VLE\_Tx}}
+\index{mix\_VLE\_Tx@{mix\_VLE\_Tx}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{mix\_VLE\_Tx()}{mix\_VLE\_Tx()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+auto teqp\+::mix\+\_\+\+VLE\+\_\+\+Tx (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_aa0e91cea3c6012535d2718e2874826b4}\label{namespaceteqp_aa0e91cea3c6012535d2718e2874826b4} 
 \index{teqp@{teqp}!mixture\_VLE\_px@{mixture\_VLE\_px}}
 \index{mixture\_VLE\_px@{mixture\_VLE\_px}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{mixture\_VLE\_px()}{mixture\_VLE\_px()}}
+\doxysubsubsection{\texorpdfstring{mixture\_VLE\_px()}{mixture\_VLE\_px()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily auto teqp\+::mixture\+\_\+\+VLE\+\_\+px (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{double}]{p\+\_\+spec,  }\item[{const Eigen\+::\+Array\+Xd \&}]{xmolar\+\_\+spec,  }\item[{double}]{T0,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovec\+L0,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovec\+V0,  }\item[{const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1MixVLEpxFlags}{Mix\+VLEpx\+Flags}} $>$ \&}]{flags\+\_\+ = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00399}{399}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}\label{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}} 
+\Hypertarget{namespaceteqp_ad8574895c4ac11f4afc0c44c99e610a4}\label{namespaceteqp_ad8574895c4ac11f4afc0c44c99e610a4} 
+\index{teqp@{teqp}!mixture\_VLE\_px@{mixture\_VLE\_px}}
+\index{mixture\_VLE\_px@{mixture\_VLE\_px}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{mixture\_VLE\_px()}{mixture\_VLE\_px()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+auto teqp\+::mixture\+\_\+\+VLE\+\_\+px (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}\label{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd} 
 \index{teqp@{teqp}!multifluidfactory@{multifluidfactory}}
 \index{multifluidfactory@{multifluidfactory}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{multifluidfactory()}{multifluidfactory()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -1385,7 +1492,7 @@ BIP and departure can be either the data in JSON format, or a path to file with 
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00984}{984}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_acf914908b8bfc56e964cd6bc6982366e}\label{namespaceteqp_acf914908b8bfc56e964cd6bc6982366e}} 
+\Hypertarget{namespaceteqp_acf914908b8bfc56e964cd6bc6982366e}\label{namespaceteqp_acf914908b8bfc56e964cd6bc6982366e} 
 \index{teqp@{teqp}!multifluidfactory@{multifluidfactory}}
 \index{multifluidfactory@{multifluidfactory}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{multifluidfactory()}{multifluidfactory()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -1399,7 +1506,7 @@ An overload of multifluidfactory that takes in a string.
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l01001}{1001}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_ad4771b0bb9c922bc937e72f81b4431df}\label{namespaceteqp_ad4771b0bb9c922bc937e72f81b4431df}} 
+\Hypertarget{namespaceteqp_ad4771b0bb9c922bc937e72f81b4431df}\label{namespaceteqp_ad4771b0bb9c922bc937e72f81b4431df} 
 \index{teqp@{teqp}!multilevel\_JSON\_load@{multilevel\_JSON\_load}}
 \index{multilevel\_JSON\_load@{multilevel\_JSON\_load}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{multilevel\_JSON\_load()}{multilevel\_JSON\_load()}}
@@ -1416,7 +1523,7 @@ A method for loading something from a nlohmann\+::json node. Thing to be operate
 
 Definition at line \mbox{\hyperlink{json__tools_8hpp_source_l00077}{77}} of file \mbox{\hyperlink{json__tools_8hpp_source}{json\+\_\+tools.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a4c8982c69544d149d39b057cbd1fcd7e}\label{namespaceteqp_a4c8982c69544d149d39b057cbd1fcd7e}} 
+\Hypertarget{namespaceteqp_a4c8982c69544d149d39b057cbd1fcd7e}\label{namespaceteqp_a4c8982c69544d149d39b057cbd1fcd7e} 
 \index{teqp@{teqp}!NewtonRaphson@{NewtonRaphson}}
 \index{NewtonRaphson@{NewtonRaphson}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{NewtonRaphson()}{NewtonRaphson()}}
@@ -1427,7 +1534,7 @@ auto teqp\+::\+Newton\+Raphson (\begin{DoxyParamCaption}\item[{Callable}]{f,  }\
 
 Definition at line \mbox{\hyperlink{rootfinding_8hpp_source_l00006}{6}} of file \mbox{\hyperlink{rootfinding_8hpp_source}{rootfinding.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}\label{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}} 
+\Hypertarget{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}\label{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8} 
 \index{teqp@{teqp}!pow@{pow}}
 \index{pow@{pow}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{pow()}{pow()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
@@ -1437,7 +1544,7 @@ Definition at line \mbox{\hyperlink{rootfinding_8hpp_source_l00006}{6}} of file 
 
 Definition at line \mbox{\hyperlink{types_8hpp_source_l00189}{189}} of file \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_ac6aa96ef107cd0c3798d0ea26b70b73d}\label{namespaceteqp_ac6aa96ef107cd0c3798d0ea26b70b73d}} 
+\Hypertarget{namespaceteqp_ac6aa96ef107cd0c3798d0ea26b70b73d}\label{namespaceteqp_ac6aa96ef107cd0c3798d0ea26b70b73d} 
 \index{teqp@{teqp}!pow@{pow}}
 \index{pow@{pow}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{pow()}{pow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
@@ -1447,7 +1554,7 @@ Definition at line \mbox{\hyperlink{types_8hpp_source_l00189}{189}} of file \mbo
 
 Definition at line \mbox{\hyperlink{types_8hpp_source_l00193}{193}} of file \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a241d67c75b258ca853af0cb3981b3c98}\label{namespaceteqp_a241d67c75b258ca853af0cb3981b3c98}} 
+\Hypertarget{namespaceteqp_a241d67c75b258ca853af0cb3981b3c98}\label{namespaceteqp_a241d67c75b258ca853af0cb3981b3c98} 
 \index{teqp@{teqp}!pow@{pow}}
 \index{pow@{pow}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{pow()}{pow()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
@@ -1458,7 +1565,7 @@ auto teqp\+::pow (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ T $>$ \
 
 Definition at line \mbox{\hyperlink{types_8hpp_source_l00198}{198}} of file \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a30254f4d72e62f32a251a5103cbacaee}\label{namespaceteqp_a30254f4d72e62f32a251a5103cbacaee}} 
+\Hypertarget{namespaceteqp_a30254f4d72e62f32a251a5103cbacaee}\label{namespaceteqp_a30254f4d72e62f32a251a5103cbacaee} 
 \index{teqp@{teqp}!POW10@{POW10}}
 \index{POW10@{POW10}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{POW10()}{POW10()}}
@@ -1469,7 +1576,7 @@ auto teqp\+::\+POW10 (\begin{DoxyParamCaption}\item[{const A \&}]{x }\end{DoxyPa
 
 Definition at line \mbox{\hyperlink{pow__templates_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{pow__templates_8hpp_source}{pow\+\_\+templates.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a79552705cf1b6854e543c4fcd3cd2549}\label{namespaceteqp_a79552705cf1b6854e543c4fcd3cd2549}} 
+\Hypertarget{namespaceteqp_a79552705cf1b6854e543c4fcd3cd2549}\label{namespaceteqp_a79552705cf1b6854e543c4fcd3cd2549} 
 \index{teqp@{teqp}!POW12@{POW12}}
 \index{POW12@{POW12}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{POW12()}{POW12()}}
@@ -1480,7 +1587,7 @@ auto teqp\+::\+POW12 (\begin{DoxyParamCaption}\item[{const A \&}]{x }\end{DoxyPa
 
 Definition at line \mbox{\hyperlink{pow__templates_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{pow__templates_8hpp_source}{pow\+\_\+templates.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}\label{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}} 
+\Hypertarget{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}\label{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262} 
 \index{teqp@{teqp}!POW2@{POW2}}
 \index{POW2@{POW2}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{POW2()}{POW2()}}
@@ -1491,7 +1598,7 @@ auto teqp\+::\+POW2 (\begin{DoxyParamCaption}\item[{const A \&}]{x }\end{DoxyPar
 
 Definition at line \mbox{\hyperlink{pow__templates_8hpp_source_l00005}{5}} of file \mbox{\hyperlink{pow__templates_8hpp_source}{pow\+\_\+templates.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_aa0812a3c14b8df38572406314014e130}\label{namespaceteqp_aa0812a3c14b8df38572406314014e130}} 
+\Hypertarget{namespaceteqp_aa0812a3c14b8df38572406314014e130}\label{namespaceteqp_aa0812a3c14b8df38572406314014e130} 
 \index{teqp@{teqp}!pow2@{pow2}}
 \index{pow2@{pow2}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{pow2()}{pow2()}}
@@ -1502,7 +1609,7 @@ T teqp\+::pow2 (\begin{DoxyParamCaption}\item[{const T \&}]{x }\end{DoxyParamCap
 
 Definition at line \mbox{\hyperlink{types_8hpp_source_l00007}{7}} of file \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}\label{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}} 
+\Hypertarget{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}\label{namespaceteqp_a6a4ffed646587349cad3579d28b07d48} 
 \index{teqp@{teqp}!POW3@{POW3}}
 \index{POW3@{POW3}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{POW3()}{POW3()}}
@@ -1513,7 +1620,7 @@ auto teqp\+::\+POW3 (\begin{DoxyParamCaption}\item[{const A \&}]{x }\end{DoxyPar
 
 Definition at line \mbox{\hyperlink{pow__templates_8hpp_source_l00006}{6}} of file \mbox{\hyperlink{pow__templates_8hpp_source}{pow\+\_\+templates.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a1715f263d954e9d4e1dc686334ec4b98}\label{namespaceteqp_a1715f263d954e9d4e1dc686334ec4b98}} 
+\Hypertarget{namespaceteqp_a1715f263d954e9d4e1dc686334ec4b98}\label{namespaceteqp_a1715f263d954e9d4e1dc686334ec4b98} 
 \index{teqp@{teqp}!pow3@{pow3}}
 \index{pow3@{pow3}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{pow3()}{pow3()}}
@@ -1524,7 +1631,7 @@ T teqp\+::pow3 (\begin{DoxyParamCaption}\item[{const T \&}]{x }\end{DoxyParamCap
 
 Definition at line \mbox{\hyperlink{types_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_af0a89b87ac5474fa2520f64cab3c5430}\label{namespaceteqp_af0a89b87ac5474fa2520f64cab3c5430}} 
+\Hypertarget{namespaceteqp_af0a89b87ac5474fa2520f64cab3c5430}\label{namespaceteqp_af0a89b87ac5474fa2520f64cab3c5430} 
 \index{teqp@{teqp}!POW4@{POW4}}
 \index{POW4@{POW4}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{POW4()}{POW4()}}
@@ -1535,7 +1642,7 @@ auto teqp\+::\+POW4 (\begin{DoxyParamCaption}\item[{const A \&}]{x }\end{DoxyPar
 
 Definition at line \mbox{\hyperlink{pow__templates_8hpp_source_l00007}{7}} of file \mbox{\hyperlink{pow__templates_8hpp_source}{pow\+\_\+templates.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a3a062dbd736e54019b61f41a88af3403}\label{namespaceteqp_a3a062dbd736e54019b61f41a88af3403}} 
+\Hypertarget{namespaceteqp_a3a062dbd736e54019b61f41a88af3403}\label{namespaceteqp_a3a062dbd736e54019b61f41a88af3403} 
 \index{teqp@{teqp}!POW5@{POW5}}
 \index{POW5@{POW5}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{POW5()}{POW5()}}
@@ -1546,7 +1653,7 @@ auto teqp\+::\+POW5 (\begin{DoxyParamCaption}\item[{const A \&}]{x }\end{DoxyPar
 
 Definition at line \mbox{\hyperlink{pow__templates_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{pow__templates_8hpp_source}{pow\+\_\+templates.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a2b7e453562132328e144abdb38c8130d}\label{namespaceteqp_a2b7e453562132328e144abdb38c8130d}} 
+\Hypertarget{namespaceteqp_a2b7e453562132328e144abdb38c8130d}\label{namespaceteqp_a2b7e453562132328e144abdb38c8130d} 
 \index{teqp@{teqp}!POW7@{POW7}}
 \index{POW7@{POW7}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{POW7()}{POW7()}}
@@ -1557,7 +1664,7 @@ auto teqp\+::\+POW7 (\begin{DoxyParamCaption}\item[{const A \&}]{x }\end{DoxyPar
 
 Definition at line \mbox{\hyperlink{pow__templates_8hpp_source_l00009}{9}} of file \mbox{\hyperlink{pow__templates_8hpp_source}{pow\+\_\+templates.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a442509e211008be95bb7b39c11af28e0}\label{namespaceteqp_a442509e211008be95bb7b39c11af28e0}} 
+\Hypertarget{namespaceteqp_a442509e211008be95bb7b39c11af28e0}\label{namespaceteqp_a442509e211008be95bb7b39c11af28e0} 
 \index{teqp@{teqp}!POW8@{POW8}}
 \index{POW8@{POW8}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{POW8()}{POW8()}}
@@ -1568,7 +1675,7 @@ auto teqp\+::\+POW8 (\begin{DoxyParamCaption}\item[{const A \&}]{x }\end{DoxyPar
 
 Definition at line \mbox{\hyperlink{pow__templates_8hpp_source_l00010}{10}} of file \mbox{\hyperlink{pow__templates_8hpp_source}{pow\+\_\+templates.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}\label{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}} 
+\Hypertarget{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}\label{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68} 
 \index{teqp@{teqp}!powi@{powi}}
 \index{powi@{powi}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{powi()}{powi()}}
@@ -1583,7 +1690,7 @@ From Ulrich Deiters.
 
 Definition at line \mbox{\hyperlink{types_8hpp_source_l00133}{133}} of file \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a641966211d5ef71d493fc52d3bd11a53}\label{namespaceteqp_a641966211d5ef71d493fc52d3bd11a53}} 
+\Hypertarget{namespaceteqp_a641966211d5ef71d493fc52d3bd11a53}\label{namespaceteqp_a641966211d5ef71d493fc52d3bd11a53} 
 \index{teqp@{teqp}!powIVi@{powIVi}}
 \index{powIVi@{powIVi}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{powIVi()}{powIVi()}}
@@ -1594,7 +1701,7 @@ auto teqp\+::pow\+IVi (\begin{DoxyParamCaption}\item[{const T \&}]{x,  }\item[{c
 
 Definition at line \mbox{\hyperlink{types_8hpp_source_l00172}{172}} of file \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_aa86ef0e9fc4dadf2179f0748608c83e5}\label{namespaceteqp_aa86ef0e9fc4dadf2179f0748608c83e5}} 
+\Hypertarget{namespaceteqp_aa86ef0e9fc4dadf2179f0748608c83e5}\label{namespaceteqp_aa86ef0e9fc4dadf2179f0748608c83e5} 
 \index{teqp@{teqp}!pure\_trace\_VLE@{pure\_trace\_VLE}}
 \index{pure\_trace\_VLE@{pure\_trace\_VLE}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{pure\_trace\_VLE()}{pure\_trace\_VLE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -1605,7 +1712,7 @@ auto teqp\+::pure\+\_\+trace\+\_\+\+VLE (\begin{DoxyParamCaption}\item[{const Te
 
 Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00255}{255}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a2408f7de3e451a2f68a0919f821df98e}\label{namespaceteqp_a2408f7de3e451a2f68a0919f821df98e}} 
+\Hypertarget{namespaceteqp_a2408f7de3e451a2f68a0919f821df98e}\label{namespaceteqp_a2408f7de3e451a2f68a0919f821df98e} 
 \index{teqp@{teqp}!pure\_trace\_VLE@{pure\_trace\_VLE}}
 \index{pure\_trace\_VLE@{pure\_trace\_VLE}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{pure\_trace\_VLE()}{pure\_trace\_VLE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -1615,7 +1722,7 @@ Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00255}{255}} of file 
 
 Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00184}{184}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a60702a999ed3d15ebe25ac67a2351a6c}\label{namespaceteqp_a60702a999ed3d15ebe25ac67a2351a6c}} 
+\Hypertarget{namespaceteqp_a60702a999ed3d15ebe25ac67a2351a6c}\label{namespaceteqp_a60702a999ed3d15ebe25ac67a2351a6c} 
 \index{teqp@{teqp}!pure\_VLE\_T@{pure\_VLE\_T}}
 \index{pure\_VLE\_T@{pure\_VLE\_T}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{pure\_VLE\_T()}{pure\_VLE\_T()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -1626,7 +1733,7 @@ auto teqp\+::pure\+\_\+\+VLE\+\_\+T (\begin{DoxyParamCaption}\item[{const Templa
 
 Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00255}{255}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a92911152e3677223eedb7045a0b224b1}\label{namespaceteqp_a92911152e3677223eedb7045a0b224b1}} 
+\Hypertarget{namespaceteqp_a92911152e3677223eedb7045a0b224b1}\label{namespaceteqp_a92911152e3677223eedb7045a0b224b1} 
 \index{teqp@{teqp}!pure\_VLE\_T@{pure\_VLE\_T}}
 \index{pure\_VLE\_T@{pure\_VLE\_T}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{pure\_VLE\_T()}{pure\_VLE\_T()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -1636,7 +1743,7 @@ Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00255}{255}} of file 
 
 Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00138}{138}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a9c9294e48d5b5ae2258bb0f19c1d0d48}\label{namespaceteqp_a9c9294e48d5b5ae2258bb0f19c1d0d48}} 
+\Hypertarget{namespaceteqp_a9c9294e48d5b5ae2258bb0f19c1d0d48}\label{namespaceteqp_a9c9294e48d5b5ae2258bb0f19c1d0d48} 
 \index{teqp@{teqp}!quad@{quad}}
 \index{quad@{quad}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{quad()}{quad()}}
@@ -1649,7 +1756,7 @@ More coefficients here if needed\+: \href{https://pomax.github.io/bezierinfo/leg
 
 Definition at line \mbox{\hyperlink{quadrature_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{quadrature_8hpp_source}{quadrature.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a82165b861618513fd96dd11b6d0b57e8}\label{namespaceteqp_a82165b861618513fd96dd11b6d0b57e8}} 
+\Hypertarget{namespaceteqp_a82165b861618513fd96dd11b6d0b57e8}\label{namespaceteqp_a82165b861618513fd96dd11b6d0b57e8} 
 \index{teqp@{teqp}!select\_identifier@{select\_identifier}}
 \index{select\_identifier@{select\_identifier}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{select\_identifier()}{select\_identifier()}}
@@ -1664,7 +1771,7 @@ Iterate over the possible options for identifiers to determine which one will sa
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00765}{765}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_aaa9d7d044c02e240dc249340f7a48a93}\label{namespaceteqp_aaa9d7d044c02e240dc249340f7a48a93}} 
+\Hypertarget{namespaceteqp_aaa9d7d044c02e240dc249340f7a48a93}\label{namespaceteqp_aaa9d7d044c02e240dc249340f7a48a93} 
 \index{teqp@{teqp}!solve\_pure\_critical@{solve\_pure\_critical}}
 \index{solve\_pure\_critical@{solve\_pure\_critical}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{solve\_pure\_critical()}{solve\_pure\_critical()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -1674,7 +1781,7 @@ Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00765}{765}} of file
 
 Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00126}{126}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a582c949fe26e5a5c2605613c73a3c73b}\label{namespaceteqp_a582c949fe26e5a5c2605613c73a3c73b}} 
+\Hypertarget{namespaceteqp_a582c949fe26e5a5c2605613c73a3c73b}\label{namespaceteqp_a582c949fe26e5a5c2605613c73a3c73b} 
 \index{teqp@{teqp}!solve\_pure\_critical@{solve\_pure\_critical}}
 \index{solve\_pure\_critical@{solve\_pure\_critical}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{solve\_pure\_critical()}{solve\_pure\_critical()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -1685,7 +1792,7 @@ auto teqp\+::solve\+\_\+pure\+\_\+critical (\begin{DoxyParamCaption}\item[{const
 
 Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00093}{93}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a54c35c0fca0f39185783efb600ccb586}\label{namespaceteqp_a54c35c0fca0f39185783efb600ccb586}} 
+\Hypertarget{namespaceteqp_a54c35c0fca0f39185783efb600ccb586}\label{namespaceteqp_a54c35c0fca0f39185783efb600ccb586} 
 \index{teqp@{teqp}!toeig@{toeig}}
 \index{toeig@{toeig}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{toeig()}{toeig()}}
@@ -1695,10 +1802,21 @@ Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00093}{93}} of f
 
 Definition at line \mbox{\hyperlink{types_8hpp_source_l00010}{10}} of file \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_af320b714fb1758cc835cfe8bb1eb3fd2}\label{namespaceteqp_af320b714fb1758cc835cfe8bb1eb3fd2}} 
+\Hypertarget{namespaceteqp_a9692edf46f169b11b22991ee0145df6b}\label{namespaceteqp_a9692edf46f169b11b22991ee0145df6b} 
+\index{teqp@{teqp}!trace\_critical\_arclength\_binary@{trace\_critical\_arclength\_binary}}
+\index{trace\_critical\_arclength\_binary@{trace\_critical\_arclength\_binary}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{trace\_critical\_arclength\_binary()}{trace\_critical\_arclength\_binary()}}
+{\footnotesize\ttfamily template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+auto teqp\+::trace\+\_\+critical\+\_\+arclength\+\_\+binary (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_af320b714fb1758cc835cfe8bb1eb3fd2}\label{namespaceteqp_af320b714fb1758cc835cfe8bb1eb3fd2} 
 \index{teqp@{teqp}!trace\_VLE\_isobar\_binary@{trace\_VLE\_isobar\_binary}}
 \index{trace\_VLE\_isobar\_binary@{trace\_VLE\_isobar\_binary}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{trace\_VLE\_isobar\_binary()}{trace\_VLE\_isobar\_binary()}}
+\doxysubsubsection{\texorpdfstring{trace\_VLE\_isobar\_binary()}{trace\_VLE\_isobar\_binary()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename Model  = Abstract\+Model$>$ \\
 auto teqp\+::trace\+\_\+\+VLE\+\_\+isobar\+\_\+binary (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{double}]{p,  }\item[{double}]{T0,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovec\+L0,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovec\+V0,  }\item[{const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1PVLEOptions}{PVLEOptions}} $>$ \&}]{options = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
@@ -1706,20 +1824,42 @@ auto teqp\+::trace\+\_\+\+VLE\+\_\+isobar\+\_\+binary (\begin{DoxyParamCaption}\
 
 Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01035}{1035}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a56339c8078f4369f5a988a87cfc1344e}\label{namespaceteqp_a56339c8078f4369f5a988a87cfc1344e}} 
+\Hypertarget{namespaceteqp_ad8ed28be253b638ae6d36c2264e906c6}\label{namespaceteqp_ad8ed28be253b638ae6d36c2264e906c6} 
+\index{teqp@{teqp}!trace\_VLE\_isobar\_binary@{trace\_VLE\_isobar\_binary}}
+\index{trace\_VLE\_isobar\_binary@{trace\_VLE\_isobar\_binary}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{trace\_VLE\_isobar\_binary()}{trace\_VLE\_isobar\_binary()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+auto teqp\+::trace\+\_\+\+VLE\+\_\+isobar\+\_\+binary (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a56339c8078f4369f5a988a87cfc1344e}\label{namespaceteqp_a56339c8078f4369f5a988a87cfc1344e} 
 \index{teqp@{teqp}!trace\_VLE\_isotherm\_binary@{trace\_VLE\_isotherm\_binary}}
 \index{trace\_VLE\_isotherm\_binary@{trace\_VLE\_isotherm\_binary}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{trace\_VLE\_isotherm\_binary()}{trace\_VLE\_isotherm\_binary()}}
+\doxysubsubsection{\texorpdfstring{trace\_VLE\_isotherm\_binary()}{trace\_VLE\_isotherm\_binary()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily auto teqp\+::trace\+\_\+\+VLE\+\_\+isotherm\+\_\+binary (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{double}]{T,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovec\+L0,  }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovec\+V0,  }\item[{const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1TVLEOptions}{TVLEOptions}} $>$ \&}]{options = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00792}{792}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
+\Hypertarget{namespaceteqp_aa22c5614274353738a4581d42e8a602c}\label{namespaceteqp_aa22c5614274353738a4581d42e8a602c} 
+\index{teqp@{teqp}!trace\_VLE\_isotherm\_binary@{trace\_VLE\_isotherm\_binary}}
+\index{trace\_VLE\_isotherm\_binary@{trace\_VLE\_isotherm\_binary}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{trace\_VLE\_isotherm\_binary()}{trace\_VLE\_isotherm\_binary()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+auto teqp\+::trace\+\_\+\+VLE\+\_\+isotherm\+\_\+binary (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
 
 
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{namespaceteqp_a0387f578fa55e79f0da380ebd38b22e9}\label{namespaceteqp_a0387f578fa55e79f0da380ebd38b22e9}} 
+\Hypertarget{namespaceteqp_a0387f578fa55e79f0da380ebd38b22e9}\label{namespaceteqp_a0387f578fa55e79f0da380ebd38b22e9} 
 \index{teqp@{teqp}!build\_square\_matrix@{build\_square\_matrix}}
 \index{build\_square\_matrix@{build\_square\_matrix}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{build\_square\_matrix}{build\_square\_matrix}}
@@ -1727,40 +1867,40 @@ Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00792}{792}} of file \mbox{
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{= [](\textcolor{keyword}{const} nlohmann::json\& j)\{}
-\DoxyCodeLine{        \textcolor{keywordflow}{if} (j.is\_null() || (j.is\_array() \&\& j.size() == 0))\{}
-\DoxyCodeLine{            \textcolor{keywordflow}{return} Eigen::ArrayXXd(0, 0);}
-\DoxyCodeLine{        \}}
-\DoxyCodeLine{        \textcolor{keywordflow}{try}\{}
-\DoxyCodeLine{            \textcolor{keyword}{const} std::valarray<std::valarray<double>> m = j;}
-\DoxyCodeLine{            }
-\DoxyCodeLine{            Eigen::ArrayXXd mat(m.size(), m.size());}
-\DoxyCodeLine{            \textcolor{keywordflow}{if} (m.size() == 0)\{}
-\DoxyCodeLine{                \textcolor{keywordflow}{return} mat;}
-\DoxyCodeLine{            \}}
-\DoxyCodeLine{            }
-\DoxyCodeLine{            \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < m.size(); ++i)\{}
-\DoxyCodeLine{                \textcolor{keyword}{auto} row = m[i];}
-\DoxyCodeLine{                \textcolor{keywordflow}{if} (row.size() != mat.rows())\{}
-\DoxyCodeLine{                    \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}provided matrix is not square"{}});}
-\DoxyCodeLine{                \}}
-\DoxyCodeLine{                \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} k = 0; k < row.size(); ++k)\{}
-\DoxyCodeLine{                    mat(i, k) = row[k];}
-\DoxyCodeLine{                \}}
-\DoxyCodeLine{            \}}
-\DoxyCodeLine{            \textcolor{keywordflow}{return} mat;}
-\DoxyCodeLine{        \}}
-\DoxyCodeLine{        \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} nlohmann::json::exception\&)\{}
-\DoxyCodeLine{            \textcolor{keywordflow}{throw} \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}Unable to convert this kmat to a 2x2 matrix of doubles:"{}} + j.dump(2));}
-\DoxyCodeLine{        \}}
-\DoxyCodeLine{    \}}
+\DoxyCodeLine{=\ [](\textcolor{keyword}{const}\ nlohmann::json\&\ j)\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j.is\_null()\ ||\ (j.is\_array()\ \&\&\ j.size()\ ==\ 0))\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Eigen::ArrayXXd(0,\ 0);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::valarray<std::valarray<double>>\ m\ =\ j;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Eigen::ArrayXXd\ mat(m.size(),\ m.size());}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m.size()\ ==\ 0)\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mat;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ m.size();\ ++i)\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ row\ =\ m[i];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (row.size()\ !=\ mat.rows())\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}provided\ matrix\ is\ not\ square"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ 0;\ k\ <\ row.size();\ ++k)\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mat(i,\ k)\ =\ row[k];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mat;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}(\textcolor{keyword}{const}\ nlohmann::json::exception\&)\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}Unable\ to\ convert\ this\ kmat\ to\ a\ 2x2\ matrix\ of\ doubles:"{}}\ +\ j.dump(2));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
 
 \end{DoxyCode}
 
 
 Definition at line \mbox{\hyperlink{json__tools_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{json__tools_8hpp_source}{json\+\_\+tools.\+hpp}}.
 
-\mbox{\Hypertarget{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85}\label{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85}} 
+\Hypertarget{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85}\label{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85} 
 \index{teqp@{teqp}!N\_A@{N\_A}}
 \index{N\_A@{N\_A}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{N\_A}{N\_A}}

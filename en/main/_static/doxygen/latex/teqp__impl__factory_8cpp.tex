@@ -1,36 +1,36 @@
-\hypertarget{teqp__impl__factory_8cpp}{}\doxysection{interface/\+CPP/teqp\+\_\+impl\+\_\+factory.cpp File Reference}
-\label{teqp__impl__factory_8cpp}\index{interface/CPP/teqp\_impl\_factory.cpp@{interface/CPP/teqp\_impl\_factory.cpp}}
-{\ttfamily \#include \char`\"{}teqp/cpp/teqpcpp.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teqp/models/fwd.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teqp/cpp/deriv\+\_\+adapter.\+hpp\char`\"{}}\newline
-\doxysubsection*{Namespaces}
+\doxysection{interface/\+CPP/teqp\+\_\+impl\+\_\+factory.cpp File Reference}
+\hypertarget{teqp__impl__factory_8cpp}{}\label{teqp__impl__factory_8cpp}\index{interface/CPP/teqp\_impl\_factory.cpp@{interface/CPP/teqp\_impl\_factory.cpp}}
+{\ttfamily \#include "{}teqp/cpp/teqpcpp.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/models/fwd.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/cpp/deriv\+\_\+adapter.\+hpp"{}}\newline
+\doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1cppinterface}{teqp\+::cppinterface}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Typedefs}
+\doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a23932c37884522f70dd24de23a3ed49f}{teqp\+::cppinterface\+::makefunc}} = Model\+Pointer\+Factory\+Function
+using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a23932c37884522f70dd24de23a3ed49f}{teqp\+::cppinterface\+::makefunc}} = \mbox{\hyperlink{namespaceteqp_1_1cppinterface_af38152c18fd82d7ed79728552ac785fb}{Model\+Pointer\+Factory\+Function}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Functions}
+\doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a432d204a25bfde3ea0cfc27bf3007526}{teqp\+::cppinterface\+::make\+\_\+\+SAFTVRMie}} (const nlohmann\+::json \&j)
 \item 
 nlohmann\+::json \mbox{\hyperlink{namespaceteqp_1_1cppinterface_af204b0796feb1504c577749f82e496a2}{teqp\+::cppinterface\+::get\+\_\+model\+\_\+schema}} (const std\+::string \&kind)
 \begin{DoxyCompactList}\small\item\em Return the schema for the given model kind. \end{DoxyCompactList}\item 
-std\+::unique\+\_\+ptr$<$ Abstract\+Model $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_ab4863d72627c8e55868bb4fca25192a6}{teqp\+::cppinterface\+::build\+\_\+model\+\_\+ptr}} (const nlohmann\+::json \&json, bool validate=true)
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_ab4863d72627c8e55868bb4fca25192a6}{teqp\+::cppinterface\+::build\+\_\+model\+\_\+ptr}} (const nlohmann\+::json \&json, bool validate=true)
 \item 
-std\+::unique\+\_\+ptr$<$ Abstract\+Model $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a667d9cdc8dabc48e3280d8b481e60ee3}{teqp\+::cppinterface\+::make\+\_\+multifluid\+\_\+model}} (const std\+::vector$<$ std\+::string $>$ \&components, const std\+::string \&coolprop\+\_\+root, const std\+::string \&BIPcollectionpath=\{\}, const nlohmann\+::json \&flags=\{\}, const std\+::string \&departurepath=\{\})
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a667d9cdc8dabc48e3280d8b481e60ee3}{teqp\+::cppinterface\+::make\+\_\+multifluid\+\_\+model}} (const std\+::vector$<$ std\+::string $>$ \&components, const std\+::string \&coolprop\+\_\+root, const std\+::string \&BIPcollectionpath=\{\}, const nlohmann\+::json \&flags=\{\}, const std\+::string \&departurepath=\{\})
 \item 
-std\+::unique\+\_\+ptr$<$ Abstract\+Model $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a0e731ebdf104bc67dc7832e33a523d4f}{teqp\+::cppinterface\+::make\+\_\+model}} (const nlohmann\+::json \&, bool validate=true)
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a0e731ebdf104bc67dc7832e33a523d4f}{teqp\+::cppinterface\+::make\+\_\+model}} (const nlohmann\+::json \&, bool validate=true)
 \item 
-void \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a99c55e372f03fbc42f067db77bac520a}{teqp\+::cppinterface\+::add\+\_\+model\+\_\+pointer\+\_\+factory\+\_\+function}} (const std\+::string \&key, Model\+Pointer\+Factory\+Function \&func)
+void \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a99c55e372f03fbc42f067db77bac520a}{teqp\+::cppinterface\+::add\+\_\+model\+\_\+pointer\+\_\+factory\+\_\+function}} (const std\+::string \&key, \mbox{\hyperlink{namespaceteqp_1_1cppinterface_af38152c18fd82d7ed79728552ac785fb}{Model\+Pointer\+Factory\+Function}} \&func)
 \begin{DoxyCompactList}\small\item\em This function allows you to inject your own model factory function into the set of factory functions implemented in teqp. This allows you to add your own model at runtime. As an example of how to do this, see src/test\+\_\+runtime\+\_\+model\+\_\+inclusion.\+cpp. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Variables}
+\doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 const nlohmann\+::json \mbox{\hyperlink{teqp__impl__factory_8cpp_a28c6bd957a9ba2826a07929c86254467}{model\+\_\+schema\+\_\+library}}
@@ -38,7 +38,7 @@ const nlohmann\+::json \mbox{\hyperlink{teqp__impl__factory_8cpp_a28c6bd957a9ba2
 
 
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{teqp__impl__factory_8cpp_a28c6bd957a9ba2826a07929c86254467}\label{teqp__impl__factory_8cpp_a28c6bd957a9ba2826a07929c86254467}} 
+\Hypertarget{teqp__impl__factory_8cpp_a28c6bd957a9ba2826a07929c86254467}\label{teqp__impl__factory_8cpp_a28c6bd957a9ba2826a07929c86254467} 
 \index{teqp\_impl\_factory.cpp@{teqp\_impl\_factory.cpp}!model\_schema\_library@{model\_schema\_library}}
 \index{model\_schema\_library@{model\_schema\_library}!teqp\_impl\_factory.cpp@{teqp\_impl\_factory.cpp}}
 \doxysubsubsection{\texorpdfstring{model\_schema\_library}{model\_schema\_library}}

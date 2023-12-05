@@ -1,13 +1,13 @@
-\hypertarget{polar__terms_8hpp}{}\doxysection{include/teqp/models/saft/polar\+\_\+terms.hpp File Reference}
-\label{polar__terms_8hpp}\index{include/teqp/models/saft/polar\_terms.hpp@{include/teqp/models/saft/polar\_terms.hpp}}
-{\ttfamily \#include \char`\"{}teqp/types.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teqp/exceptions.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}correlation\+\_\+integrals.\+hpp\char`\"{}}\newline
+\doxysection{include/teqp/models/saft/polar\+\_\+terms.hpp File Reference}
+\hypertarget{polar__terms_8hpp}{}\label{polar__terms_8hpp}\index{include/teqp/models/saft/polar\_terms.hpp@{include/teqp/models/saft/polar\_terms.hpp}}
+{\ttfamily \#include "{}teqp/types.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/exceptions.\+hpp"{}}\newline
+{\ttfamily \#include "{}correlation\+\_\+integrals.\+hpp"{}}\newline
 {\ttfamily \#include $<$optional$>$}\newline
 {\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
-{\ttfamily \#include \char`\"{}teqp/math/pow\+\_\+templates.\+hpp\char`\"{}}\newline
+{\ttfamily \#include "{}teqp/math/pow\+\_\+templates.\+hpp"{}}\newline
 {\ttfamily \#include $<$variant$>$}\newline
-\doxysubsection*{Classes}
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1DipolarContributionGrossVrabec}{teqp\+::\+SAFTpolar\+::\+Dipolar\+Contribution\+Gross\+Vrabec}}
@@ -24,19 +24,19 @@ class \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGubbinsTw
 \item 
 class \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins$<$ JIntegral, KIntegral $>$}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Namespaces}
+\doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar}{teqp\+::\+SAFTpolar}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Typedefs}
+\doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-using \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a641a1295a90c75b69b546626bd4e1562}{teqp\+::\+SAFTpolar\+::multipolar\+\_\+contributions\+\_\+variant}} = std\+::variant$<$ Multipolar\+Contribution\+Gross\+Vrabec, Multipolar\+Contribution\+Gray\+Gubbins$<$ Gubbins\+Twu\+JIntegral, Gubbins\+Twu\+KIntegral $>$, Multipolar\+Contribution\+Gray\+Gubbins$<$ Gottschalk\+JIntegral, Gottschalk\+KIntegral $>$, Multipolar\+Contribution\+Gray\+Gubbins$<$ Luckas\+JIntegral, Luckas\+KIntegral $>$, Multipolar\+Contribution\+Gubbins\+Twu$<$ Luckas\+JIntegral, Luckas\+KIntegral $>$, Multipolar\+Contribution\+Gubbins\+Twu$<$ Gubbins\+Twu\+JIntegral, Gubbins\+Twu\+KIntegral $>$, Multipolar\+Contribution\+Gubbins\+Twu$<$ Gottschalk\+JIntegral, Gottschalk\+KIntegral $>$ $>$
+using \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a641a1295a90c75b69b546626bd4e1562}{teqp\+::\+SAFTpolar\+::multipolar\+\_\+contributions\+\_\+variant}} = std\+::variant$<$ \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrossVrabec}{Multipolar\+Contribution\+Gross\+Vrabec}}, \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{Multipolar\+Contribution\+Gray\+Gubbins}}$<$ \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1GubbinsTwuJIntegral}{Gubbins\+Twu\+JIntegral}}, \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1GubbinsTwuKIntegral}{Gubbins\+Twu\+KIntegral}} $>$, \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{Multipolar\+Contribution\+Gray\+Gubbins}}$<$ \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1GottschalkJIntegral}{Gottschalk\+JIntegral}}, \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1GottschalkKIntegral}{Gottschalk\+KIntegral}} $>$, \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{Multipolar\+Contribution\+Gray\+Gubbins}}$<$ \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1LuckasJIntegral}{Luckas\+JIntegral}}, \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1LuckasKIntegral}{Luckas\+KIntegral}} $>$, \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGubbinsTwu}{Multipolar\+Contribution\+Gubbins\+Twu}}$<$ \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1LuckasJIntegral}{Luckas\+JIntegral}}, \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1LuckasKIntegral}{Luckas\+KIntegral}} $>$, \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGubbinsTwu}{Multipolar\+Contribution\+Gubbins\+Twu}}$<$ \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1GubbinsTwuJIntegral}{Gubbins\+Twu\+JIntegral}}, \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1GubbinsTwuKIntegral}{Gubbins\+Twu\+KIntegral}} $>$, \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGubbinsTwu}{Multipolar\+Contribution\+Gubbins\+Twu}}$<$ \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1GottschalkJIntegral}{Gottschalk\+JIntegral}}, \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1GottschalkKIntegral}{Gottschalk\+KIntegral}} $>$ $>$
 \begin{DoxyCompactList}\small\item\em The variant containing the multipolar types that can be provided. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Enumerations}
+\doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
 enum class \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a2f5ab14e51a33eaebd269cabb7ba214c}{teqp\+::\+SAFTpolar\+::multipolar\+\_\+argument\+\_\+spec}} \{ \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a2f5ab14e51a33eaebd269cabb7ba214cae4984baf6ecaaab75e12d45efbc846dd}{teqp\+::\+SAFTpolar\+::\+TK\+\_\+rho\+NA3\+\_\+packingfraction\+\_\+molefractions}}
@@ -48,7 +48,7 @@ enum class \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a938f7067a9f6e5947aa3bb61
 , \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a938f7067a9f6e5947aa3bb61cbf82cb8a29fb96bc9fe7cf5fe940dbcb34f304f9}{teqp\+::\+SAFTpolar\+::calculate\+\_\+\+Gubbins\+\_\+rhostar}}
  \}
 \end{DoxyCompactItemize}
-\doxysubsection*{Functions}
+\doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename Eta , typename MType , typename TType $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_af00a11510490656fee7e413d2546c4fb}{teqp\+::\+SAFTpolar\+::get\+\_\+\+JDD\+\_\+2ij}} (const Eta \&eta, const MType \&mij, const TType \&Tstarij)
@@ -63,7 +63,7 @@ enum class \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a938f7067a9f6e5947aa3bb61
 \begin{DoxyCompactList}\small\item\em Eq. 16 from Vrabec and Gross, JPCB, 2008. doi\+: 10.\+1021/jp072619u. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Eta , typename MType $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_abaa83ae8caa3fcf4f4c192f71ff7a7cb}{teqp\+::\+SAFTpolar\+::get\+\_\+\+JDQ\+\_\+3ijk}} (const Eta \&eta, const MType \&mijk)
 \begin{DoxyCompactList}\small\item\em Eq. 17 from Vrabec and Gross, JPCB, 2008. doi\+: 10.\+1021/jp072619u. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a0894ec069d6f9d6324c7f9677d0b6999}{teqp\+::\+SAFTpolar\+::\+NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM}} (multipolar\+\_\+rhostar\+\_\+approach, \{ \{multipolar\+\_\+rhostar\+\_\+approach\+::k\+Invalid, nullptr\}, \{multipolar\+\_\+rhostar\+\_\+approach\+::use\+\_\+packing\+\_\+fraction, \char`\"{}use\+\_\+packing\+\_\+fraction\char`\"{}\}, \{multipolar\+\_\+rhostar\+\_\+approach\+::calculate\+\_\+\+Gubbins\+\_\+rhostar, \char`\"{}calculate\+\_\+\+Gubbins\+\_\+rhostar\char`\"{}\}, \}) template$<$ typename type $>$ struct Multipolar\+Contribution\+Gross\+Vrabec\+Terms
+\mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a0894ec069d6f9d6324c7f9677d0b6999}{teqp\+::\+SAFTpolar\+::\+NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM}} (\mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a938f7067a9f6e5947aa3bb61cbf82cb8}{multipolar\+\_\+rhostar\+\_\+approach}}, \{ \{\mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a938f7067a9f6e5947aa3bb61cbf82cb8ab10913c938482a8aa4ba85b7a1116cb4}{multipolar\+\_\+rhostar\+\_\+approach\+::k\+Invalid}}, nullptr\}, \{\mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a938f7067a9f6e5947aa3bb61cbf82cb8a5c80bd10e93d4e1b2d5a8e4299e14088}{multipolar\+\_\+rhostar\+\_\+approach\+::use\+\_\+packing\+\_\+fraction}}, "{}use\+\_\+packing\+\_\+fraction"{}\}, \{\mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a938f7067a9f6e5947aa3bb61cbf82cb8a29fb96bc9fe7cf5fe940dbcb34f304f9}{multipolar\+\_\+rhostar\+\_\+approach\+::calculate\+\_\+\+Gubbins\+\_\+rhostar}}, "{}calculate\+\_\+\+Gubbins\+\_\+rhostar"{}\}, \}) template$<$ typename type $>$ struct Multipolar\+Contribution\+Gross\+Vrabec\+Terms
 \item 
 {\footnotesize template$<$typename KType , typename Rho\+Type , typename Txy $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_add453153c0bf4ad52769915a24fccb36}{teqp\+::\+SAFTpolar\+::get\+\_\+\+Kijk}} (const KType \&Kint, const Rho\+Type \&rhostar, const Txy \&Tstarij, const Txy \&Tstarik, const Txy \&Tstarjk)
 \item 

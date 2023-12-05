@@ -1,5 +1,5 @@
-\hypertarget{classteqp_1_1vdWEOS}{}\doxysection{teqp\+::vd\+WEOS\texorpdfstring{$<$}{<} Num\+Type \texorpdfstring{$>$}{>} Class Template Reference}
-\label{classteqp_1_1vdWEOS}\index{teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}}
+\doxysection{teqp\+::vd\+WEOS\texorpdfstring{$<$}{<} Num\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classteqp_1_1vdWEOS}{}\label{classteqp_1_1vdWEOS}\index{teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}}
 
 
 A slightly more involved implementation of van der Waals, this time with mixture properties.  
@@ -9,7 +9,7 @@ A slightly more involved implementation of van der Waals, this time with mixture
 
 {\ttfamily \#include $<$vd\+W.\+hpp$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classteqp_1_1vdWEOS_a1cb12fc9e95fba03c06d16114b015dec}{vd\+WEOS}} (const std\+::valarray$<$ Num\+Type $>$ \&Tc\+\_\+K, const std\+::valarray$<$ Num\+Type $>$ \&pc\+\_\+\+Pa)
@@ -22,19 +22,19 @@ A slightly more involved implementation of van der Waals, this time with mixture
 \begin{DoxyCompactList}\small\item\em Get the universal gas constant Here the real universal gas constant, with no composition dependence. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1vdWEOS_a0f23cc2b229d6aa24eddcd24c22e8da8}{alphar}} (const TType \&T, const Rho\+Type \&rho, const Mole\+Frac\+Type \&molefrac) const
 \begin{DoxyCompactList}\small\item\em The evaluation of $ \alpha^{\rm r}=a/(RT) $. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
+\doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 const Num\+Type \mbox{\hyperlink{classteqp_1_1vdWEOS_aa595f2a8d78964ec437e2e8dab56eafb}{Ru}} = \mbox{\hyperlink{namespaceteqp_a2b7e9f6c1e890797284b6bd57d251379}{get\+\_\+\+R\+\_\+gas}}$<$double$>$()
 \begin{DoxyCompactList}\small\item\em Universal gas constant, exact number. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Protected Member Functions}
+\doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename TType , typename Index\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1vdWEOS_ae3b6e7b1694d61df7f82b13de4c6038f}{get\+\_\+ai}} (TType T, Index\+Type i) const
 \item 
 {\footnotesize template$<$typename TType , typename Index\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1vdWEOS_a312eb853d13069201bee41dfbfc5d503}{get\+\_\+bi}} (TType T, Index\+Type i) const
 \end{DoxyCompactItemize}
-\doxysubsection*{Protected Attributes}
+\doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 std\+::valarray$<$ Num\+Type $>$ \mbox{\hyperlink{classteqp_1_1vdWEOS_a5d1de12863ce0ac5e23880cfdc3cfc57}{ai}}
@@ -55,12 +55,12 @@ Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00049}{49}} of file \mbox{\
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classteqp_1_1vdWEOS_a1cb12fc9e95fba03c06d16114b015dec}\label{classteqp_1_1vdWEOS_a1cb12fc9e95fba03c06d16114b015dec}} 
+\Hypertarget{classteqp_1_1vdWEOS_a1cb12fc9e95fba03c06d16114b015dec}\label{classteqp_1_1vdWEOS_a1cb12fc9e95fba03c06d16114b015dec} 
 \index{teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}!vdWEOS@{vdWEOS}}
 \index{vdWEOS@{vdWEOS}!teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}}
 \doxysubsubsection{\texorpdfstring{vdWEOS()}{vdWEOS()}}
 {\footnotesize\ttfamily template$<$typename Num\+Type $>$ \\
-\mbox{\hyperlink{classteqp_1_1vdWEOS}{teqp\+::vd\+WEOS}}$<$ Num\+Type $>$\+::\mbox{\hyperlink{classteqp_1_1vdWEOS}{vd\+WEOS}} (\begin{DoxyParamCaption}\item[{const std\+::valarray$<$ Num\+Type $>$ \&}]{Tc\+\_\+K,  }\item[{const std\+::valarray$<$ Num\+Type $>$ \&}]{pc\+\_\+\+Pa }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{classteqp_1_1vdWEOS}{teqp\+::vd\+WEOS}}$<$ Num\+Type $>$\+::vd\+WEOS (\begin{DoxyParamCaption}\item[{const std\+::valarray$<$ Num\+Type $>$ \&}]{Tc\+\_\+K,  }\item[{const std\+::valarray$<$ Num\+Type $>$ \&}]{pc\+\_\+\+Pa }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -83,7 +83,7 @@ Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00066}{66}} of file \mbox{\
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classteqp_1_1vdWEOS_aa89bf1e615a6b3955462a5b90c44c372}\label{classteqp_1_1vdWEOS_aa89bf1e615a6b3955462a5b90c44c372}} 
+\Hypertarget{classteqp_1_1vdWEOS_aa89bf1e615a6b3955462a5b90c44c372}\label{classteqp_1_1vdWEOS_aa89bf1e615a6b3955462a5b90c44c372} 
 \index{teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}!a@{a}}
 \index{a@{a}!teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}}
 \doxysubsubsection{\texorpdfstring{a()}{a()}}
@@ -104,7 +104,7 @@ Calculate the a parameter, based on quadratic mixing rules.
 
 Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00083}{83}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
 
-\mbox{\Hypertarget{classteqp_1_1vdWEOS_a0f23cc2b229d6aa24eddcd24c22e8da8}\label{classteqp_1_1vdWEOS_a0f23cc2b229d6aa24eddcd24c22e8da8}} 
+\Hypertarget{classteqp_1_1vdWEOS_a0f23cc2b229d6aa24eddcd24c22e8da8}\label{classteqp_1_1vdWEOS_a0f23cc2b229d6aa24eddcd24c22e8da8} 
 \index{teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}!alphar@{alphar}}
 \index{alphar@{alphar}!teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}}
 \doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
@@ -129,7 +129,7 @@ The evaluation of $ \alpha^{\rm r}=a/(RT) $.
 
 Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00120}{120}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
 
-\mbox{\Hypertarget{classteqp_1_1vdWEOS_aec5b3e01151143f06c0e3697c9fc118a}\label{classteqp_1_1vdWEOS_aec5b3e01151143f06c0e3697c9fc118a}} 
+\Hypertarget{classteqp_1_1vdWEOS_aec5b3e01151143f06c0e3697c9fc118a}\label{classteqp_1_1vdWEOS_aec5b3e01151143f06c0e3697c9fc118a} 
 \index{teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}!b@{b}}
 \index{b@{b}!teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}}
 \doxysubsubsection{\texorpdfstring{b()}{b()}}
@@ -150,7 +150,7 @@ Calculate the b parameter, based on linear mixing rules.
 
 Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00097}{97}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
 
-\mbox{\Hypertarget{classteqp_1_1vdWEOS_ae3b6e7b1694d61df7f82b13de4c6038f}\label{classteqp_1_1vdWEOS_ae3b6e7b1694d61df7f82b13de4c6038f}} 
+\Hypertarget{classteqp_1_1vdWEOS_ae3b6e7b1694d61df7f82b13de4c6038f}\label{classteqp_1_1vdWEOS_ae3b6e7b1694d61df7f82b13de4c6038f} 
 \index{teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}!get\_ai@{get\_ai}}
 \index{get\_ai@{get\_ai}!teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}}
 \doxysubsubsection{\texorpdfstring{get\_ai()}{get\_ai()}}
@@ -162,7 +162,7 @@ auto \mbox{\hyperlink{classteqp_1_1vdWEOS}{teqp\+::vd\+WEOS}}$<$ Num\+Type $>$\+
 
 Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
 
-\mbox{\Hypertarget{classteqp_1_1vdWEOS_a312eb853d13069201bee41dfbfc5d503}\label{classteqp_1_1vdWEOS_a312eb853d13069201bee41dfbfc5d503}} 
+\Hypertarget{classteqp_1_1vdWEOS_a312eb853d13069201bee41dfbfc5d503}\label{classteqp_1_1vdWEOS_a312eb853d13069201bee41dfbfc5d503} 
 \index{teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}!get\_bi@{get\_bi}}
 \index{get\_bi@{get\_bi}!teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}}
 \doxysubsubsection{\texorpdfstring{get\_bi()}{get\_bi()}}
@@ -174,7 +174,7 @@ auto \mbox{\hyperlink{classteqp_1_1vdWEOS}{teqp\+::vd\+WEOS}}$<$ Num\+Type $>$\+
 
 Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00058}{58}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
 
-\mbox{\Hypertarget{classteqp_1_1vdWEOS_ad03431376a2d7979c0d7d320c39c1806}\label{classteqp_1_1vdWEOS_ad03431376a2d7979c0d7d320c39c1806}} 
+\Hypertarget{classteqp_1_1vdWEOS_ad03431376a2d7979c0d7d320c39c1806}\label{classteqp_1_1vdWEOS_ad03431376a2d7979c0d7d320c39c1806} 
 \index{teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}!R@{R}}
 \index{R@{R}!teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}}
 \doxysubsubsection{\texorpdfstring{R()}{R()}}
@@ -196,7 +196,7 @@ Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00111}{111}} of file \mbox{
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classteqp_1_1vdWEOS_a5d1de12863ce0ac5e23880cfdc3cfc57}\label{classteqp_1_1vdWEOS_a5d1de12863ce0ac5e23880cfdc3cfc57}} 
+\Hypertarget{classteqp_1_1vdWEOS_a5d1de12863ce0ac5e23880cfdc3cfc57}\label{classteqp_1_1vdWEOS_a5d1de12863ce0ac5e23880cfdc3cfc57} 
 \index{teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}!ai@{ai}}
 \index{ai@{ai}!teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}}
 \doxysubsubsection{\texorpdfstring{ai}{ai}}
@@ -207,7 +207,7 @@ std\+::valarray$<$Num\+Type$>$ \mbox{\hyperlink{classteqp_1_1vdWEOS}{teqp\+::vd\
 
 Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
 
-\mbox{\Hypertarget{classteqp_1_1vdWEOS_a50bec2bd4a49785e247554cebd0be7d9}\label{classteqp_1_1vdWEOS_a50bec2bd4a49785e247554cebd0be7d9}} 
+\Hypertarget{classteqp_1_1vdWEOS_a50bec2bd4a49785e247554cebd0be7d9}\label{classteqp_1_1vdWEOS_a50bec2bd4a49785e247554cebd0be7d9} 
 \index{teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}!bi@{bi}}
 \index{bi@{bi}!teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}}
 \doxysubsubsection{\texorpdfstring{bi}{bi}}
@@ -218,7 +218,7 @@ std\+::valarray$<$Num\+Type$>$ \mbox{\hyperlink{classteqp_1_1vdWEOS}{teqp\+::vd\
 
 Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
 
-\mbox{\Hypertarget{classteqp_1_1vdWEOS_a2b5c84cbbee76d9861efab59a7bf114d}\label{classteqp_1_1vdWEOS_a2b5c84cbbee76d9861efab59a7bf114d}} 
+\Hypertarget{classteqp_1_1vdWEOS_a2b5c84cbbee76d9861efab59a7bf114d}\label{classteqp_1_1vdWEOS_a2b5c84cbbee76d9861efab59a7bf114d} 
 \index{teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}!k@{k}}
 \index{k@{k}!teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}}
 \doxysubsubsection{\texorpdfstring{k}{k}}
@@ -229,12 +229,12 @@ std\+::valarray$<$std\+::valarray$<$Num\+Type$>$ $>$ \mbox{\hyperlink{classteqp_
 
 Definition at line \mbox{\hyperlink{vdW_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{vdW_8hpp_source}{vd\+W.\+hpp}}.
 
-\mbox{\Hypertarget{classteqp_1_1vdWEOS_aa595f2a8d78964ec437e2e8dab56eafb}\label{classteqp_1_1vdWEOS_aa595f2a8d78964ec437e2e8dab56eafb}} 
+\Hypertarget{classteqp_1_1vdWEOS_aa595f2a8d78964ec437e2e8dab56eafb}\label{classteqp_1_1vdWEOS_aa595f2a8d78964ec437e2e8dab56eafb} 
 \index{teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}!Ru@{Ru}}
 \index{Ru@{Ru}!teqp::vdWEOS$<$ NumType $>$@{teqp::vdWEOS$<$ NumType $>$}}
 \doxysubsubsection{\texorpdfstring{Ru}{Ru}}
 {\footnotesize\ttfamily template$<$typename Num\+Type $>$ \\
-const Num\+Type \mbox{\hyperlink{classteqp_1_1vdWEOS}{teqp\+::vd\+WEOS}}$<$ Num\+Type $>$\+::Ru = \mbox{\hyperlink{namespaceteqp_a2b7e9f6c1e890797284b6bd57d251379}{get\+\_\+\+R\+\_\+gas}}$<$double$>$()}
+const Num\+Type \mbox{\hyperlink{classteqp_1_1vdWEOS}{teqp\+::vd\+WEOS}}$<$ Num\+Type $>$\+::\+Ru = \mbox{\hyperlink{namespaceteqp_a2b7e9f6c1e890797284b6bd57d251379}{get\+\_\+\+R\+\_\+gas}}$<$double$>$()}
 
 
 

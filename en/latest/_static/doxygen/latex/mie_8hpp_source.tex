@@ -1,74 +1,74 @@
-\hypertarget{mie_8hpp_source}{}\doxysection{mie.\+hpp}
-\label{mie_8hpp_source}\index{include/teqp/models/mie/mie.hpp@{include/teqp/models/mie/mie.hpp}}
+\doxysection{mie.\+hpp}
+\hypertarget{mie_8hpp_source}{}\label{mie_8hpp_source}\index{include/teqp/models/mie/mie.hpp@{include/teqp/models/mie/mie.hpp}}
 \mbox{\hyperlink{mie_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00002}00002 }
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{multifluid_8hpp}{teqp/models/multifluid.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00004}00004 \textcolor{preprocessor}{\#include <Eigen/Dense>}}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00005}00005 }
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00006}00006 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceteqp}{teqp}} \{}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00007}\mbox{\hyperlink{namespaceteqp_1_1Mie}{00007}} \textcolor{keyword}{namespace }Mie\{}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00008}00008 }
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00013}\mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023}{00013}}     \textcolor{keyword}{class }\mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023}{Mie6Pohl2023}} \{}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00014}00014         }
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00015}00015     \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00016}00016         \textcolor{keyword}{using} EArray6 = Eigen::Array<double, 6, 1>;}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00017}00017         \textcolor{keyword}{using} EArray4 = Eigen::Array<double, 4, 1>;}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00018}00018         }
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00019}00019         \textcolor{keyword}{const} EArray6 c1\_pol = (EArray6() << -\/0.0192944,1.38,-\/2.2653,1.6291,-\/1.974,0.40412 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00020}00020         \textcolor{keyword}{const} EArray6 c1\_exp = (EArray6() <<  0.1845,-\/0.3227,1.1351,2.232,-\/2.344,-\/0.4238 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00021}00021         \textcolor{keyword}{const} EArray4 c1\_gbs = (EArray4() <<  -\/4.367,0.0371,1.3895,2.835 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00022}00022         \textcolor{keyword}{const} EArray6 c2\_pol = (EArray6() <<  0.26021,-\/5.525,8.329,-\/19.492,25.8,-\/3.8133 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00023}00023         \textcolor{keyword}{const} EArray6 c2\_exp = (EArray6() <<  -\/5.05,2.7842,-\/9.523,-\/30.383,17.902,2.2264 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00024}00024         \textcolor{keyword}{const} EArray4 c2\_gbs = (EArray4() <<  48.445,-\/5.506,-\/11.643,-\/24.36 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00025}00025         \textcolor{keyword}{const} EArray6 t\_pol = (EArray6() <<  1,0.236,0.872,0.313,0.407,0.703 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00026}00026         \textcolor{keyword}{const} EArray6 t\_exp = (EArray6() <<  1.78,2.99,2.866,1.2,3.06,1.073 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00027}00027         \textcolor{keyword}{const} EArray4 t\_gbs = (EArray4() <<  1.50,1.03,4.02,1.57 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00028}00028         \textcolor{keyword}{const} EArray6 d\_pol = (EArray6() <<  4,1,1,2,2,3 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00029}00029         \textcolor{keyword}{const} EArray6 d\_exp = (EArray6() <<  1,1,3,2,2,5 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00030}00030         \textcolor{keyword}{const} EArray4 d\_gbs = (EArray4() <<  2,3,2,2 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00031}00031         \textcolor{keyword}{const} EArray6 p = (EArray6() <<  1,2,2,1,2,1 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00032}00032         \textcolor{keyword}{const} EArray4 eta = (EArray4() <<  0.362,0.313,1.17,0.957 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00033}00033         \textcolor{keyword}{const} EArray4 beta = (EArray4() <<  0.0761,0.143,0.63,1.32 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00034}00034         \textcolor{keyword}{const} EArray4 gam = (EArray4() <<  1.55,-\/0.0826,1.505,1.07 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00035}00035         \textcolor{keyword}{const} EArray4 eps = (EArray4() <<  -\/1,-\/1,-\/0.195,-\/0.287 ).finished();}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00036}00036         }
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00037}00037         \textcolor{keyword}{const} \textcolor{keywordtype}{double} m\_lambda\_a;}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00038}00038         \textcolor{keyword}{const} EArray6 n\_pol, n\_exp;}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00039}00039         \textcolor{keyword}{const} EArray4 n\_gbs;}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00040}00040         \textcolor{keyword}{const} \textcolor{keywordtype}{double} Tc, rhoc; \textcolor{comment}{// In simulation units}}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00041}00041     \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00042}00042         }
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00043}\mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_a366bd2f706c3d646c2bcbe9cc9b0927b}{00043}}         \mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_a366bd2f706c3d646c2bcbe9cc9b0927b}{Mie6Pohl2023}}(\textcolor{keywordtype}{double} lambda\_a) : m\_lambda\_a(lambda\_a),}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00044}00044         n\_pol(c1\_pol + c2\_pol / m\_lambda\_a),}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00045}00045         n\_exp(c1\_exp + c2\_exp / m\_lambda\_a),}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00046}00046         n\_gbs(c1\_gbs + c2\_gbs / m\_lambda\_a),}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00047}00047         Tc(0.668 + 6.84 / m\_lambda\_a + 145 / \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(m\_lambda\_a, 3)), \textcolor{comment}{// T\string^*}}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00048}00048         rhoc(0.2516 + 0.049 * log10(m\_lambda\_a)) \textcolor{comment}{// rho\string^*}}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00049}00049         \{\}}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00050}00050         }
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00051}\mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_a7e870aab811b380deca809cfa44dd6aa}{00051}}         \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_a7e870aab811b380deca809cfa44dd6aa}{get\_lambda\_a}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_lambda\_a; \}}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00052}00052 }
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00053}00053         \textcolor{comment}{// We are in "{}simulation units"{}, so R is 1.0, and T and rho that}}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00054}00054         \textcolor{comment}{// go into alphar are actually T\string^* and rho\string^*}}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00055}00055         \textcolor{keyword}{template}<\textcolor{keyword}{typename} MoleFracType>}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00056}\mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_ae30f107d4fa3f958ba97dd20a86965d9}{00056}}         \textcolor{keywordtype}{double} \mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_ae30f107d4fa3f958ba97dd20a86965d9}{R}}(\textcolor{keyword}{const} MoleFracType \&)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} 1.0; \}}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00057}00057 }
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00058}00058         \textcolor{keyword}{template}<\textcolor{keyword}{typename} TTYPE, \textcolor{keyword}{typename} RHOTYPE, \textcolor{keyword}{typename} MoleFracType>}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00059}\mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_a9f14179a010c8607484436183314c342}{00059}}         \textcolor{keyword}{auto} \mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_a9f14179a010c8607484436183314c342}{alphar}}(\textcolor{keyword}{const} TTYPE\& Tstar, \textcolor{keyword}{const} RHOTYPE\& rhostar, \textcolor{keyword}{const} MoleFracType\& \textcolor{comment}{/*molefrac*/})\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00060}00060             \textcolor{keyword}{auto} tau = Tc / Tstar; \textcolor{keyword}{auto} delta = rhostar / rhoc;}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00061}00061             \textcolor{keyword}{auto} alphar\_ = (}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00062}00062                 (n\_pol * \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(tau, t\_pol) * \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(delta, d\_pol)).sum() +}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00063}00063                 (n\_exp * \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(tau, t\_exp) * \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(delta, d\_exp) * exp(-\/\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(delta, p))).sum() +}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00064}00064                 (n\_gbs * \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(tau, t\_gbs) * \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(delta, d\_gbs) * exp(-\/eta * \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(delta -\/ eps, 2) -\/ beta * \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(tau -\/ gam, 2))).sum()}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00065}00065             );}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00066}00066             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(alphar\_);}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00067}00067         \}}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00068}00068 }
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00069}00069     \};}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00070}00070 }
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00071}00071 \};}
-\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00072}00072 \};}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{multifluid_8hpp}{teqp/models/multifluid.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <Eigen/Dense>}}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00006}00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp}{teqp}}\ \{}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00007}\mbox{\hyperlink{namespaceteqp_1_1Mie}{00007}}\ \textcolor{keyword}{namespace\ }Mie\{}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00013}\mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023}{00013}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023}{Mie6Pohl2023}}\ \{}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00014}00014\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }EArray6\ =\ Eigen::Array<double,\ 6,\ 1>;}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }EArray4\ =\ Eigen::Array<double,\ 4,\ 1>;}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray6\ c1\_pol\ =\ (EArray6()\ <<\ -\/0.0192944,1.38,-\/2.2653,1.6291,-\/1.974,0.40412\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray6\ c1\_exp\ =\ (EArray6()\ <<\ \ 0.1845,-\/0.3227,1.1351,2.232,-\/2.344,-\/0.4238\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray4\ c1\_gbs\ =\ (EArray4()\ <<\ \ -\/4.367,0.0371,1.3895,2.835\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray6\ c2\_pol\ =\ (EArray6()\ <<\ \ 0.26021,-\/5.525,8.329,-\/19.492,25.8,-\/3.8133\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray6\ c2\_exp\ =\ (EArray6()\ <<\ \ -\/5.05,2.7842,-\/9.523,-\/30.383,17.902,2.2264\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray4\ c2\_gbs\ =\ (EArray4()\ <<\ \ 48.445,-\/5.506,-\/11.643,-\/24.36\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray6\ t\_pol\ =\ (EArray6()\ <<\ \ 1,0.236,0.872,0.313,0.407,0.703\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray6\ t\_exp\ =\ (EArray6()\ <<\ \ 1.78,2.99,2.866,1.2,3.06,1.073\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray4\ t\_gbs\ =\ (EArray4()\ <<\ \ 1.50,1.03,4.02,1.57\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray6\ d\_pol\ =\ (EArray6()\ <<\ \ 4,1,1,2,2,3\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray6\ d\_exp\ =\ (EArray6()\ <<\ \ 1,1,3,2,2,5\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray4\ d\_gbs\ =\ (EArray4()\ <<\ \ 2,3,2,2\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray6\ p\ =\ (EArray6()\ <<\ \ 1,2,2,1,2,1\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray4\ eta\ =\ (EArray4()\ <<\ \ 0.362,0.313,1.17,0.957\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray4\ beta\ =\ (EArray4()\ <<\ \ 0.0761,0.143,0.63,1.32\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray4\ gam\ =\ (EArray4()\ <<\ \ 1.55,-\/0.0826,1.505,1.07\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray4\ eps\ =\ (EArray4()\ <<\ \ -\/1,-\/1,-\/0.195,-\/0.287\ ).finished();}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ m\_lambda\_a;}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray6\ n\_pol,\ n\_exp;}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EArray4\ n\_gbs;}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ Tc,\ rhoc;\ \textcolor{comment}{//\ In\ simulation\ units}}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00041}00041\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00043}\mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_a366bd2f706c3d646c2bcbe9cc9b0927b}{00043}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_a366bd2f706c3d646c2bcbe9cc9b0927b}{Mie6Pohl2023}}(\textcolor{keywordtype}{double}\ lambda\_a)\ :\ m\_lambda\_a(lambda\_a),}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ n\_pol(c1\_pol\ +\ c2\_pol\ /\ m\_lambda\_a),}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ n\_exp(c1\_exp\ +\ c2\_exp\ /\ m\_lambda\_a),}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ n\_gbs(c1\_gbs\ +\ c2\_gbs\ /\ m\_lambda\_a),}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ Tc(0.668\ +\ 6.84\ /\ m\_lambda\_a\ +\ 145\ /\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(m\_lambda\_a,\ 3)),\ \textcolor{comment}{//\ T\string^*}}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ rhoc(0.2516\ +\ 0.049\ *\ log10(m\_lambda\_a))\ \textcolor{comment}{//\ rho\string^*}}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00051}\mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_a7e870aab811b380deca809cfa44dd6aa}{00051}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_a7e870aab811b380deca809cfa44dd6aa}{get\_lambda\_a}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_lambda\_a;\ \}}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ are\ in\ "{}simulation\ units"{},\ so\ R\ is\ 1.0,\ and\ T\ and\ rho\ that}}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ go\ into\ alphar\ are\ actually\ T\string^*\ and\ rho\string^*}}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ MoleFracType>}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00056}\mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_ae30f107d4fa3f958ba97dd20a86965d9}{00056}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_ae30f107d4fa3f958ba97dd20a86965d9}{R}}(\textcolor{keyword}{const}\ MoleFracType\ \&)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ 1.0;\ \}}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TTYPE,\ \textcolor{keyword}{typename}\ RHOTYPE,\ \textcolor{keyword}{typename}\ MoleFracType>}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00059}\mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_a9f14179a010c8607484436183314c342}{00059}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023_a9f14179a010c8607484436183314c342}{alphar}}(\textcolor{keyword}{const}\ TTYPE\&\ Tstar,\ \textcolor{keyword}{const}\ RHOTYPE\&\ rhostar,\ \textcolor{keyword}{const}\ MoleFracType\&\ \textcolor{comment}{/*molefrac*/})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ tau\ =\ Tc\ /\ Tstar;\ \textcolor{keyword}{auto}\ delta\ =\ rhostar\ /\ rhoc;}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ alphar\_\ =\ (}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (n\_pol\ *\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(tau,\ t\_pol)\ *\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(delta,\ d\_pol)).sum()\ +}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (n\_exp\ *\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(tau,\ t\_exp)\ *\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(delta,\ d\_exp)\ *\ exp(-\/\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(delta,\ p))).sum()\ +}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (n\_gbs\ *\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(tau,\ t\_gbs)\ *\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(delta,\ d\_gbs)\ *\ exp(-\/eta\ *\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(delta\ -\/\ eps,\ 2)\ -\/\ beta\ *\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(tau\ -\/\ gam,\ 2))).sum()}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(alphar\_);}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00069}00069\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00071}00071\ \};}
+\DoxyCodeLine{\Hypertarget{mie_8hpp_source_l00072}00072\ \};}
 
 \end{DoxyCode}
