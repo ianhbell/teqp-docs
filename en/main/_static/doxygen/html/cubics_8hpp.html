@@ -95,6 +95,7 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">cubics.hpp File Reference</div></div>
 </div><!--header-->
@@ -127,7 +128,15 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1GenericCubic.html">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1NullResidualHelmholtzOverRT.html">teqp::NullResidualHelmholtzOverRT&lt; NumType &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1WilsonResidualHelmholtzOverRT.html">teqp::WilsonResidualHelmholtzOverRT&lt; NumType &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1AdvancedPRaEres.html">teqp::AdvancedPRaEres&lt; NumType, AlphaFunctions &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1QuantumCorrectedPR.html">teqp::QuantumCorrectedPR</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1RKPRCismondi2005.html">teqp::RKPRCismondi2005</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -139,9 +148,26 @@ Namespaces</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:a330c9d06e0d39b8464bd798700df73b9" id="r_a330c9d06e0d39b8464bd798700df73b9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#a330c9d06e0d39b8464bd798700df73b9">teqp::AlphaFunctionOptions</a> = std::variant&lt; <a class="el" href="classteqp_1_1BasicAlphaFunction.html">BasicAlphaFunction</a>&lt; double &gt;, <a class="el" href="classteqp_1_1TwuAlphaFunction.html">TwuAlphaFunction</a>&lt; double &gt;, <a class="el" href="classteqp_1_1MathiasCopemanAlphaFunction.html">MathiasCopemanAlphaFunction</a>&lt; double &gt; &gt;</td></tr>
 <tr class="separator:a330c9d06e0d39b8464bd798700df73b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0465f3a7ab85afff74180a93195e315c" id="r_a0465f3a7ab85afff74180a93195e315c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#a0465f3a7ab85afff74180a93195e315c">teqp::ResidualHelmholtzOverRTVariant</a> = std::variant&lt; <a class="el" href="classteqp_1_1NullResidualHelmholtzOverRT.html">NullResidualHelmholtzOverRT</a>&lt; double &gt;, <a class="el" href="classteqp_1_1WilsonResidualHelmholtzOverRT.html">WilsonResidualHelmholtzOverRT</a>&lt; double &gt; &gt;</td></tr>
+<tr class="separator:a0465f3a7ab85afff74180a93195e315c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca656c22919e9381d89c2dd48c2e8dbc" id="r_aca656c22919e9381d89c2dd48c2e8dbc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#aca656c22919e9381d89c2dd48c2e8dbc">teqp::advancedPRaEres_t</a> = decltype(<a class="el" href="namespaceteqp.html#a41915e46c6b8bf0af18c40844077e3c2">make_AdvancedPRaEres</a>({}))</td></tr>
+<tr class="separator:aca656c22919e9381d89c2dd48c2e8dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7b4265fc65e83e7bd3db9fd8f702bf1" id="r_aa7b4265fc65e83e7bd3db9fd8f702bf1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#aa7b4265fc65e83e7bd3db9fd8f702bf1">teqp::RKPRCismondi2005_t</a> = decltype(<a class="el" href="classteqp_1_1RKPRCismondi2005.html">RKPRCismondi2005</a>({}))</td></tr>
+<tr class="separator:aa7b4265fc65e83e7bd3db9fd8f702bf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a285cebddf2ec0d69865e0e8c80418ead" id="r_a285cebddf2ec0d69865e0e8c80418ead"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#a285cebddf2ec0d69865e0e8c80418ead">teqp::AdvancedPRaEMixingRules</a> { <a class="el" href="namespaceteqp.html#a285cebddf2ec0d69865e0e8c80418eadac5fa7134efc9be43ef7f390d5d7dc9d9">teqp::knotspecified</a>
+, <a class="el" href="namespaceteqp.html#a285cebddf2ec0d69865e0e8c80418eadaac97f0008bcf7c7fe4f2ff94160e1385">teqp::kLinear</a>
+, <a class="el" href="namespaceteqp.html#a285cebddf2ec0d69865e0e8c80418eadaf841876fc54bbdba16a4ae2e0d070714">teqp::kQuadratic</a>
+ }</td></tr>
+<tr class="separator:a285cebddf2ec0d69865e0e8c80418ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:aec1a1fe6229bcb1a9f9170063eddb907" id="r_aec1a1fe6229bcb1a9f9170063eddb907"><td class="memTemplParams" colspan="2">template&lt;typename TC &gt; </td></tr>
+<tr class="memitem:aec1a1fe6229bcb1a9f9170063eddb907"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#aec1a1fe6229bcb1a9f9170063eddb907">teqp::build_alpha_functions</a> (const TC &amp;Tc_K, const nlohmann::json &amp;jalphas)</td></tr>
+<tr class="separator:aec1a1fe6229bcb1a9f9170063eddb907"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a646a52ddd0010dc37a5161e8353148" id="r_a6a646a52ddd0010dc37a5161e8353148"><td class="memTemplParams" colspan="2">template&lt;typename TCType , typename PCType , typename AcentricType &gt; </td></tr>
 <tr class="memitem:a6a646a52ddd0010dc37a5161e8353148"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#a6a646a52ddd0010dc37a5161e8353148">teqp::canonical_SRK</a> (TCType Tc_K, PCType pc_Pa, AcentricType acentric, const std::optional&lt; Eigen::ArrayXXd &gt; &amp;kmat=std::nullopt)</td></tr>
 <tr class="separator:a6a646a52ddd0010dc37a5161e8353148"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,6 +183,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a334093a8fbd62d4f6445df5d8d330e32" id="r_a334093a8fbd62d4f6445df5d8d330e32"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#a334093a8fbd62d4f6445df5d8d330e32">teqp::make_generalizedcubic</a> (const nlohmann::json &amp;spec)</td></tr>
 <tr class="memdesc:a334093a8fbd62d4f6445df5d8d330e32"><td class="mdescLeft">&#160;</td><td class="mdescRight">A JSON-based factory function for the generalized cubic + alpha.  <br /></td></tr>
 <tr class="separator:a334093a8fbd62d4f6445df5d8d330e32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad12448a1393ce70e8e0eda898b6ac4a0" id="r_ad12448a1393ce70e8e0eda898b6ac4a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#ad12448a1393ce70e8e0eda898b6ac4a0">teqp::NLOHMANN_JSON_SERIALIZE_ENUM</a> (<a class="el" href="namespaceteqp.html#a285cebddf2ec0d69865e0e8c80418ead">AdvancedPRaEMixingRules</a>, { {<a class="el" href="namespaceteqp.html#a285cebddf2ec0d69865e0e8c80418eadac5fa7134efc9be43ef7f390d5d7dc9d9">AdvancedPRaEMixingRules::knotspecified</a>, nullptr}, {<a class="el" href="namespaceteqp.html#a285cebddf2ec0d69865e0e8c80418eadaac97f0008bcf7c7fe4f2ff94160e1385">AdvancedPRaEMixingRules::kLinear</a>, &quot;Linear&quot;}, {<a class="el" href="namespaceteqp.html#a285cebddf2ec0d69865e0e8c80418eadaf841876fc54bbdba16a4ae2e0d070714">AdvancedPRaEMixingRules::kQuadratic</a>, &quot;Quadratic&quot;}, }) struct AdvancedPRaEOptions</td></tr>
+<tr class="separator:ad12448a1393ce70e8e0eda898b6ac4a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48611e1016da2a6b186703e02c082d6a" id="r_a48611e1016da2a6b186703e02c082d6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#a48611e1016da2a6b186703e02c082d6a">teqp::from_json</a> (const json &amp;j, AdvancedPRaEOptions &amp;o)</td></tr>
+<tr class="separator:a48611e1016da2a6b186703e02c082d6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41915e46c6b8bf0af18c40844077e3c2" id="r_a41915e46c6b8bf0af18c40844077e3c2"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#a41915e46c6b8bf0af18c40844077e3c2">teqp::make_AdvancedPRaEres</a> (const nlohmann::json &amp;j)</td></tr>
+<tr class="separator:a41915e46c6b8bf0af18c40844077e3c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

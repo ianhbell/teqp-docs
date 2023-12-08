@@ -357,7 +357,7 @@
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00406}00406\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ....}}
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00407}00407\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00408}00408\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dmat\ =\ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af209404299da205d87d41b3d64fd3b27}{get\_dmat}}(T);\ \textcolor{comment}{//\ Matrix\ of\ diameters\ of\ pure\ and\ cross\ terms}}
-\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00409}00409\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rhoN\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(rhomolar*\mbox{\hyperlink{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85}{N\_A}});\ \textcolor{comment}{//\ Number\ density,\ in\ molecules/m\string^3}}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00409}00409\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rhoN\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(rhomolar*N\_A);\ \textcolor{comment}{//\ Number\ density,\ in\ molecules/m\string^3}}
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00410}00410\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ mbar\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}((molefracs*\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}{m}}).sum());\ \textcolor{comment}{//\ Mean\ number\ of\ segments,\ dimensionless}}
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00411}00411\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rhos\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(rhoN*mbar/1e30);\ \textcolor{comment}{//\ Mean\ segment\ number\ density,\ in\ segments/A\string^3}}
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00412}00412\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ xs\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}((\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}{m}}*molefracs/mbar).eval());\ \textcolor{comment}{//\ Segment\ fractions}}
@@ -810,12 +810,12 @@
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00911}00911\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00912}00912\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ mas\ arg\_spec\ =\ std::decay\_t<\textcolor{keyword}{decltype}(contrib)>::arg\_spec;}
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00913}00913\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}(arg\_spec\ ==\ mas::TK\_rhoNA3\_packingfraction\_molefractions)\{}
-\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00914}00914\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RhoType\ rho\_A3\ =\ rhomolar*\mbox{\hyperlink{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85}{N\_A}}*1e-\/30;}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00914}00914\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RhoType\ rho\_A3\ =\ rhomolar*N\_A*1e-\/30;}
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00915}00915\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ alpha\ =\ contrib.eval(T,\ rho\_A3,\ packing\_fraction,\ mole\_fractions).alpha;}
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00916}00916\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ alpha;}
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00917}00917\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00918}00918\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}(arg\_spec\ ==\ mas::TK\_rhoNm3\_rhostar\_molefractions)\{}
-\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00919}00919\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RhoType\ rhoN\_m3\ =\ rhomolar*\mbox{\hyperlink{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85}{N\_A}};}
+\DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00919}00919\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RhoType\ rhoN\_m3\ =\ rhomolar*N\_A;}
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00920}00920\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rhostar\ =\ contrib.get\_rhostar(rhoN\_m3,\ packing\_fraction,\ mole\_fractions);}
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00921}00921\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ contrib.eval(T,\ rhoN\_m3,\ rhostar,\ mole\_fractions).alpha;}
 \DoxyCodeLine{\Hypertarget{saftvrmie_8hpp_source_l00922}00922\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}

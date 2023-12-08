@@ -113,7 +113,7 @@ std\+::tuple$<$ double, double $>$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_
 \item 
 std\+::tuple$<$ \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}, \mbox{\hyperlink{teqpcpp_8hpp_a5b2ba88216611e735d3c59110ffeb1f1}{EMatrixd}} $>$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_ae3a4f197aa7587c9dfc700eaaa35e068}{get\+\_\+pure\+\_\+critical\+\_\+conditions\+\_\+\+Jacobian}} (const double T, const double rho, const std\+::optional$<$ std\+::size\+\_\+t $>$ \&alternative\+\_\+pure\+\_\+index, const std\+::optional$<$ std\+::size\+\_\+t $>$ \&alternative\+\_\+length) const
 \item 
-\mbox{\hyperlink{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}{EArray2}} \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a3a535ad21e572d20773e482812b855ef}{pure\+\_\+\+VLE\+\_\+T}} (const double T, const double rhoL, const double rhoV, int maxiter) const
+\mbox{\hyperlink{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}{EArray2}} \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_aa7fcd91d9a54b7e6d3d745be73c64eee}{pure\+\_\+\+VLE\+\_\+T}} (const double T, const double rhoL, const double rhoV, int maxiter, const std\+::optional$<$ Eigen\+::\+Array\+Xd $>$ \&molefracs=std\+::nullopt) const
 \item 
 double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a2c83cb61de2994adaa0770539bb988bd}{dpsatd\+T\+\_\+pure}} (const double T, const double rhoL, const double rhoV) const
 \item 
@@ -656,11 +656,11 @@ Definition at line \mbox{\hyperlink{AbstractModel__implementation_8cpp_source_l0
 
 Definition at line \mbox{\hyperlink{AbstractModel__implementation_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{AbstractModel__implementation_8cpp_source}{Abstract\+Model\+\_\+implementation.\+cpp}}.
 
-\Hypertarget{classteqp_1_1cppinterface_1_1AbstractModel_a3a535ad21e572d20773e482812b855ef}\label{classteqp_1_1cppinterface_1_1AbstractModel_a3a535ad21e572d20773e482812b855ef} 
+\Hypertarget{classteqp_1_1cppinterface_1_1AbstractModel_aa7fcd91d9a54b7e6d3d745be73c64eee}\label{classteqp_1_1cppinterface_1_1AbstractModel_aa7fcd91d9a54b7e6d3d745be73c64eee} 
 \index{teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}!pure\_VLE\_T@{pure\_VLE\_T}}
 \index{pure\_VLE\_T@{pure\_VLE\_T}!teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}}
 \doxysubsubsection{\texorpdfstring{pure\_VLE\_T()}{pure\_VLE\_T()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}{EArray2}} teqp\+::cppinterface\+::\+Abstract\+Model\+::pure\+\_\+\+VLE\+\_\+T (\begin{DoxyParamCaption}\item[{const double}]{T,  }\item[{const double}]{rhoL,  }\item[{const double}]{rhoV,  }\item[{int}]{maxiter }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}{EArray2}} teqp\+::cppinterface\+::\+Abstract\+Model\+::pure\+\_\+\+VLE\+\_\+T (\begin{DoxyParamCaption}\item[{const double}]{T,  }\item[{const double}]{rhoL,  }\item[{const double}]{rhoV,  }\item[{int}]{maxiter,  }\item[{const std\+::optional$<$ Eigen\+::\+Array\+Xd $>$ \&}]{molefracs = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption}) const}
 
 
 

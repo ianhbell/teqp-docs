@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['s_0',['s',['../structteqp_1_1VLLE_1_1SelfIntersectionSolution.html#a686a1bbe6ab1969f17b89515de90bce9',1,'teqp::VLLE::SelfIntersectionSolution']]],
+  ['s_0',['s',['../classteqp_1_1AdvancedPRaEres.html#a2032b061b93818d2f14701d3f3df28f3',1,'teqp::AdvancedPRaEres::s'],['../structteqp_1_1VLLE_1_1SelfIntersectionSolution.html#a686a1bbe6ab1969f17b89515de90bce9',1,'teqp::VLLE::SelfIntersectionSolution::s']]],
   ['saftcalc_1',['SAFTCalc',['../classteqp_1_1PCSAFT_1_1SAFTCalc.html',1,'teqp::PCSAFT']]],
   ['saftcoeffs_2',['SAFTCoeffs',['../structteqp_1_1PCSAFT_1_1SAFTCoeffs.html',1,'teqp::PCSAFT']]],
   ['saftvrmie_2ehpp_3',['saftvrmie.hpp',['../saftvrmie_8hpp.html',1,'']]],
@@ -13,7 +13,7 @@ var searchData=
   ['schema_10',['schema',['../classteqp_1_1JSONValidator.html#a69d79bd81bf5df9cbb1ff0ab9e81cc5a',1,'teqp::JSONValidator']]],
   ['select_5fidentifier_11',['select_identifier',['../namespaceteqp.html#a82165b861618513fd96dd11b6d0b57e8',1,'teqp']]],
   ['selfintersectionsolution_12',['SelfIntersectionSolution',['../structteqp_1_1VLLE_1_1SelfIntersectionSolution.html',1,'teqp::VLLE']]],
-  ['set_5fmeta_13',['set_meta',['../classteqp_1_1GenericCubic.html#a5646f2ee45660f09e70e6018d96b895b',1,'teqp::GenericCubic::set_meta()'],['../classteqp_1_1MultiFluidAdapter.html#af352dd5c0f70e8c4070aecc9b8b98820',1,'teqp::MultiFluidAdapter::set_meta()'],['../classteqp_1_1MultiFluid.html#a78d7e3c6c69575dd65f9fea3ec516a0c',1,'teqp::MultiFluid::set_meta()']]],
+  ['set_5fmeta_13',['set_meta',['../classteqp_1_1GenericCubic.html#a5646f2ee45660f09e70e6018d96b895b',1,'teqp::GenericCubic::set_meta()'],['../classteqp_1_1MultiFluidAdapter.html#af352dd5c0f70e8c4070aecc9b8b98820',1,'teqp::MultiFluidAdapter::set_meta()'],['../classteqp_1_1MultiFluid.html#a78d7e3c6c69575dd65f9fea3ec516a0c',1,'teqp::MultiFluid::set_meta()'],['../classteqp_1_1AdvancedPRaEres.html#a5d1e55091f7f53c0c62d5f4fd235a793',1,'teqp::AdvancedPRaEres::set_meta()']]],
   ['sigma_5fa_14',['sigma_A',['../structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms.html#a6c21115516923ed0598e67b656883b6a',1,'teqp::SAFTVRMie::SAFTVRMieChainContributionTerms']]],
   ['sigma_5fangstrom_15',['sigma_angstrom',['../structteqp_1_1PCSAFT_1_1SAFTCoeffs.html#afdf6610053cba2f0d015578934f477ac',1,'teqp::PCSAFT::SAFTCoeffs::sigma_Angstrom'],['../classteqp_1_1PCSAFT_1_1PCSAFTHardChainContribution.html#a48d9cd97a3954484a0d96a987a1ea8bf',1,'teqp::PCSAFT::PCSAFTHardChainContribution::sigma_Angstrom'],['../classteqp_1_1PCSAFT_1_1PCSAFTMixture.html#a382c20ab1865aa53312cb7077e932ac4',1,'teqp::PCSAFT::PCSAFTMixture::sigma_Angstrom']]],
   ['sigma_5fij_16',['sigma_ij',['../structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms.html#a1bdee0641e1ac071933c703a4d3e7cc8',1,'teqp::SAFTVRMie::SAFTVRMieChainContributionTerms']]],
@@ -33,8 +33,9 @@ var searchData=
   ['stability_5frel_5fdrho_30',['stability_rel_drho',['../structteqp_1_1TCABOptions.html#a8b4a4b5d8176756facf29ce8c4352c01',1,'teqp::TCABOptions']]],
   ['success_31',['success',['../structteqp_1_1MixVLEReturn.html#a7f767c5d5a5bb063662d65898c4de8ad',1,'teqp::MixVLEReturn']]],
   ['sumproduct_32',['sumproduct',['../namespaceteqp_1_1PCSAFT.html#ad19edc4b424e1b67d9e503a9eb30df85',1,'teqp::PCSAFT']]],
-  ['superanc_5findex_33',['superanc_index',['../classteqp_1_1GenericCubic.html#a3a73a33990aa84297276b818538bee68',1,'teqp::GenericCubic']]],
-  ['superanc_5frholv_34',['superanc_rholv',['../classteqp_1_1QuantumCorrectedPR.html#a59a99d09cf019d611512b3bf7125fa51',1,'teqp::QuantumCorrectedPR::superanc_rhoLV()'],['../classteqp_1_1GenericCubic.html#a4cfcca3f17e15373a4c8b4de8c25724e',1,'teqp::GenericCubic::superanc_rhoLV()']]],
-  ['superancillary_35',['SuperAncillary',['../structteqp_1_1CubicSuperAncillary_1_1SuperAncillary.html',1,'teqp::CubicSuperAncillary']]],
-  ['sw_5fespindolaheredia2009_5ft_36',['SW_EspindolaHeredia2009_t',['../namespaceteqp.html#a522fd870052b2f0d4095c56d7ac95fbe',1,'teqp']]]
+  ['superanc_5fcode_33',['superanc_code',['../classteqp_1_1AdvancedPRaEres.html#aa98d61bb927c9cf8719fea31d26ccc27',1,'teqp::AdvancedPRaEres']]],
+  ['superanc_5findex_34',['superanc_index',['../classteqp_1_1GenericCubic.html#a3a73a33990aa84297276b818538bee68',1,'teqp::GenericCubic']]],
+  ['superanc_5frholv_35',['superanc_rholv',['../classteqp_1_1QuantumCorrectedPR.html#a59a99d09cf019d611512b3bf7125fa51',1,'teqp::QuantumCorrectedPR::superanc_rhoLV()'],['../classteqp_1_1AdvancedPRaEres.html#adf68748af800b1b7fe3e62e218fc4445',1,'teqp::AdvancedPRaEres::superanc_rhoLV()'],['../classteqp_1_1GenericCubic.html#aa0b56dfaaa60a54755f2a139ce122400',1,'teqp::GenericCubic::superanc_rhoLV()']]],
+  ['superancillary_36',['SuperAncillary',['../structteqp_1_1CubicSuperAncillary_1_1SuperAncillary.html',1,'teqp::CubicSuperAncillary']]],
+  ['sw_5fespindolaheredia2009_5ft_37',['SW_EspindolaHeredia2009_t',['../namespaceteqp.html#a522fd870052b2f0d4095c56d7ac95fbe',1,'teqp']]]
 ];

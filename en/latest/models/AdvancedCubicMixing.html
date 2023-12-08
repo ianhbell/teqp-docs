@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Advanced cubic mixing rules &#8212; teqp 0.17.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=0c3dd48d"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Model Potentials" href="model_potentials.html" />
+    <link rel="prev" title="Quantum PR" href="QuantumPR.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="Advanced-cubic-mixing-rules">
+<h1>Advanced cubic mixing rules<a class="headerlink" href="#Advanced-cubic-mixing-rules" title="Link to this heading">¶</a></h1>
+<p>In the advanced cubic mixing rules, the conventional cubic EOS is taken as the basis for the method (usually Peng-Robinson), but different rules are used for the attractive term <span class="math notranslate nohighlight">\(a_m\)</span>. The formulation reads:</p>
+<div class="math notranslate nohighlight">
+\[\frac{a_m}{b_m} = \sum_i z_i\frac{a_i}{b_i} + \frac{a^{E,\gamma}_{\rm res}}{CEoS}\]</div>
+<p>where <span class="math notranslate nohighlight">\(CEoS\)</span> is a scaling parameter that is in principle linked with the EOS coefficients, but can also be allowed to be an adjustable parameter. The <span class="math notranslate nohighlight">\(a_i\)</span> and <span class="math notranslate nohighlight">\(b_i\)</span> are the pure fluid values of component <span class="math notranslate nohighlight">\(i\)</span>. The <span class="math notranslate nohighlight">\(z_i\)</span> are mole fractions. The mixture covolume is given by</p>
+<div class="math notranslate nohighlight">
+\[b_m = \sum_i\sum_j z_iz_jb_{ij}\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[b_{ij} = \left(\frac{b_i^{1/s} + b_j^{1/s}}{2}\right)^s\]</div>
+<p>The heart of the method is the definition of <span class="math notranslate nohighlight">\(a^{E,\gamma}_{\rm res}\)</span>, the residual contribution (not in the conventional thermodynamic sense) to the excess Helmholtz energy. There are many possible models here, but one that seems to work well is that of Wilson, for which the expression reads:</p>
+<div class="math notranslate nohighlight">
+\[\frac{a^{E,\gamma}_{\rm res}}{RT} = -\sum_i z_i\ln\left(\sum_j z_j \Omega_{ji}(T)\right) - \sum_iz_i\ln\left(\frac{\phi_i}{z_i}\right)\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[\Omega_{ji}=\frac{v_j}{v_i}\exp(-A_{ij}/T)\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\frac{\phi_i}{z_i} = \frac{v_i}{\sum_kz_kv_k}\]</div>
+<p>with the <span class="math notranslate nohighlight">\(v_i=b_i\)</span>. The parameter <span class="math notranslate nohighlight">\(A_{ij}\neq A_{ji}\)</span> in general, and is also given temperature dependence, which is also not supposed to be present according to the derivation. Thus, the models for <span class="math notranslate nohighlight">\(A_{ij}\)</span> read something like this here:</p>
+<div class="math notranslate nohighlight">
+\[A_{ij} = m_{ij}T + n_{ij}\]</div>
+<p>so <span class="math notranslate nohighlight">\(m\)</span> is non-dimensional and <span class="math notranslate nohighlight">\(n\)</span> has units of temperature.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">teqp</span>
+<span class="n">teqp</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.17.0&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Four isotherms of experimental data from doi: 10.1016/j.fluid.2016.05.015</span>
+<span class="kn">import</span> <span class="nn">io</span><span class="o">,</span> <span class="nn">pandas</span>
+<span class="n">dat</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;PointID y1 uy1 x1 ux1 p/bar up T/K</span>
+<span class="s2">1 0.0274 0.0007 0.0068 0.0002 59.830 0.053 293.10</span>
+<span class="s2">2 0.0664 0.0014 0.0183 0.0004 64.864 0.080 293.10</span>
+<span class="s2">3 0.0978 0.0020 0.0298 0.0007 69.772 0.080 293.10</span>
+<span class="s2">4 0.1199 0.0024 0.0424 0.0009 74.737 0.080 293.10</span>
+<span class="s2">5 0.1219 0.0028 0.1132 0.0023 89.869 0.080 293.10</span>
+<span class="s2">6 0.1339 0.0024 0.0995 0.0022 89.198 0.080 293.10</span>
+<span class="s2">7 0.1399 0.0026 0.0943 0.0020 88.853 0.080 293.10</span>
+<span class="s2">8 0.1461 0.0027 0.0823 0.0019 86.962 0.080 293.10</span>
+<span class="s2">9 0.1466 0.0028 0.0778 0.0017 85.942 0.080 293.10</span>
+<span class="s2">10 0.1466 0.0028 0.0772 0.0016 85.868 0.080 293.10</span>
+<span class="s2">1 0.1378 0.0027 0.0159 0.0004 42.667 0.051 273.08</span>
+<span class="s2">2 0.2143 0.0038 0.0297 0.0007 49.547 0.051 273.08</span>
+<span class="s2">3 0.2612 0.0043 0.0411 0.0009 55.238 0.051 273.08</span>
+<span class="s2">4 0.3209 0.0049 0.0609 0.0013 65.069 0.088 273.08</span>
+<span class="s2">5 0.3554 0.0051 0.0786 0.0016 73.395 0.088 273.08</span>
+<span class="s2">6 0.3758 0.0052 0.0978 0.0019 81.061 0.088 273.08</span>
+<span class="s2">7 0.3903 0.0053 0.1190 0.0023 90.706 0.088 273.08</span>
+<span class="s2">8 0.3914 0.0053 0.1477 0.0028 100.966 0.088 273.08</span>
+<span class="s2">9 0.3879 0.0053 0.1614 0.0030 104.806 0.088 273.08</span>
+<span class="s2">10 0.3724 0.0052 0.1875 0.0033 110.846 0.088 273.08</span>
+<span class="s2">11 0.3550 0.0051 0.2068 0.0036 114.105 0.088 273.08</span>
+<span class="s2">12 0.2727 0.0044 0.2531 0.0041 118.020 0.088 273.08</span>
+<span class="s2">13 0.3343 0.0049 0.2268 0.0038 116.295 0.088 273.08</span>
+<span class="s2">1 0.2048 0.0038 0.0106 0.0003 25.754 0.050 253.05</span>
+<span class="s2">2 0.3019 0.0049 0.0217 0.0005 30.479 0.050 253.05</span>
+<span class="s2">3 0.4638 0.0056 0.0436 0.0010 45.352 0.050 253.05</span>
+<span class="s2">4 0.5319 0.0056 0.0647 0.0014 58.188 0.050 253.05</span>
+<span class="s2">5 0.5854 0.0054 0.1077 0.0021 78.315 0.084 253.05</span>
+<span class="s2">6 0.5979 0.0054 0.1497 0.0028 98.276 0.084 253.05</span>
+<span class="s2">7 0.5898 0.0054 0.1801 0.0032 109.241 0.084 253.05</span>
+<span class="s2">8 0.5042 0.0057 0.0570 0.0012 51.343 0.084 253.05</span>
+<span class="s2">9 0.5644 0.0055 0.0861 0.0017 67.594 0.084 253.05</span>
+<span class="s2">10 0.5949 0.0054 0.1267 0.0024 86.883 0.084 253.05</span>
+<span class="s2">11 0.5826 0.0054 0.2015 0.0035 116.614 0.084 253.05</span>
+<span class="s2">12 0.5537 0.0055 0.2431 0.0040 129.873 0.084 253.05</span>
+<span class="s2">13 0.4973 0.0055 0.2971 0.0046 139.161 0.084 253.05</span>
+<span class="s2">14 0.4971 0.0055 0.2972 0.0046 139.261 0.084 253.05</span>
+<span class="s2">1 0.7076 0.0050 0.0257 0.0006 27.983 0.056 223.10</span>
+<span class="s2">2 0.7774 0.0041 0.0522 0.0011 44.918 0.056 223.10</span>
+<span class="s2">3 0.8077 0.0036 0.0930 0.0019 64.906 0.081 223.10</span>
+<span class="s2">4 0.8131 0.0035 0.1261 0.0024 84.799 0.081 223.10</span>
+<span class="s2">5 0.8057 0.0035 0.1584 0.0029 104.410 0.081 223.10</span>
+<span class="s2">6 0.7843 0.0038 0.1982 0.0035 125.782 0.081 223.10</span>
+<span class="s2">7 0.7533 0.0041 0.2380 0.0040 144.287 0.081 223.10</span>
+<span class="s2">8 0.7150 0.0045 0.2813 0.0044 159.015 0.081 223.10</span>
+<span class="s2">9 0.6942 0.0047 0.3064 0.0047 165.347 0.081 223.10</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Model from Lasala, FPE, 2016: https://doi.org/10.1016/j.fluid.2016.05.015</span>
+<span class="n">j</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;advancedPRaEres&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="s2">&quot;Tcrit / K&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">304.21</span><span class="p">,</span> <span class="mf">126.19</span><span class="p">],</span>
+       <span class="s2">&quot;pcrit / Pa&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">7.383e6</span><span class="p">,</span> <span class="mf">3395800.0</span><span class="p">],</span>
+       <span class="s2">&quot;alphas&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;PR78&quot;</span><span class="p">,</span> <span class="s2">&quot;acentric&quot;</span><span class="p">:</span> <span class="mf">0.22394</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;PR78&quot;</span><span class="p">,</span> <span class="s2">&quot;acentric&quot;</span><span class="p">:</span> <span class="mf">0.0372</span><span class="p">}],</span>
+       <span class="s2">&quot;aresmodel&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Wilson&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.4768</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.5332</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]],</span> <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">825</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">585</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]]},</span>
+       <span class="s2">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s2">&quot;brule&quot;</span><span class="p">:</span> <span class="s2">&quot;Quadratic&quot;</span><span class="p">,</span> <span class="s2">&quot;CEoS&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.52398</span><span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">223.15</span><span class="p">,</span> <span class="mf">253.05</span><span class="p">,</span> <span class="mf">273.08</span><span class="p">,</span> <span class="mf">293.1</span><span class="p">]:</span>
+    <span class="n">ipure</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="p">[</span><span class="n">rhoL0</span><span class="p">,</span> <span class="n">rhoV0</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">superanc_rhoLV</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">ipure</span><span class="p">)</span>
+
+    <span class="n">rhovecL0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]);</span> <span class="n">rhovecL0</span><span class="p">[</span><span class="n">ipure</span><span class="p">]</span> <span class="o">=</span> <span class="n">rhoL0</span>
+    <span class="n">rhovecV0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]);</span> <span class="n">rhovecV0</span><span class="p">[</span><span class="n">ipure</span><span class="p">]</span> <span class="o">=</span> <span class="n">rhoV0</span>
+
+    <span class="n">J</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">trace_VLE_isotherm_binary</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhovecL0</span><span class="p">,</span> <span class="n">rhovecV0</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">J</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;xL_0 / mole frac.&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pL / Pa&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;xV_0 / mole frac.&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pV / Pa&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">dat</span><span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">],</span> <span class="n">dat</span><span class="p">[</span><span class="s1">&#39;p/bar&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">dat</span><span class="p">[</span><span class="s1">&#39;y1&#39;</span><span class="p">],</span> <span class="n">dat</span><span class="p">[</span><span class="s1">&#39;p/bar&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$x_1$ / mole frac.&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;$p$ / MPa&#39;</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[3], line 13</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># Model from Lasala, FPE, 2016: https://doi.org/10.1016/j.fluid.2016.05.015</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> j <span style="color: rgb(98,98,98)">=</span> {
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">kind</span><span style="color: rgb(175,0,0)">&#34;</span>: <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">advancedPRaEres</span><span style="color: rgb(175,0,0)">&#34;</span>,
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">model</span><span style="color: rgb(175,0,0)">&#34;</span>: {
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">     10</span>     }
+<span class="ansi-green-intense-fg ansi-bold">     11</span> }
+<span class="ansi-green-fg">---&gt; 13</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">teqp</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">make_model</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">j</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     14</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> T <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> [<span style="color: rgb(98,98,98)">223.15</span>, <span style="color: rgb(98,98,98)">253.05</span>, <span style="color: rgb(98,98,98)">273.08</span>, <span style="color: rgb(98,98,98)">293.1</span>]:
+<span class="ansi-green-intense-fg ansi-bold">     15</span>     ipure <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">0</span>
+
+File <span class="ansi-green-fg">/opt/conda/lib/python3.11/site-packages/teqp/__init__.py:47</span>, in <span class="ansi-cyan-fg">make_model</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     42</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">make_model</span>(<span style="color: rgb(98,98,98)">*</span>args, <span style="color: rgb(98,98,98)">*</span><span style="color: rgb(98,98,98)">*</span>kwargs):
+<span class="ansi-green-intense-fg ansi-bold">     43</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     44</span> <span style="color: rgb(175,0,0)">    This function is in two parts; first the make_model function (renamed to _make_model in the Python interface)</span>
+<span class="ansi-green-intense-fg ansi-bold">     45</span> <span style="color: rgb(175,0,0)">    is used to make the model and then the model-specific methods are attached to the instance</span>
+<span class="ansi-green-intense-fg ansi-bold">     46</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">---&gt; 47</span>     AS <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">_make_model</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     48</span>     attach_model_specific_methods(AS)
+<span class="ansi-green-intense-fg ansi-bold">     49</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> AS
+
+<span class="ansi-red-fg">ValueError</span>: Don&#39;t understand &#34;kind&#34; of: advancedPRaEres
+</pre></div></div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Models</a><ul>
+      <li>Previous: <a href="QuantumPR.html" title="previous chapter">Quantum PR</a></li>
+      <li>Next: <a href="model_potentials.html" title="next chapter">Model Potentials</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/AdvancedCubicMixing.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/AdvancedCubicMixing.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

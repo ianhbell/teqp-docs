@@ -10,5 +10,6 @@ var searchData=
   ['lambdav_7',['lambdaV',['../classteqp_1_1MultiFluidInvariantReducingFunction.html#adc3be2c04efcf1ab2cd2f768af524545',1,'teqp::MultiFluidInvariantReducingFunction']]],
   ['ld_8',['ld',['../classteqp_1_1DoubleExponentialEOSTerm.html#a521279c45667c2b382b1380f1cfb6755',1,'teqp::DoubleExponentialEOSTerm']]],
   ['ld_5fi_9',['ld_i',['../classteqp_1_1DoubleExponentialEOSTerm.html#a57c733b1edef4af4a0af339c2ac401b7',1,'teqp::DoubleExponentialEOSTerm']]],
-  ['lt_10',['lt',['../classteqp_1_1DoubleExponentialEOSTerm.html#a4b0fc40cbeccd66e9dfe83d47b36bf8d',1,'teqp::DoubleExponentialEOSTerm']]]
+  ['lmat_10',['lmat',['../classteqp_1_1AdvancedPRaEres.html#a2f32b1edd959cb94813c26b5db4ea4df',1,'teqp::AdvancedPRaEres']]],
+  ['lt_11',['lt',['../classteqp_1_1DoubleExponentialEOSTerm.html#a4b0fc40cbeccd66e9dfe83d47b36bf8d',1,'teqp::DoubleExponentialEOSTerm']]]
 ];

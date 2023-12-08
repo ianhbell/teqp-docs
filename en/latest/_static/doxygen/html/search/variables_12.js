@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['s_0',['s',['../structteqp_1_1VLLE_1_1SelfIntersectionSolution.html#a686a1bbe6ab1969f17b89515de90bce9',1,'teqp::VLLE::SelfIntersectionSolution']]],
+  ['s_0',['s',['../classteqp_1_1AdvancedPRaEres.html#a2032b061b93818d2f14701d3f3df28f3',1,'teqp::AdvancedPRaEres::s'],['../structteqp_1_1VLLE_1_1SelfIntersectionSolution.html#a686a1bbe6ab1969f17b89515de90bce9',1,'teqp::VLLE::SelfIntersectionSolution::s']]],
   ['schema_1',['schema',['../classteqp_1_1JSONValidator.html#a69d79bd81bf5df9cbb1ff0ab9e81cc5a',1,'teqp::JSONValidator']]],
   ['sigma_5fa_2',['sigma_A',['../structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms.html#a6c21115516923ed0598e67b656883b6a',1,'teqp::SAFTVRMie::SAFTVRMieChainContributionTerms']]],
   ['sigma_5fangstrom_3',['sigma_angstrom',['../structteqp_1_1PCSAFT_1_1SAFTCoeffs.html#afdf6610053cba2f0d015578934f477ac',1,'teqp::PCSAFT::SAFTCoeffs::sigma_Angstrom'],['../classteqp_1_1PCSAFT_1_1PCSAFTHardChainContribution.html#a48d9cd97a3954484a0d96a987a1ea8bf',1,'teqp::PCSAFT::PCSAFTHardChainContribution::sigma_Angstrom'],['../classteqp_1_1PCSAFT_1_1PCSAFTMixture.html#a382c20ab1865aa53312cb7077e932ac4',1,'teqp::PCSAFT::PCSAFTMixture::sigma_Angstrom']]],
@@ -15,5 +15,6 @@ var searchData=
   ['srk_5frhov_12',['SRK_rhoV',['../namespaceteqp_1_1CubicSuperAncillary.html#ac1ee563798aa36cd74a9d1c2cfd306d8',1,'teqp::CubicSuperAncillary']]],
   ['stability_5frel_5fdrho_13',['stability_rel_drho',['../structteqp_1_1TCABOptions.html#a8b4a4b5d8176756facf29ce8c4352c01',1,'teqp::TCABOptions']]],
   ['success_14',['success',['../structteqp_1_1MixVLEReturn.html#a7f767c5d5a5bb063662d65898c4de8ad',1,'teqp::MixVLEReturn']]],
-  ['superanc_5findex_15',['superanc_index',['../classteqp_1_1GenericCubic.html#a3a73a33990aa84297276b818538bee68',1,'teqp::GenericCubic']]]
+  ['superanc_5fcode_15',['superanc_code',['../classteqp_1_1AdvancedPRaEres.html#aa98d61bb927c9cf8719fea31d26ccc27',1,'teqp::AdvancedPRaEres']]],
+  ['superanc_5findex_16',['superanc_index',['../classteqp_1_1GenericCubic.html#a3a73a33990aa84297276b818538bee68',1,'teqp::GenericCubic']]]
 ];

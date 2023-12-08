@@ -26,10 +26,10 @@
    "id": "d1842386",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-05T19:15:50.158974Z",
-     "iopub.status.busy": "2023-12-05T19:15:50.158810Z",
-     "iopub.status.idle": "2023-12-05T19:15:50.174251Z",
-     "shell.execute_reply": "2023-12-05T19:15:50.173747Z"
+     "iopub.execute_input": "2023-12-08T16:27:27.486683Z",
+     "iopub.status.busy": "2023-12-08T16:27:27.486505Z",
+     "iopub.status.idle": "2023-12-08T16:27:27.498473Z",
+     "shell.execute_reply": "2023-12-08T16:27:27.498001Z"
     }
    },
    "outputs": [
@@ -55,10 +55,10 @@
    "id": "16f05ec8",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-05T19:15:50.176583Z",
-     "iopub.status.busy": "2023-12-05T19:15:50.176165Z",
-     "iopub.status.idle": "2023-12-05T19:15:50.827683Z",
-     "shell.execute_reply": "2023-12-05T19:15:50.827207Z"
+     "iopub.execute_input": "2023-12-08T16:27:27.500479Z",
+     "iopub.status.busy": "2023-12-08T16:27:27.500104Z",
+     "iopub.status.idle": "2023-12-08T16:27:28.096796Z",
+     "shell.execute_reply": "2023-12-08T16:27:28.096223Z"
     }
    },
    "outputs": [],
@@ -76,10 +76,10 @@
    "id": "be8268a7",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-05T19:15:50.830297Z",
-     "iopub.status.busy": "2023-12-05T19:15:50.829876Z",
-     "iopub.status.idle": "2023-12-05T19:15:50.838725Z",
-     "shell.execute_reply": "2023-12-05T19:15:50.838139Z"
+     "iopub.execute_input": "2023-12-08T16:27:28.099493Z",
+     "iopub.status.busy": "2023-12-08T16:27:28.099061Z",
+     "iopub.status.idle": "2023-12-08T16:27:28.107121Z",
+     "shell.execute_reply": "2023-12-08T16:27:28.106639Z"
     }
    },
    "outputs": [
@@ -143,10 +143,10 @@
    "id": "d3d42d81",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-05T19:15:50.841070Z",
-     "iopub.status.busy": "2023-12-05T19:15:50.840663Z",
-     "iopub.status.idle": "2023-12-05T19:15:51.990486Z",
-     "shell.execute_reply": "2023-12-05T19:15:51.989784Z"
+     "iopub.execute_input": "2023-12-08T16:27:28.108903Z",
+     "iopub.status.busy": "2023-12-08T16:27:28.108741Z",
+     "iopub.status.idle": "2023-12-08T16:27:29.209192Z",
+     "shell.execute_reply": "2023-12-08T16:27:29.208685Z"
     }
    },
    "outputs": [
@@ -214,10 +214,10 @@
    "id": "5c617489",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-05T19:15:51.992992Z",
-     "iopub.status.busy": "2023-12-05T19:15:51.992524Z",
-     "iopub.status.idle": "2023-12-05T19:16:05.459591Z",
-     "shell.execute_reply": "2023-12-05T19:16:05.459078Z"
+     "iopub.execute_input": "2023-12-08T16:27:29.211323Z",
+     "iopub.status.busy": "2023-12-08T16:27:29.211011Z",
+     "iopub.status.idle": "2023-12-08T16:27:42.632654Z",
+     "shell.execute_reply": "2023-12-08T16:27:42.632101Z"
     }
    },
    "outputs": [
@@ -225,8 +225,8 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "1.41 ms ± 3.54 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)\n",
-      "250 µs ± 668 ns per loop (mean ± std. dev. of 7 runs, 1,000 loops each)\n"
+      "1.4 ms ± 827 ns per loop (mean ± std. dev. of 7 runs, 1,000 loops each)\n",
+      "253 µs ± 2.77 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)\n"
      ]
     }
    ],
@@ -251,10 +251,10 @@
    "id": "c34aaf8b",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-05T19:16:05.461887Z",
-     "iopub.status.busy": "2023-12-05T19:16:05.461512Z",
-     "iopub.status.idle": "2023-12-05T19:16:06.171668Z",
-     "shell.execute_reply": "2023-12-05T19:16:06.171157Z"
+     "iopub.execute_input": "2023-12-08T16:27:42.634832Z",
+     "iopub.status.busy": "2023-12-08T16:27:42.634468Z",
+     "iopub.status.idle": "2023-12-08T16:27:43.295122Z",
+     "shell.execute_reply": "2023-12-08T16:27:43.294610Z"
     }
    },
    "outputs": [
@@ -306,10 +306,10 @@
    "id": "ab669adc",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-05T19:16:06.173890Z",
-     "iopub.status.busy": "2023-12-05T19:16:06.173545Z",
-     "iopub.status.idle": "2023-12-05T19:16:06.972216Z",
-     "shell.execute_reply": "2023-12-05T19:16:06.971669Z"
+     "iopub.execute_input": "2023-12-08T16:27:43.297168Z",
+     "iopub.status.busy": "2023-12-08T16:27:43.296844Z",
+     "iopub.status.idle": "2023-12-08T16:27:44.056759Z",
+     "shell.execute_reply": "2023-12-08T16:27:44.056258Z"
     }
    },
    "outputs": [
@@ -362,10 +362,10 @@
    "id": "f89b0433",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-05T19:16:06.974385Z",
-     "iopub.status.busy": "2023-12-05T19:16:06.974040Z",
-     "iopub.status.idle": "2023-12-05T19:16:18.938530Z",
-     "shell.execute_reply": "2023-12-05T19:16:18.937936Z"
+     "iopub.execute_input": "2023-12-08T16:27:44.058984Z",
+     "iopub.status.busy": "2023-12-08T16:27:44.058591Z",
+     "iopub.status.idle": "2023-12-08T16:27:55.688909Z",
+     "shell.execute_reply": "2023-12-08T16:27:55.688359Z"
     }
    },
    "outputs": [
@@ -373,8 +373,8 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "1.03 ms ± 2.5 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)\n",
-      "431 µs ± 3.51 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)\n"
+      "1 ms ± 2.09 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)\n",
+      "420 µs ± 865 ns per loop (mean ± std. dev. of 7 runs, 1,000 loops each)\n"
      ]
     }
    ],
@@ -428,10 +428,10 @@
    "id": "79563001",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-05T19:16:18.941704Z",
-     "iopub.status.busy": "2023-12-05T19:16:18.941327Z",
-     "iopub.status.idle": "2023-12-05T19:16:19.424596Z",
-     "shell.execute_reply": "2023-12-05T19:16:19.424012Z"
+     "iopub.execute_input": "2023-12-08T16:27:55.690863Z",
+     "iopub.status.busy": "2023-12-08T16:27:55.690696Z",
+     "iopub.status.idle": "2023-12-08T16:27:56.111655Z",
+     "shell.execute_reply": "2023-12-08T16:27:56.111176Z"
     }
    },
    "outputs": [
@@ -475,10 +475,10 @@
    "id": "8e1e5746",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-05T19:16:19.427022Z",
-     "iopub.status.busy": "2023-12-05T19:16:19.426612Z",
-     "iopub.status.idle": "2023-12-05T19:16:19.433671Z",
-     "shell.execute_reply": "2023-12-05T19:16:19.433145Z"
+     "iopub.execute_input": "2023-12-08T16:27:56.113771Z",
+     "iopub.status.busy": "2023-12-08T16:27:56.113398Z",
+     "iopub.status.idle": "2023-12-08T16:27:56.119961Z",
+     "shell.execute_reply": "2023-12-08T16:27:56.119481Z"
     }
    },
    "outputs": [

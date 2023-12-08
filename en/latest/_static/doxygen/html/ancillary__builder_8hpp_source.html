@@ -99,18 +99,183 @@ $(document).ready(function() { init_codefold(0); });
   <div class="headertitle"><div class="title">ancillary_builder.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="ancillary__builder_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//  ancillary_builder.hpp</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//  teqp</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//  Created by Bell, Ian H. (Fed) on 10/2/23.</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//</span></div>
+<a href="ancillary__builder_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="teqpcpp_8hpp.html">teqp/cpp/teqpcpp.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="multifluid__ancillaries_8hpp.html">teqp/models/multifluid_ancillaries.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef ancillary_builder_h</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define ancillary_builder_h</span></div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="namespaceteqp.html">    8</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceteqp.html">teqp</a>{</div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespaceteqp_1_1ancillaries.html">    9</a></span><span class="keyword">namespace </span>ancillaries{</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#endif </span><span class="comment">/* ancillary_builder_h */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespaceteqp.html">teqp</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespaceteqp_1_1cppinterface.html">teqp::cppinterface</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespaceteqp_1_1ancillaries.html#a94a3932001b7734388650f1352491af1">   14</a></span><span class="keyword">auto</span> <a class="code hl_function" href="namespaceteqp_1_1ancillaries.html#a94a3932001b7734388650f1352491af1">build_ancillaries</a>(<span class="keyword">const</span> <a class="code hl_class" href="classteqp_1_1cppinterface_1_1AbstractModel.html">AbstractModel</a>&amp; model, <span class="keywordtype">double</span> Tcritguess, <span class="keywordtype">double</span> rhocritguess, <span class="keywordtype">double</span> Tmin, std::optional&lt;nlohmann::json&gt; flags_ = std::nullopt)</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    nlohmann::json flags = flags_.value_or(nlohmann::json::object());</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">bool</span> ii = flags.is_object();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">bool</span> verify = flags.value(<span class="stringliteral">&quot;verify&quot;</span>, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">int</span> Npts = flags.value(<span class="stringliteral">&quot;Npts&quot;</span>, 1000);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">double</span> Theta_nearcrit = flags.value(<span class="stringliteral">&quot;Theta_nearcrit&quot;</span>, 0.01);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">auto</span> [Tcrittrue, rhocrittrue] = model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#aad84ac400f0003843c8a780e51a8361c">solve_pure_critical</a>(Tcritguess, rhocritguess);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">double</span> Tclosec = (1-Theta_nearcrit)*Tcrittrue;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">auto</span> rhovec = model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#af0b347b5c539106f934ce82a8e9d6d81">extrapolate_from_critical</a>(Tcrittrue, rhocrittrue, Tclosec);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">double</span> rhoL = rhovec[0], rhoV = rhovec[1];</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">auto</span> molefrac = (Eigen::ArrayXd(1) &lt;&lt; 1.0).finished();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">double</span> R = model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a38884acb6a2663fe18967760e9438b68">get_R</a>(molefrac);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">double</span> pcrittrue = rhocrittrue*R*Tcrittrue*(1+model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a0ce44e70fa200a4a1480d826d23ec016">get_Ar01</a>(Tcrittrue, rhocrittrue, molefrac));</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">double</span> dT = (Tcrittrue-Tmin)/(Npts-1);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment">// Convenience function to get the density derivatives</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">auto</span> getdrhodTs = [&amp;R, &amp;molefrac](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; model, <span class="keywordtype">double</span> T, <span class="keywordtype">double</span> rhoL, <span class="keywordtype">double</span> rhoV){</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordtype">double</span> dpsatdT = model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a2c83cb61de2994adaa0770539bb988bd">dpsatdT_pure</a>(T, rhoL, rhoV);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keyword">auto</span> get_drhodT = [&amp;](<span class="keywordtype">double</span> T, <span class="keywordtype">double</span> rho){</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordtype">double</span> dpdrho = R*T*(1 + 2*model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a0ce44e70fa200a4a1480d826d23ec016">get_Ar01</a>(T, rho, molefrac) + model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a58ed79bc64422464baf6ff59cc320bb1">get_Ar02</a>(T, rho, molefrac));</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="keywordtype">double</span> dpdT = R*rho*(1 + model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a0ce44e70fa200a4a1480d826d23ec016">get_Ar01</a>(T, rho, molefrac) - model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#addb6f068a25fe00ad6f14f49dbb81933">get_Ar11</a>(T, rho, molefrac));</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">return</span> -dpdT/dpdrho + dpsatdT/dpdrho;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        };</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">return</span> std::make_tuple(get_drhodT(T, rhoL), get_drhodT(T, rhoV));</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    };</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    std::vector&lt;double&gt; Thetas_, rhoLs_, rhoVs_, pLs_;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; Npts; ++i){</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keyword">auto</span> T = Tclosec - dT*i;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keyword">auto</span> rhovec = model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#aa7fcd91d9a54b7e6d3d745be73c64eee">pure_VLE_T</a>(T, rhoL, rhoV, 10);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        rhoL = rhovec[0]; rhoV = rhovec[1];</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">auto</span> [drhodTL, drhodTV] = getdrhodTs(model, T, rhoL, rhoV);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        rhoL += drhodTL*dT;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        rhoV += drhodTV*dT;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        T += dT;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">auto</span> Theta = (Tcrittrue-T)/Tcrittrue;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordtype">double</span> pL = rhoL*R*T*(1+model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a0ce44e70fa200a4a1480d826d23ec016">get_Ar01</a>(T, rhoL, molefrac));</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        Thetas_.push_back(Theta);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        rhoLs_.push_back(rhoL);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        rhoVs_.push_back(rhoV);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        pLs_.push_back(pL);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">auto</span> N = Thetas_.size();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">auto</span> pLs = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(pLs_[0]), N);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">auto</span> rhoLs = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(rhoLs_[0]), N);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">auto</span> rhoVs = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(rhoVs_[0]), N);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">auto</span> Thetass = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(Thetas_[0]), N);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">// Solve the least-squares problem for the polynomial coefficients</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    Eigen::ArrayXd exponents = Eigen::ArrayXd::LinSpaced(10, 0, 4.5);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    Eigen::MatrixXd A(N,exponents.size());</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    Eigen::VectorXd bL(N), bV(N), bpL(N);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; exponents.size(); ++i){</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keyword">auto</span> <a class="code hl_function" href="namespaceteqp_1_1cppinterface_1_1adapter.html#a39a57d164c9ab5bc08627135ad8f7930">view</a> = (Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(Thetass[0]), N));</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        A.col(i) = <a class="code hl_function" href="namespaceteqp_1_1cppinterface_1_1adapter.html#a39a57d164c9ab5bc08627135ad8f7930">view</a>.pow(exponents[i]);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    bL = (rhoLs/rhocrittrue)-1;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">auto</span> TTr = 1.0-Thetass;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    bV = (rhoVs/rhocrittrue).log()*TTr;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    bpL = (pLs/pcrittrue).log()*TTr;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    Eigen::ArrayXd cLarray = A.colPivHouseholderQr().solve(bL).array();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    Eigen::ArrayXd cVarray = A.colPivHouseholderQr().solve(bV).array();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    Eigen::ArrayXd cpLarray = A.colPivHouseholderQr().solve(bpL).array();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keyword">auto</span> toj = [](<span class="keyword">const</span> Eigen::ArrayXd&amp; a){</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        std::vector&lt;double&gt; o(a.size());</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(o[0]), o.size()) = a;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">return</span> o;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    };</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    nlohmann::json jrhoL = {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        {<span class="stringliteral">&quot;T_r&quot;</span>, Tcrittrue},</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        {<span class="stringliteral">&quot;Tmax&quot;</span>, Tcrittrue},</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        {<span class="stringliteral">&quot;Tmin&quot;</span>, Tmin},</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        {<span class="stringliteral">&quot;type&quot;</span>, <span class="stringliteral">&quot;rhoLnoexp&quot;</span>},</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        {<span class="stringliteral">&quot;description&quot;</span>, <span class="stringliteral">&quot;I&#39;m a description&quot;</span>},</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        {<span class="stringliteral">&quot;n&quot;</span>, toj(cLarray)},</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        {<span class="stringliteral">&quot;t&quot;</span>, toj(exponents)},</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        {<span class="stringliteral">&quot;reducing_value&quot;</span>, rhocrittrue},</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        {<span class="stringliteral">&quot;using_tau_r&quot;</span>, <span class="keyword">false</span>},</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    };</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    nlohmann::json jrhoV = {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        {<span class="stringliteral">&quot;T_r&quot;</span>, Tcrittrue},</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        {<span class="stringliteral">&quot;Tmax&quot;</span>, Tcrittrue},</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        {<span class="stringliteral">&quot;Tmin&quot;</span>, Tmin},</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        {<span class="stringliteral">&quot;type&quot;</span>, <span class="stringliteral">&quot;type&quot;</span>},</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        {<span class="stringliteral">&quot;description&quot;</span>, <span class="stringliteral">&quot;I&#39;m a description&quot;</span>},</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        {<span class="stringliteral">&quot;n&quot;</span>, toj(cVarray)},</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        {<span class="stringliteral">&quot;t&quot;</span>, toj(exponents)},</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        {<span class="stringliteral">&quot;reducing_value&quot;</span>, rhocrittrue},</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        {<span class="stringliteral">&quot;using_tau_r&quot;</span>, <span class="keyword">true</span>},</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    };</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    nlohmann::json jpsat = {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        {<span class="stringliteral">&quot;T_r&quot;</span>, Tcrittrue},</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        {<span class="stringliteral">&quot;Tmax&quot;</span>, Tcrittrue},</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        {<span class="stringliteral">&quot;Tmin&quot;</span>, Tmin},</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        {<span class="stringliteral">&quot;type&quot;</span>, <span class="stringliteral">&quot;type&quot;</span>},</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        {<span class="stringliteral">&quot;description&quot;</span>, <span class="stringliteral">&quot;I&#39;m a description&quot;</span>},</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        {<span class="stringliteral">&quot;n&quot;</span>, toj(cpLarray)},</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        {<span class="stringliteral">&quot;t&quot;</span>, toj(exponents)},</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        {<span class="stringliteral">&quot;reducing_value&quot;</span>, pcrittrue},</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        {<span class="stringliteral">&quot;using_tau_r&quot;</span>, <span class="keyword">true</span>},</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    };</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    nlohmann::json j{</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        {<span class="stringliteral">&quot;rhoL&quot;</span>, jrhoL},</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        {<span class="stringliteral">&quot;rhoV&quot;</span>, jrhoV},</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        {<span class="stringliteral">&quot;pS&quot;</span>, jpsat}</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    };</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keyword">auto</span> anc = <a class="code hl_struct" href="structteqp_1_1MultiFluidVLEAncillaries.html">MultiFluidVLEAncillaries</a>(j);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordflow">if</span> (verify){</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="comment">// Verify</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; Thetas_.size(); ++i){</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            <span class="keywordtype">double</span> T = (1-Thetas_[i])*Tcrittrue;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            <span class="keywordtype">double</span> rhoLanc = anc.rhoL(T);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <span class="keywordtype">double</span> rhoVanc = anc.rhoV(T);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            <span class="keywordtype">double</span> panc = anc.pL(T);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            <span class="keywordflow">if</span> (std::abs(rhoLanc/rhoLs_[i]-1) &gt; 1e-2){</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                std::cout &lt;&lt; T &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; rhoLs_[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; rhoLanc &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            }</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <span class="keywordflow">if</span> (std::abs(rhoVanc/rhoVs_[i]-1) &gt; 1e-2){</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                std::cout &lt;&lt; T &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; rhoVs_[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; rhoVanc &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            }</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        }</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    }</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordflow">return</span> anc;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>}</div>
+</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>}</div>
+</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>}</div>
+</div>
+<div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html">teqp::cppinterface::AbstractModel</a></div><div class="ttdef"><b>Definition</b> <a href="teqpcpp_8hpp_source.html#l00087">teqpcpp.hpp:87</a></div></div>
+<div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html_a0ce44e70fa200a4a1480d826d23ec016"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html#a0ce44e70fa200a4a1480d826d23ec016">teqp::cppinterface::AbstractModel::get_Ar01</a></div><div class="ttdeci">virtual double get_Ar01(const double T, const double rho, const REArrayd &amp;molefrac) const =0</div></div>
+<div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html_a2c83cb61de2994adaa0770539bb988bd"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html#a2c83cb61de2994adaa0770539bb988bd">teqp::cppinterface::AbstractModel::dpsatdT_pure</a></div><div class="ttdeci">double dpsatdT_pure(const double T, const double rhoL, const double rhoV) const</div><div class="ttdef"><b>Definition</b> <a href="AbstractModel__implementation_8cpp_source.html#l00028">AbstractModel_implementation.cpp:28</a></div></div>
+<div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html_a38884acb6a2663fe18967760e9438b68"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html#a38884acb6a2663fe18967760e9438b68">teqp::cppinterface::AbstractModel::get_R</a></div><div class="ttdeci">virtual double get_R(const EArrayd &amp;) const =0</div></div>
+<div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html_a58ed79bc64422464baf6ff59cc320bb1"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html#a58ed79bc64422464baf6ff59cc320bb1">teqp::cppinterface::AbstractModel::get_Ar02</a></div><div class="ttdeci">virtual double get_Ar02(const double T, const double rho, const REArrayd &amp;molefrac) const =0</div></div>
+<div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html_aa7fcd91d9a54b7e6d3d745be73c64eee"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html#aa7fcd91d9a54b7e6d3d745be73c64eee">teqp::cppinterface::AbstractModel::pure_VLE_T</a></div><div class="ttdeci">EArray2 pure_VLE_T(const double T, const double rhoL, const double rhoV, int maxiter, const std::optional&lt; Eigen::ArrayXd &gt; &amp;molefracs=std::nullopt) const</div><div class="ttdef"><b>Definition</b> <a href="AbstractModel__implementation_8cpp_source.html#l00024">AbstractModel_implementation.cpp:24</a></div></div>
+<div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html_aad84ac400f0003843c8a780e51a8361c"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html#aad84ac400f0003843c8a780e51a8361c">teqp::cppinterface::AbstractModel::solve_pure_critical</a></div><div class="ttdeci">std::tuple&lt; double, double &gt; solve_pure_critical(const double T, const double rho, const std::optional&lt; nlohmann::json &gt; &amp;=std::nullopt) const</div><div class="ttdef"><b>Definition</b> <a href="AbstractModel__implementation_8cpp_source.html#l00014">AbstractModel_implementation.cpp:14</a></div></div>
+<div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html_addb6f068a25fe00ad6f14f49dbb81933"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html#addb6f068a25fe00ad6f14f49dbb81933">teqp::cppinterface::AbstractModel::get_Ar11</a></div><div class="ttdeci">virtual double get_Ar11(const double T, const double rho, const REArrayd &amp;molefrac) const =0</div></div>
+<div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html_af0b347b5c539106f934ce82a8e9d6d81"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html#af0b347b5c539106f934ce82a8e9d6d81">teqp::cppinterface::AbstractModel::extrapolate_from_critical</a></div><div class="ttdeci">EArray2 extrapolate_from_critical(const double Tc, const double rhoc, const double Tgiven) const</div><div class="ttdef"><b>Definition</b> <a href="AbstractModel__implementation_8cpp_source.html#l00020">AbstractModel_implementation.cpp:20</a></div></div>
+<div class="ttc" id="amultifluid__ancillaries_8hpp_html"><div class="ttname"><a href="multifluid__ancillaries_8hpp.html">multifluid_ancillaries.hpp</a></div></div>
+<div class="ttc" id="anamespaceteqp_1_1ancillaries_html_a94a3932001b7734388650f1352491af1"><div class="ttname"><a href="namespaceteqp_1_1ancillaries.html#a94a3932001b7734388650f1352491af1">teqp::ancillaries::build_ancillaries</a></div><div class="ttdeci">auto build_ancillaries(const AbstractModel &amp;model, double Tcritguess, double rhocritguess, double Tmin, std::optional&lt; nlohmann::json &gt; flags_=std::nullopt)</div><div class="ttdef"><b>Definition</b> <a href="ancillary__builder_8hpp_source.html#l00014">ancillary_builder.hpp:14</a></div></div>
+<div class="ttc" id="anamespaceteqp_1_1cppinterface_1_1adapter_html_a39a57d164c9ab5bc08627135ad8f7930"><div class="ttname"><a href="namespaceteqp_1_1cppinterface_1_1adapter.html#a39a57d164c9ab5bc08627135ad8f7930">teqp::cppinterface::adapter::view</a></div><div class="ttdeci">auto view(const TemplatedModel &amp;tp)</div><div class="ttdef"><b>Definition</b> <a href="deriv__adapter_8hpp_source.html#l00115">deriv_adapter.hpp:115</a></div></div>
+<div class="ttc" id="anamespaceteqp_1_1cppinterface_html"><div class="ttname"><a href="namespaceteqp_1_1cppinterface.html">teqp::cppinterface</a></div><div class="ttdef"><b>Definition</b> <a href="deriv__adapter_8hpp_source.html#l00008">deriv_adapter.hpp:8</a></div></div>
+<div class="ttc" id="anamespaceteqp_html"><div class="ttname"><a href="namespaceteqp.html">teqp</a></div><div class="ttdef"><b>Definition</b> <a href="ancillary__builder_8hpp_source.html#l00008">ancillary_builder.hpp:8</a></div></div>
+<div class="ttc" id="astructteqp_1_1MultiFluidVLEAncillaries_html"><div class="ttname"><a href="structteqp_1_1MultiFluidVLEAncillaries.html">teqp::MultiFluidVLEAncillaries</a></div><div class="ttdef"><b>Definition</b> <a href="multifluid__ancillaries_8hpp_source.html#l00046">multifluid_ancillaries.hpp:46</a></div></div>
+<div class="ttc" id="ateqpcpp_8hpp_html"><div class="ttname"><a href="teqpcpp_8hpp.html">teqpcpp.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

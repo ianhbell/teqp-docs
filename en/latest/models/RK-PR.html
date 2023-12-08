@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>RK-PR &#8212; teqp 0.17.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=0c3dd48d"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="RK-PR">
+<h1>RK-PR<a class="headerlink" href="#RK-PR" title="Link to this heading">¶</a></h1>
+<p>The EOS can be given as</p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm r} = \psi^{(-)} - \dfrac{a_m}{RT } \psi^{(+)}\]</div>
+<div class="math notranslate nohighlight">
+\[\psi^{(-)} =-\ln(1-b_m\rho )\]</div>
+<div class="math notranslate nohighlight">
+\[\psi^{(+)} = \dfrac{\ln\left(\dfrac{\Delta_1 b_m\rho+1}{\Delta_2b_m\rho+1}\right)}{b_m(\Delta_1-\Delta_2)}\]</div>
+<p>with the EOS fixed constants of</p>
+<div class="math notranslate nohighlight">
+\[\Delta_1 = \sum_i x_i \delta_{1,i}\]</div>
+<div class="math notranslate nohighlight">
+\[\Delta_2 = \frac{1-\Delta_1}{1+\Delta_1}\]</div>
+<p>The attractive term goes like</p>
+<div class="math notranslate nohighlight">
+\[a_{i} = a_{c,i}\left(\frac{2}{3+T/T_{c,i}}\right)^{k_i}\]</div>
+<p>with quadratic mixing rules</p>
+<div class="math notranslate nohighlight">
+\[a_m = \sum_i\sum_jx_ix_j(1-k_{ij})\sqrt{a_{i}(T)a_{j}(T)}\]</div>
+<p>And the covolume also gets quadratic mixing rules</p>
+<div class="math notranslate nohighlight">
+\[b_m = \sum_i\sum_jx_ix_j(1-l_{ij})(b_{i}+b_{j})/2\]</div>
+<p>Thus, to implement the RK-PR model in predictive mode, the following steps are required:</p>
+<ol class="arabic simple">
+<li><p>Obtain the critical parameters Tc, pc</p></li>
+<li><p>Solve for delta_1 from the experimental critical compressibility factor, begin with the values from the correlation</p></li>
+<li><p>Solve for k by fixing the pressure at the T=0.7<em>Tc. In the case (e.g, CO:math:`_2`) that Tt &lt; 0.7</em>Tc, use instead Tr=Tt/Tc</p></li>
+</ol>
+<p>It may be necessary to adjust the values of <span class="math notranslate nohighlight">\(\delta_{1,i}\)</span> and <span class="math notranslate nohighlight">\(k_i\)</span> for an individual component to better match the behavior of more polar components.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">teqp</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">CoolProp.CoolProp</span> <span class="k">as</span> <span class="nn">CP</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+
+<span class="k">def</span> <span class="nf">delta1_correlation</span><span class="p">(</span><span class="n">Zc</span><span class="p">):</span>
+    <span class="c1"># Eq. B.4 of Cismondi FPE 2005</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="mf">0.428363</span>
+    <span class="n">d2</span> <span class="o">=</span> <span class="mf">18.496215</span>
+    <span class="n">d3</span> <span class="o">=</span> <span class="mf">0.338426</span>
+    <span class="n">d4</span> <span class="o">=</span> <span class="mf">0.660000</span>
+    <span class="n">d5</span> <span class="o">=</span> <span class="mf">789.723105</span>
+    <span class="n">d6</span> <span class="o">=</span> <span class="mf">2.512392</span>
+    <span class="k">return</span> <span class="n">d1</span> <span class="o">+</span> <span class="n">d2</span><span class="o">*</span><span class="p">(</span><span class="n">d3</span><span class="o">-</span><span class="n">Zc</span><span class="p">)</span><span class="o">**</span><span class="n">d4</span> <span class="o">+</span> <span class="n">d5</span><span class="o">*</span><span class="p">(</span><span class="n">d3</span><span class="o">-</span><span class="n">Zc</span><span class="p">)</span><span class="o">**</span><span class="n">d6</span>
+
+<span class="k">def</span> <span class="nf">Zc_delta1</span><span class="p">(</span><span class="n">delta1</span><span class="p">):</span>
+    <span class="c1"># Eqs. B.1 to B.3 of Cismondi FPE 2005</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">delta1</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">delta1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">delta1</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">delta1</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">y</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">d1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">DELTA1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">ZZ</span> <span class="o">=</span> <span class="n">Zc_delta1</span><span class="p">(</span><span class="n">DELTA1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">DELTA1</span><span class="p">,</span> <span class="n">ZZ</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;values&#39;</span><span class="p">)</span>
+<span class="n">DELTA1back</span> <span class="o">=</span> <span class="n">delta1_correlation</span><span class="p">(</span><span class="n">ZZ</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">DELTA1back</span><span class="p">,</span> <span class="n">ZZ</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;correlation&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;$Z_c$&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$\delta_1$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># for Zc in np.linspace(0.2, 0.3383, 1000):</span>
+<span class="c1">#     resid = lambda x: Zc_delta1(x)-Zc</span>
+<span class="c1">#     # print(resid(delta1_correlation(Zc)))</span>
+<span class="c1">#     print(Zc, scipy.optimize.newton(resid, delta1_correlation(Zc)), delta1_correlation(Zc))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/models_RK-PR_1_0.png" src="../_images/models_RK-PR_1_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;n-Decane&#39;</span><span class="p">]</span>
+
+<span class="n">R</span> <span class="o">=</span> <span class="mf">8.31446261815324</span>
+<span class="n">Tc</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="s2">&quot;Tcrit&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">names</span><span class="p">])</span>
+<span class="n">pc</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="s2">&quot;pcrit&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">names</span><span class="p">])</span>
+<span class="n">rhoc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="s2">&quot;rhomolar_critical&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">names</span><span class="p">])</span>
+<span class="n">Zcexp</span> <span class="o">=</span> <span class="n">pc</span><span class="o">/</span><span class="p">(</span><span class="n">rhoc</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">Tc</span><span class="p">)</span>
+
+<span class="c1"># Use a rescaled Zc to obtain delta_1</span>
+<span class="n">Zc</span> <span class="o">=</span> <span class="mf">1.168</span><span class="o">*</span><span class="n">Zcexp</span>
+
+<span class="n">delta_1</span> <span class="o">=</span> <span class="p">[</span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Zc_delta1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">Zc_</span><span class="p">,</span> <span class="n">delta1_correlation</span><span class="p">(</span><span class="n">Zc_</span><span class="p">))</span> <span class="k">for</span> <span class="n">Zc_</span> <span class="ow">in</span> <span class="n">Zc</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">solve_for_k</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">p_target</span><span class="p">,</span> <span class="n">Tr</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The value of k for the i-th component is based on getting</span>
+<span class="sd">    the right vapor pressure, so a rootfinding routing is</span>
+<span class="sd">    used to obtain these values</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;RKPRCismondi2005&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;delta_1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">delta_1</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span>
+                <span class="s2">&quot;Tcrit / K&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Tc</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span>
+                <span class="s2">&quot;pcrit / Pa&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">pc</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span>
+                <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">k</span><span class="p">],</span>
+                <span class="s2">&quot;kmat&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">]],</span>
+                <span class="s2">&quot;lmat&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">]],</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="n">Tr</span><span class="o">*</span><span class="n">Tc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_ab</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+
+        <span class="n">anc</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">build_ancillaries</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">Tc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">rhoc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">150</span><span class="p">)</span>
+        <span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">pure_VLE_T</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoL</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoV</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">T</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">rhoL</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar01</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhoL</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">p</span><span class="o">-</span><span class="n">p_target</span>
+    <span class="k">return</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">)</span>
+
+<span class="n">Tr</span> <span class="o">=</span> <span class="mf">0.7</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">k_C10</span> <span class="o">=</span> <span class="n">solve_for_k</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">Tr</span><span class="o">*</span><span class="n">Tc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">Tr</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;RKPRCismondi2005&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;delta_1&quot;</span><span class="p">:</span> <span class="n">delta_1</span><span class="p">,</span>
+        <span class="s2">&quot;Tcrit / K&quot;</span><span class="p">:</span> <span class="n">Tc</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="s2">&quot;pcrit / Pa&quot;</span><span class="p">:</span> <span class="n">pc</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.23854</span><span class="p">,</span> <span class="n">k_C10</span><span class="p">],</span>
+        <span class="s2">&quot;kmat&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span>
+        <span class="s2">&quot;lmat&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="c1"># Start at both pures</span>
+<span class="k">for</span> <span class="n">ipure</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+    <span class="n">Tc</span><span class="p">,</span> <span class="n">rhoc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">solve_pure_critical</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;alternative_pure_index&quot;</span><span class="p">:</span><span class="n">ipure</span><span class="p">,</span> <span class="s2">&quot;alternative_length&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]);</span> <span class="n">z</span><span class="p">[</span><span class="n">ipure</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">pc</span> <span class="o">=</span> <span class="n">Tc</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">rhoc</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar01</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">rhoc</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="o">/</span><span class="mf">1e5</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+
+    <span class="n">opt</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">TCABOptions</span><span class="p">();</span> <span class="n">opt</span><span class="o">.</span><span class="n">polish</span><span class="o">=</span><span class="kc">True</span><span class="p">;</span> <span class="n">opt</span><span class="o">.</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span> <span class="n">opt</span><span class="o">.</span><span class="n">integration_order</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span> <span class="n">opt</span><span class="o">.</span><span class="n">rel_err</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">;</span> <span class="n">opt</span><span class="o">.</span><span class="n">abs_err</span><span class="o">=</span><span class="mf">1e-10</span>
+    <span class="n">trace</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">trace_critical_arclength_binary</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">z</span><span class="o">*</span><span class="n">rhoc</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">opt</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;T / K&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;p / Pa&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">1e5</span><span class="p">)</span>
+
+<span class="c1"># Overlay the data from Reamer and Sage, Cismondi additional data points not present in Reamer and Sage</span>
+<span class="n">Tc_K</span> <span class="o">=</span> <span class="p">[</span><span class="mf">310.928</span><span class="p">,</span> <span class="mf">344.261</span><span class="p">,</span> <span class="mf">377.594</span><span class="p">,</span> <span class="mf">410.928</span><span class="p">,</span> <span class="mf">444.261</span><span class="p">,</span> <span class="mf">477.594</span><span class="p">,</span> <span class="mf">510.928</span><span class="p">]</span>
+<span class="n">pc_kPa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">7997.92</span><span class="p">,</span> <span class="mf">12824.25</span><span class="p">,</span> <span class="mf">16492.26</span><span class="p">,</span> <span class="mf">18560.69</span><span class="p">,</span> <span class="mf">18836.48</span><span class="p">,</span> <span class="mf">17836.74</span><span class="p">,</span> <span class="mf">15333.94</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tc_K</span><span class="p">,</span> <span class="n">pc_kPa</span><span class="o">/</span><span class="mf">1e2</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$T$ / K&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;$p$ / bar&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[2], line 46</span>
+<span class="ansi-green-intense-fg ansi-bold">     44</span> Tr <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">0.7</span>
+<span class="ansi-green-intense-fg ansi-bold">     45</span> i <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">1</span>
+<span class="ansi-green-fg">---&gt; 46</span> k_C10 <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">solve_for_k</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">i</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">CP</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">PropsSI</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">P</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">T</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">Tr</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">Tc</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">i</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">Q</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">0</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">names</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">i</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">Tr</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     48</span> model <span style="color: rgb(98,98,98)">=</span> teqp<span style="color: rgb(98,98,98)">.</span>make_model({
+<span class="ansi-green-intense-fg ansi-bold">     49</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">kind</span><span style="color: rgb(175,0,0)">&#34;</span>: <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">RKPRCismondi2005</span><span style="color: rgb(175,0,0)">&#34;</span>,
+<span class="ansi-green-intense-fg ansi-bold">     50</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">model</span><span style="color: rgb(175,0,0)">&#34;</span>: {
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">     57</span>     }
+<span class="ansi-green-intense-fg ansi-bold">     58</span> })
+<span class="ansi-green-intense-fg ansi-bold">     60</span> <span style="color: rgb(95,135,135)"># Start at both pures</span>
+
+Cell <span class="ansi-green-fg">In[2], line 42</span>, in <span class="ansi-cyan-fg">solve_for_k</span><span class="ansi-blue-fg">(i, p_target, Tr)</span>
+<span class="ansi-green-intense-fg ansi-bold">     39</span>     p <span style="color: rgb(98,98,98)">=</span> T<span style="color: rgb(98,98,98)">*</span>R<span style="color: rgb(98,98,98)">*</span>rhoL<span style="color: rgb(98,98,98)">*</span>(<span style="color: rgb(98,98,98)">1</span><span style="color: rgb(98,98,98)">+</span>model<span style="color: rgb(98,98,98)">.</span>get_Ar01(T, rhoL, z))
+<span class="ansi-green-intense-fg ansi-bold">     41</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> p<span style="color: rgb(98,98,98)">-</span>p_target
+<span class="ansi-green-fg">---&gt; 42</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">scipy</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">optimize</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">newton</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">objective</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">2.1</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">/opt/conda/lib/python3.11/site-packages/scipy/optimize/_zeros_py.py:349</span>, in <span class="ansi-cyan-fg">newton</span><span class="ansi-blue-fg">(func, x0, fprime, args, tol, maxiter, fprime2, x1, rtol, full_output, disp)</span>
+<span class="ansi-green-intense-fg ansi-bold">    347</span>     p1 <span style="color: rgb(98,98,98)">=</span> x0 <span style="color: rgb(98,98,98)">*</span> (<span style="color: rgb(98,98,98)">1</span> <span style="color: rgb(98,98,98)">+</span> eps)
+<span class="ansi-green-intense-fg ansi-bold">    348</span>     p1 <span style="color: rgb(98,98,98)">+</span><span style="color: rgb(98,98,98)">=</span> (eps <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> p1 <span style="color: rgb(98,98,98)">&gt;</span><span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">0</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span> <span style="color: rgb(98,98,98)">-</span>eps)
+<span class="ansi-green-fg">--&gt; 349</span> q0 <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">func</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">p0</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    350</span> funcalls <span style="color: rgb(98,98,98)">+</span><span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">1</span>
+<span class="ansi-green-intense-fg ansi-bold">    351</span> q1 <span style="color: rgb(98,98,98)">=</span> func(p1, <span style="color: rgb(98,98,98)">*</span>args)
+
+Cell <span class="ansi-green-fg">In[2], line 32</span>, in <span class="ansi-cyan-fg">solve_for_k.&lt;locals&gt;.objective</span><span class="ansi-blue-fg">(k)</span>
+<span class="ansi-green-intense-fg ansi-bold">     20</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">objective</span>(k):
+<span class="ansi-green-intense-fg ansi-bold">     21</span>     j <span style="color: rgb(98,98,98)">=</span> {
+<span class="ansi-green-intense-fg ansi-bold">     22</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">kind</span><span style="color: rgb(175,0,0)">&#34;</span>: <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">RKPRCismondi2005</span><span style="color: rgb(175,0,0)">&#34;</span>,
+<span class="ansi-green-intense-fg ansi-bold">     23</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">model</span><span style="color: rgb(175,0,0)">&#34;</span>: {
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">     30</span>         }
+<span class="ansi-green-intense-fg ansi-bold">     31</span>     }
+<span class="ansi-green-fg">---&gt; 32</span>     model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">teqp</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">make_model</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">j</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     33</span>     T <span style="color: rgb(98,98,98)">=</span> Tr<span style="color: rgb(98,98,98)">*</span>Tc[i]
+<span class="ansi-green-intense-fg ansi-bold">     34</span>     z <span style="color: rgb(98,98,98)">=</span> np<span style="color: rgb(98,98,98)">.</span>array([<span style="color: rgb(98,98,98)">1.0</span>])
+
+File <span class="ansi-green-fg">/opt/conda/lib/python3.11/site-packages/teqp/__init__.py:47</span>, in <span class="ansi-cyan-fg">make_model</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     42</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">make_model</span>(<span style="color: rgb(98,98,98)">*</span>args, <span style="color: rgb(98,98,98)">*</span><span style="color: rgb(98,98,98)">*</span>kwargs):
+<span class="ansi-green-intense-fg ansi-bold">     43</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     44</span> <span style="color: rgb(175,0,0)">    This function is in two parts; first the make_model function (renamed to _make_model in the Python interface)</span>
+<span class="ansi-green-intense-fg ansi-bold">     45</span> <span style="color: rgb(175,0,0)">    is used to make the model and then the model-specific methods are attached to the instance</span>
+<span class="ansi-green-intense-fg ansi-bold">     46</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">---&gt; 47</span>     AS <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">_make_model</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     48</span>     attach_model_specific_methods(AS)
+<span class="ansi-green-intense-fg ansi-bold">     49</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> AS
+
+<span class="ansi-red-fg">ValueError</span>: Don&#39;t understand &#34;kind&#34; of: RKPRCismondi2005
+</pre></div></div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/RK-PR.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/RK-PR.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

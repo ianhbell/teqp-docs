@@ -20,8 +20,9 @@ var searchData=
   ['lj126kolafanezbeda1994_5ft_17',['LJ126KolafaNezbeda1994_t',['../namespaceteqp.html#a62c6d88e6bd3282628f7589cde83a7e8',1,'teqp']]],
   ['ljchain_18',['ljchain',['../classteqp_1_1LJChain_1_1LJChain.html#a23390cf708d2d3b5195d3e56dde7ece4',1,'teqp::LJChain::LJChain::LJChain()'],['../classteqp_1_1LJChain_1_1LJChain.html',1,'teqp::LJChain::LJChain&lt; Monomer &gt;']]],
   ['ljchain_2ehpp_19',['LJChain.hpp',['../LJChain_8hpp.html',1,'']]],
-  ['load_5fa_5fjson_5ffile_20',['load_a_JSON_file',['../namespaceteqp.html#a5f3efac006a4e11eff65affdbc051469',1,'teqp']]],
-  ['lt_21',['lt',['../classteqp_1_1DoubleExponentialEOSTerm.html#a4b0fc40cbeccd66e9dfe83d47b36bf8d',1,'teqp::DoubleExponentialEOSTerm']]],
-  ['luckasjintegral_22',['luckasjintegral',['../classteqp_1_1SAFTpolar_1_1LuckasJIntegral.html',1,'teqp::SAFTpolar::LuckasJIntegral'],['../classteqp_1_1SAFTpolar_1_1LuckasJIntegral.html#a653d5a681a873747a207179ffdeff5d4',1,'teqp::SAFTpolar::LuckasJIntegral::LuckasJIntegral()']]],
-  ['luckaskintegral_23',['luckaskintegral',['../classteqp_1_1SAFTpolar_1_1LuckasKIntegral.html',1,'teqp::SAFTpolar::LuckasKIntegral'],['../classteqp_1_1SAFTpolar_1_1LuckasKIntegral.html#aefcdd31301f6ef226e83b45b02380a3c',1,'teqp::SAFTpolar::LuckasKIntegral::LuckasKIntegral()']]]
+  ['lmat_20',['lmat',['../classteqp_1_1AdvancedPRaEres.html#a2f32b1edd959cb94813c26b5db4ea4df',1,'teqp::AdvancedPRaEres']]],
+  ['load_5fa_5fjson_5ffile_21',['load_a_JSON_file',['../namespaceteqp.html#a5f3efac006a4e11eff65affdbc051469',1,'teqp']]],
+  ['lt_22',['lt',['../classteqp_1_1DoubleExponentialEOSTerm.html#a4b0fc40cbeccd66e9dfe83d47b36bf8d',1,'teqp::DoubleExponentialEOSTerm']]],
+  ['luckasjintegral_23',['luckasjintegral',['../classteqp_1_1SAFTpolar_1_1LuckasJIntegral.html',1,'teqp::SAFTpolar::LuckasJIntegral'],['../classteqp_1_1SAFTpolar_1_1LuckasJIntegral.html#a653d5a681a873747a207179ffdeff5d4',1,'teqp::SAFTpolar::LuckasJIntegral::LuckasJIntegral()']]],
+  ['luckaskintegral_24',['luckaskintegral',['../classteqp_1_1SAFTpolar_1_1LuckasKIntegral.html',1,'teqp::SAFTpolar::LuckasKIntegral'],['../classteqp_1_1SAFTpolar_1_1LuckasKIntegral.html#aefcdd31301f6ef226e83b45b02380a3c',1,'teqp::SAFTpolar::LuckasKIntegral::LuckasKIntegral()']]]
 ];

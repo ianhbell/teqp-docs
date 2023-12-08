@@ -23,7 +23,15 @@ class \mbox{\hyperlink{classteqp_1_1MathiasCopemanAlphaFunction}{teqp\+::\+Mathi
 \begin{DoxyCompactList}\small\item\em The Mathias-\/\+Copeman alpha function used by Peng-\/\+Robinson and SRK. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic$<$ Num\+Type, Alpha\+Functions $>$}}
 \item 
+class \mbox{\hyperlink{classteqp_1_1NullResidualHelmholtzOverRT}{teqp\+::\+Null\+Residual\+Helmholtz\+Over\+RT$<$ Num\+Type $>$}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT}{teqp\+::\+Wilson\+Residual\+Helmholtz\+Over\+RT$<$ Num\+Type $>$}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres$<$ Num\+Type, Alpha\+Functions $>$}}
+\item 
 class \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR}{teqp\+::\+Quantum\+Corrected\+PR}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005}{teqp\+::\+RKPRCismondi2005}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
@@ -34,9 +42,25 @@ namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
 \begin{DoxyCompactItemize}
 \item 
 using \mbox{\hyperlink{namespaceteqp_a330c9d06e0d39b8464bd798700df73b9}{teqp\+::\+Alpha\+Function\+Options}} = std\+::variant$<$ \mbox{\hyperlink{classteqp_1_1BasicAlphaFunction}{Basic\+Alpha\+Function}}$<$ double $>$, \mbox{\hyperlink{classteqp_1_1TwuAlphaFunction}{Twu\+Alpha\+Function}}$<$ double $>$, \mbox{\hyperlink{classteqp_1_1MathiasCopemanAlphaFunction}{Mathias\+Copeman\+Alpha\+Function}}$<$ double $>$ $>$
+\item 
+using \mbox{\hyperlink{namespaceteqp_a0465f3a7ab85afff74180a93195e315c}{teqp\+::\+Residual\+Helmholtz\+Over\+RTVariant}} = std\+::variant$<$ \mbox{\hyperlink{classteqp_1_1NullResidualHelmholtzOverRT}{Null\+Residual\+Helmholtz\+Over\+RT}}$<$ double $>$, \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT}{Wilson\+Residual\+Helmholtz\+Over\+RT}}$<$ double $>$ $>$
+\item 
+using \mbox{\hyperlink{namespaceteqp_aca656c22919e9381d89c2dd48c2e8dbc}{teqp\+::advanced\+PRa\+Eres\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a41915e46c6b8bf0af18c40844077e3c2}{make\+\_\+\+Advanced\+PRa\+Eres}}(\{\}))
+\item 
+using \mbox{\hyperlink{namespaceteqp_aa7b4265fc65e83e7bd3db9fd8f702bf1}{teqp\+::\+RKPRCismondi2005\+\_\+t}} = decltype(\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005}{RKPRCismondi2005}}(\{\}))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418ead}{teqp\+::\+Advanced\+PRa\+EMixing\+Rules}} \{ \mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadac5fa7134efc9be43ef7f390d5d7dc9d9}{teqp\+::knotspecified}}
+, \mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaac97f0008bcf7c7fe4f2ff94160e1385}{teqp\+::k\+Linear}}
+, \mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaf841876fc54bbdba16a4ae2e0d070714}{teqp\+::k\+Quadratic}}
+ \}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename TC $>$ }\\auto \mbox{\hyperlink{namespaceteqp_aec1a1fe6229bcb1a9f9170063eddb907}{teqp\+::build\+\_\+alpha\+\_\+functions}} (const TC \&Tc\+\_\+K, const nlohmann\+::json \&jalphas)
 \item 
 {\footnotesize template$<$typename TCType , typename PCType , typename Acentric\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a6a646a52ddd0010dc37a5161e8353148}{teqp\+::canonical\+\_\+\+SRK}} (TCType Tc\+\_\+K, PCType pc\+\_\+\+Pa, Acentric\+Type acentric, const std\+::optional$<$ Eigen\+::\+Array\+XXd $>$ \&kmat=std\+::nullopt)
 \item 
@@ -47,4 +71,10 @@ auto \mbox{\hyperlink{namespaceteqp_acfec86ec5ae6cae32421445beaae20e9}{teqp\+::m
 auto \mbox{\hyperlink{namespaceteqp_a86f985a767c5c10c7b64cba83e288db4}{teqp\+::make\+\_\+canonical\+PR}} (const nlohmann\+::json \&spec)
 \begin{DoxyCompactList}\small\item\em A JSON-\/based factory function for the canonical SRK model. \end{DoxyCompactList}\item 
 auto \mbox{\hyperlink{namespaceteqp_a334093a8fbd62d4f6445df5d8d330e32}{teqp\+::make\+\_\+generalizedcubic}} (const nlohmann\+::json \&spec)
-\begin{DoxyCompactList}\small\item\em A JSON-\/based factory function for the generalized cubic + alpha. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A JSON-\/based factory function for the generalized cubic + alpha. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceteqp_ad12448a1393ce70e8e0eda898b6ac4a0}{teqp\+::\+NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM}} (\mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418ead}{Advanced\+PRa\+EMixing\+Rules}}, \{ \{\mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadac5fa7134efc9be43ef7f390d5d7dc9d9}{Advanced\+PRa\+EMixing\+Rules\+::knotspecified}}, nullptr\}, \{\mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaac97f0008bcf7c7fe4f2ff94160e1385}{Advanced\+PRa\+EMixing\+Rules\+::k\+Linear}}, "{}Linear"{}\}, \{\mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaf841876fc54bbdba16a4ae2e0d070714}{Advanced\+PRa\+EMixing\+Rules\+::k\+Quadratic}}, "{}Quadratic"{}\}, \}) struct Advanced\+PRa\+EOptions
+\item 
+void \mbox{\hyperlink{namespaceteqp_a48611e1016da2a6b186703e02c082d6a}{teqp\+::from\+\_\+json}} (const json \&j, Advanced\+PRa\+EOptions \&o)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_a41915e46c6b8bf0af18c40844077e3c2}{teqp\+::make\+\_\+\+Advanced\+PRa\+Eres}} (const nlohmann\+::json \&j)
+\end{DoxyCompactItemize}

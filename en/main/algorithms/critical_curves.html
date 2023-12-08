@@ -94,6 +94,8 @@
 (190.564, 9442.816240022832)
 </pre></div></div>
 </div>
+<p>If you have a mixture, but want to obtain the critical point of a pure fluid of this mixture, you can specify the index of the component in the mixture, as well as the number of componnts in the mixture with something like:</p>
+<p><code class="docutils literal notranslate"><span class="pre">model.solve_pure_critical(T0,</span> <span class="pre">rho0,</span> <span class="pre">{&quot;alternative_pure_index&quot;:</span> <span class="pre">1,</span> <span class="pre">&quot;alternative_length&quot;:</span> <span class="pre">2})</span></code> so here, for the second fluid, with 0-based index of 1, in a two-component mixture</p>
 </section>
 <section id="Mixtures">
 <h2>Mixtures<a class="headerlink" href="#Mixtures" title="Link to this heading">¶</a></h2>
@@ -170,7 +172,7 @@ integration variable. The set of ODE is then integrated.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/algorithms_critical_curves_4_0.png" src="../_images/algorithms_critical_curves_4_0.png" />
+<img alt="../_images/algorithms_critical_curves_5_0.png" src="../_images/algorithms_critical_curves_5_0.png" />
 </div>
 </div>
 <p>And now for something a bit more interesting: ethane + alkane critical curves</p>
@@ -226,7 +228,7 @@ integration variable. The set of ODE is then integrated.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/algorithms_critical_curves_6_0.png" src="../_images/algorithms_critical_curves_6_0.png" />
+<img alt="../_images/algorithms_critical_curves_7_0.png" src="../_images/algorithms_critical_curves_7_0.png" />
 </div>
 </div>
 </section>

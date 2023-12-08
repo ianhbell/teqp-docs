@@ -211,7 +211,7 @@
 \DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ mbar\ =\ (mole\_fractions.template\ cast<TRHOType>().array()*\mbox{\hyperlink{classteqp_1_1PCSAFT_1_1PCSAFTHardChainContribution_aeb88665a7825b5d021a389b56b2a705f}{m}}.template\ cast<TRHOType>().array()).sum();}
 \DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00228}00228\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00230}00230\ \ \ \ \ \ \ \ \ RhoType\ rho\_A3\ =\ rhomolar\ *\ \mbox{\hyperlink{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85}{N\_A}}\ *\ 1e-\/30;\ \textcolor{comment}{//[molecules\ (not\ moles)/A\string^3]}}
+\DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00230}00230\ \ \ \ \ \ \ \ \ RhoType\ rho\_A3\ =\ rhomolar\ *\ N\_A\ *\ 1e-\/30;\ \textcolor{comment}{//[molecules\ (not\ moles)/A\string^3]}}
 \DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00231}00231\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ MY\_PI\ =\ EIGEN\_PI;}
 \DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ pi6\ =\ (MY\_PI\ /\ 6.0);}
@@ -383,7 +383,7 @@
 \DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00407}00407\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ vals\ =\ \mbox{\hyperlink{classteqp_1_1PCSAFT_1_1PCSAFTMixture_ab1d11b452fdea7e46e2f50fd92c8c49f}{hardchain}}.\mbox{\hyperlink{classteqp_1_1PCSAFT_1_1PCSAFTHardChainContribution_a4bf9757a632183364f490b7b2f89ef94}{eval}}(T,\ rhomolar,\ mole\_fractions);}
 \DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00408}00408\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1PCSAFT_1_1PCSAFTMixture_a2addec1130772d02562436d4c55cffa7}{alphar}}\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(vals.alphar\_hc\ +\ vals.alphar\_disp);}
 \DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00409}00409\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00410}00410\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rho\_A3\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(rhomolar*\mbox{\hyperlink{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85}{N\_A}}*1e-\/30);}
+\DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00410}00410\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rho\_A3\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(rhomolar*N\_A*1e-\/30);}
 \DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00411}00411\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ dipole\ is\ present,\ add\ its\ contribution}}
 \DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00412}00412\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classteqp_1_1PCSAFT_1_1PCSAFTMixture_a614fda87c336ed06eb657ab912dc6c3d}{dipolar}})\{}
 \DoxyCodeLine{\Hypertarget{pcsaft_8hpp_source_l00413}00413\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ valsdip\ =\ \mbox{\hyperlink{classteqp_1_1PCSAFT_1_1PCSAFTMixture_a614fda87c336ed06eb657ab912dc6c3d}{dipolar}}.value().eval(T,\ rho\_A3,\ vals.eta,\ mole\_fractions);}

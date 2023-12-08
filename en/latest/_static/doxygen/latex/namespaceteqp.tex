@@ -3,6 +3,10 @@
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1ancillaries}{ancillaries}}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1constants}{constants}}
+\item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1CPA}{CPA}}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1cppinterface}{cppinterface}}
@@ -37,6 +41,8 @@ namespace \mbox{\hyperlink{namespaceteqp_1_1VLLE}{VLLE}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{Advanced\+PRa\+Eres}}
 \item 
 struct \mbox{\hyperlink{structteqp_1_1AlphaCallWrapper}{Alpha\+Call\+Wrapper}}
 \begin{DoxyCompactList}\small\item\em This class is used to wrap a model that exposes the generic functions alphar, alphaig, etc., and allow the desired member function to be called at runtime via perfect forwarding. \end{DoxyCompactList}\item 
@@ -152,6 +158,8 @@ class \mbox{\hyperlink{classteqp_1_1NotImplementedError}{Not\+Implemented\+Error
 \item 
 class \mbox{\hyperlink{classteqp_1_1NullEOSTerm}{Null\+EOSTerm}}
 \item 
+class \mbox{\hyperlink{classteqp_1_1NullResidualHelmholtzOverRT}{Null\+Residual\+Helmholtz\+Over\+RT}}
+\item 
 class \mbox{\hyperlink{classteqp_1_1PowerEOSTerm}{Power\+EOSTerm}}
 \item 
 class \mbox{\hyperlink{classteqp_1_1PureIdealHelmholtz}{Pure\+Ideal\+Helmholtz}}
@@ -161,6 +169,8 @@ struct \mbox{\hyperlink{structteqp_1_1PVLEOptions}{PVLEOptions}}
 class \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR}{Quantum\+Corrected\+PR}}
 \item 
 class \mbox{\hyperlink{classteqp_1_1ReducingTermContainer}{Reducing\+Term\+Container}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005}{RKPRCismondi2005}}
 \item 
 struct \mbox{\hyperlink{structteqp_1_1TCABOptions}{TCABOptions}}
 \item 
@@ -184,6 +194,8 @@ struct \mbox{\hyperlink{structteqp_1_1VirialDerivatives}{Virial\+Derivatives}}
 \item 
 struct \mbox{\hyperlink{structteqp_1_1VLEAncillary}{VLEAncillary}}
 \item 
+class \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT}{Wilson\+Residual\+Helmholtz\+Over\+RT}}
+\item 
 struct \mbox{\hyperlink{structteqp_1_1wrt__helper}{wrt\+\_\+helper}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
@@ -198,6 +210,12 @@ using \mbox{\hyperlink{namespaceteqp_a10145ce83657c36965b09f8aa745378d}{Iteratio
 using \mbox{\hyperlink{namespaceteqp_aff9f1b2203c1156901f43d9c02c12c22}{Ideal\+Helmholtz\+Terms}} = std\+::variant$<$ \mbox{\hyperlink{classteqp_1_1IdealHelmholtzConstant}{Ideal\+Helmholtz\+Constant}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzLead}{Ideal\+Helmholtz\+Lead}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzLogT}{Ideal\+Helmholtz\+LogT}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzPowerT}{Ideal\+Helmholtz\+PowerT}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzPlanckEinstein}{Ideal\+Helmholtz\+Planck\+Einstein}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzPlanckEinsteinGeneralized}{Ideal\+Helmholtz\+Planck\+Einstein\+Generalized}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzGERG2004Cosh}{Ideal\+Helmholtz\+GERG2004\+Cosh}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzGERG2004Sinh}{Ideal\+Helmholtz\+GERG2004\+Sinh}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzCp0Constant}{Ideal\+Helmholtz\+Cp0\+Constant}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzCp0PowerT}{Ideal\+Helmholtz\+Cp0\+PowerT}} $>$
 \item 
 using \mbox{\hyperlink{namespaceteqp_a330c9d06e0d39b8464bd798700df73b9}{Alpha\+Function\+Options}} = std\+::variant$<$ \mbox{\hyperlink{classteqp_1_1BasicAlphaFunction}{Basic\+Alpha\+Function}}$<$ double $>$, \mbox{\hyperlink{classteqp_1_1TwuAlphaFunction}{Twu\+Alpha\+Function}}$<$ double $>$, \mbox{\hyperlink{classteqp_1_1MathiasCopemanAlphaFunction}{Mathias\+Copeman\+Alpha\+Function}}$<$ double $>$ $>$
+\item 
+using \mbox{\hyperlink{namespaceteqp_a0465f3a7ab85afff74180a93195e315c}{Residual\+Helmholtz\+Over\+RTVariant}} = std\+::variant$<$ \mbox{\hyperlink{classteqp_1_1NullResidualHelmholtzOverRT}{Null\+Residual\+Helmholtz\+Over\+RT}}$<$ double $>$, \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT}{Wilson\+Residual\+Helmholtz\+Over\+RT}}$<$ double $>$ $>$
+\item 
+using \mbox{\hyperlink{namespaceteqp_aca656c22919e9381d89c2dd48c2e8dbc}{advanced\+PRa\+Eres\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a41915e46c6b8bf0af18c40844077e3c2}{make\+\_\+\+Advanced\+PRa\+Eres}}(\{\}))
+\item 
+using \mbox{\hyperlink{namespaceteqp_aa7b4265fc65e83e7bd3db9fd8f702bf1}{RKPRCismondi2005\+\_\+t}} = decltype(\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005}{RKPRCismondi2005}}(\{\}))
 \item 
 using \mbox{\hyperlink{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}{vad}} = std\+::valarray$<$ double $>$
 \item 
@@ -260,6 +278,11 @@ enum class \mbox{\hyperlink{namespaceteqp_abb423904db0ac1c8261912ca4efc3272}{Alp
 \item 
 enum class \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} \{ \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9da1f9f65b69bb4d16b7fd15a809c59d6e6}{autodiff}}
 , \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9dad8c387494b54ef11d7d960ed7311d4bf}{complex\+\_\+step}}
+ \}
+\item 
+enum class \mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418ead}{Advanced\+PRa\+EMixing\+Rules}} \{ \mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadac5fa7134efc9be43ef7f390d5d7dc9d9}{knotspecified}}
+, \mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaac97f0008bcf7c7fe4f2ff94160e1385}{k\+Linear}}
+, \mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaf841876fc54bbdba16a4ae2e0d070714}{k\+Quadratic}}
  \}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
@@ -338,7 +361,7 @@ auto \mbox{\hyperlink{namespaceteqp_a2408f7de3e451a2f68a0919f821df98e}{pure\+\_\
 {\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$is\+\_\+not\+\_\+\+Abstract\+Model$<$\+Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_aa86ef0e9fc4dadf2179f0748608c83e5}{pure\+\_\+trace\+\_\+\+VLE}} (const Templated\+Model \&model, Params \&\&... params)
 \item 
 {\footnotesize template$<$typename Num\+Type $>$ }\\const auto \mbox{\hyperlink{namespaceteqp_a2b7e9f6c1e890797284b6bd57d251379}{get\+\_\+\+R\+\_\+gas}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Gas constant, according to CODATA 2019, in the given number type \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename TType , typename Container\+Type , typename Func\+Type $>$ }\\Container\+Type\+::value\+\_\+type \mbox{\hyperlink{namespaceteqp_a673824cda5d54f74d80f6746bb8a0d4d}{derivT}} (const Func\+Type \&f, TType T, const Container\+Type \&rho)
 \item 
 {\footnotesize template$<$typename TType , typename Container\+Type , typename Func\+Type , typename Integer $>$ }\\Container\+Type\+::value\+\_\+type \mbox{\hyperlink{namespaceteqp_ae0e2c714a07ef9263b390b6814c4c00a}{derivrhoi}} (const Func\+Type \&f, TType T, const Container\+Type \&rho, Integer i)
@@ -377,6 +400,8 @@ auto \mbox{\hyperlink{namespaceteqp_ad4771b0bb9c922bc937e72f81b4431df}{multileve
 \item 
 {\footnotesize template$<$int N, typename T , typename Double  = double$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a9c9294e48d5b5ae2258bb0f19c1d0d48}{quad}} (const std\+::function$<$ T(Double)$>$ \&F, const Double \&a, const Double \&b)
 \item 
+{\footnotesize template$<$typename TC $>$ }\\auto \mbox{\hyperlink{namespaceteqp_aec1a1fe6229bcb1a9f9170063eddb907}{build\+\_\+alpha\+\_\+functions}} (const TC \&Tc\+\_\+K, const nlohmann\+::json \&jalphas)
+\item 
 {\footnotesize template$<$typename TCType , typename PCType , typename Acentric\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a6a646a52ddd0010dc37a5161e8353148}{canonical\+\_\+\+SRK}} (TCType Tc\+\_\+K, PCType pc\+\_\+\+Pa, Acentric\+Type acentric, const std\+::optional$<$ Eigen\+::\+Array\+XXd $>$ \&kmat=std\+::nullopt)
 \item 
 auto \mbox{\hyperlink{namespaceteqp_acfec86ec5ae6cae32421445beaae20e9}{make\+\_\+canonical\+SRK}} (const nlohmann\+::json \&spec)
@@ -387,6 +412,12 @@ auto \mbox{\hyperlink{namespaceteqp_a86f985a767c5c10c7b64cba83e288db4}{make\+\_\
 \begin{DoxyCompactList}\small\item\em A JSON-\/based factory function for the canonical SRK model. \end{DoxyCompactList}\item 
 auto \mbox{\hyperlink{namespaceteqp_a334093a8fbd62d4f6445df5d8d330e32}{make\+\_\+generalizedcubic}} (const nlohmann\+::json \&spec)
 \begin{DoxyCompactList}\small\item\em A JSON-\/based factory function for the generalized cubic + alpha. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceteqp_ad12448a1393ce70e8e0eda898b6ac4a0}{NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM}} (\mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418ead}{Advanced\+PRa\+EMixing\+Rules}}, \{ \{\mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadac5fa7134efc9be43ef7f390d5d7dc9d9}{Advanced\+PRa\+EMixing\+Rules\+::knotspecified}}, nullptr\}, \{\mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaac97f0008bcf7c7fe4f2ff94160e1385}{Advanced\+PRa\+EMixing\+Rules\+::k\+Linear}}, "{}Linear"{}\}, \{\mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaf841876fc54bbdba16a4ae2e0d070714}{Advanced\+PRa\+EMixing\+Rules\+::k\+Quadratic}}, "{}Quadratic"{}\}, \}) struct Advanced\+PRa\+EOptions
+\item 
+void \mbox{\hyperlink{namespaceteqp_a48611e1016da2a6b186703e02c082d6a}{from\+\_\+json}} (const json \&j, Advanced\+PRa\+EOptions \&o)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_a41915e46c6b8bf0af18c40844077e3c2}{make\+\_\+\+Advanced\+PRa\+Eres}} (const nlohmann\+::json \&j)
+\item 
 auto \mbox{\hyperlink{namespaceteqp_a72a0d74913275be5bbc29a3791ca5eb0}{build\+\_\+\+LJ126\+\_\+\+Thol\+JPCRD2016}} ()
 \item 
 auto \mbox{\hyperlink{namespaceteqp_a75aa947e3267ff1660db269220f093d8}{get\+\_\+departure\+\_\+json}} (const std\+::string \&name, const std\+::string \&path)
@@ -446,8 +477,6 @@ auto \mbox{\hyperlink{namespaceteqp_ac6aa96ef107cd0c3798d0ea26b70b73d}{pow}} (co
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-const double \mbox{\hyperlink{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85}{N\+\_\+A}} = 6.\+02214076e23
-\begin{DoxyCompactList}\small\item\em Avogadro\textquotesingle{}s number. \end{DoxyCompactList}\item 
 auto \mbox{\hyperlink{namespaceteqp_a0387f578fa55e79f0da380ebd38b22e9}{build\+\_\+square\+\_\+matrix}}
 \end{DoxyCompactItemize}
 
@@ -474,6 +503,16 @@ This header contains methods that pertain to polar contributions to SAFT models
 Initially the contribution of Gross and Vrabec were implemented for PC-\/\+SAFT, but they can be used with other non-\/polar base models as well, so this header collects all the things in one place 
 
 \doxysubsection{Typedef Documentation}
+\Hypertarget{namespaceteqp_aca656c22919e9381d89c2dd48c2e8dbc}\label{namespaceteqp_aca656c22919e9381d89c2dd48c2e8dbc} 
+\index{teqp@{teqp}!advancedPRaEres\_t@{advancedPRaEres\_t}}
+\index{advancedPRaEres\_t@{advancedPRaEres\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{advancedPRaEres\_t}{advancedPRaEres\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_aca656c22919e9381d89c2dd48c2e8dbc}{teqp\+::advanced\+PRa\+Eres\+\_\+t}} = typedef decltype(\mbox{\hyperlink{namespaceteqp_a41915e46c6b8bf0af18c40844077e3c2}{make\+\_\+\+Advanced\+PRa\+Eres}}(\{\}))}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00758}{758}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
 \Hypertarget{namespaceteqp_a330c9d06e0d39b8464bd798700df73b9}\label{namespaceteqp_a330c9d06e0d39b8464bd798700df73b9} 
 \index{teqp@{teqp}!AlphaFunctionOptions@{AlphaFunctionOptions}}
 \index{AlphaFunctionOptions@{AlphaFunctionOptions}!teqp@{teqp}}
@@ -676,6 +715,26 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00051}{51}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00282}{282}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
 
+\Hypertarget{namespaceteqp_a0465f3a7ab85afff74180a93195e315c}\label{namespaceteqp_a0465f3a7ab85afff74180a93195e315c} 
+\index{teqp@{teqp}!ResidualHelmholtzOverRTVariant@{ResidualHelmholtzOverRTVariant}}
+\index{ResidualHelmholtzOverRTVariant@{ResidualHelmholtzOverRTVariant}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{ResidualHelmholtzOverRTVariant}{ResidualHelmholtzOverRTVariant}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a0465f3a7ab85afff74180a93195e315c}{teqp\+::\+Residual\+Helmholtz\+Over\+RTVariant}} = typedef std\+::variant$<$\mbox{\hyperlink{classteqp_1_1NullResidualHelmholtzOverRT}{Null\+Residual\+Helmholtz\+Over\+RT}}$<$double$>$, \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT}{Wilson\+Residual\+Helmholtz\+Over\+RT}}$<$double$>$ $>$}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00552}{552}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{namespaceteqp_aa7b4265fc65e83e7bd3db9fd8f702bf1}\label{namespaceteqp_aa7b4265fc65e83e7bd3db9fd8f702bf1} 
+\index{teqp@{teqp}!RKPRCismondi2005\_t@{RKPRCismondi2005\_t}}
+\index{RKPRCismondi2005\_t@{RKPRCismondi2005\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{RKPRCismondi2005\_t}{RKPRCismondi2005\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_aa7b4265fc65e83e7bd3db9fd8f702bf1}{teqp\+::\+RKPRCismondi2005\+\_\+t}} = typedef decltype(\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005}{RKPRCismondi2005}}(\{\}))}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00996}{996}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
 \Hypertarget{namespaceteqp_ad7a4e31b3475d16c66dbf9c81f661065}\label{namespaceteqp_ad7a4e31b3475d16c66dbf9c81f661065} 
 \index{teqp@{teqp}!SAFTVRMie\_t@{SAFTVRMie\_t}}
 \index{SAFTVRMie\_t@{SAFTVRMie\_t}!teqp@{teqp}}
@@ -759,6 +818,30 @@ complex\+\_\+step&\\
 
 Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00118}{118}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
+\Hypertarget{namespaceteqp_a285cebddf2ec0d69865e0e8c80418ead}\label{namespaceteqp_a285cebddf2ec0d69865e0e8c80418ead} 
+\index{teqp@{teqp}!AdvancedPRaEMixingRules@{AdvancedPRaEMixingRules}}
+\index{AdvancedPRaEMixingRules@{AdvancedPRaEMixingRules}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{AdvancedPRaEMixingRules}{AdvancedPRaEMixingRules}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418ead}{teqp\+::\+Advanced\+PRa\+EMixing\+Rules}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{knotspecified@{knotspecified}!teqp@{teqp}}\index{teqp@{teqp}!knotspecified@{knotspecified}}}\Hypertarget{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadac5fa7134efc9be43ef7f390d5d7dc9d9}\label{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadac5fa7134efc9be43ef7f390d5d7dc9d9} 
+knotspecified&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kLinear@{kLinear}!teqp@{teqp}}\index{teqp@{teqp}!kLinear@{kLinear}}}\Hypertarget{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaac97f0008bcf7c7fe4f2ff94160e1385}\label{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaac97f0008bcf7c7fe4f2ff94160e1385} 
+k\+Linear&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kQuadratic@{kQuadratic}!teqp@{teqp}}\index{teqp@{teqp}!kQuadratic@{kQuadratic}}}\Hypertarget{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaf841876fc54bbdba16a4ae2e0d070714}\label{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaf841876fc54bbdba16a4ae2e0d070714} 
+k\+Quadratic&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00433}{433}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
 \Hypertarget{namespaceteqp_abb423904db0ac1c8261912ca4efc3272}\label{namespaceteqp_abb423904db0ac1c8261912ca4efc3272} 
 \index{teqp@{teqp}!AlphaWrapperOption@{AlphaWrapperOption}}
 \index{AlphaWrapperOption@{AlphaWrapperOption}!teqp@{teqp}}
@@ -813,7 +896,7 @@ notfinite\+\_\+step&\\
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{VLE__types_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{VLE__types_8hpp_source}{VLE\+\_\+types.\+hpp}}.
+Definition at line \mbox{\hyperlink{VLE__types_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{VLE__types_8hpp_source}{VLE\+\_\+types.\+hpp}}.
 
 
 
@@ -855,6 +938,17 @@ Build a reverse-\/lookup map for finding a fluid JSON structure given a backup i
 
 
 Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00786}{786}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+
+\Hypertarget{namespaceteqp_aec1a1fe6229bcb1a9f9170063eddb907}\label{namespaceteqp_aec1a1fe6229bcb1a9f9170063eddb907} 
+\index{teqp@{teqp}!build\_alpha\_functions@{build\_alpha\_functions}}
+\index{build\_alpha\_functions@{build\_alpha\_functions}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{build\_alpha\_functions()}{build\_alpha\_functions()}}
+{\footnotesize\ttfamily template$<$typename TC $>$ \\
+auto teqp\+::build\+\_\+alpha\+\_\+functions (\begin{DoxyParamCaption}\item[{const TC \&}]{Tc\+\_\+K,  }\item[{const nlohmann\+::json \&}]{jalphas }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00098}{98}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a7b0fed59cb3c840627e9799f0d36eb12}\label{namespaceteqp_a7b0fed59cb3c840627e9799f0d36eb12} 
 \index{teqp@{teqp}!build\_departure\_function@{build\_departure\_function}}
@@ -946,7 +1040,7 @@ auto teqp\+::canonical\+\_\+\+PR (\begin{DoxyParamCaption}\item[{TCType}]{Tc\+\_
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00246}{246}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00298}{298}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a6a646a52ddd0010dc37a5161e8353148}\label{namespaceteqp_a6a646a52ddd0010dc37a5161e8353148} 
 \index{teqp@{teqp}!canonical\_SRK@{canonical\_SRK}}
@@ -957,7 +1051,7 @@ auto teqp\+::canonical\+\_\+\+SRK (\begin{DoxyParamCaption}\item[{TCType}]{Tc\+\
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00208}{208}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00260}{260}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a12e535a8d5233799f0230d606e3e036e}\label{namespaceteqp_a12e535a8d5233799f0230d606e3e036e} 
 \index{teqp@{teqp}!centered\_diff@{centered\_diff}}
@@ -1121,6 +1215,16 @@ auto teqp\+::forceeval (\begin{DoxyParamCaption}\item[{T \&\&}]{expr }\end{DoxyP
 
 Definition at line \mbox{\hyperlink{types_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}}.
 
+\Hypertarget{namespaceteqp_a48611e1016da2a6b186703e02c082d6a}\label{namespaceteqp_a48611e1016da2a6b186703e02c082d6a} 
+\index{teqp@{teqp}!from\_json@{from\_json}}
+\index{from\_json@{from\_json}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{from\_json()}{from\_json()}}
+{\footnotesize\ttfamily void teqp\+::from\+\_\+json (\begin{DoxyParamCaption}\item[{const json \&}]{j,  }\item[{Advanced\+PRa\+EOptions \&}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00447}{447}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
 \Hypertarget{namespaceteqp_ae35043cfb022979a4b38811d30c06bf5}\label{namespaceteqp_ae35043cfb022979a4b38811d30c06bf5} 
 \index{teqp@{teqp}!get\_Brho\_critical\_extrap@{get\_Brho\_critical\_extrap}}
 \index{get\_Brho\_critical\_extrap@{get\_Brho\_critical\_extrap}!teqp@{teqp}}
@@ -1198,7 +1302,7 @@ auto teqp\+::get\+\_\+dpsat\+\_\+d\+Tsat\+\_\+isopleth (\begin{DoxyParamCaption}
 
 
 
-Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01305}{1305}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
 \Hypertarget{namespaceteqp_ad95f85237b414adcadafedae95c6ab43}\label{namespaceteqp_ad95f85237b414adcadafedae95c6ab43} 
 \index{teqp@{teqp}!get\_drhovecdp\_Tsat@{get\_drhovecdp\_Tsat}}
@@ -1219,7 +1323,7 @@ auto teqp\+::get\+\_\+drhovecdp\+\_\+\+Tsat (\begin{DoxyParamCaption}\item[{cons
 
 
 
-Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01305}{1305}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
 \Hypertarget{namespaceteqp_af6e5d0686b44d8f1d32191349e7cae79}\label{namespaceteqp_af6e5d0686b44d8f1d32191349e7cae79} 
 \index{teqp@{teqp}!get\_drhovecdT\_psat@{get\_drhovecdT\_psat}}
@@ -1240,7 +1344,7 @@ auto teqp\+::get\+\_\+drhovecd\+T\+\_\+psat (\begin{DoxyParamCaption}\item[{cons
 
 
 
-Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01305}{1305}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a9d9e7c2e7090d997b838ad7d722fe636}\label{namespaceteqp_a9d9e7c2e7090d997b838ad7d722fe636} 
 \index{teqp@{teqp}!get\_drhovecdT\_xsat@{get\_drhovecdT\_xsat}}
@@ -1261,7 +1365,7 @@ auto teqp\+::get\+\_\+drhovecd\+T\+\_\+xsat (\begin{DoxyParamCaption}\item[{cons
 
 
 
-Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01305}{1305}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a081a632b9297fdfb078999a2eaabbe02}\label{namespaceteqp_a081a632b9297fdfb078999a2eaabbe02} 
 \index{teqp@{teqp}!get\_EOS\_terms@{get\_EOS\_terms}}
@@ -1311,11 +1415,15 @@ Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00084}{84}} of f
 {\footnotesize\ttfamily template$<$typename Num\+Type $>$ \\
 const auto teqp\+::get\+\_\+\+R\+\_\+gas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+\texorpdfstring{$<$}{<} Gas constant, according to CODATA 2019, in the given number type 
+
 \texorpdfstring{$<$}{<} Boltzmann constant
 
 \texorpdfstring{$<$}{<} Avogadro\textquotesingle{}s number
 
-Definition at line \mbox{\hyperlink{constants_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{constants_8hpp_source}{constants.\+hpp}}.
+Definition at line \mbox{\hyperlink{constants_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{constants_8hpp_source}{constants.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a79c1a1ea4876acd80e74721bba2361ce}\label{namespaceteqp_a79c1a1ea4876acd80e74721bba2361ce} 
 \index{teqp@{teqp}!getbaseval@{getbaseval}}
@@ -1353,6 +1461,16 @@ Load a JSON file from a specified file.
 
 Definition at line \mbox{\hyperlink{json__tools_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{json__tools_8hpp_source}{json\+\_\+tools.\+hpp}}.
 
+\Hypertarget{namespaceteqp_a41915e46c6b8bf0af18c40844077e3c2}\label{namespaceteqp_a41915e46c6b8bf0af18c40844077e3c2} 
+\index{teqp@{teqp}!make\_AdvancedPRaEres@{make\_AdvancedPRaEres}}
+\index{make\_AdvancedPRaEres@{make\_AdvancedPRaEres}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{make\_AdvancedPRaEres()}{make\_AdvancedPRaEres()}}
+{\footnotesize\ttfamily auto teqp\+::make\+\_\+\+Advanced\+PRa\+Eres (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00728}{728}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
 \Hypertarget{namespaceteqp_a86f985a767c5c10c7b64cba83e288db4}\label{namespaceteqp_a86f985a767c5c10c7b64cba83e288db4} 
 \index{teqp@{teqp}!make\_canonicalPR@{make\_canonicalPR}}
 \index{make\_canonicalPR@{make\_canonicalPR}!teqp@{teqp}}
@@ -1365,7 +1483,7 @@ A JSON-\/based factory function for the canonical SRK model.
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00280}{280}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00332}{332}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
 \Hypertarget{namespaceteqp_acfec86ec5ae6cae32421445beaae20e9}\label{namespaceteqp_acfec86ec5ae6cae32421445beaae20e9} 
 \index{teqp@{teqp}!make\_canonicalSRK@{make\_canonicalSRK}}
@@ -1379,7 +1497,7 @@ A JSON-\/based factory function for the canonical SRK model.
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00236}{236}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00288}{288}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a334093a8fbd62d4f6445df5d8d330e32}\label{namespaceteqp_a334093a8fbd62d4f6445df5d8d330e32} 
 \index{teqp@{teqp}!make\_generalizedcubic@{make\_generalizedcubic}}
@@ -1393,7 +1511,7 @@ A JSON-\/based factory function for the generalized cubic + alpha.
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00290}{290}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00342}{342}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
 \Hypertarget{namespaceteqp_ac5791e9c69fafc070cecaca567dbc1bf}\label{namespaceteqp_ac5791e9c69fafc070cecaca567dbc1bf} 
 \index{teqp@{teqp}!make\_pure\_components\_JSON@{make\_pure\_components\_JSON}}
@@ -1432,7 +1550,7 @@ auto teqp\+::mix\+\_\+\+VLE\+\_\+\+Tp (\begin{DoxyParamCaption}\item[{const Temp
 
 
 
-Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01305}{1305}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a5795b3879712fe63c9870a29cfd29905}\label{namespaceteqp_a5795b3879712fe63c9870a29cfd29905} 
 \index{teqp@{teqp}!mix\_VLE\_Tx@{mix\_VLE\_Tx}}
@@ -1453,7 +1571,7 @@ auto teqp\+::mix\+\_\+\+VLE\+\_\+\+Tx (\begin{DoxyParamCaption}\item[{const Temp
 
 
 
-Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01305}{1305}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
 \Hypertarget{namespaceteqp_aa0e91cea3c6012535d2718e2874826b4}\label{namespaceteqp_aa0e91cea3c6012535d2718e2874826b4} 
 \index{teqp@{teqp}!mixture\_VLE\_px@{mixture\_VLE\_px}}
@@ -1474,7 +1592,7 @@ auto teqp\+::mixture\+\_\+\+VLE\+\_\+px (\begin{DoxyParamCaption}\item[{const Te
 
 
 
-Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01305}{1305}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}\label{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd} 
 \index{teqp@{teqp}!multifluidfactory@{multifluidfactory}}
@@ -1533,6 +1651,16 @@ auto teqp\+::\+Newton\+Raphson (\begin{DoxyParamCaption}\item[{Callable}]{f,  }\
 
 
 Definition at line \mbox{\hyperlink{rootfinding_8hpp_source_l00006}{6}} of file \mbox{\hyperlink{rootfinding_8hpp_source}{rootfinding.\+hpp}}.
+
+\Hypertarget{namespaceteqp_ad12448a1393ce70e8e0eda898b6ac4a0}\label{namespaceteqp_ad12448a1393ce70e8e0eda898b6ac4a0} 
+\index{teqp@{teqp}!NLOHMANN\_JSON\_SERIALIZE\_ENUM@{NLOHMANN\_JSON\_SERIALIZE\_ENUM}}
+\index{NLOHMANN\_JSON\_SERIALIZE\_ENUM@{NLOHMANN\_JSON\_SERIALIZE\_ENUM}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{NLOHMANN\_JSON\_SERIALIZE\_ENUM()}{NLOHMANN\_JSON\_SERIALIZE\_ENUM()}}
+{\footnotesize\ttfamily teqp\+::\+NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418ead}{Advanced\+PRa\+EMixing\+Rules}}}]{,  }\item[{\{ \{\mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadac5fa7134efc9be43ef7f390d5d7dc9d9}{Advanced\+PRa\+EMixing\+Rules\+::knotspecified}}, nullptr\}, \{\mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaac97f0008bcf7c7fe4f2ff94160e1385}{Advanced\+PRa\+EMixing\+Rules\+::k\+Linear}}, "{}Linear"{}\}, \{\mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaf841876fc54bbdba16a4ae2e0d070714}{Advanced\+PRa\+EMixing\+Rules\+::k\+Quadratic}}, "{}Quadratic"{}\}, \}}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00435}{435}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
 \Hypertarget{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}\label{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8} 
 \index{teqp@{teqp}!pow@{pow}}
@@ -1811,7 +1939,7 @@ auto teqp\+::trace\+\_\+critical\+\_\+arclength\+\_\+binary (\begin{DoxyParamCap
 
 
 
-Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01305}{1305}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
 \Hypertarget{namespaceteqp_af320b714fb1758cc835cfe8bb1eb3fd2}\label{namespaceteqp_af320b714fb1758cc835cfe8bb1eb3fd2} 
 \index{teqp@{teqp}!trace\_VLE\_isobar\_binary@{trace\_VLE\_isobar\_binary}}
@@ -1822,7 +1950,7 @@ auto teqp\+::trace\+\_\+\+VLE\+\_\+isobar\+\_\+binary (\begin{DoxyParamCaption}\
 
 
 
-Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01035}{1035}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01047}{1047}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
 \Hypertarget{namespaceteqp_ad8ed28be253b638ae6d36c2264e906c6}\label{namespaceteqp_ad8ed28be253b638ae6d36c2264e906c6} 
 \index{teqp@{teqp}!trace\_VLE\_isobar\_binary@{trace\_VLE\_isobar\_binary}}
@@ -1833,7 +1961,7 @@ auto teqp\+::trace\+\_\+\+VLE\+\_\+isobar\+\_\+binary (\begin{DoxyParamCaption}\
 
 
 
-Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01305}{1305}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a56339c8078f4369f5a988a87cfc1344e}\label{namespaceteqp_a56339c8078f4369f5a988a87cfc1344e} 
 \index{teqp@{teqp}!trace\_VLE\_isotherm\_binary@{trace\_VLE\_isotherm\_binary}}
@@ -1854,7 +1982,7 @@ auto teqp\+::trace\+\_\+\+VLE\+\_\+isotherm\+\_\+binary (\begin{DoxyParamCaption
 
 
 
-Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01305}{1305}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
 
 
@@ -1899,18 +2027,4 @@ Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01280}{1280}} of file \mbox
 
 
 Definition at line \mbox{\hyperlink{json__tools_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{json__tools_8hpp_source}{json\+\_\+tools.\+hpp}}.
-
-\Hypertarget{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85}\label{namespaceteqp_a21d8c7a2956df07d9199d33aeb642f85} 
-\index{teqp@{teqp}!N\_A@{N\_A}}
-\index{N\_A@{N\_A}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{N\_A}{N\_A}}
-{\footnotesize\ttfamily const double teqp\+::\+N\+\_\+A = 6.\+02214076e23}
-
-
-
-Avogadro\textquotesingle{}s number. 
-
-Gas constant, according to CODATA 2019, in the given number type 
-
-Definition at line \mbox{\hyperlink{constants_8hpp_source_l00004}{4}} of file \mbox{\hyperlink{constants_8hpp_source}{constants.\+hpp}}.
 

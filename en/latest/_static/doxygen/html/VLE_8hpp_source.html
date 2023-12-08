@@ -1093,306 +1093,332 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00997" name="l00997"></a><span class="lineno">  997</span>            <span class="keyword">auto</span> rhovecV = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[0 + N]), N).eval();</div>
 <div class="line"><a id="l00998" name="l00998"></a><span class="lineno">  998</span>            <span class="keyword">auto</span> x = (Eigen::ArrayXd(2) &lt;&lt; rhovecL(0) / rhovecL.sum(), rhovecL(1) / rhovecL.sum()).finished(); <span class="comment">// Mole fractions in the liquid phase (to be kept constant)</span></div>
 <div class="line"><a id="l00999" name="l00999"></a><span class="lineno">  999</span>            <span class="keyword">auto</span> [return_code, rhovecLnew, rhovecVnew] = model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a98915626537e71c88b73dba3461e7ae2">mix_VLE_Tx</a>(T, rhovecL, rhovecV, x, 1e-10, 1e-8, 1e-10, 1e-8, 10);</div>
-<div class="line"><a id="l01000" name="l01000"></a><span class="lineno"> 1000</span> </div>
-<div class="line"><a id="l01001" name="l01001"></a><span class="lineno"> 1001</span>            <span class="comment">// If the step is accepted, copy into x again ...</span></div>
-<div class="line"><a id="l01002" name="l01002"></a><span class="lineno"> 1002</span>            <span class="keyword">auto</span> rhovecLview = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]), N);</div>
-<div class="line"><a id="l01003" name="l01003"></a><span class="lineno"> 1003</span>            <span class="keyword">auto</span> rhovecVview = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]) + N, N);</div>
-<div class="line"><a id="l01004" name="l01004"></a><span class="lineno"> 1004</span>            rhovecLview = rhovecLnew;</div>
-<div class="line"><a id="l01005" name="l01005"></a><span class="lineno"> 1005</span>            rhovecVview = rhovecVnew;</div>
-<div class="line"><a id="l01006" name="l01006"></a><span class="lineno"> 1006</span>            <span class="comment">//std::cout &lt;&lt; &quot;[polish]: &quot; &lt;&lt; static_cast&lt;int&gt;(return_code) &lt;&lt; &quot;: &quot; &lt;&lt; rhovecLnew.sum() / rhovecL.sum() &lt;&lt; &quot; &quot; &lt;&lt; rhovecVnew.sum() / rhovecV.sum() &lt;&lt; std::endl;</span></div>
-<div class="line"><a id="l01007" name="l01007"></a><span class="lineno"> 1007</span>        }</div>
-<div class="line"><a id="l01008" name="l01008"></a><span class="lineno"> 1008</span> </div>
-<div class="line"><a id="l01009" name="l01009"></a><span class="lineno"> 1009</span>        std::swap(previous_drhodt, last_drhodt);</div>
-<div class="line"><a id="l01010" name="l01010"></a><span class="lineno"> 1010</span>        store_point(); <span class="comment">// last_drhodt is updated;</span></div>
-<div class="line"><a id="l01011" name="l01011"></a><span class="lineno"> 1011</span>        </div>
-<div class="line"><a id="l01012" name="l01012"></a><span class="lineno"> 1012</span>    }</div>
-<div class="line"><a id="l01013" name="l01013"></a><span class="lineno"> 1013</span>    <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1TVLEOptions.html#a6423a41558b2bfa14a4e461203806002">revision</a> == 1){</div>
-<div class="line"><a id="l01014" name="l01014"></a><span class="lineno"> 1014</span>        <span class="keywordflow">return</span> JSONdata;</div>
-<div class="line"><a id="l01015" name="l01015"></a><span class="lineno"> 1015</span>    }</div>
-<div class="line"><a id="l01016" name="l01016"></a><span class="lineno"> 1016</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1TVLEOptions.html#a6423a41558b2bfa14a4e461203806002">revision</a> == 2){</div>
-<div class="line"><a id="l01017" name="l01017"></a><span class="lineno"> 1017</span>        nlohmann::json meta{</div>
-<div class="line"><a id="l01018" name="l01018"></a><span class="lineno"> 1018</span>            {<span class="stringliteral">&quot;termination_reason&quot;</span>, termination_reason}</div>
-<div class="line"><a id="l01019" name="l01019"></a><span class="lineno"> 1019</span>        };</div>
-<div class="line"><a id="l01020" name="l01020"></a><span class="lineno"> 1020</span>        <span class="keywordflow">return</span> nlohmann::json{</div>
-<div class="line"><a id="l01021" name="l01021"></a><span class="lineno"> 1021</span>            {<span class="stringliteral">&quot;meta&quot;</span>, meta},</div>
-<div class="line"><a id="l01022" name="l01022"></a><span class="lineno"> 1022</span>            {<span class="stringliteral">&quot;data&quot;</span>, JSONdata}</div>
-<div class="line"><a id="l01023" name="l01023"></a><span class="lineno"> 1023</span>        };</div>
+<div class="line"><a id="l01000" name="l01000"></a><span class="lineno"> 1000</span>            </div>
+<div class="line"><a id="l01001" name="l01001"></a><span class="lineno"> 1001</span>            <span class="keywordflow">if</span> (((rhovecL-rhovecLnew).cwiseAbs() &gt; opt.<a class="code hl_variable" href="structteqp_1_1TVLEOptions.html#a2acc1f719e8903632aaa89b57fd3fd66">polish_reltol_rho</a>*rhovecL).any()){</div>
+<div class="line"><a id="l01002" name="l01002"></a><span class="lineno"> 1002</span>                std::string msg;</div>
+<div class="line"><a id="l01003" name="l01003"></a><span class="lineno"> 1003</span>                <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1TVLEOptions.html#a04e1c85056a0b4968e15ea4ef7275b53">polish_exception_on_fail</a>){</div>
+<div class="line"><a id="l01004" name="l01004"></a><span class="lineno"> 1004</span>                    <span class="keywordflow">throw</span> <a class="code hl_class" href="classteqp_1_1IterationFailure.html">IterationFailure</a>(msg);</div>
+<div class="line"><a id="l01005" name="l01005"></a><span class="lineno"> 1005</span>                }</div>
+<div class="line"><a id="l01006" name="l01006"></a><span class="lineno"> 1006</span>                <span class="keywordflow">else</span>{</div>
+<div class="line"><a id="l01007" name="l01007"></a><span class="lineno"> 1007</span>                    <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1TVLEOptions.html#a787c6c49587296c98280c949920a7432">verbosity</a> &gt; 0){</div>
+<div class="line"><a id="l01008" name="l01008"></a><span class="lineno"> 1008</span>                        std::cout &lt;&lt; msg &lt;&lt; std::endl;</div>
+<div class="line"><a id="l01009" name="l01009"></a><span class="lineno"> 1009</span>                    }</div>
+<div class="line"><a id="l01010" name="l01010"></a><span class="lineno"> 1010</span>                }</div>
+<div class="line"><a id="l01011" name="l01011"></a><span class="lineno"> 1011</span>            }</div>
+<div class="line"><a id="l01012" name="l01012"></a><span class="lineno"> 1012</span>            <span class="keywordflow">else</span>{</div>
+<div class="line"><a id="l01013" name="l01013"></a><span class="lineno"> 1013</span>                <span class="comment">// If the step is accepted, copy into x again ...</span></div>
+<div class="line"><a id="l01014" name="l01014"></a><span class="lineno"> 1014</span>                <span class="keyword">auto</span> rhovecLview = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]), N);</div>
+<div class="line"><a id="l01015" name="l01015"></a><span class="lineno"> 1015</span>                <span class="keyword">auto</span> rhovecVview = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]) + N, N);</div>
+<div class="line"><a id="l01016" name="l01016"></a><span class="lineno"> 1016</span>                rhovecLview = rhovecLnew;</div>
+<div class="line"><a id="l01017" name="l01017"></a><span class="lineno"> 1017</span>                rhovecVview = rhovecVnew;</div>
+<div class="line"><a id="l01018" name="l01018"></a><span class="lineno"> 1018</span>            }</div>
+<div class="line"><a id="l01019" name="l01019"></a><span class="lineno"> 1019</span>        }</div>
+<div class="line"><a id="l01020" name="l01020"></a><span class="lineno"> 1020</span> </div>
+<div class="line"><a id="l01021" name="l01021"></a><span class="lineno"> 1021</span>        std::swap(previous_drhodt, last_drhodt);</div>
+<div class="line"><a id="l01022" name="l01022"></a><span class="lineno"> 1022</span>        store_point(); <span class="comment">// last_drhodt is updated;</span></div>
+<div class="line"><a id="l01023" name="l01023"></a><span class="lineno"> 1023</span>        </div>
 <div class="line"><a id="l01024" name="l01024"></a><span class="lineno"> 1024</span>    }</div>
-<div class="line"><a id="l01025" name="l01025"></a><span class="lineno"> 1025</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l01026" name="l01026"></a><span class="lineno"> 1026</span>    {</div>
-<div class="line"><a id="l01027" name="l01027"></a><span class="lineno"> 1027</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="classteqp_1_1InvalidArgument.html">teqp::InvalidArgument</a>(<span class="stringliteral">&quot;revision is not valid&quot;</span>);</div>
-<div class="line"><a id="l01028" name="l01028"></a><span class="lineno"> 1028</span>    }</div>
-<div class="line"><a id="l01029" name="l01029"></a><span class="lineno"> 1029</span>}</div>
+<div class="line"><a id="l01025" name="l01025"></a><span class="lineno"> 1025</span>    <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1TVLEOptions.html#a6423a41558b2bfa14a4e461203806002">revision</a> == 1){</div>
+<div class="line"><a id="l01026" name="l01026"></a><span class="lineno"> 1026</span>        <span class="keywordflow">return</span> JSONdata;</div>
+<div class="line"><a id="l01027" name="l01027"></a><span class="lineno"> 1027</span>    }</div>
+<div class="line"><a id="l01028" name="l01028"></a><span class="lineno"> 1028</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1TVLEOptions.html#a6423a41558b2bfa14a4e461203806002">revision</a> == 2){</div>
+<div class="line"><a id="l01029" name="l01029"></a><span class="lineno"> 1029</span>        nlohmann::json meta{</div>
+<div class="line"><a id="l01030" name="l01030"></a><span class="lineno"> 1030</span>            {<span class="stringliteral">&quot;termination_reason&quot;</span>, termination_reason}</div>
+<div class="line"><a id="l01031" name="l01031"></a><span class="lineno"> 1031</span>        };</div>
+<div class="line"><a id="l01032" name="l01032"></a><span class="lineno"> 1032</span>        <span class="keywordflow">return</span> nlohmann::json{</div>
+<div class="line"><a id="l01033" name="l01033"></a><span class="lineno"> 1033</span>            {<span class="stringliteral">&quot;meta&quot;</span>, meta},</div>
+<div class="line"><a id="l01034" name="l01034"></a><span class="lineno"> 1034</span>            {<span class="stringliteral">&quot;data&quot;</span>, JSONdata}</div>
+<div class="line"><a id="l01035" name="l01035"></a><span class="lineno"> 1035</span>        };</div>
+<div class="line"><a id="l01036" name="l01036"></a><span class="lineno"> 1036</span>    }</div>
+<div class="line"><a id="l01037" name="l01037"></a><span class="lineno"> 1037</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l01038" name="l01038"></a><span class="lineno"> 1038</span>    {</div>
+<div class="line"><a id="l01039" name="l01039"></a><span class="lineno"> 1039</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="classteqp_1_1InvalidArgument.html">teqp::InvalidArgument</a>(<span class="stringliteral">&quot;revision is not valid&quot;</span>);</div>
+<div class="line"><a id="l01040" name="l01040"></a><span class="lineno"> 1040</span>    }</div>
+<div class="line"><a id="l01041" name="l01041"></a><span class="lineno"> 1041</span>}</div>
 </div>
-<div class="line"><a id="l01030" name="l01030"></a><span class="lineno"> 1030</span> </div>
-<div class="line"><a id="l01031" name="l01031"></a><span class="lineno"> 1031</span><span class="comment">/***</span></div>
-<div class="line"><a id="l01032" name="l01032"></a><span class="lineno"> 1032</span><span class="comment">* \brief Trace an isobar with parametric tracing</span></div>
-<div class="line"><a id="l01033" name="l01033"></a><span class="lineno"> 1033</span><span class="comment">*/</span></div>
-<div class="line"><a id="l01034" name="l01034"></a><span class="lineno"> 1034</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Model = AbstractModel&gt;</div>
-<div class="foldopen" id="foldopen01035" data-start="{" data-end="}">
-<div class="line"><a id="l01035" name="l01035"></a><span class="lineno"><a class="line" href="namespaceteqp.html#af320b714fb1758cc835cfe8bb1eb3fd2"> 1035</a></span><span class="keyword">auto</span> <a class="code hl_function" href="namespaceteqp.html#af320b714fb1758cc835cfe8bb1eb3fd2">trace_VLE_isobar_binary</a>(<span class="keyword">const</span> Model&amp; model, <span class="keywordtype">double</span> p, <span class="keywordtype">double</span> T0, <span class="keyword">const</span> Eigen::ArrayXd&amp; rhovecL0, <span class="keyword">const</span> Eigen::ArrayXd&amp; rhovecV0, <span class="keyword">const</span> std::optional&lt;PVLEOptions&gt;&amp; options = std::nullopt)</div>
-<div class="line"><a id="l01036" name="l01036"></a><span class="lineno"> 1036</span>{</div>
-<div class="line"><a id="l01037" name="l01037"></a><span class="lineno"> 1037</span>    <span class="comment">// Get the options, or the default values if not provided</span></div>
-<div class="line"><a id="l01038" name="l01038"></a><span class="lineno"> 1038</span>    <a class="code hl_struct" href="structteqp_1_1PVLEOptions.html">PVLEOptions</a> opt = options.value_or(<a class="code hl_struct" href="structteqp_1_1PVLEOptions.html">PVLEOptions</a>{});</div>
-<div class="line"><a id="l01039" name="l01039"></a><span class="lineno"> 1039</span>    <span class="keyword">auto</span> N = rhovecL0.size();</div>
-<div class="line"><a id="l01040" name="l01040"></a><span class="lineno"> 1040</span>    <span class="keywordflow">if</span> (N != 2) {</div>
-<div class="line"><a id="l01041" name="l01041"></a><span class="lineno"> 1041</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="classteqp_1_1InvalidArgument.html">InvalidArgument</a>(<span class="stringliteral">&quot;Size must be 2&quot;</span>);</div>
-<div class="line"><a id="l01042" name="l01042"></a><span class="lineno"> 1042</span>    }</div>
-<div class="line"><a id="l01043" name="l01043"></a><span class="lineno"> 1043</span>    <span class="keywordflow">if</span> (rhovecL0.size() != rhovecV0.size()) {</div>
-<div class="line"><a id="l01044" name="l01044"></a><span class="lineno"> 1044</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="classteqp_1_1InvalidArgument.html">InvalidArgument</a>(<span class="stringliteral">&quot;Both molar concentration arrays must be of the same size&quot;</span>);</div>
-<div class="line"><a id="l01045" name="l01045"></a><span class="lineno"> 1045</span>    }</div>
-<div class="line"><a id="l01046" name="l01046"></a><span class="lineno"> 1046</span> </div>
-<div class="line"><a id="l01047" name="l01047"></a><span class="lineno"> 1047</span>    <span class="keyword">auto</span> norm = [](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; v) { <span class="keywordflow">return</span> (v * v).sum(); };</div>
-<div class="line"><a id="l01048" name="l01048"></a><span class="lineno"> 1048</span> </div>
-<div class="line"><a id="l01049" name="l01049"></a><span class="lineno"> 1049</span>    <span class="comment">// Define datatypes and functions for tracing tools</span></div>
-<div class="line"><a id="l01050" name="l01050"></a><span class="lineno"> 1050</span>    <span class="keyword">auto</span> JSONdata = nlohmann::json::array();</div>
-<div class="line"><a id="l01051" name="l01051"></a><span class="lineno"> 1051</span> </div>
-<div class="line"><a id="l01052" name="l01052"></a><span class="lineno"> 1052</span>    <span class="comment">// Typedefs for the types</span></div>
-<div class="line"><a id="l01053" name="l01053"></a><span class="lineno"> 1053</span>    <span class="keyword">using namespace </span>boost::numeric::odeint;</div>
-<div class="line"><a id="l01054" name="l01054"></a><span class="lineno"> 1054</span>    <span class="keyword">using </span>state_type = std::vector&lt;double&gt;;</div>
-<div class="line"><a id="l01055" name="l01055"></a><span class="lineno"> 1055</span> </div>
-<div class="line"><a id="l01056" name="l01056"></a><span class="lineno"> 1056</span>    <span class="comment">// Class for simple Euler integration</span></div>
-<div class="line"><a id="l01057" name="l01057"></a><span class="lineno"> 1057</span>    euler&lt;state_type&gt; eul;</div>
-<div class="line"><a id="l01058" name="l01058"></a><span class="lineno"> 1058</span>    <span class="keyword">typedef</span> runge_kutta_cash_karp54&lt; state_type &gt; error_stepper_type;</div>
-<div class="line"><a id="l01059" name="l01059"></a><span class="lineno"> 1059</span>    <span class="keyword">typedef</span> controlled_runge_kutta&lt; error_stepper_type &gt; controlled_stepper_type;</div>
+<div class="line"><a id="l01042" name="l01042"></a><span class="lineno"> 1042</span> </div>
+<div class="line"><a id="l01043" name="l01043"></a><span class="lineno"> 1043</span><span class="comment">/***</span></div>
+<div class="line"><a id="l01044" name="l01044"></a><span class="lineno"> 1044</span><span class="comment">* \brief Trace an isobar with parametric tracing</span></div>
+<div class="line"><a id="l01045" name="l01045"></a><span class="lineno"> 1045</span><span class="comment">*/</span></div>
+<div class="line"><a id="l01046" name="l01046"></a><span class="lineno"> 1046</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Model = AbstractModel&gt;</div>
+<div class="foldopen" id="foldopen01047" data-start="{" data-end="}">
+<div class="line"><a id="l01047" name="l01047"></a><span class="lineno"><a class="line" href="namespaceteqp.html#af320b714fb1758cc835cfe8bb1eb3fd2"> 1047</a></span><span class="keyword">auto</span> <a class="code hl_function" href="namespaceteqp.html#af320b714fb1758cc835cfe8bb1eb3fd2">trace_VLE_isobar_binary</a>(<span class="keyword">const</span> Model&amp; model, <span class="keywordtype">double</span> p, <span class="keywordtype">double</span> T0, <span class="keyword">const</span> Eigen::ArrayXd&amp; rhovecL0, <span class="keyword">const</span> Eigen::ArrayXd&amp; rhovecV0, <span class="keyword">const</span> std::optional&lt;PVLEOptions&gt;&amp; options = std::nullopt)</div>
+<div class="line"><a id="l01048" name="l01048"></a><span class="lineno"> 1048</span>{</div>
+<div class="line"><a id="l01049" name="l01049"></a><span class="lineno"> 1049</span>    <span class="comment">// Get the options, or the default values if not provided</span></div>
+<div class="line"><a id="l01050" name="l01050"></a><span class="lineno"> 1050</span>    <a class="code hl_struct" href="structteqp_1_1PVLEOptions.html">PVLEOptions</a> opt = options.value_or(<a class="code hl_struct" href="structteqp_1_1PVLEOptions.html">PVLEOptions</a>{});</div>
+<div class="line"><a id="l01051" name="l01051"></a><span class="lineno"> 1051</span>    <span class="keyword">auto</span> N = rhovecL0.size();</div>
+<div class="line"><a id="l01052" name="l01052"></a><span class="lineno"> 1052</span>    <span class="keywordflow">if</span> (N != 2) {</div>
+<div class="line"><a id="l01053" name="l01053"></a><span class="lineno"> 1053</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="classteqp_1_1InvalidArgument.html">InvalidArgument</a>(<span class="stringliteral">&quot;Size must be 2&quot;</span>);</div>
+<div class="line"><a id="l01054" name="l01054"></a><span class="lineno"> 1054</span>    }</div>
+<div class="line"><a id="l01055" name="l01055"></a><span class="lineno"> 1055</span>    <span class="keywordflow">if</span> (rhovecL0.size() != rhovecV0.size()) {</div>
+<div class="line"><a id="l01056" name="l01056"></a><span class="lineno"> 1056</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="classteqp_1_1InvalidArgument.html">InvalidArgument</a>(<span class="stringliteral">&quot;Both molar concentration arrays must be of the same size&quot;</span>);</div>
+<div class="line"><a id="l01057" name="l01057"></a><span class="lineno"> 1057</span>    }</div>
+<div class="line"><a id="l01058" name="l01058"></a><span class="lineno"> 1058</span> </div>
+<div class="line"><a id="l01059" name="l01059"></a><span class="lineno"> 1059</span>    <span class="keyword">auto</span> norm = [](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; v) { <span class="keywordflow">return</span> (v * v).sum(); };</div>
 <div class="line"><a id="l01060" name="l01060"></a><span class="lineno"> 1060</span> </div>
-<div class="line"><a id="l01061" name="l01061"></a><span class="lineno"> 1061</span>    <span class="comment">// Define the tolerances</span></div>
-<div class="line"><a id="l01062" name="l01062"></a><span class="lineno"> 1062</span>    <span class="keywordtype">double</span> abs_err = opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#a9e1a369cb2cbf66343112f2dcc1bd4c1">abs_err</a>, rel_err = opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ac22e0d4eadb2e08b861c2a293bafc9bc">rel_err</a>, a_x = 1.0, a_dxdt = 1.0;</div>
-<div class="line"><a id="l01063" name="l01063"></a><span class="lineno"> 1063</span>    controlled_stepper_type controlled_stepper(default_error_checker&lt; double, range_algebra, default_operations &gt;(abs_err, rel_err, a_x, a_dxdt));</div>
-<div class="line"><a id="l01064" name="l01064"></a><span class="lineno"> 1064</span> </div>
-<div class="line"><a id="l01065" name="l01065"></a><span class="lineno"> 1065</span>    <span class="comment">// Start off with the direction determined by c</span></div>
-<div class="line"><a id="l01066" name="l01066"></a><span class="lineno"> 1066</span>    <span class="keywordtype">double</span> c = opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ad6f90c234eea875a14a6b3492c7f6ae7">init_c</a>;</div>
+<div class="line"><a id="l01061" name="l01061"></a><span class="lineno"> 1061</span>    <span class="comment">// Define datatypes and functions for tracing tools</span></div>
+<div class="line"><a id="l01062" name="l01062"></a><span class="lineno"> 1062</span>    <span class="keyword">auto</span> JSONdata = nlohmann::json::array();</div>
+<div class="line"><a id="l01063" name="l01063"></a><span class="lineno"> 1063</span> </div>
+<div class="line"><a id="l01064" name="l01064"></a><span class="lineno"> 1064</span>    <span class="comment">// Typedefs for the types</span></div>
+<div class="line"><a id="l01065" name="l01065"></a><span class="lineno"> 1065</span>    <span class="keyword">using namespace </span>boost::numeric::odeint;</div>
+<div class="line"><a id="l01066" name="l01066"></a><span class="lineno"> 1066</span>    <span class="keyword">using </span>state_type = std::vector&lt;double&gt;;</div>
 <div class="line"><a id="l01067" name="l01067"></a><span class="lineno"> 1067</span> </div>
-<div class="line"><a id="l01068" name="l01068"></a><span class="lineno"> 1068</span>    <span class="comment">// Set up the initial state vector</span></div>
-<div class="line"><a id="l01069" name="l01069"></a><span class="lineno"> 1069</span>    state_type x0(2*N+1), last_drhodt(2*N+1), previous_drhodt(2*N+1);</div>
-<div class="line"><a id="l01070" name="l01070"></a><span class="lineno"> 1070</span>    <span class="keyword">auto</span> set_init_state = [&amp;](state_type&amp; <a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>) {</div>
-<div class="line"><a id="l01071" name="l01071"></a><span class="lineno"> 1071</span>        <a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>[0] = T0; </div>
-<div class="line"><a id="l01072" name="l01072"></a><span class="lineno"> 1072</span>        <span class="keyword">auto</span> rhovecL = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(<a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>[1]), N);</div>
-<div class="line"><a id="l01073" name="l01073"></a><span class="lineno"> 1073</span>        <span class="keyword">auto</span> rhovecV = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(<a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>[1]) + N, N);</div>
-<div class="line"><a id="l01074" name="l01074"></a><span class="lineno"> 1074</span>        rhovecL = rhovecL0;</div>
-<div class="line"><a id="l01075" name="l01075"></a><span class="lineno"> 1075</span>        rhovecV = rhovecV0;</div>
-<div class="line"><a id="l01076" name="l01076"></a><span class="lineno"> 1076</span>    };</div>
-<div class="line"><a id="l01077" name="l01077"></a><span class="lineno"> 1077</span>    set_init_state(x0);</div>
-<div class="line"><a id="l01078" name="l01078"></a><span class="lineno"> 1078</span> </div>
-<div class="line"><a id="l01079" name="l01079"></a><span class="lineno"> 1079</span>    <span class="comment">// The function to be integrated by odeint</span></div>
-<div class="line"><a id="l01080" name="l01080"></a><span class="lineno"> 1080</span>    <span class="keyword">auto</span> xprime = [&amp;](<span class="keyword">const</span> state_type&amp; <a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>, state_type&amp; Xprime, <span class="keywordtype">double</span> <span class="comment">/*t*/</span>) {</div>
-<div class="line"><a id="l01081" name="l01081"></a><span class="lineno"> 1081</span>        <span class="comment">// Memory maps into the state vector for inputs and their derivatives</span></div>
-<div class="line"><a id="l01082" name="l01082"></a><span class="lineno"> 1082</span>        <span class="comment">// These are views, not copies!</span></div>
-<div class="line"><a id="l01083" name="l01083"></a><span class="lineno"> 1083</span>        <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; T = <a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>[0];</div>
-<div class="line"><a id="l01084" name="l01084"></a><span class="lineno"> 1084</span>        <span class="keyword">auto</span> rhovecL = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(<a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>[1]), N);</div>
-<div class="line"><a id="l01085" name="l01085"></a><span class="lineno"> 1085</span>        <span class="keyword">auto</span> rhovecV = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(<a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>[1]) + N, N);</div>
-<div class="line"><a id="l01086" name="l01086"></a><span class="lineno"> 1086</span>        <span class="keyword">auto</span>&amp; dTdt = Xprime[0];</div>
-<div class="line"><a id="l01087" name="l01087"></a><span class="lineno"> 1087</span>        <span class="keyword">auto</span> drhovecdtL = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(Xprime[1]), N);</div>
-<div class="line"><a id="l01088" name="l01088"></a><span class="lineno"> 1088</span>        <span class="keyword">auto</span> drhovecdtV = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(Xprime[1]) + N, N);</div>
-<div class="line"><a id="l01089" name="l01089"></a><span class="lineno"> 1089</span>        <span class="comment">// Get the derivatives with respect to temperature along the isobar of the phase envelope</span></div>
-<div class="line"><a id="l01090" name="l01090"></a><span class="lineno"> 1090</span>        <span class="keyword">auto</span> [drhovecdTL, drhovecdTV] = <a class="code hl_function" href="namespaceteqp.html#af6e5d0686b44d8f1d32191349e7cae79">get_drhovecdT_psat</a>(model, T, rhovecL, rhovecV);</div>
-<div class="line"><a id="l01091" name="l01091"></a><span class="lineno"> 1091</span>        <span class="comment">// Get the derivative of T w.r.t. parameter</span></div>
-<div class="line"><a id="l01092" name="l01092"></a><span class="lineno"> 1092</span>        dTdt = 1.0 / sqrt(norm(drhovecdTL.array()) + norm(drhovecdTV.array()));</div>
-<div class="line"><a id="l01093" name="l01093"></a><span class="lineno"> 1093</span>        <span class="comment">// And finally the derivatives with respect to the tracing variable</span></div>
-<div class="line"><a id="l01094" name="l01094"></a><span class="lineno"> 1094</span>        drhovecdtL = c * drhovecdTL * dTdt;</div>
-<div class="line"><a id="l01095" name="l01095"></a><span class="lineno"> 1095</span>        drhovecdtV = c * drhovecdTV * dTdt;</div>
-<div class="line"><a id="l01096" name="l01096"></a><span class="lineno"> 1096</span> </div>
-<div class="line"><a id="l01097" name="l01097"></a><span class="lineno"> 1097</span>        <span class="keywordflow">if</span> (previous_drhodt.empty()) {</div>
-<div class="line"><a id="l01098" name="l01098"></a><span class="lineno"> 1098</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l01099" name="l01099"></a><span class="lineno"> 1099</span>        }</div>
-<div class="line"><a id="l01100" name="l01100"></a><span class="lineno"> 1100</span> </div>
-<div class="line"><a id="l01101" name="l01101"></a><span class="lineno"> 1101</span>        <span class="comment">// Flip the step if it changes direction from the smooth continuation of previous steps</span></div>
-<div class="line"><a id="l01102" name="l01102"></a><span class="lineno"> 1102</span>        <span class="keyword">auto</span> get_const_view = [&amp;](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; v, Eigen::Index N) {</div>
-<div class="line"><a id="l01103" name="l01103"></a><span class="lineno"> 1103</span>            <span class="keywordflow">return</span> Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(v[0]), N);</div>
-<div class="line"><a id="l01104" name="l01104"></a><span class="lineno"> 1104</span>        };</div>
-<div class="line"><a id="l01105" name="l01105"></a><span class="lineno"> 1105</span>        <span class="keywordflow">if</span> (get_const_view(Xprime, N).matrix().dot(get_const_view(previous_drhodt, N).matrix()) &lt; 0) {</div>
-<div class="line"><a id="l01106" name="l01106"></a><span class="lineno"> 1106</span>            <span class="keyword">auto</span> Xprimeview = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(Xprime[0]), 2 * N);</div>
-<div class="line"><a id="l01107" name="l01107"></a><span class="lineno"> 1107</span>            Xprimeview *= -1;</div>
-<div class="line"><a id="l01108" name="l01108"></a><span class="lineno"> 1108</span>        }</div>
-<div class="line"><a id="l01109" name="l01109"></a><span class="lineno"> 1109</span>    };</div>
-<div class="line"><a id="l01110" name="l01110"></a><span class="lineno"> 1110</span> </div>
-<div class="line"><a id="l01111" name="l01111"></a><span class="lineno"> 1111</span>    <span class="comment">// Figure out which direction to trace initially</span></div>
-<div class="line"><a id="l01112" name="l01112"></a><span class="lineno"> 1112</span>    <span class="keywordtype">double</span> t = 0, dt = opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#a625d389bdcabf78b1c2c81a6d7f5435c">init_dt</a>;</div>
-<div class="line"><a id="l01113" name="l01113"></a><span class="lineno"> 1113</span>    {</div>
-<div class="line"><a id="l01114" name="l01114"></a><span class="lineno"> 1114</span>        <span class="keyword">auto</span> dxdt = x0;</div>
-<div class="line"><a id="l01115" name="l01115"></a><span class="lineno"> 1115</span>        xprime(x0, dxdt, -1.0);</div>
-<div class="line"><a id="l01116" name="l01116"></a><span class="lineno"> 1116</span>        <span class="keyword">const</span> <span class="keyword">auto</span> dXdt = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(dxdt[0]), dxdt.size());</div>
-<div class="line"><a id="l01117" name="l01117"></a><span class="lineno"> 1117</span>        <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a> = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[0]), x0.size());</div>
-<div class="line"><a id="l01118" name="l01118"></a><span class="lineno"> 1118</span> </div>
-<div class="line"><a id="l01119" name="l01119"></a><span class="lineno"> 1119</span>        <span class="keyword">const</span> Eigen::ArrayXd step = <a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a> + dXdt * dt;</div>
-<div class="line"><a id="l01120" name="l01120"></a><span class="lineno"> 1120</span>        Eigen::ArrayX&lt;bool&gt; negativestepvals = (step &lt; 0).eval();</div>
-<div class="line"><a id="l01121" name="l01121"></a><span class="lineno"> 1121</span>        <span class="comment">// Flip the sign if the first step would yield any negative concentrations</span></div>
-<div class="line"><a id="l01122" name="l01122"></a><span class="lineno"> 1122</span>        <span class="keywordflow">if</span> (negativestepvals.any()) {</div>
-<div class="line"><a id="l01123" name="l01123"></a><span class="lineno"> 1123</span>            c *= -1;</div>
-<div class="line"><a id="l01124" name="l01124"></a><span class="lineno"> 1124</span>        }</div>
-<div class="line"><a id="l01125" name="l01125"></a><span class="lineno"> 1125</span>    }</div>
-<div class="line"><a id="l01126" name="l01126"></a><span class="lineno"> 1126</span>    std::string termination_reason;</div>
-<div class="line"><a id="l01127" name="l01127"></a><span class="lineno"> 1127</span> </div>
-<div class="line"><a id="l01128" name="l01128"></a><span class="lineno"> 1128</span>    <span class="comment">// Then trace...</span></div>
-<div class="line"><a id="l01129" name="l01129"></a><span class="lineno"> 1129</span>    <span class="keywordtype">int</span> retry_count = 0;</div>
-<div class="line"><a id="l01130" name="l01130"></a><span class="lineno"> 1130</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> istep = 0; istep &lt; opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ae92001aec313f30c99c72e7e5ee273cc">max_steps</a>; ++istep) {</div>
-<div class="line"><a id="l01131" name="l01131"></a><span class="lineno"> 1131</span> </div>
-<div class="line"><a id="l01132" name="l01132"></a><span class="lineno"> 1132</span>        <span class="keyword">auto</span> store_point = [&amp;]() {</div>
-<div class="line"><a id="l01134" name="l01134"></a><span class="lineno"> 1134</span>            <span class="keyword">auto</span> N = x0.size() / 2;</div>
-<div class="line"><a id="l01135" name="l01135"></a><span class="lineno"> 1135</span>            <span class="keywordtype">double</span> T = x0[0];</div>
-<div class="line"><a id="l01136" name="l01136"></a><span class="lineno"> 1136</span>            <span class="keyword">auto</span> rhovecL = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[1]), N);</div>
-<div class="line"><a id="l01137" name="l01137"></a><span class="lineno"> 1137</span>            <span class="keyword">auto</span> rhovecV = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[1]) + N, N);</div>
-<div class="line"><a id="l01138" name="l01138"></a><span class="lineno"> 1138</span>            <span class="keyword">auto</span> rhototL = rhovecL.sum(), rhototV = rhovecV.sum();</div>
-<div class="line"><a id="l01139" name="l01139"></a><span class="lineno"> 1139</span>            <span class="keywordtype">double</span> pL = rhototL * model.R(rhovecL / rhovecL.sum()) * T + model.get_pr(T, rhovecL);</div>
-<div class="line"><a id="l01140" name="l01140"></a><span class="lineno"> 1140</span>            <span class="keywordtype">double</span> pV = rhototV * model.R(rhovecV / rhovecV.sum()) * T + model.get_pr(T, rhovecV);</div>
-<div class="line"><a id="l01141" name="l01141"></a><span class="lineno"> 1141</span> </div>
-<div class="line"><a id="l01142" name="l01142"></a><span class="lineno"> 1142</span>            <span class="comment">// Store the derivative</span></div>
-<div class="line"><a id="l01143" name="l01143"></a><span class="lineno"> 1143</span>            <span class="keywordflow">try</span> {</div>
-<div class="line"><a id="l01144" name="l01144"></a><span class="lineno"> 1144</span>                xprime(x0, last_drhodt, -1.0);</div>
-<div class="line"><a id="l01145" name="l01145"></a><span class="lineno"> 1145</span>            }</div>
-<div class="line"><a id="l01146" name="l01146"></a><span class="lineno"> 1146</span>            <span class="keywordflow">catch</span> (...) {</div>
-<div class="line"><a id="l01147" name="l01147"></a><span class="lineno"> 1147</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Something bad happened; couldn&#39;t calculate xprime in store_point&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a id="l01148" name="l01148"></a><span class="lineno"> 1148</span>            }</div>
-<div class="line"><a id="l01149" name="l01149"></a><span class="lineno"> 1149</span> </div>
-<div class="line"><a id="l01150" name="l01150"></a><span class="lineno"> 1150</span>            <span class="comment">// Store the data in a JSON structure</span></div>
-<div class="line"><a id="l01151" name="l01151"></a><span class="lineno"> 1151</span>            nlohmann::json point = {</div>
-<div class="line"><a id="l01152" name="l01152"></a><span class="lineno"> 1152</span>                {<span class="stringliteral">&quot;t&quot;</span>, t},</div>
-<div class="line"><a id="l01153" name="l01153"></a><span class="lineno"> 1153</span>                {<span class="stringliteral">&quot;dt&quot;</span>, dt},</div>
-<div class="line"><a id="l01154" name="l01154"></a><span class="lineno"> 1154</span>                {<span class="stringliteral">&quot;T / K&quot;</span>, T},</div>
-<div class="line"><a id="l01155" name="l01155"></a><span class="lineno"> 1155</span>                {<span class="stringliteral">&quot;pL / Pa&quot;</span>, pL},</div>
-<div class="line"><a id="l01156" name="l01156"></a><span class="lineno"> 1156</span>                {<span class="stringliteral">&quot;pV / Pa&quot;</span>, pV},</div>
-<div class="line"><a id="l01157" name="l01157"></a><span class="lineno"> 1157</span>                {<span class="stringliteral">&quot;c&quot;</span>, c},</div>
-<div class="line"><a id="l01158" name="l01158"></a><span class="lineno"> 1158</span>                {<span class="stringliteral">&quot;rhoL / mol/m^3&quot;</span>, rhovecL},</div>
-<div class="line"><a id="l01159" name="l01159"></a><span class="lineno"> 1159</span>                {<span class="stringliteral">&quot;rhoV / mol/m^3&quot;</span>, rhovecV},</div>
-<div class="line"><a id="l01160" name="l01160"></a><span class="lineno"> 1160</span>                {<span class="stringliteral">&quot;xL_0 / mole frac.&quot;</span>, rhovecL[0] / rhovecL.sum()},</div>
-<div class="line"><a id="l01161" name="l01161"></a><span class="lineno"> 1161</span>                {<span class="stringliteral">&quot;xV_0 / mole frac.&quot;</span>, rhovecV[0] / rhovecV.sum()},</div>
-<div class="line"><a id="l01162" name="l01162"></a><span class="lineno"> 1162</span>                {<span class="stringliteral">&quot;drho/dt&quot;</span>, last_drhodt}</div>
-<div class="line"><a id="l01163" name="l01163"></a><span class="lineno"> 1163</span>            };</div>
-<div class="line"><a id="l01164" name="l01164"></a><span class="lineno"> 1164</span>            <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#a1964ae295c8ca0b6c6ddb2ed650a6df9">calc_criticality</a>) {</div>
-<div class="line"><a id="l01165" name="l01165"></a><span class="lineno"> 1165</span>                point[<span class="stringliteral">&quot;crit. conditions L&quot;</span>] = model.get_criticality_conditions(T, rhovecL);</div>
-<div class="line"><a id="l01166" name="l01166"></a><span class="lineno"> 1166</span>                point[<span class="stringliteral">&quot;crit. conditions V&quot;</span>] = model.get_criticality_conditions(T, rhovecV);</div>
-<div class="line"><a id="l01167" name="l01167"></a><span class="lineno"> 1167</span>            }</div>
-<div class="line"><a id="l01168" name="l01168"></a><span class="lineno"> 1168</span>            JSONdata.push_back(point);</div>
-<div class="line"><a id="l01169" name="l01169"></a><span class="lineno"> 1169</span>            <span class="comment">//std::cout &lt;&lt; JSONdata.back().dump() &lt;&lt; std::endl;</span></div>
-<div class="line"><a id="l01170" name="l01170"></a><span class="lineno"> 1170</span>        };</div>
-<div class="line"><a id="l01171" name="l01171"></a><span class="lineno"> 1171</span>        <span class="keywordflow">if</span> (istep == 0 &amp;&amp; retry_count == 0) {</div>
-<div class="line"><a id="l01172" name="l01172"></a><span class="lineno"> 1172</span>            store_point();</div>
-<div class="line"><a id="l01173" name="l01173"></a><span class="lineno"> 1173</span>        }</div>
-<div class="line"><a id="l01174" name="l01174"></a><span class="lineno"> 1174</span> </div>
-<div class="line"><a id="l01175" name="l01175"></a><span class="lineno"> 1175</span>        <span class="comment">//double dtold = dt;</span></div>
-<div class="line"><a id="l01176" name="l01176"></a><span class="lineno"> 1176</span>        <span class="keyword">auto</span> x0_previous = x0;</div>
-<div class="line"><a id="l01177" name="l01177"></a><span class="lineno"> 1177</span> </div>
-<div class="line"><a id="l01178" name="l01178"></a><span class="lineno"> 1178</span>        <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ac06feb13dc662081f78d72346d25a7cc">integration_order</a> == 5) {</div>
-<div class="line"><a id="l01179" name="l01179"></a><span class="lineno"> 1179</span>            controlled_step_result res = controlled_step_result::fail;</div>
-<div class="line"><a id="l01180" name="l01180"></a><span class="lineno"> 1180</span>            <span class="keywordflow">try</span> {</div>
-<div class="line"><a id="l01181" name="l01181"></a><span class="lineno"> 1181</span>                res = controlled_stepper.try_step(xprime, x0, t, dt);</div>
-<div class="line"><a id="l01182" name="l01182"></a><span class="lineno"> 1182</span>            }</div>
-<div class="line"><a id="l01183" name="l01183"></a><span class="lineno"> 1183</span>            <span class="keywordflow">catch</span> (...) {</div>
-<div class="line"><a id="l01184" name="l01184"></a><span class="lineno"> 1184</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l01185" name="l01185"></a><span class="lineno"> 1185</span>            }</div>
+<div class="line"><a id="l01068" name="l01068"></a><span class="lineno"> 1068</span>    <span class="comment">// Class for simple Euler integration</span></div>
+<div class="line"><a id="l01069" name="l01069"></a><span class="lineno"> 1069</span>    euler&lt;state_type&gt; eul;</div>
+<div class="line"><a id="l01070" name="l01070"></a><span class="lineno"> 1070</span>    <span class="keyword">typedef</span> runge_kutta_cash_karp54&lt; state_type &gt; error_stepper_type;</div>
+<div class="line"><a id="l01071" name="l01071"></a><span class="lineno"> 1071</span>    <span class="keyword">typedef</span> controlled_runge_kutta&lt; error_stepper_type &gt; controlled_stepper_type;</div>
+<div class="line"><a id="l01072" name="l01072"></a><span class="lineno"> 1072</span> </div>
+<div class="line"><a id="l01073" name="l01073"></a><span class="lineno"> 1073</span>    <span class="comment">// Define the tolerances</span></div>
+<div class="line"><a id="l01074" name="l01074"></a><span class="lineno"> 1074</span>    <span class="keywordtype">double</span> abs_err = opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#a9e1a369cb2cbf66343112f2dcc1bd4c1">abs_err</a>, rel_err = opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ac22e0d4eadb2e08b861c2a293bafc9bc">rel_err</a>, a_x = 1.0, a_dxdt = 1.0;</div>
+<div class="line"><a id="l01075" name="l01075"></a><span class="lineno"> 1075</span>    controlled_stepper_type controlled_stepper(default_error_checker&lt; double, range_algebra, default_operations &gt;(abs_err, rel_err, a_x, a_dxdt));</div>
+<div class="line"><a id="l01076" name="l01076"></a><span class="lineno"> 1076</span> </div>
+<div class="line"><a id="l01077" name="l01077"></a><span class="lineno"> 1077</span>    <span class="comment">// Start off with the direction determined by c</span></div>
+<div class="line"><a id="l01078" name="l01078"></a><span class="lineno"> 1078</span>    <span class="keywordtype">double</span> c = opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ad6f90c234eea875a14a6b3492c7f6ae7">init_c</a>;</div>
+<div class="line"><a id="l01079" name="l01079"></a><span class="lineno"> 1079</span> </div>
+<div class="line"><a id="l01080" name="l01080"></a><span class="lineno"> 1080</span>    <span class="comment">// Set up the initial state vector</span></div>
+<div class="line"><a id="l01081" name="l01081"></a><span class="lineno"> 1081</span>    state_type x0(2*N+1), last_drhodt(2*N+1), previous_drhodt(2*N+1);</div>
+<div class="line"><a id="l01082" name="l01082"></a><span class="lineno"> 1082</span>    <span class="keyword">auto</span> set_init_state = [&amp;](state_type&amp; <a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>) {</div>
+<div class="line"><a id="l01083" name="l01083"></a><span class="lineno"> 1083</span>        <a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>[0] = T0; </div>
+<div class="line"><a id="l01084" name="l01084"></a><span class="lineno"> 1084</span>        <span class="keyword">auto</span> rhovecL = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(<a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>[1]), N);</div>
+<div class="line"><a id="l01085" name="l01085"></a><span class="lineno"> 1085</span>        <span class="keyword">auto</span> rhovecV = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(<a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>[1]) + N, N);</div>
+<div class="line"><a id="l01086" name="l01086"></a><span class="lineno"> 1086</span>        rhovecL = rhovecL0;</div>
+<div class="line"><a id="l01087" name="l01087"></a><span class="lineno"> 1087</span>        rhovecV = rhovecV0;</div>
+<div class="line"><a id="l01088" name="l01088"></a><span class="lineno"> 1088</span>    };</div>
+<div class="line"><a id="l01089" name="l01089"></a><span class="lineno"> 1089</span>    set_init_state(x0);</div>
+<div class="line"><a id="l01090" name="l01090"></a><span class="lineno"> 1090</span> </div>
+<div class="line"><a id="l01091" name="l01091"></a><span class="lineno"> 1091</span>    <span class="comment">// The function to be integrated by odeint</span></div>
+<div class="line"><a id="l01092" name="l01092"></a><span class="lineno"> 1092</span>    <span class="keyword">auto</span> xprime = [&amp;](<span class="keyword">const</span> state_type&amp; <a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>, state_type&amp; Xprime, <span class="keywordtype">double</span> <span class="comment">/*t*/</span>) {</div>
+<div class="line"><a id="l01093" name="l01093"></a><span class="lineno"> 1093</span>        <span class="comment">// Memory maps into the state vector for inputs and their derivatives</span></div>
+<div class="line"><a id="l01094" name="l01094"></a><span class="lineno"> 1094</span>        <span class="comment">// These are views, not copies!</span></div>
+<div class="line"><a id="l01095" name="l01095"></a><span class="lineno"> 1095</span>        <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; T = <a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>[0];</div>
+<div class="line"><a id="l01096" name="l01096"></a><span class="lineno"> 1096</span>        <span class="keyword">auto</span> rhovecL = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(<a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>[1]), N);</div>
+<div class="line"><a id="l01097" name="l01097"></a><span class="lineno"> 1097</span>        <span class="keyword">auto</span> rhovecV = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(<a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a>[1]) + N, N);</div>
+<div class="line"><a id="l01098" name="l01098"></a><span class="lineno"> 1098</span>        <span class="keyword">auto</span>&amp; dTdt = Xprime[0];</div>
+<div class="line"><a id="l01099" name="l01099"></a><span class="lineno"> 1099</span>        <span class="keyword">auto</span> drhovecdtL = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(Xprime[1]), N);</div>
+<div class="line"><a id="l01100" name="l01100"></a><span class="lineno"> 1100</span>        <span class="keyword">auto</span> drhovecdtV = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(Xprime[1]) + N, N);</div>
+<div class="line"><a id="l01101" name="l01101"></a><span class="lineno"> 1101</span>        <span class="comment">// Get the derivatives with respect to temperature along the isobar of the phase envelope</span></div>
+<div class="line"><a id="l01102" name="l01102"></a><span class="lineno"> 1102</span>        <span class="keyword">auto</span> [drhovecdTL, drhovecdTV] = <a class="code hl_function" href="namespaceteqp.html#af6e5d0686b44d8f1d32191349e7cae79">get_drhovecdT_psat</a>(model, T, rhovecL, rhovecV);</div>
+<div class="line"><a id="l01103" name="l01103"></a><span class="lineno"> 1103</span>        <span class="comment">// Get the derivative of T w.r.t. parameter</span></div>
+<div class="line"><a id="l01104" name="l01104"></a><span class="lineno"> 1104</span>        dTdt = 1.0 / sqrt(norm(drhovecdTL.array()) + norm(drhovecdTV.array()));</div>
+<div class="line"><a id="l01105" name="l01105"></a><span class="lineno"> 1105</span>        <span class="comment">// And finally the derivatives with respect to the tracing variable</span></div>
+<div class="line"><a id="l01106" name="l01106"></a><span class="lineno"> 1106</span>        drhovecdtL = c * drhovecdTL * dTdt;</div>
+<div class="line"><a id="l01107" name="l01107"></a><span class="lineno"> 1107</span>        drhovecdtV = c * drhovecdTV * dTdt;</div>
+<div class="line"><a id="l01108" name="l01108"></a><span class="lineno"> 1108</span> </div>
+<div class="line"><a id="l01109" name="l01109"></a><span class="lineno"> 1109</span>        <span class="keywordflow">if</span> (previous_drhodt.empty()) {</div>
+<div class="line"><a id="l01110" name="l01110"></a><span class="lineno"> 1110</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l01111" name="l01111"></a><span class="lineno"> 1111</span>        }</div>
+<div class="line"><a id="l01112" name="l01112"></a><span class="lineno"> 1112</span> </div>
+<div class="line"><a id="l01113" name="l01113"></a><span class="lineno"> 1113</span>        <span class="comment">// Flip the step if it changes direction from the smooth continuation of previous steps</span></div>
+<div class="line"><a id="l01114" name="l01114"></a><span class="lineno"> 1114</span>        <span class="keyword">auto</span> get_const_view = [&amp;](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; v, Eigen::Index N) {</div>
+<div class="line"><a id="l01115" name="l01115"></a><span class="lineno"> 1115</span>            <span class="keywordflow">return</span> Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(v[0]), N);</div>
+<div class="line"><a id="l01116" name="l01116"></a><span class="lineno"> 1116</span>        };</div>
+<div class="line"><a id="l01117" name="l01117"></a><span class="lineno"> 1117</span>        <span class="keywordflow">if</span> (get_const_view(Xprime, N).matrix().dot(get_const_view(previous_drhodt, N).matrix()) &lt; 0) {</div>
+<div class="line"><a id="l01118" name="l01118"></a><span class="lineno"> 1118</span>            <span class="keyword">auto</span> Xprimeview = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(Xprime[0]), 2 * N);</div>
+<div class="line"><a id="l01119" name="l01119"></a><span class="lineno"> 1119</span>            Xprimeview *= -1;</div>
+<div class="line"><a id="l01120" name="l01120"></a><span class="lineno"> 1120</span>        }</div>
+<div class="line"><a id="l01121" name="l01121"></a><span class="lineno"> 1121</span>    };</div>
+<div class="line"><a id="l01122" name="l01122"></a><span class="lineno"> 1122</span> </div>
+<div class="line"><a id="l01123" name="l01123"></a><span class="lineno"> 1123</span>    <span class="comment">// Figure out which direction to trace initially</span></div>
+<div class="line"><a id="l01124" name="l01124"></a><span class="lineno"> 1124</span>    <span class="keywordtype">double</span> t = 0, dt = opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#a625d389bdcabf78b1c2c81a6d7f5435c">init_dt</a>;</div>
+<div class="line"><a id="l01125" name="l01125"></a><span class="lineno"> 1125</span>    {</div>
+<div class="line"><a id="l01126" name="l01126"></a><span class="lineno"> 1126</span>        <span class="keyword">auto</span> dxdt = x0;</div>
+<div class="line"><a id="l01127" name="l01127"></a><span class="lineno"> 1127</span>        xprime(x0, dxdt, -1.0);</div>
+<div class="line"><a id="l01128" name="l01128"></a><span class="lineno"> 1128</span>        <span class="keyword">const</span> <span class="keyword">auto</span> dXdt = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(dxdt[0]), dxdt.size());</div>
+<div class="line"><a id="l01129" name="l01129"></a><span class="lineno"> 1129</span>        <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a> = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[0]), x0.size());</div>
+<div class="line"><a id="l01130" name="l01130"></a><span class="lineno"> 1130</span> </div>
+<div class="line"><a id="l01131" name="l01131"></a><span class="lineno"> 1131</span>        <span class="keyword">const</span> Eigen::ArrayXd step = <a class="code hl_define" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a> + dXdt * dt;</div>
+<div class="line"><a id="l01132" name="l01132"></a><span class="lineno"> 1132</span>        Eigen::ArrayX&lt;bool&gt; negativestepvals = (step &lt; 0).eval();</div>
+<div class="line"><a id="l01133" name="l01133"></a><span class="lineno"> 1133</span>        <span class="comment">// Flip the sign if the first step would yield any negative concentrations</span></div>
+<div class="line"><a id="l01134" name="l01134"></a><span class="lineno"> 1134</span>        <span class="keywordflow">if</span> (negativestepvals.any()) {</div>
+<div class="line"><a id="l01135" name="l01135"></a><span class="lineno"> 1135</span>            c *= -1;</div>
+<div class="line"><a id="l01136" name="l01136"></a><span class="lineno"> 1136</span>        }</div>
+<div class="line"><a id="l01137" name="l01137"></a><span class="lineno"> 1137</span>    }</div>
+<div class="line"><a id="l01138" name="l01138"></a><span class="lineno"> 1138</span>    std::string termination_reason;</div>
+<div class="line"><a id="l01139" name="l01139"></a><span class="lineno"> 1139</span> </div>
+<div class="line"><a id="l01140" name="l01140"></a><span class="lineno"> 1140</span>    <span class="comment">// Then trace...</span></div>
+<div class="line"><a id="l01141" name="l01141"></a><span class="lineno"> 1141</span>    <span class="keywordtype">int</span> retry_count = 0;</div>
+<div class="line"><a id="l01142" name="l01142"></a><span class="lineno"> 1142</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> istep = 0; istep &lt; opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ae92001aec313f30c99c72e7e5ee273cc">max_steps</a>; ++istep) {</div>
+<div class="line"><a id="l01143" name="l01143"></a><span class="lineno"> 1143</span> </div>
+<div class="line"><a id="l01144" name="l01144"></a><span class="lineno"> 1144</span>        <span class="keyword">auto</span> store_point = [&amp;]() {</div>
+<div class="line"><a id="l01146" name="l01146"></a><span class="lineno"> 1146</span>            <span class="keyword">auto</span> N = x0.size() / 2;</div>
+<div class="line"><a id="l01147" name="l01147"></a><span class="lineno"> 1147</span>            <span class="keywordtype">double</span> T = x0[0];</div>
+<div class="line"><a id="l01148" name="l01148"></a><span class="lineno"> 1148</span>            <span class="keyword">auto</span> rhovecL = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[1]), N);</div>
+<div class="line"><a id="l01149" name="l01149"></a><span class="lineno"> 1149</span>            <span class="keyword">auto</span> rhovecV = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[1]) + N, N);</div>
+<div class="line"><a id="l01150" name="l01150"></a><span class="lineno"> 1150</span>            <span class="keyword">auto</span> rhototL = rhovecL.sum(), rhototV = rhovecV.sum();</div>
+<div class="line"><a id="l01151" name="l01151"></a><span class="lineno"> 1151</span>            <span class="keywordtype">double</span> pL = rhototL * model.R(rhovecL / rhovecL.sum()) * T + model.get_pr(T, rhovecL);</div>
+<div class="line"><a id="l01152" name="l01152"></a><span class="lineno"> 1152</span>            <span class="keywordtype">double</span> pV = rhototV * model.R(rhovecV / rhovecV.sum()) * T + model.get_pr(T, rhovecV);</div>
+<div class="line"><a id="l01153" name="l01153"></a><span class="lineno"> 1153</span> </div>
+<div class="line"><a id="l01154" name="l01154"></a><span class="lineno"> 1154</span>            <span class="comment">// Store the derivative</span></div>
+<div class="line"><a id="l01155" name="l01155"></a><span class="lineno"> 1155</span>            <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l01156" name="l01156"></a><span class="lineno"> 1156</span>                xprime(x0, last_drhodt, -1.0);</div>
+<div class="line"><a id="l01157" name="l01157"></a><span class="lineno"> 1157</span>            }</div>
+<div class="line"><a id="l01158" name="l01158"></a><span class="lineno"> 1158</span>            <span class="keywordflow">catch</span> (...) {</div>
+<div class="line"><a id="l01159" name="l01159"></a><span class="lineno"> 1159</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Something bad happened; couldn&#39;t calculate xprime in store_point&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l01160" name="l01160"></a><span class="lineno"> 1160</span>            }</div>
+<div class="line"><a id="l01161" name="l01161"></a><span class="lineno"> 1161</span> </div>
+<div class="line"><a id="l01162" name="l01162"></a><span class="lineno"> 1162</span>            <span class="comment">// Store the data in a JSON structure</span></div>
+<div class="line"><a id="l01163" name="l01163"></a><span class="lineno"> 1163</span>            nlohmann::json point = {</div>
+<div class="line"><a id="l01164" name="l01164"></a><span class="lineno"> 1164</span>                {<span class="stringliteral">&quot;t&quot;</span>, t},</div>
+<div class="line"><a id="l01165" name="l01165"></a><span class="lineno"> 1165</span>                {<span class="stringliteral">&quot;dt&quot;</span>, dt},</div>
+<div class="line"><a id="l01166" name="l01166"></a><span class="lineno"> 1166</span>                {<span class="stringliteral">&quot;T / K&quot;</span>, T},</div>
+<div class="line"><a id="l01167" name="l01167"></a><span class="lineno"> 1167</span>                {<span class="stringliteral">&quot;pL / Pa&quot;</span>, pL},</div>
+<div class="line"><a id="l01168" name="l01168"></a><span class="lineno"> 1168</span>                {<span class="stringliteral">&quot;pV / Pa&quot;</span>, pV},</div>
+<div class="line"><a id="l01169" name="l01169"></a><span class="lineno"> 1169</span>                {<span class="stringliteral">&quot;c&quot;</span>, c},</div>
+<div class="line"><a id="l01170" name="l01170"></a><span class="lineno"> 1170</span>                {<span class="stringliteral">&quot;rhoL / mol/m^3&quot;</span>, rhovecL},</div>
+<div class="line"><a id="l01171" name="l01171"></a><span class="lineno"> 1171</span>                {<span class="stringliteral">&quot;rhoV / mol/m^3&quot;</span>, rhovecV},</div>
+<div class="line"><a id="l01172" name="l01172"></a><span class="lineno"> 1172</span>                {<span class="stringliteral">&quot;xL_0 / mole frac.&quot;</span>, rhovecL[0] / rhovecL.sum()},</div>
+<div class="line"><a id="l01173" name="l01173"></a><span class="lineno"> 1173</span>                {<span class="stringliteral">&quot;xV_0 / mole frac.&quot;</span>, rhovecV[0] / rhovecV.sum()},</div>
+<div class="line"><a id="l01174" name="l01174"></a><span class="lineno"> 1174</span>                {<span class="stringliteral">&quot;drho/dt&quot;</span>, last_drhodt}</div>
+<div class="line"><a id="l01175" name="l01175"></a><span class="lineno"> 1175</span>            };</div>
+<div class="line"><a id="l01176" name="l01176"></a><span class="lineno"> 1176</span>            <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#a1964ae295c8ca0b6c6ddb2ed650a6df9">calc_criticality</a>) {</div>
+<div class="line"><a id="l01177" name="l01177"></a><span class="lineno"> 1177</span>                point[<span class="stringliteral">&quot;crit. conditions L&quot;</span>] = model.get_criticality_conditions(T, rhovecL);</div>
+<div class="line"><a id="l01178" name="l01178"></a><span class="lineno"> 1178</span>                point[<span class="stringliteral">&quot;crit. conditions V&quot;</span>] = model.get_criticality_conditions(T, rhovecV);</div>
+<div class="line"><a id="l01179" name="l01179"></a><span class="lineno"> 1179</span>            }</div>
+<div class="line"><a id="l01180" name="l01180"></a><span class="lineno"> 1180</span>            JSONdata.push_back(point);</div>
+<div class="line"><a id="l01181" name="l01181"></a><span class="lineno"> 1181</span>            <span class="comment">//std::cout &lt;&lt; JSONdata.back().dump() &lt;&lt; std::endl;</span></div>
+<div class="line"><a id="l01182" name="l01182"></a><span class="lineno"> 1182</span>        };</div>
+<div class="line"><a id="l01183" name="l01183"></a><span class="lineno"> 1183</span>        <span class="keywordflow">if</span> (istep == 0 &amp;&amp; retry_count == 0) {</div>
+<div class="line"><a id="l01184" name="l01184"></a><span class="lineno"> 1184</span>            store_point();</div>
+<div class="line"><a id="l01185" name="l01185"></a><span class="lineno"> 1185</span>        }</div>
 <div class="line"><a id="l01186" name="l01186"></a><span class="lineno"> 1186</span> </div>
-<div class="line"><a id="l01187" name="l01187"></a><span class="lineno"> 1187</span>            <span class="keywordflow">if</span> (res != controlled_step_result::success) {</div>
-<div class="line"><a id="l01188" name="l01188"></a><span class="lineno"> 1188</span>                <span class="comment">// Try again, with a smaller step size</span></div>
-<div class="line"><a id="l01189" name="l01189"></a><span class="lineno"> 1189</span>                istep--;</div>
-<div class="line"><a id="l01190" name="l01190"></a><span class="lineno"> 1190</span>                retry_count++;</div>
-<div class="line"><a id="l01191" name="l01191"></a><span class="lineno"> 1191</span>                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l01192" name="l01192"></a><span class="lineno"> 1192</span>            }</div>
-<div class="line"><a id="l01193" name="l01193"></a><span class="lineno"> 1193</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l01194" name="l01194"></a><span class="lineno"> 1194</span>                retry_count = 0;</div>
-<div class="line"><a id="l01195" name="l01195"></a><span class="lineno"> 1195</span>            }</div>
-<div class="line"><a id="l01196" name="l01196"></a><span class="lineno"> 1196</span>            <span class="comment">// Reduce step size if greater than the specified max step size</span></div>
-<div class="line"><a id="l01197" name="l01197"></a><span class="lineno"> 1197</span>            dt = std::min(dt, opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ad7a4207b95c25b5cdd96257c2d87d18e">max_dt</a>);</div>
-<div class="line"><a id="l01198" name="l01198"></a><span class="lineno"> 1198</span>        }</div>
-<div class="line"><a id="l01199" name="l01199"></a><span class="lineno"> 1199</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ac06feb13dc662081f78d72346d25a7cc">integration_order</a> == 1) {</div>
-<div class="line"><a id="l01200" name="l01200"></a><span class="lineno"> 1200</span>            <span class="keywordflow">try</span> {</div>
-<div class="line"><a id="l01201" name="l01201"></a><span class="lineno"> 1201</span>                eul.do_step(xprime, x0, t, dt);</div>
-<div class="line"><a id="l01202" name="l01202"></a><span class="lineno"> 1202</span>                t += dt;</div>
-<div class="line"><a id="l01203" name="l01203"></a><span class="lineno"> 1203</span>            }</div>
-<div class="line"><a id="l01204" name="l01204"></a><span class="lineno"> 1204</span>            <span class="keywordflow">catch</span> (...) {</div>
-<div class="line"><a id="l01205" name="l01205"></a><span class="lineno"> 1205</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l01206" name="l01206"></a><span class="lineno"> 1206</span>            }</div>
-<div class="line"><a id="l01207" name="l01207"></a><span class="lineno"> 1207</span>        }</div>
-<div class="line"><a id="l01208" name="l01208"></a><span class="lineno"> 1208</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l01209" name="l01209"></a><span class="lineno"> 1209</span>            <span class="keywordflow">throw</span> <a class="code hl_class" href="classteqp_1_1InvalidArgument.html">InvalidArgument</a>(<span class="stringliteral">&quot;integration order is invalid:&quot;</span> + std::to_string(opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ac06feb13dc662081f78d72346d25a7cc">integration_order</a>));</div>
+<div class="line"><a id="l01187" name="l01187"></a><span class="lineno"> 1187</span>        <span class="comment">//double dtold = dt;</span></div>
+<div class="line"><a id="l01188" name="l01188"></a><span class="lineno"> 1188</span>        <span class="keyword">auto</span> x0_previous = x0;</div>
+<div class="line"><a id="l01189" name="l01189"></a><span class="lineno"> 1189</span> </div>
+<div class="line"><a id="l01190" name="l01190"></a><span class="lineno"> 1190</span>        <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ac06feb13dc662081f78d72346d25a7cc">integration_order</a> == 5) {</div>
+<div class="line"><a id="l01191" name="l01191"></a><span class="lineno"> 1191</span>            controlled_step_result res = controlled_step_result::fail;</div>
+<div class="line"><a id="l01192" name="l01192"></a><span class="lineno"> 1192</span>            <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l01193" name="l01193"></a><span class="lineno"> 1193</span>                res = controlled_stepper.try_step(xprime, x0, t, dt);</div>
+<div class="line"><a id="l01194" name="l01194"></a><span class="lineno"> 1194</span>            }</div>
+<div class="line"><a id="l01195" name="l01195"></a><span class="lineno"> 1195</span>            <span class="keywordflow">catch</span> (...) {</div>
+<div class="line"><a id="l01196" name="l01196"></a><span class="lineno"> 1196</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l01197" name="l01197"></a><span class="lineno"> 1197</span>            }</div>
+<div class="line"><a id="l01198" name="l01198"></a><span class="lineno"> 1198</span> </div>
+<div class="line"><a id="l01199" name="l01199"></a><span class="lineno"> 1199</span>            <span class="keywordflow">if</span> (res != controlled_step_result::success) {</div>
+<div class="line"><a id="l01200" name="l01200"></a><span class="lineno"> 1200</span>                <span class="comment">// Try again, with a smaller step size</span></div>
+<div class="line"><a id="l01201" name="l01201"></a><span class="lineno"> 1201</span>                istep--;</div>
+<div class="line"><a id="l01202" name="l01202"></a><span class="lineno"> 1202</span>                retry_count++;</div>
+<div class="line"><a id="l01203" name="l01203"></a><span class="lineno"> 1203</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l01204" name="l01204"></a><span class="lineno"> 1204</span>            }</div>
+<div class="line"><a id="l01205" name="l01205"></a><span class="lineno"> 1205</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l01206" name="l01206"></a><span class="lineno"> 1206</span>                retry_count = 0;</div>
+<div class="line"><a id="l01207" name="l01207"></a><span class="lineno"> 1207</span>            }</div>
+<div class="line"><a id="l01208" name="l01208"></a><span class="lineno"> 1208</span>            <span class="comment">// Reduce step size if greater than the specified max step size</span></div>
+<div class="line"><a id="l01209" name="l01209"></a><span class="lineno"> 1209</span>            dt = std::min(dt, opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ad7a4207b95c25b5cdd96257c2d87d18e">max_dt</a>);</div>
 <div class="line"><a id="l01210" name="l01210"></a><span class="lineno"> 1210</span>        }</div>
-<div class="line"><a id="l01211" name="l01211"></a><span class="lineno"> 1211</span>        <span class="keyword">auto</span> stop_requested = [&amp;]() {</div>
-<div class="line"><a id="l01213" name="l01213"></a><span class="lineno"> 1213</span>            <span class="keyword">auto</span> N = (x0.size()-1) / 2;</div>
-<div class="line"><a id="l01214" name="l01214"></a><span class="lineno"> 1214</span>            <span class="keyword">auto</span>&amp; T = x0[0];</div>
-<div class="line"><a id="l01215" name="l01215"></a><span class="lineno"> 1215</span>            <span class="keyword">auto</span> rhovecL = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[1]), N);</div>
-<div class="line"><a id="l01216" name="l01216"></a><span class="lineno"> 1216</span>            <span class="keyword">auto</span> rhovecV = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[1]) + N, N);</div>
-<div class="line"><a id="l01217" name="l01217"></a><span class="lineno"> 1217</span>            <span class="keyword">auto</span> x = rhovecL / rhovecL.sum();</div>
-<div class="line"><a id="l01218" name="l01218"></a><span class="lineno"> 1218</span>            <span class="keyword">auto</span> y = rhovecV / rhovecV.sum();</div>
-<div class="line"><a id="l01219" name="l01219"></a><span class="lineno"> 1219</span>            <span class="comment">// Check if the solution has gone mechanically unstable</span></div>
-<div class="line"><a id="l01220" name="l01220"></a><span class="lineno"> 1220</span>            <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#a1964ae295c8ca0b6c6ddb2ed650a6df9">calc_criticality</a>) {</div>
-<div class="line"><a id="l01221" name="l01221"></a><span class="lineno"> 1221</span>                <span class="keyword">auto</span> condsL = model.get_criticality_conditions(T, rhovecL);</div>
-<div class="line"><a id="l01222" name="l01222"></a><span class="lineno"> 1222</span>                <span class="keyword">auto</span> condsV = model.get_criticality_conditions(T, rhovecV);</div>
-<div class="line"><a id="l01223" name="l01223"></a><span class="lineno"> 1223</span>                <span class="keywordflow">if</span> (condsL[0] &lt; 1e-12 || condsV[0] &lt; 1e-12) {</div>
-<div class="line"><a id="l01224" name="l01224"></a><span class="lineno"> 1224</span>                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l01225" name="l01225"></a><span class="lineno"> 1225</span>                }</div>
-<div class="line"><a id="l01226" name="l01226"></a><span class="lineno"> 1226</span>            }</div>
-<div class="line"><a id="l01227" name="l01227"></a><span class="lineno"> 1227</span>            <span class="keywordflow">if</span> ((x &lt; 0).any() || (x &gt; 1).any() || (y &lt; 0).any() || (y &gt; 1).any() || (!rhovecL.isFinite()).any() || (!rhovecV.isFinite()).any()) {</div>
-<div class="line"><a id="l01228" name="l01228"></a><span class="lineno"> 1228</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l01229" name="l01229"></a><span class="lineno"> 1229</span>            }</div>
-<div class="line"><a id="l01230" name="l01230"></a><span class="lineno"> 1230</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l01231" name="l01231"></a><span class="lineno"> 1231</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l01232" name="l01232"></a><span class="lineno"> 1232</span>            }</div>
-<div class="line"><a id="l01233" name="l01233"></a><span class="lineno"> 1233</span>        };</div>
-<div class="line"><a id="l01234" name="l01234"></a><span class="lineno"> 1234</span>        <span class="keywordflow">if</span> (stop_requested()) {</div>
-<div class="line"><a id="l01235" name="l01235"></a><span class="lineno"> 1235</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l01236" name="l01236"></a><span class="lineno"> 1236</span>        }</div>
-<div class="line"><a id="l01237" name="l01237"></a><span class="lineno"> 1237</span>        <span class="comment">// Polish the solution</span></div>
-<div class="line"><a id="l01238" name="l01238"></a><span class="lineno"> 1238</span>        <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#a8b5c75b84e0e470be39f57ccdc8ba5a9">polish</a>) {</div>
-<div class="line"><a id="l01239" name="l01239"></a><span class="lineno"> 1239</span>            <span class="keywordtype">double</span> T = x0[0];</div>
-<div class="line"><a id="l01240" name="l01240"></a><span class="lineno"> 1240</span>            <span class="keyword">auto</span> rhovecL = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[1]), N).eval();</div>
-<div class="line"><a id="l01241" name="l01241"></a><span class="lineno"> 1241</span>            <span class="keyword">auto</span> rhovecV = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[1 + N]), N).eval();</div>
-<div class="line"><a id="l01242" name="l01242"></a><span class="lineno"> 1242</span>            <span class="keyword">auto</span> x = (Eigen::ArrayXd(2) &lt;&lt; rhovecL(0) / rhovecL.sum(), rhovecL(1) / rhovecL.sum()).finished(); <span class="comment">// Mole fractions in the liquid phase (to be kept constant)</span></div>
-<div class="line"><a id="l01243" name="l01243"></a><span class="lineno"> 1243</span>            <span class="keyword">auto</span> [return_code, Tnew, rhovecLnew, rhovecVnew] = model.mixture_VLE_px(p, x, T, rhovecL, rhovecV);</div>
-<div class="line"><a id="l01244" name="l01244"></a><span class="lineno"> 1244</span> </div>
-<div class="line"><a id="l01245" name="l01245"></a><span class="lineno"> 1245</span>            <span class="comment">// If the step is accepted, copy into x again ...</span></div>
-<div class="line"><a id="l01246" name="l01246"></a><span class="lineno"> 1246</span>            x0[0] = Tnew;</div>
-<div class="line"><a id="l01247" name="l01247"></a><span class="lineno"> 1247</span>            <span class="keyword">auto</span> rhovecLview = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[1]), N);</div>
-<div class="line"><a id="l01248" name="l01248"></a><span class="lineno"> 1248</span>            <span class="keyword">auto</span> rhovecVview = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[1]) + N, N);</div>
-<div class="line"><a id="l01249" name="l01249"></a><span class="lineno"> 1249</span>            rhovecLview = rhovecLnew;</div>
-<div class="line"><a id="l01250" name="l01250"></a><span class="lineno"> 1250</span>            rhovecVview = rhovecVnew;</div>
-<div class="line"><a id="l01251" name="l01251"></a><span class="lineno"> 1251</span>            <span class="comment">//std::cout &lt;&lt; &quot;[polish]: &quot; &lt;&lt; static_cast&lt;int&gt;(return_code) &lt;&lt; &quot;: &quot; &lt;&lt; rhovecLnew.sum() / rhovecL.sum() &lt;&lt; &quot; &quot; &lt;&lt; rhovecVnew.sum() / rhovecV.sum() &lt;&lt; std::endl;</span></div>
-<div class="line"><a id="l01252" name="l01252"></a><span class="lineno"> 1252</span>        }</div>
-<div class="line"><a id="l01253" name="l01253"></a><span class="lineno"> 1253</span> </div>
-<div class="line"><a id="l01254" name="l01254"></a><span class="lineno"> 1254</span>        std::swap(previous_drhodt, last_drhodt);</div>
-<div class="line"><a id="l01255" name="l01255"></a><span class="lineno"> 1255</span>        store_point(); <span class="comment">// last_drhodt is updated;</span></div>
+<div class="line"><a id="l01211" name="l01211"></a><span class="lineno"> 1211</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ac06feb13dc662081f78d72346d25a7cc">integration_order</a> == 1) {</div>
+<div class="line"><a id="l01212" name="l01212"></a><span class="lineno"> 1212</span>            <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l01213" name="l01213"></a><span class="lineno"> 1213</span>                eul.do_step(xprime, x0, t, dt);</div>
+<div class="line"><a id="l01214" name="l01214"></a><span class="lineno"> 1214</span>                t += dt;</div>
+<div class="line"><a id="l01215" name="l01215"></a><span class="lineno"> 1215</span>            }</div>
+<div class="line"><a id="l01216" name="l01216"></a><span class="lineno"> 1216</span>            <span class="keywordflow">catch</span> (...) {</div>
+<div class="line"><a id="l01217" name="l01217"></a><span class="lineno"> 1217</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l01218" name="l01218"></a><span class="lineno"> 1218</span>            }</div>
+<div class="line"><a id="l01219" name="l01219"></a><span class="lineno"> 1219</span>        }</div>
+<div class="line"><a id="l01220" name="l01220"></a><span class="lineno"> 1220</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l01221" name="l01221"></a><span class="lineno"> 1221</span>            <span class="keywordflow">throw</span> <a class="code hl_class" href="classteqp_1_1InvalidArgument.html">InvalidArgument</a>(<span class="stringliteral">&quot;integration order is invalid:&quot;</span> + std::to_string(opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ac06feb13dc662081f78d72346d25a7cc">integration_order</a>));</div>
+<div class="line"><a id="l01222" name="l01222"></a><span class="lineno"> 1222</span>        }</div>
+<div class="line"><a id="l01223" name="l01223"></a><span class="lineno"> 1223</span>        <span class="keyword">auto</span> stop_requested = [&amp;]() {</div>
+<div class="line"><a id="l01225" name="l01225"></a><span class="lineno"> 1225</span>            <span class="keyword">auto</span> N = (x0.size()-1) / 2;</div>
+<div class="line"><a id="l01226" name="l01226"></a><span class="lineno"> 1226</span>            <span class="keyword">auto</span>&amp; T = x0[0];</div>
+<div class="line"><a id="l01227" name="l01227"></a><span class="lineno"> 1227</span>            <span class="keyword">auto</span> rhovecL = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[1]), N);</div>
+<div class="line"><a id="l01228" name="l01228"></a><span class="lineno"> 1228</span>            <span class="keyword">auto</span> rhovecV = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[1]) + N, N);</div>
+<div class="line"><a id="l01229" name="l01229"></a><span class="lineno"> 1229</span>            <span class="keyword">auto</span> x = rhovecL / rhovecL.sum();</div>
+<div class="line"><a id="l01230" name="l01230"></a><span class="lineno"> 1230</span>            <span class="keyword">auto</span> y = rhovecV / rhovecV.sum();</div>
+<div class="line"><a id="l01231" name="l01231"></a><span class="lineno"> 1231</span>            <span class="comment">// Check if the solution has gone mechanically unstable</span></div>
+<div class="line"><a id="l01232" name="l01232"></a><span class="lineno"> 1232</span>            <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#a1964ae295c8ca0b6c6ddb2ed650a6df9">calc_criticality</a>) {</div>
+<div class="line"><a id="l01233" name="l01233"></a><span class="lineno"> 1233</span>                <span class="keyword">auto</span> condsL = model.get_criticality_conditions(T, rhovecL);</div>
+<div class="line"><a id="l01234" name="l01234"></a><span class="lineno"> 1234</span>                <span class="keyword">auto</span> condsV = model.get_criticality_conditions(T, rhovecV);</div>
+<div class="line"><a id="l01235" name="l01235"></a><span class="lineno"> 1235</span>                <span class="keywordflow">if</span> (condsL[0] &lt; opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#a74702cf99b284e60dd1c043d877da1d0">crit_termination</a> || condsV[0] &lt; opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#a74702cf99b284e60dd1c043d877da1d0">crit_termination</a>) {</div>
+<div class="line"><a id="l01236" name="l01236"></a><span class="lineno"> 1236</span>                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l01237" name="l01237"></a><span class="lineno"> 1237</span>                }</div>
+<div class="line"><a id="l01238" name="l01238"></a><span class="lineno"> 1238</span>            }</div>
+<div class="line"><a id="l01239" name="l01239"></a><span class="lineno"> 1239</span>            <span class="keywordflow">if</span> ((x &lt; 0).any() || (x &gt; 1).any() || (y &lt; 0).any() || (y &gt; 1).any() || (!rhovecL.isFinite()).any() || (!rhovecV.isFinite()).any()) {</div>
+<div class="line"><a id="l01240" name="l01240"></a><span class="lineno"> 1240</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l01241" name="l01241"></a><span class="lineno"> 1241</span>            }</div>
+<div class="line"><a id="l01242" name="l01242"></a><span class="lineno"> 1242</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l01243" name="l01243"></a><span class="lineno"> 1243</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l01244" name="l01244"></a><span class="lineno"> 1244</span>            }</div>
+<div class="line"><a id="l01245" name="l01245"></a><span class="lineno"> 1245</span>        };</div>
+<div class="line"><a id="l01246" name="l01246"></a><span class="lineno"> 1246</span>        <span class="keywordflow">if</span> (stop_requested()) {</div>
+<div class="line"><a id="l01247" name="l01247"></a><span class="lineno"> 1247</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l01248" name="l01248"></a><span class="lineno"> 1248</span>        }</div>
+<div class="line"><a id="l01249" name="l01249"></a><span class="lineno"> 1249</span>        <span class="comment">// Polish the solution</span></div>
+<div class="line"><a id="l01250" name="l01250"></a><span class="lineno"> 1250</span>        <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#a8b5c75b84e0e470be39f57ccdc8ba5a9">polish</a>) {</div>
+<div class="line"><a id="l01251" name="l01251"></a><span class="lineno"> 1251</span>            <span class="keywordtype">double</span> T = x0[0];</div>
+<div class="line"><a id="l01252" name="l01252"></a><span class="lineno"> 1252</span>            <span class="keyword">auto</span> rhovecL = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[1]), N).eval();</div>
+<div class="line"><a id="l01253" name="l01253"></a><span class="lineno"> 1253</span>            <span class="keyword">auto</span> rhovecV = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[1 + N]), N).eval();</div>
+<div class="line"><a id="l01254" name="l01254"></a><span class="lineno"> 1254</span>            <span class="keyword">auto</span> x = (Eigen::ArrayXd(2) &lt;&lt; rhovecL(0) / rhovecL.sum(), rhovecL(1) / rhovecL.sum()).finished(); <span class="comment">// Mole fractions in the liquid phase (to be kept constant)</span></div>
+<div class="line"><a id="l01255" name="l01255"></a><span class="lineno"> 1255</span>            <span class="keyword">auto</span> [return_code, Tnew, rhovecLnew, rhovecVnew] = model.mixture_VLE_px(p, x, T, rhovecL, rhovecV);</div>
 <div class="line"><a id="l01256" name="l01256"></a><span class="lineno"> 1256</span> </div>
-<div class="line"><a id="l01257" name="l01257"></a><span class="lineno"> 1257</span>    }</div>
-<div class="line"><a id="l01258" name="l01258"></a><span class="lineno"> 1258</span>    <span class="keywordflow">return</span> JSONdata;</div>
-<div class="line"><a id="l01259" name="l01259"></a><span class="lineno"> 1259</span>}</div>
+<div class="line"><a id="l01257" name="l01257"></a><span class="lineno"> 1257</span>            <span class="keywordflow">if</span> (((rhovecL-rhovecLnew).cwiseAbs() &gt; opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ae10ec164070b173bce6c816e19a01835">polish_reltol_rho</a>*rhovecL).any()){</div>
+<div class="line"><a id="l01258" name="l01258"></a><span class="lineno"> 1258</span>                std::string msg;</div>
+<div class="line"><a id="l01259" name="l01259"></a><span class="lineno"> 1259</span>                <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#a45c79513633ae8e431a0c7f2a7bf8644">polish_exception_on_fail</a>){</div>
+<div class="line"><a id="l01260" name="l01260"></a><span class="lineno"> 1260</span>                    <span class="keywordflow">throw</span> <a class="code hl_class" href="classteqp_1_1IterationFailure.html">IterationFailure</a>(msg);</div>
+<div class="line"><a id="l01261" name="l01261"></a><span class="lineno"> 1261</span>                }</div>
+<div class="line"><a id="l01262" name="l01262"></a><span class="lineno"> 1262</span>                <span class="keywordflow">else</span>{</div>
+<div class="line"><a id="l01263" name="l01263"></a><span class="lineno"> 1263</span>                    <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structteqp_1_1PVLEOptions.html#ab0ba6ee4402c910d4499edccd20110fd">verbosity</a> &gt; 0){</div>
+<div class="line"><a id="l01264" name="l01264"></a><span class="lineno"> 1264</span>                        std::cout &lt;&lt; msg &lt;&lt; std::endl;</div>
+<div class="line"><a id="l01265" name="l01265"></a><span class="lineno"> 1265</span>                    }</div>
+<div class="line"><a id="l01266" name="l01266"></a><span class="lineno"> 1266</span>                }</div>
+<div class="line"><a id="l01267" name="l01267"></a><span class="lineno"> 1267</span>            }</div>
+<div class="line"><a id="l01268" name="l01268"></a><span class="lineno"> 1268</span>            <span class="keywordflow">else</span>{</div>
+<div class="line"><a id="l01269" name="l01269"></a><span class="lineno"> 1269</span>                <span class="comment">// If the step is accepted, copy into x again ...</span></div>
+<div class="line"><a id="l01270" name="l01270"></a><span class="lineno"> 1270</span>                x0[0] = Tnew;</div>
+<div class="line"><a id="l01271" name="l01271"></a><span class="lineno"> 1271</span>                <span class="keyword">auto</span> rhovecLview = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[1]), N);</div>
+<div class="line"><a id="l01272" name="l01272"></a><span class="lineno"> 1272</span>                <span class="keyword">auto</span> rhovecVview = Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[1]) + N, N);</div>
+<div class="line"><a id="l01273" name="l01273"></a><span class="lineno"> 1273</span>                rhovecLview = rhovecLnew;</div>
+<div class="line"><a id="l01274" name="l01274"></a><span class="lineno"> 1274</span>                rhovecVview = rhovecVnew;</div>
+<div class="line"><a id="l01275" name="l01275"></a><span class="lineno"> 1275</span>                <span class="comment">//std::cout &lt;&lt; &quot;[polish]: &quot; &lt;&lt; static_cast&lt;int&gt;(return_code) &lt;&lt; &quot;: &quot; &lt;&lt; rhovecLnew.sum() / rhovecL.sum() &lt;&lt; &quot; &quot; &lt;&lt; rhovecVnew.sum() / rhovecV.sum() &lt;&lt; std::endl;</span></div>
+<div class="line"><a id="l01276" name="l01276"></a><span class="lineno"> 1276</span>            }</div>
+<div class="line"><a id="l01277" name="l01277"></a><span class="lineno"> 1277</span>        }</div>
+<div class="line"><a id="l01278" name="l01278"></a><span class="lineno"> 1278</span> </div>
+<div class="line"><a id="l01279" name="l01279"></a><span class="lineno"> 1279</span>        std::swap(previous_drhodt, last_drhodt);</div>
+<div class="line"><a id="l01280" name="l01280"></a><span class="lineno"> 1280</span>        store_point(); <span class="comment">// last_drhodt is updated;</span></div>
+<div class="line"><a id="l01281" name="l01281"></a><span class="lineno"> 1281</span> </div>
+<div class="line"><a id="l01282" name="l01282"></a><span class="lineno"> 1282</span>    }</div>
+<div class="line"><a id="l01283" name="l01283"></a><span class="lineno"> 1283</span>    <span class="keywordflow">return</span> JSONdata;</div>
+<div class="line"><a id="l01284" name="l01284"></a><span class="lineno"> 1284</span>}</div>
 </div>
-<div class="line"><a id="l01260" name="l01260"></a><span class="lineno"> 1260</span> </div>
-<div class="foldopen" id="foldopen01261" data-start="" data-end="">
-<div class="line"><a id="l01261" name="l01261"></a><span class="lineno"><a class="line" href="VLE_8hpp.html#a91292bd9d012ce957434d4aa14bbfa3f"> 1261</a></span><span class="preprocessor">#define VLE_FUNCTIONS_TO_WRAP \</span></div>
-<div class="line"><a id="l01262" name="l01262"></a><span class="lineno"> 1262</span><span class="preprocessor">    X(trace_VLE_isobar_binary) \</span></div>
-<div class="line"><a id="l01263" name="l01263"></a><span class="lineno"> 1263</span><span class="preprocessor">    X(trace_VLE_isotherm_binary) \</span></div>
-<div class="line"><a id="l01264" name="l01264"></a><span class="lineno"> 1264</span><span class="preprocessor">    X(get_dpsat_dTsat_isopleth) \</span></div>
-<div class="line"><a id="l01265" name="l01265"></a><span class="lineno"> 1265</span><span class="preprocessor">    X(get_drhovecdT_xsat) \</span></div>
-<div class="line"><a id="l01266" name="l01266"></a><span class="lineno"> 1266</span><span class="preprocessor">    X(get_drhovecdT_psat) \</span></div>
-<div class="line"><a id="l01267" name="l01267"></a><span class="lineno"> 1267</span><span class="preprocessor">    X(get_drhovecdp_Tsat) \</span></div>
-<div class="line"><a id="l01268" name="l01268"></a><span class="lineno"> 1268</span><span class="preprocessor">    X(trace_critical_arclength_binary) \</span></div>
-<div class="line"><a id="l01269" name="l01269"></a><span class="lineno"> 1269</span><span class="preprocessor">    X(mixture_VLE_px) \</span></div>
-<div class="line"><a id="l01270" name="l01270"></a><span class="lineno"> 1270</span><span class="preprocessor">    X(mix_VLE_Tp) \</span></div>
-<div class="line"><a id="l01271" name="l01271"></a><span class="lineno"> 1271</span><span class="preprocessor">    X(mix_VLE_Tx)</span></div>
+<div class="line"><a id="l01285" name="l01285"></a><span class="lineno"> 1285</span> </div>
+<div class="foldopen" id="foldopen01286" data-start="" data-end="">
+<div class="line"><a id="l01286" name="l01286"></a><span class="lineno"><a class="line" href="VLE_8hpp.html#a91292bd9d012ce957434d4aa14bbfa3f"> 1286</a></span><span class="preprocessor">#define VLE_FUNCTIONS_TO_WRAP \</span></div>
+<div class="line"><a id="l01287" name="l01287"></a><span class="lineno"> 1287</span><span class="preprocessor">    X(trace_VLE_isobar_binary) \</span></div>
+<div class="line"><a id="l01288" name="l01288"></a><span class="lineno"> 1288</span><span class="preprocessor">    X(trace_VLE_isotherm_binary) \</span></div>
+<div class="line"><a id="l01289" name="l01289"></a><span class="lineno"> 1289</span><span class="preprocessor">    X(get_dpsat_dTsat_isopleth) \</span></div>
+<div class="line"><a id="l01290" name="l01290"></a><span class="lineno"> 1290</span><span class="preprocessor">    X(get_drhovecdT_xsat) \</span></div>
+<div class="line"><a id="l01291" name="l01291"></a><span class="lineno"> 1291</span><span class="preprocessor">    X(get_drhovecdT_psat) \</span></div>
+<div class="line"><a id="l01292" name="l01292"></a><span class="lineno"> 1292</span><span class="preprocessor">    X(get_drhovecdp_Tsat) \</span></div>
+<div class="line"><a id="l01293" name="l01293"></a><span class="lineno"> 1293</span><span class="preprocessor">    X(trace_critical_arclength_binary) \</span></div>
+<div class="line"><a id="l01294" name="l01294"></a><span class="lineno"> 1294</span><span class="preprocessor">    X(mixture_VLE_px) \</span></div>
+<div class="line"><a id="l01295" name="l01295"></a><span class="lineno"> 1295</span><span class="preprocessor">    X(mix_VLE_Tp) \</span></div>
+<div class="line"><a id="l01296" name="l01296"></a><span class="lineno"> 1296</span><span class="preprocessor">    X(mix_VLE_Tx)</span></div>
 </div>
-<div class="line"><a id="l01272" name="l01272"></a><span class="lineno"> 1272</span> </div>
-<div class="foldopen" id="foldopen01273" data-start="" data-end="">
-<div class="line"><a id="l01273" name="l01273"></a><span class="lineno"><a class="line" href="VLE_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f"> 1273</a></span><span class="preprocessor">#define X(f) template &lt;typename TemplatedModel, typename ...Params, \</span></div>
-<div class="line"><a id="l01274" name="l01274"></a><span class="lineno"> 1274</span><span class="preprocessor">typename = typename std::enable_if&lt;not std::is_base_of&lt;teqp::cppinterface::AbstractModel, TemplatedModel&gt;::value&gt;::type&gt; \</span></div>
-<div class="line"><a id="l01275" name="l01275"></a><span class="lineno"> 1275</span><span class="preprocessor">inline auto f(const TemplatedModel&amp; model, Params&amp;&amp;... params){ \</span></div>
-<div class="line"><a id="l01276" name="l01276"></a><span class="lineno"> 1276</span><span class="preprocessor">    auto view = teqp::cppinterface::adapter::make_cview(model); \</span></div>
-<div class="line"><a id="l01277" name="l01277"></a><span class="lineno"> 1277</span><span class="preprocessor">    const AbstractModel&amp; am = *view.get(); \</span></div>
-<div class="line"><a id="l01278" name="l01278"></a><span class="lineno"> 1278</span><span class="preprocessor">    return f(am, std::forward&lt;Params&gt;(params)...); \</span></div>
-<div class="line"><a id="l01279" name="l01279"></a><span class="lineno"> 1279</span><span class="preprocessor">}</span></div>
+<div class="line"><a id="l01297" name="l01297"></a><span class="lineno"> 1297</span> </div>
+<div class="foldopen" id="foldopen01298" data-start="" data-end="">
+<div class="line"><a id="l01298" name="l01298"></a><span class="lineno"><a class="line" href="VLE_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f"> 1298</a></span><span class="preprocessor">#define X(f) template &lt;typename TemplatedModel, typename ...Params, \</span></div>
+<div class="line"><a id="l01299" name="l01299"></a><span class="lineno"> 1299</span><span class="preprocessor">typename = typename std::enable_if&lt;not std::is_base_of&lt;teqp::cppinterface::AbstractModel, TemplatedModel&gt;::value&gt;::type&gt; \</span></div>
+<div class="line"><a id="l01300" name="l01300"></a><span class="lineno"> 1300</span><span class="preprocessor">inline auto f(const TemplatedModel&amp; model, Params&amp;&amp;... params){ \</span></div>
+<div class="line"><a id="l01301" name="l01301"></a><span class="lineno"> 1301</span><span class="preprocessor">    auto view = teqp::cppinterface::adapter::make_cview(model); \</span></div>
+<div class="line"><a id="l01302" name="l01302"></a><span class="lineno"> 1302</span><span class="preprocessor">    const AbstractModel&amp; am = *view.get(); \</span></div>
+<div class="line"><a id="l01303" name="l01303"></a><span class="lineno"> 1303</span><span class="preprocessor">    return f(am, std::forward&lt;Params&gt;(params)...); \</span></div>
+<div class="line"><a id="l01304" name="l01304"></a><span class="lineno"> 1304</span><span class="preprocessor">}</span></div>
 </div>
-<div class="line"><a id="l01280" name="l01280"></a><span class="lineno"><a class="line" href="namespaceteqp.html#a6c919b765714374b997319b849386ef0"> 1280</a></span>    <a class="code hl_define" href="VLE_8hpp.html#a91292bd9d012ce957434d4aa14bbfa3f">VLE_FUNCTIONS_TO_WRAP</a></div>
-<div class="line"><a id="l01281" name="l01281"></a><span class="lineno"> 1281</span><span class="preprocessor">#undef X</span></div>
-<div class="line"><a id="l01282" name="l01282"></a><span class="lineno"> 1282</span><span class="preprocessor">#undef VLE_FUNCTIONS_TO_WRAP</span></div>
-<div class="line"><a id="l01283" name="l01283"></a><span class="lineno"> 1283</span> </div>
-<div class="line"><a id="l01284" name="l01284"></a><span class="lineno"> 1284</span><span class="comment">//</span></div>
-<div class="line"><a id="l01285" name="l01285"></a><span class="lineno"> 1285</span><span class="comment">//template &lt;typename TemplatedModel, typename ...Params, typename = typename std::enable_if&lt;not std::is_base_of&lt;teqp::cppinterface::AbstractModel, TemplatedModel&gt;::value&gt;::type&gt;</span></div>
-<div class="line"><a id="l01286" name="l01286"></a><span class="lineno"> 1286</span><span class="comment">//auto get_drhovecdT_psat(const TemplatedModel&amp; model, Params&amp;&amp;... params){</span></div>
-<div class="line"><a id="l01287" name="l01287"></a><span class="lineno"> 1287</span><span class="comment">//    return get_drhovecdT_psat(teqp::cppinterface::adapter::make_cview(model), std::forward&lt;Params&gt;(params)...);</span></div>
-<div class="line"><a id="l01288" name="l01288"></a><span class="lineno"> 1288</span><span class="comment">//}</span></div>
-<div class="line"><a id="l01289" name="l01289"></a><span class="lineno"> 1289</span> </div>
-<div class="line"><a id="l01290" name="l01290"></a><span class="lineno"> 1290</span>}; <span class="comment">/* namespace teqp*/</span></div>
-<div class="ttc" id="aVLE_8hpp_html_a91292bd9d012ce957434d4aa14bbfa3f"><div class="ttname"><a href="VLE_8hpp.html#a91292bd9d012ce957434d4aa14bbfa3f">VLE_FUNCTIONS_TO_WRAP</a></div><div class="ttdeci">#define VLE_FUNCTIONS_TO_WRAP</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l01261">VLE.hpp:1261</a></div></div>
+<div class="line"><a id="l01305" name="l01305"></a><span class="lineno"><a class="line" href="namespaceteqp.html#a6c919b765714374b997319b849386ef0"> 1305</a></span>    <a class="code hl_define" href="VLE_8hpp.html#a91292bd9d012ce957434d4aa14bbfa3f">VLE_FUNCTIONS_TO_WRAP</a></div>
+<div class="line"><a id="l01306" name="l01306"></a><span class="lineno"> 1306</span><span class="preprocessor">#undef X</span></div>
+<div class="line"><a id="l01307" name="l01307"></a><span class="lineno"> 1307</span><span class="preprocessor">#undef VLE_FUNCTIONS_TO_WRAP</span></div>
+<div class="line"><a id="l01308" name="l01308"></a><span class="lineno"> 1308</span> </div>
+<div class="line"><a id="l01309" name="l01309"></a><span class="lineno"> 1309</span><span class="comment">//</span></div>
+<div class="line"><a id="l01310" name="l01310"></a><span class="lineno"> 1310</span><span class="comment">//template &lt;typename TemplatedModel, typename ...Params, typename = typename std::enable_if&lt;not std::is_base_of&lt;teqp::cppinterface::AbstractModel, TemplatedModel&gt;::value&gt;::type&gt;</span></div>
+<div class="line"><a id="l01311" name="l01311"></a><span class="lineno"> 1311</span><span class="comment">//auto get_drhovecdT_psat(const TemplatedModel&amp; model, Params&amp;&amp;... params){</span></div>
+<div class="line"><a id="l01312" name="l01312"></a><span class="lineno"> 1312</span><span class="comment">//    return get_drhovecdT_psat(teqp::cppinterface::adapter::make_cview(model), std::forward&lt;Params&gt;(params)...);</span></div>
+<div class="line"><a id="l01313" name="l01313"></a><span class="lineno"> 1313</span><span class="comment">//}</span></div>
+<div class="line"><a id="l01314" name="l01314"></a><span class="lineno"> 1314</span> </div>
+<div class="line"><a id="l01315" name="l01315"></a><span class="lineno"> 1315</span>}; <span class="comment">/* namespace teqp*/</span></div>
+<div class="ttc" id="aVLE_8hpp_html_a91292bd9d012ce957434d4aa14bbfa3f"><div class="ttname"><a href="VLE_8hpp.html#a91292bd9d012ce957434d4aa14bbfa3f">VLE_FUNCTIONS_TO_WRAP</a></div><div class="ttdeci">#define VLE_FUNCTIONS_TO_WRAP</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l01286">VLE.hpp:1286</a></div></div>
 <div class="ttc" id="aVLE__pure_8hpp_html"><div class="ttname"><a href="VLE__pure_8hpp.html">VLE_pure.hpp</a></div></div>
 <div class="ttc" id="aVLE__types_8hpp_html"><div class="ttname"><a href="VLE__types_8hpp.html">VLE_types.hpp</a></div></div>
 <div class="ttc" id="aclassteqp_1_1InvalidArgument_html"><div class="ttname"><a href="classteqp_1_1InvalidArgument.html">teqp::InvalidArgument</a></div><div class="ttdef"><b>Definition</b> <a href="exceptions_8hpp_source.html#l00029">exceptions.hpp:29</a></div></div>
+<div class="ttc" id="aclassteqp_1_1IterationFailure_html"><div class="ttname"><a href="classteqp_1_1IterationFailure.html">teqp::IterationFailure</a></div><div class="ttdef"><b>Definition</b> <a href="exceptions_8hpp_source.html#l00035">exceptions.hpp:35</a></div></div>
 <div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html">teqp::cppinterface::AbstractModel</a></div><div class="ttdef"><b>Definition</b> <a href="teqpcpp_8hpp_source.html#l00087">teqpcpp.hpp:87</a></div></div>
 <div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html_a343f6da9ec6f47f9c3ceabc3b9da5385"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html#a343f6da9ec6f47f9c3ceabc3b9da5385">teqp::cppinterface::AbstractModel::get_dpdT_constrhovec</a></div><div class="ttdeci">virtual double get_dpdT_constrhovec(const double T, const EArrayd &amp;rhovec) const =0</div></div>
 <div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html_a38884acb6a2663fe18967760e9438b68"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html#a38884acb6a2663fe18967760e9438b68">teqp::cppinterface::AbstractModel::get_R</a></div><div class="ttdeci">virtual double get_R(const EArrayd &amp;) const =0</div></div>
@@ -1409,12 +1435,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="acritical__tracing_8hpp_html_a3e0ee787dc4704f51dcecb65616b234f"><div class="ttname"><a href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a></div><div class="ttdeci">#define X(f)</div><div class="ttdef"><b>Definition</b> <a href="critical__tracing_8hpp_source.html#l00761">critical_tracing.hpp:761</a></div></div>
 <div class="ttc" id="aderivs_8hpp_html"><div class="ttname"><a href="derivs_8hpp.html">derivs.hpp</a></div></div>
 <div class="ttc" id="aexceptions_8hpp_html"><div class="ttname"><a href="exceptions_8hpp.html">exceptions.hpp</a></div></div>
-<div class="ttc" id="anamespaceteqp_html"><div class="ttname"><a href="namespaceteqp.html">teqp</a></div><div class="ttdef"><b>Definition</b> <a href="critical__pure_8hpp_source.html#l00016">critical_pure.hpp:16</a></div></div>
+<div class="ttc" id="anamespaceteqp_html"><div class="ttname"><a href="namespaceteqp.html">teqp</a></div><div class="ttdef"><b>Definition</b> <a href="ancillary__builder_8hpp_source.html#l00008">ancillary_builder.hpp:8</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_a0c78e97744bd0ec82197f40149e03d4b"><div class="ttname"><a href="namespaceteqp.html#a0c78e97744bd0ec82197f40149e03d4b">teqp::get_dpsat_dTsat_isopleth</a></div><div class="ttdeci">auto get_dpsat_dTsat_isopleth(const Model &amp;model, const double &amp;T, const Eigen::ArrayXd &amp;rhovecL, const Eigen::ArrayXd &amp;rhovecV)</div><div class="ttdoc">Derivative of pressure w.r.t. temperature along the isopleth of a phase envelope (at constant composi...</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l00764">VLE.hpp:764</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_a4fa49b70ad97e59d91d236f7437e899c"><div class="ttname"><a href="namespaceteqp.html#a4fa49b70ad97e59d91d236f7437e899c">teqp::linsolve</a></div><div class="ttdeci">auto linsolve(const A &amp;a, const B &amp;b)</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l00055">VLE.hpp:55</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_a56339c8078f4369f5a988a87cfc1344e"><div class="ttname"><a href="namespaceteqp.html#a56339c8078f4369f5a988a87cfc1344e">teqp::trace_VLE_isotherm_binary</a></div><div class="ttdeci">auto trace_VLE_isotherm_binary(const AbstractModel &amp;model, double T, const Eigen::ArrayXd &amp;rhovecL0, const Eigen::ArrayXd &amp;rhovecV0, const std::optional&lt; TVLEOptions &gt; &amp;options=std::nullopt)</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l00792">VLE.hpp:792</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_a5795b3879712fe63c9870a29cfd29905"><div class="ttname"><a href="namespaceteqp.html#a5795b3879712fe63c9870a29cfd29905">teqp::mix_VLE_Tx</a></div><div class="ttdeci">auto mix_VLE_Tx(const AbstractModel &amp;model, double T, const Eigen::ArrayXd &amp;rhovecL0, const Eigen::ArrayXd &amp;rhovecV0, const Eigen::ArrayXd &amp;xspec, double atol, double reltol, double axtol, double relxtol, int maxiter)</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l00076">VLE.hpp:76</a></div></div>
-<div class="ttc" id="anamespaceteqp_html_a60d3915f4002f9de425a211673a7d877"><div class="ttname"><a href="namespaceteqp.html#a60d3915f4002f9de425a211673a7d877">teqp::VLE_return_code</a></div><div class="ttdeci">VLE_return_code</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00038">VLE_types.hpp:38</a></div></div>
+<div class="ttc" id="anamespaceteqp_html_a60d3915f4002f9de425a211673a7d877"><div class="ttname"><a href="namespaceteqp.html#a60d3915f4002f9de425a211673a7d877">teqp::VLE_return_code</a></div><div class="ttdeci">VLE_return_code</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00040">VLE_types.hpp:40</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_a60d3915f4002f9de425a211673a7d877a1344a1e40f93c4a363ddc3329548c828"><div class="ttname"><a href="namespaceteqp.html#a60d3915f4002f9de425a211673a7d877a1344a1e40f93c4a363ddc3329548c828">teqp::VLE_return_code::maxfev_met</a></div><div class="ttdeci">@ maxfev_met</div></div>
 <div class="ttc" id="anamespaceteqp_html_a60d3915f4002f9de425a211673a7d877a558e548fc28bae980b285c3a760e7de5"><div class="ttname"><a href="namespaceteqp.html#a60d3915f4002f9de425a211673a7d877a558e548fc28bae980b285c3a760e7de5">teqp::VLE_return_code::functol_satisfied</a></div><div class="ttdeci">@ functol_satisfied</div></div>
 <div class="ttc" id="anamespaceteqp_html_a60d3915f4002f9de425a211673a7d877a79529417e6e5d5a8ee4a87fe543d9164"><div class="ttname"><a href="namespaceteqp.html#a60d3915f4002f9de425a211673a7d877a79529417e6e5d5a8ee4a87fe543d9164">teqp::VLE_return_code::xtol_satisfied</a></div><div class="ttdeci">@ xtol_satisfied</div></div>
@@ -1425,7 +1451,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="anamespaceteqp_html_aa0e91cea3c6012535d2718e2874826b4"><div class="ttname"><a href="namespaceteqp.html#aa0e91cea3c6012535d2718e2874826b4">teqp::mixture_VLE_px</a></div><div class="ttdeci">auto mixture_VLE_px(const AbstractModel &amp;model, double p_spec, const Eigen::ArrayXd &amp;xmolar_spec, double T0, const Eigen::ArrayXd &amp;rhovecL0, const Eigen::ArrayXd &amp;rhovecV0, const std::optional&lt; MixVLEpxFlags &gt; &amp;flags_=std::nullopt)</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l00399">VLE.hpp:399</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_ac09ec2a6e2dfb57a38f42ed084bc9f58"><div class="ttname"><a href="namespaceteqp.html#ac09ec2a6e2dfb57a38f42ed084bc9f58">teqp::mix_VLE_Tp</a></div><div class="ttdeci">auto mix_VLE_Tp(const AbstractModel &amp;model, double T, double pgiven, const Eigen::ArrayXd &amp;rhovecL0, const Eigen::ArrayXd &amp;rhovecV0, const std::optional&lt; MixVLETpFlags &gt; &amp;flags_=std::nullopt)</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l00287">VLE.hpp:287</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_ad95f85237b414adcadafedae95c6ab43"><div class="ttname"><a href="namespaceteqp.html#ad95f85237b414adcadafedae95c6ab43">teqp::get_drhovecdp_Tsat</a></div><div class="ttdeci">auto get_drhovecdp_Tsat(const AbstractModel &amp;model, const double &amp;T, const Eigen::ArrayXd &amp;rhovecL, const Eigen::ArrayXd &amp;rhovecV)</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l00524">VLE.hpp:524</a></div></div>
-<div class="ttc" id="anamespaceteqp_html_af320b714fb1758cc835cfe8bb1eb3fd2"><div class="ttname"><a href="namespaceteqp.html#af320b714fb1758cc835cfe8bb1eb3fd2">teqp::trace_VLE_isobar_binary</a></div><div class="ttdeci">auto trace_VLE_isobar_binary(const Model &amp;model, double p, double T0, const Eigen::ArrayXd &amp;rhovecL0, const Eigen::ArrayXd &amp;rhovecV0, const std::optional&lt; PVLEOptions &gt; &amp;options=std::nullopt)</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l01035">VLE.hpp:1035</a></div></div>
+<div class="ttc" id="anamespaceteqp_html_af320b714fb1758cc835cfe8bb1eb3fd2"><div class="ttname"><a href="namespaceteqp.html#af320b714fb1758cc835cfe8bb1eb3fd2">teqp::trace_VLE_isobar_binary</a></div><div class="ttdeci">auto trace_VLE_isobar_binary(const Model &amp;model, double p, double T0, const Eigen::ArrayXd &amp;rhovecL0, const Eigen::ArrayXd &amp;rhovecV0, const std::optional&lt; PVLEOptions &gt; &amp;options=std::nullopt)</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l01047">VLE.hpp:1047</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_af6e5d0686b44d8f1d32191349e7cae79"><div class="ttname"><a href="namespaceteqp.html#af6e5d0686b44d8f1d32191349e7cae79">teqp::get_drhovecdT_psat</a></div><div class="ttdeci">auto get_drhovecdT_psat(const AbstractModel &amp;model, const double &amp;T, const Eigen::ArrayXd &amp;rhovecL, const Eigen::ArrayXd &amp;rhovecV)</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l00598">VLE.hpp:598</a></div></div>
 <div class="ttc" id="astructteqp_1_1Functor_html"><div class="ttname"><a href="structteqp_1_1Functor.html">teqp::Functor</a></div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l00027">VLE.hpp:28</a></div></div>
 <div class="ttc" id="astructteqp_1_1Functor_html_a0ac25ef2d9745e7504326ff32b80497e"><div class="ttname"><a href="structteqp_1_1Functor.html#a0ac25ef2d9745e7504326ff32b80497e">teqp::Functor::values</a></div><div class="ttdeci">int values() const</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l00044">VLE.hpp:44</a></div></div>
@@ -1440,34 +1466,41 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="astructteqp_1_1Functor_html_aaf222ec048e89e35047208ea1ec556fc"><div class="ttname"><a href="structteqp_1_1Functor.html#aaf222ec048e89e35047208ea1ec556fc">teqp::Functor::ValueType</a></div><div class="ttdeci">Matrix&lt; Scalar, ValuesAtCompileTime, 1 &gt; ValueType</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l00035">VLE.hpp:35</a></div></div>
 <div class="ttc" id="astructteqp_1_1Functor_html_ab1d9afb59e5dd89a3cfcda2aa3f383f0"><div class="ttname"><a href="structteqp_1_1Functor.html#ab1d9afb59e5dd89a3cfcda2aa3f383f0">teqp::Functor::Functor</a></div><div class="ttdeci">Functor()</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l00040">VLE.hpp:40</a></div></div>
 <div class="ttc" id="astructteqp_1_1Functor_html_ac7b84e8f3f8e74f7139dbe481bcc8d93"><div class="ttname"><a href="structteqp_1_1Functor.html#ac7b84e8f3f8e74f7139dbe481bcc8d93">teqp::Functor::m_values</a></div><div class="ttdeci">const int m_values</div><div class="ttdef"><b>Definition</b> <a href="VLE_8hpp_source.html#l00038">VLE.hpp:38</a></div></div>
-<div class="ttc" id="astructteqp_1_1MixVLEReturn_html"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html">teqp::MixVLEReturn</a></div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00040">VLE_types.hpp:40</a></div></div>
-<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_a0def012a085397acf941eedfc9084748"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#a0def012a085397acf941eedfc9084748">teqp::MixVLEReturn::return_code</a></div><div class="ttdeci">VLE_return_code return_code</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00044">VLE_types.hpp:44</a></div></div>
-<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_a16f691ffe6d32f5088e78afd6bf10f13"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#a16f691ffe6d32f5088e78afd6bf10f13">teqp::MixVLEReturn::T</a></div><div class="ttdeci">double T</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00046">VLE_types.hpp:46</a></div></div>
-<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_a48cf2076abb3ec1bff0bf9a6bf6dbdbd"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#a48cf2076abb3ec1bff0bf9a6bf6dbdbd">teqp::MixVLEReturn::initial_r</a></div><div class="ttdeci">Eigen::ArrayXd initial_r</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00047">VLE_types.hpp:47</a></div></div>
-<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_a50b368e2d55d1e2e0eb9da5aa0804f23"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#a50b368e2d55d1e2e0eb9da5aa0804f23">teqp::MixVLEReturn::rhovecV</a></div><div class="ttdeci">Eigen::ArrayXd rhovecV</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00043">VLE_types.hpp:43</a></div></div>
-<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_a7f767c5d5a5bb063662d65898c4de8ad"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#a7f767c5d5a5bb063662d65898c4de8ad">teqp::MixVLEReturn::success</a></div><div class="ttdeci">bool success</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00041">VLE_types.hpp:41</a></div></div>
-<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_a946272809a2364477edca715f35bb9aa"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#a946272809a2364477edca715f35bb9aa">teqp::MixVLEReturn::rhovecL</a></div><div class="ttdeci">Eigen::ArrayXd rhovecL</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00043">VLE_types.hpp:43</a></div></div>
-<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_ac347b0108aff1125291383d0e00c889d"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#ac347b0108aff1125291383d0e00c889d">teqp::MixVLEReturn::num_iter</a></div><div class="ttdeci">int num_iter</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00045">VLE_types.hpp:45</a></div></div>
-<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_aca87aa6e80f4138809fb0e90a50a6443"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#aca87aa6e80f4138809fb0e90a50a6443">teqp::MixVLEReturn::r</a></div><div class="ttdeci">Eigen::ArrayXd r</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00047">VLE_types.hpp:47</a></div></div>
-<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_af7577cd2458dacbe882bfec4a5ee4aff"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#af7577cd2458dacbe882bfec4a5ee4aff">teqp::MixVLEReturn::num_fev</a></div><div class="ttdeci">int num_fev</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00045">VLE_types.hpp:45</a></div></div>
-<div class="ttc" id="astructteqp_1_1MixVLETpFlags_html"><div class="ttname"><a href="structteqp_1_1MixVLETpFlags.html">teqp::MixVLETpFlags</a></div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00029">VLE_types.hpp:29</a></div></div>
-<div class="ttc" id="astructteqp_1_1MixVLEpxFlags_html"><div class="ttname"><a href="structteqp_1_1MixVLEpxFlags.html">teqp::MixVLEpxFlags</a></div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00021">VLE_types.hpp:21</a></div></div>
-<div class="ttc" id="astructteqp_1_1PVLEOptions_html"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html">teqp::PVLEOptions</a></div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00013">VLE_types.hpp:13</a></div></div>
-<div class="ttc" id="astructteqp_1_1PVLEOptions_html_a1964ae295c8ca0b6c6ddb2ed650a6df9"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#a1964ae295c8ca0b6c6ddb2ed650a6df9">teqp::PVLEOptions::calc_criticality</a></div><div class="ttdeci">bool calc_criticality</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00017">VLE_types.hpp:17</a></div></div>
-<div class="ttc" id="astructteqp_1_1PVLEOptions_html_a625d389bdcabf78b1c2c81a6d7f5435c"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#a625d389bdcabf78b1c2c81a6d7f5435c">teqp::PVLEOptions::init_dt</a></div><div class="ttdeci">double init_dt</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00014">VLE_types.hpp:14</a></div></div>
-<div class="ttc" id="astructteqp_1_1PVLEOptions_html_a8b5c75b84e0e470be39f57ccdc8ba5a9"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#a8b5c75b84e0e470be39f57ccdc8ba5a9">teqp::PVLEOptions::polish</a></div><div class="ttdeci">bool polish</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00016">VLE_types.hpp:16</a></div></div>
-<div class="ttc" id="astructteqp_1_1PVLEOptions_html_a9e1a369cb2cbf66343112f2dcc1bd4c1"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#a9e1a369cb2cbf66343112f2dcc1bd4c1">teqp::PVLEOptions::abs_err</a></div><div class="ttdeci">double abs_err</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00014">VLE_types.hpp:14</a></div></div>
-<div class="ttc" id="astructteqp_1_1PVLEOptions_html_ac06feb13dc662081f78d72346d25a7cc"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#ac06feb13dc662081f78d72346d25a7cc">teqp::PVLEOptions::integration_order</a></div><div class="ttdeci">int integration_order</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00015">VLE_types.hpp:15</a></div></div>
-<div class="ttc" id="astructteqp_1_1PVLEOptions_html_ac22e0d4eadb2e08b861c2a293bafc9bc"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#ac22e0d4eadb2e08b861c2a293bafc9bc">teqp::PVLEOptions::rel_err</a></div><div class="ttdeci">double rel_err</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00014">VLE_types.hpp:14</a></div></div>
-<div class="ttc" id="astructteqp_1_1PVLEOptions_html_ad6f90c234eea875a14a6b3492c7f6ae7"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#ad6f90c234eea875a14a6b3492c7f6ae7">teqp::PVLEOptions::init_c</a></div><div class="ttdeci">double init_c</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00014">VLE_types.hpp:14</a></div></div>
-<div class="ttc" id="astructteqp_1_1PVLEOptions_html_ad7a4207b95c25b5cdd96257c2d87d18e"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#ad7a4207b95c25b5cdd96257c2d87d18e">teqp::PVLEOptions::max_dt</a></div><div class="ttdeci">double max_dt</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00014">VLE_types.hpp:14</a></div></div>
-<div class="ttc" id="astructteqp_1_1PVLEOptions_html_ae92001aec313f30c99c72e7e5ee273cc"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#ae92001aec313f30c99c72e7e5ee273cc">teqp::PVLEOptions::max_steps</a></div><div class="ttdeci">int max_steps</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00015">VLE_types.hpp:15</a></div></div>
+<div class="ttc" id="astructteqp_1_1MixVLEReturn_html"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html">teqp::MixVLEReturn</a></div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00042">VLE_types.hpp:42</a></div></div>
+<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_a0def012a085397acf941eedfc9084748"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#a0def012a085397acf941eedfc9084748">teqp::MixVLEReturn::return_code</a></div><div class="ttdeci">VLE_return_code return_code</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00046">VLE_types.hpp:46</a></div></div>
+<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_a16f691ffe6d32f5088e78afd6bf10f13"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#a16f691ffe6d32f5088e78afd6bf10f13">teqp::MixVLEReturn::T</a></div><div class="ttdeci">double T</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00048">VLE_types.hpp:48</a></div></div>
+<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_a48cf2076abb3ec1bff0bf9a6bf6dbdbd"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#a48cf2076abb3ec1bff0bf9a6bf6dbdbd">teqp::MixVLEReturn::initial_r</a></div><div class="ttdeci">Eigen::ArrayXd initial_r</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00049">VLE_types.hpp:49</a></div></div>
+<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_a50b368e2d55d1e2e0eb9da5aa0804f23"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#a50b368e2d55d1e2e0eb9da5aa0804f23">teqp::MixVLEReturn::rhovecV</a></div><div class="ttdeci">Eigen::ArrayXd rhovecV</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00045">VLE_types.hpp:45</a></div></div>
+<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_a7f767c5d5a5bb063662d65898c4de8ad"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#a7f767c5d5a5bb063662d65898c4de8ad">teqp::MixVLEReturn::success</a></div><div class="ttdeci">bool success</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00043">VLE_types.hpp:43</a></div></div>
+<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_a946272809a2364477edca715f35bb9aa"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#a946272809a2364477edca715f35bb9aa">teqp::MixVLEReturn::rhovecL</a></div><div class="ttdeci">Eigen::ArrayXd rhovecL</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00045">VLE_types.hpp:45</a></div></div>
+<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_ac347b0108aff1125291383d0e00c889d"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#ac347b0108aff1125291383d0e00c889d">teqp::MixVLEReturn::num_iter</a></div><div class="ttdeci">int num_iter</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00047">VLE_types.hpp:47</a></div></div>
+<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_aca87aa6e80f4138809fb0e90a50a6443"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#aca87aa6e80f4138809fb0e90a50a6443">teqp::MixVLEReturn::r</a></div><div class="ttdeci">Eigen::ArrayXd r</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00049">VLE_types.hpp:49</a></div></div>
+<div class="ttc" id="astructteqp_1_1MixVLEReturn_html_af7577cd2458dacbe882bfec4a5ee4aff"><div class="ttname"><a href="structteqp_1_1MixVLEReturn.html#af7577cd2458dacbe882bfec4a5ee4aff">teqp::MixVLEReturn::num_fev</a></div><div class="ttdeci">int num_fev</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00047">VLE_types.hpp:47</a></div></div>
+<div class="ttc" id="astructteqp_1_1MixVLETpFlags_html"><div class="ttname"><a href="structteqp_1_1MixVLETpFlags.html">teqp::MixVLETpFlags</a></div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00031">VLE_types.hpp:31</a></div></div>
+<div class="ttc" id="astructteqp_1_1MixVLEpxFlags_html"><div class="ttname"><a href="structteqp_1_1MixVLEpxFlags.html">teqp::MixVLEpxFlags</a></div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00023">VLE_types.hpp:23</a></div></div>
+<div class="ttc" id="astructteqp_1_1PVLEOptions_html"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html">teqp::PVLEOptions</a></div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00014">VLE_types.hpp:14</a></div></div>
+<div class="ttc" id="astructteqp_1_1PVLEOptions_html_a1964ae295c8ca0b6c6ddb2ed650a6df9"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#a1964ae295c8ca0b6c6ddb2ed650a6df9">teqp::PVLEOptions::calc_criticality</a></div><div class="ttdeci">bool calc_criticality</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00019">VLE_types.hpp:19</a></div></div>
+<div class="ttc" id="astructteqp_1_1PVLEOptions_html_a45c79513633ae8e431a0c7f2a7bf8644"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#a45c79513633ae8e431a0c7f2a7bf8644">teqp::PVLEOptions::polish_exception_on_fail</a></div><div class="ttdeci">bool polish_exception_on_fail</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00017">VLE_types.hpp:17</a></div></div>
+<div class="ttc" id="astructteqp_1_1PVLEOptions_html_a625d389bdcabf78b1c2c81a6d7f5435c"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#a625d389bdcabf78b1c2c81a6d7f5435c">teqp::PVLEOptions::init_dt</a></div><div class="ttdeci">double init_dt</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00015">VLE_types.hpp:15</a></div></div>
+<div class="ttc" id="astructteqp_1_1PVLEOptions_html_a74702cf99b284e60dd1c043d877da1d0"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#a74702cf99b284e60dd1c043d877da1d0">teqp::PVLEOptions::crit_termination</a></div><div class="ttdeci">double crit_termination</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00015">VLE_types.hpp:15</a></div></div>
+<div class="ttc" id="astructteqp_1_1PVLEOptions_html_a8b5c75b84e0e470be39f57ccdc8ba5a9"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#a8b5c75b84e0e470be39f57ccdc8ba5a9">teqp::PVLEOptions::polish</a></div><div class="ttdeci">bool polish</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00017">VLE_types.hpp:17</a></div></div>
+<div class="ttc" id="astructteqp_1_1PVLEOptions_html_a9e1a369cb2cbf66343112f2dcc1bd4c1"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#a9e1a369cb2cbf66343112f2dcc1bd4c1">teqp::PVLEOptions::abs_err</a></div><div class="ttdeci">double abs_err</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00015">VLE_types.hpp:15</a></div></div>
+<div class="ttc" id="astructteqp_1_1PVLEOptions_html_ab0ba6ee4402c910d4499edccd20110fd"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#ab0ba6ee4402c910d4499edccd20110fd">teqp::PVLEOptions::verbosity</a></div><div class="ttdeci">int verbosity</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00016">VLE_types.hpp:16</a></div></div>
+<div class="ttc" id="astructteqp_1_1PVLEOptions_html_ac06feb13dc662081f78d72346d25a7cc"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#ac06feb13dc662081f78d72346d25a7cc">teqp::PVLEOptions::integration_order</a></div><div class="ttdeci">int integration_order</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00016">VLE_types.hpp:16</a></div></div>
+<div class="ttc" id="astructteqp_1_1PVLEOptions_html_ac22e0d4eadb2e08b861c2a293bafc9bc"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#ac22e0d4eadb2e08b861c2a293bafc9bc">teqp::PVLEOptions::rel_err</a></div><div class="ttdeci">double rel_err</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00015">VLE_types.hpp:15</a></div></div>
+<div class="ttc" id="astructteqp_1_1PVLEOptions_html_ad6f90c234eea875a14a6b3492c7f6ae7"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#ad6f90c234eea875a14a6b3492c7f6ae7">teqp::PVLEOptions::init_c</a></div><div class="ttdeci">double init_c</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00015">VLE_types.hpp:15</a></div></div>
+<div class="ttc" id="astructteqp_1_1PVLEOptions_html_ad7a4207b95c25b5cdd96257c2d87d18e"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#ad7a4207b95c25b5cdd96257c2d87d18e">teqp::PVLEOptions::max_dt</a></div><div class="ttdeci">double max_dt</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00015">VLE_types.hpp:15</a></div></div>
+<div class="ttc" id="astructteqp_1_1PVLEOptions_html_ae10ec164070b173bce6c816e19a01835"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#ae10ec164070b173bce6c816e19a01835">teqp::PVLEOptions::polish_reltol_rho</a></div><div class="ttdeci">double polish_reltol_rho</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00018">VLE_types.hpp:18</a></div></div>
+<div class="ttc" id="astructteqp_1_1PVLEOptions_html_ae92001aec313f30c99c72e7e5ee273cc"><div class="ttname"><a href="structteqp_1_1PVLEOptions.html#ae92001aec313f30c99c72e7e5ee273cc">teqp::PVLEOptions::max_steps</a></div><div class="ttdeci">int max_steps</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00016">VLE_types.hpp:16</a></div></div>
 <div class="ttc" id="astructteqp_1_1TVLEOptions_html"><div class="ttname"><a href="structteqp_1_1TVLEOptions.html">teqp::TVLEOptions</a></div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00005">VLE_types.hpp:5</a></div></div>
+<div class="ttc" id="astructteqp_1_1TVLEOptions_html_a04e1c85056a0b4968e15ea4ef7275b53"><div class="ttname"><a href="structteqp_1_1TVLEOptions.html#a04e1c85056a0b4968e15ea4ef7275b53">teqp::TVLEOptions::polish_exception_on_fail</a></div><div class="ttdeci">bool polish_exception_on_fail</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00008">VLE_types.hpp:8</a></div></div>
+<div class="ttc" id="astructteqp_1_1TVLEOptions_html_a2acc1f719e8903632aaa89b57fd3fd66"><div class="ttname"><a href="structteqp_1_1TVLEOptions.html#a2acc1f719e8903632aaa89b57fd3fd66">teqp::TVLEOptions::polish_reltol_rho</a></div><div class="ttdeci">double polish_reltol_rho</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00009">VLE_types.hpp:9</a></div></div>
 <div class="ttc" id="astructteqp_1_1TVLEOptions_html_a4a762810b05ad2dd5a8146681ae0bc0b"><div class="ttname"><a href="structteqp_1_1TVLEOptions.html#a4a762810b05ad2dd5a8146681ae0bc0b">teqp::TVLEOptions::crit_termination</a></div><div class="ttdeci">double crit_termination</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00006">VLE_types.hpp:6</a></div></div>
 <div class="ttc" id="astructteqp_1_1TVLEOptions_html_a4e9237fc3f1c9be0c0a0535294dbb2bb"><div class="ttname"><a href="structteqp_1_1TVLEOptions.html#a4e9237fc3f1c9be0c0a0535294dbb2bb">teqp::TVLEOptions::integration_order</a></div><div class="ttdeci">int integration_order</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00007">VLE_types.hpp:7</a></div></div>
 <div class="ttc" id="astructteqp_1_1TVLEOptions_html_a5d2d74ae999c7d7cfb17ada3b3ae58f7"><div class="ttname"><a href="structteqp_1_1TVLEOptions.html#a5d2d74ae999c7d7cfb17ada3b3ae58f7">teqp::TVLEOptions::max_steps</a></div><div class="ttdeci">int max_steps</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00007">VLE_types.hpp:7</a></div></div>
-<div class="ttc" id="astructteqp_1_1TVLEOptions_html_a614adb402241b19b617b4189d21f58c4"><div class="ttname"><a href="structteqp_1_1TVLEOptions.html#a614adb402241b19b617b4189d21f58c4">teqp::TVLEOptions::calc_criticality</a></div><div class="ttdeci">bool calc_criticality</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00009">VLE_types.hpp:9</a></div></div>
+<div class="ttc" id="astructteqp_1_1TVLEOptions_html_a614adb402241b19b617b4189d21f58c4"><div class="ttname"><a href="structteqp_1_1TVLEOptions.html#a614adb402241b19b617b4189d21f58c4">teqp::TVLEOptions::calc_criticality</a></div><div class="ttdeci">bool calc_criticality</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00010">VLE_types.hpp:10</a></div></div>
 <div class="ttc" id="astructteqp_1_1TVLEOptions_html_a6423a41558b2bfa14a4e461203806002"><div class="ttname"><a href="structteqp_1_1TVLEOptions.html#a6423a41558b2bfa14a4e461203806002">teqp::TVLEOptions::revision</a></div><div class="ttdeci">int revision</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00007">VLE_types.hpp:7</a></div></div>
+<div class="ttc" id="astructteqp_1_1TVLEOptions_html_a787c6c49587296c98280c949920a7432"><div class="ttname"><a href="structteqp_1_1TVLEOptions.html#a787c6c49587296c98280c949920a7432">teqp::TVLEOptions::verbosity</a></div><div class="ttdeci">int verbosity</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00007">VLE_types.hpp:7</a></div></div>
 <div class="ttc" id="astructteqp_1_1TVLEOptions_html_aa0e8fc2b5d65a114b70c128c8615374f"><div class="ttname"><a href="structteqp_1_1TVLEOptions.html#aa0e8fc2b5d65a114b70c128c8615374f">teqp::TVLEOptions::rel_err</a></div><div class="ttdeci">double rel_err</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00006">VLE_types.hpp:6</a></div></div>
 <div class="ttc" id="astructteqp_1_1TVLEOptions_html_ab17195c6dbe66c5db0e7f845292a007f"><div class="ttname"><a href="structteqp_1_1TVLEOptions.html#ab17195c6dbe66c5db0e7f845292a007f">teqp::TVLEOptions::max_dt</a></div><div class="ttdeci">double max_dt</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00006">VLE_types.hpp:6</a></div></div>
 <div class="ttc" id="astructteqp_1_1TVLEOptions_html_ac98a33d08695991b060a1ec38e2d04fc"><div class="ttname"><a href="structteqp_1_1TVLEOptions.html#ac98a33d08695991b060a1ec38e2d04fc">teqp::TVLEOptions::abs_err</a></div><div class="ttdeci">double abs_err</div><div class="ttdef"><b>Definition</b> <a href="VLE__types_8hpp_source.html#l00006">VLE_types.hpp:6</a></div></div>

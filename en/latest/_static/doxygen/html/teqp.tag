@@ -4,6 +4,10 @@
     <name>ancillary_builder.hpp</name>
     <path>include/teqp/algorithms/</path>
     <filename>ancillary__builder_8hpp.html</filename>
+    <includes id="teqpcpp_8hpp" name="teqpcpp.hpp" local="yes" import="no" module="no" objc="no">teqp/cpp/teqpcpp.hpp</includes>
+    <includes id="multifluid__ancillaries_8hpp" name="multifluid_ancillaries.hpp" local="yes" import="no" module="no" objc="no">teqp/models/multifluid_ancillaries.hpp</includes>
+    <namespace>teqp</namespace>
+    <namespace>teqp::ancillaries</namespace>
   </compound>
   <compound kind="file">
     <name>critical_pure.hpp</name>
@@ -155,6 +159,7 @@
     <path>include/teqp/</path>
     <filename>constants_8hpp.html</filename>
     <namespace>teqp</namespace>
+    <namespace>teqp::constants</namespace>
   </compound>
   <compound kind="file">
     <name>containers.hpp</name>
@@ -228,28 +233,6 @@
       <anchor>a3e0ee787dc4704f51dcecb65616b234f</anchor>
       <arglist>(f)</arglist>
     </member>
-  </compound>
-  <compound kind="file">
-    <name>derivs.hpp</name>
-    <path>include/teqp/cpp/</path>
-    <filename>cpp_2derivs_8hpp.html</filename>
-    <class kind="struct">teqp::cppinterface::IterationMatrices</class>
-    <namespace>teqp</namespace>
-    <namespace>teqp::cppinterface</namespace>
-  </compound>
-  <compound kind="file">
-    <name>derivs.hpp</name>
-    <path>include/teqp/</path>
-    <filename>derivs_8hpp.html</filename>
-    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
-    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
-    <class kind="struct">teqp::wrt_helper</class>
-    <class kind="struct">teqp::AlphaCallWrapper</class>
-    <class kind="struct">teqp::TDXDerivatives</class>
-    <class kind="struct">teqp::VirialDerivatives</class>
-    <class kind="struct">teqp::IsochoricDerivatives</class>
-    <class kind="class">teqp::DerivativeHolderSquare</class>
-    <namespace>teqp</namespace>
   </compound>
   <compound kind="file">
     <name>teqpcpp.hpp</name>
@@ -389,6 +372,28 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>derivs.hpp</name>
+    <path>include/teqp/cpp/</path>
+    <filename>cpp_2derivs_8hpp.html</filename>
+    <class kind="struct">teqp::cppinterface::IterationMatrices</class>
+    <namespace>teqp</namespace>
+    <namespace>teqp::cppinterface</namespace>
+  </compound>
+  <compound kind="file">
+    <name>derivs.hpp</name>
+    <path>include/teqp/</path>
+    <filename>derivs_8hpp.html</filename>
+    <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
+    <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
+    <class kind="struct">teqp::wrt_helper</class>
+    <class kind="struct">teqp::AlphaCallWrapper</class>
+    <class kind="struct">teqp::TDXDerivatives</class>
+    <class kind="struct">teqp::VirialDerivatives</class>
+    <class kind="struct">teqp::IsochoricDerivatives</class>
+    <class kind="class">teqp::DerivativeHolderSquare</class>
+    <namespace>teqp</namespace>
+  </compound>
+  <compound kind="file">
     <name>exceptions.hpp</name>
     <path>include/teqp/</path>
     <filename>exceptions_8hpp.html</filename>
@@ -404,18 +409,6 @@
     <name>filesystem.hpp</name>
     <path>include/teqp/</path>
     <filename>filesystem_8hpp.html</filename>
-    <namespace>teqp</namespace>
-  </compound>
-  <compound kind="file">
-    <name>finite_derivs.hpp</name>
-    <path>include/teqp/</path>
-    <filename>finite__derivs_8hpp.html</filename>
-    <includes id="math_2finite__derivs_8hpp" name="finite_derivs.hpp" local="no" import="no" module="no" objc="no">teqp/math/finite_derivs.hpp</includes>
-  </compound>
-  <compound kind="file">
-    <name>finite_derivs.hpp</name>
-    <path>include/teqp/math/</path>
-    <filename>math_2finite__derivs_8hpp.html</filename>
     <namespace>teqp</namespace>
   </compound>
   <compound kind="file">
@@ -456,6 +449,18 @@
     <filename>json__tools_8hpp.html</filename>
     <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
     <class kind="class">teqp::JSONValidator</class>
+    <namespace>teqp</namespace>
+  </compound>
+  <compound kind="file">
+    <name>finite_derivs.hpp</name>
+    <path>include/teqp/</path>
+    <filename>finite__derivs_8hpp.html</filename>
+    <includes id="math_2finite__derivs_8hpp" name="finite_derivs.hpp" local="no" import="no" module="no" objc="no">teqp/math/finite_derivs.hpp</includes>
+  </compound>
+  <compound kind="file">
+    <name>finite_derivs.hpp</name>
+    <path>include/teqp/math/</path>
+    <filename>math_2finite__derivs_8hpp.html</filename>
     <namespace>teqp</namespace>
   </compound>
   <compound kind="file">
@@ -502,7 +507,11 @@
     <class kind="class">teqp::TwuAlphaFunction</class>
     <class kind="class">teqp::MathiasCopemanAlphaFunction</class>
     <class kind="class">teqp::GenericCubic</class>
+    <class kind="class">teqp::NullResidualHelmholtzOverRT</class>
+    <class kind="class">teqp::WilsonResidualHelmholtzOverRT</class>
+    <class kind="class">teqp::AdvancedPRaEres</class>
     <class kind="class">teqp::QuantumCorrectedPR</class>
+    <class kind="class">teqp::RKPRCismondi2005</class>
     <namespace>teqp</namespace>
   </compound>
   <compound kind="file">
@@ -719,6 +728,7 @@
     <path>include/teqp/models/saft/</path>
     <filename>polar__terms_8hpp.html</filename>
     <includes id="types_8hpp" name="types.hpp" local="yes" import="no" module="no" objc="no">teqp/types.hpp</includes>
+    <includes id="constants_8hpp" name="constants.hpp" local="yes" import="no" module="no" objc="no">teqp/constants.hpp</includes>
     <includes id="exceptions_8hpp" name="exceptions.hpp" local="yes" import="no" module="no" objc="no">teqp/exceptions.hpp</includes>
     <includes id="correlation__integrals_8hpp" name="correlation_integrals.hpp" local="yes" import="no" module="no" objc="no">correlation_integrals.hpp</includes>
     <includes id="pow__templates_8hpp" name="pow_templates.hpp" local="yes" import="no" module="no" objc="no">teqp/math/pow_templates.hpp</includes>
@@ -728,6 +738,7 @@
     <class kind="class">teqp::SAFTpolar::MultipolarContributionGrossVrabec</class>
     <class kind="struct">teqp::SAFTpolar::MultipolarContributionGubbinsTwuTermsGT</class>
     <class kind="class">teqp::SAFTpolar::MultipolarContributionGubbinsTwu</class>
+    <class kind="struct">teqp::SAFTpolar::PolarizableArrays</class>
     <class kind="class">teqp::SAFTpolar::MultipolarContributionGrayGubbins</class>
     <namespace>teqp</namespace>
     <namespace>teqp::SAFTpolar</namespace>
@@ -1204,8 +1215,8 @@
       <type>EArray2</type>
       <name>pure_VLE_T</name>
       <anchorfile>classteqp_1_1cppinterface_1_1AbstractModel.html</anchorfile>
-      <anchor>a3a535ad21e572d20773e482812b855ef</anchor>
-      <arglist>(const double T, const double rhoL, const double rhoV, int maxiter) const</arglist>
+      <anchor>aa7fcd91d9a54b7e6d3d745be73c64eee</anchor>
+      <arglist>(const double T, const double rhoL, const double rhoV, int maxiter, const std::optional&lt; Eigen::ArrayXd &gt; &amp;molefracs=std::nullopt) const</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -1339,6 +1350,243 @@
       <anchorfile>classteqp_1_1cppinterface_1_1AbstractModel.html</anchorfile>
       <anchor>a72940165b565928eeee0606d397dbd9c</anchor>
       <arglist>(const double T, const REArrayd &amp;rhovec) const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>teqp::AdvancedPRaEres</name>
+    <filename>classteqp_1_1AdvancedPRaEres.html</filename>
+    <templarg>typename NumType</templarg>
+    <templarg>typename AlphaFunctions</templarg>
+    <member kind="function">
+      <type></type>
+      <name>AdvancedPRaEres</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a20660041b8dc93283fbb2afc0256cb3d</anchor>
+      <arglist>(const std::valarray&lt; NumType &gt; &amp;Tc_K, const std::valarray&lt; NumType &gt; &amp;pc_Pa, const AlphaFunctions &amp;alphas, const ResidualHelmholtzOverRTVariant &amp;ares, const Eigen::ArrayXXd &amp;lmat, const AdvancedPRaEOptions &amp;options={})</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_meta</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a5d1e55091f7f53c0c62d5f4fd235a793</anchor>
+      <arglist>(const nlohmann::json &amp;j)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_meta</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>af0b463bf173974085fa790ede239a2d5</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_lmat</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>abc20cd57e157345bd1ef3b5ef00bd757</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_Tc_K</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a3d5714027661b78812894b43223a062a</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_pc_Pa</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>ad40f7bf45fd4681c38ef593fef55c0da</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>superanc_rhoLV</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>adf68748af800b1b7fe3e62e218fc4445</anchor>
+      <arglist>(double T, std::optional&lt; std::size_t &gt; ifluid=std::nullopt) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>R</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>ab71a84f278aa5b7a10a242e6f061bf02</anchor>
+      <arglist>(const VecType &amp;) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_a</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a0bb8aa7fa9a1eb4c2603f83c4826d422</anchor>
+      <arglist>(TType T, const CompType &amp;molefracs) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_am_over_bm</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>afdb5b28557db5154f0e3edfd5db5f70f</anchor>
+      <arglist>(TType T, const CompType &amp;molefracs) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_b</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a1444a110b0a2eafa21ea3c50e5df0b7c</anchor>
+      <arglist>(TType T, const CompType &amp;molefracs) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>alphar</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>afdf38180bf103e42943226a62601a5a4</anchor>
+      <arglist>(const TType &amp;T, const RhoType &amp;rho, const MoleFracType &amp;molefrac) const</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static double</type>
+      <name>get_bi</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a36a2874e1c813b1fedfc894611f91105</anchor>
+      <arglist>(double Tc_K, double pc_Pa)</arglist>
+    </member>
+    <member kind="variable">
+      <type>const NumType</type>
+      <name>Delta1</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>ab84fd7bcc563faa3ce7ec4e460a92432</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const NumType</type>
+      <name>Delta2</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a546caad9453858fb6c8f901b3f4e4433</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const NumType</type>
+      <name>OmegaA</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>af762fd56f4be8cd1a07582fff8f61814</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const NumType</type>
+      <name>OmegaB</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a564a06bc95149a541b4dcd7af2e95d17</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const int</type>
+      <name>superanc_code</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>aa98d61bb927c9cf8719fea31d26ccc27</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const NumType</type>
+      <name>Ru</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>ab4ba5880b8fd8b1719266bd07d52c6cc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>auto</type>
+      <name>get_ai</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a4938508943d254bff6edd8610d4b96b0</anchor>
+      <arglist>(TType &amp;T, IndexType i) const</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>auto</type>
+      <name>get_bi</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a8bf66f58b47deba1aa0166c2c40b34bc</anchor>
+      <arglist>(TType &amp;, IndexType i) const</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>check_lmat</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a22bdb3b8bc54c2a6521092ad7fccecaa</anchor>
+      <arglist>(IndexType N)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::valarray&lt; NumType &gt;</type>
+      <name>Tc_K</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a26ec2ffa642fd8902ad5712dd54bbd26</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::valarray&lt; NumType &gt;</type>
+      <name>pc_Pa</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a8359707bf180379b72851316025a3449</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::valarray&lt; NumType &gt;</type>
+      <name>ai</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a3ed1d8cf5ead5289e7f5915a3e80ee85</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::valarray&lt; NumType &gt;</type>
+      <name>bi</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a9c20a363f459f566ef64dc7d6b82a9f5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>const AlphaFunctions</type>
+      <name>alphas</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a4b78972bcd421c6f33dba0f570bdeee4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>const ResidualHelmholtzOverRTVariant</type>
+      <name>ares</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a39c8635b69f1b5386a5411c8858028b0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Eigen::ArrayXXd</type>
+      <name>lmat</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a2f32b1edd959cb94813c26b5db4ea4df</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>const AdvancedPRaEMixingRules</type>
+      <name>brule</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a53fdca23edceaa780c8eef8ee900d360</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>const double</type>
+      <name>s</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a2032b061b93818d2f14701d3f3df28f3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>const double</type>
+      <name>CEoS</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>aa87df3c5773c819ed9dae188c3b64a40</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>nlohmann::json</type>
+      <name>meta</name>
+      <anchorfile>classteqp_1_1AdvancedPRaEres.html</anchorfile>
+      <anchor>a241f82fdb0fc3b5dea9aaeec81bb42ea</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -2638,8 +2886,8 @@
       <type>auto</type>
       <name>superanc_rhoLV</name>
       <anchorfile>classteqp_1_1GenericCubic.html</anchorfile>
-      <anchor>a4cfcca3f17e15373a4c8b4de8c25724e</anchor>
-      <arglist>(double T) const</arglist>
+      <anchor>aa0b56dfaaa60a54755f2a139ce122400</anchor>
+      <arglist>(double T, std::optional&lt; std::size_t &gt; ifluid=std::nullopt) const</arglist>
     </member>
     <member kind="function">
       <type>auto</type>
@@ -5131,17 +5379,59 @@
     </member>
     <member kind="function">
       <type>auto</type>
+      <name>Immm</name>
+      <anchorfile>classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins.html</anchorfile>
+      <anchor>acc6b0afc9fbd3c075f16c19a15e59e86</anchor>
+      <arglist>(std::size_t i, std::size_t j, std::size_t k, const TTYPE &amp;T, const RhoStarType &amp;rhostar) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>ImmQ</name>
+      <anchorfile>classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins.html</anchorfile>
+      <anchor>a9e81c0eba084ab3bf15825d3ea638373</anchor>
+      <arglist>(std::size_t i, std::size_t j, std::size_t k, const TTYPE &amp;T, const RhoStarType &amp;rhostar) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>ImQQ</name>
+      <anchorfile>classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins.html</anchorfile>
+      <anchor>ae460826a9754ccce70d2ae8012adb77f</anchor>
+      <arglist>(std::size_t i, std::size_t j, std::size_t k, const TTYPE &amp;T, const RhoStarType &amp;rhostar) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>IQQQ</name>
+      <anchorfile>classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins.html</anchorfile>
+      <anchor>a297b03adc918bfa8d120099bbd59eb0b</anchor>
+      <arglist>(std::size_t i, std::size_t j, std::size_t k, const TTYPE &amp;T, const RhoStarType &amp;rhostar) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
       <name>get_alpha2</name>
       <anchorfile>classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins.html</anchorfile>
-      <anchor>a5b8491a18afce27f27e2f3999c43861a</anchor>
-      <arglist>(const TTYPE &amp;T, const RhoType &amp;rhoN, const RhoStarType &amp;rhostar, const VecType &amp;mole_fractions) const</arglist>
+      <anchor>a32d2813fa8984ddcef693567aab0f3cc</anchor>
+      <arglist>(const TTYPE &amp;T, const RhoType &amp;rhoN, const RhoStarType &amp;rhostar, const VecType &amp;mole_fractions, const MuPrimeType &amp;muprime) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_alpha2_muprime_gradient</name>
+      <anchorfile>classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins.html</anchorfile>
+      <anchor>a43af01dfc414892d97c6adf9eb60bc0f</anchor>
+      <arglist>(const TTYPE &amp;T, const RhoType &amp;rhoN, const RhoStarType &amp;rhostar, const VecType &amp;mole_fractions, const MuPrimeType &amp;muprime) const</arglist>
     </member>
     <member kind="function">
       <type>auto</type>
       <name>get_alpha3</name>
       <anchorfile>classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins.html</anchorfile>
-      <anchor>a2a9227b209b2ca34a4ff48a105500fd5</anchor>
-      <arglist>(const TTYPE &amp;T, const RhoType &amp;rhoN, const RhoStarType &amp;rhostar, const VecType &amp;mole_fractions) const</arglist>
+      <anchor>aa8b892f192ceacc032ef65131aa8cf6f</anchor>
+      <arglist>(const TTYPE &amp;T, const RhoType &amp;rhoN, const RhoStarType &amp;rhostar, const VecType &amp;mole_fractions, const MuPrimeType &amp;muprime) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_alpha3_muprime_gradient</name>
+      <anchorfile>classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins.html</anchorfile>
+      <anchor>a568d85ef7be8fc7dd95ca63862a92e95</anchor>
+      <arglist>(const TTYPE &amp;T, const RhoType &amp;rhoN, const RhoStarType &amp;rhostar, const VecType &amp;mole_fractions, const MuPrimeType &amp;muprime) const</arglist>
     </member>
     <member kind="function">
       <type>auto</type>
@@ -5149,6 +5439,20 @@
       <anchorfile>classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins.html</anchorfile>
       <anchor>a07c5f6d0e4981dcd781062ebf54c4358</anchor>
       <arglist>(const RhoType rhoN, const PFType &amp;packing_fraction, const MoleFractions &amp;mole_fractions) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_Eprime</name>
+      <anchorfile>classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins.html</anchorfile>
+      <anchor>abbdbbf644f8b385a2d3954df8d6971ca</anchor>
+      <arglist>(const TTYPE &amp;T, const RhoType &amp;rhoN, const RhoStarType &amp;rhostar, const VecType &amp;mole_fractions, const MuPrimeType &amp;muprime) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>iterate_muprime_SS</name>
+      <anchorfile>classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins.html</anchorfile>
+      <anchor>a5010dba1ed8a925cd3ca4e1babe202a4</anchor>
+      <arglist>(const TTYPE &amp;T, const RhoType &amp;rhoN, const RhoStarType &amp;rhostar, const VecType &amp;mole_fractions, const MuPrimeType &amp;mu, const int max_steps) const</arglist>
     </member>
     <member kind="function">
       <type>auto</type>
@@ -5447,6 +5751,18 @@
       <anchorfile>classteqp_1_1NullEOSTerm.html</anchorfile>
       <anchor>a5f1eedd48b868e10597b748f8e6f00b4</anchor>
       <arglist>(const TauType &amp;, const DeltaType &amp;) const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>teqp::NullResidualHelmholtzOverRT</name>
+    <filename>classteqp_1_1NullResidualHelmholtzOverRT.html</filename>
+    <templarg>typename NumType</templarg>
+    <member kind="function">
+      <type>auto</type>
+      <name>operator()</name>
+      <anchorfile>classteqp_1_1NullResidualHelmholtzOverRT.html</anchorfile>
+      <anchor>a02afbfe092ffd8391ba7fec7a146e9b1</anchor>
+      <arglist>(const TType &amp;T, const MoleFractions &amp;molefracs) const</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -6079,6 +6395,38 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>teqp::SAFTpolar::PolarizableArrays</name>
+    <filename>structteqp_1_1SAFTpolar_1_1PolarizableArrays.html</filename>
+    <member kind="variable">
+      <type>Eigen::ArrayXd</type>
+      <name>alpha_symm_C2m2J</name>
+      <anchorfile>structteqp_1_1SAFTpolar_1_1PolarizableArrays.html</anchorfile>
+      <anchor>a41a5fa2c45f3a6e4ee7cf03863e7e8f1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Eigen::ArrayXd</type>
+      <name>alpha_asymm_C2m2J</name>
+      <anchorfile>structteqp_1_1SAFTpolar_1_1PolarizableArrays.html</anchorfile>
+      <anchor>af0306ce7ca2cdbee66ccfe3a2fb9974a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Eigen::ArrayXd</type>
+      <name>alpha_isotropic_C2m2J</name>
+      <anchorfile>structteqp_1_1SAFTpolar_1_1PolarizableArrays.html</anchorfile>
+      <anchor>ac9d4fe11772eb5d960fa0f1a7c162574</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Eigen::ArrayXd</type>
+      <name>alpha_anisotropic_C2m2J</name>
+      <anchorfile>structteqp_1_1SAFTpolar_1_1PolarizableArrays.html</anchorfile>
+      <anchor>a69bbd677ce8c18033228e5cc3f878dce</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>teqp::PowerEOSTerm</name>
     <filename>classteqp_1_1PowerEOSTerm.html</filename>
@@ -6228,6 +6576,13 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
+      <type>double</type>
+      <name>crit_termination</name>
+      <anchorfile>structteqp_1_1PVLEOptions.html</anchorfile>
+      <anchor>a74702cf99b284e60dd1c043d877da1d0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
       <type>int</type>
       <name>max_steps</name>
       <anchorfile>structteqp_1_1PVLEOptions.html</anchorfile>
@@ -6242,10 +6597,31 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
+      <type>int</type>
+      <name>verbosity</name>
+      <anchorfile>structteqp_1_1PVLEOptions.html</anchorfile>
+      <anchor>ab0ba6ee4402c910d4499edccd20110fd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
       <type>bool</type>
       <name>polish</name>
       <anchorfile>structteqp_1_1PVLEOptions.html</anchorfile>
       <anchor>a8b5c75b84e0e470be39f57ccdc8ba5a9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>polish_exception_on_fail</name>
+      <anchorfile>structteqp_1_1PVLEOptions.html</anchorfile>
+      <anchor>a45c79513633ae8e431a0c7f2a7bf8644</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>polish_reltol_rho</name>
+      <anchorfile>structteqp_1_1PVLEOptions.html</anchorfile>
+      <anchor>ae10ec164070b173bce6c816e19a01835</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -6551,6 +6927,101 @@
       <name>vc</name>
       <anchorfile>classteqp_1_1ReducingTermContainer.html</anchorfile>
       <anchor>a65d16e9f2af81353982d86079de3b6e4</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>teqp::RKPRCismondi2005</name>
+    <filename>classteqp_1_1RKPRCismondi2005.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>RKPRCismondi2005</name>
+      <anchorfile>classteqp_1_1RKPRCismondi2005.html</anchorfile>
+      <anchor>a0cc79609f333f18011174390ef3fc05b</anchor>
+      <arglist>(const nlohmann::json &amp;j)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>R</name>
+      <anchorfile>classteqp_1_1RKPRCismondi2005.html</anchorfile>
+      <anchor>aa029663c402e7db63207ee97224b9183</anchor>
+      <arglist>(const VecType &amp;) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_delta_1</name>
+      <anchorfile>classteqp_1_1RKPRCismondi2005.html</anchorfile>
+      <anchor>a48a4779fdd821a6de4dc79ea7402ff4e</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_Tc_K</name>
+      <anchorfile>classteqp_1_1RKPRCismondi2005.html</anchorfile>
+      <anchor>ac83ad61d27bfeb1cf49206c52c3c43be</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_pc_Pa</name>
+      <anchorfile>classteqp_1_1RKPRCismondi2005.html</anchorfile>
+      <anchor>acb5ad2b9e95fb48122ecdebc2ddeec06</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_k</name>
+      <anchorfile>classteqp_1_1RKPRCismondi2005.html</anchorfile>
+      <anchor>aaf00fc11df7771b03d841d1b489a7953</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_kmat</name>
+      <anchorfile>classteqp_1_1RKPRCismondi2005.html</anchorfile>
+      <anchor>ac134e374876043770a8a6f872419620f</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_lmat</name>
+      <anchorfile>classteqp_1_1RKPRCismondi2005.html</anchorfile>
+      <anchor>af4da40efbadde86fa810eb4a13ce615f</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_bi</name>
+      <anchorfile>classteqp_1_1RKPRCismondi2005.html</anchorfile>
+      <anchor>a06a2c936d3d0c8f71513d74f24495e08</anchor>
+      <arglist>(std::size_t i, const TType &amp;T) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_ai</name>
+      <anchorfile>classteqp_1_1RKPRCismondi2005.html</anchorfile>
+      <anchor>ae49a099353c674efd95019d09f29d018</anchor>
+      <arglist>(std::size_t i, const TType &amp;T) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_ab</name>
+      <anchorfile>classteqp_1_1RKPRCismondi2005.html</anchorfile>
+      <anchor>ab119fa212426585f2d6b99851e8eff5a</anchor>
+      <arglist>(const TType &amp;T, const FractionsType &amp;z) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>alphar</name>
+      <anchorfile>classteqp_1_1RKPRCismondi2005.html</anchorfile>
+      <anchor>aa6d694cae1601f3efb0f74a54baeef7a</anchor>
+      <arglist>(const TType &amp;T, const RhoType &amp;rho, const FractionsType &amp;molefrac) const</arglist>
+    </member>
+    <member kind="variable">
+      <type>const double</type>
+      <name>Ru</name>
+      <anchorfile>classteqp_1_1RKPRCismondi2005.html</anchorfile>
+      <anchor>a3a1f6570e6871cd3c5b6921fc4572342</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -7673,10 +8144,31 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
+      <type>int</type>
+      <name>verbosity</name>
+      <anchorfile>structteqp_1_1TVLEOptions.html</anchorfile>
+      <anchor>a787c6c49587296c98280c949920a7432</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
       <type>bool</type>
       <name>polish</name>
       <anchorfile>structteqp_1_1TVLEOptions.html</anchorfile>
       <anchor>ae4a6a7e745cd4364365460b911ec4c15</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>polish_exception_on_fail</name>
+      <anchorfile>structteqp_1_1TVLEOptions.html</anchorfile>
+      <anchor>a04e1c85056a0b4968e15ea4ef7275b53</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>polish_reltol_rho</name>
+      <anchorfile>structteqp_1_1TVLEOptions.html</anchorfile>
+      <anchor>a2acc1f719e8903632aaa89b57fd3fd66</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -8159,6 +8651,74 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>teqp::WilsonResidualHelmholtzOverRT</name>
+    <filename>classteqp_1_1WilsonResidualHelmholtzOverRT.html</filename>
+    <templarg>typename NumType</templarg>
+    <member kind="function">
+      <type></type>
+      <name>WilsonResidualHelmholtzOverRT</name>
+      <anchorfile>classteqp_1_1WilsonResidualHelmholtzOverRT.html</anchorfile>
+      <anchor>a799118bc60e8a638fa065bc26de8d074</anchor>
+      <arglist>(const std::vector&lt; double &gt; &amp;b, const Eigen::ArrayXXd &amp;m, const Eigen::ArrayXXd &amp;n)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>combinatorial</name>
+      <anchorfile>classteqp_1_1WilsonResidualHelmholtzOverRT.html</anchorfile>
+      <anchor>a76e0f8fe0f78d93a0d2e956891fe0c1a</anchor>
+      <arglist>(const TType &amp;T, const MoleFractions &amp;molefracs) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get_Aij</name>
+      <anchorfile>classteqp_1_1WilsonResidualHelmholtzOverRT.html</anchorfile>
+      <anchor>af0877f617370c86af551840158075f16</anchor>
+      <arglist>(std::size_t i, std::size_t j, const TType &amp;T) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>total</name>
+      <anchorfile>classteqp_1_1WilsonResidualHelmholtzOverRT.html</anchorfile>
+      <anchor>ae1cd8f1e1cade60c23a0773b01f11ada</anchor>
+      <arglist>(const TType &amp;T, const MoleFractions &amp;molefracs) const</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>operator()</name>
+      <anchorfile>classteqp_1_1WilsonResidualHelmholtzOverRT.html</anchorfile>
+      <anchor>a5c07b49b966c828fd3080568fda2491a</anchor>
+      <arglist>(const TType &amp;T, const MoleFractions &amp;molefracs) const</arglist>
+    </member>
+    <member kind="variable">
+      <type>const double</type>
+      <name>R</name>
+      <anchorfile>classteqp_1_1WilsonResidualHelmholtzOverRT.html</anchorfile>
+      <anchor>a9c27411a8e41791c4da627628086bf1f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const std::vector&lt; double &gt;</type>
+      <name>b</name>
+      <anchorfile>classteqp_1_1WilsonResidualHelmholtzOverRT.html</anchorfile>
+      <anchor>a1d7422c0c1d989a8f0f626aba9258471</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const Eigen::ArrayXXd</type>
+      <name>m</name>
+      <anchorfile>classteqp_1_1WilsonResidualHelmholtzOverRT.html</anchorfile>
+      <anchor>a1caffec7d763fc7b24fa92e8e1f6b41c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const Eigen::ArrayXXd</type>
+      <name>n</name>
+      <anchorfile>classteqp_1_1WilsonResidualHelmholtzOverRT.html</anchorfile>
+      <anchor>abfe3e39ed32932b03d8aa23f9308b612</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="struct">
     <name>teqp::wrt_helper</name>
     <filename>structteqp_1_1wrt__helper.html</filename>
@@ -8173,6 +8733,8 @@
   <compound kind="namespace">
     <name>teqp</name>
     <filename>namespaceteqp.html</filename>
+    <namespace>teqp::ancillaries</namespace>
+    <namespace>teqp::constants</namespace>
     <namespace>teqp::CPA</namespace>
     <namespace>teqp::cppinterface</namespace>
     <namespace>teqp::CubicSuperAncillary</namespace>
@@ -8189,6 +8751,7 @@
     <namespace>teqp::squarewell</namespace>
     <namespace>teqp::twocenterljf</namespace>
     <namespace>teqp::VLLE</namespace>
+    <class kind="class">teqp::AdvancedPRaEres</class>
     <class kind="struct">teqp::AlphaCallWrapper</class>
     <class kind="class">teqp::BasicAlphaFunction</class>
     <class kind="class">teqp::Chebyshev2DEOSTerm</class>
@@ -8246,11 +8809,13 @@
     <class kind="class">teqp::NonAnalyticEOSTerm</class>
     <class kind="class">teqp::NotImplementedError</class>
     <class kind="class">teqp::NullEOSTerm</class>
+    <class kind="class">teqp::NullResidualHelmholtzOverRT</class>
     <class kind="class">teqp::PowerEOSTerm</class>
     <class kind="class">teqp::PureIdealHelmholtz</class>
     <class kind="struct">teqp::PVLEOptions</class>
     <class kind="class">teqp::QuantumCorrectedPR</class>
     <class kind="class">teqp::ReducingTermContainer</class>
+    <class kind="class">teqp::RKPRCismondi2005</class>
     <class kind="struct">teqp::TCABOptions</class>
     <class kind="struct">teqp::TDXDerivatives</class>
     <class kind="class">teqp::teqpcException</class>
@@ -8262,6 +8827,7 @@
     <class kind="class">teqp::vdWEOS1</class>
     <class kind="struct">teqp::VirialDerivatives</class>
     <class kind="struct">teqp::VLEAncillary</class>
+    <class kind="class">teqp::WilsonResidualHelmholtzOverRT</class>
     <class kind="struct">teqp::wrt_helper</class>
     <member kind="typedef">
       <type>typename std::is_base_of&lt; teqp::cppinterface::AbstractModel, Model &gt;</type>
@@ -8296,6 +8862,27 @@
       <name>AlphaFunctionOptions</name>
       <anchorfile>namespaceteqp.html</anchorfile>
       <anchor>a330c9d06e0d39b8464bd798700df73b9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::variant&lt; NullResidualHelmholtzOverRT&lt; double &gt;, WilsonResidualHelmholtzOverRT&lt; double &gt; &gt;</type>
+      <name>ResidualHelmholtzOverRTVariant</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>a0465f3a7ab85afff74180a93195e315c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>decltype(make_AdvancedPRaEres({}))</type>
+      <name>advancedPRaEres_t</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>aca656c22919e9381d89c2dd48c2e8dbc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>decltype(RKPRCismondi2005({}))</type>
+      <name>RKPRCismondi2005_t</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>aa7b4265fc65e83e7bd3db9fd8f702bf1</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
@@ -8475,6 +9062,16 @@
       <arglist></arglist>
       <enumvalue file="namespaceteqp.html" anchor="aa915939e34912de1f87776858de32f9da1f9f65b69bb4d16b7fd15a809c59d6e6">autodiff</enumvalue>
       <enumvalue file="namespaceteqp.html" anchor="aa915939e34912de1f87776858de32f9dad8c387494b54ef11d7d960ed7311d4bf">complex_step</enumvalue>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>AdvancedPRaEMixingRules</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>a285cebddf2ec0d69865e0e8c80418ead</anchor>
+      <arglist></arglist>
+      <enumvalue file="namespaceteqp.html" anchor="a285cebddf2ec0d69865e0e8c80418eadac5fa7134efc9be43ef7f390d5d7dc9d9">knotspecified</enumvalue>
+      <enumvalue file="namespaceteqp.html" anchor="a285cebddf2ec0d69865e0e8c80418eadaac97f0008bcf7c7fe4f2ff94160e1385">kLinear</enumvalue>
+      <enumvalue file="namespaceteqp.html" anchor="a285cebddf2ec0d69865e0e8c80418eadaf841876fc54bbdba16a4ae2e0d070714">kQuadratic</enumvalue>
     </member>
     <member kind="function">
       <type>auto</type>
@@ -8870,6 +9467,13 @@
     </member>
     <member kind="function">
       <type>auto</type>
+      <name>build_alpha_functions</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>aec1a1fe6229bcb1a9f9170063eddb907</anchor>
+      <arglist>(const TC &amp;Tc_K, const nlohmann::json &amp;jalphas)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
       <name>canonical_SRK</name>
       <anchorfile>namespaceteqp.html</anchorfile>
       <anchor>a6a646a52ddd0010dc37a5161e8353148</anchor>
@@ -8902,6 +9506,27 @@
       <anchorfile>namespaceteqp.html</anchorfile>
       <anchor>a334093a8fbd62d4f6445df5d8d330e32</anchor>
       <arglist>(const nlohmann::json &amp;spec)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>NLOHMANN_JSON_SERIALIZE_ENUM</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>ad12448a1393ce70e8e0eda898b6ac4a0</anchor>
+      <arglist>(AdvancedPRaEMixingRules, { {AdvancedPRaEMixingRules::knotspecified, nullptr}, {AdvancedPRaEMixingRules::kLinear, &quot;Linear&quot;}, {AdvancedPRaEMixingRules::kQuadratic, &quot;Quadratic&quot;}, }) struct AdvancedPRaEOptions</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>from_json</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>a48611e1016da2a6b186703e02c082d6a</anchor>
+      <arglist>(const json &amp;j, AdvancedPRaEOptions &amp;o)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>make_AdvancedPRaEres</name>
+      <anchorfile>namespaceteqp.html</anchorfile>
+      <anchor>a41915e46c6b8bf0af18c40844077e3c2</anchor>
+      <arglist>(const nlohmann::json &amp;j)</arglist>
     </member>
     <member kind="function">
       <type>auto</type>
@@ -9100,17 +9725,88 @@
       <arglist>(const std::complex&lt; T &gt; &amp;x, const Eigen::ArrayXd &amp;e)</arglist>
     </member>
     <member kind="variable">
-      <type>const double</type>
-      <name>N_A</name>
-      <anchorfile>namespaceteqp.html</anchorfile>
-      <anchor>a21d8c7a2956df07d9199d33aeb642f85</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
       <type>auto</type>
       <name>build_square_matrix</name>
       <anchorfile>namespaceteqp.html</anchorfile>
       <anchor>a0387f578fa55e79f0da380ebd38b22e9</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>teqp::ancillaries</name>
+    <filename>namespaceteqp_1_1ancillaries.html</filename>
+    <member kind="function">
+      <type>auto</type>
+      <name>build_ancillaries</name>
+      <anchorfile>namespaceteqp_1_1ancillaries.html</anchorfile>
+      <anchor>a94a3932001b7734388650f1352491af1</anchor>
+      <arglist>(const AbstractModel &amp;model, double Tcritguess, double rhocritguess, double Tmin, std::optional&lt; nlohmann::json &gt; flags_=std::nullopt)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>teqp::constants</name>
+    <filename>namespaceteqp_1_1constants.html</filename>
+    <member kind="variable">
+      <type>const double</type>
+      <name>R_CODATA2002</name>
+      <anchorfile>namespaceteqp_1_1constants.html</anchorfile>
+      <anchor>abc1c549711a399faeb28b21e06e15341</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const double</type>
+      <name>R_CODATA2006</name>
+      <anchorfile>namespaceteqp_1_1constants.html</anchorfile>
+      <anchor>a34b3f1fba657c07dbe48f403952c12c4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const double</type>
+      <name>R_CODATA2010</name>
+      <anchorfile>namespaceteqp_1_1constants.html</anchorfile>
+      <anchor>aa092e1fa6b58bb2fa58402b7a8730b08</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const double</type>
+      <name>R_CODATA2017</name>
+      <anchorfile>namespaceteqp_1_1constants.html</anchorfile>
+      <anchor>a4f8107bd47ea8d65e191b20bf8ceef42</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const double</type>
+      <name>N_A</name>
+      <anchorfile>namespaceteqp_1_1constants.html</anchorfile>
+      <anchor>a7e3e5158be88eb1085a672719da757f1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const double</type>
+      <name>k_B</name>
+      <anchorfile>namespaceteqp_1_1constants.html</anchorfile>
+      <anchor>af499703efbccb03de34807166cd5ca8f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const double</type>
+      <name>epsilon_0</name>
+      <anchorfile>namespaceteqp_1_1constants.html</anchorfile>
+      <anchor>a3c2dbf62f0863fdf9bc9a26810360925</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const double</type>
+      <name>PI</name>
+      <anchorfile>namespaceteqp_1_1constants.html</anchorfile>
+      <anchor>a01b4326c3f7cca584a62d8df35cea7f0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const double</type>
+      <name>k_e</name>
+      <anchorfile>namespaceteqp_1_1constants.html</anchorfile>
+      <anchor>aa5ab7c283962f62cb4351865b59f34ba</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -9629,6 +10325,7 @@
     <class kind="class">teqp::SAFTpolar::MultipolarContributionGrossVrabec</class>
     <class kind="class">teqp::SAFTpolar::MultipolarContributionGubbinsTwu</class>
     <class kind="struct">teqp::SAFTpolar::MultipolarContributionGubbinsTwuTermsGT</class>
+    <class kind="struct">teqp::SAFTpolar::PolarizableArrays</class>
     <class kind="class">teqp::SAFTpolar::QuadrupolarContributionGross</class>
     <member kind="typedef">
       <type>std::variant&lt; MultipolarContributionGrossVrabec, MultipolarContributionGrayGubbins&lt; GubbinsTwuJIntegral, GubbinsTwuKIntegral &gt;, MultipolarContributionGrayGubbins&lt; GottschalkJIntegral, GottschalkKIntegral &gt;, MultipolarContributionGrayGubbins&lt; LuckasJIntegral, LuckasKIntegral &gt;, MultipolarContributionGubbinsTwu&lt; LuckasJIntegral, LuckasKIntegral &gt;, MultipolarContributionGubbinsTwu&lt; GubbinsTwuJIntegral, GubbinsTwuKIntegral &gt;, MultipolarContributionGubbinsTwu&lt; GottschalkJIntegral, GottschalkKIntegral &gt; &gt;</type>

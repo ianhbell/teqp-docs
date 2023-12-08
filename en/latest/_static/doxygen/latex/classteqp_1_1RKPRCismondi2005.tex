@@ -1,0 +1,196 @@
+\doxysection{teqp\+::RKPRCismondi2005 Class Reference}
+\hypertarget{classteqp_1_1RKPRCismondi2005}{}\label{classteqp_1_1RKPRCismondi2005}\index{teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}}
+
+
+{\ttfamily \#include $<$cubics.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a0cc79609f333f18011174390ef3fc05b}{RKPRCismondi2005}} (const nlohmann\+::json \&j)
+\item 
+{\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_aa029663c402e7db63207ee97224b9183}{R}} (const Vec\+Type \&) const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a48a4779fdd821a6de4dc79ea7402ff4e}{get\+\_\+delta\+\_\+1}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_ac83ad61d27bfeb1cf49206c52c3c43be}{get\+\_\+\+Tc\+\_\+K}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_acb5ad2b9e95fb48122ecdebc2ddeec06}{get\+\_\+pc\+\_\+\+Pa}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_aaf00fc11df7771b03d841d1b489a7953}{get\+\_\+k}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_ac134e374876043770a8a6f872419620f}{get\+\_\+kmat}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_af4da40efbadde86fa810eb4a13ce615f}{get\+\_\+lmat}} () const
+\item 
+{\footnotesize template$<$typename TType $>$ }\\auto \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a06a2c936d3d0c8f71513d74f24495e08}{get\+\_\+bi}} (std\+::size\+\_\+t i, const TType \&T) const
+\item 
+{\footnotesize template$<$typename TType $>$ }\\auto \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_ae49a099353c674efd95019d09f29d018}{get\+\_\+ai}} (std\+::size\+\_\+t i, const TType \&T) const
+\item 
+{\footnotesize template$<$typename TType , typename Fractions\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_ab119fa212426585f2d6b99851e8eff5a}{get\+\_\+ab}} (const TType \&T, const Fractions\+Type \&z) const
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Fractions\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_aa6d694cae1601f3efb0f74a54baeef7a}{alphar}} (const TType \&T, const Rho\+Type \&rho, const Fractions\+Type \&molefrac) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a3a1f6570e6871cd3c5b6921fc4572342}{Ru}} = \mbox{\hyperlink{namespaceteqp_a2b7e9f6c1e890797284b6bd57d251379}{get\+\_\+\+R\+\_\+gas}}$<$double$>$()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The RK-\/\+PR method as defined in\+:
+
+Martín Cismondi, Jørgen Mollerup, Development and application of a three-\/parameter RK–\+PR equation of state, Fluid Phase Equilibria, Volume 232, Issues 1–2, 2005, Pages 74-\/89, \href{https://doi.org/10.1016/j.fluid.2005.03.020}{\texttt{ https\+://doi.\+org/10.\+1016/j.\+fluid.\+2005.\+03.\+020}}. 
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00896}{896}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1RKPRCismondi2005_a0cc79609f333f18011174390ef3fc05b}\label{classteqp_1_1RKPRCismondi2005_a0cc79609f333f18011174390ef3fc05b} 
+\index{teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}!RKPRCismondi2005@{RKPRCismondi2005}}
+\index{RKPRCismondi2005@{RKPRCismondi2005}!teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}}
+\doxysubsubsection{\texorpdfstring{RKPRCismondi2005()}{RKPRCismondi2005()}}
+{\footnotesize\ttfamily teqp\+::\+RKPRCismondi2005\+::\+RKPRCismondi2005 (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00933}{933}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1RKPRCismondi2005_aa6d694cae1601f3efb0f74a54baeef7a}\label{classteqp_1_1RKPRCismondi2005_aa6d694cae1601f3efb0f74a54baeef7a} 
+\index{teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily template$<$typename TType , typename Rho\+Type , typename Fractions\+Type $>$ \\
+auto teqp\+::\+RKPRCismondi2005\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Rho\+Type \&}]{rho,  }\item[{const Fractions\+Type \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00978}{978}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1RKPRCismondi2005_ab119fa212426585f2d6b99851e8eff5a}\label{classteqp_1_1RKPRCismondi2005_ab119fa212426585f2d6b99851e8eff5a} 
+\index{teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}!get\_ab@{get\_ab}}
+\index{get\_ab@{get\_ab}!teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}}
+\doxysubsubsection{\texorpdfstring{get\_ab()}{get\_ab()}}
+{\footnotesize\ttfamily template$<$typename TType , typename Fractions\+Type $>$ \\
+auto teqp\+::\+RKPRCismondi2005\+::get\+\_\+ab (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Fractions\+Type \&}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00957}{957}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1RKPRCismondi2005_ae49a099353c674efd95019d09f29d018}\label{classteqp_1_1RKPRCismondi2005_ae49a099353c674efd95019d09f29d018} 
+\index{teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}!get\_ai@{get\_ai}}
+\index{get\_ai@{get\_ai}!teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}}
+\doxysubsubsection{\texorpdfstring{get\_ai()}{get\_ai()}}
+{\footnotesize\ttfamily template$<$typename TType $>$ \\
+auto teqp\+::\+RKPRCismondi2005\+::get\+\_\+ai (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{const TType \&}]{T }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00952}{952}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1RKPRCismondi2005_a06a2c936d3d0c8f71513d74f24495e08}\label{classteqp_1_1RKPRCismondi2005_a06a2c936d3d0c8f71513d74f24495e08} 
+\index{teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}!get\_bi@{get\_bi}}
+\index{get\_bi@{get\_bi}!teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}}
+\doxysubsubsection{\texorpdfstring{get\_bi()}{get\_bi()}}
+{\footnotesize\ttfamily template$<$typename TType $>$ \\
+auto teqp\+::\+RKPRCismondi2005\+::get\+\_\+bi (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{const TType \&}]{T }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00947}{947}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1RKPRCismondi2005_a48a4779fdd821a6de4dc79ea7402ff4e}\label{classteqp_1_1RKPRCismondi2005_a48a4779fdd821a6de4dc79ea7402ff4e} 
+\index{teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}!get\_delta\_1@{get\_delta\_1}}
+\index{get\_delta\_1@{get\_delta\_1}!teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}}
+\doxysubsubsection{\texorpdfstring{get\_delta\_1()}{get\_delta\_1()}}
+{\footnotesize\ttfamily auto teqp\+::\+RKPRCismondi2005\+::get\+\_\+delta\+\_\+1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00939}{939}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1RKPRCismondi2005_aaf00fc11df7771b03d841d1b489a7953}\label{classteqp_1_1RKPRCismondi2005_aaf00fc11df7771b03d841d1b489a7953} 
+\index{teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}!get\_k@{get\_k}}
+\index{get\_k@{get\_k}!teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}}
+\doxysubsubsection{\texorpdfstring{get\_k()}{get\_k()}}
+{\footnotesize\ttfamily auto teqp\+::\+RKPRCismondi2005\+::get\+\_\+k (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00942}{942}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1RKPRCismondi2005_ac134e374876043770a8a6f872419620f}\label{classteqp_1_1RKPRCismondi2005_ac134e374876043770a8a6f872419620f} 
+\index{teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}!get\_kmat@{get\_kmat}}
+\index{get\_kmat@{get\_kmat}!teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}}
+\doxysubsubsection{\texorpdfstring{get\_kmat()}{get\_kmat()}}
+{\footnotesize\ttfamily auto teqp\+::\+RKPRCismondi2005\+::get\+\_\+kmat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00943}{943}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1RKPRCismondi2005_af4da40efbadde86fa810eb4a13ce615f}\label{classteqp_1_1RKPRCismondi2005_af4da40efbadde86fa810eb4a13ce615f} 
+\index{teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}!get\_lmat@{get\_lmat}}
+\index{get\_lmat@{get\_lmat}!teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}}
+\doxysubsubsection{\texorpdfstring{get\_lmat()}{get\_lmat()}}
+{\footnotesize\ttfamily auto teqp\+::\+RKPRCismondi2005\+::get\+\_\+lmat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00944}{944}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1RKPRCismondi2005_acb5ad2b9e95fb48122ecdebc2ddeec06}\label{classteqp_1_1RKPRCismondi2005_acb5ad2b9e95fb48122ecdebc2ddeec06} 
+\index{teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}!get\_pc\_Pa@{get\_pc\_Pa}}
+\index{get\_pc\_Pa@{get\_pc\_Pa}!teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}}
+\doxysubsubsection{\texorpdfstring{get\_pc\_Pa()}{get\_pc\_Pa()}}
+{\footnotesize\ttfamily auto teqp\+::\+RKPRCismondi2005\+::get\+\_\+pc\+\_\+\+Pa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00941}{941}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1RKPRCismondi2005_ac83ad61d27bfeb1cf49206c52c3c43be}\label{classteqp_1_1RKPRCismondi2005_ac83ad61d27bfeb1cf49206c52c3c43be} 
+\index{teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}!get\_Tc\_K@{get\_Tc\_K}}
+\index{get\_Tc\_K@{get\_Tc\_K}!teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}}
+\doxysubsubsection{\texorpdfstring{get\_Tc\_K()}{get\_Tc\_K()}}
+{\footnotesize\ttfamily auto teqp\+::\+RKPRCismondi2005\+::get\+\_\+\+Tc\+\_\+K (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00940}{940}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1RKPRCismondi2005_aa029663c402e7db63207ee97224b9183}\label{classteqp_1_1RKPRCismondi2005_aa029663c402e7db63207ee97224b9183} 
+\index{teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}!R@{R}}
+\index{R@{R}!teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily template$<$class Vec\+Type $>$ \\
+auto teqp\+::\+RKPRCismondi2005\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00936}{936}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1RKPRCismondi2005_a3a1f6570e6871cd3c5b6921fc4572342}\label{classteqp_1_1RKPRCismondi2005_a3a1f6570e6871cd3c5b6921fc4572342} 
+\index{teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}!Ru@{Ru}}
+\index{Ru@{Ru}!teqp::RKPRCismondi2005@{teqp::RKPRCismondi2005}}
+\doxysubsubsection{\texorpdfstring{Ru}{Ru}}
+{\footnotesize\ttfamily const double teqp\+::\+RKPRCismondi2005\+::\+Ru = \mbox{\hyperlink{namespaceteqp_a2b7e9f6c1e890797284b6bd57d251379}{get\+\_\+\+R\+\_\+gas}}$<$double$>$()}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00898}{898}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\mbox{\hyperlink{cubics_8hpp}{cubics.\+hpp}}\end{DoxyCompactItemize}

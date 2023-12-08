@@ -211,8 +211,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af0b347b5c539106f934ce82a8e9d6d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3a4f197aa7587c9dfc700eaaa35e068" id="r_ae3a4f197aa7587c9dfc700eaaa35e068"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a>, <a class="el" href="teqpcpp_8hpp.html#a5b2ba88216611e735d3c59110ffeb1f1">EMatrixd</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1cppinterface_1_1AbstractModel.html#ae3a4f197aa7587c9dfc700eaaa35e068">get_pure_critical_conditions_Jacobian</a> (const double T, const double rho, const std::optional&lt; std::size_t &gt; &amp;alternative_pure_index, const std::optional&lt; std::size_t &gt; &amp;alternative_length) const</td></tr>
 <tr class="separator:ae3a4f197aa7587c9dfc700eaaa35e068"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a535ad21e572d20773e482812b855ef" id="r_a3a535ad21e572d20773e482812b855ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="teqpcpp_8hpp.html#a45cc18112d93c02493616cb4259df93b">EArray2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a3a535ad21e572d20773e482812b855ef">pure_VLE_T</a> (const double T, const double rhoL, const double rhoV, int maxiter) const</td></tr>
-<tr class="separator:a3a535ad21e572d20773e482812b855ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7fcd91d9a54b7e6d3d745be73c64eee" id="r_aa7fcd91d9a54b7e6d3d745be73c64eee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="teqpcpp_8hpp.html#a45cc18112d93c02493616cb4259df93b">EArray2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1cppinterface_1_1AbstractModel.html#aa7fcd91d9a54b7e6d3d745be73c64eee">pure_VLE_T</a> (const double T, const double rhoL, const double rhoV, int maxiter, const std::optional&lt; Eigen::ArrayXd &gt; &amp;molefracs=std::nullopt) const</td></tr>
+<tr class="separator:aa7fcd91d9a54b7e6d3d745be73c64eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c83cb61de2994adaa0770539bb988bd" id="r_a2c83cb61de2994adaa0770539bb988bd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a2c83cb61de2994adaa0770539bb988bd">dpsatdT_pure</a> (const double T, const double rhoL, const double rhoV) const</td></tr>
 <tr class="separator:a2c83cb61de2994adaa0770539bb988bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae169ab37e385e277545167e64943177b" id="r_ae169ab37e385e277545167e64943177b"><td class="memItemLeft" align="right" valign="top">virtual std::tuple&lt; <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a>, <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1cppinterface_1_1AbstractModel.html#ae169ab37e385e277545167e64943177b">get_drhovecdp_Tsat</a> (const double T, const <a class="el" href="teqpcpp_8hpp.html#a2e836160c0674880f055080b7c67f25b">REArrayd</a> &amp;rhovecL, const <a class="el" href="teqpcpp_8hpp.html#a2e836160c0674880f055080b7c67f25b">REArrayd</a> &amp;rhovecV) const</td></tr>
@@ -2854,8 +2854,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3a535ad21e572d20773e482812b855ef" name="a3a535ad21e572d20773e482812b855ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a535ad21e572d20773e482812b855ef">&#9670;&#160;</a></span>pure_VLE_T()</h2>
+<a id="aa7fcd91d9a54b7e6d3d745be73c64eee" name="aa7fcd91d9a54b7e6d3d745be73c64eee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7fcd91d9a54b7e6d3d745be73c64eee">&#9670;&#160;</a></span>pure_VLE_T()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2882,7 +2882,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>maxiter</em>&#160;</td>
+          <td class="paramname"><em>maxiter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::optional&lt; Eigen::ArrayXd &gt; &amp;&#160;</td>
+          <td class="paramname"><em>molefracs</em> = <code>std::nullopt</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
