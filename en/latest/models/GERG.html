@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>GERG &#8212; teqp 0.18.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=ba2e7b09"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SAFT-VR-Mie" href="SAFT-VR-Mie.html" />
+    <link rel="prev" title="Multfluid mutant" href="multifluid_mutant.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="GERG">
+<h1>GERG<a class="headerlink" href="#GERG" title="Link to this heading">¶</a></h1>
+<p>In the GERG-2004 and GERG-2008 models, the pure fluids are modeled with high-accuracy multiparameter EOS. The model is covered exhaustively in the GERG-2004 monograph: <a class="reference external" href="https://www.gerg.eu/wp-content/uploads/2019/10/TM15.pdf">https://www.gerg.eu/wp-content/uploads/2019/10/TM15.pdf</a> and in the GERG-2008 paper: <a class="reference external" href="https://doi.org/10.1021/je300655b">https://doi.org/10.1021/je300655b</a></p>
+<p>The following components are supported (case-sensitive) in GERG-2004:</p>
+<ul class="simple">
+<li><p>methane</p></li>
+<li><p>nitrogen</p></li>
+<li><p>carbondioxide</p></li>
+<li><p>ethane</p></li>
+<li><p>propane</p></li>
+<li><p>n-butane</p></li>
+<li><p>isobutane</p></li>
+<li><p>n-pentane</p></li>
+<li><p>isopentane</p></li>
+<li><p>n-hexane</p></li>
+<li><p>n-heptane</p></li>
+<li><p>n-octane</p></li>
+<li><p>hydrogen</p></li>
+<li><p>oxygen</p></li>
+<li><p>carbonmonoxide</p></li>
+<li><p>water</p></li>
+<li><p>helium</p></li>
+<li><p>argon</p></li>
+</ul>
+<p>and GERG-2008 adds the components:</p>
+<ul class="simple">
+<li><p>hydrogensulfide</p></li>
+<li><p>n-nonane</p></li>
+<li><p>n-decane</p></li>
+</ul>
+<p>(as well as modifying the pure component EOS for carbon monoxide and isopentane).</p>
+<p>The interaction parameters and departure functions are not editable (by design) and the EOS parameters are hard-coded. No ancillary equations are available along with the GERG-2004 model, but you can use the on-the-fly ancillary generator of teqp.</p>
+<p>The residual portions of these models were added in version 0.18.0, and it is planned to add the ideal-gas portions as well at a later date. The residual portion is enough for many applications like phase equilibria and critical locus tracing.</p>
+<p>The kind is ‘GERG2004resid’ for the GERG-2004 residual model and ‘GERG2008resid’ for the GERG-2008 residual model</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">teqp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">teqp</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.18.0&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span><span class="s1">&#39;kind&#39;</span><span class="p">:</span><span class="s2">&quot;GERG2004resid&quot;</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">:{</span><span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;methane&#39;</span><span class="p">,</span><span class="s1">&#39;ethane&#39;</span><span class="p">]}})</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that names are case-sensitive; this doesn&#39;t work</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span><span class="s1">&#39;kind&#39;</span><span class="p">:</span><span class="s2">&quot;GERG2004resid&quot;</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">:{</span><span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;MeThAnE&#39;</span><span class="p">,</span><span class="s1">&#39;ethane&#39;</span><span class="p">]}})</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[3], line 2</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># Note that names are case-sensitive; this doesn&#39;t work</span>
+<span class="ansi-green-fg">----&gt; 2</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">teqp</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">make_model</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">{</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">kind</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">:</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">GERG2004resid</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">model</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">:</span><span class="ansi-yellow-bg">{</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">names</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">:</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">MeThAnE</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">ethane</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">}</span><span class="ansi-yellow-bg">}</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">/opt/conda/lib/python3.11/site-packages/teqp/__init__.py:47</span>, in <span class="ansi-cyan-fg">make_model</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     42</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">make_model</span>(<span style="color: rgb(98,98,98)">*</span>args, <span style="color: rgb(98,98,98)">*</span><span style="color: rgb(98,98,98)">*</span>kwargs):
+<span class="ansi-green-intense-fg ansi-bold">     43</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     44</span> <span style="color: rgb(175,0,0)">    This function is in two parts; first the make_model function (renamed to _make_model in the Python interface)</span>
+<span class="ansi-green-intense-fg ansi-bold">     45</span> <span style="color: rgb(175,0,0)">    is used to make the model and then the model-specific methods are attached to the instance</span>
+<span class="ansi-green-intense-fg ansi-bold">     46</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">---&gt; 47</span>     AS <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">_make_model</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     48</span>     attach_model_specific_methods(AS)
+<span class="ansi-green-intense-fg ansi-bold">     49</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> AS
+
+<span class="ansi-red-fg">ValueError</span>: Unable to load pure info forMeThAnE
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here we trace the critical locus for methane+ethane</span>
+<span class="n">rhovec0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+<span class="n">ifluid</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">T0</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_Tcvec</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">rhovec0</span><span class="p">[</span><span class="n">ifluid</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">model</span><span class="o">.</span><span class="n">get_vcvec</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">trace</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">trace_critical_arclength_binary</span><span class="p">(</span><span class="n">T0</span><span class="o">=</span><span class="n">T0</span><span class="p">,</span> <span class="n">rhovec0</span><span class="o">=</span><span class="n">rhovec0</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;T / K&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;p / Pa&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$T$ / K&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;$p$ / Pa&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/models_GERG_4_0.png" src="../_images/models_GERG_4_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span><span class="s1">&#39;kind&#39;</span><span class="p">:</span><span class="s2">&quot;GERG2004resid&quot;</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">:{</span><span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;methane&#39;</span><span class="p">]}})</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build an on-the-fly ancillary equation</span>
+<span class="c1"># (not as accurate as the specialized ones, but works acceptably in many cases)</span>
+<span class="n">anc</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">build_ancillaries</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">get_Tcvec</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">rhoc</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">model</span><span class="o">.</span><span class="n">get_vcvec</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Tmin</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="c1"># And then use the dynamic ancillary to calculate VLE at 100 K</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># K</span>
+<span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">pure_VLE_T</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoL</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoV</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span><span class="p">,</span> <span class="s1">&#39;mol/m^3 for liquid and vapor&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(27361.12577999801, 42.046298502526746, &#39;mol/m^3 for liquid and vapor&#39;)
+</pre></div></div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Models</a><ul>
+      <li>Previous: <a href="multifluid_mutant.html" title="previous chapter">Multfluid mutant</a></li>
+      <li>Next: <a href="SAFT-VR-Mie.html" title="next chapter">SAFT-VR-Mie</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/GERG.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/GERG.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

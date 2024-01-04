@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; teqp 0.17.0 documentation</title>
+    <title>Index &#8212; teqp 0.18.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
     <link rel="stylesheet" type="text/css" href="_static/ntd2d.css?v=88d0a8bc" />
-    <script src="_static/documentation_options.js?v=0c3dd48d"></script>
+    <script src="_static/documentation_options.js?v=ba2e7b09"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -104,6 +104,8 @@
 </li>
       <li><a href="api/teqp.html#teqp.teqp.build_alias_map">build_alias_map() (in module teqp.teqp)</a>
 </li>
+      <li><a href="api/teqp.html#teqp.teqp.build_ancillaries">build_ancillaries() (in module teqp.teqp)</a>
+</li>
       <li><a href="api/teqp.html#teqp.build_d2PsirdTdrhoi_autodiff">build_d2PsirdTdrhoi_autodiff() (in module teqp)</a>
 
       <ul>
@@ -152,18 +154,22 @@
 </li>
       <li><a href="api/teqp.html#teqp.canonical_PR">canonical_PR() (in module teqp)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.canonical_SRK">canonical_SRK() (in module teqp)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.teqp.collect_component_json">collect_component_json() (in module teqp.teqp)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.convert_CoolProp_idealgas">convert_CoolProp_idealgas() (in module teqp.teqp)</a>
 </li>
       <li><a href="api/teqp.html#teqp.CPAfactory">CPAfactory() (in module teqp)</a>
 </li>
-      <li><a href="api/teqp.html#teqp.teqp.TVLEOptions.crit_termination">crit_termination (teqp.teqp.TVLEOptions property)</a>
+      <li><a href="api/teqp.html#teqp.teqp.PVLEOptions.crit_termination">crit_termination (teqp.teqp.PVLEOptions property)</a>
+
+      <ul>
+        <li><a href="api/teqp.html#teqp.teqp.TVLEOptions.crit_termination">(teqp.teqp.TVLEOptions property)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -569,12 +575,24 @@
         <li><a href="api/teqp.html#teqp.teqp.VLLETracerOptions.polish">(teqp.teqp.VLLETracerOptions property)</a>
 </li>
       </ul></li>
+      <li><a href="api/teqp.html#teqp.teqp.PVLEOptions.polish_exception_on_fail">polish_exception_on_fail (teqp.teqp.PVLEOptions property)</a>
+
+      <ul>
+        <li><a href="api/teqp.html#teqp.teqp.TCABOptions.polish_exception_on_fail">(teqp.teqp.TCABOptions property)</a>
+</li>
+        <li><a href="api/teqp.html#teqp.teqp.TVLEOptions.polish_exception_on_fail">(teqp.teqp.TVLEOptions property)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/teqp.html#teqp.teqp.TCABOptions.polish_exception_on_fail">polish_exception_on_fail (teqp.teqp.TCABOptions property)</a>
+      <li><a href="api/teqp.html#teqp.teqp.PVLEOptions.polish_reltol_rho">polish_reltol_rho (teqp.teqp.PVLEOptions property)</a>
+
+      <ul>
+        <li><a href="api/teqp.html#teqp.teqp.TCABOptions.polish_reltol_rho">(teqp.teqp.TCABOptions property)</a>
 </li>
-      <li><a href="api/teqp.html#teqp.teqp.TCABOptions.polish_reltol_rho">polish_reltol_rho (teqp.teqp.TCABOptions property)</a>
+        <li><a href="api/teqp.html#teqp.teqp.TVLEOptions.polish_reltol_rho">(teqp.teqp.TVLEOptions property)</a>
 </li>
+      </ul></li>
       <li><a href="api/teqp.html#teqp.teqp.TCABOptions.polish_reltol_T">polish_reltol_T (teqp.teqp.TCABOptions property)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.TCABOptions.pure_endpoint_polish">pure_endpoint_polish (teqp.teqp.TCABOptions property)</a>
@@ -765,14 +783,18 @@
 </li>
       <li><a href="api/teqp.html#teqp.vdWEOS1">vdWEOS1() (in module teqp)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/teqp.html#teqp.teqp.TCABOptions.verbosity">verbosity (teqp.teqp.TCABOptions property)</a>
+      <li><a href="api/teqp.html#teqp.teqp.PVLEOptions.verbosity">verbosity (teqp.teqp.PVLEOptions property)</a>
 
       <ul>
+        <li><a href="api/teqp.html#teqp.teqp.TCABOptions.verbosity">(teqp.teqp.TCABOptions property)</a>
+</li>
+        <li><a href="api/teqp.html#teqp.teqp.TVLEOptions.verbosity">(teqp.teqp.TVLEOptions property)</a>
+</li>
         <li><a href="api/teqp.html#teqp.teqp.VLLETracerOptions.verbosity">(teqp.teqp.VLLETracerOptions property)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.teqp.VLE_return_code">VLE_return_code (class in teqp.teqp)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.VLEAncillary">VLEAncillary (class in teqp.teqp)</a>

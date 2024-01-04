@@ -17,6 +17,7 @@
 {\ttfamily \#include "{}teqp/models/model\+\_\+potentials/2center\+\_\+ljf.\+hpp"{}}\newline
 {\ttfamily \#include "{}teqp/models/mie/lennardjones.\+hpp"{}}\newline
 {\ttfamily \#include "{}teqp/models/mie/mie.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/models/\+GERG/\+GERG.\+hpp"{}}\newline
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,39 +26,39 @@ namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-using \mbox{\hyperlink{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}{teqp\+::vad}} = std\+::valarray$<$ double $>$
+using \mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{teqp\+::vad}} = std\+::valarray$<$double$>$
 \item 
-using \mbox{\hyperlink{namespaceteqp_a297494c9a5a0955b538cd578a5433b87}{teqp\+::vecs}} = std\+::vector$<$ std\+::string $>$
+using \mbox{\hyperlink{namespaceteqp_a28dadf1c0320a0f649ee5652486d4f70}{teqp\+::vecs}} = std\+::vector$<$std\+::string$>$
 \item 
-using \mbox{\hyperlink{namespaceteqp_a8027876ebce650ffd76a9f910ccb0d01}{teqp\+::canonical\+\_\+cubic\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a388557f5b1209cf4a37a2bb3b9a6f9d5}{canonical\+\_\+\+PR}}(\mbox{\hyperlink{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}{vad}}\{\}, \mbox{\hyperlink{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}{vad}}\{\}, \mbox{\hyperlink{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}{vad}}\{\}))
+using \mbox{\hyperlink{namespaceteqp_af0143b3f923665100709c22a285bfd98}{teqp\+::canonical\+\_\+cubic\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a388557f5b1209cf4a37a2bb3b9a6f9d5}{canonical\+\_\+\+PR}}(\mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{vad}}\{\}, \mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{vad}}\{\}, \mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{vad}}\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_a37866267491a962d070ca5570372ca6d}{teqp\+::\+PCSAFT\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_1_1PCSAFT_aa5526ea705fa284efc14bf790640b5a8}{PCSAFT\+::\+PCSAFTfactory}}(nlohmann\+::json\{\}))
+using \mbox{\hyperlink{namespaceteqp_afcf6a51266c52a06dd9dd8386c23fd0a}{teqp\+::\+PCSAFT\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_1_1PCSAFT_aa5526ea705fa284efc14bf790640b5a8}{PCSAFT\+::\+PCSAFTfactory}}(nlohmann\+::json\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_ad7a4e31b3475d16c66dbf9c81f661065}{teqp\+::\+SAFTVRMie\+\_\+t}} = decltype(\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMie\+::\+SAFTVRMie\+Mixture}}(\mbox{\hyperlink{namespaceteqp_a297494c9a5a0955b538cd578a5433b87}{vecs}}\{\}))
+using \mbox{\hyperlink{namespaceteqp_a05c6161efb6a7a27c466278bc8aeecf1}{teqp\+::\+SAFTVRMie\+\_\+t}} = decltype(\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMie\+::\+SAFTVRMie\+Mixture}}(\mbox{\hyperlink{namespaceteqp_a28dadf1c0320a0f649ee5652486d4f70}{vecs}}\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_a23b78ffacd75fbc247a3066c213b08e5}{teqp\+::\+CPA\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_1_1CPA_aac7faad3d0f09b4600630c7ae67d56ea}{CPA\+::\+CPAfactory}}(nlohmann\+::json\{\}))
+using \mbox{\hyperlink{namespaceteqp_abca56121053f4dcf814154a48e1b27c3}{teqp\+::\+CPA\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_1_1CPA_aac7faad3d0f09b4600630c7ae67d56ea}{CPA\+::\+CPAfactory}}(nlohmann\+::json\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_a31cd03d0561637bdcc2d6d6b6c21e5ad}{teqp\+::multifluid\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multifluidfactory}}(nlohmann\+::json\{\}))
+using \mbox{\hyperlink{namespaceteqp_a30015ca07e3a8970b64d24e212431e78}{teqp\+::multifluid\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multifluidfactory}}(nlohmann\+::json\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_aafb595d691a7428e30e88ba4bf17448a}{teqp\+::multifluidmutant\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}{build\+\_\+multifluid\+\_\+mutant}}(\mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multifluidfactory}}(nlohmann\+::json\{\}), nlohmann\+::json\{\}))
+using \mbox{\hyperlink{namespaceteqp_afd2ddf64b68cce28c54119ecf6b0914b}{teqp\+::multifluidmutant\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}{build\+\_\+multifluid\+\_\+mutant}}(\mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multifluidfactory}}(nlohmann\+::json\{\}), nlohmann\+::json\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_a3c32d7676221bd3d9d4e96d34fe498ce}{teqp\+::ammonia\+\_\+water\+\_\+\+Tillner\+Roth\+\_\+t}} = Ammonia\+Water\+Tillner\+Roth
+using \mbox{\hyperlink{namespaceteqp_a4fdce82f5a1b688b43e6bf0fe63718b9}{teqp\+::ammonia\+\_\+water\+\_\+\+Tillner\+Roth\+\_\+t}} = Ammonia\+Water\+Tillner\+Roth
 \item 
-using \mbox{\hyperlink{namespaceteqp_a522fd870052b2f0d4095c56d7ac95fbe}{teqp\+::\+SW\+\_\+\+Espindola\+Heredia2009\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1squarewell_1_1EspindolaHeredia2009}{squarewell\+::\+Espindola\+Heredia2009}}
+using \mbox{\hyperlink{namespaceteqp_aef68ee45f75085569c877c08555bc919}{teqp\+::\+SW\+\_\+\+Espindola\+Heredia2009\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1squarewell_1_1EspindolaHeredia2009}{squarewell\+::\+Espindola\+Heredia2009}}
 \item 
-using \mbox{\hyperlink{namespaceteqp_aed976877c38424ac09a3c5eae2c649fd}{teqp\+::\+EXP6\+\_\+\+Kataoka1992\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992}{exp6\+::\+Kataoka1992}}
+using \mbox{\hyperlink{namespaceteqp_ad95abe1f153d9e7c26d7b194090f0278}{teqp\+::\+EXP6\+\_\+\+Kataoka1992\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992}{exp6\+::\+Kataoka1992}}
 \item 
-using \mbox{\hyperlink{namespaceteqp_ae7a2145324d3ec655519a3f2bdfae140}{teqp\+::vd\+WEOS\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1vdWEOS}{vd\+WEOS}}$<$ double $>$
+using \mbox{\hyperlink{namespaceteqp_a8438428c7c8039390d0bd229e56d8670}{teqp\+::vd\+WEOS\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1vdWEOS}{vd\+WEOS}}$<$double$>$
 \item 
-using \mbox{\hyperlink{namespaceteqp_a38366c13c6b46865500b09193bfc2f4e}{teqp\+::twocenter\+LJF\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_1_1twocenterljf_a741b94ae9616bd833cf30553e67bf369}{twocenterljf\+::build\+\_\+two\+\_\+center\+\_\+model\+\_\+dipole}}(std\+::string\{\}, double\{\}, double\{\}))
+using \mbox{\hyperlink{namespaceteqp_a707a367fe97e2502d09729fdcc9f53fc}{teqp\+::twocenter\+LJF\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_1_1twocenterljf_a741b94ae9616bd833cf30553e67bf369}{twocenterljf\+::build\+\_\+two\+\_\+center\+\_\+model\+\_\+dipole}}(std\+::string\{\}, double\{\}, double\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_a62c6d88e6bd3282628f7589cde83a7e8}{teqp\+::\+LJ126\+Kolafa\+Nezbeda1994\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1LJ126KolafaNezbeda1994}{LJ126\+Kolafa\+Nezbeda1994}}
+using \mbox{\hyperlink{namespaceteqp_ad99a58f5bf948c1191e468377254e2ee}{teqp\+::\+LJ126\+Kolafa\+Nezbeda1994\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1LJ126KolafaNezbeda1994}{LJ126\+Kolafa\+Nezbeda1994}}
 \item 
-using \mbox{\hyperlink{namespaceteqp_aa6a45d4617060fca1e7e7f0785712666}{teqp\+::\+LJ126\+Johnson1993\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1LJ126Johnson1993}{LJ126\+Johnson1993}}
+using \mbox{\hyperlink{namespaceteqp_a70e60319333af23b0807870452390c68}{teqp\+::\+LJ126\+Johnson1993\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1LJ126Johnson1993}{LJ126\+Johnson1993}}
 \item 
-using \mbox{\hyperlink{namespaceteqp_a332e7af2ea4a06129a4192314fe46509}{teqp\+::\+Mie6\+Pohl2023\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023}{Mie\+::\+Mie6\+Pohl2023}}
+using \mbox{\hyperlink{namespaceteqp_ac1d89312aa7604e1207f887cb9d85915}{teqp\+::\+Mie6\+Pohl2023\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023}{Mie\+::\+Mie6\+Pohl2023}}
 \item 
-using \mbox{\hyperlink{namespaceteqp_ab8b77c7f9d7f12f3587c4b7ba020434a}{teqp\+::\+Quantum\+PR\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR}{Quantum\+Corrected\+PR}}
+using \mbox{\hyperlink{namespaceteqp_af20ae9b7642b8f410bad887680dfa601}{teqp\+::\+Quantum\+PR\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR}{Quantum\+Corrected\+PR}}
 \item 
-using \mbox{\hyperlink{namespaceteqp_a7825c7434eaf91f4291932303594c882}{teqp\+::idealgas\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1IdealHelmholtz}{Ideal\+Helmholtz}}
+using \mbox{\hyperlink{namespaceteqp_a1959bb60f21c0547efe48ad193b27619}{teqp\+::idealgas\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1IdealHelmholtz}{Ideal\+Helmholtz}}
 \end{DoxyCompactItemize}

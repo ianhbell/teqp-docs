@@ -19,17 +19,17 @@
    "id": "c0b4e863",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-08T16:28:40.403118Z",
-     "iopub.status.busy": "2023-12-08T16:28:40.402967Z",
-     "iopub.status.idle": "2023-12-08T16:28:40.847294Z",
-     "shell.execute_reply": "2023-12-08T16:28:40.846745Z"
+     "iopub.execute_input": "2024-01-04T22:14:08.664675Z",
+     "iopub.status.busy": "2024-01-04T22:14:08.664518Z",
+     "iopub.status.idle": "2024-01-04T22:14:09.112233Z",
+     "shell.execute_reply": "2024-01-04T22:14:09.111637Z"
     }
    },
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "'0.17.0'"
+       "'0.18.0'"
       ]
      },
      "execution_count": 1,
@@ -83,10 +83,10 @@
    "id": "2674227c",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-08T16:28:40.849929Z",
-     "iopub.status.busy": "2023-12-08T16:28:40.849481Z",
-     "iopub.status.idle": "2023-12-08T16:28:40.856193Z",
-     "shell.execute_reply": "2023-12-08T16:28:40.855771Z"
+     "iopub.execute_input": "2024-01-04T22:14:09.114782Z",
+     "iopub.status.busy": "2024-01-04T22:14:09.114359Z",
+     "iopub.status.idle": "2024-01-04T22:14:09.121240Z",
+     "shell.execute_reply": "2024-01-04T22:14:09.120754Z"
     }
    },
    "outputs": [
@@ -172,10 +172,10 @@
    "id": "b12bd318",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-08T16:28:40.858105Z",
-     "iopub.status.busy": "2023-12-08T16:28:40.857948Z",
-     "iopub.status.idle": "2023-12-08T16:28:40.863469Z",
-     "shell.execute_reply": "2023-12-08T16:28:40.863056Z"
+     "iopub.execute_input": "2024-01-04T22:14:09.123403Z",
+     "iopub.status.busy": "2024-01-04T22:14:09.123107Z",
+     "iopub.status.idle": "2024-01-04T22:14:09.128488Z",
+     "shell.execute_reply": "2024-01-04T22:14:09.127971Z"
     }
    },
    "outputs": [
@@ -257,10 +257,10 @@
    "id": "49dcba2b",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-08T16:28:40.865575Z",
-     "iopub.status.busy": "2023-12-08T16:28:40.865267Z",
-     "iopub.status.idle": "2023-12-08T16:28:40.883941Z",
-     "shell.execute_reply": "2023-12-08T16:28:40.883442Z"
+     "iopub.execute_input": "2024-01-04T22:14:09.130514Z",
+     "iopub.status.busy": "2024-01-04T22:14:09.130224Z",
+     "iopub.status.idle": "2024-01-04T22:14:09.148624Z",
+     "shell.execute_reply": "2024-01-04T22:14:09.148164Z"
     }
    },
    "outputs": [
@@ -398,10 +398,10 @@
    "id": "9aecca78",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-08T16:28:40.885924Z",
-     "iopub.status.busy": "2023-12-08T16:28:40.885612Z",
-     "iopub.status.idle": "2023-12-08T16:28:41.091810Z",
-     "shell.execute_reply": "2023-12-08T16:28:41.091340Z"
+     "iopub.execute_input": "2024-01-04T22:14:09.150406Z",
+     "iopub.status.busy": "2024-01-04T22:14:09.150139Z",
+     "iopub.status.idle": "2024-01-04T22:14:09.356856Z",
+     "shell.execute_reply": "2024-01-04T22:14:09.356288Z"
     }
    },
    "outputs": [
@@ -457,10 +457,10 @@
    "id": "c5b925ad",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-08T16:28:41.093934Z",
-     "iopub.status.busy": "2023-12-08T16:28:41.093767Z",
-     "iopub.status.idle": "2023-12-08T16:28:41.254412Z",
-     "shell.execute_reply": "2023-12-08T16:28:41.253879Z"
+     "iopub.execute_input": "2024-01-04T22:14:09.359288Z",
+     "iopub.status.busy": "2024-01-04T22:14:09.358883Z",
+     "iopub.status.idle": "2024-01-04T22:14:09.493177Z",
+     "shell.execute_reply": "2024-01-04T22:14:09.492650Z"
     }
    },
    "outputs": [
@@ -515,10 +515,10 @@
    "id": "109bc65b",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-08T16:28:41.256747Z",
-     "iopub.status.busy": "2023-12-08T16:28:41.256530Z",
-     "iopub.status.idle": "2023-12-08T16:28:41.388265Z",
-     "shell.execute_reply": "2023-12-08T16:28:41.387787Z"
+     "iopub.execute_input": "2024-01-04T22:14:09.495588Z",
+     "iopub.status.busy": "2024-01-04T22:14:09.495174Z",
+     "iopub.status.idle": "2024-01-04T22:14:09.599595Z",
+     "shell.execute_reply": "2024-01-04T22:14:09.599046Z"
     }
    },
    "outputs": [

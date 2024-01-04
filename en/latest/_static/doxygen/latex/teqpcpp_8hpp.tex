@@ -50,19 +50,19 @@ namespace \mbox{\hyperlink{namespaceteqp_1_1cppinterface}{teqp\+::cppinterface}}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-using \mbox{\hyperlink{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}{EArray2}} = Eigen\+::\+Array$<$ double, 2, 1 $>$
+using \mbox{\hyperlink{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}{EArray2}} = Eigen\+::\+Array$<$double, 2, 1$>$
 \item 
-using \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} = Eigen\+::\+ArrayX$<$ double $>$
+using \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} = Eigen\+::\+ArrayX$<$double$>$
 \item 
-using \mbox{\hyperlink{teqpcpp_8hpp_a33b6664eaa863cb2cde7788fd750ecfb}{EArray33d}} = Eigen\+::\+Array$<$ double, 3, 3 $>$
+using \mbox{\hyperlink{teqpcpp_8hpp_a33b6664eaa863cb2cde7788fd750ecfb}{EArray33d}} = Eigen\+::\+Array$<$double, 3, 3$>$
 \item 
-using \mbox{\hyperlink{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}{REArrayd}} = Eigen\+::\+Ref$<$ const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} $>$
+using \mbox{\hyperlink{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}{REArrayd}} = Eigen\+::\+Ref$<$const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}$>$
 \item 
-using \mbox{\hyperlink{teqpcpp_8hpp_a5b2ba88216611e735d3c59110ffeb1f1}{EMatrixd}} = Eigen\+::\+Array$<$ double, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$
+using \mbox{\hyperlink{teqpcpp_8hpp_a5b2ba88216611e735d3c59110ffeb1f1}{EMatrixd}} = Eigen\+::\+Array$<$double, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic$>$
 \item 
-using \mbox{\hyperlink{teqpcpp_8hpp_afbe5e6d9906a43e1999ef561223d69ca}{REMatrixd}} = Eigen\+::\+Ref$<$ const Eigen\+::\+Array$<$ double, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ $>$
+using \mbox{\hyperlink{teqpcpp_8hpp_a2617f0ebcedd938ac7f4389424798499}{REMatrixd}} = Eigen\+::\+Ref$<$const Eigen\+::\+Array$<$double, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic$>$$>$
 \item 
-using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_af38152c18fd82d7ed79728552ac785fb}{teqp\+::cppinterface\+::\+Model\+Pointer\+Factory\+Function}} = std\+::function$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$(const nlohmann\+::json \&j)$>$
+using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}{teqp\+::cppinterface\+::\+Model\+Pointer\+Factory\+Function}} = std\+::function$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}}$>$(const nlohmann\+::json \&j)$>$
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -75,7 +75,7 @@ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1Abstract
 \item 
 nlohmann\+::json \mbox{\hyperlink{namespaceteqp_1_1cppinterface_af204b0796feb1504c577749f82e496a2}{teqp\+::cppinterface\+::get\+\_\+model\+\_\+schema}} (const std\+::string \&kind)
 \begin{DoxyCompactList}\small\item\em Return the schema for the given model kind. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a99c55e372f03fbc42f067db77bac520a}{teqp\+::cppinterface\+::add\+\_\+model\+\_\+pointer\+\_\+factory\+\_\+function}} (const std\+::string \&key, \mbox{\hyperlink{namespaceteqp_1_1cppinterface_af38152c18fd82d7ed79728552ac785fb}{Model\+Pointer\+Factory\+Function}} \&func)
+void \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a99c55e372f03fbc42f067db77bac520a}{teqp\+::cppinterface\+::add\+\_\+model\+\_\+pointer\+\_\+factory\+\_\+function}} (const std\+::string \&key, \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}{Model\+Pointer\+Factory\+Function}} \&func)
 \begin{DoxyCompactList}\small\item\em This function allows you to inject your own model factory function into the set of factory functions implemented in teqp. This allows you to add your own model at runtime. As an example of how to do this, see src/test\+\_\+runtime\+\_\+model\+\_\+inclusion.\+cpp. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -261,7 +261,7 @@ Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00100}{100}} of file \m
 \index{teqpcpp.hpp@{teqpcpp.hpp}!EArray2@{EArray2}}
 \index{EArray2@{EArray2}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{EArray2}{EArray2}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}{EArray2}} =  Eigen\+::\+Array$<$double, 2, 1$>$}
+{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}{EArray2}} = Eigen\+::\+Array$<$double, 2, 1$>$}
 
 
 
@@ -271,7 +271,7 @@ Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00015}{15}} of file \mb
 \index{teqpcpp.hpp@{teqpcpp.hpp}!EArray33d@{EArray33d}}
 \index{EArray33d@{EArray33d}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{EArray33d}{EArray33d}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_a33b6664eaa863cb2cde7788fd750ecfb}{EArray33d}} =  Eigen\+::\+Array$<$double, 3, 3$>$}
+{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_a33b6664eaa863cb2cde7788fd750ecfb}{EArray33d}} = Eigen\+::\+Array$<$double, 3, 3$>$}
 
 
 
@@ -281,7 +281,7 @@ Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00017}{17}} of file \mb
 \index{teqpcpp.hpp@{teqpcpp.hpp}!EArrayd@{EArrayd}}
 \index{EArrayd@{EArrayd}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{EArrayd}{EArrayd}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} =  Eigen\+::\+ArrayX$<$double$>$}
+{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} = Eigen\+::\+ArrayX$<$double$>$}
 
 
 
@@ -291,7 +291,7 @@ Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00016}{16}} of file \mb
 \index{teqpcpp.hpp@{teqpcpp.hpp}!EMatrixd@{EMatrixd}}
 \index{EMatrixd@{EMatrixd}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{EMatrixd}{EMatrixd}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_a5b2ba88216611e735d3c59110ffeb1f1}{EMatrixd}} =  Eigen\+::\+Array$<$double, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic$>$}
+{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_a5b2ba88216611e735d3c59110ffeb1f1}{EMatrixd}} = Eigen\+::\+Array$<$double, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic$>$}
 
 
 
@@ -301,17 +301,17 @@ Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00019}{19}} of file \mb
 \index{teqpcpp.hpp@{teqpcpp.hpp}!REArrayd@{REArrayd}}
 \index{REArrayd@{REArrayd}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{REArrayd}{REArrayd}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}{REArrayd}} =  Eigen\+::\+Ref$<$const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}$>$}
+{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}{REArrayd}} = Eigen\+::\+Ref$<$const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}$>$}
 
 
 
 Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_afbe5e6d9906a43e1999ef561223d69ca}\label{teqpcpp_8hpp_afbe5e6d9906a43e1999ef561223d69ca} 
+\Hypertarget{teqpcpp_8hpp_a2617f0ebcedd938ac7f4389424798499}\label{teqpcpp_8hpp_a2617f0ebcedd938ac7f4389424798499} 
 \index{teqpcpp.hpp@{teqpcpp.hpp}!REMatrixd@{REMatrixd}}
 \index{REMatrixd@{REMatrixd}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{REMatrixd}{REMatrixd}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_afbe5e6d9906a43e1999ef561223d69ca}{REMatrixd}} =  Eigen\+::\+Ref$<$const Eigen\+::\+Array$<$double, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic$>$ $>$}
+{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_a2617f0ebcedd938ac7f4389424798499}{REMatrixd}} = Eigen\+::\+Ref$<$const Eigen\+::\+Array$<$double, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic$>$$>$}
 
 
 

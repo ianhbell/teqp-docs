@@ -1,15 +1,11 @@
 var searchData=
 [
-  ['l_0',['l',['../classteqp_1_1PowerEOSTerm.html#ac1e4eef73f0a3f848c2eb2beba7221ae',1,'teqp::PowerEOSTerm::l'],['../classteqp_1_1ExponentialEOSTerm.html#a7217ec25eecbf24746d379ea3442482e',1,'teqp::ExponentialEOSTerm::l'],['../classteqp_1_1Lemmon2005EOSTerm.html#ad9d050908871c60b5aaf0d4a574c0ea0',1,'teqp::Lemmon2005EOSTerm::l'],['../classteqp_1_1twocenterljf_1_1Twocenterljf.html#a64361a97a1cf5330183c9ab4e1d0a0bb',1,'teqp::twocenterljf::Twocenterljf::L']]],
-  ['l_5fi_1',['l_i',['../classteqp_1_1PowerEOSTerm.html#a6e425d3ab3be99b083b287ed8bc517cc',1,'teqp::PowerEOSTerm::l_i'],['../classteqp_1_1ExponentialEOSTerm.html#a4d222c615dad2575d48b96fa3faafce9',1,'teqp::ExponentialEOSTerm::l_i'],['../classteqp_1_1Lemmon2005EOSTerm.html#a17475bf69e85ef3fdbdb6d96a202d762',1,'teqp::Lemmon2005EOSTerm::l_i']]],
-  ['lambda_5fa_2',['lambda_a',['../structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs.html#acc1681cf70c08281c3ca03bbe81c9f4b',1,'teqp::SAFTVRMie::SAFTVRMieCoeffs::lambda_a'],['../structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms.html#a3494497fb5d10507eeb716a136e7d745',1,'teqp::SAFTVRMie::SAFTVRMieChainContributionTerms::lambda_a']]],
-  ['lambda_5fa_5fij_3',['lambda_a_ij',['../structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms.html#abc9cafe920cafa75837d5e7b82cc1532',1,'teqp::SAFTVRMie::SAFTVRMieChainContributionTerms']]],
-  ['lambda_5fr_4',['lambda_r',['../structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs.html#a256b6e4978ef30f133768eb23d79480c',1,'teqp::SAFTVRMie::SAFTVRMieCoeffs::lambda_r'],['../structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms.html#a412bc13d14ac47f445dc22da5f649eab',1,'teqp::SAFTVRMie::SAFTVRMieChainContributionTerms::lambda_r']]],
-  ['lambda_5fr_5fij_5',['lambda_r_ij',['../structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms.html#aa5108a733281c7c75214bdf3ef9e2923',1,'teqp::SAFTVRMie::SAFTVRMieChainContributionTerms']]],
-  ['lambdat_6',['lambdaT',['../classteqp_1_1MultiFluidInvariantReducingFunction.html#a056ca42dd67ce64c0b5101724eee248f',1,'teqp::MultiFluidInvariantReducingFunction']]],
-  ['lambdav_7',['lambdaV',['../classteqp_1_1MultiFluidInvariantReducingFunction.html#adc3be2c04efcf1ab2cd2f768af524545',1,'teqp::MultiFluidInvariantReducingFunction']]],
-  ['ld_8',['ld',['../classteqp_1_1DoubleExponentialEOSTerm.html#a521279c45667c2b382b1380f1cfb6755',1,'teqp::DoubleExponentialEOSTerm']]],
-  ['ld_5fi_9',['ld_i',['../classteqp_1_1DoubleExponentialEOSTerm.html#a57c733b1edef4af4a0af339c2ac401b7',1,'teqp::DoubleExponentialEOSTerm']]],
-  ['lmat_10',['lmat',['../classteqp_1_1AdvancedPRaEres.html#a2f32b1edd959cb94813c26b5db4ea4df',1,'teqp::AdvancedPRaEres']]],
-  ['lt_11',['lt',['../classteqp_1_1DoubleExponentialEOSTerm.html#a4b0fc40cbeccd66e9dfe83d47b36bf8d',1,'teqp::DoubleExponentialEOSTerm']]]
+  ['k_0',['k',['../structteqp_1_1VLLE_1_1SelfIntersectionSolution.html#ae92ef902e944ce7a44dc7ad693004d57',1,'teqp::VLLE::SelfIntersectionSolution::k'],['../classteqp_1_1twocenterljf_1_1DipolarContribution.html#af5fe02ce2e607dfb5d7fcc49a0b0a822',1,'teqp::twocenterljf::DipolarContribution::k'],['../classteqp_1_1twocenterljf_1_1QuadrupolarContribution.html#a13376016eb4e2923593432136a9284c9',1,'teqp::twocenterljf::QuadrupolarContribution::k'],['../classteqp_1_1vdWEOS.html#a2b5c84cbbee76d9861efab59a7bf114d',1,'teqp::vdWEOS::k']]],
+  ['k1_1',['k1',['../classteqp_1_1SAFTpolar_1_1GottschalkKIntegral.html#ae246cdeeb40946aa1adfbf15796219ac',1,'teqp::SAFTpolar::GottschalkKIntegral']]],
+  ['k2_2',['k2',['../classteqp_1_1SAFTpolar_1_1GottschalkKIntegral.html#a4455658805e10c3aaa22c23b48059f6c',1,'teqp::SAFTpolar::GottschalkKIntegral']]],
+  ['k_5fb_3',['k_B',['../namespaceteqp_1_1constants.html#af499703efbccb03de34807166cd5ca8f',1,'teqp::constants']]],
+  ['k_5fe_4',['k_e',['../namespaceteqp_1_1constants.html#aa5ab7c283962f62cb4351865b59f34ba',1,'teqp::constants']]],
+  ['kd_5',['kd',['../classteqp_1_1twocenterljf_1_1ParameterContainer.html#a0372de435c4a4185a559d74c5510679e',1,'teqp::twocenterljf::ParameterContainer']]],
+  ['kmat_6',['kmat',['../classteqp_1_1GenericCubic.html#abebafe6d3121b6c7a882f76be1a31163',1,'teqp::GenericCubic::kmat'],['../classteqp_1_1PCSAFT_1_1PCSAFTHardChainContribution.html#ad6406928a989bc0c226adf38aa1b6c4a',1,'teqp::PCSAFT::PCSAFTHardChainContribution::kmat'],['../classteqp_1_1PCSAFT_1_1PCSAFTMixture.html#a1ca839c8f134c5c7e05879d546c34396',1,'teqp::PCSAFT::PCSAFTMixture::kmat'],['../structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms.html#a1dfb96fc987212c7b8e4eff244f2c021',1,'teqp::SAFTVRMie::SAFTVRMieChainContributionTerms::kmat']]],
+  ['kq_7',['kq',['../classteqp_1_1twocenterljf_1_1ParameterContainer.html#ae32efe32f563acc35f57f0b1fcbd0b28',1,'teqp::twocenterljf::ParameterContainer']]]
 ];

@@ -5,17 +5,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>teqp &#8212; teqp 0.17.0 documentation</title>
+    <title>teqp &#8212; teqp 0.18.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
     <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
-    <script src="../_static/documentation_options.js?v=0c3dd48d"></script>
+    <script src="../_static/documentation_options.js?v=ba2e7b09"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="teqp package" href="teqp.html" />
-    <link rel="prev" title="The teqp paper in I&amp;ECR" href="../examples/IECR_examples.html" />
+    <link rel="prev" title="Multi-fluid Parameter Fitting" href="../fitting/MultifluidBIPFitting.html" />
   
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -167,14 +167,18 @@
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions"><code class="docutils literal notranslate"><span class="pre">PVLEOptions</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.abs_err"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.abs_err</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.calc_criticality"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.calc_criticality</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.crit_termination"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.crit_termination</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.init_c"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.init_c</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.init_dt"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.init_dt</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.integration_order"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.integration_order</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.max_dt"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.max_dt</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.max_steps"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.max_steps</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.polish"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.polish</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.polish_exception_on_fail"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.polish_exception_on_fail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.polish_reltol_rho"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.polish_reltol_rho</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.rel_err"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.rel_err</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.terminate_unstable"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.terminate_unstable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.verbosity"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.verbosity</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.SAFTCoeffs"><code class="docutils literal notranslate"><span class="pre">SAFTCoeffs</span></code></a><ul>
@@ -221,8 +225,11 @@
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.max_steps"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.max_steps</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.p_termination"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.p_termination</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.polish"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.polish</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.polish_exception_on_fail"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.polish_exception_on_fail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.polish_reltol_rho"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.polish_reltol_rho</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.rel_err"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.rel_err</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.terminate_unstable"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.terminate_unstable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.verbosity"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.verbosity</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.VLEAncillary"><code class="docutils literal notranslate"><span class="pre">VLEAncillary</span></code></a><ul>
@@ -263,6 +270,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.attach_model_specific_methods"><code class="docutils literal notranslate"><span class="pre">attach_model_specific_methods()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.build_alias_map"><code class="docutils literal notranslate"><span class="pre">build_alias_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.build_ancillaries"><code class="docutils literal notranslate"><span class="pre">build_ancillaries()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.collect_component_json"><code class="docutils literal notranslate"><span class="pre">collect_component_json()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.convert_CoolProp_idealgas"><code class="docutils literal notranslate"><span class="pre">convert_CoolProp_idealgas()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.get_BIPdep"><code class="docutils literal notranslate"><span class="pre">get_BIPdep()</span></code></a></li>
@@ -333,7 +341,7 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../examples/IECR_examples.html" title="previous chapter">The teqp paper in I&amp;ECR</a></li>
+      <li>Previous: <a href="../fitting/MultifluidBIPFitting.html" title="previous chapter">Multi-fluid Parameter Fitting</a></li>
       <li>Next: <a href="teqp.html" title="next chapter">teqp package</a></li>
   </ul></li>
 </ul>

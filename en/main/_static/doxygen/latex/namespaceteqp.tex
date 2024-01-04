@@ -17,6 +17,12 @@ namespace \mbox{\hyperlink{namespaceteqp_1_1ECSHuberEly}{ECSHuber\+Ely}}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1exp6}{exp6}}
 \item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1GERG2004}{GERG2004}}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1GERG2008}{GERG2008}}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1GERGGeneral}{GERGGeneral}}
+\item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1iteration}{iteration}}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1LJChain}{LJChain}}
@@ -201,63 +207,63 @@ struct \mbox{\hyperlink{structteqp_1_1wrt__helper}{wrt\+\_\+helper}}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename Model $>$ }\\using \mbox{\hyperlink{namespaceteqp_abf4178adee8264741ab6d892f09a05a9}{is\+\_\+\+Abstract\+Model}} = typename std\+::is\+\_\+base\+\_\+of$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}}, Model $>$
+{\footnotesize template$<$typename Model $>$ }\\using \mbox{\hyperlink{namespaceteqp_a736696b39677905edd4fcc2484149270}{is\+\_\+\+Abstract\+Model}} = typename std\+::is\+\_\+base\+\_\+of$<$\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}}, Model$>$
 \item 
-{\footnotesize template$<$typename Model $>$ }\\using \mbox{\hyperlink{namespaceteqp_a3c6fcfa03eb6572863697cc040b7d75a}{is\+\_\+not\+\_\+\+Abstract\+Model}} = std\+::negation$<$ \mbox{\hyperlink{namespaceteqp_abf4178adee8264741ab6d892f09a05a9}{is\+\_\+\+Abstract\+Model}}$<$ Model $>$ $>$
+{\footnotesize template$<$typename Model $>$ }\\using \mbox{\hyperlink{namespaceteqp_a1fe0dd15f7b17618158e35c9a0c0a8ef}{is\+\_\+not\+\_\+\+Abstract\+Model}} = std\+::negation$<$\mbox{\hyperlink{namespaceteqp_a736696b39677905edd4fcc2484149270}{is\+\_\+\+Abstract\+Model}}$<$Model$>$$>$
 \item 
-using \mbox{\hyperlink{namespaceteqp_a10145ce83657c36965b09f8aa745378d}{Iteration\+Error}} = \mbox{\hyperlink{classteqp_1_1IterationFailure}{Iteration\+Failure}}
+using \mbox{\hyperlink{namespaceteqp_a683ee1da36b4487424000960a46c9ee9}{Iteration\+Error}} = \mbox{\hyperlink{classteqp_1_1IterationFailure}{Iteration\+Failure}}
 \item 
-using \mbox{\hyperlink{namespaceteqp_aff9f1b2203c1156901f43d9c02c12c22}{Ideal\+Helmholtz\+Terms}} = std\+::variant$<$ \mbox{\hyperlink{classteqp_1_1IdealHelmholtzConstant}{Ideal\+Helmholtz\+Constant}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzLead}{Ideal\+Helmholtz\+Lead}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzLogT}{Ideal\+Helmholtz\+LogT}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzPowerT}{Ideal\+Helmholtz\+PowerT}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzPlanckEinstein}{Ideal\+Helmholtz\+Planck\+Einstein}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzPlanckEinsteinGeneralized}{Ideal\+Helmholtz\+Planck\+Einstein\+Generalized}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzGERG2004Cosh}{Ideal\+Helmholtz\+GERG2004\+Cosh}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzGERG2004Sinh}{Ideal\+Helmholtz\+GERG2004\+Sinh}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzCp0Constant}{Ideal\+Helmholtz\+Cp0\+Constant}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzCp0PowerT}{Ideal\+Helmholtz\+Cp0\+PowerT}} $>$
+using \mbox{\hyperlink{namespaceteqp_a05a0144b16658ef74f023c6ebce4b38a}{Ideal\+Helmholtz\+Terms}}
 \item 
-using \mbox{\hyperlink{namespaceteqp_a330c9d06e0d39b8464bd798700df73b9}{Alpha\+Function\+Options}} = std\+::variant$<$ \mbox{\hyperlink{classteqp_1_1BasicAlphaFunction}{Basic\+Alpha\+Function}}$<$ double $>$, \mbox{\hyperlink{classteqp_1_1TwuAlphaFunction}{Twu\+Alpha\+Function}}$<$ double $>$, \mbox{\hyperlink{classteqp_1_1MathiasCopemanAlphaFunction}{Mathias\+Copeman\+Alpha\+Function}}$<$ double $>$ $>$
+using \mbox{\hyperlink{namespaceteqp_ab4446150debd26377ae2228ac06543b5}{Alpha\+Function\+Options}} = std\+::variant$<$\mbox{\hyperlink{classteqp_1_1BasicAlphaFunction}{Basic\+Alpha\+Function}}$<$double$>$, \mbox{\hyperlink{classteqp_1_1TwuAlphaFunction}{Twu\+Alpha\+Function}}$<$double$>$, \mbox{\hyperlink{classteqp_1_1MathiasCopemanAlphaFunction}{Mathias\+Copeman\+Alpha\+Function}}$<$double$>$$>$
 \item 
-using \mbox{\hyperlink{namespaceteqp_a0465f3a7ab85afff74180a93195e315c}{Residual\+Helmholtz\+Over\+RTVariant}} = std\+::variant$<$ \mbox{\hyperlink{classteqp_1_1NullResidualHelmholtzOverRT}{Null\+Residual\+Helmholtz\+Over\+RT}}$<$ double $>$, \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT}{Wilson\+Residual\+Helmholtz\+Over\+RT}}$<$ double $>$ $>$
+using \mbox{\hyperlink{namespaceteqp_a9c5a1a892880b5bb58042dd88b92a25d}{Residual\+Helmholtz\+Over\+RTVariant}} = std\+::variant$<$\mbox{\hyperlink{classteqp_1_1NullResidualHelmholtzOverRT}{Null\+Residual\+Helmholtz\+Over\+RT}}$<$double$>$, \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT}{Wilson\+Residual\+Helmholtz\+Over\+RT}}$<$double$>$$>$
 \item 
-using \mbox{\hyperlink{namespaceteqp_aca656c22919e9381d89c2dd48c2e8dbc}{advanced\+PRa\+Eres\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a41915e46c6b8bf0af18c40844077e3c2}{make\+\_\+\+Advanced\+PRa\+Eres}}(\{\}))
+using \mbox{\hyperlink{namespaceteqp_a58512e60f8aa046c5dcdc737eb8334ce}{advanced\+PRa\+Eres\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a41915e46c6b8bf0af18c40844077e3c2}{make\+\_\+\+Advanced\+PRa\+Eres}}(\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_aa7b4265fc65e83e7bd3db9fd8f702bf1}{RKPRCismondi2005\+\_\+t}} = decltype(\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005}{RKPRCismondi2005}}(\{\}))
+using \mbox{\hyperlink{namespaceteqp_a93eb799c3c0031c35c8dbc94d788757d}{RKPRCismondi2005\+\_\+t}} = decltype(\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005}{RKPRCismondi2005}}(\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}{vad}} = std\+::valarray$<$ double $>$
+using \mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{vad}} = std\+::valarray$<$double$>$
 \item 
-using \mbox{\hyperlink{namespaceteqp_a297494c9a5a0955b538cd578a5433b87}{vecs}} = std\+::vector$<$ std\+::string $>$
+using \mbox{\hyperlink{namespaceteqp_a28dadf1c0320a0f649ee5652486d4f70}{vecs}} = std\+::vector$<$std\+::string$>$
 \item 
-using \mbox{\hyperlink{namespaceteqp_a8027876ebce650ffd76a9f910ccb0d01}{canonical\+\_\+cubic\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a388557f5b1209cf4a37a2bb3b9a6f9d5}{canonical\+\_\+\+PR}}(\mbox{\hyperlink{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}{vad}}\{\}, \mbox{\hyperlink{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}{vad}}\{\}, \mbox{\hyperlink{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}{vad}}\{\}))
+using \mbox{\hyperlink{namespaceteqp_af0143b3f923665100709c22a285bfd98}{canonical\+\_\+cubic\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a388557f5b1209cf4a37a2bb3b9a6f9d5}{canonical\+\_\+\+PR}}(\mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{vad}}\{\}, \mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{vad}}\{\}, \mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{vad}}\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_a37866267491a962d070ca5570372ca6d}{PCSAFT\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_1_1PCSAFT_aa5526ea705fa284efc14bf790640b5a8}{PCSAFT\+::\+PCSAFTfactory}}(nlohmann\+::json\{\}))
+using \mbox{\hyperlink{namespaceteqp_afcf6a51266c52a06dd9dd8386c23fd0a}{PCSAFT\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_1_1PCSAFT_aa5526ea705fa284efc14bf790640b5a8}{PCSAFT\+::\+PCSAFTfactory}}(nlohmann\+::json\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_ad7a4e31b3475d16c66dbf9c81f661065}{SAFTVRMie\+\_\+t}} = decltype(\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMie\+::\+SAFTVRMie\+Mixture}}(\mbox{\hyperlink{namespaceteqp_a297494c9a5a0955b538cd578a5433b87}{vecs}}\{\}))
+using \mbox{\hyperlink{namespaceteqp_a05c6161efb6a7a27c466278bc8aeecf1}{SAFTVRMie\+\_\+t}} = decltype(\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMie\+::\+SAFTVRMie\+Mixture}}(\mbox{\hyperlink{namespaceteqp_a28dadf1c0320a0f649ee5652486d4f70}{vecs}}\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_a23b78ffacd75fbc247a3066c213b08e5}{CPA\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_1_1CPA_aac7faad3d0f09b4600630c7ae67d56ea}{CPA\+::\+CPAfactory}}(nlohmann\+::json\{\}))
+using \mbox{\hyperlink{namespaceteqp_abca56121053f4dcf814154a48e1b27c3}{CPA\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_1_1CPA_aac7faad3d0f09b4600630c7ae67d56ea}{CPA\+::\+CPAfactory}}(nlohmann\+::json\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_a31cd03d0561637bdcc2d6d6b6c21e5ad}{multifluid\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multifluidfactory}}(nlohmann\+::json\{\}))
+using \mbox{\hyperlink{namespaceteqp_a30015ca07e3a8970b64d24e212431e78}{multifluid\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multifluidfactory}}(nlohmann\+::json\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_aafb595d691a7428e30e88ba4bf17448a}{multifluidmutant\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}{build\+\_\+multifluid\+\_\+mutant}}(\mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multifluidfactory}}(nlohmann\+::json\{\}), nlohmann\+::json\{\}))
+using \mbox{\hyperlink{namespaceteqp_afd2ddf64b68cce28c54119ecf6b0914b}{multifluidmutant\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}{build\+\_\+multifluid\+\_\+mutant}}(\mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multifluidfactory}}(nlohmann\+::json\{\}), nlohmann\+::json\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_a3c32d7676221bd3d9d4e96d34fe498ce}{ammonia\+\_\+water\+\_\+\+Tillner\+Roth\+\_\+t}} = Ammonia\+Water\+Tillner\+Roth
+using \mbox{\hyperlink{namespaceteqp_a4fdce82f5a1b688b43e6bf0fe63718b9}{ammonia\+\_\+water\+\_\+\+Tillner\+Roth\+\_\+t}} = Ammonia\+Water\+Tillner\+Roth
 \item 
-using \mbox{\hyperlink{namespaceteqp_a522fd870052b2f0d4095c56d7ac95fbe}{SW\+\_\+\+Espindola\+Heredia2009\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1squarewell_1_1EspindolaHeredia2009}{squarewell\+::\+Espindola\+Heredia2009}}
+using \mbox{\hyperlink{namespaceteqp_aef68ee45f75085569c877c08555bc919}{SW\+\_\+\+Espindola\+Heredia2009\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1squarewell_1_1EspindolaHeredia2009}{squarewell\+::\+Espindola\+Heredia2009}}
 \item 
-using \mbox{\hyperlink{namespaceteqp_aed976877c38424ac09a3c5eae2c649fd}{EXP6\+\_\+\+Kataoka1992\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992}{exp6\+::\+Kataoka1992}}
+using \mbox{\hyperlink{namespaceteqp_ad95abe1f153d9e7c26d7b194090f0278}{EXP6\+\_\+\+Kataoka1992\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992}{exp6\+::\+Kataoka1992}}
 \item 
-using \mbox{\hyperlink{namespaceteqp_ae7a2145324d3ec655519a3f2bdfae140}{vd\+WEOS\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1vdWEOS}{vd\+WEOS}}$<$ double $>$
+using \mbox{\hyperlink{namespaceteqp_a8438428c7c8039390d0bd229e56d8670}{vd\+WEOS\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1vdWEOS}{vd\+WEOS}}$<$double$>$
 \item 
-using \mbox{\hyperlink{namespaceteqp_a38366c13c6b46865500b09193bfc2f4e}{twocenter\+LJF\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_1_1twocenterljf_a741b94ae9616bd833cf30553e67bf369}{twocenterljf\+::build\+\_\+two\+\_\+center\+\_\+model\+\_\+dipole}}(std\+::string\{\}, double\{\}, double\{\}))
+using \mbox{\hyperlink{namespaceteqp_a707a367fe97e2502d09729fdcc9f53fc}{twocenter\+LJF\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_1_1twocenterljf_a741b94ae9616bd833cf30553e67bf369}{twocenterljf\+::build\+\_\+two\+\_\+center\+\_\+model\+\_\+dipole}}(std\+::string\{\}, double\{\}, double\{\}))
 \item 
-using \mbox{\hyperlink{namespaceteqp_a62c6d88e6bd3282628f7589cde83a7e8}{LJ126\+Kolafa\+Nezbeda1994\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1LJ126KolafaNezbeda1994}{LJ126\+Kolafa\+Nezbeda1994}}
+using \mbox{\hyperlink{namespaceteqp_ad99a58f5bf948c1191e468377254e2ee}{LJ126\+Kolafa\+Nezbeda1994\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1LJ126KolafaNezbeda1994}{LJ126\+Kolafa\+Nezbeda1994}}
 \item 
-using \mbox{\hyperlink{namespaceteqp_aa6a45d4617060fca1e7e7f0785712666}{LJ126\+Johnson1993\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1LJ126Johnson1993}{LJ126\+Johnson1993}}
+using \mbox{\hyperlink{namespaceteqp_a70e60319333af23b0807870452390c68}{LJ126\+Johnson1993\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1LJ126Johnson1993}{LJ126\+Johnson1993}}
 \item 
-using \mbox{\hyperlink{namespaceteqp_a332e7af2ea4a06129a4192314fe46509}{Mie6\+Pohl2023\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023}{Mie\+::\+Mie6\+Pohl2023}}
+using \mbox{\hyperlink{namespaceteqp_ac1d89312aa7604e1207f887cb9d85915}{Mie6\+Pohl2023\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023}{Mie\+::\+Mie6\+Pohl2023}}
 \item 
-using \mbox{\hyperlink{namespaceteqp_ab8b77c7f9d7f12f3587c4b7ba020434a}{Quantum\+PR\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR}{Quantum\+Corrected\+PR}}
+using \mbox{\hyperlink{namespaceteqp_af20ae9b7642b8f410bad887680dfa601}{Quantum\+PR\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR}{Quantum\+Corrected\+PR}}
 \item 
-using \mbox{\hyperlink{namespaceteqp_a7825c7434eaf91f4291932303594c882}{idealgas\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1IdealHelmholtz}{Ideal\+Helmholtz}}
+using \mbox{\hyperlink{namespaceteqp_a1959bb60f21c0547efe48ad193b27619}{idealgas\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1IdealHelmholtz}{Ideal\+Helmholtz}}
 \item 
-using \mbox{\hyperlink{namespaceteqp_a0ac5566ba3d16f124735fb13f0e91c11}{EOSTerms}} = \mbox{\hyperlink{classteqp_1_1EOSTermContainer}{EOSTerm\+Container}}$<$ \mbox{\hyperlink{classteqp_1_1JustPowerEOSTerm}{Just\+Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1PowerEOSTerm}{Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaussianEOSTerm}{Gaussian\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1NonAnalyticEOSTerm}{Non\+Analytic\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1Lemmon2005EOSTerm}{Lemmon2005\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaoBEOSTerm}{Gao\+BEOSTerm}}, \mbox{\hyperlink{classteqp_1_1ExponentialEOSTerm}{Exponential\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1DoubleExponentialEOSTerm}{Double\+Exponential\+EOSTerm}} $>$
+using \mbox{\hyperlink{namespaceteqp_a938309ff9743af397eb5c97bbacee8c0}{EOSTerms}} = \mbox{\hyperlink{classteqp_1_1EOSTermContainer}{EOSTerm\+Container}}$<$\mbox{\hyperlink{classteqp_1_1JustPowerEOSTerm}{Just\+Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1PowerEOSTerm}{Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaussianEOSTerm}{Gaussian\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1NonAnalyticEOSTerm}{Non\+Analytic\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1Lemmon2005EOSTerm}{Lemmon2005\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaoBEOSTerm}{Gao\+BEOSTerm}}, \mbox{\hyperlink{classteqp_1_1ExponentialEOSTerm}{Exponential\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1DoubleExponentialEOSTerm}{Double\+Exponential\+EOSTerm}}$>$
 \item 
-using \mbox{\hyperlink{namespaceteqp_a3457986094019eccb5242d3845925aca}{Departure\+Terms}} = \mbox{\hyperlink{classteqp_1_1EOSTermContainer}{EOSTerm\+Container}}$<$ \mbox{\hyperlink{classteqp_1_1JustPowerEOSTerm}{Just\+Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1PowerEOSTerm}{Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaussianEOSTerm}{Gaussian\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GERG2004EOSTerm}{GERG2004\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1NullEOSTerm}{Null\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1DoubleExponentialEOSTerm}{Double\+Exponential\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1Chebyshev2DEOSTerm}{Chebyshev2\+DEOSTerm}} $>$
+using \mbox{\hyperlink{namespaceteqp_a77d3d89dc9371516d36e225ae15f7626}{Departure\+Terms}} = \mbox{\hyperlink{classteqp_1_1EOSTermContainer}{EOSTerm\+Container}}$<$\mbox{\hyperlink{classteqp_1_1JustPowerEOSTerm}{Just\+Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1PowerEOSTerm}{Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaussianEOSTerm}{Gaussian\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GERG2004EOSTerm}{GERG2004\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1NullEOSTerm}{Null\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1DoubleExponentialEOSTerm}{Double\+Exponential\+EOSTerm}},\mbox{\hyperlink{classteqp_1_1Chebyshev2DEOSTerm}{Chebyshev2\+DEOSTerm}}$>$
 \item 
-using \mbox{\hyperlink{namespaceteqp_af507b2d1ed6ef92181c6baec26db1a18}{Reducing\+Functions}} = \mbox{\hyperlink{classteqp_1_1ReducingTermContainer}{Reducing\+Term\+Container}}$<$ \mbox{\hyperlink{classteqp_1_1MultiFluidReducingFunction}{Multi\+Fluid\+Reducing\+Function}}, \mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction}{Multi\+Fluid\+Invariant\+Reducing\+Function}} $>$
+using \mbox{\hyperlink{namespaceteqp_acbf67c7fb462e29705f3a9e0f1e6f85a}{Reducing\+Functions}} = \mbox{\hyperlink{classteqp_1_1ReducingTermContainer}{Reducing\+Term\+Container}}$<$\mbox{\hyperlink{classteqp_1_1MultiFluidReducingFunction}{Multi\+Fluid\+Reducing\+Function}}, \mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction}{Multi\+Fluid\+Invariant\+Reducing\+Function}}$>$
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
@@ -382,6 +388,8 @@ auto \mbox{\hyperlink{namespaceteqp_ad4771b0bb9c922bc937e72f81b4431df}{multileve
 \item 
 {\footnotesize template$<$int Nderiv, int Norder, typename Function , typename Scalar $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a12e535a8d5233799f0230d606e3e036e}{centered\+\_\+diff}} (const Function \&f, const Scalar x, const Scalar h)
 \item 
+{\footnotesize template$<$typename Function , typename Scalarx , typename Scalary $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a952b700001b4c0097e2f381122d7a323}{centered\+\_\+diff\+\_\+xy}} (const Function \&f, const Scalarx x, const Scalary y, const Scalarx dx, const Scalary dy)
+\item 
 {\footnotesize template$<$typename A $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a01b1fe27193906c0f3159b7ee15e2262}{POW2}} (const A \&x)
 \item 
 {\footnotesize template$<$typename A $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a6a4ffed646587349cad3579d28b07d48}{POW3}} (const A \&x)
@@ -482,16 +490,6 @@ auto \mbox{\hyperlink{namespaceteqp_a0387f578fa55e79f0da380ebd38b22e9}{build\+\_
 
 
 \doxysubsection{Detailed Description}
-Routines for finite differentiation, useful for testing derivatives obtained by other methods
-
-From\+: Bengt Fornberg, 1988, "{}\+Coefficients from Generation of Finite Difference Formulas on Arbitrarily Spaced Grids"{}, MATHEMATICS OF COMPUTATION, v. 51, n. 184, pp. 699-\/706
-
-Higher derivatives should always be done in extended precision mathematics!
-
-Warning\+: these routines may give entirely erroneous results for double precision arithmetic, especially the higher derivatives
-
-Warning\+: these routines are optimized for accuracy, not for speed or memory use
-
 Type-\/agnostic methods for carrying out fixed quadrature with definite integrals
 
 The name of this file is currently a bit of a misnomer while we think about whether it is possible to forward-\/declare the models
@@ -503,297 +501,313 @@ This header contains methods that pertain to polar contributions to SAFT models
 Initially the contribution of Gross and Vrabec were implemented for PC-\/\+SAFT, but they can be used with other non-\/polar base models as well, so this header collects all the things in one place 
 
 \doxysubsection{Typedef Documentation}
-\Hypertarget{namespaceteqp_aca656c22919e9381d89c2dd48c2e8dbc}\label{namespaceteqp_aca656c22919e9381d89c2dd48c2e8dbc} 
+\Hypertarget{namespaceteqp_a58512e60f8aa046c5dcdc737eb8334ce}\label{namespaceteqp_a58512e60f8aa046c5dcdc737eb8334ce} 
 \index{teqp@{teqp}!advancedPRaEres\_t@{advancedPRaEres\_t}}
 \index{advancedPRaEres\_t@{advancedPRaEres\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{advancedPRaEres\_t}{advancedPRaEres\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_aca656c22919e9381d89c2dd48c2e8dbc}{teqp\+::advanced\+PRa\+Eres\+\_\+t}} = typedef decltype(\mbox{\hyperlink{namespaceteqp_a41915e46c6b8bf0af18c40844077e3c2}{make\+\_\+\+Advanced\+PRa\+Eres}}(\{\}))}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a58512e60f8aa046c5dcdc737eb8334ce}{teqp\+::advanced\+PRa\+Eres\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a41915e46c6b8bf0af18c40844077e3c2}{make\+\_\+\+Advanced\+PRa\+Eres}}(\{\}))}
 
 
 
 Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00758}{758}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{namespaceteqp_a330c9d06e0d39b8464bd798700df73b9}\label{namespaceteqp_a330c9d06e0d39b8464bd798700df73b9} 
+\Hypertarget{namespaceteqp_ab4446150debd26377ae2228ac06543b5}\label{namespaceteqp_ab4446150debd26377ae2228ac06543b5} 
 \index{teqp@{teqp}!AlphaFunctionOptions@{AlphaFunctionOptions}}
 \index{AlphaFunctionOptions@{AlphaFunctionOptions}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{AlphaFunctionOptions}{AlphaFunctionOptions}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a330c9d06e0d39b8464bd798700df73b9}{teqp\+::\+Alpha\+Function\+Options}} = typedef std\+::variant$<$\mbox{\hyperlink{classteqp_1_1BasicAlphaFunction}{Basic\+Alpha\+Function}}$<$double$>$, \mbox{\hyperlink{classteqp_1_1TwuAlphaFunction}{Twu\+Alpha\+Function}}$<$double$>$, \mbox{\hyperlink{classteqp_1_1MathiasCopemanAlphaFunction}{Mathias\+Copeman\+Alpha\+Function}}$<$double$>$ $>$}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_ab4446150debd26377ae2228ac06543b5}{teqp\+::\+Alpha\+Function\+Options}} = std\+::variant$<$\mbox{\hyperlink{classteqp_1_1BasicAlphaFunction}{Basic\+Alpha\+Function}}$<$double$>$, \mbox{\hyperlink{classteqp_1_1TwuAlphaFunction}{Twu\+Alpha\+Function}}$<$double$>$, \mbox{\hyperlink{classteqp_1_1MathiasCopemanAlphaFunction}{Mathias\+Copeman\+Alpha\+Function}}$<$double$>$$>$}
 
 
 
 Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00095}{95}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{namespaceteqp_a3c32d7676221bd3d9d4e96d34fe498ce}\label{namespaceteqp_a3c32d7676221bd3d9d4e96d34fe498ce} 
+\Hypertarget{namespaceteqp_a4fdce82f5a1b688b43e6bf0fe63718b9}\label{namespaceteqp_a4fdce82f5a1b688b43e6bf0fe63718b9} 
 \index{teqp@{teqp}!ammonia\_water\_TillnerRoth\_t@{ammonia\_water\_TillnerRoth\_t}}
 \index{ammonia\_water\_TillnerRoth\_t@{ammonia\_water\_TillnerRoth\_t}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{ammonia\_water\_TillnerRoth\_t}{ammonia\_water\_TillnerRoth\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a3c32d7676221bd3d9d4e96d34fe498ce}{teqp\+::ammonia\+\_\+water\+\_\+\+Tillner\+Roth\+\_\+t}} = typedef Ammonia\+Water\+Tillner\+Roth}
-
-
-
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
-
-\Hypertarget{namespaceteqp_a8027876ebce650ffd76a9f910ccb0d01}\label{namespaceteqp_a8027876ebce650ffd76a9f910ccb0d01} 
-\index{teqp@{teqp}!canonical\_cubic\_t@{canonical\_cubic\_t}}
-\index{canonical\_cubic\_t@{canonical\_cubic\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{canonical\_cubic\_t}{canonical\_cubic\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a8027876ebce650ffd76a9f910ccb0d01}{teqp\+::canonical\+\_\+cubic\+\_\+t}} = typedef decltype(\mbox{\hyperlink{namespaceteqp_a388557f5b1209cf4a37a2bb3b9a6f9d5}{canonical\+\_\+\+PR}}(\mbox{\hyperlink{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}{vad}}\{\}, \mbox{\hyperlink{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}{vad}}\{\}, \mbox{\hyperlink{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}{vad}}\{\}))}
-
-
-
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
-
-\Hypertarget{namespaceteqp_a23b78ffacd75fbc247a3066c213b08e5}\label{namespaceteqp_a23b78ffacd75fbc247a3066c213b08e5} 
-\index{teqp@{teqp}!CPA\_t@{CPA\_t}}
-\index{CPA\_t@{CPA\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{CPA\_t}{CPA\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a23b78ffacd75fbc247a3066c213b08e5}{teqp\+::\+CPA\+\_\+t}} = typedef decltype(\mbox{\hyperlink{namespaceteqp_1_1CPA_aac7faad3d0f09b4600630c7ae67d56ea}{CPA\+::\+CPAfactory}}(nlohmann\+::json\{\}))}
-
-
-
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
-
-\Hypertarget{namespaceteqp_a3457986094019eccb5242d3845925aca}\label{namespaceteqp_a3457986094019eccb5242d3845925aca} 
-\index{teqp@{teqp}!DepartureTerms@{DepartureTerms}}
-\index{DepartureTerms@{DepartureTerms}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{DepartureTerms}{DepartureTerms}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a3457986094019eccb5242d3845925aca}{teqp\+::\+Departure\+Terms}} = typedef \mbox{\hyperlink{classteqp_1_1EOSTermContainer}{EOSTerm\+Container}}$<$\mbox{\hyperlink{classteqp_1_1JustPowerEOSTerm}{Just\+Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1PowerEOSTerm}{Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaussianEOSTerm}{Gaussian\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GERG2004EOSTerm}{GERG2004\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1NullEOSTerm}{Null\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1DoubleExponentialEOSTerm}{Double\+Exponential\+EOSTerm}},\mbox{\hyperlink{classteqp_1_1Chebyshev2DEOSTerm}{Chebyshev2\+DEOSTerm}}$>$}
-
-
-
-Definition at line \mbox{\hyperlink{multifluid__eosterms_8hpp_source_l00372}{372}} of file \mbox{\hyperlink{multifluid__eosterms_8hpp_source}{multifluid\+\_\+eosterms.\+hpp}}.
-
-\Hypertarget{namespaceteqp_a0ac5566ba3d16f124735fb13f0e91c11}\label{namespaceteqp_a0ac5566ba3d16f124735fb13f0e91c11} 
-\index{teqp@{teqp}!EOSTerms@{EOSTerms}}
-\index{EOSTerms@{EOSTerms}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{EOSTerms}{EOSTerms}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a0ac5566ba3d16f124735fb13f0e91c11}{teqp\+::\+EOSTerms}} = typedef \mbox{\hyperlink{classteqp_1_1EOSTermContainer}{EOSTerm\+Container}}$<$\mbox{\hyperlink{classteqp_1_1JustPowerEOSTerm}{Just\+Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1PowerEOSTerm}{Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaussianEOSTerm}{Gaussian\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1NonAnalyticEOSTerm}{Non\+Analytic\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1Lemmon2005EOSTerm}{Lemmon2005\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaoBEOSTerm}{Gao\+BEOSTerm}}, \mbox{\hyperlink{classteqp_1_1ExponentialEOSTerm}{Exponential\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1DoubleExponentialEOSTerm}{Double\+Exponential\+EOSTerm}}$>$}
-
-
-
-Definition at line \mbox{\hyperlink{multifluid__eosterms_8hpp_source_l00370}{370}} of file \mbox{\hyperlink{multifluid__eosterms_8hpp_source}{multifluid\+\_\+eosterms.\+hpp}}.
-
-\Hypertarget{namespaceteqp_aed976877c38424ac09a3c5eae2c649fd}\label{namespaceteqp_aed976877c38424ac09a3c5eae2c649fd} 
-\index{teqp@{teqp}!EXP6\_Kataoka1992\_t@{EXP6\_Kataoka1992\_t}}
-\index{EXP6\_Kataoka1992\_t@{EXP6\_Kataoka1992\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{EXP6\_Kataoka1992\_t}{EXP6\_Kataoka1992\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_aed976877c38424ac09a3c5eae2c649fd}{teqp\+::\+EXP6\+\_\+\+Kataoka1992\+\_\+t}} = typedef \mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992}{exp6\+::\+Kataoka1992}}}
-
-
-
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
-
-\Hypertarget{namespaceteqp_a7825c7434eaf91f4291932303594c882}\label{namespaceteqp_a7825c7434eaf91f4291932303594c882} 
-\index{teqp@{teqp}!idealgas\_t@{idealgas\_t}}
-\index{idealgas\_t@{idealgas\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{idealgas\_t}{idealgas\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a7825c7434eaf91f4291932303594c882}{teqp\+::idealgas\+\_\+t}} = typedef \mbox{\hyperlink{classteqp_1_1IdealHelmholtz}{Ideal\+Helmholtz}}}
-
-
-
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
-
-\Hypertarget{namespaceteqp_aff9f1b2203c1156901f43d9c02c12c22}\label{namespaceteqp_aff9f1b2203c1156901f43d9c02c12c22} 
-\index{teqp@{teqp}!IdealHelmholtzTerms@{IdealHelmholtzTerms}}
-\index{IdealHelmholtzTerms@{IdealHelmholtzTerms}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{IdealHelmholtzTerms}{IdealHelmholtzTerms}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_aff9f1b2203c1156901f43d9c02c12c22}{teqp\+::\+Ideal\+Helmholtz\+Terms}} = typedef std\+::variant $<$ \mbox{\hyperlink{classteqp_1_1IdealHelmholtzConstant}{Ideal\+Helmholtz\+Constant}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzLead}{Ideal\+Helmholtz\+Lead}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzLogT}{Ideal\+Helmholtz\+LogT}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzPowerT}{Ideal\+Helmholtz\+PowerT}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzPlanckEinstein}{Ideal\+Helmholtz\+Planck\+Einstein}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzPlanckEinsteinGeneralized}{Ideal\+Helmholtz\+Planck\+Einstein\+Generalized}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzGERG2004Cosh}{Ideal\+Helmholtz\+GERG2004\+Cosh}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzGERG2004Sinh}{Ideal\+Helmholtz\+GERG2004\+Sinh}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzCp0Constant}{Ideal\+Helmholtz\+Cp0\+Constant}}, \mbox{\hyperlink{classteqp_1_1IdealHelmholtzCp0PowerT}{Ideal\+Helmholtz\+Cp0\+PowerT}} $>$}
-
-
-
-Definition at line \mbox{\hyperlink{ideal__eosterms_8hpp_source_l00228}{228}} of file \mbox{\hyperlink{ideal__eosterms_8hpp_source}{ideal\+\_\+eosterms.\+hpp}}.
-
-\Hypertarget{namespaceteqp_abf4178adee8264741ab6d892f09a05a9}\label{namespaceteqp_abf4178adee8264741ab6d892f09a05a9} 
-\index{teqp@{teqp}!is\_AbstractModel@{is\_AbstractModel}}
-\index{is\_AbstractModel@{is\_AbstractModel}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{is\_AbstractModel}{is\_AbstractModel}}
-{\footnotesize\ttfamily template$<$typename Model $>$ \\
-using \mbox{\hyperlink{namespaceteqp_abf4178adee8264741ab6d892f09a05a9}{teqp\+::is\+\_\+\+Abstract\+Model}} = typedef typename std\+::is\+\_\+base\+\_\+of$<$\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}}, Model$>$}
-
-
-
-Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
-
-\Hypertarget{namespaceteqp_a3c6fcfa03eb6572863697cc040b7d75a}\label{namespaceteqp_a3c6fcfa03eb6572863697cc040b7d75a} 
-\index{teqp@{teqp}!is\_not\_AbstractModel@{is\_not\_AbstractModel}}
-\index{is\_not\_AbstractModel@{is\_not\_AbstractModel}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{is\_not\_AbstractModel}{is\_not\_AbstractModel}}
-{\footnotesize\ttfamily template$<$typename Model $>$ \\
-using \mbox{\hyperlink{namespaceteqp_a3c6fcfa03eb6572863697cc040b7d75a}{teqp\+::is\+\_\+not\+\_\+\+Abstract\+Model}} = typedef std\+::negation$<$\mbox{\hyperlink{namespaceteqp_abf4178adee8264741ab6d892f09a05a9}{is\+\_\+\+Abstract\+Model}}$<$Model$>$ $>$}
-
-
-
-Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
-
-\Hypertarget{namespaceteqp_a10145ce83657c36965b09f8aa745378d}\label{namespaceteqp_a10145ce83657c36965b09f8aa745378d} 
-\index{teqp@{teqp}!IterationError@{IterationError}}
-\index{IterationError@{IterationError}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{IterationError}{IterationError}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a10145ce83657c36965b09f8aa745378d}{teqp\+::\+Iteration\+Error}} = typedef \mbox{\hyperlink{classteqp_1_1IterationFailure}{Iteration\+Failure}}}
-
-
-
-Definition at line \mbox{\hyperlink{exceptions_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{exceptions_8hpp_source}{exceptions.\+hpp}}.
-
-\Hypertarget{namespaceteqp_aa6a45d4617060fca1e7e7f0785712666}\label{namespaceteqp_aa6a45d4617060fca1e7e7f0785712666} 
-\index{teqp@{teqp}!LJ126Johnson1993\_t@{LJ126Johnson1993\_t}}
-\index{LJ126Johnson1993\_t@{LJ126Johnson1993\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{LJ126Johnson1993\_t}{LJ126Johnson1993\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_aa6a45d4617060fca1e7e7f0785712666}{teqp\+::\+LJ126\+Johnson1993\+\_\+t}} = typedef \mbox{\hyperlink{classteqp_1_1LJ126Johnson1993}{LJ126\+Johnson1993}}}
-
-
-
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
-
-\Hypertarget{namespaceteqp_a62c6d88e6bd3282628f7589cde83a7e8}\label{namespaceteqp_a62c6d88e6bd3282628f7589cde83a7e8} 
-\index{teqp@{teqp}!LJ126KolafaNezbeda1994\_t@{LJ126KolafaNezbeda1994\_t}}
-\index{LJ126KolafaNezbeda1994\_t@{LJ126KolafaNezbeda1994\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{LJ126KolafaNezbeda1994\_t}{LJ126KolafaNezbeda1994\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a62c6d88e6bd3282628f7589cde83a7e8}{teqp\+::\+LJ126\+Kolafa\+Nezbeda1994\+\_\+t}} = typedef \mbox{\hyperlink{classteqp_1_1LJ126KolafaNezbeda1994}{LJ126\+Kolafa\+Nezbeda1994}}}
-
-
-
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
-
-\Hypertarget{namespaceteqp_a332e7af2ea4a06129a4192314fe46509}\label{namespaceteqp_a332e7af2ea4a06129a4192314fe46509} 
-\index{teqp@{teqp}!Mie6Pohl2023\_t@{Mie6Pohl2023\_t}}
-\index{Mie6Pohl2023\_t@{Mie6Pohl2023\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{Mie6Pohl2023\_t}{Mie6Pohl2023\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a332e7af2ea4a06129a4192314fe46509}{teqp\+::\+Mie6\+Pohl2023\+\_\+t}} = typedef \mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023}{Mie\+::\+Mie6\+Pohl2023}}}
-
-
-
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
-
-\Hypertarget{namespaceteqp_a31cd03d0561637bdcc2d6d6b6c21e5ad}\label{namespaceteqp_a31cd03d0561637bdcc2d6d6b6c21e5ad} 
-\index{teqp@{teqp}!multifluid\_t@{multifluid\_t}}
-\index{multifluid\_t@{multifluid\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{multifluid\_t}{multifluid\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a31cd03d0561637bdcc2d6d6b6c21e5ad}{teqp\+::multifluid\+\_\+t}} = typedef decltype(\mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multifluidfactory}}(nlohmann\+::json\{\}))}
-
-
-
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
-
-\Hypertarget{namespaceteqp_aafb595d691a7428e30e88ba4bf17448a}\label{namespaceteqp_aafb595d691a7428e30e88ba4bf17448a} 
-\index{teqp@{teqp}!multifluidmutant\_t@{multifluidmutant\_t}}
-\index{multifluidmutant\_t@{multifluidmutant\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{multifluidmutant\_t}{multifluidmutant\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_aafb595d691a7428e30e88ba4bf17448a}{teqp\+::multifluidmutant\+\_\+t}} = typedef decltype(\mbox{\hyperlink{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}{build\+\_\+multifluid\+\_\+mutant}}(\mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multifluidfactory}}(nlohmann\+::json\{\}), nlohmann\+::json\{\}))}
-
-
-
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
-
-\Hypertarget{namespaceteqp_a37866267491a962d070ca5570372ca6d}\label{namespaceteqp_a37866267491a962d070ca5570372ca6d} 
-\index{teqp@{teqp}!PCSAFT\_t@{PCSAFT\_t}}
-\index{PCSAFT\_t@{PCSAFT\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{PCSAFT\_t}{PCSAFT\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a37866267491a962d070ca5570372ca6d}{teqp\+::\+PCSAFT\+\_\+t}} = typedef decltype(\mbox{\hyperlink{namespaceteqp_1_1PCSAFT_aa5526ea705fa284efc14bf790640b5a8}{PCSAFT\+::\+PCSAFTfactory}}(nlohmann\+::json\{\}))}
-
-
-
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
-
-\Hypertarget{namespaceteqp_ab8b77c7f9d7f12f3587c4b7ba020434a}\label{namespaceteqp_ab8b77c7f9d7f12f3587c4b7ba020434a} 
-\index{teqp@{teqp}!QuantumPR\_t@{QuantumPR\_t}}
-\index{QuantumPR\_t@{QuantumPR\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{QuantumPR\_t}{QuantumPR\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_ab8b77c7f9d7f12f3587c4b7ba020434a}{teqp\+::\+Quantum\+PR\+\_\+t}} = typedef \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR}{Quantum\+Corrected\+PR}}}
-
-
-
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
-
-\Hypertarget{namespaceteqp_af507b2d1ed6ef92181c6baec26db1a18}\label{namespaceteqp_af507b2d1ed6ef92181c6baec26db1a18} 
-\index{teqp@{teqp}!ReducingFunctions@{ReducingFunctions}}
-\index{ReducingFunctions@{ReducingFunctions}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{ReducingFunctions}{ReducingFunctions}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_af507b2d1ed6ef92181c6baec26db1a18}{teqp\+::\+Reducing\+Functions}} = typedef \mbox{\hyperlink{classteqp_1_1ReducingTermContainer}{Reducing\+Term\+Container}}$<$\mbox{\hyperlink{classteqp_1_1MultiFluidReducingFunction}{Multi\+Fluid\+Reducing\+Function}}, \mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction}{Multi\+Fluid\+Invariant\+Reducing\+Function}}$>$}
-
-
-
-Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00282}{282}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
-
-\Hypertarget{namespaceteqp_a0465f3a7ab85afff74180a93195e315c}\label{namespaceteqp_a0465f3a7ab85afff74180a93195e315c} 
-\index{teqp@{teqp}!ResidualHelmholtzOverRTVariant@{ResidualHelmholtzOverRTVariant}}
-\index{ResidualHelmholtzOverRTVariant@{ResidualHelmholtzOverRTVariant}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{ResidualHelmholtzOverRTVariant}{ResidualHelmholtzOverRTVariant}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a0465f3a7ab85afff74180a93195e315c}{teqp\+::\+Residual\+Helmholtz\+Over\+RTVariant}} = typedef std\+::variant$<$\mbox{\hyperlink{classteqp_1_1NullResidualHelmholtzOverRT}{Null\+Residual\+Helmholtz\+Over\+RT}}$<$double$>$, \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT}{Wilson\+Residual\+Helmholtz\+Over\+RT}}$<$double$>$ $>$}
-
-
-
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00552}{552}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
-
-\Hypertarget{namespaceteqp_aa7b4265fc65e83e7bd3db9fd8f702bf1}\label{namespaceteqp_aa7b4265fc65e83e7bd3db9fd8f702bf1} 
-\index{teqp@{teqp}!RKPRCismondi2005\_t@{RKPRCismondi2005\_t}}
-\index{RKPRCismondi2005\_t@{RKPRCismondi2005\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{RKPRCismondi2005\_t}{RKPRCismondi2005\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_aa7b4265fc65e83e7bd3db9fd8f702bf1}{teqp\+::\+RKPRCismondi2005\+\_\+t}} = typedef decltype(\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005}{RKPRCismondi2005}}(\{\}))}
-
-
-
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00996}{996}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
-
-\Hypertarget{namespaceteqp_ad7a4e31b3475d16c66dbf9c81f661065}\label{namespaceteqp_ad7a4e31b3475d16c66dbf9c81f661065} 
-\index{teqp@{teqp}!SAFTVRMie\_t@{SAFTVRMie\_t}}
-\index{SAFTVRMie\_t@{SAFTVRMie\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{SAFTVRMie\_t}{SAFTVRMie\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_ad7a4e31b3475d16c66dbf9c81f661065}{teqp\+::\+SAFTVRMie\+\_\+t}} = typedef decltype(\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMie\+::\+SAFTVRMie\+Mixture}}(\mbox{\hyperlink{namespaceteqp_a297494c9a5a0955b538cd578a5433b87}{vecs}}\{\}))}
-
-
-
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
-
-\Hypertarget{namespaceteqp_a522fd870052b2f0d4095c56d7ac95fbe}\label{namespaceteqp_a522fd870052b2f0d4095c56d7ac95fbe} 
-\index{teqp@{teqp}!SW\_EspindolaHeredia2009\_t@{SW\_EspindolaHeredia2009\_t}}
-\index{SW\_EspindolaHeredia2009\_t@{SW\_EspindolaHeredia2009\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{SW\_EspindolaHeredia2009\_t}{SW\_EspindolaHeredia2009\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a522fd870052b2f0d4095c56d7ac95fbe}{teqp\+::\+SW\+\_\+\+Espindola\+Heredia2009\+\_\+t}} = typedef \mbox{\hyperlink{classteqp_1_1squarewell_1_1EspindolaHeredia2009}{squarewell\+::\+Espindola\+Heredia2009}}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a4fdce82f5a1b688b43e6bf0fe63718b9}{teqp\+::ammonia\+\_\+water\+\_\+\+Tillner\+Roth\+\_\+t}} = Ammonia\+Water\+Tillner\+Roth}
 
 
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\Hypertarget{namespaceteqp_a38366c13c6b46865500b09193bfc2f4e}\label{namespaceteqp_a38366c13c6b46865500b09193bfc2f4e} 
-\index{teqp@{teqp}!twocenterLJF\_t@{twocenterLJF\_t}}
-\index{twocenterLJF\_t@{twocenterLJF\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{twocenterLJF\_t}{twocenterLJF\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a38366c13c6b46865500b09193bfc2f4e}{teqp\+::twocenter\+LJF\+\_\+t}} = typedef decltype(\mbox{\hyperlink{namespaceteqp_1_1twocenterljf_a741b94ae9616bd833cf30553e67bf369}{twocenterljf\+::build\+\_\+two\+\_\+center\+\_\+model\+\_\+dipole}}(std\+::string\{\}, double\{\}, double\{\}))}
+\Hypertarget{namespaceteqp_af0143b3f923665100709c22a285bfd98}\label{namespaceteqp_af0143b3f923665100709c22a285bfd98} 
+\index{teqp@{teqp}!canonical\_cubic\_t@{canonical\_cubic\_t}}
+\index{canonical\_cubic\_t@{canonical\_cubic\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{canonical\_cubic\_t}{canonical\_cubic\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_af0143b3f923665100709c22a285bfd98}{teqp\+::canonical\+\_\+cubic\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a388557f5b1209cf4a37a2bb3b9a6f9d5}{canonical\+\_\+\+PR}}(\mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{vad}}\{\}, \mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{vad}}\{\}, \mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{vad}}\{\}))}
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\Hypertarget{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}\label{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148} 
-\index{teqp@{teqp}!vad@{vad}}
-\index{vad@{vad}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{vad}{vad}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a127ee40325fdff7b82e5c08d7bbd9148}{teqp\+::vad}} = typedef std\+::valarray$<$double$>$}
+\Hypertarget{namespaceteqp_abca56121053f4dcf814154a48e1b27c3}\label{namespaceteqp_abca56121053f4dcf814154a48e1b27c3} 
+\index{teqp@{teqp}!CPA\_t@{CPA\_t}}
+\index{CPA\_t@{CPA\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{CPA\_t}{CPA\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_abca56121053f4dcf814154a48e1b27c3}{teqp\+::\+CPA\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_1_1CPA_aac7faad3d0f09b4600630c7ae67d56ea}{CPA\+::\+CPAfactory}}(nlohmann\+::json\{\}))}
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\Hypertarget{namespaceteqp_ae7a2145324d3ec655519a3f2bdfae140}\label{namespaceteqp_ae7a2145324d3ec655519a3f2bdfae140} 
-\index{teqp@{teqp}!vdWEOS\_t@{vdWEOS\_t}}
-\index{vdWEOS\_t@{vdWEOS\_t}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{vdWEOS\_t}{vdWEOS\_t}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_ae7a2145324d3ec655519a3f2bdfae140}{teqp\+::vd\+WEOS\+\_\+t}} = typedef \mbox{\hyperlink{classteqp_1_1vdWEOS}{vd\+WEOS}}$<$double$>$}
+\Hypertarget{namespaceteqp_a77d3d89dc9371516d36e225ae15f7626}\label{namespaceteqp_a77d3d89dc9371516d36e225ae15f7626} 
+\index{teqp@{teqp}!DepartureTerms@{DepartureTerms}}
+\index{DepartureTerms@{DepartureTerms}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{DepartureTerms}{DepartureTerms}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a77d3d89dc9371516d36e225ae15f7626}{teqp\+::\+Departure\+Terms}} = \mbox{\hyperlink{classteqp_1_1EOSTermContainer}{EOSTerm\+Container}}$<$\mbox{\hyperlink{classteqp_1_1JustPowerEOSTerm}{Just\+Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1PowerEOSTerm}{Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaussianEOSTerm}{Gaussian\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GERG2004EOSTerm}{GERG2004\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1NullEOSTerm}{Null\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1DoubleExponentialEOSTerm}{Double\+Exponential\+EOSTerm}},\mbox{\hyperlink{classteqp_1_1Chebyshev2DEOSTerm}{Chebyshev2\+DEOSTerm}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__eosterms_8hpp_source_l00372}{372}} of file \mbox{\hyperlink{multifluid__eosterms_8hpp_source}{multifluid\+\_\+eosterms.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a938309ff9743af397eb5c97bbacee8c0}\label{namespaceteqp_a938309ff9743af397eb5c97bbacee8c0} 
+\index{teqp@{teqp}!EOSTerms@{EOSTerms}}
+\index{EOSTerms@{EOSTerms}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{EOSTerms}{EOSTerms}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a938309ff9743af397eb5c97bbacee8c0}{teqp\+::\+EOSTerms}} = \mbox{\hyperlink{classteqp_1_1EOSTermContainer}{EOSTerm\+Container}}$<$\mbox{\hyperlink{classteqp_1_1JustPowerEOSTerm}{Just\+Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1PowerEOSTerm}{Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaussianEOSTerm}{Gaussian\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1NonAnalyticEOSTerm}{Non\+Analytic\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1Lemmon2005EOSTerm}{Lemmon2005\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaoBEOSTerm}{Gao\+BEOSTerm}}, \mbox{\hyperlink{classteqp_1_1ExponentialEOSTerm}{Exponential\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1DoubleExponentialEOSTerm}{Double\+Exponential\+EOSTerm}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__eosterms_8hpp_source_l00370}{370}} of file \mbox{\hyperlink{multifluid__eosterms_8hpp_source}{multifluid\+\_\+eosterms.\+hpp}}.
+
+\Hypertarget{namespaceteqp_ad95abe1f153d9e7c26d7b194090f0278}\label{namespaceteqp_ad95abe1f153d9e7c26d7b194090f0278} 
+\index{teqp@{teqp}!EXP6\_Kataoka1992\_t@{EXP6\_Kataoka1992\_t}}
+\index{EXP6\_Kataoka1992\_t@{EXP6\_Kataoka1992\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{EXP6\_Kataoka1992\_t}{EXP6\_Kataoka1992\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_ad95abe1f153d9e7c26d7b194090f0278}{teqp\+::\+EXP6\+\_\+\+Kataoka1992\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992}{exp6\+::\+Kataoka1992}}}
 
 
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
-\Hypertarget{namespaceteqp_a297494c9a5a0955b538cd578a5433b87}\label{namespaceteqp_a297494c9a5a0955b538cd578a5433b87} 
-\index{teqp@{teqp}!vecs@{vecs}}
-\index{vecs@{vecs}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{vecs}{vecs}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a297494c9a5a0955b538cd578a5433b87}{teqp\+::vecs}} = typedef std\+::vector$<$std\+::string$>$}
+\Hypertarget{namespaceteqp_a1959bb60f21c0547efe48ad193b27619}\label{namespaceteqp_a1959bb60f21c0547efe48ad193b27619} 
+\index{teqp@{teqp}!idealgas\_t@{idealgas\_t}}
+\index{idealgas\_t@{idealgas\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{idealgas\_t}{idealgas\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a1959bb60f21c0547efe48ad193b27619}{teqp\+::idealgas\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1IdealHelmholtz}{Ideal\+Helmholtz}}}
+
+
+
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a05a0144b16658ef74f023c6ebce4b38a}\label{namespaceteqp_a05a0144b16658ef74f023c6ebce4b38a} 
+\index{teqp@{teqp}!IdealHelmholtzTerms@{IdealHelmholtzTerms}}
+\index{IdealHelmholtzTerms@{IdealHelmholtzTerms}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{IdealHelmholtzTerms}{IdealHelmholtzTerms}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a05a0144b16658ef74f023c6ebce4b38a}{teqp\+::\+Ideal\+Helmholtz\+Terms}}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::variant\ <}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ IdealHelmholtzConstant,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ IdealHelmholtzLead,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ IdealHelmholtzLogT,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ IdealHelmholtzPowerT,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ IdealHelmholtzPlanckEinstein,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ IdealHelmholtzPlanckEinsteinGeneralized,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ IdealHelmholtzGERG2004Cosh,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ IdealHelmholtzGERG2004Sinh,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ IdealHelmholtzCp0Constant,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ IdealHelmholtzCp0PowerT}
+\DoxyCodeLine{\ \ \ \ >}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{ideal__eosterms_8hpp_source_l00228}{228}} of file \mbox{\hyperlink{ideal__eosterms_8hpp_source}{ideal\+\_\+eosterms.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a736696b39677905edd4fcc2484149270}\label{namespaceteqp_a736696b39677905edd4fcc2484149270} 
+\index{teqp@{teqp}!is\_AbstractModel@{is\_AbstractModel}}
+\index{is\_AbstractModel@{is\_AbstractModel}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{is\_AbstractModel}{is\_AbstractModel}}
+{\footnotesize\ttfamily template$<$typename Model $>$ \\
+using \mbox{\hyperlink{namespaceteqp_a736696b39677905edd4fcc2484149270}{teqp\+::is\+\_\+\+Abstract\+Model}} = typename std\+::is\+\_\+base\+\_\+of$<$\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}}, Model$>$}
+
+
+
+Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a1fe0dd15f7b17618158e35c9a0c0a8ef}\label{namespaceteqp_a1fe0dd15f7b17618158e35c9a0c0a8ef} 
+\index{teqp@{teqp}!is\_not\_AbstractModel@{is\_not\_AbstractModel}}
+\index{is\_not\_AbstractModel@{is\_not\_AbstractModel}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{is\_not\_AbstractModel}{is\_not\_AbstractModel}}
+{\footnotesize\ttfamily template$<$typename Model $>$ \\
+using \mbox{\hyperlink{namespaceteqp_a1fe0dd15f7b17618158e35c9a0c0a8ef}{teqp\+::is\+\_\+not\+\_\+\+Abstract\+Model}} = std\+::negation$<$\mbox{\hyperlink{namespaceteqp_a736696b39677905edd4fcc2484149270}{is\+\_\+\+Abstract\+Model}}$<$Model$>$$>$}
+
+
+
+Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a683ee1da36b4487424000960a46c9ee9}\label{namespaceteqp_a683ee1da36b4487424000960a46c9ee9} 
+\index{teqp@{teqp}!IterationError@{IterationError}}
+\index{IterationError@{IterationError}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{IterationError}{IterationError}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a683ee1da36b4487424000960a46c9ee9}{teqp\+::\+Iteration\+Error}} = \mbox{\hyperlink{classteqp_1_1IterationFailure}{Iteration\+Failure}}}
+
+
+
+Definition at line \mbox{\hyperlink{exceptions_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{exceptions_8hpp_source}{exceptions.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a70e60319333af23b0807870452390c68}\label{namespaceteqp_a70e60319333af23b0807870452390c68} 
+\index{teqp@{teqp}!LJ126Johnson1993\_t@{LJ126Johnson1993\_t}}
+\index{LJ126Johnson1993\_t@{LJ126Johnson1993\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{LJ126Johnson1993\_t}{LJ126Johnson1993\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a70e60319333af23b0807870452390c68}{teqp\+::\+LJ126\+Johnson1993\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1LJ126Johnson1993}{LJ126\+Johnson1993}}}
+
+
+
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+
+\Hypertarget{namespaceteqp_ad99a58f5bf948c1191e468377254e2ee}\label{namespaceteqp_ad99a58f5bf948c1191e468377254e2ee} 
+\index{teqp@{teqp}!LJ126KolafaNezbeda1994\_t@{LJ126KolafaNezbeda1994\_t}}
+\index{LJ126KolafaNezbeda1994\_t@{LJ126KolafaNezbeda1994\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{LJ126KolafaNezbeda1994\_t}{LJ126KolafaNezbeda1994\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_ad99a58f5bf948c1191e468377254e2ee}{teqp\+::\+LJ126\+Kolafa\+Nezbeda1994\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1LJ126KolafaNezbeda1994}{LJ126\+Kolafa\+Nezbeda1994}}}
+
+
+
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+
+\Hypertarget{namespaceteqp_ac1d89312aa7604e1207f887cb9d85915}\label{namespaceteqp_ac1d89312aa7604e1207f887cb9d85915} 
+\index{teqp@{teqp}!Mie6Pohl2023\_t@{Mie6Pohl2023\_t}}
+\index{Mie6Pohl2023\_t@{Mie6Pohl2023\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{Mie6Pohl2023\_t}{Mie6Pohl2023\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_ac1d89312aa7604e1207f887cb9d85915}{teqp\+::\+Mie6\+Pohl2023\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023}{Mie\+::\+Mie6\+Pohl2023}}}
+
+
+
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a30015ca07e3a8970b64d24e212431e78}\label{namespaceteqp_a30015ca07e3a8970b64d24e212431e78} 
+\index{teqp@{teqp}!multifluid\_t@{multifluid\_t}}
+\index{multifluid\_t@{multifluid\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{multifluid\_t}{multifluid\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a30015ca07e3a8970b64d24e212431e78}{teqp\+::multifluid\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multifluidfactory}}(nlohmann\+::json\{\}))}
+
+
+
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+
+\Hypertarget{namespaceteqp_afd2ddf64b68cce28c54119ecf6b0914b}\label{namespaceteqp_afd2ddf64b68cce28c54119ecf6b0914b} 
+\index{teqp@{teqp}!multifluidmutant\_t@{multifluidmutant\_t}}
+\index{multifluidmutant\_t@{multifluidmutant\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{multifluidmutant\_t}{multifluidmutant\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_afd2ddf64b68cce28c54119ecf6b0914b}{teqp\+::multifluidmutant\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}{build\+\_\+multifluid\+\_\+mutant}}(\mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multifluidfactory}}(nlohmann\+::json\{\}), nlohmann\+::json\{\}))}
+
+
+
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+
+\Hypertarget{namespaceteqp_afcf6a51266c52a06dd9dd8386c23fd0a}\label{namespaceteqp_afcf6a51266c52a06dd9dd8386c23fd0a} 
+\index{teqp@{teqp}!PCSAFT\_t@{PCSAFT\_t}}
+\index{PCSAFT\_t@{PCSAFT\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{PCSAFT\_t}{PCSAFT\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_afcf6a51266c52a06dd9dd8386c23fd0a}{teqp\+::\+PCSAFT\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_1_1PCSAFT_aa5526ea705fa284efc14bf790640b5a8}{PCSAFT\+::\+PCSAFTfactory}}(nlohmann\+::json\{\}))}
+
+
+
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+
+\Hypertarget{namespaceteqp_af20ae9b7642b8f410bad887680dfa601}\label{namespaceteqp_af20ae9b7642b8f410bad887680dfa601} 
+\index{teqp@{teqp}!QuantumPR\_t@{QuantumPR\_t}}
+\index{QuantumPR\_t@{QuantumPR\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{QuantumPR\_t}{QuantumPR\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_af20ae9b7642b8f410bad887680dfa601}{teqp\+::\+Quantum\+PR\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR}{Quantum\+Corrected\+PR}}}
+
+
+
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+
+\Hypertarget{namespaceteqp_acbf67c7fb462e29705f3a9e0f1e6f85a}\label{namespaceteqp_acbf67c7fb462e29705f3a9e0f1e6f85a} 
+\index{teqp@{teqp}!ReducingFunctions@{ReducingFunctions}}
+\index{ReducingFunctions@{ReducingFunctions}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{ReducingFunctions}{ReducingFunctions}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_acbf67c7fb462e29705f3a9e0f1e6f85a}{teqp\+::\+Reducing\+Functions}} = \mbox{\hyperlink{classteqp_1_1ReducingTermContainer}{Reducing\+Term\+Container}}$<$\mbox{\hyperlink{classteqp_1_1MultiFluidReducingFunction}{Multi\+Fluid\+Reducing\+Function}}, \mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction}{Multi\+Fluid\+Invariant\+Reducing\+Function}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00282}{282}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a9c5a1a892880b5bb58042dd88b92a25d}\label{namespaceteqp_a9c5a1a892880b5bb58042dd88b92a25d} 
+\index{teqp@{teqp}!ResidualHelmholtzOverRTVariant@{ResidualHelmholtzOverRTVariant}}
+\index{ResidualHelmholtzOverRTVariant@{ResidualHelmholtzOverRTVariant}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{ResidualHelmholtzOverRTVariant}{ResidualHelmholtzOverRTVariant}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a9c5a1a892880b5bb58042dd88b92a25d}{teqp\+::\+Residual\+Helmholtz\+Over\+RTVariant}} = std\+::variant$<$\mbox{\hyperlink{classteqp_1_1NullResidualHelmholtzOverRT}{Null\+Residual\+Helmholtz\+Over\+RT}}$<$double$>$, \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT}{Wilson\+Residual\+Helmholtz\+Over\+RT}}$<$double$>$$>$}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00552}{552}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a93eb799c3c0031c35c8dbc94d788757d}\label{namespaceteqp_a93eb799c3c0031c35c8dbc94d788757d} 
+\index{teqp@{teqp}!RKPRCismondi2005\_t@{RKPRCismondi2005\_t}}
+\index{RKPRCismondi2005\_t@{RKPRCismondi2005\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{RKPRCismondi2005\_t}{RKPRCismondi2005\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a93eb799c3c0031c35c8dbc94d788757d}{teqp\+::\+RKPRCismondi2005\+\_\+t}} = decltype(\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005}{RKPRCismondi2005}}(\{\}))}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00996}{996}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a05c6161efb6a7a27c466278bc8aeecf1}\label{namespaceteqp_a05c6161efb6a7a27c466278bc8aeecf1} 
+\index{teqp@{teqp}!SAFTVRMie\_t@{SAFTVRMie\_t}}
+\index{SAFTVRMie\_t@{SAFTVRMie\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{SAFTVRMie\_t}{SAFTVRMie\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a05c6161efb6a7a27c466278bc8aeecf1}{teqp\+::\+SAFTVRMie\+\_\+t}} = decltype(\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMie\+::\+SAFTVRMie\+Mixture}}(\mbox{\hyperlink{namespaceteqp_a28dadf1c0320a0f649ee5652486d4f70}{vecs}}\{\}))}
+
+
+
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+
+\Hypertarget{namespaceteqp_aef68ee45f75085569c877c08555bc919}\label{namespaceteqp_aef68ee45f75085569c877c08555bc919} 
+\index{teqp@{teqp}!SW\_EspindolaHeredia2009\_t@{SW\_EspindolaHeredia2009\_t}}
+\index{SW\_EspindolaHeredia2009\_t@{SW\_EspindolaHeredia2009\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{SW\_EspindolaHeredia2009\_t}{SW\_EspindolaHeredia2009\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_aef68ee45f75085569c877c08555bc919}{teqp\+::\+SW\+\_\+\+Espindola\+Heredia2009\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1squarewell_1_1EspindolaHeredia2009}{squarewell\+::\+Espindola\+Heredia2009}}}
+
+
+
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a707a367fe97e2502d09729fdcc9f53fc}\label{namespaceteqp_a707a367fe97e2502d09729fdcc9f53fc} 
+\index{teqp@{teqp}!twocenterLJF\_t@{twocenterLJF\_t}}
+\index{twocenterLJF\_t@{twocenterLJF\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{twocenterLJF\_t}{twocenterLJF\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a707a367fe97e2502d09729fdcc9f53fc}{teqp\+::twocenter\+LJF\+\_\+t}} = decltype(\mbox{\hyperlink{namespaceteqp_1_1twocenterljf_a741b94ae9616bd833cf30553e67bf369}{twocenterljf\+::build\+\_\+two\+\_\+center\+\_\+model\+\_\+dipole}}(std\+::string\{\}, double\{\}, double\{\}))}
+
+
+
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+
+\Hypertarget{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}\label{namespaceteqp_af129d886ebb7fcaf26242da2cf497907} 
+\index{teqp@{teqp}!vad@{vad}}
+\index{vad@{vad}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{vad}{vad}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{teqp\+::vad}} = std\+::valarray$<$double$>$}
 
 
 
 Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a8438428c7c8039390d0bd229e56d8670}\label{namespaceteqp_a8438428c7c8039390d0bd229e56d8670} 
+\index{teqp@{teqp}!vdWEOS\_t@{vdWEOS\_t}}
+\index{vdWEOS\_t@{vdWEOS\_t}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{vdWEOS\_t}{vdWEOS\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a8438428c7c8039390d0bd229e56d8670}{teqp\+::vd\+WEOS\+\_\+t}} = \mbox{\hyperlink{classteqp_1_1vdWEOS}{vd\+WEOS}}$<$double$>$}
+
+
+
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a28dadf1c0320a0f649ee5652486d4f70}\label{namespaceteqp_a28dadf1c0320a0f649ee5652486d4f70} 
+\index{teqp@{teqp}!vecs@{vecs}}
+\index{vecs@{vecs}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{vecs}{vecs}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_a28dadf1c0320a0f649ee5652486d4f70}{teqp\+::vecs}} = std\+::vector$<$std\+::string$>$}
+
+
+
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 
 
@@ -1060,9 +1074,28 @@ Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00260}{260}} of file \mb
 {\footnotesize\ttfamily template$<$int Nderiv, int Norder, typename Function , typename Scalar $>$ \\
 auto teqp\+::centered\+\_\+diff (\begin{DoxyParamCaption}\item[{const Function \&}]{f,  }\item[{const Scalar}]{x,  }\item[{const Scalar}]{h }\end{DoxyParamCaption})}
 
+Routines for finite differentiation, useful for testing derivatives obtained by other methods
 
+From\+: Bengt Fornberg, 1988, "{}\+Coefficients from Generation of Finite Difference Formulas on Arbitrarily Spaced Grids"{}, MATHEMATICS OF COMPUTATION, v. 51, n. 184, pp. 699-\/706
+
+Higher derivatives should always be done in extended precision mathematics!
+
+Warning\+: these routines may give entirely erroneous results for double precision arithmetic, especially the higher derivatives
+
+Warning\+: these routines are optimized for accuracy, not for speed or memory use 
 
 Definition at line \mbox{\hyperlink{math_2finite__derivs_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{math_2finite__derivs_8hpp_source}{finite\+\_\+derivs.\+hpp}}.
+
+\Hypertarget{namespaceteqp_a952b700001b4c0097e2f381122d7a323}\label{namespaceteqp_a952b700001b4c0097e2f381122d7a323} 
+\index{teqp@{teqp}!centered\_diff\_xy@{centered\_diff\_xy}}
+\index{centered\_diff\_xy@{centered\_diff\_xy}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{centered\_diff\_xy()}{centered\_diff\_xy()}}
+{\footnotesize\ttfamily template$<$typename Function , typename Scalarx , typename Scalary $>$ \\
+auto teqp\+::centered\+\_\+diff\+\_\+xy (\begin{DoxyParamCaption}\item[{const Function \&}]{f,  }\item[{const Scalarx}]{x,  }\item[{const Scalary}]{y,  }\item[{const Scalarx}]{dx,  }\item[{const Scalary}]{dy }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{math_2finite__derivs_8hpp_source_l00068}{68}} of file \mbox{\hyperlink{math_2finite__derivs_8hpp_source}{finite\+\_\+derivs.\+hpp}}.
 
 \Hypertarget{namespaceteqp_acc467d95833da1186bdd6ce3f376ca8a}\label{namespaceteqp_acc467d95833da1186bdd6ce3f376ca8a} 
 \index{teqp@{teqp}!collect\_component\_json@{collect\_component\_json}}

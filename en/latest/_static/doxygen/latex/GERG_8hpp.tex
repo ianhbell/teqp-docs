@@ -1,0 +1,80 @@
+\doxysection{include/teqp/models/\+GERG/\+GERG.hpp File Reference}
+\hypertarget{GERG_8hpp}{}\label{GERG_8hpp}\index{include/teqp/models/GERG/GERG.hpp@{include/teqp/models/GERG/GERG.hpp}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include "{}teqp/math/pow\+\_\+templates.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/types.\+hpp"{}}\newline
+{\ttfamily \#include "{}Eigen/\+Dense"{}}\newline
+{\ttfamily \#include $<$boost/functional/hash.\+hpp$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureInfo}{teqp\+::\+GERGGeneral\+::\+Pure\+Info}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureCoeffs}{teqp\+::\+GERGGeneral\+::\+Pure\+Coeffs}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1BetasGammas}{teqp\+::\+GERGGeneral\+::\+Betas\+Gammas}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1DepartureCoeffs}{teqp\+::\+GERGGeneral\+::\+Departure\+Coeffs}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XPureFluidEOS}{teqp\+::\+GERGGeneral\+::\+GERG200\+XPure\+Fluid\+EOS}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing}{teqp\+::\+GERGGeneral\+::\+GERG200\+XReducing}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1GERG200XReducing_1_1TcVc}{teqp\+::\+GERGGeneral\+::\+GERG200\+XReducing\+::\+Tc\+Vc}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1GERG200XReducing_1_1Matrices}{teqp\+::\+GERGGeneral\+::\+GERG200\+XReducing\+::\+Matrices}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XCorrespondingStatesTerm}{teqp\+::\+GERGGeneral\+::\+GERG200\+XCorresponding\+States\+Term}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XDepartureFunction}{teqp\+::\+GERGGeneral\+::\+GERG200\+XDeparture\+Function}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XDepartureTerm}{teqp\+::\+GERGGeneral\+::\+GERG200\+XDeparture\+Term}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1GERG2004_1_1GERG2004ResidualModel}{teqp\+::\+GERG2004\+::\+GERG2004\+Residual\+Model}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1GERG2008_1_1GERG2008ResidualModel}{teqp\+::\+GERG2008\+::\+GERG2008\+Residual\+Model}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1GERGGeneral}{teqp\+::\+GERGGeneral}}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1GERG2004}{teqp\+::\+GERG2004}}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1GERG2008}{teqp\+::\+GERG2008}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureInfo}{Pure\+Info}} \mbox{\hyperlink{namespaceteqp_1_1GERG2004_ac3565b8487f12789083803eed21569fb}{teqp\+::\+GERG2004\+::get\+\_\+pure\+\_\+info}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Get the pure fluid information for a fluid from GERG-\/2004 monograph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureCoeffs}{Pure\+Coeffs}} \mbox{\hyperlink{namespaceteqp_1_1GERG2004_acc8492f3c0446b81c70beb4d5bb4e145}{teqp\+::\+GERG2004\+::get\+\_\+pure\+\_\+coeffs}} (const std\+::string \&fluid)
+\item 
+\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1BetasGammas}{Betas\+Gammas}} \mbox{\hyperlink{namespaceteqp_1_1GERG2004_ac2bfc93d176a5a722734c4852c988e56}{teqp\+::\+GERG2004\+::get\+\_\+betasgammas}} (const std\+::string \&fluid1, const std\+::string \&fluid2)
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{namespaceteqp_1_1GERG2004_ac4b9790dc771255ecb6b7f1e9d235736}{teqp\+::\+GERG2004\+::get\+\_\+\+Fij}} (const std\+::string \&fluid1, const std\+::string \&fluid2, bool ok\+\_\+missing=true)
+\item 
+\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1DepartureCoeffs}{Departure\+Coeffs}} \mbox{\hyperlink{namespaceteqp_1_1GERG2004_ad9060059cbfa1b03c3bb15b844dba72f}{teqp\+::\+GERG2004\+::get\+\_\+departurecoeffs}} (const std\+::string \&fluid1, const std\+::string \&fluid2)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1GERG2008_ac62555cefb5c43ce81ce9c6e3945cb51}{teqp\+::\+GERG2008\+::get\+\_\+pure\+\_\+info}} (const std\+::string \&name)
+\item 
+\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1BetasGammas}{Betas\+Gammas}} \mbox{\hyperlink{namespaceteqp_1_1GERG2008_af2b979d6c0983d486ff71e7c964282e1}{teqp\+::\+GERG2008\+::get\+\_\+betasgammas}} (const std\+::string \&fluid1, const std\+::string \&fluid2)
+\item 
+\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureCoeffs}{Pure\+Coeffs}} \mbox{\hyperlink{namespaceteqp_1_1GERG2008_aae7dd22f4e90fa43f0c8c55e52ef09d7}{teqp\+::\+GERG2008\+::get\+\_\+pure\+\_\+coeffs}} (const std\+::string \&fluid)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespaceteqp_1_1GERG2004_a88d52e4912e9dafe4c27b948bbaf84a3}{teqp\+::\+GERG2004\+::component\+\_\+names}} = \{"{}methane"{}, "{}nitrogen"{},"{}carbondioxide"{},"{}ethane"{},"{}propane"{},"{}n-\/butane"{},"{}isobutane"{},"{}n-\/pentane"{},"{}isopentane"{},"{}n-\/hexane"{},"{}n-\/heptane"{},"{}n-\/octane"{},"{}hydrogen"{}, "{}oxygen"{},"{}carbonmonoxide"{},"{}water"{},"{}helium"{},"{}argon"{}\}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespaceteqp_1_1GERG2008_a0a4cb6d7e2768744879ee61dd26c16aa}{teqp\+::\+GERG2008\+::component\+\_\+names}} = \{"{}methane"{}, "{}nitrogen"{},"{}carbondioxide"{},"{}ethane"{},"{}propane"{},"{}n-\/butane"{},"{}isobutane"{},"{}n-\/pentane"{},"{}isopentane"{},"{}n-\/hexane"{},"{}n-\/heptane"{},"{}n-\/octane"{},"{}hydrogen"{}, "{}oxygen"{},"{}carbonmonoxide"{},"{}water"{},"{}helium"{},"{}argon"{},"{}hydrogensulfide"{},"{}n-\/nonane"{},"{}n-\/decane"{}\}
+\end{DoxyCompactItemize}

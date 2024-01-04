@@ -1,7 +1,29 @@
 var searchData=
 [
-  ['q_0',['q',['../classteqp_1_1twocenterljf_1_1ParameterContainer.html#a9612c604dca0a63705c2e261c8440477',1,'teqp::twocenterljf::ParameterContainer::q'],['../classteqp_1_1twocenterljf_1_1AttractiveContribution.html#a06ccc6b4e63b772a6d5db07acad61f6f',1,'teqp::twocenterljf::AttractiveContribution::q']]],
-  ['qstar2_1',['qstar2',['../structteqp_1_1PCSAFT_1_1SAFTCoeffs.html#a3fe17a30412d3aaca359619889989678',1,'teqp::PCSAFT::SAFTCoeffs::Qstar2'],['../structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs.html#af6bdd0876e09def6e270acf9ead8c799',1,'teqp::SAFTVRMie::SAFTVRMieCoeffs::Qstar2']]],
-  ['quad_2',['quad',['../classteqp_1_1SAFTpolar_1_1MultipolarContributionGrossVrabec.html#af486c9ee24cff4ddf7d07905fa1be3df',1,'teqp::SAFTpolar::MultipolarContributionGrossVrabec']]],
-  ['quadrupolar_3',['quadrupolar',['../classteqp_1_1PCSAFT_1_1PCSAFTMixture.html#a9b8c6bc61a2b1abef060f9ed72181992',1,'teqp::PCSAFT::PCSAFTMixture']]]
+  ['p_0',['p',['../structteqp_1_1hybrj__functor____mix__VLE__Tp.html#a4d726759b0420138bba2a38401c87829',1,'teqp::hybrj_functor__mix_VLE_Tp::p'],['../classteqp_1_1twocenterljf_1_1ParameterContainer.html#afbd2e037e780b745156fef505f5fc873',1,'teqp::twocenterljf::ParameterContainer::p'],['../classteqp_1_1twocenterljf_1_1AttractiveContribution.html#abc2519a5f48a7f930f76c52f50347d59',1,'teqp::twocenterljf::AttractiveContribution::p']]],
+  ['p_5falpha_1',['p_alpha',['../classteqp_1_1twocenterljf_1_1ParameterContainer.html#af47cc6c8a4d910a37e1d08f0a32097fe',1,'teqp::twocenterljf::ParameterContainer::p_alpha'],['../classteqp_1_1twocenterljf_1_1ReducingDensity.html#a88a9775c66c9a8abaa2ed43942bb1443',1,'teqp::twocenterljf::ReducingDensity::p_alpha']]],
+  ['p_5fcode_2',['P_CODE',['../namespaceteqp_1_1CubicSuperAncillary.html#a63a722782f62af07e1acf8d0f667f992',1,'teqp::CubicSuperAncillary']]],
+  ['p_5feta_5frho_3',['p_eta_rho',['../classteqp_1_1twocenterljf_1_1ParameterContainer.html#ace99b3f6436fb9f16d0647d8297a32b4',1,'teqp::twocenterljf::ParameterContainer::p_eta_rho'],['../classteqp_1_1twocenterljf_1_1ReducingDensity.html#a2e31dcd5e85998a0362f52cc4cc445e7',1,'teqp::twocenterljf::ReducingDensity::p_eta_rho']]],
+  ['p_5frho_4',['p_rho',['../classteqp_1_1twocenterljf_1_1ParameterContainer.html#aa21dfb7414749e741dc9844d7830d2a2',1,'teqp::twocenterljf::ParameterContainer::p_rho'],['../classteqp_1_1twocenterljf_1_1ReducingDensity.html#ad6fa1a0967db90d30ff88f395d8eed13',1,'teqp::twocenterljf::ReducingDensity::p_rho']]],
+  ['p_5ft_5',['p_t',['../classteqp_1_1twocenterljf_1_1ParameterContainer.html#a832182756803a8f0cd5512d70e4d4a06',1,'teqp::twocenterljf::ParameterContainer::p_t'],['../classteqp_1_1twocenterljf_1_1ReducingTemperature.html#a5fa0b56efdb88494583452689ad3010b',1,'teqp::twocenterljf::ReducingTemperature::p_t']]],
+  ['p_5ftermination_6',['p_termination',['../structteqp_1_1TVLEOptions.html#acf4562162c21eddab588332aa4abe5c9',1,'teqp::TVLEOptions']]],
+  ['pc_5fpa_7',['pc_Pa',['../classteqp_1_1AdvancedPRaEres.html#a8359707bf180379b72851316025a3449',1,'teqp::AdvancedPRaEres']]],
+  ['phit_8',['phiT',['../classteqp_1_1MultiFluidInvariantReducingFunction.html#ae57593cb61a0c75309fb60b8883726b2',1,'teqp::MultiFluidInvariantReducingFunction']]],
+  ['phiv_9',['phiV',['../classteqp_1_1MultiFluidInvariantReducingFunction.html#a9f0a6c11e36ff9036a7cf23b4dd18cd2',1,'teqp::MultiFluidInvariantReducingFunction']]],
+  ['pi_10',['PI',['../namespaceteqp_1_1constants.html#a01b4326c3f7cca584a62d8df35cea7f0',1,'teqp::constants']]],
+  ['pl_11',['pL',['../structteqp_1_1MultiFluidVLEAncillaries.html#a97a34519ff7d56726e6b66d42aa0e2ac',1,'teqp::MultiFluidVLEAncillaries']]],
+  ['pole_12',['Pole',['../classteqp_1_1twocenterljf_1_1Twocenterljf.html#a7f9af62c832674b9bcfd84d5b0cb0231',1,'teqp::twocenterljf::Twocenterljf']]],
+  ['polish_13',['polish',['../structteqp_1_1TCABOptions.html#ac1f222b5eecee33c7e22b4e10d700262',1,'teqp::TCABOptions::polish'],['../structteqp_1_1TVLEOptions.html#ae4a6a7e745cd4364365460b911ec4c15',1,'teqp::TVLEOptions::polish'],['../structteqp_1_1PVLEOptions.html#a8b5c75b84e0e470be39f57ccdc8ba5a9',1,'teqp::PVLEOptions::polish'],['../structteqp_1_1VLLE_1_1VLLETracerOptions.html#aa8f85d7a15d88af3037fd60ade0c8d7d',1,'teqp::VLLE::VLLETracerOptions::polish']]],
+  ['polish_5fexception_5fon_5ffail_14',['polish_exception_on_fail',['../structteqp_1_1TCABOptions.html#a9f413e64d5e9f0d9d9f599eb36e8b080',1,'teqp::TCABOptions::polish_exception_on_fail'],['../structteqp_1_1TVLEOptions.html#a04e1c85056a0b4968e15ea4ef7275b53',1,'teqp::TVLEOptions::polish_exception_on_fail'],['../structteqp_1_1PVLEOptions.html#a45c79513633ae8e431a0c7f2a7bf8644',1,'teqp::PVLEOptions::polish_exception_on_fail']]],
+  ['polish_5freltol_5frho_15',['polish_reltol_rho',['../structteqp_1_1TCABOptions.html#ae9ef38c3e71073d05bb3741bee90e3aa',1,'teqp::TCABOptions::polish_reltol_rho'],['../structteqp_1_1TVLEOptions.html#a2acc1f719e8903632aaa89b57fd3fd66',1,'teqp::TVLEOptions::polish_reltol_rho'],['../structteqp_1_1PVLEOptions.html#ae10ec164070b173bce6c816e19a01835',1,'teqp::PVLEOptions::polish_reltol_rho']]],
+  ['polish_5freltol_5ft_16',['polish_reltol_T',['../structteqp_1_1TCABOptions.html#a35313a919237c53c86274fc094c5261c',1,'teqp::TCABOptions']]],
+  ['pr_5fcode_17',['PR_CODE',['../namespaceteqp_1_1CubicSuperAncillary.html#a4f1aff916639fada1bf5e2cde841eb5b',1,'teqp::CubicSuperAncillary']]],
+  ['pr_5fp_18',['PR_p',['../namespaceteqp_1_1CubicSuperAncillary.html#ac2b5c90bd12f0e7496382d590ab60f2c',1,'teqp::CubicSuperAncillary']]],
+  ['pr_5frhol_19',['PR_rhoL',['../namespaceteqp_1_1CubicSuperAncillary.html#a99be15a5ecc48f0427020b29b02d9b6d',1,'teqp::CubicSuperAncillary']]],
+  ['pr_5frhov_20',['PR_rhoV',['../namespaceteqp_1_1CubicSuperAncillary.html#a5b813cc775f5427a8d2b9ca193acce83',1,'teqp::CubicSuperAncillary']]],
+  ['psi0_21',['psi0',['../structteqp_1_1CriticalTracing_1_1psi1derivs.html#aed9eb8ef92c06e4bff8e396518c1ada6',1,'teqp::CriticalTracing::psi1derivs']]],
+  ['psir_22',['psir',['../structteqp_1_1CriticalTracing_1_1psi1derivs.html#a25fe76c6a0abecda2934df4643989d87',1,'teqp::CriticalTracing::psi1derivs']]],
+  ['pure_5fendpoint_5fpolish_23',['pure_endpoint_polish',['../structteqp_1_1TCABOptions.html#a99290ee6eddd2949e4122316a5e39147',1,'teqp::TCABOptions']]],
+  ['pures_24',['pures',['../classteqp_1_1IdealHelmholtz.html#a9d6140304a9fa78ed7d6258bdb449233',1,'teqp::IdealHelmholtz']]],
+  ['pv_25',['pV',['../structteqp_1_1MultiFluidVLEAncillaries.html#a678fd331cede951fc9c45f19c16aa7c1',1,'teqp::MultiFluidVLEAncillaries']]]
 ];

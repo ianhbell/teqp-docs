@@ -16,17 +16,17 @@
    "id": "3579cfa2",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-08T16:27:15.637552Z",
-     "iopub.status.busy": "2023-12-08T16:27:15.637393Z",
-     "iopub.status.idle": "2023-12-08T16:27:15.706040Z",
-     "shell.execute_reply": "2023-12-08T16:27:15.705540Z"
+     "iopub.execute_input": "2024-01-04T22:11:56.634405Z",
+     "iopub.status.busy": "2024-01-04T22:11:56.634237Z",
+     "iopub.status.idle": "2024-01-04T22:11:56.705162Z",
+     "shell.execute_reply": "2024-01-04T22:11:56.704673Z"
     }
    },
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "'0.17.0'"
+       "'0.18.0'"
       ]
      },
      "execution_count": 1,
@@ -45,10 +45,10 @@
    "id": "ee024418",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-08T16:27:15.709325Z",
-     "iopub.status.busy": "2023-12-08T16:27:15.708417Z",
-     "iopub.status.idle": "2023-12-08T16:27:15.728190Z",
-     "shell.execute_reply": "2023-12-08T16:27:15.727738Z"
+     "iopub.execute_input": "2024-01-04T22:11:56.708716Z",
+     "iopub.status.busy": "2024-01-04T22:11:56.707787Z",
+     "iopub.status.idle": "2024-01-04T22:11:56.727575Z",
+     "shell.execute_reply": "2024-01-04T22:11:56.727127Z"
     }
    },
    "outputs": [],
@@ -79,10 +79,10 @@
    "id": "1eeef8db",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-08T16:27:15.731430Z",
-     "iopub.status.busy": "2023-12-08T16:27:15.730578Z",
-     "iopub.status.idle": "2023-12-08T16:27:18.442794Z",
-     "shell.execute_reply": "2023-12-08T16:27:18.442209Z"
+     "iopub.execute_input": "2024-01-04T22:11:56.730764Z",
+     "iopub.status.busy": "2024-01-04T22:11:56.729922Z",
+     "iopub.status.idle": "2024-01-04T22:11:59.428880Z",
+     "shell.execute_reply": "2024-01-04T22:11:59.428270Z"
     }
    },
    "outputs": [
@@ -90,7 +90,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "27.9 µs ± 1.65 µs per loop (mean ± std. dev. of 7 runs, 10,000 loops each)\n"
+      "28.1 µs ± 2.01 µs per loop (mean ± std. dev. of 7 runs, 10,000 loops each)\n"
      ]
     }
    ],
@@ -104,10 +104,10 @@
    "id": "53af2daf",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-12-08T16:27:18.445059Z",
-     "iopub.status.busy": "2023-12-08T16:27:18.444675Z",
-     "iopub.status.idle": "2023-12-08T16:27:18.448355Z",
-     "shell.execute_reply": "2023-12-08T16:27:18.447958Z"
+     "iopub.execute_input": "2024-01-04T22:11:59.450405Z",
+     "iopub.status.busy": "2024-01-04T22:11:59.450023Z",
+     "iopub.status.idle": "2024-01-04T22:11:59.453916Z",
+     "shell.execute_reply": "2024-01-04T22:11:59.453477Z"
     }
    },
    "outputs": [

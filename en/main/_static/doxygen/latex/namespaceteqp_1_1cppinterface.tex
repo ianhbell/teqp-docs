@@ -15,9 +15,9 @@ struct \mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices}{Iterati
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_af38152c18fd82d7ed79728552ac785fb}{Model\+Pointer\+Factory\+Function}} = std\+::function$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$(const nlohmann\+::json \&j)$>$
+using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}{Model\+Pointer\+Factory\+Function}} = std\+::function$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}}$>$(const nlohmann\+::json \&j)$>$
 \item 
-using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a23932c37884522f70dd24de23a3ed49f}{makefunc}} = \mbox{\hyperlink{namespaceteqp_1_1cppinterface_af38152c18fd82d7ed79728552ac785fb}{Model\+Pointer\+Factory\+Function}}
+using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_aaea408772075eade4e896e9b4c518591}{makefunc}} = \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}{Model\+Pointer\+Factory\+Function}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -32,28 +32,28 @@ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1Abstract
 \item 
 nlohmann\+::json \mbox{\hyperlink{namespaceteqp_1_1cppinterface_af204b0796feb1504c577749f82e496a2}{get\+\_\+model\+\_\+schema}} (const std\+::string \&kind)
 \begin{DoxyCompactList}\small\item\em Return the schema for the given model kind. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a99c55e372f03fbc42f067db77bac520a}{add\+\_\+model\+\_\+pointer\+\_\+factory\+\_\+function}} (const std\+::string \&key, \mbox{\hyperlink{namespaceteqp_1_1cppinterface_af38152c18fd82d7ed79728552ac785fb}{Model\+Pointer\+Factory\+Function}} \&func)
+void \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a99c55e372f03fbc42f067db77bac520a}{add\+\_\+model\+\_\+pointer\+\_\+factory\+\_\+function}} (const std\+::string \&key, \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}{Model\+Pointer\+Factory\+Function}} \&func)
 \begin{DoxyCompactList}\small\item\em This function allows you to inject your own model factory function into the set of factory functions implemented in teqp. This allows you to add your own model at runtime. As an example of how to do this, see src/test\+\_\+runtime\+\_\+model\+\_\+inclusion.\+cpp. \end{DoxyCompactList}\item 
 std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a432d204a25bfde3ea0cfc27bf3007526}{make\+\_\+\+SAFTVRMie}} (const nlohmann\+::json \&j)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Typedef Documentation}
-\Hypertarget{namespaceteqp_1_1cppinterface_a23932c37884522f70dd24de23a3ed49f}\label{namespaceteqp_1_1cppinterface_a23932c37884522f70dd24de23a3ed49f} 
+\Hypertarget{namespaceteqp_1_1cppinterface_aaea408772075eade4e896e9b4c518591}\label{namespaceteqp_1_1cppinterface_aaea408772075eade4e896e9b4c518591} 
 \index{teqp::cppinterface@{teqp::cppinterface}!makefunc@{makefunc}}
 \index{makefunc@{makefunc}!teqp::cppinterface@{teqp::cppinterface}}
 \doxysubsubsection{\texorpdfstring{makefunc}{makefunc}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a23932c37884522f70dd24de23a3ed49f}{teqp\+::cppinterface\+::makefunc}} = typedef \mbox{\hyperlink{namespaceteqp_1_1cppinterface_af38152c18fd82d7ed79728552ac785fb}{Model\+Pointer\+Factory\+Function}}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_aaea408772075eade4e896e9b4c518591}{teqp\+::cppinterface\+::makefunc}} = \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}{Model\+Pointer\+Factory\+Function}}}
 
 
 
 Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{teqp__impl__factory_8cpp_source}{teqp\+\_\+impl\+\_\+factory.\+cpp}}.
 
-\Hypertarget{namespaceteqp_1_1cppinterface_af38152c18fd82d7ed79728552ac785fb}\label{namespaceteqp_1_1cppinterface_af38152c18fd82d7ed79728552ac785fb} 
+\Hypertarget{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}\label{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28} 
 \index{teqp::cppinterface@{teqp::cppinterface}!ModelPointerFactoryFunction@{ModelPointerFactoryFunction}}
 \index{ModelPointerFactoryFunction@{ModelPointerFactoryFunction}!teqp::cppinterface@{teqp::cppinterface}}
 \doxysubsubsection{\texorpdfstring{ModelPointerFactoryFunction}{ModelPointerFactoryFunction}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_af38152c18fd82d7ed79728552ac785fb}{teqp\+::cppinterface\+::\+Model\+Pointer\+Factory\+Function}} = typedef std\+::function$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}}$>$(const nlohmann\+::json \&j)$>$}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}{teqp\+::cppinterface\+::\+Model\+Pointer\+Factory\+Function}} = std\+::function$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}}$>$(const nlohmann\+::json \&j)$>$}
 
 
 
@@ -66,7 +66,7 @@ Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00185}{185}} of file \m
 \index{teqp::cppinterface@{teqp::cppinterface}!add\_model\_pointer\_factory\_function@{add\_model\_pointer\_factory\_function}}
 \index{add\_model\_pointer\_factory\_function@{add\_model\_pointer\_factory\_function}!teqp::cppinterface@{teqp::cppinterface}}
 \doxysubsubsection{\texorpdfstring{add\_model\_pointer\_factory\_function()}{add\_model\_pointer\_factory\_function()}}
-{\footnotesize\ttfamily void teqp\+::cppinterface\+::add\+\_\+model\+\_\+pointer\+\_\+factory\+\_\+function (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key,  }\item[{\mbox{\hyperlink{namespaceteqp_1_1cppinterface_af38152c18fd82d7ed79728552ac785fb}{Model\+Pointer\+Factory\+Function}} \&}]{func }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void teqp\+::cppinterface\+::add\+\_\+model\+\_\+pointer\+\_\+factory\+\_\+function (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key,  }\item[{\mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}{Model\+Pointer\+Factory\+Function}} \&}]{func }\end{DoxyParamCaption})}
 
 
 
@@ -81,7 +81,7 @@ This function allows you to inject your own model factory function into the set 
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00081}{81}} of file \mbox{\hyperlink{teqp__impl__factory_8cpp_source}{teqp\+\_\+impl\+\_\+factory.\+cpp}}.
+Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00084}{84}} of file \mbox{\hyperlink{teqp__impl__factory_8cpp_source}{teqp\+\_\+impl\+\_\+factory.\+cpp}}.
 
 \Hypertarget{namespaceteqp_1_1cppinterface_a2bcecf3d939d9f0f6b45d39dfe9e830d}\label{namespaceteqp_1_1cppinterface_a2bcecf3d939d9f0f6b45d39dfe9e830d} 
 \index{teqp::cppinterface@{teqp::cppinterface}!build\_iteration\_Jv@{build\_iteration\_Jv}}
@@ -123,7 +123,7 @@ Definition at line \mbox{\hyperlink{cpp_2derivs_8hpp_source_l00027}{27}} of file
 
 
 
-Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{teqp__impl__factory_8cpp_source}{teqp\+\_\+impl\+\_\+factory.\+cpp}}.
+Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{teqp__impl__factory_8cpp_source}{teqp\+\_\+impl\+\_\+factory.\+cpp}}.
 
 \Hypertarget{namespaceteqp_1_1cppinterface_af204b0796feb1504c577749f82e496a2}\label{namespaceteqp_1_1cppinterface_af204b0796feb1504c577749f82e496a2} 
 \index{teqp::cppinterface@{teqp::cppinterface}!get\_model\_schema@{get\_model\_schema}}
@@ -147,7 +147,7 @@ Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00017}{17}}
 
 
 
-Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{teqp__impl__factory_8cpp_source}{teqp\+\_\+impl\+\_\+factory.\+cpp}}.
+Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{teqp__impl__factory_8cpp_source}{teqp\+\_\+impl\+\_\+factory.\+cpp}}.
 
 \Hypertarget{namespaceteqp_1_1cppinterface_a667d9cdc8dabc48e3280d8b481e60ee3}\label{namespaceteqp_1_1cppinterface_a667d9cdc8dabc48e3280d8b481e60ee3} 
 \index{teqp::cppinterface@{teqp::cppinterface}!make\_multifluid\_model@{make\_multifluid\_model}}
@@ -157,7 +157,7 @@ Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00077}{77}}
 
 
 
-Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00073}{73}} of file \mbox{\hyperlink{teqp__impl__factory_8cpp_source}{teqp\+\_\+impl\+\_\+factory.\+cpp}}.
+Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{teqp__impl__factory_8cpp_source}{teqp\+\_\+impl\+\_\+factory.\+cpp}}.
 
 \Hypertarget{namespaceteqp_1_1cppinterface_a432d204a25bfde3ea0cfc27bf3007526}\label{namespaceteqp_1_1cppinterface_a432d204a25bfde3ea0cfc27bf3007526} 
 \index{teqp::cppinterface@{teqp::cppinterface}!make\_SAFTVRMie@{make\_SAFTVRMie}}

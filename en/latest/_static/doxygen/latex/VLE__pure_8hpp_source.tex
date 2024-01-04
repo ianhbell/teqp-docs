@@ -16,8 +16,8 @@
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00012}00012\ }
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00013}00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp}{teqp}}\{}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00014}00014\ }
-\DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00015}\mbox{\hyperlink{namespaceteqp_abf4178adee8264741ab6d892f09a05a9}{00015}}\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Model>\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_abf4178adee8264741ab6d892f09a05a9}{is\_AbstractModel}}\ =\ \textcolor{keyword}{typename}\ std::is\_base\_of<teqp::cppinterface::AbstractModel,\ Model>;}
-\DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00016}\mbox{\hyperlink{namespaceteqp_a3c6fcfa03eb6572863697cc040b7d75a}{00016}}\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Model>\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_a3c6fcfa03eb6572863697cc040b7d75a}{is\_not\_AbstractModel}}\ =\ std::negation<is\_AbstractModel<Model>>;}
+\DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00015}\mbox{\hyperlink{namespaceteqp_a736696b39677905edd4fcc2484149270}{00015}}\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Model>\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_a736696b39677905edd4fcc2484149270}{is\_AbstractModel}}\ =\ \textcolor{keyword}{typename}\ std::is\_base\_of<teqp::cppinterface::AbstractModel,\ Model>;}
+\DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00016}\mbox{\hyperlink{namespaceteqp_a1fe0dd15f7b17618158e35c9a0c0a8ef}{00016}}\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Model>\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_a1fe0dd15f7b17618158e35c9a0c0a8ef}{is\_not\_AbstractModel}}\ =\ std::negation<is\_AbstractModel<Model>>;}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00017}00017\ }
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00018}00018\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Model,\ \textcolor{keyword}{typename}\ TYPE=\textcolor{keywordtype}{double},\ ADBackends\ backend\ =\ ADBackends::autodiff>}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00019}\mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals}{00019}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals}{IsothermPureVLEResiduals}}\ \ \{}
@@ -37,7 +37,7 @@
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00033}00033\ }
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00034}\mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_ad3b8d0594f4f9a1f06ca1ec99fe07bcf}{00034}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_ad3b8d0594f4f9a1f06ca1ec99fe07bcf}{IsothermPureVLEResiduals}}(\textcolor{keyword}{const}\ Model\&\ model,\ \textcolor{keyword}{const}\ TYPE\&\ T,\ \textcolor{keyword}{const}\ std::optional<Eigen::ArrayXd>\&\ molefracs\_\ =\ std::nullopt)\ :\ m\_model(model),\ m\_T(T),}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ molefracs(\ (molefracs\_)\ ?\ molefracs\_.value()\ :\ Eigen::ArrayXd::Ones(1,1))\ \{}
-\DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}(\mbox{\hyperlink{namespaceteqp_a3c6fcfa03eb6572863697cc040b7d75a}{is\_not\_AbstractModel<Model>::value}})\{}
+\DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}(\mbox{\hyperlink{namespaceteqp_a1fe0dd15f7b17618158e35c9a0c0a8ef}{is\_not\_AbstractModel<Model>::value}})\{}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_a070d854da15eae21b5c25c3fa799a5af}{Rr}}\ =\ m\_model.R(molefracs);}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_a07e4a107a25638922d0d289790523616}{R0}}\ =\ m\_model.R(molefracs);}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
@@ -51,7 +51,7 @@
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00047}00047\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Rho>}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00049}\mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_a7a127622cf9f7864dca1ec8190b3a808}{00049}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1IsothermPureVLEResiduals_a7a127622cf9f7864dca1ec8190b3a808}{get\_der}}(\textcolor{keyword}{const}\ Rho\&\ rho)\{}
-\DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}(\mbox{\hyperlink{namespaceteqp_a3c6fcfa03eb6572863697cc040b7d75a}{is\_not\_AbstractModel<Model>::value}})\{}
+\DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}(\mbox{\hyperlink{namespaceteqp_a1fe0dd15f7b17618158e35c9a0c0a8ef}{is\_not\_AbstractModel<Model>::value}})\{}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }tdx\ =\ \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{TDXDerivatives<Model,TYPE,Eigen::ArrayXd>}};}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tdx::template\ get\_Ar0n<2,\ backend>(m\_model,\ m\_T,\ rho,\ molefracs);}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \}}
@@ -202,7 +202,7 @@
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00198}00198\ \ \ \ \ \textcolor{keyword}{auto}\ rhoLrhoV\ =\ \mbox{\hyperlink{namespaceteqp_a5fdf71d9e1ef7e3c69e2410aff33fa21}{extrapolate\_from\_critical}}(model,\ Tc,\ rhoc,\ Tclose,\ z);}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00199}00199\ \ \ \ \ \textcolor{keyword}{auto}\ rhoLrhoVpolished\ =\ \mbox{\hyperlink{namespaceteqp_a92911152e3677223eedb7045a0b224b1}{pure\_VLE\_T}}(model,\ Tclose,\ rhoLrhoV[0],\ rhoLrhoV[1],\ spec.value(\textcolor{stringliteral}{"{}NVLE"{}},\ 10),\ z);}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00200}00200\ \ \ \ \ \textcolor{keywordflow}{if}\ (rhoLrhoVpolished[0]\ ==\ rhoLrhoVpolished[1])\{}
-\DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{namespaceteqp_a10145ce83657c36965b09f8aa745378d}{teqp::IterationError}}(\textcolor{stringliteral}{"{}Converged\ to\ trivial\ solution"{}});}
+\DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{namespaceteqp_a683ee1da36b4487424000960a46c9ee9}{teqp::IterationError}}(\textcolor{stringliteral}{"{}Converged\ to\ trivial\ solution"{}});}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00202}00202\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00203}00203\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00204}00204\ \ \ \ \ \textcolor{comment}{//\ "{}Integrate"{}\ down\ to\ temperature\ of\ interest}}
@@ -235,10 +235,10 @@
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00231}00231\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Updated\ values\ for\ densities\ at\ new\ T}}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!std::isfinite(rhoLrhoVpolished[0]))\{}
-\DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{namespaceteqp_a10145ce83657c36965b09f8aa745378d}{teqp::IterationError}}(\textcolor{stringliteral}{"{}The\ density\ is\ no\ longer\ valid;\ try\ increasing\ Nstep"{}});}
+\DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{namespaceteqp_a683ee1da36b4487424000960a46c9ee9}{teqp::IterationError}}(\textcolor{stringliteral}{"{}The\ density\ is\ no\ longer\ valid;\ try\ increasing\ Nstep"{}});}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rhoLrhoVpolished[0]\ ==\ rhoLrhoVpolished[1])\{}
-\DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{namespaceteqp_a10145ce83657c36965b09f8aa745378d}{teqp::IterationError}}(\textcolor{stringliteral}{"{}Converged\ to\ trivial\ solution;\ try\ increasing\ Nstep"{}});}
+\DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{namespaceteqp_a683ee1da36b4487424000960a46c9ee9}{teqp::IterationError}}(\textcolor{stringliteral}{"{}Converged\ to\ trivial\ solution;\ try\ increasing\ Nstep"{}});}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00239}00239\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{VLE__pure_8hpp_source_l00240}00240\ \ \ \ \ \textcolor{keywordflow}{return}\ rhoLrhoVpolished;}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rootfinding_2ehpp_0',['rootfinding.hpp',['../rootfinding_8hpp.html',1,'']]]
+  ['quadrature_2ehpp_0',['quadrature.hpp',['../quadrature_8hpp.html',1,'']]]
 ];

@@ -123,7 +123,7 @@
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00120}\mbox{\hyperlink{classteqp_1_1MultiFluid_aa9fa8272348a800360121fe4f8ff9c24}{00120}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classteqp_1_1ReducingTermContainer}{ReducingFunctions}}\ \mbox{\hyperlink{classteqp_1_1MultiFluid_aa9fa8272348a800360121fe4f8ff9c24}{redfunc}};}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00121}\mbox{\hyperlink{classteqp_1_1MultiFluid_a28a6d18f587f3d1169b2d62942503caa}{00121}}\ \ \ \ \ \textcolor{keyword}{const}\ CorrespondingTerm\ \mbox{\hyperlink{classteqp_1_1MultiFluid_a28a6d18f587f3d1169b2d62942503caa}{corr}};}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00122}\mbox{\hyperlink{classteqp_1_1MultiFluid_a6306c3f78e68dee4cc7cabbf9d07c645}{00122}}\ \ \ \ \ \textcolor{keyword}{const}\ DepartureTerm\ \mbox{\hyperlink{classteqp_1_1MultiFluid_a6306c3f78e68dee4cc7cabbf9d07c645}{dep}};}
-\DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00123}\mbox{\hyperlink{classteqp_1_1MultiFluid_a9a3c01567a5d050377c63646706875a9}{00123}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classteqp_1_1MultiFluid_a9a3c01567a5d050377c63646706875a9}{GasConstantCalculator}}\ =\ \mbox{\hyperlink{namespaceteqp_1_1multifluid_1_1gasconstant_a73944544b3f482f370e4b79e1d0a1c75}{multifluid::gasconstant::GasConstantCalculator}};}
+\DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00123}\mbox{\hyperlink{classteqp_1_1MultiFluid_a9a3c01567a5d050377c63646706875a9}{00123}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classteqp_1_1MultiFluid_a9a3c01567a5d050377c63646706875a9}{GasConstantCalculator}}\ =\ \mbox{\hyperlink{namespaceteqp_1_1multifluid_1_1gasconstant_a5e8ed41f27e885b32fb717acde35f5ca}{multifluid::gasconstant::GasConstantCalculator}};}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00124}\mbox{\hyperlink{classteqp_1_1MultiFluid_ab1475d85e81ecde89258fafa50d7c559}{00124}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classteqp_1_1MultiFluid_a9a3c01567a5d050377c63646706875a9}{GasConstantCalculator}}\ \mbox{\hyperlink{classteqp_1_1MultiFluid_ab1475d85e81ecde89258fafa50d7c559}{Rcalc}};}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00125}00125\ }
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00126}00126\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ VecType>}
@@ -218,7 +218,7 @@
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00217}00217\ \ \ \ \ \ \ \ \ Eigen::ArrayXd\ c(N),\ l(N);\ c.setZero();}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00218}00218\ }
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ Nlzero\ =\ 0,\ Nlnonzero\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ contiguous\_lzero;}
+\DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ contiguous\_lzero\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00221}00221\ }
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (term[\textcolor{stringliteral}{"{}l"{}}].empty())\ \{}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ exponential\ part\ not\ included}}
@@ -249,7 +249,7 @@
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00249}00249\ \ \ \ \ \ \ \ \ Nlnonzero\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(l.size())\ -\/\ Nlzero;}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00250}00250\ }
-\DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((l[0]\ !=\ 0)\ \&\&\ (l[l.size()\ -\/\ 1]\ ==\ 0))\ \{}
+\DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (contiguous\_lzero\ \&\&\ (l.tail(Nlnonzero)\ ==\ 0).any())\ \{}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}If\ l\_i\ has\ zero\ and\ non-\/zero\ values,\ the\ zero\ values\ need\ to\ come\ first"{}});}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00254}00254\ }
@@ -846,7 +846,7 @@
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00849}00849\ \ \ \ \ \textcolor{keyword}{auto}\ [funcs,\ funcsmeta]\ =\ \mbox{\hyperlink{namespaceteqp_a794ca20d6c5c501592eccde9e87c5a2d}{get\_departure\_function\_matrix}}(depcollection,\ BIPcollection,\ identifiers,\ flags);}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00850}00850\ \ \ \ \ \textcolor{keyword}{auto}\ [betaT,\ gammaT,\ betaV,\ gammaV]\ =\ \mbox{\hyperlink{namespaceteqp_1_1reducing_add7f58519ca95ee6f25b8bde8e2cfbd9}{reducing::get\_BIP\_matrices}}(BIPcollection,\ identifiers,\ flags,\ Tc,\ vc);}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00851}00851\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00852}00852\ \ \ \ \ \mbox{\hyperlink{namespaceteqp_1_1multifluid_1_1gasconstant_a73944544b3f482f370e4b79e1d0a1c75}{multifluid::gasconstant::GasConstantCalculator}}\ Rcalc\ =\ multifluid::gasconstant::MoleFractionWeighted(Rvals);}
+\DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00852}00852\ \ \ \ \ \mbox{\hyperlink{namespaceteqp_1_1multifluid_1_1gasconstant_a5e8ed41f27e885b32fb717acde35f5ca}{multifluid::gasconstant::GasConstantCalculator}}\ Rcalc\ =\ multifluid::gasconstant::MoleFractionWeighted(Rvals);}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00853}00853\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00854}00854\ \ \ \ \ \textcolor{keywordflow}{if}\ (flags.contains(\textcolor{stringliteral}{"{}Rmodel"{}})\ \&\&\ flags.at(\textcolor{stringliteral}{"{}Rmodel"{}})\ ==\ \textcolor{stringliteral}{"{}CODATA"{}})\{}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00855}00855\ \ \ \ \ \ \ \ \ Rcalc\ =\ multifluid::gasconstant::CODATA();}
@@ -858,7 +858,7 @@
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00861}00861\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}mix"{}},\ funcsmeta\},}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00862}00862\ \ \ \ \ \};}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00863}00863\ }
-\DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00864}00864\ \ \ \ \ \textcolor{keyword}{auto}\ redfunc\ =\ \mbox{\hyperlink{namespaceteqp_af507b2d1ed6ef92181c6baec26db1a18}{ReducingFunctions}}(std::move(MultiFluidReducingFunction(betaT,\ gammaT,\ betaV,\ gammaV,\ Tc,\ vc)));}
+\DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00864}00864\ \ \ \ \ \textcolor{keyword}{auto}\ redfunc\ =\ \mbox{\hyperlink{namespaceteqp_acbf67c7fb462e29705f3a9e0f1e6f85a}{ReducingFunctions}}(std::move(MultiFluidReducingFunction(betaT,\ gammaT,\ betaV,\ gammaV,\ Tc,\ vc)));}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00865}00865\ }
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00866}00866\ \ \ \ \ \textcolor{keyword}{auto}\ model\ =\ MultiFluid(}
 \DoxyCodeLine{\Hypertarget{multifluid_8hpp_source_l00867}00867\ \ \ \ \ \ \ \ \ std::move(redfunc),}

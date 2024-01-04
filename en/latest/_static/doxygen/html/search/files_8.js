@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['json_5fbuilder_2ehpp_0',['json_builder.hpp',['../json__builder_8hpp.html',1,'']]],
-  ['json_5ftools_2ehpp_1',['json_tools.hpp',['../json__tools_8hpp.html',1,'']]]
+  ['ideal_5feosterms_2ehpp_0',['ideal_eosterms.hpp',['../ideal__eosterms_8hpp.html',1,'']]],
+  ['iteration_2ehpp_1',['iteration.hpp',['../iteration_8hpp.html',1,'']]]
 ];
