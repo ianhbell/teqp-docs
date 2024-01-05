@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Multfluid mutant" href="multifluid_mutant.html" />
-    <link rel="prev" title="PC-SAFT" href="PCSAFT.html" />
+    <link rel="prev" title="SAFT-VR-Mie with polar contributions" href="SAFT-VR-Mie-Polar.html" />
   
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -149,7 +149,7 @@ VLE densities are: 27357.147019094467 42.047982278351704 mol/m^3
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-619 µs ± 3.36 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+617 µs ± 1.06 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -168,7 +168,7 @@ VLE densities are: 27357.147019094467 42.047982278351704 mol/m^3
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-38.3 ms ± 203 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+38.2 ms ± 136 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div></div>
 </div>
 <p>So, how to make it faster? Only do it once and cache</p>
@@ -190,7 +190,7 @@ VLE densities are: 27357.147019094467 42.047982278351704 mol/m^3
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-37.7 ms ± 51.8 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+37.3 ms ± 37.5 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -228,7 +228,7 @@ VLE densities are: 27357.147019094467 42.047982278351704 mol/m^3
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-621 µs ± 2.79 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+623 µs ± 3.82 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div></div>
 </div>
 <p>At some point soon teqp will support in-memory loading of JSON data for the pure components, without requiring reads from the operating system</p>
@@ -428,7 +428,7 @@ Cell <span class="ansi-green-fg">In[13], line 2</span>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="index.html">Models</a><ul>
-      <li>Previous: <a href="PCSAFT.html" title="previous chapter">PC-SAFT</a></li>
+      <li>Previous: <a href="SAFT-VR-Mie-Polar.html" title="previous chapter">SAFT-VR-Mie with polar contributions</a></li>
       <li>Next: <a href="multifluid_mutant.html" title="next chapter">Multfluid mutant</a></li>
   </ul></li>
   </ul></li>

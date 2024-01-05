@@ -24,10 +24,10 @@
    "id": "d3ab9d9c",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T00:14:49.417953Z",
-     "iopub.status.busy": "2024-01-05T00:14:49.417784Z",
-     "iopub.status.idle": "2024-01-05T00:14:49.490983Z",
-     "shell.execute_reply": "2024-01-05T00:14:49.490485Z"
+     "iopub.execute_input": "2024-01-05T18:56:44.913004Z",
+     "iopub.status.busy": "2024-01-05T18:56:44.912566Z",
+     "iopub.status.idle": "2024-01-05T18:56:44.985197Z",
+     "shell.execute_reply": "2024-01-05T18:56:44.984706Z"
     }
    },
    "outputs": [
@@ -53,17 +53,17 @@
    "id": "39bd96e0",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T00:14:49.494700Z",
-     "iopub.status.busy": "2024-01-05T00:14:49.493770Z",
-     "iopub.status.idle": "2024-01-05T00:14:49.499855Z",
-     "shell.execute_reply": "2024-01-05T00:14:49.499393Z"
+     "iopub.execute_input": "2024-01-05T18:56:44.988822Z",
+     "iopub.status.busy": "2024-01-05T18:56:44.987905Z",
+     "iopub.status.idle": "2024-01-05T18:56:44.993804Z",
+     "shell.execute_reply": "2024-01-05T18:56:44.993349Z"
     }
    },
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "<teqp.teqp.AbstractModel at 0x7faf1293c7d0>"
+       "<teqp.teqp.AbstractModel at 0x7f1a213c4950>"
       ]
      },
      "execution_count": 2,
@@ -81,10 +81,10 @@
    "id": "45d41b7f",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T00:14:49.503204Z",
-     "iopub.status.busy": "2024-01-05T00:14:49.502346Z",
-     "iopub.status.idle": "2024-01-05T00:14:49.675169Z",
-     "shell.execute_reply": "2024-01-05T00:14:49.674593Z"
+     "iopub.execute_input": "2024-01-05T18:56:44.997000Z",
+     "iopub.status.busy": "2024-01-05T18:56:44.996150Z",
+     "iopub.status.idle": "2024-01-05T18:56:45.165141Z",
+     "shell.execute_reply": "2024-01-05T18:56:45.164568Z"
     },
     "tags": [
      "raises-exception"
@@ -115,17 +115,17 @@
    "id": "907f3619",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T00:14:49.677377Z",
-     "iopub.status.busy": "2024-01-05T00:14:49.677064Z",
-     "iopub.status.idle": "2024-01-05T00:14:49.681391Z",
-     "shell.execute_reply": "2024-01-05T00:14:49.680938Z"
+     "iopub.execute_input": "2024-01-05T18:56:45.167353Z",
+     "iopub.status.busy": "2024-01-05T18:56:45.167151Z",
+     "iopub.status.idle": "2024-01-05T18:56:45.171797Z",
+     "shell.execute_reply": "2024-01-05T18:56:45.171349Z"
     }
    },
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "<teqp.teqp.AbstractModel at 0x7faeece48890>"
+       "<teqp.teqp.AbstractModel at 0x7f19f48bca10>"
       ]
      },
      "execution_count": 4,
@@ -147,17 +147,17 @@
    "id": "800b86f4",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T00:14:49.683171Z",
-     "iopub.status.busy": "2024-01-05T00:14:49.683011Z",
-     "iopub.status.idle": "2024-01-05T00:14:49.687178Z",
-     "shell.execute_reply": "2024-01-05T00:14:49.686657Z"
+     "iopub.execute_input": "2024-01-05T18:56:45.173732Z",
+     "iopub.status.busy": "2024-01-05T18:56:45.173333Z",
+     "iopub.status.idle": "2024-01-05T18:56:45.177357Z",
+     "shell.execute_reply": "2024-01-05T18:56:45.176945Z"
     }
    },
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "<teqp.teqp.AbstractModel at 0x7faeece48a70>"
+       "<teqp.teqp.AbstractModel at 0x7f19f48bcbf0>"
       ]
      },
      "execution_count": 5,
@@ -184,10 +184,10 @@
    "id": "bccc9f19",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T00:14:49.689222Z",
-     "iopub.status.busy": "2024-01-05T00:14:49.688840Z",
-     "iopub.status.idle": "2024-01-05T00:14:49.692448Z",
-     "shell.execute_reply": "2024-01-05T00:14:49.691879Z"
+     "iopub.execute_input": "2024-01-05T18:56:45.179240Z",
+     "iopub.status.busy": "2024-01-05T18:56:45.178922Z",
+     "iopub.status.idle": "2024-01-05T18:56:45.182143Z",
+     "shell.execute_reply": "2024-01-05T18:56:45.181681Z"
     }
    },
    "outputs": [],
