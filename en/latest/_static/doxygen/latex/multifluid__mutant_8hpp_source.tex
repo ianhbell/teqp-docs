@@ -25,110 +25,119 @@
 \DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00026}00026\ }
 \DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00028}\mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_af352dd5c0f70e8c4070aecc9b8b98820}{00028}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_af352dd5c0f70e8c4070aecc9b8b98820}{set\_meta}}(\textcolor{keyword}{const}\ std::string\&\ m)\ \{\ meta\ =\ m;\ \}}
 \DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00030}\mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a8369a1ef73b7108dfb5b1da181afc1a1}{00030}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a8369a1ef73b7108dfb5b1da181afc1a1}{get\_meta}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ meta;\ \}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ RhoType,\ \textcolor{keyword}{typename}\ MoleFracType>}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00033}\mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a772e9a151405c260fb0d0af70a104463}{00033}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a772e9a151405c260fb0d0af70a104463}{alphar}}(\textcolor{keyword}{const}\ TType\&\ T,}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RhoType\&\ rho,}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ MoleFracType\&\ molefrac)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00036}00036\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Tred\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a9f6f2d3601b5b4eec441a4429f4cd332}{redfunc}}.\mbox{\hyperlink{classteqp_1_1ReducingTermContainer_ac47599c5b9bbb75780f5cd66bc68c93e}{get\_Tr}}(molefrac));}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rhored\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a9f6f2d3601b5b4eec441a4429f4cd332}{redfunc}}.\mbox{\hyperlink{classteqp_1_1ReducingTermContainer_a226086e725203f58a7b92333316039ad}{get\_rhor}}(molefrac));}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ delta\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(rho\ /\ rhored);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ tau\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(Tred\ /\ T);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ val\ =\ \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a8a485864a81f9af11b7d539e89bde298}{base}}.corr.alphar(tau,\ delta,\ molefrac)\ +\ \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_aa94d415e3b99ee2d742842fec7644d76}{dep}}.alphar(tau,\ delta,\ molefrac);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(val);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00044}00044\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00045}00045\ }
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00046}00046\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ Model>}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00047}\mbox{\hyperlink{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}{00047}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}{build\_multifluid\_mutant}}(\textcolor{keyword}{const}\ Model\&\ model,\ \textcolor{keyword}{const}\ nlohmann::json\&\ jj)\ \{}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00048}00048\ }
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ N\ =\ model.redfunc.Tc.size();}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00050}00050\ }
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Allocate\ the\ matrices\ of\ default\ models\ and\ F\ factors}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ Eigen::MatrixXd\ F(N,\ N);\ F.setZero();}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ std::vector<std::vector<DepartureTerms>>\ funcs(N);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ N;\ ++i)\ \{\ funcs[i].resize(N);\ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00032}\mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a862746127474f072446c3fb2bd8ef350}{00032}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::variant<double,\ std::string>\ \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a862746127474f072446c3fb2bd8ef350}{get\_BIP}}(\textcolor{keyword}{const}\ std::size\_t\ \&i,\ \textcolor{keyword}{const}\ std::size\_t\ \&j,\ \textcolor{keyword}{const}\ std::string\&\ key)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (key\ ==\ \textcolor{stringliteral}{"{}F"{}}\ ||\ key\ ==\ \textcolor{stringliteral}{"{}Fij"{}})\{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ F\ =\ \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_aa94d415e3b99ee2d742842fec7644d76}{dep}}.get\_F();}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ <=\ i\ \&\&\ i\ <\ F.rows()\ \&\&\ 0\ <=\ j\ \&\&\ j\ <\ F.cols())\{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ F(i,j);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a9f6f2d3601b5b4eec441a4429f4cd332}{redfunc}}.\mbox{\hyperlink{classteqp_1_1ReducingTermContainer_af873f86dc0bb4f3f0c02bc9b4dd7e143}{get\_BIP}}(i,\ j,\ key);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ RhoType,\ \textcolor{keyword}{typename}\ MoleFracType>}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00043}\mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a772e9a151405c260fb0d0af70a104463}{00043}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a772e9a151405c260fb0d0af70a104463}{alphar}}(\textcolor{keyword}{const}\ TType\&\ T,}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RhoType\&\ rho,}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ MoleFracType\&\ molefrac)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00046}00046\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Tred\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a9f6f2d3601b5b4eec441a4429f4cd332}{redfunc}}.\mbox{\hyperlink{classteqp_1_1ReducingTermContainer_ac47599c5b9bbb75780f5cd66bc68c93e}{get\_Tr}}(molefrac));}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rhored\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a9f6f2d3601b5b4eec441a4429f4cd332}{redfunc}}.\mbox{\hyperlink{classteqp_1_1ReducingTermContainer_a226086e725203f58a7b92333316039ad}{get\_rhor}}(molefrac));}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ delta\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(rho\ /\ rhored);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ tau\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(Tred\ /\ T);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ val\ =\ \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a8a485864a81f9af11b7d539e89bde298}{base}}.corr.alphar(tau,\ delta,\ molefrac)\ +\ \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_aa94d415e3b99ee2d742842fec7644d76}{dep}}.alphar(tau,\ delta,\ molefrac);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(val);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00054}00054\ \ \ \ \ \};}
 \DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00055}00055\ }
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Build\ the\ F\ and\ departure\ function\ matrix}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ N;\ ++i)\ \{}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ i;\ j\ <\ N;\ ++j)\ \{}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ j)\ \{}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ funcs[i][i].add\_term(\mbox{\hyperlink{classteqp_1_1NullEOSTerm}{NullEOSTerm}}());}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Extract\ the\ given\ entry}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ entry\ =\ jj[std::to\_string(i)][std::to\_string(j)];}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00056}00056\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ Model>}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00057}\mbox{\hyperlink{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}{00057}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}{build\_multifluid\_mutant}}(\textcolor{keyword}{const}\ Model\&\ model,\ \textcolor{keyword}{const}\ nlohmann::json\&\ jj)\ \{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ N\ =\ model.redfunc.Tc.size();}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Allocate\ the\ matrices\ of\ default\ models\ and\ F\ factors}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ Eigen::MatrixXd\ F(N,\ N);\ F.setZero();}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ std::vector<std::vector<DepartureTerms>>\ funcs(N);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ N;\ ++i)\ \{\ funcs[i].resize(N);\ \}}
 \DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00065}00065\ }
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ the\ entry\ in\ the\ matrix\ of\ F\ and\ departure\ functions}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dep\ =\ entry.at(\textcolor{stringliteral}{"{}departure"{}});}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ BIP\ =\ entry.at(\textcolor{stringliteral}{"{}BIP"{}});}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ F(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}Fij"{}});}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ F(j,\ i)\ =\ F(i,\ j);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ funcs[i][j]\ =\ \mbox{\hyperlink{namespaceteqp_a7b0fed59cb3c840627e9799f0d36eb12}{build\_departure\_function}}(dep);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ funcs[j][i]\ =\ \mbox{\hyperlink{namespaceteqp_a7b0fed59cb3c840627e9799f0d36eb12}{build\_departure\_function}}(dep);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00076}00076\ }
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Determine\ what\ sort\ of\ reducing\ function\ is\ to\ be\ used}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ get\_reducing\ =\ [\&](\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ deptype)\ \{}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ red\ =\ model.redfunc;}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Tc\ =\ red.Tc,\ vc\ =\ red.vc;}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (deptype\ ==\ \textcolor{stringliteral}{"{}invariant"{}})\ \{}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }mat\ =\ std::decay\_t<\textcolor{keyword}{decltype}(\mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction_ae57593cb61a0c75309fb60b8883726b2}{MultiFluidInvariantReducingFunction::phiT}})>;}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mat\ phiT\ =\ mat::Zero(N,\ N),\ lambdaT\ =\ mat::Zero(N,\ N),\ phiV\ =\ mat::Zero(N,\ N),\ lambdaV\ =\ mat::Zero(N,\ N);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00084}00084\ }
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ N;\ ++i)\ \{}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ i+1;\ j\ <\ N;\ ++j)\ \{}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Extract\ the\ given\ entry}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ entry\ =\ jj.at(std::to\_string(i)).at(std::to\_string(j));}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00089}00089\ }
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ BIP\ =\ entry.at(\textcolor{stringliteral}{"{}BIP"{}});}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ the\ reducing\ function\ parameters\ in\ the\ copy}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ phiT(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}phiT"{}});}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ phiT(j,\ i)\ =\ phiT(i,\ j);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambdaT(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}lambdaT"{}});}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambdaT(j,\ i)\ =\ -\/lambdaT(i,\ j);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00096}00096\ }
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ phiV(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}phiV"{}});}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ phiV(j,\ i)\ =\ phiV(i,\ j);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambdaV(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}lambdaV"{}});}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambdaV(j,\ i)\ =\ -\/lambdaV(i,\ j);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_acbf67c7fb462e29705f3a9e0f1e6f85a}{ReducingFunctions}}(\mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction}{MultiFluidInvariantReducingFunction}}(phiT,\ lambdaT,\ phiV,\ lambdaV,\ Tc,\ vc));}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }mat\ =\ std::decay\_t<\textcolor{keyword}{decltype}(\mbox{\hyperlink{classteqp_1_1MultiFluidReducingFunction_a8863957e75b80361ef04c7468c856b44}{MultiFluidReducingFunction::betaT}})>;}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mat\ betaT\ =\ mat::Zero(N,\ N),\ gammaT\ =\ mat::Zero(N,\ N),\ betaV\ =\ mat::Zero(N,\ N),\ gammaV\ =\ mat::Zero(N,\ N);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00108}00108\ }
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ N;\ ++i)\ \{}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ i+1;\ j\ <\ N;\ ++j)\ \{}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Extract\ the\ given\ entry}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ entry\ =\ jj.at(std::to\_string(i)).at(std::to\_string(j));}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ BIP\ =\ entry.at(\textcolor{stringliteral}{"{}BIP"{}});}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ the\ reducing\ function\ parameters\ in\ the\ copy}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ betaT(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}betaT"{}});}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ betaT(j,\ i)\ =\ 1\ /\ betaT(i,\ j);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ betaV(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}betaV"{}});}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ betaV(j,\ i)\ =\ 1\ /\ betaV(i,\ j);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gammaT(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}gammaT"{}});\ gammaT(j,\ i)\ =\ gammaT(i,\ j);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gammaV(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}gammaV"{}});\ gammaV(j,\ i)\ =\ gammaV(i,\ j);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_acbf67c7fb462e29705f3a9e0f1e6f85a}{ReducingFunctions}}(\mbox{\hyperlink{classteqp_1_1MultiFluidReducingFunction}{MultiFluidReducingFunction}}(betaT,\ gammaT,\ betaV,\ gammaV,\ Tc,\ vc));}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00126}00126\ \ \ \ \ \ \ \ \ std::string\ deptype\ =\ (jj.at(\textcolor{stringliteral}{"{}0"{}}).at(\textcolor{stringliteral}{"{}1"{}}).at(\textcolor{stringliteral}{"{}BIP"{}}).contains(\textcolor{stringliteral}{"{}type"{}}))\ ?\ jj.at(\textcolor{stringliteral}{"{}0"{}}).at(\textcolor{stringliteral}{"{}1"{}}).at(\textcolor{stringliteral}{"{}BIP"{}})[\textcolor{stringliteral}{"{}type"{}}]\ :\ \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1ReducingTermContainer}{ReducingFunctions}}\ newred\ =\ get\_reducing(deptype);}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00128}00128\ }
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ newdep\ =\ \mbox{\hyperlink{classteqp_1_1DepartureContribution}{DepartureContribution}}(std::move(F),\ std::move(funcs));}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ mfa\ =\ \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter}{MultiFluidAdapter}}(model,\ std::move(newred),\ std::move(newdep));}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00132}00132\ \ \ \ \ \ \ \ \ mfa.set\_meta(jj.dump());}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mfa;}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00134}00134\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00135}00135\ }
-\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00136}00136\ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Build\ the\ F\ and\ departure\ function\ matrix}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ N;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ i;\ j\ <\ N;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ j)\ \{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ funcs[i][i].add\_term(\mbox{\hyperlink{classteqp_1_1NullEOSTerm}{NullEOSTerm}}());}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Extract\ the\ given\ entry}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ entry\ =\ jj[std::to\_string(i)][std::to\_string(j)];}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ the\ entry\ in\ the\ matrix\ of\ F\ and\ departure\ functions}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dep\ =\ entry.at(\textcolor{stringliteral}{"{}departure"{}});}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ BIP\ =\ entry.at(\textcolor{stringliteral}{"{}BIP"{}});}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ F(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}Fij"{}});}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ F(j,\ i)\ =\ F(i,\ j);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ funcs[i][j]\ =\ \mbox{\hyperlink{namespaceteqp_a7b0fed59cb3c840627e9799f0d36eb12}{build\_departure\_function}}(dep);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ funcs[j][i]\ =\ \mbox{\hyperlink{namespaceteqp_a7b0fed59cb3c840627e9799f0d36eb12}{build\_departure\_function}}(dep);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Determine\ what\ sort\ of\ reducing\ function\ is\ to\ be\ used}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ get\_reducing\ =\ [\&](\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ deptype)\ \{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ red\ =\ model.redfunc;}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Tc\ =\ red.Tc,\ vc\ =\ red.vc;}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (deptype\ ==\ \textcolor{stringliteral}{"{}invariant"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }mat\ =\ std::decay\_t<\textcolor{keyword}{decltype}(\mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction_ae57593cb61a0c75309fb60b8883726b2}{MultiFluidInvariantReducingFunction::phiT}})>;}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mat\ phiT\ =\ mat::Zero(N,\ N),\ lambdaT\ =\ mat::Zero(N,\ N),\ phiV\ =\ mat::Zero(N,\ N),\ lambdaV\ =\ mat::Zero(N,\ N);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ N;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ i+1;\ j\ <\ N;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Extract\ the\ given\ entry}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ entry\ =\ jj.at(std::to\_string(i)).at(std::to\_string(j));}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ BIP\ =\ entry.at(\textcolor{stringliteral}{"{}BIP"{}});}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ the\ reducing\ function\ parameters\ in\ the\ copy}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ phiT(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}phiT"{}});}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ phiT(j,\ i)\ =\ phiT(i,\ j);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambdaT(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}lambdaT"{}});}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambdaT(j,\ i)\ =\ -\/lambdaT(i,\ j);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ phiV(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}phiV"{}});}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ phiV(j,\ i)\ =\ phiV(i,\ j);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambdaV(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}lambdaV"{}});}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambdaV(j,\ i)\ =\ -\/lambdaV(i,\ j);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_acbf67c7fb462e29705f3a9e0f1e6f85a}{ReducingFunctions}}(\mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction}{MultiFluidInvariantReducingFunction}}(phiT,\ lambdaT,\ phiV,\ lambdaV,\ Tc,\ vc));}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }mat\ =\ std::decay\_t<\textcolor{keyword}{decltype}(\mbox{\hyperlink{classteqp_1_1MultiFluidReducingFunction_a8863957e75b80361ef04c7468c856b44}{MultiFluidReducingFunction::betaT}})>;}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mat\ betaT\ =\ mat::Zero(N,\ N),\ gammaT\ =\ mat::Zero(N,\ N),\ betaV\ =\ mat::Zero(N,\ N),\ gammaV\ =\ mat::Zero(N,\ N);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ N;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ i+1;\ j\ <\ N;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Extract\ the\ given\ entry}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ entry\ =\ jj.at(std::to\_string(i)).at(std::to\_string(j));}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ BIP\ =\ entry.at(\textcolor{stringliteral}{"{}BIP"{}});}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ the\ reducing\ function\ parameters\ in\ the\ copy}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ betaT(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}betaT"{}});}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ betaT(j,\ i)\ =\ 1\ /\ betaT(i,\ j);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ betaV(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}betaV"{}});}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ betaV(j,\ i)\ =\ 1\ /\ betaV(i,\ j);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gammaT(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}gammaT"{}});\ gammaT(j,\ i)\ =\ gammaT(i,\ j);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gammaV(i,\ j)\ =\ BIP.at(\textcolor{stringliteral}{"{}gammaV"{}});\ gammaV(j,\ i)\ =\ gammaV(i,\ j);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_acbf67c7fb462e29705f3a9e0f1e6f85a}{ReducingFunctions}}(\mbox{\hyperlink{classteqp_1_1MultiFluidReducingFunction}{MultiFluidReducingFunction}}(betaT,\ gammaT,\ betaV,\ gammaV,\ Tc,\ vc));}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00136}00136\ \ \ \ \ \ \ \ \ std::string\ deptype\ =\ (jj.at(\textcolor{stringliteral}{"{}0"{}}).at(\textcolor{stringliteral}{"{}1"{}}).at(\textcolor{stringliteral}{"{}BIP"{}}).contains(\textcolor{stringliteral}{"{}type"{}}))\ ?\ jj.at(\textcolor{stringliteral}{"{}0"{}}).at(\textcolor{stringliteral}{"{}1"{}}).at(\textcolor{stringliteral}{"{}BIP"{}})[\textcolor{stringliteral}{"{}type"{}}]\ :\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1ReducingTermContainer}{ReducingFunctions}}\ newred\ =\ get\_reducing(deptype);}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ newdep\ =\ \mbox{\hyperlink{classteqp_1_1DepartureContribution}{DepartureContribution}}(std::move(F),\ std::move(funcs));}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ mfa\ =\ \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter}{MultiFluidAdapter}}(model,\ std::move(newred),\ std::move(newdep));}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00142}00142\ \ \ \ \ \ \ \ \ mfa.set\_meta(jj.dump());}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mfa;}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00144}00144\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{multifluid__mutant_8hpp_source_l00146}00146\ \}}
 
 \end{DoxyCode}

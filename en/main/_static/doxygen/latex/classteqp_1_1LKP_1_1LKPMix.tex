@@ -1,0 +1,192 @@
+\doxysection{teqp\+::LKP\+::LKPMix Class Reference}
+\hypertarget{classteqp_1_1LKP_1_1LKPMix}{}\label{classteqp_1_1LKP_1_1LKPMix}\index{teqp::LKP::LKPMix@{teqp::LKP::LKPMix}}
+
+
+{\ttfamily \#include $<$LKP.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_a64efeeea54e7187a6689aeab43e2bd9c}{LKPMix}} (const std\+::vector$<$ double $>$ \&\mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_aadefe0129da598bb9a807fc4a4abcee3}{Tcrit}}, const std\+::vector$<$ double $>$ \&\mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_a77dfa136f67314f73a6fc7e9f5804206}{pcrit}}, const std\+::vector$<$ double $>$ \&\mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_a4d28d943ee897b0553588fa7ef6d960d}{acentric}}, double \mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_a192f56abb971ec994a7ee1ba06eeabe6}{R}}, const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&\mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_aff1df13c256baeb5fd6253ff6aaf3600}{kmat}})
+\item 
+{\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_a192f56abb971ec994a7ee1ba06eeabe6}{R}} (const Vec\+Type \&) const
+\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Zc\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_ac8ca54fd2fcc5fc996f58158ec381f26}{alphar\+\_\+func}} (const TTYPE \&tau, const Rho\+Type \&delta, const Zc\+Type \&Zc, const \mbox{\hyperlink{structteqp_1_1LKP_1_1LKPFluidParameters}{LKPFluid\+Parameters}} \&params) const
+\begin{DoxyCompactList}\small\item\em Calculate the contribution for one of the fluids, depending on the parameter set passed in. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_aaa35b1d2b1007b72756c4d4841c7424a}{alphar}} (const TTYPE \&T, const Rho\+Type \&rhomolar, const Vec\+Type \&mole\+\_\+fractions) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{structteqp_1_1LKP_1_1LKPFluidParameters}{LKPFluid\+Parameters}} \mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_a46d4ea8a89d84a3e0e88b9dbe54e1c06}{simple}}
+\item 
+const \mbox{\hyperlink{structteqp_1_1LKP_1_1LKPFluidParameters}{LKPFluid\+Parameters}} \mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_a120f5f7d4a5bcb6e8202d50d0a7cccfe}{ref}}
+\item 
+const std\+::vector$<$ double $>$ \mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_aadefe0129da598bb9a807fc4a4abcee3}{Tcrit}}
+\item 
+const std\+::vector$<$ double $>$ \mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_a77dfa136f67314f73a6fc7e9f5804206}{pcrit}}
+\item 
+const std\+::vector$<$ double $>$ \mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_a4d28d943ee897b0553588fa7ef6d960d}{acentric}}
+\item 
+const double \mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_afa39531a1b6a45973159b974f5d9b84e}{m\+\_\+R}}
+\begin{DoxyCompactList}\small\item\em molar gas constant to be used in this model, in J/mol/K \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classteqp_1_1LKP_1_1LKPMix_aff1df13c256baeb5fd6253ff6aaf3600}{kmat}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{LKP_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{LKP_8hpp_source}{LKP.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1LKP_1_1LKPMix_a64efeeea54e7187a6689aeab43e2bd9c}\label{classteqp_1_1LKP_1_1LKPMix_a64efeeea54e7187a6689aeab43e2bd9c} 
+\index{teqp::LKP::LKPMix@{teqp::LKP::LKPMix}!LKPMix@{LKPMix}}
+\index{LKPMix@{LKPMix}!teqp::LKP::LKPMix@{teqp::LKP::LKPMix}}
+\doxysubsubsection{\texorpdfstring{LKPMix()}{LKPMix()}}
+{\footnotesize\ttfamily teqp\+::\+LKP\+::\+LKPMix\+::\+LKPMix (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{Tcrit,  }\item[{const std\+::vector$<$ double $>$ \&}]{pcrit,  }\item[{const std\+::vector$<$ double $>$ \&}]{acentric,  }\item[{double}]{R,  }\item[{const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{kmat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{LKP_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{LKP_8hpp_source}{LKP.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1LKP_1_1LKPMix_aaa35b1d2b1007b72756c4d4841c7424a}\label{classteqp_1_1LKP_1_1LKPMix_aaa35b1d2b1007b72756c4d4841c7424a} 
+\index{teqp::LKP::LKPMix@{teqp::LKP::LKPMix}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::LKP::LKPMix@{teqp::LKP::LKPMix}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily template$<$typename TTYPE , typename Rho\+Type , typename Vec\+Type $>$ \\
+auto teqp\+::\+LKP\+::\+LKPMix\+::alphar (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T,  }\item[{const Rho\+Type \&}]{rhomolar,  }\item[{const Vec\+Type \&}]{mole\+\_\+fractions }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{LKP_8hpp_source_l00065}{65}} of file \mbox{\hyperlink{LKP_8hpp_source}{LKP.\+hpp}}.
+
+\Hypertarget{classteqp_1_1LKP_1_1LKPMix_ac8ca54fd2fcc5fc996f58158ec381f26}\label{classteqp_1_1LKP_1_1LKPMix_ac8ca54fd2fcc5fc996f58158ec381f26} 
+\index{teqp::LKP::LKPMix@{teqp::LKP::LKPMix}!alphar\_func@{alphar\_func}}
+\index{alphar\_func@{alphar\_func}!teqp::LKP::LKPMix@{teqp::LKP::LKPMix}}
+\doxysubsubsection{\texorpdfstring{alphar\_func()}{alphar\_func()}}
+{\footnotesize\ttfamily template$<$typename TTYPE , typename Rho\+Type , typename Zc\+Type $>$ \\
+auto teqp\+::\+LKP\+::\+LKPMix\+::alphar\+\_\+func (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{tau,  }\item[{const Rho\+Type \&}]{delta,  }\item[{const Zc\+Type \&}]{Zc,  }\item[{const \mbox{\hyperlink{structteqp_1_1LKP_1_1LKPFluidParameters}{LKPFluid\+Parameters}} \&}]{params }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate the contribution for one of the fluids, depending on the parameter set passed in. 
+
+
+
+Definition at line \mbox{\hyperlink{LKP_8hpp_source_l00056}{56}} of file \mbox{\hyperlink{LKP_8hpp_source}{LKP.\+hpp}}.
+
+\Hypertarget{classteqp_1_1LKP_1_1LKPMix_a192f56abb971ec994a7ee1ba06eeabe6}\label{classteqp_1_1LKP_1_1LKPMix_a192f56abb971ec994a7ee1ba06eeabe6} 
+\index{teqp::LKP::LKPMix@{teqp::LKP::LKPMix}!R@{R}}
+\index{R@{R}!teqp::LKP::LKPMix@{teqp::LKP::LKPMix}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily template$<$class Vec\+Type $>$ \\
+auto teqp\+::\+LKP\+::\+LKPMix\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{LKP_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{LKP_8hpp_source}{LKP.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1LKP_1_1LKPMix_a4d28d943ee897b0553588fa7ef6d960d}\label{classteqp_1_1LKP_1_1LKPMix_a4d28d943ee897b0553588fa7ef6d960d} 
+\index{teqp::LKP::LKPMix@{teqp::LKP::LKPMix}!acentric@{acentric}}
+\index{acentric@{acentric}!teqp::LKP::LKPMix@{teqp::LKP::LKPMix}}
+\doxysubsubsection{\texorpdfstring{acentric}{acentric}}
+{\footnotesize\ttfamily const std\+::vector$<$double$>$ teqp\+::\+LKP\+::\+LKPMix\+::acentric}
+
+
+
+Definition at line \mbox{\hyperlink{LKP_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{LKP_8hpp_source}{LKP.\+hpp}}.
+
+\Hypertarget{classteqp_1_1LKP_1_1LKPMix_aff1df13c256baeb5fd6253ff6aaf3600}\label{classteqp_1_1LKP_1_1LKPMix_aff1df13c256baeb5fd6253ff6aaf3600} 
+\index{teqp::LKP::LKPMix@{teqp::LKP::LKPMix}!kmat@{kmat}}
+\index{kmat@{kmat}!teqp::LKP::LKPMix@{teqp::LKP::LKPMix}}
+\doxysubsubsection{\texorpdfstring{kmat}{kmat}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::vector$<$double$>$ $>$ teqp\+::\+LKP\+::\+LKPMix\+::kmat}
+
+
+
+Definition at line \mbox{\hyperlink{LKP_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{LKP_8hpp_source}{LKP.\+hpp}}.
+
+\Hypertarget{classteqp_1_1LKP_1_1LKPMix_afa39531a1b6a45973159b974f5d9b84e}\label{classteqp_1_1LKP_1_1LKPMix_afa39531a1b6a45973159b974f5d9b84e} 
+\index{teqp::LKP::LKPMix@{teqp::LKP::LKPMix}!m\_R@{m\_R}}
+\index{m\_R@{m\_R}!teqp::LKP::LKPMix@{teqp::LKP::LKPMix}}
+\doxysubsubsection{\texorpdfstring{m\_R}{m\_R}}
+{\footnotesize\ttfamily const double teqp\+::\+LKP\+::\+LKPMix\+::m\+\_\+R}
+
+
+
+molar gas constant to be used in this model, in J/mol/K 
+
+
+
+Definition at line \mbox{\hyperlink{LKP_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{LKP_8hpp_source}{LKP.\+hpp}}.
+
+\Hypertarget{classteqp_1_1LKP_1_1LKPMix_a77dfa136f67314f73a6fc7e9f5804206}\label{classteqp_1_1LKP_1_1LKPMix_a77dfa136f67314f73a6fc7e9f5804206} 
+\index{teqp::LKP::LKPMix@{teqp::LKP::LKPMix}!pcrit@{pcrit}}
+\index{pcrit@{pcrit}!teqp::LKP::LKPMix@{teqp::LKP::LKPMix}}
+\doxysubsubsection{\texorpdfstring{pcrit}{pcrit}}
+{\footnotesize\ttfamily const std\+::vector$<$double$>$ teqp\+::\+LKP\+::\+LKPMix\+::pcrit}
+
+
+
+Definition at line \mbox{\hyperlink{LKP_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{LKP_8hpp_source}{LKP.\+hpp}}.
+
+\Hypertarget{classteqp_1_1LKP_1_1LKPMix_a120f5f7d4a5bcb6e8202d50d0a7cccfe}\label{classteqp_1_1LKP_1_1LKPMix_a120f5f7d4a5bcb6e8202d50d0a7cccfe} 
+\index{teqp::LKP::LKPMix@{teqp::LKP::LKPMix}!ref@{ref}}
+\index{ref@{ref}!teqp::LKP::LKPMix@{teqp::LKP::LKPMix}}
+\doxysubsubsection{\texorpdfstring{ref}{ref}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structteqp_1_1LKP_1_1LKPFluidParameters}{LKPFluid\+Parameters}} teqp\+::\+LKP\+::\+LKPMix\+::ref}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\{0,\ 0.2026579,\ 0.331511,\ 0.276550e-\/1,\ 0.203488\},\ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{0,\ 0.313385e-\/1,\ 0.503618e-\/1,\ 0.169010e-\/1,0.41577e-\/1\},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{0,\ 0.487360e-\/4,\ 0.740336e-\/5\},\ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 1.226,\ 0.03754,\ 0.3978\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{LKP_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{LKP_8hpp_source}{LKP.\+hpp}}.
+
+\Hypertarget{classteqp_1_1LKP_1_1LKPMix_a46d4ea8a89d84a3e0e88b9dbe54e1c06}\label{classteqp_1_1LKP_1_1LKPMix_a46d4ea8a89d84a3e0e88b9dbe54e1c06} 
+\index{teqp::LKP::LKPMix@{teqp::LKP::LKPMix}!simple@{simple}}
+\index{simple@{simple}!teqp::LKP::LKPMix@{teqp::LKP::LKPMix}}
+\doxysubsubsection{\texorpdfstring{simple}{simple}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structteqp_1_1LKP_1_1LKPFluidParameters}{LKPFluid\+Parameters}} teqp\+::\+LKP\+::\+LKPMix\+::simple}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\{0.0,\ 0.1181193,\ 0.265728,\ 0.154790,\ 0.303230e-\/1\},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{0.0,\ 0.236744e-\/1,\ 0.186984e-\/1,\ 0,\ 0.427240e-\/1\},\ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{0,\ 0.155428e-\/4,\ 0.623689e-\/4\},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.653920,\ 0.601670e-\/1,\ 0.0\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{LKP_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{LKP_8hpp_source}{LKP.\+hpp}}.
+
+\Hypertarget{classteqp_1_1LKP_1_1LKPMix_aadefe0129da598bb9a807fc4a4abcee3}\label{classteqp_1_1LKP_1_1LKPMix_aadefe0129da598bb9a807fc4a4abcee3} 
+\index{teqp::LKP::LKPMix@{teqp::LKP::LKPMix}!Tcrit@{Tcrit}}
+\index{Tcrit@{Tcrit}!teqp::LKP::LKPMix@{teqp::LKP::LKPMix}}
+\doxysubsubsection{\texorpdfstring{Tcrit}{Tcrit}}
+{\footnotesize\ttfamily const std\+::vector$<$double$>$ teqp\+::\+LKP\+::\+LKPMix\+::\+Tcrit}
+
+
+
+Definition at line \mbox{\hyperlink{LKP_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{LKP_8hpp_source}{LKP.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\mbox{\hyperlink{LKP_8hpp}{LKP.\+hpp}}\end{DoxyCompactItemize}

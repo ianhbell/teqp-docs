@@ -128,10 +128,10 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00144}\mbox{\hyperlink{classteqp_1_1GenericCubic_af2335a46b8146962bb18271c4da09e61}{00144}}\ \ \ \ \ nlohmann::json\ \mbox{\hyperlink{classteqp_1_1GenericCubic_af2335a46b8146962bb18271c4da09e61}{meta}};}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00145}00145\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00146}00146\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ IndexType>}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00147}\mbox{\hyperlink{classteqp_1_1GenericCubic_a8adc925acc51ff4782b14483388a4b5e}{00147}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1GenericCubic_a8adc925acc51ff4782b14483388a4b5e}{get\_ai}}(TType\ T,\ IndexType\ i)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1GenericCubic_a771ad870a3fdaf79d23c67223c8f6818}{ai}}[i];\ \}}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00147}\mbox{\hyperlink{classteqp_1_1GenericCubic_a02e3a25e4730020ad7063eb0606b6cde}{00147}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1GenericCubic_a02e3a25e4730020ad7063eb0606b6cde}{get\_ai}}(TType\ \textcolor{comment}{/*T*/},\ IndexType\ i)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1GenericCubic_a771ad870a3fdaf79d23c67223c8f6818}{ai}}[i];\ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00148}00148\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00149}00149\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ IndexType>}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00150}\mbox{\hyperlink{classteqp_1_1GenericCubic_aa38fa1a35f53e1073fb20181882690d2}{00150}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1GenericCubic_aa38fa1a35f53e1073fb20181882690d2}{get\_bi}}(TType\ T,\ IndexType\ i)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1GenericCubic_adf0102214977c02d08bc4db554ad26e3}{bi}}[i];\ \}}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00150}\mbox{\hyperlink{classteqp_1_1GenericCubic_ada310d937ac0862b4c77ce809c89c721}{00150}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1GenericCubic_ada310d937ac0862b4c77ce809c89c721}{get\_bi}}(TType\ \textcolor{comment}{/*T*/},\ IndexType\ i)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1GenericCubic_adf0102214977c02d08bc4db554ad26e3}{bi}}[i];\ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00151}00151\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00152}00152\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ IndexType>}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00153}\mbox{\hyperlink{classteqp_1_1GenericCubic_a5686c8e5f70af2f558ff933f9a987353}{00153}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteqp_1_1GenericCubic_a5686c8e5f70af2f558ff933f9a987353}{check\_kmat}}(IndexType\ N)\ \{}
@@ -141,7 +141,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classteqp_1_1GenericCubic_abebafe6d3121b6c7a882f76be1a31163}{kmat}}.cols()\ ==\ 0)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1GenericCubic_abebafe6d3121b6c7a882f76be1a31163}{kmat}}.resize(N,\ N);\ \mbox{\hyperlink{classteqp_1_1GenericCubic_abebafe6d3121b6c7a882f76be1a31163}{kmat}}.setZero();}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classteqp_1_1GenericCubic_abebafe6d3121b6c7a882f76be1a31163}{kmat}}.cols()\ !=\ N)\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(\mbox{\hyperlink{classteqp_1_1GenericCubic_abebafe6d3121b6c7a882f76be1a31163}{kmat}}.cols())\ !=\ N)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}kmat\ needs\ to\ be\ a\ square\ matrix\ the\ same\ size\ as\ the\ number\ of\ components\ ["{}}\ +\ std::to\_string(N)\ +\ \textcolor{stringliteral}{"{}]"{}});}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00163}00163\ \ \ \ \ \};}
@@ -152,7 +152,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00168}00168\ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1GenericCubic_a771ad870a3fdaf79d23c67223c8f6818}{ai}}.resize(Tc\_K.size());}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1GenericCubic_adf0102214977c02d08bc4db554ad26e3}{bi}}.resize(Tc\_K.size());}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ Tc\_K.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ Tc\_K.size();\ ++i)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1GenericCubic_a771ad870a3fdaf79d23c67223c8f6818}{ai}}[i]\ =\ \mbox{\hyperlink{classteqp_1_1GenericCubic_a32881a67a3127966038561365d9b7296}{OmegaA}}\ *\ \mbox{\hyperlink{namespaceteqp_aa0812a3c14b8df38572406314014e130}{pow2}}(\mbox{\hyperlink{classteqp_1_1GenericCubic_ac2aeaed896be55cf1c3eb583b6d30e39}{Ru}}\ *\ Tc\_K[i])\ /\ pc\_Pa[i];}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1GenericCubic_adf0102214977c02d08bc4db554ad26e3}{bi}}[i]\ =\ \mbox{\hyperlink{classteqp_1_1GenericCubic_a198db5883c18f9d432a7ba97d565a58d}{OmegaB}}\ *\ \mbox{\hyperlink{classteqp_1_1GenericCubic_ac2aeaed896be55cf1c3eb583b6d30e39}{Ru}}\ *\ Tc\_K[i]\ /\ pc\_Pa[i];}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \}}
@@ -198,10 +198,10 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00218}00218\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ CompType>}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00219}\mbox{\hyperlink{classteqp_1_1GenericCubic_a67d6abe5e68543b88681bf134b98607e}{00219}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1GenericCubic_a67d6abe5e68543b88681bf134b98607e}{get\_a}}(TType\ T,\ \textcolor{keyword}{const}\ CompType\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00220}00220\ \ \ \ \ \ \ \ \ std::common\_type\_t<TType,\ \textcolor{keyword}{decltype}(molefracs[0])>\ a\_\ =\ 0.0;}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ molefracs.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ molefracs.size();\ ++i)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ alphai\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(std::visit([\&](\textcolor{keyword}{auto}\&\ t)\ \{\ \textcolor{keywordflow}{return}\ t(T);\ \},\ \mbox{\hyperlink{classteqp_1_1GenericCubic_adc99f76015f10c430c0fcaeff18f8622}{alphas}}[i]));}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ai\_\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(this-\/>ai[i]\ *\ alphai);}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0;\ j\ <\ molefracs.size();\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0U;\ j\ <\ molefracs.size();\ ++j)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ alphaj\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(std::visit([\&](\textcolor{keyword}{auto}\&\ t)\ \{\ \textcolor{keywordflow}{return}\ t(T);\ \},\ \mbox{\hyperlink{classteqp_1_1GenericCubic_adc99f76015f10c430c0fcaeff18f8622}{alphas}}[j]));}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ aj\_\ =\ this-\/>ai[j]\ *\ alphaj;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ aij\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}((1\ -\/\ \mbox{\hyperlink{classteqp_1_1GenericCubic_abebafe6d3121b6c7a882f76be1a31163}{kmat}}(i,j))\ *\ sqrt(ai\_\ *\ aj\_));}
@@ -214,7 +214,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00234}00234\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ CompType>}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00235}\mbox{\hyperlink{classteqp_1_1GenericCubic_a46da1a3c50cf25814a3dbf6a217095db}{00235}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1GenericCubic_a46da1a3c50cf25814a3dbf6a217095db}{get\_b}}(TType\ \textcolor{comment}{/*T*/},\ \textcolor{keyword}{const}\ CompType\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00236}00236\ \ \ \ \ \ \ \ \ std::common\_type\_t<TType,\ \textcolor{keyword}{decltype}(molefracs[0])>\ b\_\ =\ 0.0;}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ molefracs.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ molefracs.size();\ ++i)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ b\_\ =\ b\_\ +\ molefracs[i]\ *\ \mbox{\hyperlink{classteqp_1_1GenericCubic_adf0102214977c02d08bc4db554ad26e3}{bi}}[i];}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(b\_);}
@@ -225,7 +225,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RhoType\&\ rho,}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ MoleFracType\&\ molefrac)\textcolor{keyword}{\ const}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00247}00247\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (molefrac.size()\ !=\ \mbox{\hyperlink{classteqp_1_1GenericCubic_adc99f76015f10c430c0fcaeff18f8622}{alphas}}.size())\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(molefrac.size())\ !=\ \mbox{\hyperlink{classteqp_1_1GenericCubic_adc99f76015f10c430c0fcaeff18f8622}{alphas}}.size())\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Sizes\ do\ not\ match"{}});}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ b\ =\ \mbox{\hyperlink{classteqp_1_1GenericCubic_a46da1a3c50cf25814a3dbf6a217095db}{get\_b}}(T,\ molefrac);}
@@ -243,7 +243,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00263}00263\ \ \ \ \ AcentricType\ m\ =\ 0.48\ +\ 1.574\ *\ acentric\ -\/\ 0.176\ *\ acentric\ *\ acentric;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00264}00264\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00265}00265\ \ \ \ \ std::vector<AlphaFunctionOptions>\ alphas;}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00266}00266\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ Tc\_K.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00266}00266\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ Tc\_K.size();\ ++i)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00267}00267\ \ \ \ \ \ \ \ \ alphas.emplace\_back(\mbox{\hyperlink{classteqp_1_1BasicAlphaFunction}{BasicAlphaFunction}}(Tc\_K[i],\ m[i]));}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00268}00268\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00269}00269\ \ \ \ \ }
@@ -279,7 +279,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00300}00300\ \ \ \ \ \textcolor{keywordtype}{double}\ Delta2\ =\ 1-\/sqrt(2.0);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00301}00301\ \ \ \ \ AcentricType\ m\ =\ acentric*0.0;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00302}00302\ \ \ \ \ std::vector<AlphaFunctionOptions>\ alphas;\ }
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00303}00303\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ Tc\_K.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00303}00303\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ Tc\_K.size();\ ++i)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (acentric[i]\ <\ 0.491)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ m[i]\ =\ 0.37464\ +\ 1.54226*acentric[i]\ -\/\ 0.26992*\mbox{\hyperlink{namespaceteqp_aa0812a3c14b8df38572406314014e130}{pow2}}(acentric[i]);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \}}
@@ -346,7 +346,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00369}00369\ \ \ \ \ \ \ \ \ kind\ =\ \textcolor{stringliteral}{"{}Peng-\/Robinson"{}};}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00370}00370\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00371}00371\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!spec.contains(\textcolor{stringliteral}{"{}alpha"{}}))\{}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00372}00372\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ Tc\_K.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00372}00372\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ Tc\_K.size();\ ++i)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ mi;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (acentric[i]\ <\ 0.491)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mi\ =\ 0.37464\ +\ 1.54226*acentric[i]\ -\/\ 0.26992*\mbox{\hyperlink{namespaceteqp_aa0812a3c14b8df38572406314014e130}{pow2}}(acentric[i]);}
@@ -368,7 +368,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00391}00391\ \ \ \ \ \ \ \ \ Delta1\ =\ 1;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00392}00392\ \ \ \ \ \ \ \ \ Delta2\ =\ 0;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00393}00393\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!spec.contains(\textcolor{stringliteral}{"{}alpha"{}}))\{}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ Tc\_K.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ Tc\_K.size();\ ++i)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00395}00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ mi\ =\ 0.48\ +\ 1.574\ *\ acentric[i]\ -\/\ 0.176\ *\ acentric[i]\ *\ acentric[i];}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ alphas.emplace\_back(\mbox{\hyperlink{classteqp_1_1BasicAlphaFunction}{BasicAlphaFunction}}(Tc\_K[i],\ mi));}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
@@ -431,7 +431,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00457}\mbox{\hyperlink{classteqp_1_1NullResidualHelmholtzOverRT}{00457}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1NullResidualHelmholtzOverRT}{NullResidualHelmholtzOverRT}}\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00458}00458\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00459}00459\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ MoleFractions>}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00460}\mbox{\hyperlink{classteqp_1_1NullResidualHelmholtzOverRT_a02afbfe092ffd8391ba7fec7a146e9b1}{00460}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1NullResidualHelmholtzOverRT_a02afbfe092ffd8391ba7fec7a146e9b1}{operator\ ()\ }}(\textcolor{keyword}{const}\ TType\&\ T,\ \textcolor{keyword}{const}\ MoleFractions\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00460}\mbox{\hyperlink{classteqp_1_1NullResidualHelmholtzOverRT_aa7f562e4bbdaa42e52701eae995be7a7}{00460}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1NullResidualHelmholtzOverRT_aa7f562e4bbdaa42e52701eae995be7a7}{operator\ ()\ }}(\textcolor{keyword}{const}\ TType\&\ \textcolor{comment}{/*T*/},\ \textcolor{keyword}{const}\ MoleFractions\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00461}00461\ \ \ \ \ \ \ \ \ std::common\_type\_t<TType,\ \textcolor{keyword}{decltype}(molefracs[0])>\ val\ =\ 0.0;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00462}00462\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ val;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00463}00463\ \ \ \ \ \}}
@@ -447,21 +447,21 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00493}\mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a799118bc60e8a638fa065bc26de8d074}{00493}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a799118bc60e8a638fa065bc26de8d074}{WilsonResidualHelmholtzOverRT}}(\textcolor{keyword}{const}\ std::vector<double>\&\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a1d7422c0c1d989a8f0f626aba9258471}{b}},\ \textcolor{keyword}{const}\ Eigen::ArrayXXd\&\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a1caffec7d763fc7b24fa92e8e1f6b41c}{m}},\ \textcolor{keyword}{const}\ Eigen::ArrayXXd\&\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_abfe3e39ed32932b03d8aa23f9308b612}{n}})\ :\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a1d7422c0c1d989a8f0f626aba9258471}{b}}(\mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a1d7422c0c1d989a8f0f626aba9258471}{b}}),\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a1caffec7d763fc7b24fa92e8e1f6b41c}{m}}(\mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a1caffec7d763fc7b24fa92e8e1f6b41c}{m}}),\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_abfe3e39ed32932b03d8aa23f9308b612}{n}}(\mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_abfe3e39ed32932b03d8aa23f9308b612}{n}})\ \{\};}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00494}00494\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00495}00495\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ MoleFractions>}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00496}\mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a76e0f8fe0f78d93a0d2e956891fe0c1a}{00496}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a76e0f8fe0f78d93a0d2e956891fe0c1a}{combinatorial}}(\textcolor{keyword}{const}\ TType\&\ T,\ \textcolor{keyword}{const}\ MoleFractions\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00497}00497\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a1d7422c0c1d989a8f0f626aba9258471}{b}}.size()\ !=\ molefracs.size())\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00496}\mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_ac895597b50d725b678ed72025fe0d310}{00496}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_ac895597b50d725b678ed72025fe0d310}{combinatorial}}(\textcolor{keyword}{const}\ TType\&\ \textcolor{comment}{/*T*/},\ \textcolor{keyword}{const}\ MoleFractions\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00497}00497\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a1d7422c0c1d989a8f0f626aba9258471}{b}}.size()\ !=\ \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(molefracs.size()))\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00498}00498\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}Bad\ size\ of\ molefracs"{}});}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00499}00499\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00500}00500\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00501}00501\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }TYPE\ =\ std::common\_type\_t<TType,\ \textcolor{keyword}{decltype}(molefracs[0])>;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00502}00502\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ denominator\ in\ Phi}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00503}00503\ \ \ \ \ \ \ \ \ TYPE\ Vtot\ =\ 0.0;}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00504}00504\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ molefracs.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00504}00504\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ molefracs.size();\ ++i)\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00505}00505\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ v\_i\ =\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a1d7422c0c1d989a8f0f626aba9258471}{b}}[i];}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00506}00506\ \ \ \ \ \ \ \ \ \ \ \ \ Vtot\ +=\ molefracs[i]*v\_i;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00507}00507\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00508}00508\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00509}00509\ \ \ \ \ \ \ \ \ TYPE\ summer\ =\ 0.0;}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00510}00510\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ molefracs.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00510}00510\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ molefracs.size();\ ++i)\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00511}00511\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ v\_i\ =\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a1d7422c0c1d989a8f0f626aba9258471}{b}}[i];}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00512}00512\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ ratio\ phi\_i/z\_i\ is\ expressed\ like\ this\ to\ better\ handle}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00513}00513\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ case\ of\ z\_i\ =\ 0,\ which\ would\ otherwise\ be\ a\ divide\ by\ zero}}
@@ -482,10 +482,10 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00528}00528\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00529}00529\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }TYPE\ =\ std::common\_type\_t<TType,\ \textcolor{keyword}{decltype}(molefracs[0])>;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00530}00530\ \ \ \ \ \ \ \ \ TYPE\ summer\ =\ 0.0;}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00531}00531\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ molefracs.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00531}00531\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ molefracs.size();\ ++i)\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00532}00532\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ v\_i\ =\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a1d7422c0c1d989a8f0f626aba9258471}{b}}[i];}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00533}00533\ \ \ \ \ \ \ \ \ \ \ \ \ TYPE\ summerj\ =\ 0.0;}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00534}00534\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0;\ j\ <\ molefracs.size();\ ++j)\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00534}00534\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0U;\ j\ <\ molefracs.size();\ ++j)\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00535}00535\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ v\_j\ =\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a1d7422c0c1d989a8f0f626aba9258471}{b}}[j];}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00536}00536\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Aij\ =\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_af0877f617370c86af551840158075f16}{get\_Aij}}(i,j,T);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00537}00537\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Omega\_ji\ =\ v\_j/v\_i*exp(-\/Aij/T);}
@@ -499,7 +499,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00545}00545\ \ \ \ \ \textcolor{comment}{//\ Returns\ ares/RT}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00546}00546\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ MoleFractions>}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00547}\mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a5c07b49b966c828fd3080568fda2491a}{00547}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a5c07b49b966c828fd3080568fda2491a}{operator\ ()\ }}(\textcolor{keyword}{const}\ TType\&\ T,\ \textcolor{keyword}{const}\ MoleFractions\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00548}00548\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_ae1cd8f1e1cade60c23a0773b01f11ada}{total}}(T,\ molefracs)\ -\/\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_a76e0f8fe0f78d93a0d2e956891fe0c1a}{combinatorial}}(T,\ molefracs));}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00548}00548\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_ae1cd8f1e1cade60c23a0773b01f11ada}{total}}(T,\ molefracs)\ -\/\ \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT_ac895597b50d725b678ed72025fe0d310}{combinatorial}}(T,\ molefracs));}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00549}00549\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00550}00550\ \};}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00551}00551\ }
@@ -550,7 +550,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00600}00600\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a2f32b1edd959cb94813c26b5db4ea4df}{lmat}}.cols()\ ==\ 0)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00601}00601\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a2f32b1edd959cb94813c26b5db4ea4df}{lmat}}.resize(N,\ N);\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a2f32b1edd959cb94813c26b5db4ea4df}{lmat}}.setZero();}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00602}00602\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00603}00603\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a2f32b1edd959cb94813c26b5db4ea4df}{lmat}}.cols()\ !=\ N)\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00603}00603\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a2f32b1edd959cb94813c26b5db4ea4df}{lmat}}.cols()\ !=\ \textcolor{keyword}{static\_cast<}Eigen::Index\textcolor{keyword}{>}(N))\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00604}00604\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}lmat\ needs\ to\ be\ a\ square\ matrix\ the\ same\ size\ as\ the\ number\ of\ components\ ["{}}\ +\ std::to\_string(N)\ +\ \textcolor{stringliteral}{"{}]"{}});}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00605}00605\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00606}00606\ \ \ \ \ \};}
@@ -561,7 +561,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00611}00611\ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00612}00612\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a3ed1d8cf5ead5289e7f5915a3e80ee85}{ai}}.resize(\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a26ec2ffa642fd8902ad5712dd54bbd26}{Tc\_K}}.size());}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00613}00613\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a9c20a363f459f566ef64dc7d6b82a9f5}{bi}}.resize(\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a26ec2ffa642fd8902ad5712dd54bbd26}{Tc\_K}}.size());}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00614}00614\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a26ec2ffa642fd8902ad5712dd54bbd26}{Tc\_K}}.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00614}00614\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a26ec2ffa642fd8902ad5712dd54bbd26}{Tc\_K}}.size();\ ++i)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00615}00615\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a3ed1d8cf5ead5289e7f5915a3e80ee85}{ai}}[i]\ =\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_af762fd56f4be8cd1a07582fff8f61814}{OmegaA}}\ *\ \mbox{\hyperlink{namespaceteqp_aa0812a3c14b8df38572406314014e130}{pow2}}(\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_ab4ba5880b8fd8b1719266bd07d52c6cc}{Ru}}\ *\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a26ec2ffa642fd8902ad5712dd54bbd26}{Tc\_K}}[i])\ /\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a8359707bf180379b72851316025a3449}{pc\_Pa}}[i];}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00616}00616\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a9c20a363f459f566ef64dc7d6b82a9f5}{bi}}[i]\ =\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a564a06bc95149a541b4dcd7af2e95d17}{OmegaB}}\ *\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_ab4ba5880b8fd8b1719266bd07d52c6cc}{Ru}}\ *\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a26ec2ffa642fd8902ad5712dd54bbd26}{Tc\_K}}[i]\ /\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a8359707bf180379b72851316025a3449}{pc\_Pa}}[i];}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00617}00617\ \ \ \ \ \ \ \ \ \}}
@@ -621,7 +621,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00675}\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_afdb5b28557db5154f0e3edfd5db5f70f}{00675}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_afdb5b28557db5154f0e3edfd5db5f70f}{get\_am\_over\_bm}}(TType\ T,\ \textcolor{keyword}{const}\ CompType\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00676}00676\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ aEresRT\ =\ std::visit([\&](\textcolor{keyword}{auto}\&\ aresRTfunc)\ \{\ \textcolor{keywordflow}{return}\ aresRTfunc(T,\ molefracs);\ \},\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a39c8635b69f1b5386a5411c8858028b0}{ares}});\ \textcolor{comment}{//\ aEres/RT,\ so\ a\ non-\/dimensional\ quantity}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00677}00677\ \ \ \ \ \ \ \ \ std::common\_type\_t<TType,\ \textcolor{keyword}{decltype}(molefracs[0])>\ summer\ =\ aEresRT*\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_ab4ba5880b8fd8b1719266bd07d52c6cc}{Ru}}*T/\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_aa87df3c5773c819ed9dae188c3b64a40}{CEoS}};}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00678}00678\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ molefracs.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00678}00678\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ molefracs.size();\ ++i)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00679}00679\ \ \ \ \ \ \ \ \ \ \ \ \ summer\ +=\ molefracs[i]*\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a4938508943d254bff6edd8610d4b96b0}{get\_ai}}(T,i)/\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a8bf66f58b47deba1aa0166c2c40b34bc}{get\_bi}}(T,i);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00680}00680\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00681}00681\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(summer);}
@@ -633,9 +633,9 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00687}00687\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00688}00688\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a53fdca23edceaa780c8eef8ee900d360}{brule}})\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00689}00689\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaf841876fc54bbdba16a4ae2e0d070714}{AdvancedPRaEMixingRules::kQuadratic}}:}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00690}00690\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ molefracs.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00690}00690\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ molefracs.size();\ ++i)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00691}00691\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ bi\_\ =\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a8bf66f58b47deba1aa0166c2c40b34bc}{get\_bi}}(T,\ i);}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00692}00692\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0;\ j\ <\ molefracs.size();\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00692}00692\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0U;\ j\ <\ molefracs.size();\ ++j)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00693}00693\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ bj\_\ =\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a8bf66f58b47deba1aa0166c2c40b34bc}{get\_bi}}(T,\ j);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00694}00694\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00695}00695\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ bij\ =\ (1\ -\/\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a2f32b1edd959cb94813c26b5db4ea4df}{lmat}}(i,j))\ *\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}((\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(bi\_,\ 1.0/\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a2032b061b93818d2f14701d3f3df28f3}{s}})\ +\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(bj\_,\ 1.0/\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a2032b061b93818d2f14701d3f3df28f3}{s}}))/2.0,\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a2032b061b93818d2f14701d3f3df28f3}{s}});}
@@ -644,7 +644,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00698}00698\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00699}00699\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00700}00700\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadaac97f0008bcf7c7fe4f2ff94160e1385}{AdvancedPRaEMixingRules::kLinear}}:}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00701}00701\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ molefracs.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00701}00701\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ molefracs.size();\ ++i)\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00702}00702\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\_\ +=\ molefracs[i]\ *\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a8bf66f58b47deba1aa0166c2c40b34bc}{get\_bi}}(T,\ i);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00703}00703\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00704}00704\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
@@ -659,7 +659,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00713}00713\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RhoType\&\ rho,}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00714}00714\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ MoleFracType\&\ molefrac)\textcolor{keyword}{\ const}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00715}00715\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00716}00716\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (molefrac.size()\ !=\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a4b78972bcd421c6f33dba0f570bdeee4}{alphas}}.size())\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00716}00716\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(molefrac.size())\ !=\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a4b78972bcd421c6f33dba0f570bdeee4}{alphas}}.size())\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00717}00717\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Sizes\ do\ not\ match"{}});}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00718}00718\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00719}00719\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ b\ =\ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a1444a110b0a2eafa21ea3c50e5df0b7c}{get\_b}}(T,\ molefrac);}
@@ -683,7 +683,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00737}00737\ \ \ \ \ \ \ \ \ std::string\ type\ =\ armodel.at(\textcolor{stringliteral}{"{}type"{}});}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00738}00738\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ \textcolor{stringliteral}{"{}Wilson"{}})\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00739}00739\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ b;}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00740}00740\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ Tc\_K.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00740}00740\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ Tc\_K.size();\ ++i)\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00741}00741\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b.push\_back(\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp::AdvancedPRaEres<double>::get\_bi}}(Tc\_K[i],\ pc\_Pa[i]));}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00742}00742\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00743}00743\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ mWilson\ =\ \mbox{\hyperlink{namespaceteqp_a0387f578fa55e79f0da380ebd38b22e9}{build\_square\_matrix}}(armodel.at(\textcolor{stringliteral}{"{}m"{}}));}
@@ -716,7 +716,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00778}00778\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (L.size()\ !=\ M.size()\ ||\ M.size()\ !=\ N.size())\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00779}00779\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}L,M,N\ must\ all\ be\ the\ same\ length"{}});}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00780}00780\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00781}00781\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ L.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00781}00781\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ L.size();\ ++i)\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00782}00782\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coeffs\ =\ (Eigen::Array3d()\ <<\ L[i],\ M[i],\ N[i]).finished();}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00783}00783\ \ \ \ \ \ \ \ \ \ \ \ \ alphas\_.emplace\_back(\mbox{\hyperlink{classteqp_1_1TwuAlphaFunction}{TwuAlphaFunction}}(Tc\_K[i],\ coeffs));}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00784}00784\ \ \ \ \ \ \ \ \ \}}
@@ -761,10 +761,10 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00824}00824\ \ \ \ \ \ \ \ \ numtype\ b\ =\ 0.0;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00825}00825\ \ \ \ \ \ \ \ \ numtype\ a\ =\ 0.0;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00826}00826\ \ \ \ \ \ \ \ \ std::size\_t\ N\ =\ alphas.size();}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00827}00827\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ N;\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00827}00827\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ N;\ ++i)\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00828}00828\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ bi\ =\ \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_ac4ed699bec78b1c76421db15223a1fbe}{get\_bi}}(i,\ T);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00829}00829\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ai\ =\ \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_a0df0d50d201fe70861300e2b6705cefd}{get\_ai}}(i,\ T);}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00830}00830\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0;\ j\ <\ N;\ ++j)\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00830}00830\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0U;\ j\ <\ N;\ ++j)\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00831}00831\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ bj\ =\ \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_ac4ed699bec78b1c76421db15223a1fbe}{get\_bi}}(j,\ T);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00832}00832\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ aj\ =\ \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_a0df0d50d201fe70861300e2b6705cefd}{get\_ai}}(j,\ T);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00833}00833\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\ +=\ z[i]*z[j]*(bi\ +\ bj)/2.0*(1.0\ -\/\ lmat(i,j));}
@@ -774,11 +774,11 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00837}00837\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(a,\ b);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00838}00838\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00839}00839\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ FractionsType>}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00840}\mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_a7deb93bc8be8f7d1b90ba41731df7991}{00840}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_a7deb93bc8be8f7d1b90ba41731df7991}{get\_c}}(\textcolor{keyword}{const}\ TType\&\ T,\ \textcolor{keyword}{const}\ FractionsType\&\ z)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00840}\mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_aff278f38628c752a5ab4c1c748a393fb}{00840}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_aff278f38628c752a5ab4c1c748a393fb}{get\_c}}(\textcolor{keyword}{const}\ TType\&\ \textcolor{comment}{/*T*/},\ \textcolor{keyword}{const}\ FractionsType\&\ z)\textcolor{keyword}{\ const}\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00841}00841\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }numtype\ =\ std::common\_type\_t<TType,\ \textcolor{keyword}{decltype}(z[0])>;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00842}00842\ \ \ \ \ \ \ \ \ numtype\ c\ =\ 0.0;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00843}00843\ \ \ \ \ \ \ \ \ std::size\_t\ N\ =\ alphas.size();}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00844}00844\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ N;\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00844}00844\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ N;\ ++i)\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00845}00845\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ z[i]*cs\_m3mol[i];}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00846}00846\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00847}00847\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ c;}
@@ -786,11 +786,11 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00849}00849\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00850}00850\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ RhoType,\ \textcolor{keyword}{typename}\ FractionsType>}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00851}\mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_a67183353dfd539a39482a2aab7aac239}{00851}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_a67183353dfd539a39482a2aab7aac239}{alphar}}(\textcolor{keyword}{const}\ TType\&\ T,\ \textcolor{keyword}{const}\ RhoType\&\ rhoinit,\ \textcolor{keyword}{const}\ FractionsType\&\ molefrac)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00852}00852\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (molefrac.size()\ !=\ alphas.size())\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00852}00852\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(molefrac.size())\ !=\ alphas.size())\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00853}00853\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Sizes\ do\ not\ match"{}});}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00854}00854\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00855}00855\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ shift\ the\ volume\ by\ the\ volume\ translation}}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00856}00856\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ c\ =\ \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_a7deb93bc8be8f7d1b90ba41731df7991}{get\_c}}(T,\ molefrac);}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00856}00856\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ c\ =\ \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_aff278f38628c752a5ab4c1c748a393fb}{get\_c}}(T,\ molefrac);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00857}00857\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rho\ =\ 1.0/(1.0/rhoinit\ +\ c);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00858}00858\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Delta1\ =\ 1.0\ +\ sqrt(2.0);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00859}00859\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Delta2\ =\ 1.0\ -\/\ sqrt(2.0);}
@@ -826,29 +826,29 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00902}00902\ \ \ \ \ \textcolor{keyword}{const}\ Eigen::ArrayXXd\ kmat,\ lmat;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00903}00903\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\ a\_c,\ b\_c;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00904}00904\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00906}00906\ \ \ \ \ std::vector<double>\ get\_(\textcolor{keyword}{const}\ nlohmann::json\ \&j,\ \textcolor{keyword}{const}\ std::string\&\ k)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ j.at(k).get<std::vector<double>>();\ \}}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00906}00906\ \ \ \ \ std::vector<double>\ get\_(\textcolor{keyword}{const}\ nlohmann::json\ \&j,\ \textcolor{keyword}{const}\ std::string\&\ key)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ j.at(key).get<std::vector<double>>();\ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00907}00907\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00909}00909\ \ \ \ \ \textcolor{keyword}{auto}\ get\_yd1(\textcolor{keywordtype}{double}\ delta\_1)\{}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00910}00910\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(1\ +\ cbrt(2*(1+delta\_1))\ +\ cbrt(4/(1+delta\_1)),\ (1+delta\_1*delta\_1)/(1+delta\_1));}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00909}00909\ \ \ \ \ \textcolor{keyword}{auto}\ get\_yd1(\textcolor{keywordtype}{double}\ delta\_1\_)\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00910}00910\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(1\ +\ cbrt(2*(1+delta\_1\_))\ +\ cbrt(4/(1+delta\_1\_)),\ (1+delta\_1\_*delta\_1\_)/(1+delta\_1\_));}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00911}00911\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00912}00912\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00913}00913\ \ \ \ \ \textcolor{keyword}{auto}\ build\_ac()\{}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00914}00914\ \ \ \ \ \ \ \ \ std::vector<double>\ a\_c(delta\_1.size());}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00915}00915\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ delta\_1.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00914}00914\ \ \ \ \ \ \ \ \ std::vector<double>\ a\_c\_(delta\_1.size());}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00915}00915\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ delta\_1.size();\ ++i)\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00916}00916\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [y,\ d\_1]\ =\ get\_yd1(delta\_1[i]);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00917}00917\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Omega\_a\ =\ (3*y*y\ +\ 3*y*d\_1\ +\ d\_1*d\_1\ +\ d\_1\ -\/\ 1.0)/\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(3.0*y\ +\ d\_1\ -\/\ 1.0,\ 2);}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00918}00918\ \ \ \ \ \ \ \ \ \ \ \ \ a\_c[i]\ =\ Omega\_a*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a3a1f6570e6871cd3c5b6921fc4572342}{Ru}}*Tc\_K[i],\ 2)/pc\_Pa[i];}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00918}00918\ \ \ \ \ \ \ \ \ \ \ \ \ a\_c\_[i]\ =\ Omega\_a*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a3a1f6570e6871cd3c5b6921fc4572342}{Ru}}*Tc\_K[i],\ 2)/pc\_Pa[i];}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00919}00919\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00920}00920\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a\_c;}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00920}00920\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a\_c\_;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00921}00921\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00922}00922\ \ \ \ \ \textcolor{keyword}{auto}\ build\_bc()\{}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00923}00923\ \ \ \ \ \ \ \ \ std::vector<double>\ b\_c(delta\_1.size());}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00924}00924\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ delta\_1.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00923}00923\ \ \ \ \ \ \ \ \ std::vector<double>\ b\_c\_(delta\_1.size());}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00924}00924\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ delta\_1.size();\ ++i)\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00925}00925\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [y,\ d\_1]\ =\ get\_yd1(delta\_1[i]);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00926}00926\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Omega\_b\ =\ 1.0/(3.0*y\ +\ d\_1\ -\/\ 1.0);}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00927}00927\ \ \ \ \ \ \ \ \ \ \ \ \ b\_c[i]\ =\ Omega\_b*\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a3a1f6570e6871cd3c5b6921fc4572342}{Ru}}*Tc\_K[i]/pc\_Pa[i];}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00927}00927\ \ \ \ \ \ \ \ \ \ \ \ \ b\_c\_[i]\ =\ Omega\_b*\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a3a1f6570e6871cd3c5b6921fc4572342}{Ru}}*Tc\_K[i]/pc\_Pa[i];}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00928}00928\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00929}00929\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ b\_c;}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00929}00929\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ b\_c\_;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00930}00930\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00931}00931\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00932}00932\ \ \ \ \ }
@@ -866,7 +866,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00944}\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_af4da40efbadde86fa810eb4a13ce615f}{00944}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_af4da40efbadde86fa810eb4a13ce615f}{get\_lmat}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ lmat;\ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00945}00945\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00946}00946\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType>}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00947}\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a06a2c936d3d0c8f71513d74f24495e08}{00947}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a06a2c936d3d0c8f71513d74f24495e08}{get\_bi}}(std::size\_t\ i,\ \textcolor{keyword}{const}\ TType\&\ T)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00947}\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a278e1a08b9f524d0d80addccac004a9d}{00947}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a278e1a08b9f524d0d80addccac004a9d}{get\_bi}}(std::size\_t\ i,\ \textcolor{keyword}{const}\ TType\&\ \textcolor{comment}{/*T*/})\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00948}00948\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ b\_c[i];}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00949}00949\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00950}00950\ \ \ \ \ }
@@ -881,12 +881,12 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00959}00959\ \ \ \ \ \ \ \ \ numtype\ b\ =\ 0.0;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00960}00960\ \ \ \ \ \ \ \ \ numtype\ a\ =\ 0.0;}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00961}00961\ \ \ \ \ \ \ \ \ std::size\_t\ N\ =\ delta\_1.size();}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00962}00962\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ N;\ ++i)\{}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00963}00963\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ bi\ =\ \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a06a2c936d3d0c8f71513d74f24495e08}{get\_bi}}(i,\ T);}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00962}00962\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ N;\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00963}00963\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ bi\ =\ \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a278e1a08b9f524d0d80addccac004a9d}{get\_bi}}(i,\ T);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00964}00964\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ai\ =\ \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_ae49a099353c674efd95019d09f29d018}{get\_ai}}(i,\ T);}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00965}00965\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0;\ j\ <\ N;\ ++j)\{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00965}00965\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0U;\ j\ <\ N;\ ++j)\{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00966}00966\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ aj\ =\ \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_ae49a099353c674efd95019d09f29d018}{get\_ai}}(j,\ T);}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00967}00967\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ bj\ =\ \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a06a2c936d3d0c8f71513d74f24495e08}{get\_bi}}(j,\ T);}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00967}00967\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ bj\ =\ \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_a278e1a08b9f524d0d80addccac004a9d}{get\_bi}}(j,\ T);}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00968}00968\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00969}00969\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a\ +=\ z[i]*z[j]*sqrt(ai*aj)*(1.0\ -\/\ kmat(i,j));}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00970}00970\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\ +=\ z[i]*z[j]*(bi\ +\ bj)/2.0*(1.0\ -\/\ lmat(i,j));}
@@ -898,7 +898,7 @@
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00976}00976\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00977}00977\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ RhoType,\ \textcolor{keyword}{typename}\ FractionsType>}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00978}\mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_aa6d694cae1601f3efb0f74a54baeef7a}{00978}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1RKPRCismondi2005_aa6d694cae1601f3efb0f74a54baeef7a}{alphar}}(\textcolor{keyword}{const}\ TType\&\ T,\ \textcolor{keyword}{const}\ RhoType\&\ rho,\ \textcolor{keyword}{const}\ FractionsType\&\ molefrac)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00979}00979\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (molefrac.size()\ !=\ delta\_1.size())\ \{}
+\DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00979}00979\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(molefrac.size())\ !=\ delta\_1.size())\ \{}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00980}00980\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Sizes\ do\ not\ match"{}});}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00981}00981\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{cubics_8hpp_source_l00982}00982\ \ \ \ \ \ \ \ \ }

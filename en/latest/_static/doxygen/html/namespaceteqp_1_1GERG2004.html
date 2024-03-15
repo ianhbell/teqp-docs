@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -102,6 +104,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1GERG2004_1_1GERG2004IdealGasModel.html">GERG2004IdealGasModel</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1GERG2004_1_1GERG2004ResidualModel.html">GERG2004ResidualModel</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -110,6 +114,8 @@ Functions</h2></td></tr>
 <tr class="memitem:ac3565b8487f12789083803eed21569fb" id="r_ac3565b8487f12789083803eed21569fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteqp_1_1GERGGeneral_1_1PureInfo.html">PureInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3565b8487f12789083803eed21569fb">get_pure_info</a> (const std::string &amp;name)</td></tr>
 <tr class="memdesc:ac3565b8487f12789083803eed21569fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the pure fluid information for a fluid from GERG-2004 monograph.  <br /></td></tr>
 <tr class="separator:ac3565b8487f12789083803eed21569fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d8d7793a6e1f6ac50177538b7ee9f80" id="r_a2d8d7793a6e1f6ac50177538b7ee9f80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteqp_1_1GERGGeneral_1_1AlphaigCoeffs.html">AlphaigCoeffs</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d8d7793a6e1f6ac50177538b7ee9f80">get_alphaig_coeffs</a> (const std::string &amp;fluid)</td></tr>
+<tr class="separator:a2d8d7793a6e1f6ac50177538b7ee9f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc8492f3c0446b81c70beb4d5bb4e145" id="r_acc8492f3c0446b81c70beb4d5bb4e145"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteqp_1_1GERGGeneral_1_1PureCoeffs.html">PureCoeffs</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc8492f3c0446b81c70beb4d5bb4e145">get_pure_coeffs</a> (const std::string &amp;fluid)</td></tr>
 <tr class="separator:acc8492f3c0446b81c70beb4d5bb4e145"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2bfc93d176a5a722734c4852c988e56" id="r_ac2bfc93d176a5a722734c4852c988e56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteqp_1_1GERGGeneral_1_1BetasGammas.html">BetasGammas</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2bfc93d176a5a722734c4852c988e56">get_betasgammas</a> (const std::string &amp;fluid1, const std::string &amp;fluid2)</td></tr>
@@ -125,6 +131,33 @@ Variables</h2></td></tr>
 <tr class="separator:a88d52e4912e9dafe4c27b948bbaf84a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a2d8d7793a6e1f6ac50177538b7ee9f80" name="a2d8d7793a6e1f6ac50177538b7ee9f80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d8d7793a6e1f6ac50177538b7ee9f80">&#9670;&#160;</a></span>get_alphaig_coeffs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structteqp_1_1GERGGeneral_1_1AlphaigCoeffs.html">AlphaigCoeffs</a> teqp::GERG2004::get_alphaig_coeffs </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>fluid</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00425">425</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
+
+</div>
+</div>
 <a id="ac2bfc93d176a5a722734c4852c988e56" name="ac2bfc93d176a5a722734c4852c988e56"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac2bfc93d176a5a722734c4852c988e56">&#9670;&#160;</a></span>get_betasgammas()</h2>
 
@@ -152,7 +185,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00430">430</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00552">552</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
 
 </div>
 </div>
@@ -183,7 +216,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00640">640</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00762">762</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
 
 </div>
 </div>
@@ -220,7 +253,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Table A3.6 from GERG 2004 monograph</p>
 
-<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00603">603</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00725">725</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
 
 </div>
 </div>
@@ -247,7 +280,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00346">346</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00468">468</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
 
 </div>
 </div>
@@ -276,7 +309,7 @@ Variables</h2></td></tr>
 
 <p>Get the pure fluid information for a fluid from GERG-2004 monograph. </p>
 
-<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00311">311</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00391">391</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
 
 </div>
 </div>
@@ -293,7 +326,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00308">308</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00388">388</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
 
 </div>
 </div>

@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -100,7 +102,8 @@ $(function() {
 <li>ValueType&#160;:&#160;<a class="el" href="structteqp_1_1Functor.html#aaf222ec048e89e35047208ea1ec556fc">teqp::Functor&lt; _Scalar, NX, NY &gt;</a></li>
 <li>varModels&#160;:&#160;<a class="el" href="classteqp_1_1ModelContainer.html#aeff45d4d3d5213d7c72c00a9a97ab126">teqp::ModelContainer&lt; Args &gt;</a></li>
 <li>vars&#160;:&#160;<a class="el" href="structteqp_1_1cppinterface_1_1IterationMatrices.html#a431c75d96a7a0d00efe5f36b108f4d76">teqp::cppinterface::IterationMatrices</a></li>
-<li>vc&#160;:&#160;<a class="el" href="classteqp_1_1MultiFluidInvariantReducingFunction.html#ad306b3e6cc513bbd2beca4420405ba97">teqp::MultiFluidInvariantReducingFunction</a>, <a class="el" href="classteqp_1_1MultiFluidReducingFunction.html#a8c6a213e55d59ec4a04a556e4db5d04d">teqp::MultiFluidReducingFunction</a>, <a class="el" href="classteqp_1_1ReducingTermContainer.html#a65d16e9f2af81353982d86079de3b6e4">teqp::ReducingTermContainer&lt; Args &gt;</a></li>
+<li>vartype&#160;:&#160;<a class="el" href="structteqp_1_1CPA_1_1AssociationVariantWrapper.html#a14d4d3df11ff95263a57cf64c2ea9eba">teqp::CPA::AssociationVariantWrapper</a></li>
+<li>vc&#160;:&#160;<a class="el" href="classteqp_1_1MultiFluidInvariantReducingFunction.html#ad306b3e6cc513bbd2beca4420405ba97">teqp::MultiFluidInvariantReducingFunction</a>, <a class="el" href="classteqp_1_1MultiFluidReducingFunction.html#a8c6a213e55d59ec4a04a556e4db5d04d">teqp::MultiFluidReducingFunction</a>, <a class="el" href="classteqp_1_1Reducing__ECS.html#a6d79ddbc0918a74b625c8aa5fa19cf09">teqp::Reducing_ECS</a>, <a class="el" href="classteqp_1_1ReducingTermContainer.html#a65d16e9f2af81353982d86079de3b6e4">teqp::ReducingTermContainer&lt; Args &gt;</a></li>
 <li>vc_m3mol&#160;:&#160;<a class="el" href="structteqp_1_1GERGGeneral_1_1GERG200XReducing_1_1TcVc.html#a72b5a14d5df5a60f67bb3f8792950af2">teqp::GERGGeneral::GERG200XReducing::TcVc</a></li>
 <li>vdWEOS()&#160;:&#160;<a class="el" href="classteqp_1_1vdWEOS.html#a1cb12fc9e95fba03c06d16114b015dec">teqp::vdWEOS&lt; NumType &gt;</a></li>
 <li>vdWEOS1()&#160;:&#160;<a class="el" href="classteqp_1_1vdWEOS1.html#acc17de42d37bd52adb0f0503d7dcee67">teqp::vdWEOS1</a></li>

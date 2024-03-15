@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -101,7 +103,6 @@ $(function() {
 <div class="textblock"><code>#include &quot;nlohmann/json.hpp&quot;</code><br />
 <code>#include &lt;Eigen/Dense&gt;</code><br />
 <code>#include &quot;<a class="el" href="derivs_8hpp_source.html">teqp/derivs.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="rootfinding_8hpp_source.html">teqp/algorithms/rootfinding.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="exceptions_8hpp_source.html">teqp/exceptions.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="teqpcpp_8hpp_source.html">teqp/cpp/teqpcpp.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="deriv__adapter_8hpp_source.html">teqp/cpp/deriv_adapter.hpp</a>&quot;</code><br />

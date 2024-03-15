@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -100,9 +102,11 @@ $(function() {
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html#aca44f88a72712fbb163f1b632a212c69">alphar</a>(TType T, const RhoType &amp;rhovec, const std::optional&lt; typename RhoType::value_type &gt; rhotot=std::nullopt) const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html#a03a32488ccb0f1ac2cef5e2dea4708c0">alphar</a>(const TType &amp;T, const RhoType &amp;rho, const MoleFracType &amp;molefrac) const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html#a28a6d18f587f3d1169b2d62942503caa">corr</a></td><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html#a6306c3f78e68dee4cc7cabbf9d07c645">dep</a></td><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html#a9a3c01567a5d050377c63646706875a9">GasConstantCalculator</a> typedef</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html#ad0ffe611d18a9a9f4de2297a869e8899">alphar_taudelta</a>(const TType &amp;tau, const RhoType &amp;delta, const MoleFracType &amp;molefrac) const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html#a28a6d18f587f3d1169b2d62942503caa">corr</a></td><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html#a6306c3f78e68dee4cc7cabbf9d07c645">dep</a></td><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html#a9a3c01567a5d050377c63646706875a9">GasConstantCalculator</a> typedef</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html#a24b54fdab33ac0ce85ad0d375dfd5803">get_BIP</a>(const std::size_t &amp;i, const std::size_t &amp;j, const std::string &amp;key) const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html#a35c747f02392e81b72c51bdf8aff19d4">get_meta</a>() const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html#a7c68902bdab541b24dc6edb9aa7c7067">MultiFluid</a>(ReducingFunctions &amp;&amp;redfunc, CorrespondingTerm &amp;&amp;corr, DepartureTerm &amp;&amp;dep, GasConstantCalculator &amp;&amp;Rcalc)</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html#ada2734f7246b838e218cb2b439538c32">R</a>(const VecType &amp;molefracs) const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluid.html">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>

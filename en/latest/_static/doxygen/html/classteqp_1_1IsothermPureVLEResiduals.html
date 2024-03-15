@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -123,8 +125,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7a127622cf9f7864dca1ec8190b3a808"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06f1565905a8ffe4f77de1c53433044b" id="r_a06f1565905a8ffe4f77de1c53433044b"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06f1565905a8ffe4f77de1c53433044b">call</a> (const <a class="el" href="#adebd07ab239cb540af4c1bd6e7d775d8">EigenArray</a> &amp;rhovec)</td></tr>
 <tr class="separator:a06f1565905a8ffe4f77de1c53433044b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba765806d3c27687e08c652002fadb39" id="r_aba765806d3c27687e08c652002fadb39"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba765806d3c27687e08c652002fadb39">Jacobian</a> (const <a class="el" href="#adebd07ab239cb540af4c1bd6e7d775d8">EigenArray</a> &amp;rhovec)</td></tr>
-<tr class="separator:aba765806d3c27687e08c652002fadb39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab71d128b6315afe85ea8f47bc31f903c" id="r_ab71d128b6315afe85ea8f47bc31f903c"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab71d128b6315afe85ea8f47bc31f903c">Jacobian</a> (const <a class="el" href="#adebd07ab239cb540af4c1bd6e7d775d8">EigenArray</a> &amp;)</td></tr>
+<tr class="separator:ab71d128b6315afe85ea8f47bc31f903c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -323,8 +325,8 @@ template&lt;typename Model , typename TYPE  = double, <a class="el" href="namesp
 
 </div>
 </div>
-<a id="aba765806d3c27687e08c652002fadb39" name="aba765806d3c27687e08c652002fadb39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba765806d3c27687e08c652002fadb39">&#9670;&#160;</a></span>Jacobian()</h2>
+<a id="ab71d128b6315afe85ea8f47bc31f903c" name="ab71d128b6315afe85ea8f47bc31f903c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab71d128b6315afe85ea8f47bc31f903c">&#9670;&#160;</a></span>Jacobian()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -337,7 +339,7 @@ template&lt;typename Model , typename TYPE  = double, <a class="el" href="namesp
         <tr>
           <td class="memname">auto <a class="el" href="classteqp_1_1IsothermPureVLEResiduals.html">teqp::IsothermPureVLEResiduals</a>&lt; Model, TYPE, backend &gt;::Jacobian </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#adebd07ab239cb540af4c1bd6e7d775d8">EigenArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rhovec</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#adebd07ab239cb540af4c1bd6e7d775d8">EigenArray</a> &amp;</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

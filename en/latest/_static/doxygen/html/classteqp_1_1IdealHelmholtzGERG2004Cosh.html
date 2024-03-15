@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -120,7 +122,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a26dd9dffd7854cbbc28b4480e31a8a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>\( \alpha^{\rm ig}= \sum_k n_k ln(|cosh(theta_k/T)|) \)</p>
+<div class="textblock"><p>\( \alpha^{\rm ig}= \sum_k n_k \ln(|\cosh(\theta_k/T)|) \)</p>
 <p>See Table 7.6 in GERG-2004 monograph </p>
 
 <p class="definition">Definition at line <a class="el" href="ideal__eosterms_8hpp_source.html#l00138">138</a> of file <a class="el" href="ideal__eosterms_8hpp_source.html">ideal_eosterms.hpp</a>.</p>

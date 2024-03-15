@@ -48,7 +48,7 @@
 \DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Finite\ differentiation\ coefficient\ arrays\ not\ the\ same\ size"{}});}
 \DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00058}00058\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00059}00059\ \ \ \ \ Scalar\ num\ =\ 0.0;}
-\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ k.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ k.size();\ ++i)\ \{}
 \DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ num\ =\ num\ +\ c[i]*f(x\ +\ h*k[i]);}
 \DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00062}00062\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00063}00063\ \ \ \ \ \textcolor{keyword}{auto}\ val\ =\ num\ /\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(h,\ Nderiv);}

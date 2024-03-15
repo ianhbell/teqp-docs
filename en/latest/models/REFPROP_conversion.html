@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>REFPROP &lt;10.0 conversion &#8212; teqp 0.19.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GERG" href="GERG.html" />
+    <link rel="prev" title="Multfluid mutant" href="multifluid_mutant.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="REFPROP-&lt;10.0-conversion">
+<h1>REFPROP &lt;10.0 conversion<a class="headerlink" href="#REFPROP-<10.0-conversion" title="Link to this heading">¶</a></h1>
+<p>As of <code class="docutils literal notranslate"><span class="pre">teqp</span></code> version 0.19.0, it is possible to read in the .FLD and HMX.BNC of <a class="reference external" href="https://www.nist.gov/srd/refprop">NIST REFPROP 10.0</a> and load them into <code class="docutils literal notranslate"><span class="pre">teqp</span></code> multifluid models. There are two approaches; either you can pass paths to the files of interest, or you can load them into JSON once, and pass the converted JSON back into teqp’s <code class="docutils literal notranslate"><span class="pre">make_model</span></code> function.</p>
+<p>The conversion code is uses that of <a class="reference external" href="https://github.com/ianhbell/REFPROP-interop">REFPROP-interop</a> and the fluid file format of <a class="reference external" href="https://github.com/coolprop/coolprop">CoolProp</a> is used.</p>
+<p>The example is based on the interaction parameters provided in the supporting information of the paper <a class="reference external" href="https://doi.org/10.1063/5.0135368">Mixture Model for Refrigerant Pairs R-32/1234yf, R-32/1234ze(E), R-1234ze(E)/227ea, R-1234yf/152a, and R-125/1234yf</a> by Ian Bell</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">teqp</span>
+<span class="n">teqp</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.19.1&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The first approach, we just pass paths to the files, they live in the folder</span>
+<span class="c1"># containing this notebook, and teqp does the conversion on the fly</span>
+<span class="n">jsimple</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;kind&#39;</span><span class="p">:</span> <span class="s1">&#39;multifluid&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;HMX.BNC&#39;</span><span class="p">:</span> <span class="s1">&#39;HMX.BNC&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;components&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;R152A.FLD&#39;</span><span class="p">,</span> <span class="s1">&#39;NEWR1234YF.FLD&#39;</span><span class="p">],</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">jsimple</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> teqp.make_model(jsimple)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+45.6 ms ± 1.46 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert each of the FLD files to JSON</span>
+<span class="n">FLD0</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">convert_FLD</span><span class="p">(</span><span class="s1">&#39;R152A.FLD&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;R152A&#39;</span><span class="p">)</span>
+<span class="n">FLD1</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">convert_FLD</span><span class="p">(</span><span class="s1">&#39;NEWR1234YF.FLD&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;R1234YF&#39;</span><span class="p">)</span>
+<span class="n">BIP</span><span class="p">,</span> <span class="n">DEP</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">convert_HMXBNC</span><span class="p">(</span><span class="s1">&#39;HMX.BNC&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jconverted</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;multifluid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">FLD0</span><span class="p">,</span> <span class="n">FLD1</span><span class="p">],</span>
+        <span class="s2">&quot;BIP&quot;</span><span class="p">:</span> <span class="n">BIP</span><span class="p">,</span>
+        <span class="s2">&quot;departure&quot;</span><span class="p">:</span> <span class="n">DEP</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">jconverted</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> teqp.make_model(jconverted)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+602 µs ± 2.32 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</pre></div></div>
+</div>
+<p>From this example you can note that the first method is a lot slower because the FLD-&gt;JSON conversion needs to happen for each call, while in the second method it is much faster because only the JSON parsing needs to be done in <code class="docutils literal notranslate"><span class="pre">teqp</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># It is also possible to prefix the path to indicate that the</span>
+<span class="c1"># indicated file (after the FLD::) should be converted from REFPROP format</span>
+<span class="n">jconverted</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;multifluid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;FLDPATH::R152A.FLD&quot;</span><span class="p">,</span> <span class="s1">&#39;FLDPATH::NEWR1234YF.FLD&#39;</span><span class="p">],</span>
+        <span class="s2">&quot;BIP&quot;</span><span class="p">:</span> <span class="n">BIP</span><span class="p">,</span>
+        <span class="s2">&quot;departure&quot;</span><span class="p">:</span> <span class="n">DEP</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">jconverted</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> teqp.make_model(jconverted)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+40.8 ms ± 180 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div></div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Models</a><ul>
+      <li>Previous: <a href="multifluid_mutant.html" title="previous chapter">Multfluid mutant</a></li>
+      <li>Next: <a href="GERG.html" title="next chapter">GERG</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/REFPROP_conversion.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/REFPROP_conversion.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

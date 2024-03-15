@@ -1,0 +1,106 @@
+\doxysection{teqp\+::Reducing\+\_\+\+ECS Class Reference}
+\hypertarget{classteqp_1_1Reducing__ECS}{}\label{classteqp_1_1Reducing__ECS}\index{teqp::Reducing\_ECS@{teqp::Reducing\_ECS}}
+
+
+{\ttfamily \#include $<$multifluid\+\_\+ecs\+\_\+mutant.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Array\+Like $>$ }\\\mbox{\hyperlink{classteqp_1_1Reducing__ECS_a461810694dc329245b688f82f5bd364a}{Reducing\+\_\+\+ECS}} (const Array\+Like \&\mbox{\hyperlink{classteqp_1_1Reducing__ECS_a2f478399a7ac990836689633f28018e0}{Tc}}, const Array\+Like \&\mbox{\hyperlink{classteqp_1_1Reducing__ECS_a6d79ddbc0918a74b625c8aa5fa19cf09}{vc}}, const nlohmann\+::json \&jj)
+\item 
+{\footnotesize template$<$typename TTYPE , typename RHOTYPE , typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1Reducing__ECS_a2cbf018fe3c35780e76d8ff41f7e1fa4}{get\+\_\+tr}} (const TTYPE \&temperature, const RHOTYPE \&density, const Mole\+Fractions \&molefraction) const
+\item 
+{\footnotesize template$<$typename TTYPE , typename RHOTYPE , typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1Reducing__ECS_a5129da42219394491bd66f0531caa965}{get\+\_\+dr}} (const TTYPE \&temperature, const RHOTYPE \&density, const Mole\+Fractions \&molefraction) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1Reducing__ECS_a2f478399a7ac990836689633f28018e0}{Tc}}
+\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1Reducing__ECS_a6d79ddbc0918a74b625c8aa5fa19cf09}{vc}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the polynomial extended corresponding states (p\+ECS) mixture model ~\newline
+The mixture model depends on coefficients for a temperature and density polynomial. ~\newline
+Only valid for binary mixtures. ~\newline
+The p\+ECS reducing function follow the mathematical operations\+: ~\newline
+ $F(\bar x, Y, T, \rho ) = \sum_{i=1}^{N} x_{i}^{2} Y_{\mathrm{c},i} + \sum_{i=1}^{N-1}\sum_{j=i+1}^{N} 2 x_{i} x_{j}  Y_{ij} f_{Y}(T,\rho).$ ~\newline
+ $f_{T,v} = \sum_{i}^{n} \sum_{j}^{m-i} c_{ij,T,v} \tau_{\mathrm{ECS}}^{i} \delta_{\mathrm{ECS}}^{j}$ ~\newline
+ $\tau_{\mathrm{ECS}} = \frac{Y_{T,ij}}{T}$ ~\newline
+ $\delta_{\mathrm{ECS}} = \rho Y_{v,ij}$ ~\newline
+ $Y_{T,ij} =  \sqrt{T_{\mathrm{c},i} T_{\mathrm{c},j}}$ ~\newline
+ $Y_{v,ij} =  \left( \frac{1}{\rho_{\mathrm{c},i}^{1/3}} + \frac{1}{\rho_{\mathrm{c},j}^{1/3}}\right)^{3}$ ~\newline
+ $c_{ij,T,v} = a_{ij,1} + a_{ij,2} x_{i} + a_{ij,3} x_{i}^{2}$. 
+
+Definition at line \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1Reducing__ECS_a461810694dc329245b688f82f5bd364a}\label{classteqp_1_1Reducing__ECS_a461810694dc329245b688f82f5bd364a} 
+\index{teqp::Reducing\_ECS@{teqp::Reducing\_ECS}!Reducing\_ECS@{Reducing\_ECS}}
+\index{Reducing\_ECS@{Reducing\_ECS}!teqp::Reducing\_ECS@{teqp::Reducing\_ECS}}
+\doxysubsubsection{\texorpdfstring{Reducing\_ECS()}{Reducing\_ECS()}}
+{\footnotesize\ttfamily template$<$typename Array\+Like $>$ \\
+teqp\+::\+Reducing\+\_\+\+ECS\+::\+Reducing\+\_\+\+ECS (\begin{DoxyParamCaption}\item[{const Array\+Like \&}]{Tc,  }\item[{const Array\+Like \&}]{vc,  }\item[{const nlohmann\+::json \&}]{jj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1Reducing__ECS_a5129da42219394491bd66f0531caa965}\label{classteqp_1_1Reducing__ECS_a5129da42219394491bd66f0531caa965} 
+\index{teqp::Reducing\_ECS@{teqp::Reducing\_ECS}!get\_dr@{get\_dr}}
+\index{get\_dr@{get\_dr}!teqp::Reducing\_ECS@{teqp::Reducing\_ECS}}
+\doxysubsubsection{\texorpdfstring{get\_dr()}{get\_dr()}}
+{\footnotesize\ttfamily template$<$typename TTYPE , typename RHOTYPE , typename Mole\+Fractions $>$ \\
+auto teqp\+::\+Reducing\+\_\+\+ECS\+::get\+\_\+dr (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{temperature,  }\item[{const RHOTYPE \&}]{density,  }\item[{const Mole\+Fractions \&}]{molefraction }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Reducing function for density 
+
+Definition at line \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source_l00106}{106}} of file \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}.
+
+\Hypertarget{classteqp_1_1Reducing__ECS_a2cbf018fe3c35780e76d8ff41f7e1fa4}\label{classteqp_1_1Reducing__ECS_a2cbf018fe3c35780e76d8ff41f7e1fa4} 
+\index{teqp::Reducing\_ECS@{teqp::Reducing\_ECS}!get\_tr@{get\_tr}}
+\index{get\_tr@{get\_tr}!teqp::Reducing\_ECS@{teqp::Reducing\_ECS}}
+\doxysubsubsection{\texorpdfstring{get\_tr()}{get\_tr()}}
+{\footnotesize\ttfamily template$<$typename TTYPE , typename RHOTYPE , typename Mole\+Fractions $>$ \\
+auto teqp\+::\+Reducing\+\_\+\+ECS\+::get\+\_\+tr (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{temperature,  }\item[{const RHOTYPE \&}]{density,  }\item[{const Mole\+Fractions \&}]{molefraction }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Reducing function for temperature 
+
+Definition at line \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source_l00083}{83}} of file \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1Reducing__ECS_a2f478399a7ac990836689633f28018e0}\label{classteqp_1_1Reducing__ECS_a2f478399a7ac990836689633f28018e0} 
+\index{teqp::Reducing\_ECS@{teqp::Reducing\_ECS}!Tc@{Tc}}
+\index{Tc@{Tc}!teqp::Reducing\_ECS@{teqp::Reducing\_ECS}}
+\doxysubsubsection{\texorpdfstring{Tc}{Tc}}
+{\footnotesize\ttfamily Eigen\+::\+Array\+Xd teqp\+::\+Reducing\+\_\+\+ECS\+::\+Tc}
+
+Critical temperature array of corresponding pure fluid contributions. 
+
+Definition at line \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}.
+
+\Hypertarget{classteqp_1_1Reducing__ECS_a6d79ddbc0918a74b625c8aa5fa19cf09}\label{classteqp_1_1Reducing__ECS_a6d79ddbc0918a74b625c8aa5fa19cf09} 
+\index{teqp::Reducing\_ECS@{teqp::Reducing\_ECS}!vc@{vc}}
+\index{vc@{vc}!teqp::Reducing\_ECS@{teqp::Reducing\_ECS}}
+\doxysubsubsection{\texorpdfstring{vc}{vc}}
+{\footnotesize\ttfamily Eigen\+::\+Array\+Xd teqp\+::\+Reducing\+\_\+\+ECS\+::vc}
+
+Critical volume array of corresponding pure fluid contributions. 
+
+Definition at line \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\mbox{\hyperlink{multifluid__ecs__mutant_8hpp}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}\end{DoxyCompactItemize}

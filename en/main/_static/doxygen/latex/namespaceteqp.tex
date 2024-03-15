@@ -5,6 +5,8 @@
 \item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1ancillaries}{ancillaries}}
 \item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1association}{association}}
+\item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1constants}{constants}}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1CPA}{CPA}}
@@ -26,6 +28,8 @@ namespace \mbox{\hyperlink{namespaceteqp_1_1GERGGeneral}{GERGGeneral}}
 namespace \mbox{\hyperlink{namespaceteqp_1_1iteration}{iteration}}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1LJChain}{LJChain}}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1LKP}{LKP}}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1Mie}{Mie}}
 \item 
@@ -50,8 +54,6 @@ namespace \mbox{\hyperlink{namespaceteqp_1_1VLLE}{VLLE}}
 \item 
 class \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{Advanced\+PRa\+Eres}}
 \item 
-struct \mbox{\hyperlink{structteqp_1_1AlphaCallWrapper}{Alpha\+Call\+Wrapper}}
-\begin{DoxyCompactList}\small\item\em This class is used to wrap a model that exposes the generic functions alphar, alphaig, etc., and allow the desired member function to be called at runtime via perfect forwarding. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classteqp_1_1BasicAlphaFunction}{Basic\+Alpha\+Function}}
 \begin{DoxyCompactList}\small\item\em The standard alpha function used by Peng-\/\+Robinson and SRK. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classteqp_1_1Chebyshev2DEOSTerm}{Chebyshev2\+DEOSTerm}}
@@ -152,6 +154,8 @@ class \mbox{\hyperlink{classteqp_1_1MultiFluid}{Multi\+Fluid}}
 \item 
 class \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter}{Multi\+Fluid\+Adapter}}
 \item 
+class \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs}{Multi\+Fluid\+Adapter\+\_\+\+Ecs}}
+\item 
 class \mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction}{Multi\+Fluid\+Invariant\+Reducing\+Function}}
 \item 
 class \mbox{\hyperlink{classteqp_1_1MultiFluidReducingFunction}{Multi\+Fluid\+Reducing\+Function}}
@@ -173,6 +177,8 @@ class \mbox{\hyperlink{classteqp_1_1PureIdealHelmholtz}{Pure\+Ideal\+Helmholtz}}
 struct \mbox{\hyperlink{structteqp_1_1PVLEOptions}{PVLEOptions}}
 \item 
 class \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR}{Quantum\+Corrected\+PR}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1Reducing__ECS}{Reducing\+\_\+\+ECS}}
 \item 
 class \mbox{\hyperlink{classteqp_1_1ReducingTermContainer}{Reducing\+Term\+Container}}
 \item 
@@ -203,6 +209,15 @@ struct \mbox{\hyperlink{structteqp_1_1VLEAncillary}{VLEAncillary}}
 class \mbox{\hyperlink{classteqp_1_1WilsonResidualHelmholtzOverRT}{Wilson\+Residual\+Helmholtz\+Over\+RT}}
 \item 
 struct \mbox{\hyperlink{structteqp_1_1wrt__helper}{wrt\+\_\+helper}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Concepts}
+\begin{DoxyCompactItemize}
+\item 
+concept \mbox{\hyperlink{conceptteqp_1_1CallableAlpha}{Callable\+Alpha}}
+\item 
+concept \mbox{\hyperlink{conceptteqp_1_1CallableAlphar}{Callable\+Alphar}}
+\item 
+concept \mbox{\hyperlink{conceptteqp_1_1CallableAlpharTauDelta}{Callable\+Alphar\+Tau\+Delta}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
@@ -278,12 +293,7 @@ enum class \mbox{\hyperlink{namespaceteqp_a60d3915f4002f9de425a211673a7d877}{VLE
 , \mbox{\hyperlink{namespaceteqp_a60d3915f4002f9de425a211673a7d877ad0f511a094e26f725086a7b205ccadde}{notfinite\+\_\+step}}
  \}
 \item 
-enum class \mbox{\hyperlink{namespaceteqp_abb423904db0ac1c8261912ca4efc3272}{Alpha\+Wrapper\+Option}} \{ \mbox{\hyperlink{namespaceteqp_abb423904db0ac1c8261912ca4efc3272a4db598f63d4aea6a3c8eaddfe5c2b1e9}{residual}}
-, \mbox{\hyperlink{namespaceteqp_abb423904db0ac1c8261912ca4efc3272a99849a7e0c94a6066ed3faac395459be}{idealgas}}
- \}
-\item 
 enum class \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} \{ \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9da1f9f65b69bb4d16b7fd15a809c59d6e6}{autodiff}}
-, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9dad8c387494b54ef11d7d960ed7311d4bf}{complex\+\_\+step}}
  \}
 \item 
 enum class \mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418ead}{Advanced\+PRa\+EMixing\+Rules}} \{ \mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418eadac5fa7134efc9be43ef7f390d5d7dc9d9}{knotspecified}}
@@ -366,12 +376,12 @@ auto \mbox{\hyperlink{namespaceteqp_a2408f7de3e451a2f68a0919f821df98e}{pure\+\_\
 \item 
 {\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$is\+\_\+not\+\_\+\+Abstract\+Model$<$\+Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_aa86ef0e9fc4dadf2179f0748608c83e5}{pure\+\_\+trace\+\_\+\+VLE}} (const Templated\+Model \&model, Params \&\&... params)
 \item 
-{\footnotesize template$<$typename Num\+Type $>$ }\\const auto \mbox{\hyperlink{namespaceteqp_a2b7e9f6c1e890797284b6bd57d251379}{get\+\_\+\+R\+\_\+gas}} ()
+{\footnotesize template$<$typename Num\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_aed0cabbf6a82a357adc773aa850566ea}{get\+\_\+\+R\+\_\+gas}} ()
 \begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Gas constant, according to CODATA 2019, in the given number type \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename TType , typename Container\+Type , typename Func\+Type $>$ }\\Container\+Type\+::value\+\_\+type \mbox{\hyperlink{namespaceteqp_a673824cda5d54f74d80f6746bb8a0d4d}{derivT}} (const Func\+Type \&f, TType T, const Container\+Type \&rho)
-\item 
+\begin{DoxyCompactList}\small\item\em Given a function, use complex step derivatives to calculate the derivative with respect to the first variable which here is temperature. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename TType , typename Container\+Type , typename Func\+Type , typename Integer $>$ }\\Container\+Type\+::value\+\_\+type \mbox{\hyperlink{namespaceteqp_ae0e2c714a07ef9263b390b6814c4c00a}{derivrhoi}} (const Func\+Type \&f, TType T, const Container\+Type \&rho, Integer i)
-\item 
+\begin{DoxyCompactList}\small\item\em Given a function, use complex step derivatives to calculate the derivative with respect to the given composition variable. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t ... I$>$ }\\auto \mbox{\hyperlink{namespaceteqp_aab18d321f888443bbe10184550a862e9}{build\+\_\+duplicated\+\_\+tuple\+\_\+impl}} (const T \&val, std\+::index\+\_\+sequence$<$ I... $>$)
 \item 
 {\footnotesize template$<$int N, typename T $>$ }\\auto \mbox{\hyperlink{namespaceteqp_abb52b388df385acbdbcb78efa7783c1b}{build\+\_\+duplicated\+\_\+tuple}} (const T \&val)
@@ -458,6 +468,8 @@ auto \mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multiflui
 \begin{DoxyCompactList}\small\item\em Load a model from a JSON data structure. \end{DoxyCompactList}\item 
 auto \mbox{\hyperlink{namespaceteqp_acf914908b8bfc56e964cd6bc6982366e}{multifluidfactory}} (const std\+::string \&specstring)
 \begin{DoxyCompactList}\small\item\em An overload of multifluidfactory that takes in a string. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Model $>$ }\\auto \mbox{\hyperlink{namespaceteqp_ac63d4577ec3451ce74267a7ad2a8ecbf}{build\+\_\+multifluid\+\_\+ecs\+\_\+mutant}} (const Model \&model, const nlohmann\+::json \&jj)
+\item 
 {\footnotesize template$<$class Model $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}{build\+\_\+multifluid\+\_\+mutant}} (const Model \&model, const nlohmann\+::json \&jj)
 \item 
 {\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespaceteqp_aa0812a3c14b8df38572406314014e130}{pow2}} (const T \&x)
@@ -468,7 +480,7 @@ auto \mbox{\hyperlink{namespaceteqp_a54c35c0fca0f39185783efb600ccb586}{toeig}} (
 \item 
 {\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}} (T \&\&expr)
 \item 
-{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceteqp_abbf9e7fce9e140cb1b40e0513e1edb9e}{error\+\_\+if\+\_\+expr}} (T \&\&expr)
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceteqp_a8965192cd6c748672e60e8a77228d063}{error\+\_\+if\+\_\+expr}} (T \&\&)
 \item 
 {\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a79c1a1ea4876acd80e74721bba2361ce}{getbaseval}} (const T \&expr)
 \item 
@@ -491,6 +503,12 @@ auto \mbox{\hyperlink{namespaceteqp_a0387f578fa55e79f0da380ebd38b22e9}{build\+\_
 
 \doxysubsection{Detailed Description}
 Type-\/agnostic methods for carrying out fixed quadrature with definite integrals
+
+General routines for the calculation of association
+
+The implementation follows the approach of Langenbach for the index compression,
+
+Many helpful hints from Andres Riedemann
 
 The name of this file is currently a bit of a misnomer while we think about whether it is possible to forward-\/declare the models
 
@@ -529,7 +547,7 @@ Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00095}{95}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_af0143b3f923665100709c22a285bfd98}\label{namespaceteqp_af0143b3f923665100709c22a285bfd98} 
 \index{teqp@{teqp}!canonical\_cubic\_t@{canonical\_cubic\_t}}
@@ -539,7 +557,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00044}{44}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_abca56121053f4dcf814154a48e1b27c3}\label{namespaceteqp_abca56121053f4dcf814154a48e1b27c3} 
 \index{teqp@{teqp}!CPA\_t@{CPA\_t}}
@@ -549,7 +567,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00038}{38}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a77d3d89dc9371516d36e225ae15f7626}\label{namespaceteqp_a77d3d89dc9371516d36e225ae15f7626} 
 \index{teqp@{teqp}!DepartureTerms@{DepartureTerms}}
@@ -579,7 +597,7 @@ Definition at line \mbox{\hyperlink{multifluid__eosterms_8hpp_source_l00370}{370
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a1959bb60f21c0547efe48ad193b27619}\label{namespaceteqp_a1959bb60f21c0547efe48ad193b27619} 
 \index{teqp@{teqp}!idealgas\_t@{idealgas\_t}}
@@ -589,7 +607,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00046}{46}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a05a0144b16658ef74f023c6ebce4b38a}\label{namespaceteqp_a05a0144b16658ef74f023c6ebce4b38a} 
 \index{teqp@{teqp}!IdealHelmholtzTerms@{IdealHelmholtzTerms}}
@@ -657,7 +675,7 @@ Definition at line \mbox{\hyperlink{exceptions_8hpp_source_l00039}{39}} of file 
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_ad99a58f5bf948c1191e468377254e2ee}\label{namespaceteqp_ad99a58f5bf948c1191e468377254e2ee} 
 \index{teqp@{teqp}!LJ126KolafaNezbeda1994\_t@{LJ126KolafaNezbeda1994\_t}}
@@ -667,7 +685,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00050}{50}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_ac1d89312aa7604e1207f887cb9d85915}\label{namespaceteqp_ac1d89312aa7604e1207f887cb9d85915} 
 \index{teqp@{teqp}!Mie6Pohl2023\_t@{Mie6Pohl2023\_t}}
@@ -677,7 +695,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00049}{49}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a30015ca07e3a8970b64d24e212431e78}\label{namespaceteqp_a30015ca07e3a8970b64d24e212431e78} 
 \index{teqp@{teqp}!multifluid\_t@{multifluid\_t}}
@@ -687,7 +705,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00051}{51}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_afd2ddf64b68cce28c54119ecf6b0914b}\label{namespaceteqp_afd2ddf64b68cce28c54119ecf6b0914b} 
 \index{teqp@{teqp}!multifluidmutant\_t@{multifluidmutant\_t}}
@@ -697,7 +715,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00042}{42}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_afcf6a51266c52a06dd9dd8386c23fd0a}\label{namespaceteqp_afcf6a51266c52a06dd9dd8386c23fd0a} 
 \index{teqp@{teqp}!PCSAFT\_t@{PCSAFT\_t}}
@@ -707,7 +725,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00043}{43}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_af20ae9b7642b8f410bad887680dfa601}\label{namespaceteqp_af20ae9b7642b8f410bad887680dfa601} 
 \index{teqp@{teqp}!QuantumPR\_t@{QuantumPR\_t}}
@@ -717,7 +735,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00039}{39}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_acbf67c7fb462e29705f3a9e0f1e6f85a}\label{namespaceteqp_acbf67c7fb462e29705f3a9e0f1e6f85a} 
 \index{teqp@{teqp}!ReducingFunctions@{ReducingFunctions}}
@@ -727,7 +745,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00052}{52}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00282}{282}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00333}{333}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a9c5a1a892880b5bb58042dd88b92a25d}\label{namespaceteqp_a9c5a1a892880b5bb58042dd88b92a25d} 
 \index{teqp@{teqp}!ResidualHelmholtzOverRTVariant@{ResidualHelmholtzOverRTVariant}}
@@ -757,7 +775,7 @@ Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00996}{996}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_aef68ee45f75085569c877c08555bc919}\label{namespaceteqp_aef68ee45f75085569c877c08555bc919} 
 \index{teqp@{teqp}!SW\_EspindolaHeredia2009\_t@{SW\_EspindolaHeredia2009\_t}}
@@ -767,7 +785,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00040}{40}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a707a367fe97e2502d09729fdcc9f53fc}\label{namespaceteqp_a707a367fe97e2502d09729fdcc9f53fc} 
 \index{teqp@{teqp}!twocenterLJF\_t@{twocenterLJF\_t}}
@@ -777,7 +795,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00045}{45}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}\label{namespaceteqp_af129d886ebb7fcaf26242da2cf497907} 
 \index{teqp@{teqp}!vad@{vad}}
@@ -787,7 +805,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00048}{48}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a8438428c7c8039390d0bd229e56d8670}\label{namespaceteqp_a8438428c7c8039390d0bd229e56d8670} 
 \index{teqp@{teqp}!vdWEOS\_t@{vdWEOS\_t}}
@@ -797,7 +815,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00033}{33}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a28dadf1c0320a0f649ee5652486d4f70}\label{namespaceteqp_a28dadf1c0320a0f649ee5652486d4f70} 
 \index{teqp@{teqp}!vecs@{vecs}}
@@ -807,7 +825,7 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00047}{47}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
+Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{fwd_8hpp_source}{fwd.\+hpp}}.
 
 
 
@@ -823,14 +841,10 @@ Definition at line \mbox{\hyperlink{fwd_8hpp_source_l00034}{34}} of file \mbox{\
 autodiff&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{complex\_step@{complex\_step}!teqp@{teqp}}\index{teqp@{teqp}!complex\_step@{complex\_step}}}\Hypertarget{namespaceteqp_aa915939e34912de1f87776858de32f9dad8c387494b54ef11d7d960ed7311d4bf}\label{namespaceteqp_aa915939e34912de1f87776858de32f9dad8c387494b54ef11d7d960ed7311d4bf} 
-complex\+\_\+step&\\
-\hline
-
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00118}{118}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00092}{92}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a285cebddf2ec0d69865e0e8c80418ead}\label{namespaceteqp_a285cebddf2ec0d69865e0e8c80418ead} 
 \index{teqp@{teqp}!AdvancedPRaEMixingRules@{AdvancedPRaEMixingRules}}
@@ -855,26 +869,6 @@ k\+Quadratic&\\
 
 
 Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00433}{433}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
-
-\Hypertarget{namespaceteqp_abb423904db0ac1c8261912ca4efc3272}\label{namespaceteqp_abb423904db0ac1c8261912ca4efc3272} 
-\index{teqp@{teqp}!AlphaWrapperOption@{AlphaWrapperOption}}
-\index{AlphaWrapperOption@{AlphaWrapperOption}!teqp@{teqp}}
-\doxysubsubsection{\texorpdfstring{AlphaWrapperOption}{AlphaWrapperOption}}
-{\footnotesize\ttfamily enum class \mbox{\hyperlink{namespaceteqp_abb423904db0ac1c8261912ca4efc3272}{teqp\+::\+Alpha\+Wrapper\+Option}}\hspace{0.3cm}{\ttfamily [strong]}}
-
-\begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{residual@{residual}!teqp@{teqp}}\index{teqp@{teqp}!residual@{residual}}}\Hypertarget{namespaceteqp_abb423904db0ac1c8261912ca4efc3272a4db598f63d4aea6a3c8eaddfe5c2b1e9}\label{namespaceteqp_abb423904db0ac1c8261912ca4efc3272a4db598f63d4aea6a3c8eaddfe5c2b1e9} 
-residual&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{idealgas@{idealgas}!teqp@{teqp}}\index{teqp@{teqp}!idealgas@{idealgas}}}\Hypertarget{namespaceteqp_abb423904db0ac1c8261912ca4efc3272a99849a7e0c94a6066ed3faac395459be}\label{namespaceteqp_abb423904db0ac1c8261912ca4efc3272a99849a7e0c94a6066ed3faac395459be} 
-idealgas&\\
-\hline
-
-\end{DoxyEnumFields}
-
-
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00089}{89}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a60d3915f4002f9de425a211673a7d877}\label{namespaceteqp_a60d3915f4002f9de425a211673a7d877} 
 \index{teqp@{teqp}!VLE\_return\_code@{VLE\_return\_code}}
@@ -927,7 +921,7 @@ Internal method for actually constructing the model with the provided JSON data 
 
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00827}{827}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00869}{869}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a82028c79c5797818e7bbba8f88b4d4a6}\label{namespaceteqp_a82028c79c5797818e7bbba8f88b4d4a6} 
 \index{teqp@{teqp}!all\_same\_length@{all\_same\_length}}
@@ -951,7 +945,7 @@ Build a reverse-\/lookup map for finding a fluid JSON structure given a backup i
 
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00786}{786}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00828}{828}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 \Hypertarget{namespaceteqp_aec1a1fe6229bcb1a9f9170063eddb907}\label{namespaceteqp_aec1a1fe6229bcb1a9f9170063eddb907} 
 \index{teqp@{teqp}!build\_alpha\_functions@{build\_alpha\_functions}}
@@ -972,7 +966,7 @@ Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00098}{98}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00192}{192}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00218}{218}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 \Hypertarget{namespaceteqp_abb52b388df385acbdbcb78efa7783c1b}\label{namespaceteqp_abb52b388df385acbdbcb78efa7783c1b} 
 \index{teqp@{teqp}!build\_duplicated\_tuple@{build\_duplicated\_tuple}}
@@ -987,7 +981,7 @@ A function to generate a tuple of N repeated copies of argument val at compile-\
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00077}{77}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{namespaceteqp_aab18d321f888443bbe10184550a862e9}\label{namespaceteqp_aab18d321f888443bbe10184550a862e9} 
 \index{teqp@{teqp}!build\_duplicated\_tuple\_impl@{build\_duplicated\_tuple\_impl}}
@@ -998,7 +992,7 @@ auto teqp\+::build\+\_\+duplicated\+\_\+tuple\+\_\+impl (\begin{DoxyParamCaption
 
 Helper function for build\+\_\+duplicated\+\_\+tuple See example here for the general concept \href{https://en.cppreference.com/w/cpp/utility/integer_sequence}{\texttt{ https\+://en.\+cppreference.\+com/w/cpp/utility/integer\+\_\+sequence}} 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00068}{68}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a72a0d74913275be5bbc29a3791ca5eb0}\label{namespaceteqp_a72a0d74913275be5bbc29a3791ca5eb0} 
 \index{teqp@{teqp}!build\_LJ126\_TholJPCRD2016@{build\_LJ126\_TholJPCRD2016}}
@@ -1008,7 +1002,18 @@ Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00068}{68}} of file \mbo
 
 The EOS of Monika Thol and colleagues. DOI\+:10.\+1063/1.4945000 
 
-Definition at line \mbox{\hyperlink{lennardjones_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{lennardjones_8hpp_source}{lennardjones.\+hpp}}.
+Definition at line \mbox{\hyperlink{lennardjones_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{lennardjones_8hpp_source}{lennardjones.\+hpp}}.
+
+\Hypertarget{namespaceteqp_ac63d4577ec3451ce74267a7ad2a8ecbf}\label{namespaceteqp_ac63d4577ec3451ce74267a7ad2a8ecbf} 
+\index{teqp@{teqp}!build\_multifluid\_ecs\_mutant@{build\_multifluid\_ecs\_mutant}}
+\index{build\_multifluid\_ecs\_mutant@{build\_multifluid\_ecs\_mutant}!teqp@{teqp}}
+\doxysubsubsection{\texorpdfstring{build\_multifluid\_ecs\_mutant()}{build\_multifluid\_ecs\_mutant()}}
+{\footnotesize\ttfamily template$<$class Model $>$ \\
+auto teqp\+::build\+\_\+multifluid\+\_\+ecs\+\_\+mutant (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const nlohmann\+::json \&}]{jj }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source_l00167}{167}} of file \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a6c43d72f8b0ea5c812c0240c852a5135}\label{namespaceteqp_a6c43d72f8b0ea5c812c0240c852a5135} 
 \index{teqp@{teqp}!build\_multifluid\_JSONstr@{build\_multifluid\_JSONstr}}
@@ -1022,7 +1027,7 @@ A builder function where the JSON-\/formatted strings are provided explicitly ra
 
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00877}{877}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00919}{919}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 \Hypertarget{namespaceteqp_aa7cdea08428a2326129dcbe83de69802}\label{namespaceteqp_aa7cdea08428a2326129dcbe83de69802} 
 \index{teqp@{teqp}!build\_multifluid\_model@{build\_multifluid\_model}}
@@ -1032,7 +1037,7 @@ Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00877}{877}} of file
 
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00962}{962}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00984}{984}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}\label{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07} 
 \index{teqp@{teqp}!build\_multifluid\_mutant@{build\_multifluid\_mutant}}
@@ -1043,7 +1048,7 @@ auto teqp\+::build\+\_\+multifluid\+\_\+mutant (\begin{DoxyParamCaption}\item[{c
 
 Store the model spec in the adapted multifluid class
 
-Definition at line \mbox{\hyperlink{multifluid__mutant_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{multifluid__mutant_8hpp_source}{multifluid\+\_\+mutant.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid__mutant_8hpp_source_l00057}{57}} of file \mbox{\hyperlink{multifluid__mutant_8hpp_source}{multifluid\+\_\+mutant.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a388557f5b1209cf4a37a2bb3b9a6f9d5}\label{namespaceteqp_a388557f5b1209cf4a37a2bb3b9a6f9d5} 
 \index{teqp@{teqp}!canonical\_PR@{canonical\_PR}}
@@ -1105,7 +1110,7 @@ Definition at line \mbox{\hyperlink{math_2finite__derivs_8hpp_source_l00068}{68}
 
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00725}{725}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00751}{751}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a68212bdd29484f7d4d6b2c8bc8d77256}\label{namespaceteqp_a68212bdd29484f7d4d6b2c8bc8d77256} 
 \index{teqp@{teqp}!collect\_identifiers@{collect\_identifiers}}
@@ -1115,7 +1120,7 @@ Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00725}{725}} of file
 
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00748}{748}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00774}{774}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 \Hypertarget{namespaceteqp_ac3923ac078dc5b9aa1ddbe7ee81c5613}\label{namespaceteqp_ac3923ac078dc5b9aa1ddbe7ee81c5613} 
 \index{teqp@{teqp}!convert\_CoolProp\_idealgas@{convert\_CoolProp\_idealgas}}
@@ -1160,7 +1165,11 @@ Container\+Type\+::value\+\_\+type teqp\+::derivrhoi (\begin{DoxyParamCaption}\i
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Given a function, use complex step derivatives to calculate the derivative with respect to the given composition variable. 
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00057}{57}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a673824cda5d54f74d80f6746bb8a0d4d}\label{namespaceteqp_a673824cda5d54f74d80f6746bb8a0d4d} 
 \index{teqp@{teqp}!derivT@{derivT}}
@@ -1171,7 +1180,11 @@ Container\+Type\+::value\+\_\+type teqp\+::derivT (\begin{DoxyParamCaption}\item
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Given a function, use complex step derivatives to calculate the derivative with respect to the first variable which here is temperature. 
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a403c09e2eab732de1e77faec4b50863a}\label{namespaceteqp_a403c09e2eab732de1e77faec4b50863a} 
 \index{teqp@{teqp}!do\_pure\_VLE\_T@{do\_pure\_VLE\_T}}
@@ -1205,12 +1218,12 @@ Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00255}{255}} of file 
 
 Definition at line \mbox{\hyperlink{VLE__pure_8hpp_source_l00158}{158}} of file \mbox{\hyperlink{VLE__pure_8hpp_source}{VLE\+\_\+pure.\+hpp}}.
 
-\Hypertarget{namespaceteqp_abbf9e7fce9e140cb1b40e0513e1edb9e}\label{namespaceteqp_abbf9e7fce9e140cb1b40e0513e1edb9e} 
+\Hypertarget{namespaceteqp_a8965192cd6c748672e60e8a77228d063}\label{namespaceteqp_a8965192cd6c748672e60e8a77228d063} 
 \index{teqp@{teqp}!error\_if\_expr@{error\_if\_expr}}
 \index{error\_if\_expr@{error\_if\_expr}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{error\_if\_expr()}{error\_if\_expr()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-void teqp\+::error\+\_\+if\+\_\+expr (\begin{DoxyParamCaption}\item[{T \&\&}]{expr }\end{DoxyParamCaption})}
+void teqp\+::error\+\_\+if\+\_\+expr (\begin{DoxyParamCaption}\item[{T \&\&}]{ }\end{DoxyParamCaption})}
 
 A constexpr function for ensuring that an argument to a function is NOT an expr, which can have surprising behavior 
 
@@ -1224,7 +1237,7 @@ Definition at line \mbox{\hyperlink{types_8hpp_source_l00063}{63}} of file \mbox
 
 
 
-Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00213}{213}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
+Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00212}{212}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a5fdf71d9e1ef7e3c69e2410aff33fa21}\label{namespaceteqp_a5fdf71d9e1ef7e3c69e2410aff33fa21} 
 \index{teqp@{teqp}!extrapolate\_from\_critical@{extrapolate\_from\_critical}}
@@ -1235,7 +1248,7 @@ Eigen\+::\+Array$<$ double, 2, 1 $>$ teqp\+::extrapolate\+\_\+from\+\_\+critical
 
 
 
-Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00181}{181}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
+Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00180}{180}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
 \Hypertarget{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}\label{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726} 
 \index{teqp@{teqp}!forceeval@{forceeval}}
@@ -1266,7 +1279,7 @@ Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00447}{447}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00195}{195}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
+Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00194}{194}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a8ce59a6988a1b97c70059a109d391179}\label{namespaceteqp_a8ce59a6988a1b97c70059a109d391179} 
 \index{teqp@{teqp}!get\_Brho\_critical\_extrap@{get\_Brho\_critical\_extrap}}
@@ -1277,7 +1290,7 @@ Scalar teqp\+::get\+\_\+\+Brho\+\_\+critical\+\_\+extrap (\begin{DoxyParamCaptio
 
 
 
-Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00160}{160}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
+Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00159}{159}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a794ca20d6c5c501592eccde9e87c5a2d}\label{namespaceteqp_a794ca20d6c5c501592eccde9e87c5a2d} 
 \index{teqp@{teqp}!get\_departure\_function\_matrix@{get\_departure\_function\_matrix}}
@@ -1287,7 +1300,7 @@ Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00160}{160}} of 
 
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00438}{438}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00464}{464}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a75aa947e3267ff1660db269220f093d8}\label{namespaceteqp_a75aa947e3267ff1660db269220f093d8} 
 \index{teqp@{teqp}!get\_departure\_json@{get\_departure\_json}}
@@ -1297,7 +1310,7 @@ Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00438}{438}} of file
 
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00171}{171}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00197}{197}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a0c78e97744bd0ec82197f40149e03d4b}\label{namespaceteqp_a0c78e97744bd0ec82197f40149e03d4b} 
 \index{teqp@{teqp}!get\_dpsat\_dTsat\_isopleth@{get\_dpsat\_dTsat\_isopleth}}
@@ -1408,7 +1421,7 @@ Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01305}{1305}} of file \mbox
 
 lambda function for adding non-\/analytic terms
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00478}{478}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00504}{504}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a427e105aec20374b74c7bef742ac5277}\label{namespaceteqp_a427e105aec20374b74c7bef742ac5277} 
 \index{teqp@{teqp}!get\_EOSs@{get\_EOSs}}
@@ -1418,7 +1431,7 @@ Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00478}{478}} of file
 
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00716}{716}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00742}{742}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a80148acc481909c3c660d5f4d8e8678f}\label{namespaceteqp_a80148acc481909c3c660d5f4d8e8678f} 
 \index{teqp@{teqp}!get\_pure\_critical\_conditions\_Jacobian@{get\_pure\_critical\_conditions\_Jacobian}}
@@ -1428,7 +1441,7 @@ Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00716}{716}} of file
 
 Calculate the criticality conditions for a pure fluid and its Jacobian w.\+r.\+t. the temperature and density for additional fine tuning with multi-\/variate rootfinding 
 
-Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
+Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
 \Hypertarget{namespaceteqp_afd502fd9cf21cd403305ec755c536aa5}\label{namespaceteqp_afd502fd9cf21cd403305ec755c536aa5} 
 \index{teqp@{teqp}!get\_pure\_critical\_conditions\_Jacobian@{get\_pure\_critical\_conditions\_Jacobian}}
@@ -1439,14 +1452,14 @@ auto teqp\+::get\+\_\+pure\+\_\+critical\+\_\+conditions\+\_\+\+Jacobian (\begin
 
 
 
-Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00084}{84}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
+Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00083}{83}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
-\Hypertarget{namespaceteqp_a2b7e9f6c1e890797284b6bd57d251379}\label{namespaceteqp_a2b7e9f6c1e890797284b6bd57d251379} 
+\Hypertarget{namespaceteqp_aed0cabbf6a82a357adc773aa850566ea}\label{namespaceteqp_aed0cabbf6a82a357adc773aa850566ea} 
 \index{teqp@{teqp}!get\_R\_gas@{get\_R\_gas}}
 \index{get\_R\_gas@{get\_R\_gas}!teqp@{teqp}}
 \doxysubsubsection{\texorpdfstring{get\_R\_gas()}{get\_R\_gas()}}
 {\footnotesize\ttfamily template$<$typename Num\+Type $>$ \\
-const auto teqp\+::get\+\_\+\+R\+\_\+gas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+auto teqp\+::get\+\_\+\+R\+\_\+gas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -1562,7 +1575,7 @@ There are 4 options\+:
 \item Names that all resolve to absolute paths when looking up in the alias map 
 \end{DoxyEnumerate}
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00899}{899}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00941}{941}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 \Hypertarget{namespaceteqp_ac09ec2a6e2dfb57a38f42ed084bc9f58}\label{namespaceteqp_ac09ec2a6e2dfb57a38f42ed084bc9f58} 
 \index{teqp@{teqp}!mix\_VLE\_Tp@{mix\_VLE\_Tp}}
@@ -1641,7 +1654,7 @@ Required fields are\+: components, BIP, departure
 
 BIP and departure can be either the data in JSON format, or a path to file with those contents components is an array, which either contains the paths to the JSON data, or the file path 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00984}{984}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l01006}{1006}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 \Hypertarget{namespaceteqp_acf914908b8bfc56e964cd6bc6982366e}\label{namespaceteqp_acf914908b8bfc56e964cd6bc6982366e} 
 \index{teqp@{teqp}!multifluidfactory@{multifluidfactory}}
@@ -1655,7 +1668,7 @@ An overload of multifluidfactory that takes in a string.
 
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l01001}{1001}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l01036}{1036}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 \Hypertarget{namespaceteqp_ad4771b0bb9c922bc937e72f81b4431df}\label{namespaceteqp_ad4771b0bb9c922bc937e72f81b4431df} 
 \index{teqp@{teqp}!multilevel\_JSON\_load@{multilevel\_JSON\_load}}
@@ -1930,7 +1943,7 @@ Iterate over the possible options for identifiers to determine which one will sa
 
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00765}{765}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00799}{799}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 \Hypertarget{namespaceteqp_aaa9d7d044c02e240dc249340f7a48a93}\label{namespaceteqp_aaa9d7d044c02e240dc249340f7a48a93} 
 \index{teqp@{teqp}!solve\_pure\_critical@{solve\_pure\_critical}}
@@ -1940,7 +1953,7 @@ Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00765}{765}} of file
 
 
 
-Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00126}{126}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
+Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00125}{125}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a582c949fe26e5a5c2605613c73a3c73b}\label{namespaceteqp_a582c949fe26e5a5c2605613c73a3c73b} 
 \index{teqp@{teqp}!solve\_pure\_critical@{solve\_pure\_critical}}
@@ -1951,7 +1964,7 @@ auto teqp\+::solve\+\_\+pure\+\_\+critical (\begin{DoxyParamCaption}\item[{const
 
 
 
-Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00093}{93}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
+Definition at line \mbox{\hyperlink{critical__pure_8hpp_source_l00092}{92}} of file \mbox{\hyperlink{critical__pure_8hpp_source}{critical\+\_\+pure.\+hpp}}.
 
 \Hypertarget{namespaceteqp_a54c35c0fca0f39185783efb600ccb586}\label{namespaceteqp_a54c35c0fca0f39185783efb600ccb586} 
 \index{teqp@{teqp}!toeig@{toeig}}
@@ -2040,19 +2053,19 @@ Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01305}{1305}} of file \mbox
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mat;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ m.size();\ ++i)\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ m.size();\ ++i)\{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ row\ =\ m[i];}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (row.size()\ !=\ mat.rows())\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (row.size()\ !=\ \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(mat.rows()))\{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}provided\ matrix\ is\ not\ square"{}});}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ 0;\ k\ <\ row.size();\ ++k)\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ 0U;\ k\ <\ row.size();\ ++k)\{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mat(i,\ k)\ =\ row[k];}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mat;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}(\textcolor{keyword}{const}\ nlohmann::json::exception\&)\{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}Unable\ to\ convert\ this\ kmat\ to\ a\ 2x2\ matrix\ of\ doubles:"{}}\ +\ j.dump(2));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}Unable\ to\ convert\ this\ kmat\ to\ a\ NxN\ matrix\ of\ doubles:"{}}\ +\ j.dump(2));}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \}}
 

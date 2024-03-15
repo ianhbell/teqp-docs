@@ -75,6 +75,18 @@ virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_af3fb
 \item 
 virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_acc09f8048ab148e04f74a8461d9d3b4f}{get\+\_\+dm\+Bnvird\+Tm}} (const int Nderiv, const int NTderiv, const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&z) const =0
 \item 
+virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a94ede101f45abdc4d0c75ba334f8b0ab}{get\+\_\+\+ATrho\+Xi}} (const double T, const int NT, const double rhomolar, int ND, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&molefrac, const int i, const int NXi) const =0
+\item 
+virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a429aa66f194436d6ffa319bdf298e286}{get\+\_\+\+ATrho\+Xi\+Xj}} (const double T, const int NT, const double rhomolar, int ND, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&molefrac, const int i, const int NXi, const int j, const int NXj) const =0
+\item 
+virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a25aa46b089225b6ea8d0ec0073b42b2e}{get\+\_\+\+ATrho\+Xi\+Xj\+Xk}} (const double T, const int NT, const double rhomolar, int ND, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&molefrac, const int i, const int NXi, const int j, const int NXj, const int k, const int NXk) const =0
+\item 
+virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a1381c3d125a9ceaca8cea1aee7243eb3}{get\+\_\+\+Ataudelta\+Xi}} (const double tau, const int Ntau, const double delta, int Ndelta, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&molefrac, const int i, const int NXi) const =0
+\item 
+virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_aac9d0334c0d941dd64e0a7a8769eb229}{get\+\_\+\+Ataudelta\+Xi\+Xj}} (const double tau, const int Ntau, const double delta, int Ndelta, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&molefrac, const int i, const int NXi, const int j, const int NXj) const =0
+\item 
+virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a5357a09fdcdf9d80bfd9d4a21ec28cc8}{get\+\_\+\+Ataudelta\+Xi\+Xj\+Xk}} (const double tau, const int Ntau, const double delta, int Ndelta, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&molefrac, const int i, const int NXi, const int j, const int NXj, const int k, const int NXk) const =0
+\item 
 virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_abd269070e0260ff8979162d1da9b46ba}{get\+\_\+pr}} (const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec) const =0
 \item 
 virtual double \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a601a2d4304923adef3429f77ab89940a}{get\+\_\+splus}} (const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec) const =0
@@ -109,7 +121,7 @@ virtual \mbox{\hyperlink{teqpcpp_8hpp_a33b6664eaa863cb2cde7788fd750ecfb}{EArray3
 \item 
 std\+::tuple$<$ double, double $>$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_aad84ac400f0003843c8a780e51a8361c}{solve\+\_\+pure\+\_\+critical}} (const double T, const double rho, const std\+::optional$<$ nlohmann\+::json $>$ \&=std\+::nullopt) const
 \item 
-\mbox{\hyperlink{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}{EArray2}} \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_af0b347b5c539106f934ce82a8e9d6d81}{extrapolate\+\_\+from\+\_\+critical}} (const double Tc, const double rhoc, const double Tgiven) const
+\mbox{\hyperlink{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}{EArray2}} \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a7d636a4b29cff13962ac495fc7d0d768}{extrapolate\+\_\+from\+\_\+critical}} (const double Tc, const double rhoc, const double Tgiven, const std\+::optional$<$ Eigen\+::\+Array\+Xd $>$ \&molefracs=std\+::nullopt) const
 \item 
 std\+::tuple$<$ \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}, \mbox{\hyperlink{teqpcpp_8hpp_a5b2ba88216611e735d3c59110ffeb1f1}{EMatrixd}} $>$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_ae3a4f197aa7587c9dfc700eaaa35e068}{get\+\_\+pure\+\_\+critical\+\_\+conditions\+\_\+\+Jacobian}} (const double T, const double rho, const std\+::optional$<$ std\+::size\+\_\+t $>$ \&alternative\+\_\+pure\+\_\+index, const std\+::optional$<$ std\+::size\+\_\+t $>$ \&alternative\+\_\+length) const
 \item 
@@ -226,11 +238,11 @@ Definition at line \mbox{\hyperlink{AbstractModel__implementation_8cpp_source_l0
 
 Definition at line \mbox{\hyperlink{AbstractModel__implementation_8cpp_source_l00091}{91}} of file \mbox{\hyperlink{AbstractModel__implementation_8cpp_source}{Abstract\+Model\+\_\+implementation.\+cpp}}.
 
-\Hypertarget{classteqp_1_1cppinterface_1_1AbstractModel_af0b347b5c539106f934ce82a8e9d6d81}\label{classteqp_1_1cppinterface_1_1AbstractModel_af0b347b5c539106f934ce82a8e9d6d81} 
+\Hypertarget{classteqp_1_1cppinterface_1_1AbstractModel_a7d636a4b29cff13962ac495fc7d0d768}\label{classteqp_1_1cppinterface_1_1AbstractModel_a7d636a4b29cff13962ac495fc7d0d768} 
 \index{teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}!extrapolate\_from\_critical@{extrapolate\_from\_critical}}
 \index{extrapolate\_from\_critical@{extrapolate\_from\_critical}!teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}}
 \doxysubsubsection{\texorpdfstring{extrapolate\_from\_critical()}{extrapolate\_from\_critical()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}{EArray2}} teqp\+::cppinterface\+::\+Abstract\+Model\+::extrapolate\+\_\+from\+\_\+critical (\begin{DoxyParamCaption}\item[{const double}]{Tc,  }\item[{const double}]{rhoc,  }\item[{const double}]{Tgiven }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}{EArray2}} teqp\+::cppinterface\+::\+Abstract\+Model\+::extrapolate\+\_\+from\+\_\+critical (\begin{DoxyParamCaption}\item[{const double}]{Tc,  }\item[{const double}]{rhoc,  }\item[{const double}]{Tgiven,  }\item[{const std\+::optional$<$ Eigen\+::\+Array\+Xd $>$ \&}]{molefracs = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption}) const}
 
 
 
@@ -397,6 +409,66 @@ Definition at line \mbox{\hyperlink{AbstractModel__implementation_8cpp_source_l0
 
 
 Implemented in \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a6e487c7c6a6ee6011cc9001c3c5656b6}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter$<$ Model\+Pack $>$}}.
+
+\Hypertarget{classteqp_1_1cppinterface_1_1AbstractModel_a1381c3d125a9ceaca8cea1aee7243eb3}\label{classteqp_1_1cppinterface_1_1AbstractModel_a1381c3d125a9ceaca8cea1aee7243eb3} 
+\index{teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}!get\_AtaudeltaXi@{get\_AtaudeltaXi}}
+\index{get\_AtaudeltaXi@{get\_AtaudeltaXi}!teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}}
+\doxysubsubsection{\texorpdfstring{get\_AtaudeltaXi()}{get\_AtaudeltaXi()}}
+{\footnotesize\ttfamily virtual double teqp\+::cppinterface\+::\+Abstract\+Model\+::get\+\_\+\+Ataudelta\+Xi (\begin{DoxyParamCaption}\item[{const double}]{tau,  }\item[{const int}]{Ntau,  }\item[{const double}]{delta,  }\item[{int}]{Ndelta,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{molefrac,  }\item[{const int}]{i,  }\item[{const int}]{NXi }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a14d1f36da182d37065db7a2089d80f81}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter$<$ Model\+Pack $>$}}.
+
+\Hypertarget{classteqp_1_1cppinterface_1_1AbstractModel_aac9d0334c0d941dd64e0a7a8769eb229}\label{classteqp_1_1cppinterface_1_1AbstractModel_aac9d0334c0d941dd64e0a7a8769eb229} 
+\index{teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}!get\_AtaudeltaXiXj@{get\_AtaudeltaXiXj}}
+\index{get\_AtaudeltaXiXj@{get\_AtaudeltaXiXj}!teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}}
+\doxysubsubsection{\texorpdfstring{get\_AtaudeltaXiXj()}{get\_AtaudeltaXiXj()}}
+{\footnotesize\ttfamily virtual double teqp\+::cppinterface\+::\+Abstract\+Model\+::get\+\_\+\+Ataudelta\+Xi\+Xj (\begin{DoxyParamCaption}\item[{const double}]{tau,  }\item[{const int}]{Ntau,  }\item[{const double}]{delta,  }\item[{int}]{Ndelta,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{molefrac,  }\item[{const int}]{i,  }\item[{const int}]{NXi,  }\item[{const int}]{j,  }\item[{const int}]{NXj }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a8bbafd3004e810a6eda8fe7db83297b8}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter$<$ Model\+Pack $>$}}.
+
+\Hypertarget{classteqp_1_1cppinterface_1_1AbstractModel_a5357a09fdcdf9d80bfd9d4a21ec28cc8}\label{classteqp_1_1cppinterface_1_1AbstractModel_a5357a09fdcdf9d80bfd9d4a21ec28cc8} 
+\index{teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}!get\_AtaudeltaXiXjXk@{get\_AtaudeltaXiXjXk}}
+\index{get\_AtaudeltaXiXjXk@{get\_AtaudeltaXiXjXk}!teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}}
+\doxysubsubsection{\texorpdfstring{get\_AtaudeltaXiXjXk()}{get\_AtaudeltaXiXjXk()}}
+{\footnotesize\ttfamily virtual double teqp\+::cppinterface\+::\+Abstract\+Model\+::get\+\_\+\+Ataudelta\+Xi\+Xj\+Xk (\begin{DoxyParamCaption}\item[{const double}]{tau,  }\item[{const int}]{Ntau,  }\item[{const double}]{delta,  }\item[{int}]{Ndelta,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{molefrac,  }\item[{const int}]{i,  }\item[{const int}]{NXi,  }\item[{const int}]{j,  }\item[{const int}]{NXj,  }\item[{const int}]{k,  }\item[{const int}]{NXk }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a4dbf50be39745c205b933013068de0f8}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter$<$ Model\+Pack $>$}}.
+
+\Hypertarget{classteqp_1_1cppinterface_1_1AbstractModel_a94ede101f45abdc4d0c75ba334f8b0ab}\label{classteqp_1_1cppinterface_1_1AbstractModel_a94ede101f45abdc4d0c75ba334f8b0ab} 
+\index{teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}!get\_ATrhoXi@{get\_ATrhoXi}}
+\index{get\_ATrhoXi@{get\_ATrhoXi}!teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}}
+\doxysubsubsection{\texorpdfstring{get\_ATrhoXi()}{get\_ATrhoXi()}}
+{\footnotesize\ttfamily virtual double teqp\+::cppinterface\+::\+Abstract\+Model\+::get\+\_\+\+ATrho\+Xi (\begin{DoxyParamCaption}\item[{const double}]{T,  }\item[{const int}]{NT,  }\item[{const double}]{rhomolar,  }\item[{int}]{ND,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{molefrac,  }\item[{const int}]{i,  }\item[{const int}]{NXi }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_ae2c30f33a61896b176c76ae74d2da92a}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter$<$ Model\+Pack $>$}}.
+
+\Hypertarget{classteqp_1_1cppinterface_1_1AbstractModel_a429aa66f194436d6ffa319bdf298e286}\label{classteqp_1_1cppinterface_1_1AbstractModel_a429aa66f194436d6ffa319bdf298e286} 
+\index{teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}!get\_ATrhoXiXj@{get\_ATrhoXiXj}}
+\index{get\_ATrhoXiXj@{get\_ATrhoXiXj}!teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}}
+\doxysubsubsection{\texorpdfstring{get\_ATrhoXiXj()}{get\_ATrhoXiXj()}}
+{\footnotesize\ttfamily virtual double teqp\+::cppinterface\+::\+Abstract\+Model\+::get\+\_\+\+ATrho\+Xi\+Xj (\begin{DoxyParamCaption}\item[{const double}]{T,  }\item[{const int}]{NT,  }\item[{const double}]{rhomolar,  }\item[{int}]{ND,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{molefrac,  }\item[{const int}]{i,  }\item[{const int}]{NXi,  }\item[{const int}]{j,  }\item[{const int}]{NXj }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_ac8898a3730dc684c4fe330a090a8e721}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter$<$ Model\+Pack $>$}}.
+
+\Hypertarget{classteqp_1_1cppinterface_1_1AbstractModel_a25aa46b089225b6ea8d0ec0073b42b2e}\label{classteqp_1_1cppinterface_1_1AbstractModel_a25aa46b089225b6ea8d0ec0073b42b2e} 
+\index{teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}!get\_ATrhoXiXjXk@{get\_ATrhoXiXjXk}}
+\index{get\_ATrhoXiXjXk@{get\_ATrhoXiXjXk}!teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}}
+\doxysubsubsection{\texorpdfstring{get\_ATrhoXiXjXk()}{get\_ATrhoXiXjXk()}}
+{\footnotesize\ttfamily virtual double teqp\+::cppinterface\+::\+Abstract\+Model\+::get\+\_\+\+ATrho\+Xi\+Xj\+Xk (\begin{DoxyParamCaption}\item[{const double}]{T,  }\item[{const int}]{NT,  }\item[{const double}]{rhomolar,  }\item[{int}]{ND,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{molefrac,  }\item[{const int}]{i,  }\item[{const int}]{NXi,  }\item[{const int}]{j,  }\item[{const int}]{NXj,  }\item[{const int}]{k,  }\item[{const int}]{NXk }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter_a4f0bbd3134c473e2572863c60f523602}{teqp\+::cppinterface\+::adapter\+::\+Derivative\+Adapter$<$ Model\+Pack $>$}}.
 
 \Hypertarget{classteqp_1_1cppinterface_1_1AbstractModel_af3fb55dc5f552edc99d2b08a9905ca14}\label{classteqp_1_1cppinterface_1_1AbstractModel_af3fb55dc5f552edc99d2b08a9905ca14} 
 \index{teqp::cppinterface::AbstractModel@{teqp::cppinterface::AbstractModel}!get\_B12vir@{get\_B12vir}}

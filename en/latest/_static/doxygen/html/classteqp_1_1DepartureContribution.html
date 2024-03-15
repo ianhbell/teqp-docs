@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -105,18 +107,20 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8d1d40a45c44ed0445653d29155cbaf6" id="r_a8d1d40a45c44ed0445653d29155cbaf6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d1d40a45c44ed0445653d29155cbaf6">DepartureContribution</a> (FCollection &amp;&amp;F, DepartureFunctionCollection &amp;&amp;funcs)</td></tr>
 <tr class="separator:a8d1d40a45c44ed0445653d29155cbaf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe12072863e4dc4784c79b99a2bc6d1e" id="r_afe12072863e4dc4784c79b99a2bc6d1e"><td class="memItemLeft" align="right" valign="top">const auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe12072863e4dc4784c79b99a2bc6d1e">get_F</a> () const</td></tr>
+<tr class="separator:afe12072863e4dc4784c79b99a2bc6d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa952aaa53037ecc1962c04a950fa7438" id="r_aa952aaa53037ecc1962c04a950fa7438"><td class="memTemplParams" colspan="2">template&lt;typename TauType , typename DeltaType , typename MoleFractions &gt; </td></tr>
 <tr class="memitem:aa952aaa53037ecc1962c04a950fa7438"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa952aaa53037ecc1962c04a950fa7438">alphar</a> (const TauType &amp;tau, const DeltaType &amp;delta, const MoleFractions &amp;molefracs) const</td></tr>
 <tr class="separator:aa952aaa53037ecc1962c04a950fa7438"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f6eabf977c65f0ae263b4e24c84158c" id="r_a5f6eabf977c65f0ae263b4e24c84158c"><td class="memTemplParams" colspan="2">template&lt;typename TauType , typename DeltaType &gt; </td></tr>
-<tr class="memitem:a5f6eabf977c65f0ae263b4e24c84158c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5f6eabf977c65f0ae263b4e24c84158c">get_alpharij</a> (const int i, const int j, const TauType &amp;tau, const DeltaType &amp;delta) const</td></tr>
-<tr class="memdesc:a5f6eabf977c65f0ae263b4e24c84158c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call a single departure term at i,j.  <br /></td></tr>
-<tr class="separator:a5f6eabf977c65f0ae263b4e24c84158c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5db4eddd335d01c7407d94f71ca8fcc" id="r_ac5db4eddd335d01c7407d94f71ca8fcc"><td class="memTemplParams" colspan="2">template&lt;typename TauType , typename DeltaType &gt; </td></tr>
+<tr class="memitem:ac5db4eddd335d01c7407d94f71ca8fcc"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac5db4eddd335d01c7407d94f71ca8fcc">get_alpharij</a> (const std::size_t i, const std::size_t j, const TauType &amp;tau, const DeltaType &amp;delta) const</td></tr>
+<tr class="memdesc:ac5db4eddd335d01c7407d94f71ca8fcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call a single departure term at i,j.  <br /></td></tr>
+<tr class="separator:ac5db4eddd335d01c7407d94f71ca8fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename FCollection, typename DepartureFunctionCollection&gt;<br />
 class teqp::DepartureContribution&lt; FCollection, DepartureFunctionCollection &gt;</div>
-<p class="definition">Definition at line <a class="el" href="multifluid_8hpp_source.html#l00079">79</a> of file <a class="el" href="multifluid_8hpp_source.html">multifluid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="multifluid_8hpp_source.html#l00081">81</a> of file <a class="el" href="multifluid_8hpp_source.html">multifluid.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8d1d40a45c44ed0445653d29155cbaf6" name="a8d1d40a45c44ed0445653d29155cbaf6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8d1d40a45c44ed0445653d29155cbaf6">&#9670;&#160;</a></span>DepartureContribution()</h2>
@@ -147,7 +151,7 @@ template&lt;typename FCollection , typename DepartureFunctionCollection &gt; </d
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="multifluid_8hpp_source.html#l00085">85</a> of file <a class="el" href="multifluid_8hpp_source.html">multifluid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="multifluid_8hpp_source.html#l00087">87</a> of file <a class="el" href="multifluid_8hpp_source.html">multifluid.hpp</a>.</p>
 
 </div>
 </div>
@@ -188,12 +192,12 @@ template&lt;typename TauType , typename DeltaType , typename MoleFractions &gt; 
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="multifluid_8hpp_source.html#l00088">88</a> of file <a class="el" href="multifluid_8hpp_source.html">multifluid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="multifluid_8hpp_source.html#l00092">92</a> of file <a class="el" href="multifluid_8hpp_source.html">multifluid.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a5f6eabf977c65f0ae263b4e24c84158c" name="a5f6eabf977c65f0ae263b4e24c84158c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f6eabf977c65f0ae263b4e24c84158c">&#9670;&#160;</a></span>get_alpharij()</h2>
+<a id="ac5db4eddd335d01c7407d94f71ca8fcc" name="ac5db4eddd335d01c7407d94f71ca8fcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5db4eddd335d01c7407d94f71ca8fcc">&#9670;&#160;</a></span>get_alpharij()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,12 +212,12 @@ template&lt;typename TauType , typename DeltaType &gt; </div>
         <tr>
           <td class="memname">auto <a class="el" href="classteqp_1_1DepartureContribution.html">teqp::DepartureContribution</a>&lt; FCollection, DepartureFunctionCollection &gt;::get_alpharij </td>
           <td>(</td>
-          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+          <td class="paramtype">const std::size_t</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>j</em>, </span></td>
+          <td class="paramtype">const std::size_t</td>          <td class="paramname"><span class="paramname"><em>j</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -235,7 +239,36 @@ template&lt;typename TauType , typename DeltaType &gt; </div>
 
 <p>Call a single departure term at i,j. </p>
 
-<p class="definition">Definition at line <a class="el" href="multifluid_8hpp_source.html#l00102">102</a> of file <a class="el" href="multifluid_8hpp_source.html">multifluid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="multifluid_8hpp_source.html#l00106">106</a> of file <a class="el" href="multifluid_8hpp_source.html">multifluid.hpp</a>.</p>
+
+</div>
+</div>
+<a id="afe12072863e4dc4784c79b99a2bc6d1e" name="afe12072863e4dc4784c79b99a2bc6d1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe12072863e4dc4784c79b99a2bc6d1e">&#9670;&#160;</a></span>get_F()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FCollection , typename DepartureFunctionCollection &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto &amp; <a class="el" href="classteqp_1_1DepartureContribution.html">teqp::DepartureContribution</a>&lt; FCollection, DepartureFunctionCollection &gt;::get_F </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="multifluid_8hpp_source.html#l00089">89</a> of file <a class="el" href="multifluid_8hpp_source.html">multifluid.hpp</a>.</p>
 
 </div>
 </div>

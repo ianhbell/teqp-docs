@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -110,6 +112,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="filesystem_8hpp_source.html">teqp/filesystem.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="json__tools_8hpp_source.html">teqp/json_tools.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="exceptions_8hpp_source.html">teqp/exceptions.hpp</a>&quot;</code><br />
+<code>#include &quot;RPinterop/interop.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="multifluid__eosterms_8hpp_source.html">multifluid_eosterms.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="multifluid__reducing_8hpp_source.html">multifluid_reducing.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="multifluid__gas__constant_8hpp_source.html">multifluid_gas_constant.hpp</a>&quot;</code><br />

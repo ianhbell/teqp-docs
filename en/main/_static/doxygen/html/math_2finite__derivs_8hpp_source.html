@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -147,7 +149,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Finite differentiation coefficient arrays not the same size&quot;</span>);</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    Scalar num = 0.0;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; k.size(); ++i) {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0U; i &lt; k.size(); ++i) {</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        num = num + c[i]*f(x + h*k[i]);</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">auto</span> val = num / <a class="code hl_function" href="namespaceteqp.html#ad47d847ff6ba42d73eb1ffc3fcf270c8">pow</a>(h, Nderiv);</div>

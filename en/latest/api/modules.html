@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>teqp &#8212; teqp 0.18.0 documentation</title>
+    <title>teqp &#8212; teqp 0.19.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
     <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
-    <script src="../_static/documentation_options.js?v=ba2e7b09"></script>
+    <script src="../_static/documentation_options.js?v=6f83b549"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -56,6 +56,9 @@
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.extrapolate_from_critical"><code class="docutils literal notranslate"><span class="pre">AbstractModel.extrapolate_from_critical()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.find_VLLE_T_binary"><code class="docutils literal notranslate"><span class="pre">AbstractModel.find_VLLE_T_binary()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.find_VLLE_p_binary"><code class="docutils literal notranslate"><span class="pre">AbstractModel.find_VLLE_p_binary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_ATrhoXi"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_ATrhoXi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_ATrhoXiXj"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_ATrhoXiXj()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_ATrhoXiXjXk"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_ATrhoXiXjXk()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar00"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar00()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar00n"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar00n()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar01"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar01()</span></code></a></li>
@@ -79,6 +82,9 @@
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar23"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar23()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar24"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar24()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Arxy"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Arxy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_AtaudeltaXi"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_AtaudeltaXi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_AtaudeltaXiXj"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_AtaudeltaXiXj()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_AtaudeltaXiXjXk"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_AtaudeltaXiXjXk()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_B12vir"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_B12vir()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_B2vir"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_B2vir()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Bnvir"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Bnvir()</span></code></a></li>
@@ -261,6 +267,7 @@
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.max_dT"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.max_dT</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.max_polish_steps"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.max_polish_steps</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.max_step_count"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.max_step_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.max_step_retries"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.max_step_retries</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.polish"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.polish</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.rel_err"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.rel_err</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.terminate_composition"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.terminate_composition</span></code></a></li>
@@ -273,6 +280,8 @@
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.build_ancillaries"><code class="docutils literal notranslate"><span class="pre">build_ancillaries()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.collect_component_json"><code class="docutils literal notranslate"><span class="pre">collect_component_json()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.convert_CoolProp_idealgas"><code class="docutils literal notranslate"><span class="pre">convert_CoolProp_idealgas()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.convert_FLD"><code class="docutils literal notranslate"><span class="pre">convert_FLD()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.convert_HMXBNC"><code class="docutils literal notranslate"><span class="pre">convert_HMXBNC()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.get_BIPdep"><code class="docutils literal notranslate"><span class="pre">get_BIPdep()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.get_departure_json"><code class="docutils literal notranslate"><span class="pre">get_departure_json()</span></code></a></li>
 </ul>
@@ -287,6 +296,7 @@
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.build_Psir_Hessian_autodiff"><code class="docutils literal notranslate"><span class="pre">build_Psir_Hessian_autodiff()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.build_Psir_gradient_autodiff"><code class="docutils literal notranslate"><span class="pre">build_Psir_gradient_autodiff()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.build_d2PsirdTdrhoi_autodiff"><code class="docutils literal notranslate"><span class="pre">build_d2PsirdTdrhoi_autodiff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.build_multifluid_ecs_mutant"><code class="docutils literal notranslate"><span class="pre">build_multifluid_ecs_mutant()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.build_multifluid_model"><code class="docutils literal notranslate"><span class="pre">build_multifluid_model()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.build_multifluid_mutant"><code class="docutils literal notranslate"><span class="pre">build_multifluid_mutant()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.canonical_PR"><code class="docutils literal notranslate"><span class="pre">canonical_PR()</span></code></a></li>

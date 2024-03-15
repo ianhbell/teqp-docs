@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -104,8 +106,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3e3b11f6d647d33c737137d7064d6a8d" id="r_a3e3b11f6d647d33c737137d7064d6a8d"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e3b11f6d647d33c737137d7064d6a8d">get_splus</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
+<tr class="memdesc:a3e3b11f6d647d33c737137d7064d6a8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the residual entropy ( \(s^+ = -s^r/R\)) from derivatives of alphar.  <br /></td></tr>
 <tr class="separator:a3e3b11f6d647d33c737137d7064d6a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85fb1d49ed9a7a675461d6ac957bfcd7" id="r_a85fb1d49ed9a7a675461d6ac957bfcd7"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85fb1d49ed9a7a675461d6ac957bfcd7">get_pr</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
+<tr class="memdesc:a85fb1d49ed9a7a675461d6ac957bfcd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the residual pressure from derivatives of alphar.  <br /></td></tr>
 <tr class="separator:a85fb1d49ed9a7a675461d6ac957bfcd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbf7b7cc9495fca2162f42bfcbfe3c0f" id="r_adbf7b7cc9495fca2162f42bfcbfe3c0f"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adbf7b7cc9495fca2162f42bfcbfe3c0f">get_Ar00</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
 <tr class="separator:adbf7b7cc9495fca2162f42bfcbfe3c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,29 +118,39 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab6f32bddc8c49a34eaba30764af2c1da" id="r_ab6f32bddc8c49a34eaba30764af2c1da"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6f32bddc8c49a34eaba30764af2c1da">get_Ar01</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
 <tr class="separator:ab6f32bddc8c49a34eaba30764af2c1da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bee1fb0121acae156cd3a800ab20a92" id="r_a9bee1fb0121acae156cd3a800ab20a92"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bee1fb0121acae156cd3a800ab20a92">get_Psir</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
+<tr class="memdesc:a9bee1fb0121acae156cd3a800ab20a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate \(\Psi^r=a^r \rho\).  <br /></td></tr>
 <tr class="separator:a9bee1fb0121acae156cd3a800ab20a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0440679e0e5a84a50f1f0eed777baab5" id="r_a0440679e0e5a84a50f1f0eed777baab5"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0440679e0e5a84a50f1f0eed777baab5">get_dPsirdT_constrhovec</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
+<tr class="memdesc:a0440679e0e5a84a50f1f0eed777baab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate derivative \(\Psi^r=a^r \rho\) w.r.t. T at constant molar concentrations.  <br /></td></tr>
 <tr class="separator:a0440679e0e5a84a50f1f0eed777baab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10b83afc151769f751ad7453ad0abd8c" id="r_a10b83afc151769f751ad7453ad0abd8c"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10b83afc151769f751ad7453ad0abd8c">build_Psir_Hessian_autodiff</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rho)</td></tr>
+<tr class="memdesc:a10b83afc151769f751ad7453ad0abd8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the Hessian of \(\Psi^r = a^r \rho\) w.r.t. the molar concentrations.  <br /></td></tr>
 <tr class="separator:a10b83afc151769f751ad7453ad0abd8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61764c389c22ad79d765c923eeae423f" id="r_a61764c389c22ad79d765c923eeae423f"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61764c389c22ad79d765c923eeae423f">build_Psir_fgradHessian_autodiff</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rho)</td></tr>
+<tr class="memdesc:a61764c389c22ad79d765c923eeae423f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the function value, gradient, and Hessian of \(Psi^r = a^r\rho\) w.r.t. the molar concentrations.  <br /></td></tr>
 <tr class="separator:a61764c389c22ad79d765c923eeae423f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a434b96c6415d8f8038209820bf0f3359" id="r_a434b96c6415d8f8038209820bf0f3359"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a434b96c6415d8f8038209820bf0f3359">build_Psi_Hessian_autodiff</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rho)</td></tr>
+<tr class="memdesc:a434b96c6415d8f8038209820bf0f3359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the Hessian of \(\Psi = a \rho\) w.r.t. the molar concentrations.  <br /></td></tr>
 <tr class="separator:a434b96c6415d8f8038209820bf0f3359"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79f11135d0bcb03c9b2aa93b5458b0cd" id="r_a79f11135d0bcb03c9b2aa93b5458b0cd"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79f11135d0bcb03c9b2aa93b5458b0cd">build_Psir_gradient_autodiff</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rho)</td></tr>
+<tr class="memdesc:a79f11135d0bcb03c9b2aa93b5458b0cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gradient of Psir = ar*rho w.r.t. the molar concentrations.  <br /></td></tr>
 <tr class="separator:a79f11135d0bcb03c9b2aa93b5458b0cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bf82554ed2e3bb9f2932c662380fe5b" id="r_a9bf82554ed2e3bb9f2932c662380fe5b"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bf82554ed2e3bb9f2932c662380fe5b">build_Psir_gradient_complex_step</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rho)</td></tr>
+<tr class="memdesc:a9bf82554ed2e3bb9f2932c662380fe5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gradient of Psir = ar*rho w.r.t. the molar concentrations.  <br /></td></tr>
 <tr class="separator:a9bf82554ed2e3bb9f2932c662380fe5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afccf91630dcc8b34deff6f6d2576aa82" id="r_afccf91630dcc8b34deff6f6d2576aa82"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de32f9d">ADBackends</a> be = ADBackends::autodiff&gt; </td></tr>
 <tr class="memitem:afccf91630dcc8b34deff6f6d2576aa82"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#afccf91630dcc8b34deff6f6d2576aa82">build_Psir_gradient</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rho)</td></tr>
 <tr class="separator:afccf91630dcc8b34deff6f6d2576aa82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef74834c53ba83b87137a1209f70903f" id="r_aef74834c53ba83b87137a1209f70903f"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef74834c53ba83b87137a1209f70903f">get_chempotVLE_autodiff</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rho)</td></tr>
+<tr class="memdesc:aef74834c53ba83b87137a1209f70903f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the chemical potential of each component.  <br /></td></tr>
 <tr class="separator:aef74834c53ba83b87137a1209f70903f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad49ee0b2004f065c5f0fc1901b5897b2" id="r_ad49ee0b2004f065c5f0fc1901b5897b2"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de32f9d">ADBackends</a> be = ADBackends::autodiff&gt; </td></tr>
 <tr class="memitem:ad49ee0b2004f065c5f0fc1901b5897b2"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad49ee0b2004f065c5f0fc1901b5897b2">get_fugacity_coefficients</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
+<tr class="memdesc:ad49ee0b2004f065c5f0fc1901b5897b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the fugacity coefficient of each component.  <br /></td></tr>
 <tr class="separator:ad49ee0b2004f065c5f0fc1901b5897b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2da39c9acf728a415ff268df931aee08" id="r_a2da39c9acf728a415ff268df931aee08"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de32f9d">ADBackends</a> be = ADBackends::autodiff&gt; </td></tr>
 <tr class="memitem:a2da39c9acf728a415ff268df931aee08"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2da39c9acf728a415ff268df931aee08">get_ln_fugacity_coefficients</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
+<tr class="memdesc:a2da39c9acf728a415ff268df931aee08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the natural logarithm of fugacity coefficient of each component.  <br /></td></tr>
 <tr class="separator:a2da39c9acf728a415ff268df931aee08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae737caceed09417b4ff288b404291c7f" id="r_ae737caceed09417b4ff288b404291c7f"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de32f9d">ADBackends</a> be = ADBackends::autodiff&gt; </td></tr>
 <tr class="memitem:ae737caceed09417b4ff288b404291c7f"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae737caceed09417b4ff288b404291c7f">get_ln_fugacity_coefficients_Trhomolefracs</a> (const Model &amp;model, const Scalar &amp;T, const Scalar &amp;rhotot, const VectorType &amp;molefrac)</td></tr>
@@ -153,47 +167,144 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a283356750dc0186d103080a8462e3c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa80511012392fd587e7af797f875b106" id="r_aa80511012392fd587e7af797f875b106"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de32f9d">ADBackends</a> be = ADBackends::autodiff&gt; </td></tr>
 <tr class="memitem:aa80511012392fd587e7af797f875b106"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa80511012392fd587e7af797f875b106">get_d_ln_fugacity_coefficients_dT_constrhovec</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
+<tr class="memdesc:aa80511012392fd587e7af797f875b106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the derivative of the natural logarithm of fugacity coefficient of each component w.r.t. temperature at constant mole concentrations (implying constant mole fractions and density)  <br /></td></tr>
 <tr class="separator:aa80511012392fd587e7af797f875b106"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96237738d755d1b7f98fb829c818c411" id="r_a96237738d755d1b7f98fb829c818c411"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de32f9d">ADBackends</a> be = ADBackends::autodiff&gt; </td></tr>
 <tr class="memitem:a96237738d755d1b7f98fb829c818c411"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a96237738d755d1b7f98fb829c818c411">get_lnZ_Z_dZdrho</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
+<tr class="memdesc:a96237738d755d1b7f98fb829c818c411"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate ln(Z), Z, and dZ/drho at constant temperature and mole fractions.  <br /></td></tr>
 <tr class="separator:a96237738d755d1b7f98fb829c818c411"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58d87b13440ae780e7d7441e9f8d2396" id="r_a58d87b13440ae780e7d7441e9f8d2396"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de32f9d">ADBackends</a> be = ADBackends::autodiff&gt; </td></tr>
 <tr class="memitem:a58d87b13440ae780e7d7441e9f8d2396"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a58d87b13440ae780e7d7441e9f8d2396">get_d_ln_fugacity_coefficients_drho_constTmolefracs</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
+<tr class="memdesc:a58d87b13440ae780e7d7441e9f8d2396"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the derivative of the natural logarithm of fugacity coefficient of each component w.r.t. molar density at constant temperature and mole fractions.  <br /></td></tr>
 <tr class="separator:a58d87b13440ae780e7d7441e9f8d2396"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a180b574ac439fcafee6cbaf28368914b" id="r_a180b574ac439fcafee6cbaf28368914b"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de32f9d">ADBackends</a> be = ADBackends::autodiff&gt; </td></tr>
 <tr class="memitem:a180b574ac439fcafee6cbaf28368914b"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a180b574ac439fcafee6cbaf28368914b">get_d_ln_fugacity_coefficients_dv_constTmolefracs</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
+<tr class="memdesc:a180b574ac439fcafee6cbaf28368914b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the derivative of the natural logarithm of fugacity coefficient of each component w.r.t. molar volume at constant temperature and mole fractions.  <br /></td></tr>
 <tr class="separator:a180b574ac439fcafee6cbaf28368914b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e31501ef6c975d5a6a9d80fbc7523af" id="r_a7e31501ef6c975d5a6a9d80fbc7523af"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de32f9d">ADBackends</a> be = ADBackends::autodiff&gt; </td></tr>
 <tr class="memitem:a7e31501ef6c975d5a6a9d80fbc7523af"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7e31501ef6c975d5a6a9d80fbc7523af">get_d_ln_fugacity_coefficients_dmolefracs_constTrho</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
+<tr class="memdesc:a7e31501ef6c975d5a6a9d80fbc7523af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the derivative of the natural logarithm of fugacity coefficient of each component w.r.t. mole fraction of each component, at constant temperature and molar density.  <br /></td></tr>
 <tr class="separator:a7e31501ef6c975d5a6a9d80fbc7523af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29314dfce9c595f982710d761285d246" id="r_a29314dfce9c595f982710d761285d246"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de32f9d">ADBackends</a> be = ADBackends::autodiff&gt; </td></tr>
 <tr class="memitem:a29314dfce9c595f982710d761285d246"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a29314dfce9c595f982710d761285d246">get_d_ln_fugacity_coefficients_dmolefracs_constTrho1</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
 <tr class="separator:a29314dfce9c595f982710d761285d246"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af190dd7ed0374e3a60f39e420a422269" id="r_af190dd7ed0374e3a60f39e420a422269"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af190dd7ed0374e3a60f39e420a422269">get_dchempotdT_autodiff</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
+<tr class="memdesc:af190dd7ed0374e3a60f39e420a422269"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the temperature derivative of the chemical potential of each component.  <br /></td></tr>
 <tr class="separator:af190dd7ed0374e3a60f39e420a422269"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab76742c41e469800eaa64d5507df6dda" id="r_ab76742c41e469800eaa64d5507df6dda"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab76742c41e469800eaa64d5507df6dda">get_dpdT_constrhovec</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
+<tr class="memdesc:ab76742c41e469800eaa64d5507df6dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the temperature derivative of the pressure at constant molar concentrations.  <br /></td></tr>
 <tr class="separator:ab76742c41e469800eaa64d5507df6dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8e5c434b8b1f7cad86b9f0080cca392" id="r_ab8e5c434b8b1f7cad86b9f0080cca392"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8e5c434b8b1f7cad86b9f0080cca392">get_dpdrhovec_constT</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
+<tr class="memdesc:ab8e5c434b8b1f7cad86b9f0080cca392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the molar concentration derivatives of the pressure at constant temperature.  <br /></td></tr>
 <tr class="separator:ab8e5c434b8b1f7cad86b9f0080cca392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a071d28bec44ab32405e418d234804388" id="r_a071d28bec44ab32405e418d234804388"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a071d28bec44ab32405e418d234804388">get_partial_molar_volumes</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec)</td></tr>
+<tr class="memdesc:a071d28bec44ab32405e418d234804388"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the partial molar volumes of each component.  <br /></td></tr>
 <tr class="separator:a071d28bec44ab32405e418d234804388"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa1c39d763b4442a07c6f33482445926" id="r_afa1c39d763b4442a07c6f33482445926"><td class="memItemLeft" align="right" valign="top">static VectorType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa1c39d763b4442a07c6f33482445926">get_Psir_sigma_derivs</a> (const Model &amp;model, const Scalar &amp;T, const VectorType &amp;rhovec, const VectorType &amp;v)</td></tr>
 <tr class="separator:afa1c39d763b4442a07c6f33482445926"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename Model, typename Scalar = double, typename VectorType = Eigen::ArrayXd&gt;<br />
-struct teqp::IsochoricDerivatives&lt; Model, Scalar, VectorType &gt;</div><p>In the isochoric formalism, the fugacity coefficient array can be obtained by the gradient of the residual Helmholtz energy density (which is a scalar) and the compressibility factor \(Z\) (which is also a scalar) in terms of the temperature \(T\) and the molar concentration vector \(\vec\rho\): \begin{equation} \ln\vec\phi = \frac{1}{RT}\frac{\partial \Psi^r}{d\vec\rho} - \ln(Z) \end{equation}</p>
-<p>\textbf{Easy}: temperature derivative at constant molar concentrations (implying constant volume and molar composition) \begin{equation} \deriv{ \ln\vec\phi}{T}{\vec\rho} = \frac{1}{RT}\frac{\partial^2 \Psi^r}{\partial \vec\rho\partial T} + \frac{-1}{RT^2}\deriv{\Psi^r}{\vec\rho}{T} - \frac{1}{Z}\deriv{Z}{T}{\vec\rho} \end{equation}</p>
-<p>\textbf{Medium}: molar density derivative at constant temperature and mole fractions \begin{equation} \deriv{ \ln\vec\phi}{\rho}{T,\vec x} = \frac{1}{RT}\frac{\partial^2 \Psi^r}{\partial \vec\rho\partial \rho} - \frac{1}{Z}\deriv{Z}{\rho}{T,\vec x} \end{equation} \begin{equation} Z = 1+\rho\deriv{\alpha^r}{\rho}{T} \end{equation} \begin{equation} \deriv{Z}{\rho}{T,\vec x} = \rho\deriv{^2\alpha^r}{\rho^2}{T} + \deriv{\alpha^r}{\rho}{T} \end{equation}</p>
-<p>Back to basics, for a quantity \(\chi\) that is a function of \(T\) and \(\vec\rho\), and then the derivative taken w.r.t. density at constant temperature and mole fractions: \begin{equation} \deriv{\chi}{\rho}{T, \vec x} = \deriv{\chi}{T}{\vec \rho}\cancelto{0}{\deriv{T}{\rho}{T}} + \sum_i\deriv{\chi}{\rho_i}{T, \rho_{j\neq i}}\deriv{\rho_i}{\rho}{T,\vec x} \end{equation} with \(\rho_i =x_i\rho\) \begin{equation} \deriv{\rho_i}{\rho}{T, \vec x} = x_i \end{equation} thus \begin{equation}\ \deriv{\chi}{\rho}{T, \vec x} = \sum_i\deriv{\chi}{\rho_i}{T, \rho_{j\neq i}}x_i \end{equation}</p>
-<p>and following the pattern yields \begin{equation} \frac{\partial^2 \Psi^r}{\partial \vec\rho\partial \rho} = \sum_i\deriv{\frac{\partial \Psi^r}{d\vec\rho} }{\rho_i}{T, \rho_{j\neq i}}x_i \end{equation} where the big thing is the Hessian of the residual Hessian matrix of the residual Helmholtz energy density. This uses terms that are already developed.</p>
-<p>\textbf{Medium+}: Volume derivative, based on the density derivative</p>
-<p>\begin{equation} \deriv{ \ln\vec\phi}{v}{T,\vec x} = \deriv{ \ln\vec\phi}{\rho}{T,\vec x}\deriv{ \rho}{v}{} \end{equation} \begin{equation} \deriv{\rho}{v}{} = -1/v^2 = -\rho^2 \end{equation}</p>
-<p>\textbf{Hard}: mole fraction derivatives (this results in a matrix rather than a vector) \begin{equation} \deriv{ \ln\vec\phi}{\vec x}{T,\rho} = ? \end{equation}</p>
-<p>The first term is conceptually tricky. Again, considering a generic quantity $\chi$ \begin{equation} \deriv{\chi}{x_i}{T, \rho, x_{j\neq i}} = \deriv{\chi}{T}{\vec \rho}\cancelto{0}{\deriv{T}{x_i}{T,\rho,x_{j\neq i}}} + \sum_i\deriv{\chi}{\rho_i}{T, \rho_{j\neq i}}\deriv{\rho_i}{x_i}{T,\rho, x_{j\neq i}} \end{equation} yields \begin{equation} \deriv{\chi}{x_i}{T, \rho, x_{j\neq i}} = \rho \sum_i\deriv{\chi}{\rho_i}{T, \rho_{j\neq i}} \end{equation} so the first part becomes \begin{equation} \deriv{\frac{\partial \Psi^r}{d\vec\rho}}{x_i}{T, \rho, x_{j\neq i}} = \rho \sum_i\deriv{\frac{\partial \Psi^r}{d\vec\rho}}{\rho_i}{T, \rho_{j\neq i}} \end{equation} or \begin{equation} \deriv{^2\partial \Psi^r}{\vec\rho \partial \vec x}{T, \rho} = \rho H(\Psi^r) \end{equation} which is somewhat surprising because the order of derivatives with respect to composition and density doesn't matter, as the Hessian is symmetric</p>
-<p>The second part, from derivatives of \(\ln Z\), with \(Z\) given by \begin{equation} Z = 1+\rho\deriv{\alpha^r}{\rho}{T, \vec x} \end{equation} yields \begin{equation} \deriv{\ln Z}{x_i}{T,\rho,x_{k \neq j}} = \frac{1}{Z}\deriv{Z}{x_i}{T,\rho,x_{k \neq i}} \end{equation} which results in a vector because you have \begin{equation} \deriv{Z}{x_i}{T,\rho,x_{k \neq i}} = \rho \deriv{^2\alpha^r}{\rho\partial x_i}{T} \end{equation} </p>
-
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00728">728</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+struct teqp::IsochoricDerivatives&lt; Model, Scalar, VectorType &gt;</div><p>In the isochoric formalism, the fugacity coefficient array can be obtained by the gradient of the residual Helmholtz energy density (which is a scalar) and the compressibility factor \(Z\) (which is also a scalar) in terms of the temperature \(T\) and the molar concentration vector \(\vec\rho\):  </p><p class="formulaDsp">
+\[
+    \ln\vec\phi = \frac{1}{RT}\frac{\partial \Psi^r}{d\vec\rho} - \ln(Z)
+\]
+</p>
+<p>Easy: temperature derivative at constant molar concentrations (implying constant volume and molar composition)  </p><p class="formulaDsp">
+\[
+    \deriv{ \ln\vec\phi}{T}{\vec\rho} = \frac{1}{RT}\frac{\partial^2 \Psi^r}{\partial \vec\rho\partial T} + \frac{-1}{RT^2}\deriv{\Psi^r}{\vec\rho}{T} - \frac{1}{Z}\deriv{Z}{T}{\vec\rho}
+\]
+</p>
+<p>Medium: molar density derivative at constant temperature and mole fractions  </p><p class="formulaDsp">
+\[
+    \deriv{ \ln\vec\phi}{\rho}{T,\vec x} = \frac{1}{RT}\frac{\partial^2 \Psi^r}{\partial \vec\rho\partial \rho}  - \frac{1}{Z}\deriv{Z}{\rho}{T,\vec x}
+\]
+</p>
+  <p class="formulaDsp">
+\[
+    Z = 1+\rho\deriv{\alpha^r}{\rho}{T}
+\]
+</p>
+  <p class="formulaDsp">
+\[
+\deriv{Z}{\rho}{T,\vec x} = \rho\deriv{^2\alpha^r}{\rho^2}{T} + \deriv{\alpha^r}{\rho}{T}
+\]
+</p>
+<p>Back to basics, for a quantity \(\chi\) that is a function of \(T\) and \(\vec\rho\), and then the derivative taken w.r.t. density at constant temperature and mole fractions:  </p><p class="formulaDsp">
+\[
+    \deriv{\chi}{\rho}{T, \vec x} =     \deriv{\chi}{T}{\vec \rho}\cancelto{0}{\deriv{T}{\rho}{T}} + \sum_i\deriv{\chi}{\rho_i}{T, \rho_{j\neq i}}\deriv{\rho_i}{\rho}{T,\vec x}
+\]
+</p>
+<p> with \(\rho_i =x_i\rho\)  </p><p class="formulaDsp">
+\[
+\deriv{\rho_i}{\rho}{T, \vec x} = x_i
+\]
+</p>
+<p> thus  </p><p class="formulaDsp">
+\[
+    \deriv{\chi}{\rho}{T, \vec x} =  \sum_i\deriv{\chi}{\rho_i}{T, \rho_{j\neq i}}x_i
+\]
+</p>
+<p>and following the pattern yields  </p><p class="formulaDsp">
+\[
+\frac{\partial^2 \Psi^r}{\partial \vec\rho\partial \rho} =     \sum_i\deriv{\frac{\partial \Psi^r}{d\vec\rho} }{\rho_i}{T, \rho_{j\neq i}}x_i
+\]
+</p>
+<p> where the big thing is the Hessian of the residual Hessian matrix of the residual Helmholtz energy density. This uses terms that are already developed.</p>
+<p>Medium+: Volume derivative, based on the density derivative</p>
+<p class="formulaDsp">
+\[
+\deriv{ \ln\vec\phi}{v}{T,\vec x} = \deriv{ \ln\vec\phi}{\rho}{T,\vec x}\deriv{ \rho}{v}{}
+\]
+</p>
+  <p class="formulaDsp">
+\[
+\deriv{\rho}{v}{} = -1/v^2 = -\rho^2
+\]
+</p>
+<p>Hard: mole fraction derivatives (this results in a matrix rather than a vector)  </p><p class="formulaDsp">
+\[
+    \deriv{ \ln\vec\phi}{\vec x}{T,\rho} = ?
+\]
+</p>
+<p>The first term is conceptually tricky. Again, considering a generic quantity \(\chi\)  </p><p class="formulaDsp">
+\[
+    \deriv{\chi}{x_i}{T, \rho,  x_{j\neq i}} = \deriv{\chi}{T}{\vec \rho}\cancelto{0}{\deriv{T}{x_i}{T,\rho,x_{j\neq i}}} + \sum_i\deriv{\chi}{\rho_i}{T, \rho_{j\neq i}}\deriv{\rho_i}{x_i}{T,\rho, x_{j\neq i}}
+\]
+</p>
+<p> yields  </p><p class="formulaDsp">
+\[
+    \deriv{\chi}{x_i}{T, \rho,  x_{j\neq i}} = \rho \sum_i\deriv{\chi}{\rho_i}{T, \rho_{j\neq i}}
+\]
+</p>
+<p> so the first part becomes  </p><p class="formulaDsp">
+\[
+    \deriv{\frac{\partial \Psi^r}{d\vec\rho}}{x_i}{T, \rho,  x_{j\neq i}} = \rho \sum_i\deriv{\frac{\partial \Psi^r}{d\vec\rho}}{\rho_i}{T, \rho_{j\neq i}}
+\]
+</p>
+<p> or  </p><p class="formulaDsp">
+\[
+    \deriv{^2\partial \Psi^r}{\vec\rho \partial \vec x}{T, \rho} = \rho H(\Psi^r)
+\]
+</p>
+<p> which is somewhat surprising because the order of derivatives with respect to composition and density doesn't matter, as the Hessian is symmetric</p>
+<p>The second part, from derivatives of \(\ln Z\), with \(Z\) given by  </p><p class="formulaDsp">
+\[
+    Z = 1+\rho\deriv{\alpha^r}{\rho}{T, \vec x}
+\]
+</p>
+<p> yields  </p><p class="formulaDsp">
+\[
+\deriv{\ln Z}{x_i}{T,\rho,x_{k \neq j}} = \frac{1}{Z}\deriv{Z}{x_i}{T,\rho,x_{k \neq i}}
+\]
+</p>
+<p> which results in a vector because you have  </p><p class="formulaDsp">
+\[
+\deriv{Z}{x_i}{T,\rho,x_{k \neq i}} = \rho \deriv{^2\alpha^r}{\rho\partial x_i}{T}
+\]
+</p>
+ 
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00949">949</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a283356750dc0186d103080a8462e3c3b" name="a283356750dc0186d103080a8462e3c3b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a283356750dc0186d103080a8462e3c3b">&#9670;&#160;</a></span>build_d2alphardrhodxi_constT()</h2>
@@ -234,7 +345,7 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01051">1051</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01274">1274</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -272,7 +383,7 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01033">1033</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01256">1256</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -310,7 +421,10 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00847">847</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the Hessian of \(\Psi = a \rho\) w.r.t. the molar concentrations. </p>
+<p>Uses autodiff derivatives to calculate second partial derivatives </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01068">1068</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -348,7 +462,10 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00822">822</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the function value, gradient, and Hessian of \(Psi^r = a^r\rho\) w.r.t. the molar concentrations. </p>
+<p>Uses autodiff to calculate the derivatives </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01043">1043</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -388,7 +505,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00944">944</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01165">1165</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -426,7 +543,10 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00886">886</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Gradient of Psir = ar*rho w.r.t. the molar concentrations. </p>
+<p>Uses autodiff to calculate derivatives </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01107">1107</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -464,7 +584,10 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00923">923</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Gradient of Psir = ar*rho w.r.t. the molar concentrations. </p>
+<p>Uses complex step to calculate derivatives </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01144">1144</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -502,7 +625,10 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00802">802</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the Hessian of \(\Psi^r = a^r \rho\) w.r.t. the molar concentrations. </p>
+<p>Requires the use of autodiff derivatives to calculate second partial derivatives </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01023">1023</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -540,7 +666,7 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00751">751</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00972">972</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -578,7 +704,7 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00763">763</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00984">984</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -616,7 +742,7 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00757">757</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00978">978</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -654,7 +780,10 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00965">965</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the chemical potential of each component. </p>
+<p>Uses autodiff to calculate derivatives See Eq. 5 of <a href="https://doi.org/10.1002/aic.16730">https://doi.org/10.1002/aic.16730</a>, but the rho in the denominator should be a rhoref (taken to be 1) </p><dl class="section note"><dt>Note</dt><dd>: Some contributions to the ideal gas part are missing (reference state and cp0), but are not relevant to phase equilibria </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01188">1188</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -694,7 +823,14 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01144">1144</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the derivative of the natural logarithm of fugacity coefficient of each component w.r.t. mole fraction of each component, at constant temperature and molar density. </p>
+<p class="formulaDsp">
+\[
+\deriv{ \ln\vec\phi}{\vec x}{T, \rho}
+\]
+</p>
+ 
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01367">1367</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -734,7 +870,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01165">1165</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01388">1388</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -774,7 +910,14 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01113">1113</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the derivative of the natural logarithm of fugacity coefficient of each component w.r.t. molar density at constant temperature and mole fractions. </p>
+<p class="formulaDsp">
+\[
+\deriv{ \ln\vec\phi}{\rho}{T,\vec x} = \frac{1}{RT}H(\Psi_r)\vec x - \frac{1}{Z}\deriv{Z}{\rho}{T,\vec x}
+\]
+</p>
+ 
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01336">1336</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -814,7 +957,14 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01076">1076</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the derivative of the natural logarithm of fugacity coefficient of each component w.r.t. temperature at constant mole concentrations (implying constant mole fractions and density) </p>
+<p>Uses autodiff to calculate derivatives by default  </p><p class="formulaDsp">
+\[
+\deriv{ \ln\vec\phi}{T}{\vec \rho}
+\]
+</p>
+ 
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01299">1299</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -854,7 +1004,14 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01130">1130</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the derivative of the natural logarithm of fugacity coefficient of each component w.r.t. molar volume at constant temperature and mole fractions. </p>
+<p class="formulaDsp">
+\[
+\deriv{ \ln\vec\phi}{v}{T,\vec x} = \deriv{ \ln\vec\phi}{\rho}{T,\vec x}\deriv{ \rho}{v}{}
+\]
+</p>
+ 
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01353">1353</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -892,7 +1049,10 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01180">1180</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the temperature derivative of the chemical potential of each component. </p>
+<dl class="section note"><dt>Note</dt><dd>: Some contributions to the ideal gas part are missing (reference state and cp0), but are not relevant to phase equilibria </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01403">1403</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -930,7 +1090,9 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01200">1200</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the molar concentration derivatives of the pressure at constant temperature. </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01423">1423</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -968,7 +1130,9 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01190">1190</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the temperature derivative of the pressure at constant molar concentrations. </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01413">1413</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -1006,7 +1170,9 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00789">789</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate derivative \(\Psi^r=a^r \rho\) w.r.t. T at constant molar concentrations. </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01010">1010</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -1046,7 +1212,10 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00978">978</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the fugacity coefficient of each component. </p>
+<p>Uses autodiff to calculate derivatives </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01201">1201</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -1086,7 +1255,10 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00989">989</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the natural logarithm of fugacity coefficient of each component. </p>
+<p>Uses autodiff to calculate derivatives by default </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01212">1212</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -1126,7 +1298,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01014">1014</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01237">1237</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -1166,7 +1338,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01025">1025</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01248">1248</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -1211,7 +1383,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01002">1002</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01225">1225</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -1251,7 +1423,10 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01094">1094</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate ln(Z), Z, and dZ/drho at constant temperature and mole fractions. </p>
+<p>Uses autodiff to calculate derivatives by default </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01317">1317</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -1289,7 +1464,55 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01215">1215</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the partial molar volumes of each component. </p>
+<p class="formulaDsp">
+\[
+\hat v_i = \left(\frac{\partial V}{\partial n_i}\right)_{T,V,n_{j \neq i}}
+\]
+</p>
+<p>Eq 7.32 from GERG-2004  </p><p class="formulaDsp">
+\[
+         \hat v_i = \deriv{V}{n_i}{T,p,n_j} = \displaystyle\frac{-n\deriv{p}{n_i}{T,V,n_j}}{n\deriv{p}{V}{T,\vec{n}}}
+ \]
+</p>
+<p>Total differential of a variable \(Y\) that is a function of \(T\), \(\vec{\rho}\):  </p><p class="formulaDsp">
+\[
+ \mathrm{d} Y = \deriv{Y}{T}{\vec{\rho}} \mathrm{d} T + \sum_k \deriv{Y}{\rho_k}{T,\rho_{j\neq i}} \mathrm{d} \rho_k
+ \]
+</p>
+<p> so  </p><p class="formulaDsp">
+\[
+ \deriv{Y}{n_i}{T,V,n_{j\neq i}} = \deriv{Y}{T}{\vec{\rho}} \cancelto{0}{\deriv{T}{n_i}{T,V,n_j}} + \sum_k \deriv{Y}{\rho_k}{T,\rho_{j\neq i}}  \deriv{\rho_k}{n_i}{T,V,n_j}
+ \]
+</p>
+  <p class="formulaDsp">
+\[
+ \deriv{\rho_k}{n_i}{T,V,n_j} = \frac{\delta_{ik}}{V}
+ \]
+</p>
+<p> because \(\rho_k = n_k/V\).</p>
+<p>Thus in the isochoric framework, the partial molar volume is given by  </p><p class="formulaDsp">
+\[
+ \hat v_i = \displaystyle\frac{-\frac{n}{V}\deriv{p}{\rho_i}{T,\rho_j}}{n\deriv{p}{V}{T,\vec{n}}}
+ \]
+</p>
+<p> The final formulation includes this term in the numerator (see the supporting info from isochoric paper):  </p><p class="formulaDsp">
+\[
+ \deriv{p}{\rho_i}{T,\rho_j} = RT + \sum_k\rho_k\deriv{^2\Psi^{\rm r}}{\rho_k\partial \rho_i}{T,\rho_{j\neq k}}
+ \]
+</p>
+<p> and the denominator is given by (Eq. 7.62 of GERG-2004)  </p><p class="formulaDsp">
+\[
+ n\deriv{p}{V}{T,\vec{n}} = -\rho^2 RT\left(1+2\delta\deriv{\alpha^{\rm r}}{\delta}{\tau} + \delta^2\deriv{^2\alpha^{\rm r}}{\delta^2}{\tau} \right)
+ \]
+</p>
+<p> and finally  </p><p class="formulaDsp">
+\[
+ \hat v_i = \displaystyle\frac{-\rho\deriv{p}{\rho_i}{T,\rho_j}}{n\deriv{p}{V}{T,\vec{n}}}
+ \]
+</p>
+ 
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01474">1474</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -1327,7 +1550,9 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00742">742</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the residual pressure from derivatives of alphar. </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00963">963</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -1365,7 +1590,9 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00780">780</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate \(\Psi^r=a^r \rho\). </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01001">1001</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -1408,7 +1635,7 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01229">1229</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l01488">1488</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -1446,7 +1673,9 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00733">733</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p>Calculate the residual entropy ( \(s^+ = -s^r/R\)) from derivatives of alphar. </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00954">954</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>

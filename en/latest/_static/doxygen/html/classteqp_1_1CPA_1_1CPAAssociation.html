@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>teqp: teqp::CPA::CPAAssociation&lt; Cubic &gt; Class Template Reference</title>
+<title>teqp: teqp::CPA::CPAAssociation Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -95,7 +97,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classteqp_1_1CPA_1_1CPAAssociation-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">teqp::CPA::CPAAssociation&lt; Cubic &gt; Class Template Reference</div></div>
+  <div class="headertitle"><div class="title">teqp::CPA::CPAAssociation Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -103,42 +105,37 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad93f1746664881507cba7be36a13cc83" id="r_ad93f1746664881507cba7be36a13cc83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad93f1746664881507cba7be36a13cc83">CPAAssociation</a> (const Cubic &amp;&amp;cubic, const std::vector&lt; <a class="el" href="namespaceteqp_1_1CPA.html#a90da9ae7578303110472dd2c86daba93">association_classes</a> &gt; &amp;classes, const <a class="el" href="namespaceteqp_1_1CPA.html#a1e2049d65c0db615e69429c1de7bc36b">radial_dist</a> dist, const std::valarray&lt; double &gt; &amp;epsABi, const std::valarray&lt; double &gt; &amp;betaABi, double R_gas)</td></tr>
-<tr class="separator:ad93f1746664881507cba7be36a13cc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b169cbb7bdcedaec1d0f0dbfdc6a861" id="r_a5b169cbb7bdcedaec1d0f0dbfdc6a861"><td class="memTemplParams" colspan="2">template&lt;typename TType , typename RhoType , typename VecType &gt; </td></tr>
-<tr class="memitem:a5b169cbb7bdcedaec1d0f0dbfdc6a861"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5b169cbb7bdcedaec1d0f0dbfdc6a861">alphar</a> (const TType &amp;T, const RhoType &amp;rhomolar, const VecType &amp;molefrac) const</td></tr>
-<tr class="separator:a5b169cbb7bdcedaec1d0f0dbfdc6a861"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1eb09b53d6358c564cb824e173d42f0" id="r_ab1eb09b53d6358c564cb824e173d42f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1eb09b53d6358c564cb824e173d42f0">CPAAssociation</a> (const std::vector&lt; association_classes &gt; &amp;classes, const radial_dist dist, const std::valarray&lt; double &gt; &amp;epsABi, const std::valarray&lt; double &gt; &amp;betaABi, const std::valarray&lt; double &gt; &amp;bi, double R_gas)</td></tr>
+<tr class="separator:ab1eb09b53d6358c564cb824e173d42f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0074b46e458bfbea22b0bf7d6aa0a1d" id="r_af0074b46e458bfbea22b0bf7d6aa0a1d"><td class="memItemLeft" align="right" valign="top">nlohmann::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0074b46e458bfbea22b0bf7d6aa0a1d">get_assoc_calcs</a> (double T, double rhomolar, const Eigen::ArrayXd &amp;mole_fractions) const</td></tr>
+<tr class="separator:af0074b46e458bfbea22b0bf7d6aa0a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad715254b801f57c4f370b80515782e86" id="r_ad715254b801f57c4f370b80515782e86"><td class="memTemplParams" colspan="2">template&lt;typename TType , typename RhoType , typename VecType &gt; </td></tr>
+<tr class="memitem:ad715254b801f57c4f370b80515782e86"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad715254b801f57c4f370b80515782e86">alphar</a> (const TType &amp;T, const RhoType &amp;rhomolar, const VecType &amp;molefrac) const</td></tr>
+<tr class="separator:ad715254b801f57c4f370b80515782e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename Cubic&gt;<br />
-class teqp::CPA::CPAAssociation&lt; Cubic &gt;</div>
-<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00192">192</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
+<div class="textblock"><p>Implement the association approach of Huang &amp; Radosz for pure fluids </p>
+
+<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00181">181</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad93f1746664881507cba7be36a13cc83" name="ad93f1746664881507cba7be36a13cc83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad93f1746664881507cba7be36a13cc83">&#9670;&#160;</a></span>CPAAssociation()</h2>
+<a id="ab1eb09b53d6358c564cb824e173d42f0" name="ab1eb09b53d6358c564cb824e173d42f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1eb09b53d6358c564cb824e173d42f0">&#9670;&#160;</a></span>CPAAssociation()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Cubic &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html">teqp::CPA::CPAAssociation</a>&lt; Cubic &gt;::CPAAssociation </td>
+          <td class="memname">teqp::CPA::CPAAssociation::CPAAssociation </td>
           <td>(</td>
-          <td class="paramtype">const Cubic &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>cubic</em>, </span></td>
+          <td class="paramtype">const std::vector&lt; association_classes &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>classes</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="namespaceteqp_1_1CPA.html#a90da9ae7578303110472dd2c86daba93">association_classes</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>classes</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespaceteqp_1_1CPA.html#a1e2049d65c0db615e69429c1de7bc36b">radial_dist</a></td>          <td class="paramname"><span class="paramname"><em>dist</em>, </span></td>
+          <td class="paramtype">const radial_dist</td>          <td class="paramname"><span class="paramname"><em>dist</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -153,6 +150,11 @@ template&lt;typename Cubic &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::valarray&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>bi</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>R_gas</em></span>&#160;)</td>
         </tr>
       </table>
@@ -163,18 +165,16 @@ template&lt;typename Cubic &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00219">219</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00207">207</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5b169cbb7bdcedaec1d0f0dbfdc6a861" name="a5b169cbb7bdcedaec1d0f0dbfdc6a861"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b169cbb7bdcedaec1d0f0dbfdc6a861">&#9670;&#160;</a></span>alphar()</h2>
+<a id="ad715254b801f57c4f370b80515782e86" name="ad715254b801f57c4f370b80515782e86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad715254b801f57c4f370b80515782e86">&#9670;&#160;</a></span>alphar()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Cubic &gt; </div>
 <div class="memtemplate">
 template&lt;typename TType , typename RhoType , typename VecType &gt; </div>
 <table class="mlabels">
@@ -182,7 +182,7 @@ template&lt;typename TType , typename RhoType , typename VecType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html">teqp::CPA::CPAAssociation</a>&lt; Cubic &gt;::alphar </td>
+          <td class="memname">auto teqp::CPA::CPAAssociation::alphar </td>
           <td>(</td>
           <td class="paramtype">const TType &amp;</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
         </tr>
@@ -204,7 +204,43 @@ template&lt;typename TType , typename RhoType , typename VecType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00223">223</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00229">229</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
+
+</div>
+</div>
+<a id="af0074b46e458bfbea22b0bf7d6aa0a1d" name="af0074b46e458bfbea22b0bf7d6aa0a1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0074b46e458bfbea22b0bf7d6aa0a1d">&#9670;&#160;</a></span>get_assoc_calcs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">nlohmann::json teqp::CPA::CPAAssociation::get_assoc_calcs </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>rhomolar</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::ArrayXd &amp;</td>          <td class="paramname"><span class="paramname"><em>mole_fractions</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00210">210</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
 
 </div>
 </div>

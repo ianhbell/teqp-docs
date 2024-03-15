@@ -15,6 +15,8 @@ void \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_af352dd5c0f70e8c4070aecc9b8
 \begin{DoxyCompactList}\small\item\em Store some sort of metadata in string form (perhaps a JSON representation of the model?) \end{DoxyCompactList}\item 
 auto \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a8369a1ef73b7108dfb5b1da181afc1a1}{get\+\_\+meta}} () const
 \begin{DoxyCompactList}\small\item\em Get the metadata stored in string form. \end{DoxyCompactList}\item 
+const std\+::variant$<$ double, std\+::string $>$ \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a862746127474f072446c3fb2bd8ef350}{get\+\_\+\+BIP}} (const std\+::size\+\_\+t \&i, const std\+::size\+\_\+t \&j, const std\+::string \&key) const
+\begin{DoxyCompactList}\small\item\em Return a binary interaction parameter. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter_a772e9a151405c260fb0d0af70a104463}{alphar}} (const TType \&T, const Rho\+Type \&rho, const Mole\+Frac\+Type \&molefrac) const
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
@@ -64,7 +66,22 @@ auto \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter}{teqp\+::\+Multi\+Fluid\+Ad
 
 
 
-Definition at line \mbox{\hyperlink{multifluid__mutant_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{multifluid__mutant_8hpp_source}{multifluid\+\_\+mutant.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid__mutant_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{multifluid__mutant_8hpp_source}{multifluid\+\_\+mutant.\+hpp}}.
+
+\Hypertarget{classteqp_1_1MultiFluidAdapter_a862746127474f072446c3fb2bd8ef350}\label{classteqp_1_1MultiFluidAdapter_a862746127474f072446c3fb2bd8ef350} 
+\index{teqp::MultiFluidAdapter$<$ DepartureFunction, BaseClass $>$@{teqp::MultiFluidAdapter$<$ DepartureFunction, BaseClass $>$}!get\_BIP@{get\_BIP}}
+\index{get\_BIP@{get\_BIP}!teqp::MultiFluidAdapter$<$ DepartureFunction, BaseClass $>$@{teqp::MultiFluidAdapter$<$ DepartureFunction, BaseClass $>$}}
+\doxysubsubsection{\texorpdfstring{get\_BIP()}{get\_BIP()}}
+{\footnotesize\ttfamily template$<$typename Departure\+Function , typename Base\+Class $>$ \\
+const std\+::variant$<$ double, std\+::string $>$ \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter}{teqp\+::\+Multi\+Fluid\+Adapter}}$<$ Departure\+Function, Base\+Class $>$\+::get\+\_\+\+BIP (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t \&}]{i,  }\item[{const std\+::size\+\_\+t \&}]{j,  }\item[{const std\+::string \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return a binary interaction parameter. 
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__mutant_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{multifluid__mutant_8hpp_source}{multifluid\+\_\+mutant.\+hpp}}.
 
 \Hypertarget{classteqp_1_1MultiFluidAdapter_a8369a1ef73b7108dfb5b1da181afc1a1}\label{classteqp_1_1MultiFluidAdapter_a8369a1ef73b7108dfb5b1da181afc1a1} 
 \index{teqp::MultiFluidAdapter$<$ DepartureFunction, BaseClass $>$@{teqp::MultiFluidAdapter$<$ DepartureFunction, BaseClass $>$}!get\_meta@{get\_meta}}

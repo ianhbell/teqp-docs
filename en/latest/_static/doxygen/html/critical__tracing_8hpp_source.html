@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -917,8 +919,8 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="aexceptions_8hpp_html"><div class="ttname"><a href="exceptions_8hpp.html">exceptions.hpp</a></div></div>
 <div class="ttc" id="anamespaceteqp_html"><div class="ttname"><a href="namespaceteqp.html">teqp</a></div><div class="ttdef"><b>Definition</b> <a href="ancillary__builder_8hpp_source.html#l00008">ancillary_builder.hpp:8</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_a4c8982c69544d149d39b057cbd1fcd7e"><div class="ttname"><a href="namespaceteqp.html#a4c8982c69544d149d39b057cbd1fcd7e">teqp::NewtonRaphson</a></div><div class="ttdeci">auto NewtonRaphson(Callable f, const Inputs &amp;args, double tol)</div><div class="ttdef"><b>Definition</b> <a href="rootfinding_8hpp_source.html#l00006">rootfinding.hpp:6</a></div></div>
-<div class="ttc" id="anamespaceteqp_html_a582c949fe26e5a5c2605613c73a3c73b"><div class="ttname"><a href="namespaceteqp.html#a582c949fe26e5a5c2605613c73a3c73b">teqp::solve_pure_critical</a></div><div class="ttdeci">auto solve_pure_critical(const Model &amp;model, const Scalar T0, const Scalar rho0, const std::optional&lt; nlohmann::json &gt; &amp;flags=std::nullopt)</div><div class="ttdef"><b>Definition</b> <a href="critical__pure_8hpp_source.html#l00093">critical_pure.hpp:93</a></div></div>
-<div class="ttc" id="anamespaceteqp_html_a673824cda5d54f74d80f6746bb8a0d4d"><div class="ttname"><a href="namespaceteqp.html#a673824cda5d54f74d80f6746bb8a0d4d">teqp::derivT</a></div><div class="ttdeci">ContainerType::value_type derivT(const FuncType &amp;f, TType T, const ContainerType &amp;rho)</div><div class="ttdef"><b>Definition</b> <a href="derivs_8hpp_source.html#l00030">derivs.hpp:30</a></div></div>
+<div class="ttc" id="anamespaceteqp_html_a582c949fe26e5a5c2605613c73a3c73b"><div class="ttname"><a href="namespaceteqp.html#a582c949fe26e5a5c2605613c73a3c73b">teqp::solve_pure_critical</a></div><div class="ttdeci">auto solve_pure_critical(const Model &amp;model, const Scalar T0, const Scalar rho0, const std::optional&lt; nlohmann::json &gt; &amp;flags=std::nullopt)</div><div class="ttdef"><b>Definition</b> <a href="critical__pure_8hpp_source.html#l00092">critical_pure.hpp:92</a></div></div>
+<div class="ttc" id="anamespaceteqp_html_a673824cda5d54f74d80f6746bb8a0d4d"><div class="ttname"><a href="namespaceteqp.html#a673824cda5d54f74d80f6746bb8a0d4d">teqp::derivT</a></div><div class="ttdeci">ContainerType::value_type derivT(const FuncType &amp;f, TType T, const ContainerType &amp;rho)</div><div class="ttdoc">Given a function, use complex step derivatives to calculate the derivative with respect to the first ...</div><div class="ttdef"><b>Definition</b> <a href="derivs_8hpp_source.html#l00033">derivs.hpp:33</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_ad47d847ff6ba42d73eb1ffc3fcf270c8"><div class="ttname"><a href="namespaceteqp.html#ad47d847ff6ba42d73eb1ffc3fcf270c8">teqp::pow</a></div><div class="ttdeci">auto pow(const double &amp;x, const double &amp;e)</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00189">types.hpp:189</a></div></div>
 <div class="ttc" id="arootfinding_8hpp_html"><div class="ttname"><a href="rootfinding_8hpp.html">rootfinding.hpp</a></div></div>
 <div class="ttc" id="astructteqp_1_1CriticalTracing_1_1psi1derivs_html"><div class="ttname"><a href="structteqp_1_1CriticalTracing_1_1psi1derivs.html">teqp::CriticalTracing::psi1derivs</a></div><div class="ttdef"><b>Definition</b> <a href="#l00120">critical_tracing.hpp:120</a></div></div>
@@ -947,7 +949,7 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="astructteqp_1_1EigenData_html_a8fe4aabe971e58b619b3998b465fa0e0"><div class="ttname"><a href="structteqp_1_1EigenData.html#a8fe4aabe971e58b619b3998b465fa0e0">teqp::EigenData::v1</a></div><div class="ttdeci">Eigen::ArrayXd v1</div><div class="ttdef"><b>Definition</b> <a href="critical__tracing__types_8hpp_source.html#l00028">critical_tracing_types.hpp:28</a></div></div>
 <div class="ttc" id="astructteqp_1_1EigenData_html_aa3bc45a8946300b04f5657c47cfc7aa8"><div class="ttname"><a href="structteqp_1_1EigenData.html#aa3bc45a8946300b04f5657c47cfc7aa8">teqp::EigenData::eigenvectorscols</a></div><div class="ttdeci">Eigen::MatrixXd eigenvectorscols</div><div class="ttdef"><b>Definition</b> <a href="critical__tracing__types_8hpp_source.html#l00029">critical_tracing_types.hpp:29</a></div></div>
 <div class="ttc" id="astructteqp_1_1EigenData_html_ac295a33d31a74ca4b506867186b9575f"><div class="ttname"><a href="structteqp_1_1EigenData.html#ac295a33d31a74ca4b506867186b9575f">teqp::EigenData::v0</a></div><div class="ttdeci">Eigen::ArrayXd v0</div><div class="ttdef"><b>Definition</b> <a href="critical__tracing__types_8hpp_source.html#l00028">critical_tracing_types.hpp:28</a></div></div>
-<div class="ttc" id="astructteqp_1_1IsochoricDerivatives_html"><div class="ttname"><a href="structteqp_1_1IsochoricDerivatives.html">teqp::IsochoricDerivatives</a></div><div class="ttdef"><b>Definition</b> <a href="derivs_8hpp_source.html#l00728">derivs.hpp:728</a></div></div>
+<div class="ttc" id="astructteqp_1_1IsochoricDerivatives_html"><div class="ttname"><a href="structteqp_1_1IsochoricDerivatives.html">teqp::IsochoricDerivatives</a></div><div class="ttdef"><b>Definition</b> <a href="derivs_8hpp_source.html#l00949">derivs.hpp:949</a></div></div>
 <div class="ttc" id="astructteqp_1_1TCABOptions_html"><div class="ttname"><a href="structteqp_1_1TCABOptions.html">teqp::TCABOptions</a></div><div class="ttdef"><b>Definition</b> <a href="critical__tracing__types_8hpp_source.html#l00005">critical_tracing_types.hpp:5</a></div></div>
 <div class="ttc" id="astructteqp_1_1TCABOptions_html_a1af352073bb5aa4952a65852c94e7a71"><div class="ttname"><a href="structteqp_1_1TCABOptions.html#a1af352073bb5aa4952a65852c94e7a71">teqp::TCABOptions::T_tol</a></div><div class="ttdeci">double T_tol</div><div class="ttdoc">The tolerance on temperature to indicate that it is converged.</div><div class="ttdef"><b>Definition</b> <a href="critical__tracing__types_8hpp_source.html#l00010">critical_tracing_types.hpp:10</a></div></div>
 <div class="ttc" id="astructteqp_1_1TCABOptions_html_a35313a919237c53c86274fc094c5261c"><div class="ttname"><a href="structteqp_1_1TCABOptions.html#a35313a919237c53c86274fc094c5261c">teqp::TCABOptions::polish_reltol_T</a></div><div class="ttdeci">double polish_reltol_T</div><div class="ttdoc">The maximum allowed change in temperature when polishing.</div><div class="ttdef"><b>Definition</b> <a href="critical__tracing__types_8hpp_source.html#l00017">critical_tracing_types.hpp:17</a></div></div>

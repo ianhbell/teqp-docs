@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -131,18 +133,18 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aa595f2a8d78964ec437e2e8dab56eafb" id="r_aa595f2a8d78964ec437e2e8dab56eafb"><td class="memItemLeft" align="right" valign="top">const NumType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa595f2a8d78964ec437e2e8dab56eafb">Ru</a> = <a class="el" href="namespaceteqp.html#a2b7e9f6c1e890797284b6bd57d251379">get_R_gas</a>&lt;double&gt;()</td></tr>
+<tr class="memitem:aa595f2a8d78964ec437e2e8dab56eafb" id="r_aa595f2a8d78964ec437e2e8dab56eafb"><td class="memItemLeft" align="right" valign="top">const NumType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa595f2a8d78964ec437e2e8dab56eafb">Ru</a> = <a class="el" href="namespaceteqp.html#aed0cabbf6a82a357adc773aa850566ea">get_R_gas</a>&lt;double&gt;()</td></tr>
 <tr class="memdesc:aa595f2a8d78964ec437e2e8dab56eafb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Universal gas constant, exact number.  <br /></td></tr>
 <tr class="separator:aa595f2a8d78964ec437e2e8dab56eafb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ae3b6e7b1694d61df7f82b13de4c6038f" id="r_ae3b6e7b1694d61df7f82b13de4c6038f"><td class="memTemplParams" colspan="2">template&lt;typename TType , typename IndexType &gt; </td></tr>
-<tr class="memitem:ae3b6e7b1694d61df7f82b13de4c6038f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae3b6e7b1694d61df7f82b13de4c6038f">get_ai</a> (TType T, IndexType i) const</td></tr>
-<tr class="separator:ae3b6e7b1694d61df7f82b13de4c6038f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a312eb853d13069201bee41dfbfc5d503" id="r_a312eb853d13069201bee41dfbfc5d503"><td class="memTemplParams" colspan="2">template&lt;typename TType , typename IndexType &gt; </td></tr>
-<tr class="memitem:a312eb853d13069201bee41dfbfc5d503"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a312eb853d13069201bee41dfbfc5d503">get_bi</a> (TType T, IndexType i) const</td></tr>
-<tr class="separator:a312eb853d13069201bee41dfbfc5d503"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2436dfed625d23a39bb5a19db1f627a3" id="r_a2436dfed625d23a39bb5a19db1f627a3"><td class="memTemplParams" colspan="2">template&lt;typename TType , typename IndexType &gt; </td></tr>
+<tr class="memitem:a2436dfed625d23a39bb5a19db1f627a3"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2436dfed625d23a39bb5a19db1f627a3">get_ai</a> (TType, IndexType i) const</td></tr>
+<tr class="separator:a2436dfed625d23a39bb5a19db1f627a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a4fea9ee801a9cca09a06eb5aa17f42" id="r_a3a4fea9ee801a9cca09a06eb5aa17f42"><td class="memTemplParams" colspan="2">template&lt;typename TType , typename IndexType &gt; </td></tr>
+<tr class="memitem:a3a4fea9ee801a9cca09a06eb5aa17f42"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3a4fea9ee801a9cca09a06eb5aa17f42">get_bi</a> (TType, IndexType i) const</td></tr>
+<tr class="separator:a3a4fea9ee801a9cca09a06eb5aa17f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -157,7 +159,7 @@ Protected Attributes</h2></td></tr>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename NumType&gt;<br />
 class teqp::vdWEOS&lt; NumType &gt;</div><p>A slightly more involved implementation of van der Waals, this time with mixture properties. </p>
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00049">49</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00045">45</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1cb12fc9e95fba03c06d16114b015dec" name="a1cb12fc9e95fba03c06d16114b015dec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1cb12fc9e95fba03c06d16114b015dec">&#9670;&#160;</a></span>vdWEOS()</h2>
@@ -198,7 +200,7 @@ template&lt;typename NumType &gt; </div>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>All interaction parameters are set to default value of zero and cannot currently be tuned </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00066">66</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00062">62</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
@@ -242,7 +244,7 @@ template&lt;typename TType , typename CompType &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00083">83</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00079">79</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
@@ -292,7 +294,7 @@ template&lt;typename TType , typename RhoType , typename MoleFracType &gt; </div
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00120">120</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00116">116</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
@@ -331,12 +333,12 @@ template&lt;typename CompType &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00097">97</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00093">93</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ae3b6e7b1694d61df7f82b13de4c6038f" name="ae3b6e7b1694d61df7f82b13de4c6038f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3b6e7b1694d61df7f82b13de4c6038f">&#9670;&#160;</a></span>get_ai()</h2>
+<a id="a2436dfed625d23a39bb5a19db1f627a3" name="a2436dfed625d23a39bb5a19db1f627a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2436dfed625d23a39bb5a19db1f627a3">&#9670;&#160;</a></span>get_ai()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -351,7 +353,7 @@ template&lt;typename TType , typename IndexType &gt; </div>
         <tr>
           <td class="memname">auto <a class="el" href="classteqp_1_1vdWEOS.html">teqp::vdWEOS</a>&lt; NumType &gt;::get_ai </td>
           <td>(</td>
-          <td class="paramtype">TType</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+          <td class="paramtype">TType</td>          <td class="paramname"><span class="paramname">, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -366,12 +368,12 @@ template&lt;typename TType , typename IndexType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00055">55</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00051">51</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a312eb853d13069201bee41dfbfc5d503" name="a312eb853d13069201bee41dfbfc5d503"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a312eb853d13069201bee41dfbfc5d503">&#9670;&#160;</a></span>get_bi()</h2>
+<a id="a3a4fea9ee801a9cca09a06eb5aa17f42" name="a3a4fea9ee801a9cca09a06eb5aa17f42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a4fea9ee801a9cca09a06eb5aa17f42">&#9670;&#160;</a></span>get_bi()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -386,7 +388,7 @@ template&lt;typename TType , typename IndexType &gt; </div>
         <tr>
           <td class="memname">auto <a class="el" href="classteqp_1_1vdWEOS.html">teqp::vdWEOS</a>&lt; NumType &gt;::get_bi </td>
           <td>(</td>
-          <td class="paramtype">TType</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+          <td class="paramtype">TType</td>          <td class="paramname"><span class="paramname">, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -401,7 +403,7 @@ template&lt;typename TType , typename IndexType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00058">58</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00054">54</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
@@ -435,7 +437,7 @@ template&lt;class VecType &gt; </div>
 <p>Get the universal gas constant Here the real universal gas constant, with no composition dependence. </p>
 <dl class="section note"><dt>Note</dt><dd>The array of mole fractions are ignored, but required to match other function calls </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00111">111</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00107">107</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
@@ -462,7 +464,7 @@ template&lt;typename NumType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00051">51</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00047">47</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
@@ -488,7 +490,7 @@ template&lt;typename NumType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00051">51</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00047">47</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
@@ -514,7 +516,7 @@ template&lt;typename NumType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00052">52</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00048">48</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
@@ -527,14 +529,14 @@ template&lt;typename NumType &gt; </div>
 template&lt;typename NumType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">const NumType <a class="el" href="classteqp_1_1vdWEOS.html">teqp::vdWEOS</a>&lt; NumType &gt;::Ru = <a class="el" href="namespaceteqp.html#a2b7e9f6c1e890797284b6bd57d251379">get_R_gas</a>&lt;double&gt;()</td>
+          <td class="memname">const NumType <a class="el" href="classteqp_1_1vdWEOS.html">teqp::vdWEOS</a>&lt; NumType &gt;::Ru = <a class="el" href="namespaceteqp.html#aed0cabbf6a82a357adc773aa850566ea">get_R_gas</a>&lt;double&gt;()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Universal gas constant, exact number. </p>
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00105">105</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00101">101</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>

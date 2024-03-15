@@ -1,0 +1,136 @@
+\doxysection{teqp\+::Multi\+Fluid\+Adapter\+\_\+\+Ecs\texorpdfstring{$<$}{<} Base\+Class \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classteqp_1_1MultiFluidAdapter__Ecs}{}\label{classteqp_1_1MultiFluidAdapter__Ecs}\index{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$@{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$}}
+
+
+{\ttfamily \#include $<$multifluid\+\_\+ecs\+\_\+mutant.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs_af5fc034fe2ef84c64068b39b981de5ec}{R}} (const Vec\+Type \&molefrac) const
+\item 
+\mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs_a0cf792095c390d6a8c554f0da6bcf401}{Multi\+Fluid\+Adapter\+\_\+\+Ecs}} (const Base\+Class \&\mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs_aa0fba3ca36cc3eea035271bcf4b40890}{base}}, \mbox{\hyperlink{classteqp_1_1Reducing__ECS}{Reducing\+\_\+\+ECS}} \&\&\mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs_a48d690beb6fcd5b0462ea762c13ad3d5}{redfunc}})
+\item 
+void \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs_a5c813c8a8a4ba5269795ee58a99df9ce}{set\+\_\+meta}} (const std\+::string \&m)
+\begin{DoxyCompactList}\small\item\em Store some sort of metadata in string form (perhaps a JSON representation of the model?) \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs_a2fd967b0b060aa5adc06aad7554951e9}{get\+\_\+meta}} () const
+\begin{DoxyCompactList}\small\item\em Get the metadata stored in string form. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs_aa2012aecf55f186896996980ea57bfc4}{alphar}} (const TType \&T, const Rho\+Type \&rho, const Mole\+Frac\+Type \&molefrac) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const Base\+Class \& \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs_aa0fba3ca36cc3eea035271bcf4b40890}{base}}
+\item 
+const \mbox{\hyperlink{classteqp_1_1Reducing__ECS}{Reducing\+\_\+\+ECS}} \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs_a48d690beb6fcd5b0462ea762c13ad3d5}{redfunc}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Base\+Class$>$\newline
+class teqp\+::\+Multi\+Fluid\+Adapter\+\_\+\+Ecs$<$ Base\+Class $>$}
+
+
+Definition at line \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source_l00129}{129}} of file \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1MultiFluidAdapter__Ecs_a0cf792095c390d6a8c554f0da6bcf401}\label{classteqp_1_1MultiFluidAdapter__Ecs_a0cf792095c390d6a8c554f0da6bcf401} 
+\index{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$@{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$}!MultiFluidAdapter\_Ecs@{MultiFluidAdapter\_Ecs}}
+\index{MultiFluidAdapter\_Ecs@{MultiFluidAdapter\_Ecs}!teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$@{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$}}
+\doxysubsubsection{\texorpdfstring{MultiFluidAdapter\_Ecs()}{MultiFluidAdapter\_Ecs()}}
+{\footnotesize\ttfamily template$<$typename Base\+Class $>$ \\
+\mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs}{teqp\+::\+Multi\+Fluid\+Adapter\+\_\+\+Ecs}}$<$ Base\+Class $>$\+::\+Multi\+Fluid\+Adapter\+\_\+\+Ecs (\begin{DoxyParamCaption}\item[{const Base\+Class \&}]{base,  }\item[{\mbox{\hyperlink{classteqp_1_1Reducing__ECS}{Reducing\+\_\+\+ECS}} \&\&}]{redfunc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source_l00141}{141}} of file \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1MultiFluidAdapter__Ecs_aa2012aecf55f186896996980ea57bfc4}\label{classteqp_1_1MultiFluidAdapter__Ecs_aa2012aecf55f186896996980ea57bfc4} 
+\index{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$@{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$@{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily template$<$typename Base\+Class $>$ \\
+template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs}{teqp\+::\+Multi\+Fluid\+Adapter\+\_\+\+Ecs}}$<$ Base\+Class $>$\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Rho\+Type \&}]{rho,  }\item[{const Mole\+Frac\+Type \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source_l00150}{150}} of file \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}.
+
+\Hypertarget{classteqp_1_1MultiFluidAdapter__Ecs_a2fd967b0b060aa5adc06aad7554951e9}\label{classteqp_1_1MultiFluidAdapter__Ecs_a2fd967b0b060aa5adc06aad7554951e9} 
+\index{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$@{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$}!get\_meta@{get\_meta}}
+\index{get\_meta@{get\_meta}!teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$@{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$}}
+\doxysubsubsection{\texorpdfstring{get\_meta()}{get\_meta()}}
+{\footnotesize\ttfamily template$<$typename Base\+Class $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs}{teqp\+::\+Multi\+Fluid\+Adapter\+\_\+\+Ecs}}$<$ Base\+Class $>$\+::get\+\_\+meta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the metadata stored in string form. 
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source_l00147}{147}} of file \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}.
+
+\Hypertarget{classteqp_1_1MultiFluidAdapter__Ecs_af5fc034fe2ef84c64068b39b981de5ec}\label{classteqp_1_1MultiFluidAdapter__Ecs_af5fc034fe2ef84c64068b39b981de5ec} 
+\index{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$@{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$}!R@{R}}
+\index{R@{R}!teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$@{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily template$<$typename Base\+Class $>$ \\
+template$<$class Vec\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs}{teqp\+::\+Multi\+Fluid\+Adapter\+\_\+\+Ecs}}$<$ Base\+Class $>$\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source_l00139}{139}} of file \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}.
+
+\Hypertarget{classteqp_1_1MultiFluidAdapter__Ecs_a5c813c8a8a4ba5269795ee58a99df9ce}\label{classteqp_1_1MultiFluidAdapter__Ecs_a5c813c8a8a4ba5269795ee58a99df9ce} 
+\index{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$@{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$}!set\_meta@{set\_meta}}
+\index{set\_meta@{set\_meta}!teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$@{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$}}
+\doxysubsubsection{\texorpdfstring{set\_meta()}{set\_meta()}}
+{\footnotesize\ttfamily template$<$typename Base\+Class $>$ \\
+void \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs}{teqp\+::\+Multi\+Fluid\+Adapter\+\_\+\+Ecs}}$<$ Base\+Class $>$\+::set\+\_\+meta (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Store some sort of metadata in string form (perhaps a JSON representation of the model?) 
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source_l00144}{144}} of file \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1MultiFluidAdapter__Ecs_aa0fba3ca36cc3eea035271bcf4b40890}\label{classteqp_1_1MultiFluidAdapter__Ecs_aa0fba3ca36cc3eea035271bcf4b40890} 
+\index{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$@{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$}!base@{base}}
+\index{base@{base}!teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$@{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$}}
+\doxysubsubsection{\texorpdfstring{base}{base}}
+{\footnotesize\ttfamily template$<$typename Base\+Class $>$ \\
+const Base\+Class\& \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs}{teqp\+::\+Multi\+Fluid\+Adapter\+\_\+\+Ecs}}$<$ Base\+Class $>$\+::base}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source_l00135}{135}} of file \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}.
+
+\Hypertarget{classteqp_1_1MultiFluidAdapter__Ecs_a48d690beb6fcd5b0462ea762c13ad3d5}\label{classteqp_1_1MultiFluidAdapter__Ecs_a48d690beb6fcd5b0462ea762c13ad3d5} 
+\index{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$@{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$}!redfunc@{redfunc}}
+\index{redfunc@{redfunc}!teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$@{teqp::MultiFluidAdapter\_Ecs$<$ BaseClass $>$}}
+\doxysubsubsection{\texorpdfstring{redfunc}{redfunc}}
+{\footnotesize\ttfamily template$<$typename Base\+Class $>$ \\
+const \mbox{\hyperlink{classteqp_1_1Reducing__ECS}{Reducing\+\_\+\+ECS}} \mbox{\hyperlink{classteqp_1_1MultiFluidAdapter__Ecs}{teqp\+::\+Multi\+Fluid\+Adapter\+\_\+\+Ecs}}$<$ Base\+Class $>$\+::redfunc}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source_l00136}{136}} of file \mbox{\hyperlink{multifluid__ecs__mutant_8hpp_source}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\mbox{\hyperlink{multifluid__ecs__mutant_8hpp}{multifluid\+\_\+ecs\+\_\+mutant.\+hpp}}\end{DoxyCompactItemize}

@@ -10,11 +10,12 @@ var searchData=
   ['molefractionweighted_7',['MoleFractionWeighted',['../classteqp_1_1multifluid_1_1gasconstant_1_1MoleFractionWeighted.html',1,'teqp::multifluid::gasconstant']]],
   ['multifluid_8',['MultiFluid',['../classteqp_1_1MultiFluid.html',1,'teqp']]],
   ['multifluidadapter_9',['MultiFluidAdapter',['../classteqp_1_1MultiFluidAdapter.html',1,'teqp']]],
-  ['multifluidinvariantreducingfunction_10',['MultiFluidInvariantReducingFunction',['../classteqp_1_1MultiFluidInvariantReducingFunction.html',1,'teqp']]],
-  ['multifluidreducingfunction_11',['MultiFluidReducingFunction',['../classteqp_1_1MultiFluidReducingFunction.html',1,'teqp']]],
-  ['multifluidvleancillaries_12',['MultiFluidVLEAncillaries',['../structteqp_1_1MultiFluidVLEAncillaries.html',1,'teqp']]],
-  ['multipolarcontributiongraygubbins_13',['MultipolarContributionGrayGubbins',['../classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins.html',1,'teqp::SAFTpolar']]],
-  ['multipolarcontributiongrossvrabec_14',['MultipolarContributionGrossVrabec',['../classteqp_1_1SAFTpolar_1_1MultipolarContributionGrossVrabec.html',1,'teqp::SAFTpolar']]],
-  ['multipolarcontributiongubbinstwu_15',['MultipolarContributionGubbinsTwu',['../classteqp_1_1SAFTpolar_1_1MultipolarContributionGubbinsTwu.html',1,'teqp::SAFTpolar']]],
-  ['multipolarcontributiongubbinstwutermsgt_16',['MultipolarContributionGubbinsTwuTermsGT',['../structteqp_1_1SAFTpolar_1_1MultipolarContributionGubbinsTwuTermsGT.html',1,'teqp::SAFTpolar']]]
+  ['multifluidadapter_5fecs_10',['MultiFluidAdapter_Ecs',['../classteqp_1_1MultiFluidAdapter__Ecs.html',1,'teqp']]],
+  ['multifluidinvariantreducingfunction_11',['MultiFluidInvariantReducingFunction',['../classteqp_1_1MultiFluidInvariantReducingFunction.html',1,'teqp']]],
+  ['multifluidreducingfunction_12',['MultiFluidReducingFunction',['../classteqp_1_1MultiFluidReducingFunction.html',1,'teqp']]],
+  ['multifluidvleancillaries_13',['MultiFluidVLEAncillaries',['../structteqp_1_1MultiFluidVLEAncillaries.html',1,'teqp']]],
+  ['multipolarcontributiongraygubbins_14',['MultipolarContributionGrayGubbins',['../classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins.html',1,'teqp::SAFTpolar']]],
+  ['multipolarcontributiongrossvrabec_15',['MultipolarContributionGrossVrabec',['../classteqp_1_1SAFTpolar_1_1MultipolarContributionGrossVrabec.html',1,'teqp::SAFTpolar']]],
+  ['multipolarcontributiongubbinstwu_16',['MultipolarContributionGubbinsTwu',['../classteqp_1_1SAFTpolar_1_1MultipolarContributionGubbinsTwu.html',1,'teqp::SAFTpolar']]],
+  ['multipolarcontributiongubbinstwutermsgt_17',['MultipolarContributionGubbinsTwuTermsGT',['../structteqp_1_1SAFTpolar_1_1MultipolarContributionGubbinsTwuTermsGT.html',1,'teqp::SAFTpolar']]]
 ];

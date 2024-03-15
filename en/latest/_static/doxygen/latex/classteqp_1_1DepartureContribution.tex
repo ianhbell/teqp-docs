@@ -9,9 +9,11 @@
 \item 
 \mbox{\hyperlink{classteqp_1_1DepartureContribution_a8d1d40a45c44ed0445653d29155cbaf6}{Departure\+Contribution}} (FCollection \&\&F, Departure\+Function\+Collection \&\&funcs)
 \item 
+const auto \& \mbox{\hyperlink{classteqp_1_1DepartureContribution_afe12072863e4dc4784c79b99a2bc6d1e}{get\+\_\+F}} () const
+\item 
 {\footnotesize template$<$typename Tau\+Type , typename Delta\+Type , typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1DepartureContribution_aa952aaa53037ecc1962c04a950fa7438}{alphar}} (const Tau\+Type \&tau, const Delta\+Type \&delta, const Mole\+Fractions \&molefracs) const
 \item 
-{\footnotesize template$<$typename Tau\+Type , typename Delta\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1DepartureContribution_a5f6eabf977c65f0ae263b4e24c84158c}{get\+\_\+alpharij}} (const int i, const int j, const Tau\+Type \&tau, const Delta\+Type \&delta) const
+{\footnotesize template$<$typename Tau\+Type , typename Delta\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1DepartureContribution_ac5db4eddd335d01c7407d94f71ca8fcc}{get\+\_\+alpharij}} (const std\+::size\+\_\+t i, const std\+::size\+\_\+t j, const Tau\+Type \&tau, const Delta\+Type \&delta) const
 \begin{DoxyCompactList}\small\item\em Call a single departure term at i,j. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -20,7 +22,7 @@
 class teqp\+::\+Departure\+Contribution$<$ FCollection, Departure\+Function\+Collection $>$}
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00079}{79}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 
 
@@ -34,7 +36,7 @@ Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00079}{79}} of file 
 
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00085}{85}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00087}{87}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 
 
@@ -49,15 +51,15 @@ auto \mbox{\hyperlink{classteqp_1_1DepartureContribution}{teqp\+::\+Departure\+C
 
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00088}{88}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00092}{92}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
-\Hypertarget{classteqp_1_1DepartureContribution_a5f6eabf977c65f0ae263b4e24c84158c}\label{classteqp_1_1DepartureContribution_a5f6eabf977c65f0ae263b4e24c84158c} 
+\Hypertarget{classteqp_1_1DepartureContribution_ac5db4eddd335d01c7407d94f71ca8fcc}\label{classteqp_1_1DepartureContribution_ac5db4eddd335d01c7407d94f71ca8fcc} 
 \index{teqp::DepartureContribution$<$ FCollection, DepartureFunctionCollection $>$@{teqp::DepartureContribution$<$ FCollection, DepartureFunctionCollection $>$}!get\_alpharij@{get\_alpharij}}
 \index{get\_alpharij@{get\_alpharij}!teqp::DepartureContribution$<$ FCollection, DepartureFunctionCollection $>$@{teqp::DepartureContribution$<$ FCollection, DepartureFunctionCollection $>$}}
 \doxysubsubsection{\texorpdfstring{get\_alpharij()}{get\_alpharij()}}
 {\footnotesize\ttfamily template$<$typename FCollection , typename Departure\+Function\+Collection $>$ \\
 template$<$typename Tau\+Type , typename Delta\+Type $>$ \\
-auto \mbox{\hyperlink{classteqp_1_1DepartureContribution}{teqp\+::\+Departure\+Contribution}}$<$ FCollection, Departure\+Function\+Collection $>$\+::get\+\_\+alpharij (\begin{DoxyParamCaption}\item[{const int}]{i,  }\item[{const int}]{j,  }\item[{const Tau\+Type \&}]{tau,  }\item[{const Delta\+Type \&}]{delta }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+auto \mbox{\hyperlink{classteqp_1_1DepartureContribution}{teqp\+::\+Departure\+Contribution}}$<$ FCollection, Departure\+Function\+Collection $>$\+::get\+\_\+alpharij (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{i,  }\item[{const std\+::size\+\_\+t}]{j,  }\item[{const Tau\+Type \&}]{tau,  }\item[{const Delta\+Type \&}]{delta }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -65,7 +67,18 @@ Call a single departure term at i,j.
 
 
 
-Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00102}{102}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00106}{106}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
+
+\Hypertarget{classteqp_1_1DepartureContribution_afe12072863e4dc4784c79b99a2bc6d1e}\label{classteqp_1_1DepartureContribution_afe12072863e4dc4784c79b99a2bc6d1e} 
+\index{teqp::DepartureContribution$<$ FCollection, DepartureFunctionCollection $>$@{teqp::DepartureContribution$<$ FCollection, DepartureFunctionCollection $>$}!get\_F@{get\_F}}
+\index{get\_F@{get\_F}!teqp::DepartureContribution$<$ FCollection, DepartureFunctionCollection $>$@{teqp::DepartureContribution$<$ FCollection, DepartureFunctionCollection $>$}}
+\doxysubsubsection{\texorpdfstring{get\_F()}{get\_F()}}
+{\footnotesize\ttfamily template$<$typename FCollection , typename Departure\+Function\+Collection $>$ \\
+const auto \& \mbox{\hyperlink{classteqp_1_1DepartureContribution}{teqp\+::\+Departure\+Contribution}}$<$ FCollection, Departure\+Function\+Collection $>$\+::get\+\_\+F (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid_8hpp_source_l00089}{89}} of file \mbox{\hyperlink{multifluid_8hpp_source}{multifluid.\+hpp}}.
 
 
 

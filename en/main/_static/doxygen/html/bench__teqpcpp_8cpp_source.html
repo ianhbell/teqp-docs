@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -155,10 +157,10 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="aderivs_8hpp_html"><div class="ttname"><a href="derivs_8hpp.html">derivs.hpp</a></div></div>
 <div class="ttc" id="amultifluid_8hpp_html"><div class="ttname"><a href="multifluid_8hpp.html">multifluid.hpp</a></div></div>
 <div class="ttc" id="anamespaceteqp_1_1cppinterface_html"><div class="ttname"><a href="namespaceteqp_1_1cppinterface.html">teqp::cppinterface</a></div><div class="ttdef"><b>Definition</b> <a href="deriv__adapter_8hpp_source.html#l00008">deriv_adapter.hpp:8</a></div></div>
-<div class="ttc" id="anamespaceteqp_1_1cppinterface_html_a667d9cdc8dabc48e3280d8b481e60ee3"><div class="ttname"><a href="namespaceteqp_1_1cppinterface.html#a667d9cdc8dabc48e3280d8b481e60ee3">teqp::cppinterface::make_multifluid_model</a></div><div class="ttdeci">std::unique_ptr&lt; AbstractModel &gt; make_multifluid_model(const std::vector&lt; std::string &gt; &amp;components, const std::string &amp;coolprop_root, const std::string &amp;BIPcollectionpath={}, const nlohmann::json &amp;flags={}, const std::string &amp;departurepath={})</div><div class="ttdef"><b>Definition</b> <a href="teqp__impl__factory_8cpp_source.html#l00076">teqp_impl_factory.cpp:76</a></div></div>
+<div class="ttc" id="anamespaceteqp_1_1cppinterface_html_a667d9cdc8dabc48e3280d8b481e60ee3"><div class="ttname"><a href="namespaceteqp_1_1cppinterface.html#a667d9cdc8dabc48e3280d8b481e60ee3">teqp::cppinterface::make_multifluid_model</a></div><div class="ttdeci">std::unique_ptr&lt; AbstractModel &gt; make_multifluid_model(const std::vector&lt; std::string &gt; &amp;components, const std::string &amp;coolprop_root, const std::string &amp;BIPcollectionpath={}, const nlohmann::json &amp;flags={}, const std::string &amp;departurepath={})</div><div class="ttdef"><b>Definition</b> <a href="teqp__impl__factory_8cpp_source.html#l00085">teqp_impl_factory.cpp:85</a></div></div>
 <div class="ttc" id="anamespaceteqp_html"><div class="ttname"><a href="namespaceteqp.html">teqp</a></div><div class="ttdef"><b>Definition</b> <a href="ancillary__builder_8hpp_source.html#l00008">ancillary_builder.hpp:8</a></div></div>
-<div class="ttc" id="anamespaceteqp_html_aa7cdea08428a2326129dcbe83de69802"><div class="ttname"><a href="namespaceteqp.html#aa7cdea08428a2326129dcbe83de69802">teqp::build_multifluid_model</a></div><div class="ttdeci">auto build_multifluid_model(const std::vector&lt; std::string &gt; &amp;components, const std::string &amp;root, const std::string &amp;BIPcollectionpath={}, const nlohmann::json &amp;flags={}, const std::string &amp;departurepath={})</div><div class="ttdef"><b>Definition</b> <a href="multifluid_8hpp_source.html#l00962">multifluid.hpp:962</a></div></div>
-<div class="ttc" id="astructteqp_1_1TDXDerivatives_html"><div class="ttname"><a href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a></div><div class="ttdef"><b>Definition</b> <a href="derivs_8hpp_source.html#l00126">derivs.hpp:126</a></div></div>
+<div class="ttc" id="anamespaceteqp_html_aa7cdea08428a2326129dcbe83de69802"><div class="ttname"><a href="namespaceteqp.html#aa7cdea08428a2326129dcbe83de69802">teqp::build_multifluid_model</a></div><div class="ttdeci">auto build_multifluid_model(const std::vector&lt; std::string &gt; &amp;components, const std::string &amp;root, const std::string &amp;BIPcollectionpath={}, const nlohmann::json &amp;flags={}, const std::string &amp;departurepath={})</div><div class="ttdef"><b>Definition</b> <a href="multifluid_8hpp_source.html#l00984">multifluid.hpp:984</a></div></div>
+<div class="ttc" id="astructteqp_1_1TDXDerivatives_html"><div class="ttname"><a href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a></div><div class="ttdef"><b>Definition</b> <a href="derivs_8hpp_source.html#l00117">derivs.hpp:117</a></div></div>
 <div class="ttc" id="ateqpcpp_8hpp_html"><div class="ttname"><a href="teqpcpp_8hpp.html">teqpcpp.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

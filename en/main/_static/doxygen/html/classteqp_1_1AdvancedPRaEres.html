@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -155,7 +157,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a564a06bc95149a541b4dcd7af2e95d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa98d61bb927c9cf8719fea31d26ccc27" id="r_aa98d61bb927c9cf8719fea31d26ccc27"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa98d61bb927c9cf8719fea31d26ccc27">superanc_code</a> = <a class="el" href="namespaceteqp_1_1CubicSuperAncillary.html#a4f1aff916639fada1bf5e2cde841eb5b">CubicSuperAncillary::PR_CODE</a></td></tr>
 <tr class="separator:aa98d61bb927c9cf8719fea31d26ccc27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4ba5880b8fd8b1719266bd07d52c6cc" id="r_ab4ba5880b8fd8b1719266bd07d52c6cc"><td class="memItemLeft" align="right" valign="top">const NumType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4ba5880b8fd8b1719266bd07d52c6cc">Ru</a> = <a class="el" href="namespaceteqp.html#a2b7e9f6c1e890797284b6bd57d251379">get_R_gas</a>&lt;double&gt;()</td></tr>
+<tr class="memitem:ab4ba5880b8fd8b1719266bd07d52c6cc" id="r_ab4ba5880b8fd8b1719266bd07d52c6cc"><td class="memItemLeft" align="right" valign="top">const NumType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4ba5880b8fd8b1719266bd07d52c6cc">Ru</a> = <a class="el" href="namespaceteqp.html#aed0cabbf6a82a357adc773aa850566ea">get_R_gas</a>&lt;double&gt;()</td></tr>
 <tr class="separator:ab4ba5880b8fd8b1719266bd07d52c6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
@@ -1068,7 +1070,7 @@ template&lt;typename NumType , typename AlphaFunctions  = std::vector&lt;AlphaFu
 template&lt;typename NumType , typename AlphaFunctions  = std::vector&lt;AlphaFunctionOptions&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">const NumType <a class="el" href="classteqp_1_1AdvancedPRaEres.html">teqp::AdvancedPRaEres</a>&lt; NumType, AlphaFunctions &gt;::Ru = <a class="el" href="namespaceteqp.html#a2b7e9f6c1e890797284b6bd57d251379">get_R_gas</a>&lt;double&gt;()</td>
+          <td class="memname">const NumType <a class="el" href="classteqp_1_1AdvancedPRaEres.html">teqp::AdvancedPRaEres</a>&lt; NumType, AlphaFunctions &gt;::Ru = <a class="el" href="namespaceteqp.html#aed0cabbf6a82a357adc773aa850566ea">get_R_gas</a>&lt;double&gt;()</td>
         </tr>
       </table>
 </div><div class="memdoc">

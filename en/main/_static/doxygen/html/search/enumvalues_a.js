@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['residual_0',['residual',['../namespaceteqp.html#abb423904db0ac1c8261912ca4efc3272a4db598f63d4aea6a3c8eaddfe5c2b1e9',1,'teqp']]]
+  ['tk_5frhona3_5fpackingfraction_5fmolefractions_0',['TK_rhoNA3_packingfraction_molefractions',['../namespaceteqp_1_1SAFTpolar.html#a2f5ab14e51a33eaebd269cabb7ba214cae4984baf6ecaaab75e12d45efbc846dd',1,'teqp::SAFTpolar']]],
+  ['tk_5frhonm3_5frhostar_5fmolefractions_1',['TK_rhoNm3_rhostar_molefractions',['../namespaceteqp_1_1SAFTpolar.html#a2f5ab14e51a33eaebd269cabb7ba214ca3cbd679acd26dbde6cf6773a2136b4da',1,'teqp::SAFTpolar']]]
 ];

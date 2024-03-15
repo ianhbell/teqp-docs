@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -93,11 +95,12 @@ $(function() {
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>SAFTVRMieChainContributionTerms()&#160;:&#160;<a class="el" href="structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms.html#a29d73ad071227eec0a65b321c1ba9acd">teqp::SAFTVRMie::SAFTVRMieChainContributionTerms</a></li>
 <li>SAFTVRMieMixture()&#160;:&#160;<a class="el" href="classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture.html#ab91cd69e4ba51fc32456eaa8f6c851c5">teqp::SAFTVRMie::SAFTVRMieMixture</a></li>
-<li>set_meta()&#160;:&#160;<a class="el" href="classteqp_1_1AdvancedPRaEres.html#a5d1e55091f7f53c0c62d5f4fd235a793">teqp::AdvancedPRaEres&lt; NumType, AlphaFunctions &gt;</a>, <a class="el" href="classteqp_1_1GenericCubic.html#a5646f2ee45660f09e70e6018d96b895b">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a>, <a class="el" href="classteqp_1_1MultiFluid.html#a78d7e3c6c69575dd65f9fea3ec516a0c">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a>, <a class="el" href="classteqp_1_1MultiFluidAdapter.html#af352dd5c0f70e8c4070aecc9b8b98820">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></li>
-<li>size()&#160;:&#160;<a class="el" href="classteqp_1_1CorrespondingStatesContribution.html#a11f8099e2835618ecde6da39a6312eb7">teqp::CorrespondingStatesContribution&lt; EOSCollection &gt;</a>, <a class="el" href="classteqp_1_1EOSTermContainer.html#a0d03a81a2a69f869937f6494ad13739c">teqp::EOSTermContainer&lt; Args &gt;</a>, <a class="el" href="classteqp_1_1GERGGeneral_1_1GERG200XCorrespondingStatesTerm.html#a8e57a9ad4f6d25d128f593b195a08e1b">teqp::GERGGeneral::GERG200XCorrespondingStatesTerm</a>, <a class="el" href="classteqp_1_1ModelContainer.html#ae6994d8afc2b3c8dbd90f727bf7c5d88">teqp::ModelContainer&lt; Args &gt;</a></li>
-<li>sizes()&#160;:&#160;<a class="el" href="structteqp_1_1GERGGeneral_1_1DepartureCoeffs.html#ab2250acafdaaf69b8a7e9ba9d5d25eaa">teqp::GERGGeneral::DepartureCoeffs</a>, <a class="el" href="structteqp_1_1GERGGeneral_1_1PureCoeffs.html#a64bad69980be741cd0e05af2ef240d05">teqp::GERGGeneral::PureCoeffs</a></li>
+<li>set_meta()&#160;:&#160;<a class="el" href="classteqp_1_1AdvancedPRaEres.html#a5d1e55091f7f53c0c62d5f4fd235a793">teqp::AdvancedPRaEres&lt; NumType, AlphaFunctions &gt;</a>, <a class="el" href="classteqp_1_1GenericCubic.html#a5646f2ee45660f09e70e6018d96b895b">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a>, <a class="el" href="classteqp_1_1MultiFluid.html#a78d7e3c6c69575dd65f9fea3ec516a0c">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a>, <a class="el" href="classteqp_1_1MultiFluidAdapter.html#af352dd5c0f70e8c4070aecc9b8b98820">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a>, <a class="el" href="classteqp_1_1MultiFluidAdapter__Ecs.html#a5c813c8a8a4ba5269795ee58a99df9ce">teqp::MultiFluidAdapter_Ecs&lt; BaseClass &gt;</a></li>
+<li>size()&#160;:&#160;<a class="el" href="classteqp_1_1CorrespondingStatesContribution.html#a11f8099e2835618ecde6da39a6312eb7">teqp::CorrespondingStatesContribution&lt; EOSCollection &gt;</a>, <a class="el" href="classteqp_1_1CPA_1_1CPACubic.html#a355a4d9eb6339674cde7dee2a2c5ffe9">teqp::CPA::CPACubic</a>, <a class="el" href="classteqp_1_1EOSTermContainer.html#a0d03a81a2a69f869937f6494ad13739c">teqp::EOSTermContainer&lt; Args &gt;</a>, <a class="el" href="classteqp_1_1GERGGeneral_1_1GERG200XAlphaig.html#a0f87e75fb64bb4c6a6051fb261b35f47">teqp::GERGGeneral::GERG200XAlphaig</a>, <a class="el" href="classteqp_1_1GERGGeneral_1_1GERG200XCorrespondingStatesTerm.html#a0b2eb8149a35b8e65c4e08c517c44ee1">teqp::GERGGeneral::GERG200XCorrespondingStatesTerm</a>, <a class="el" href="classteqp_1_1ModelContainer.html#ae6994d8afc2b3c8dbd90f727bf7c5d88">teqp::ModelContainer&lt; Args &gt;</a></li>
+<li>sizes()&#160;:&#160;<a class="el" href="structteqp_1_1GERGGeneral_1_1AlphaigCoeffs.html#acedbe8c41cb13b722e5e087e65d0572c">teqp::GERGGeneral::AlphaigCoeffs</a>, <a class="el" href="structteqp_1_1GERGGeneral_1_1DepartureCoeffs.html#ab2250acafdaaf69b8a7e9ba9d5d25eaa">teqp::GERGGeneral::DepartureCoeffs</a>, <a class="el" href="structteqp_1_1GERGGeneral_1_1PureCoeffs.html#a64bad69980be741cd0e05af2ef240d05">teqp::GERGGeneral::PureCoeffs</a></li>
 <li>solve_pure_critical()&#160;:&#160;<a class="el" href="classteqp_1_1cppinterface_1_1AbstractModel.html#aad84ac400f0003843c8a780e51a8361c">teqp::cppinterface::AbstractModel</a></li>
 <li>sorted_eigen()&#160;:&#160;<a class="el" href="structteqp_1_1CriticalTracing.html#a1db77b056e8224fd776b88fcafd7fb60">teqp::CriticalTracing&lt; Model, Scalar, VecType &gt;</a></li>
+<li>successive_substitution()&#160;:&#160;<a class="el" href="classteqp_1_1association_1_1Association.html#ac06e5ee4acd915be9fff21d5ea5ebf2a">teqp::association::Association</a></li>
 <li>superanc_rhoLV()&#160;:&#160;<a class="el" href="classteqp_1_1AdvancedPRaEres.html#adf68748af800b1b7fe3e62e218fc4445">teqp::AdvancedPRaEres&lt; NumType, AlphaFunctions &gt;</a>, <a class="el" href="classteqp_1_1GenericCubic.html#aa0b56dfaaa60a54755f2a139ce122400">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a>, <a class="el" href="classteqp_1_1QuantumCorrectedPR.html#a59a99d09cf019d611512b3bf7125fa51">teqp::QuantumCorrectedPR</a></li>
 </ul>
 </div><!-- contents -->

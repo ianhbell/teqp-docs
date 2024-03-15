@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -163,7 +165,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="namespaceteqp.html#abbf9e7fce9e140cb1b40e0513e1edb9e">   63</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceteqp.html#abbf9e7fce9e140cb1b40e0513e1edb9e">error_if_expr</a>(T&amp;&amp; expr)</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="namespaceteqp.html#a8965192cd6c748672e60e8a77228d063">   63</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceteqp.html#a8965192cd6c748672e60e8a77228d063">error_if_expr</a>(T&amp;&amp; <span class="comment">/*expr*/</span>)</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keyword">using namespace </span>autodiff::detail;</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (isExpr&lt;T&gt;) {</div>
@@ -351,10 +353,10 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="anamespaceteqp_html_a54c35c0fca0f39185783efb600ccb586"><div class="ttname"><a href="namespaceteqp.html#a54c35c0fca0f39185783efb600ccb586">teqp::toeig</a></div><div class="ttdeci">auto toeig(const std::vector&lt; double &gt; &amp;v) -&gt; Eigen::ArrayXd</div><div class="ttdef"><b>Definition</b> <a href="#l00010">types.hpp:10</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_a641966211d5ef71d493fc52d3bd11a53"><div class="ttname"><a href="namespaceteqp.html#a641966211d5ef71d493fc52d3bd11a53">teqp::powIVi</a></div><div class="ttdeci">auto powIVi(const T &amp;x, const Eigen::ArrayXi &amp;e)</div><div class="ttdef"><b>Definition</b> <a href="#l00172">types.hpp:172</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_a79c1a1ea4876acd80e74721bba2361ce"><div class="ttname"><a href="namespaceteqp.html#a79c1a1ea4876acd80e74721bba2361ce">teqp::getbaseval</a></div><div class="ttdeci">auto getbaseval(const T &amp;expr)</div><div class="ttdef"><b>Definition</b> <a href="#l00084">types.hpp:84</a></div></div>
+<div class="ttc" id="anamespaceteqp_html_a8965192cd6c748672e60e8a77228d063"><div class="ttname"><a href="namespaceteqp.html#a8965192cd6c748672e60e8a77228d063">teqp::error_if_expr</a></div><div class="ttdeci">void error_if_expr(T &amp;&amp;)</div><div class="ttdef"><b>Definition</b> <a href="#l00063">types.hpp:63</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_a98adaf39b4207a01c2b8352de2640a68"><div class="ttname"><a href="namespaceteqp.html#a98adaf39b4207a01c2b8352de2640a68">teqp::powi</a></div><div class="ttdeci">T powi(const T &amp;x, int n)</div><div class="ttdoc">From Ulrich Deiters.</div><div class="ttdef"><b>Definition</b> <a href="#l00133">types.hpp:133</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_aa0812a3c14b8df38572406314014e130"><div class="ttname"><a href="namespaceteqp.html#aa0812a3c14b8df38572406314014e130">teqp::pow2</a></div><div class="ttdeci">T pow2(const T &amp;x)</div><div class="ttdef"><b>Definition</b> <a href="#l00007">types.hpp:7</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_aa915939e34912de1f87776858de32f9da1f9f65b69bb4d16b7fd15a809c59d6e6"><div class="ttname"><a href="namespaceteqp.html#aa915939e34912de1f87776858de32f9da1f9f65b69bb4d16b7fd15a809c59d6e6">teqp::ADBackends::autodiff</a></div><div class="ttdeci">@ autodiff</div></div>
-<div class="ttc" id="anamespaceteqp_html_abbf9e7fce9e140cb1b40e0513e1edb9e"><div class="ttname"><a href="namespaceteqp.html#abbf9e7fce9e140cb1b40e0513e1edb9e">teqp::error_if_expr</a></div><div class="ttdeci">void error_if_expr(T &amp;&amp;expr)</div><div class="ttdef"><b>Definition</b> <a href="#l00063">types.hpp:63</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_ad47d847ff6ba42d73eb1ffc3fcf270c8"><div class="ttname"><a href="namespaceteqp.html#ad47d847ff6ba42d73eb1ffc3fcf270c8">teqp::pow</a></div><div class="ttdeci">auto pow(const double &amp;x, const double &amp;e)</div><div class="ttdef"><b>Definition</b> <a href="#l00189">types.hpp:189</a></div></div>
 <div class="ttc" id="anamespaceteqp_html_adc93f32478a2bc846371e04d6b5ac726"><div class="ttname"><a href="namespaceteqp.html#adc93f32478a2bc846371e04d6b5ac726">teqp::forceeval</a></div><div class="ttdeci">auto forceeval(T &amp;&amp;expr)</div><div class="ttdef"><b>Definition</b> <a href="#l00046">types.hpp:46</a></div></div>
 <div class="ttc" id="astructteqp_1_1is__complex__t_html"><div class="ttname"><a href="structteqp_1_1is__complex__t.html">teqp::is_complex_t</a></div><div class="ttdef"><b>Definition</b> <a href="#l00072">types.hpp:72</a></div></div>

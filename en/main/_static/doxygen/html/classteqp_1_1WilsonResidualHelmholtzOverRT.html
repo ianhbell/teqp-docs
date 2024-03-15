@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -106,9 +108,9 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a799118bc60e8a638fa065bc26de8d074" id="r_a799118bc60e8a638fa065bc26de8d074"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a799118bc60e8a638fa065bc26de8d074">WilsonResidualHelmholtzOverRT</a> (const std::vector&lt; double &gt; &amp;<a class="el" href="#a1d7422c0c1d989a8f0f626aba9258471">b</a>, const Eigen::ArrayXXd &amp;<a class="el" href="#a1caffec7d763fc7b24fa92e8e1f6b41c">m</a>, const Eigen::ArrayXXd &amp;<a class="el" href="#abfe3e39ed32932b03d8aa23f9308b612">n</a>)</td></tr>
 <tr class="separator:a799118bc60e8a638fa065bc26de8d074"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76e0f8fe0f78d93a0d2e956891fe0c1a" id="r_a76e0f8fe0f78d93a0d2e956891fe0c1a"><td class="memTemplParams" colspan="2">template&lt;typename TType , typename MoleFractions &gt; </td></tr>
-<tr class="memitem:a76e0f8fe0f78d93a0d2e956891fe0c1a"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a76e0f8fe0f78d93a0d2e956891fe0c1a">combinatorial</a> (const TType &amp;T, const MoleFractions &amp;molefracs) const</td></tr>
-<tr class="separator:a76e0f8fe0f78d93a0d2e956891fe0c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac895597b50d725b678ed72025fe0d310" id="r_ac895597b50d725b678ed72025fe0d310"><td class="memTemplParams" colspan="2">template&lt;typename TType , typename MoleFractions &gt; </td></tr>
+<tr class="memitem:ac895597b50d725b678ed72025fe0d310"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac895597b50d725b678ed72025fe0d310">combinatorial</a> (const TType &amp;, const MoleFractions &amp;molefracs) const</td></tr>
+<tr class="separator:ac895597b50d725b678ed72025fe0d310"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0877f617370c86af551840158075f16" id="r_af0877f617370c86af551840158075f16"><td class="memTemplParams" colspan="2">template&lt;typename TType &gt; </td></tr>
 <tr class="memitem:af0877f617370c86af551840158075f16"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af0877f617370c86af551840158075f16">get_Aij</a> (std::size_t i, std::size_t j, const TType &amp;T) const</td></tr>
 <tr class="separator:af0877f617370c86af551840158075f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -195,8 +197,8 @@ template&lt;typename NumType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a76e0f8fe0f78d93a0d2e956891fe0c1a" name="a76e0f8fe0f78d93a0d2e956891fe0c1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76e0f8fe0f78d93a0d2e956891fe0c1a">&#9670;&#160;</a></span>combinatorial()</h2>
+<a id="ac895597b50d725b678ed72025fe0d310" name="ac895597b50d725b678ed72025fe0d310"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac895597b50d725b678ed72025fe0d310">&#9670;&#160;</a></span>combinatorial()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -211,7 +213,7 @@ template&lt;typename TType , typename MoleFractions &gt; </div>
         <tr>
           <td class="memname">auto <a class="el" href="classteqp_1_1WilsonResidualHelmholtzOverRT.html">teqp::WilsonResidualHelmholtzOverRT</a>&lt; NumType &gt;::combinatorial </td>
           <td>(</td>
-          <td class="paramtype">const TType &amp;</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+          <td class="paramtype">const TType &amp;</td>          <td class="paramname"><span class="paramname">, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>

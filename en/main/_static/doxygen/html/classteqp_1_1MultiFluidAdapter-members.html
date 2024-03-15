@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -101,11 +103,12 @@ $(function() {
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html#a772e9a151405c260fb0d0af70a104463">alphar</a>(const TType &amp;T, const RhoType &amp;rho, const MoleFracType &amp;molefrac) const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html#a8a485864a81f9af11b7d539e89bde298">base</a></td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html#aa94d415e3b99ee2d742842fec7644d76">dep</a></td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html#a8369a1ef73b7108dfb5b1da181afc1a1">get_meta</a>() const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html#a322bf2854e5dc2b7ae2bacb94b936f24">MultiFluidAdapter</a>(const BaseClass &amp;base, ReducingFunctions &amp;&amp;redfunc, DepartureFunction &amp;&amp;depfunc)</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html#a32e470c5edba99a520647ca0b9e1a835">R</a>(const VecType &amp;molefrac) const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html#a9f6f2d3601b5b4eec441a4429f4cd332">redfunc</a></td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html#af352dd5c0f70e8c4070aecc9b8b98820">set_meta</a>(const std::string &amp;m)</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html#a862746127474f072446c3fb2bd8ef350">get_BIP</a>(const std::size_t &amp;i, const std::size_t &amp;j, const std::string &amp;key) const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html#a8369a1ef73b7108dfb5b1da181afc1a1">get_meta</a>() const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html#a322bf2854e5dc2b7ae2bacb94b936f24">MultiFluidAdapter</a>(const BaseClass &amp;base, ReducingFunctions &amp;&amp;redfunc, DepartureFunction &amp;&amp;depfunc)</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html#a32e470c5edba99a520647ca0b9e1a835">R</a>(const VecType &amp;molefrac) const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html#a9f6f2d3601b5b4eec441a4429f4cd332">redfunc</a></td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html#af352dd5c0f70e8c4070aecc9b8b98820">set_meta</a>(const std::string &amp;m)</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidAdapter.html">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

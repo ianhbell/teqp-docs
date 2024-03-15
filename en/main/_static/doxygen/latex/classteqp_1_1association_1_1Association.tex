@@ -1,0 +1,237 @@
+\doxysection{teqp\+::association\+::Association Class Reference}
+\hypertarget{classteqp_1_1association_1_1Association}{}\label{classteqp_1_1association_1_1Association}\index{teqp::association::Association@{teqp::association::Association}}
+
+
+{\ttfamily \#include $<$association.\+hpp$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1association_1_1Association_1_1IndexMapper}{Index\+Mapper}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classteqp_1_1association_1_1Association_aaca1366cfaeac8e05035af473ad67fa9}{Comp\+Site}} = std\+::tuple$<$std\+::size\+\_\+t, std\+::string$>$
+\item 
+using \mbox{\hyperlink{classteqp_1_1association_1_1Association_a5e0641a749704598ec8d50f744a49d5b}{Comp\+CIndex}} = std\+::tuple$<$std\+::size\+\_\+t, std\+::size\+\_\+t$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1association_1_1Association_abbc03bb3028c2227c67ee465500126d0}{Association}} (const Eigen\+::\+Array\+Xd \&\mbox{\hyperlink{classteqp_1_1association_1_1Association_ae2c7e7dc49ccc26e8d5518bee8e9a41c}{b\+\_\+m3mol}}, const Eigen\+::\+Array\+Xd \&\mbox{\hyperlink{classteqp_1_1association_1_1Association_a9fde1dd36be4c3ca016fb574ad560655}{beta}}, const Eigen\+::\+Array\+Xd \&\mbox{\hyperlink{classteqp_1_1association_1_1Association_a0023a1f66b91026ac0f435ce8521e9a8}{epsilon\+\_\+\+Jmol}}, const std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ \&molecule\+\_\+sites, const \mbox{\hyperlink{structteqp_1_1association_1_1AssociationOptions}{Association\+Options}} \&\mbox{\hyperlink{classteqp_1_1association_1_1Association_ac396983cb2674c4ec4c5659b0c3bfe23}{options}})
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Fracs\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1association_1_1Association_a641818e3f6dc0d618ed8946faac3526a}{get\+\_\+\+Delta}} (const TType \&T, const Rho\+Type \&rhomolar, const Mole\+Fracs\+Type \&molefracs) const
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Fracs\+Type , typename XType $>$ }\\auto \mbox{\hyperlink{classteqp_1_1association_1_1Association_ac06e5ee4acd915be9fff21d5ea5ebf2a}{successive\+\_\+substitution}} (const TType \&T, const Rho\+Type \&rhomolar, const Mole\+Fracs\+Type \&molefracs, const XType \&X\+\_\+init) const
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Fracs\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1association_1_1Association_ae10d30da8a450022df42dbae367e6ae8}{alphar}} (const TType \&T, const Rho\+Type \&rhomolar, const Mole\+Fracs\+Type \&molefracs) const
+\begin{DoxyCompactList}\small\item\em Calculate the contribution $\alpha = a/(RT)$, where the Helmholtz energy $a$ is on a molar basis, making $\alpha$ dimensionless. \end{DoxyCompactList}\item 
+nlohmann\+::json \mbox{\hyperlink{classteqp_1_1association_1_1Association_a4c3abd0e09866edaca4b1fa2df06f3a8}{get\+\_\+assoc\+\_\+calcs}} (double T, double rhomolar, const Eigen\+::\+Array\+Xd \&mole\+\_\+fractions) const
+\begin{DoxyCompactList}\small\item\em Get things from the association calculations for debug purposes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1association_1_1Association_ae2c7e7dc49ccc26e8d5518bee8e9a41c}{b\+\_\+m3mol}}
+\begin{DoxyCompactList}\small\item\em The covolume b, in m\texorpdfstring{$^\wedge$}{\string^}3/mol. \end{DoxyCompactList}\item 
+const Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1association_1_1Association_a9fde1dd36be4c3ca016fb574ad560655}{beta}}
+\begin{DoxyCompactList}\small\item\em The volume factor, dimensionless. \end{DoxyCompactList}\item 
+const Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1association_1_1Association_a0023a1f66b91026ac0f435ce8521e9a8}{epsilon\+\_\+\+Jmol}}
+\begin{DoxyCompactList}\small\item\em The association energy of each molecule, in J/mol. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structteqp_1_1association_1_1AssociationOptions}{Association\+Options}} \mbox{\hyperlink{classteqp_1_1association_1_1Association_ac396983cb2674c4ec4c5659b0c3bfe23}{options}}
+\item 
+const \mbox{\hyperlink{structteqp_1_1association_1_1Association_1_1IndexMapper}{Index\+Mapper}} \mbox{\hyperlink{classteqp_1_1association_1_1Association_a8ac130ae6eb8175d61ae9d3e0d1d584d}{mapper}}
+\item 
+const Eigen\+::\+Array\+XXi \mbox{\hyperlink{classteqp_1_1association_1_1Association_abd933424f91f868610045d10c6b044f9}{D}}
+\item 
+const \mbox{\hyperlink{namespaceteqp_1_1association_a3250d1b61735bcb52ad62a47a542f13a}{radial\+\_\+dist}} \mbox{\hyperlink{classteqp_1_1association_1_1Association_ade5e6e14decf341a18d4f51826cfbcc8}{m\+\_\+radial\+\_\+dist}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{association_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{association_8hpp_source}{association.\+hpp}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classteqp_1_1association_1_1Association_a5e0641a749704598ec8d50f744a49d5b}\label{classteqp_1_1association_1_1Association_a5e0641a749704598ec8d50f744a49d5b} 
+\index{teqp::association::Association@{teqp::association::Association}!CompCIndex@{CompCIndex}}
+\index{CompCIndex@{CompCIndex}!teqp::association::Association@{teqp::association::Association}}
+\doxysubsubsection{\texorpdfstring{CompCIndex}{CompCIndex}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classteqp_1_1association_1_1Association_a5e0641a749704598ec8d50f744a49d5b}{teqp\+::association\+::\+Association\+::\+Comp\+CIndex}} = std\+::tuple$<$std\+::size\+\_\+t, std\+::size\+\_\+t$>$}
+
+
+
+Definition at line \mbox{\hyperlink{association_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{association_8hpp_source}{association.\+hpp}}.
+
+\Hypertarget{classteqp_1_1association_1_1Association_aaca1366cfaeac8e05035af473ad67fa9}\label{classteqp_1_1association_1_1Association_aaca1366cfaeac8e05035af473ad67fa9} 
+\index{teqp::association::Association@{teqp::association::Association}!CompSite@{CompSite}}
+\index{CompSite@{CompSite}!teqp::association::Association@{teqp::association::Association}}
+\doxysubsubsection{\texorpdfstring{CompSite}{CompSite}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classteqp_1_1association_1_1Association_aaca1366cfaeac8e05035af473ad67fa9}{teqp\+::association\+::\+Association\+::\+Comp\+Site}} = std\+::tuple$<$std\+::size\+\_\+t, std\+::string$>$}
+
+
+
+Definition at line \mbox{\hyperlink{association_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{association_8hpp_source}{association.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1association_1_1Association_abbc03bb3028c2227c67ee465500126d0}\label{classteqp_1_1association_1_1Association_abbc03bb3028c2227c67ee465500126d0} 
+\index{teqp::association::Association@{teqp::association::Association}!Association@{Association}}
+\index{Association@{Association}!teqp::association::Association@{teqp::association::Association}}
+\doxysubsubsection{\texorpdfstring{Association()}{Association()}}
+{\footnotesize\ttfamily teqp\+::association\+::\+Association\+::\+Association (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Array\+Xd \&}]{b\+\_\+m3mol,  }\item[{const Eigen\+::\+Array\+Xd \&}]{beta,  }\item[{const Eigen\+::\+Array\+Xd \&}]{epsilon\+\_\+\+Jmol,  }\item[{const std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ \&}]{molecule\+\_\+sites,  }\item[{const \mbox{\hyperlink{structteqp_1_1association_1_1AssociationOptions}{Association\+Options}} \&}]{options }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{association_8hpp_source_l00147}{147}} of file \mbox{\hyperlink{association_8hpp_source}{association.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1association_1_1Association_ae10d30da8a450022df42dbae367e6ae8}\label{classteqp_1_1association_1_1Association_ae10d30da8a450022df42dbae367e6ae8} 
+\index{teqp::association::Association@{teqp::association::Association}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::association::Association@{teqp::association::Association}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily template$<$typename TType , typename Rho\+Type , typename Mole\+Fracs\+Type $>$ \\
+auto teqp\+::association\+::\+Association\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Rho\+Type \&}]{rhomolar,  }\item[{const Mole\+Fracs\+Type \&}]{molefracs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate the contribution $\alpha = a/(RT)$, where the Helmholtz energy $a$ is on a molar basis, making $\alpha$ dimensionless. 
+
+
+
+Definition at line \mbox{\hyperlink{association_8hpp_source_l00237}{237}} of file \mbox{\hyperlink{association_8hpp_source}{association.\+hpp}}.
+
+\Hypertarget{classteqp_1_1association_1_1Association_a4c3abd0e09866edaca4b1fa2df06f3a8}\label{classteqp_1_1association_1_1Association_a4c3abd0e09866edaca4b1fa2df06f3a8} 
+\index{teqp::association::Association@{teqp::association::Association}!get\_assoc\_calcs@{get\_assoc\_calcs}}
+\index{get\_assoc\_calcs@{get\_assoc\_calcs}!teqp::association::Association@{teqp::association::Association}}
+\doxysubsubsection{\texorpdfstring{get\_assoc\_calcs()}{get\_assoc\_calcs()}}
+{\footnotesize\ttfamily nlohmann\+::json teqp\+::association\+::\+Association\+::get\+\_\+assoc\+\_\+calcs (\begin{DoxyParamCaption}\item[{double}]{T,  }\item[{double}]{rhomolar,  }\item[{const Eigen\+::\+Array\+Xd \&}]{mole\+\_\+fractions }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get things from the association calculations for debug purposes. 
+
+
+
+Definition at line \mbox{\hyperlink{association_8hpp_source_l00269}{269}} of file \mbox{\hyperlink{association_8hpp_source}{association.\+hpp}}.
+
+\Hypertarget{classteqp_1_1association_1_1Association_a641818e3f6dc0d618ed8946faac3526a}\label{classteqp_1_1association_1_1Association_a641818e3f6dc0d618ed8946faac3526a} 
+\index{teqp::association::Association@{teqp::association::Association}!get\_Delta@{get\_Delta}}
+\index{get\_Delta@{get\_Delta}!teqp::association::Association@{teqp::association::Association}}
+\doxysubsubsection{\texorpdfstring{get\_Delta()}{get\_Delta()}}
+{\footnotesize\ttfamily template$<$typename TType , typename Rho\+Type , typename Mole\+Fracs\+Type $>$ \\
+auto teqp\+::association\+::\+Association\+::get\+\_\+\+Delta (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Rho\+Type \&}]{rhomolar,  }\item[{const Mole\+Fracs\+Type \&}]{molefracs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Build the Delta matrix, where entries are given by  \[
+   \Delta_{IJ} = ...
+\] 
+
+Definition at line \mbox{\hyperlink{association_8hpp_source_l00157}{157}} of file \mbox{\hyperlink{association_8hpp_source}{association.\+hpp}}.
+
+\Hypertarget{classteqp_1_1association_1_1Association_ac06e5ee4acd915be9fff21d5ea5ebf2a}\label{classteqp_1_1association_1_1Association_ac06e5ee4acd915be9fff21d5ea5ebf2a} 
+\index{teqp::association::Association@{teqp::association::Association}!successive\_substitution@{successive\_substitution}}
+\index{successive\_substitution@{successive\_substitution}!teqp::association::Association@{teqp::association::Association}}
+\doxysubsubsection{\texorpdfstring{successive\_substitution()}{successive\_substitution()}}
+{\footnotesize\ttfamily template$<$typename TType , typename Rho\+Type , typename Mole\+Fracs\+Type , typename XType $>$ \\
+auto teqp\+::association\+::\+Association\+::successive\+\_\+substitution (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Rho\+Type \&}]{rhomolar,  }\item[{const Mole\+Fracs\+Type \&}]{molefracs,  }\item[{const XType \&}]{X\+\_\+init }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{association_8hpp_source_l00195}{195}} of file \mbox{\hyperlink{association_8hpp_source}{association.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1association_1_1Association_ae2c7e7dc49ccc26e8d5518bee8e9a41c}\label{classteqp_1_1association_1_1Association_ae2c7e7dc49ccc26e8d5518bee8e9a41c} 
+\index{teqp::association::Association@{teqp::association::Association}!b\_m3mol@{b\_m3mol}}
+\index{b\_m3mol@{b\_m3mol}!teqp::association::Association@{teqp::association::Association}}
+\doxysubsubsection{\texorpdfstring{b\_m3mol}{b\_m3mol}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+Xd teqp\+::association\+::\+Association\+::b\+\_\+m3mol}
+
+
+
+The covolume b, in m\texorpdfstring{$^\wedge$}{\string^}3/mol. 
+
+
+
+Definition at line \mbox{\hyperlink{association_8hpp_source_l00139}{139}} of file \mbox{\hyperlink{association_8hpp_source}{association.\+hpp}}.
+
+\Hypertarget{classteqp_1_1association_1_1Association_a9fde1dd36be4c3ca016fb574ad560655}\label{classteqp_1_1association_1_1Association_a9fde1dd36be4c3ca016fb574ad560655} 
+\index{teqp::association::Association@{teqp::association::Association}!beta@{beta}}
+\index{beta@{beta}!teqp::association::Association@{teqp::association::Association}}
+\doxysubsubsection{\texorpdfstring{beta}{beta}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+Xd teqp\+::association\+::\+Association\+::beta}
+
+
+
+The volume factor, dimensionless. 
+
+
+
+Definition at line \mbox{\hyperlink{association_8hpp_source_l00140}{140}} of file \mbox{\hyperlink{association_8hpp_source}{association.\+hpp}}.
+
+\Hypertarget{classteqp_1_1association_1_1Association_abd933424f91f868610045d10c6b044f9}\label{classteqp_1_1association_1_1Association_abd933424f91f868610045d10c6b044f9} 
+\index{teqp::association::Association@{teqp::association::Association}!D@{D}}
+\index{D@{D}!teqp::association::Association@{teqp::association::Association}}
+\doxysubsubsection{\texorpdfstring{D}{D}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+XXi teqp\+::association\+::\+Association\+::D}
+
+
+
+Definition at line \mbox{\hyperlink{association_8hpp_source_l00144}{144}} of file \mbox{\hyperlink{association_8hpp_source}{association.\+hpp}}.
+
+\Hypertarget{classteqp_1_1association_1_1Association_a0023a1f66b91026ac0f435ce8521e9a8}\label{classteqp_1_1association_1_1Association_a0023a1f66b91026ac0f435ce8521e9a8} 
+\index{teqp::association::Association@{teqp::association::Association}!epsilon\_Jmol@{epsilon\_Jmol}}
+\index{epsilon\_Jmol@{epsilon\_Jmol}!teqp::association::Association@{teqp::association::Association}}
+\doxysubsubsection{\texorpdfstring{epsilon\_Jmol}{epsilon\_Jmol}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+Xd teqp\+::association\+::\+Association\+::epsilon\+\_\+\+Jmol}
+
+
+
+The association energy of each molecule, in J/mol. 
+
+
+
+Definition at line \mbox{\hyperlink{association_8hpp_source_l00141}{141}} of file \mbox{\hyperlink{association_8hpp_source}{association.\+hpp}}.
+
+\Hypertarget{classteqp_1_1association_1_1Association_ade5e6e14decf341a18d4f51826cfbcc8}\label{classteqp_1_1association_1_1Association_ade5e6e14decf341a18d4f51826cfbcc8} 
+\index{teqp::association::Association@{teqp::association::Association}!m\_radial\_dist@{m\_radial\_dist}}
+\index{m\_radial\_dist@{m\_radial\_dist}!teqp::association::Association@{teqp::association::Association}}
+\doxysubsubsection{\texorpdfstring{m\_radial\_dist}{m\_radial\_dist}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespaceteqp_1_1association_a3250d1b61735bcb52ad62a47a542f13a}{radial\+\_\+dist}} teqp\+::association\+::\+Association\+::m\+\_\+radial\+\_\+dist}
+
+
+
+Definition at line \mbox{\hyperlink{association_8hpp_source_l00145}{145}} of file \mbox{\hyperlink{association_8hpp_source}{association.\+hpp}}.
+
+\Hypertarget{classteqp_1_1association_1_1Association_a8ac130ae6eb8175d61ae9d3e0d1d584d}\label{classteqp_1_1association_1_1Association_a8ac130ae6eb8175d61ae9d3e0d1d584d} 
+\index{teqp::association::Association@{teqp::association::Association}!mapper@{mapper}}
+\index{mapper@{mapper}!teqp::association::Association@{teqp::association::Association}}
+\doxysubsubsection{\texorpdfstring{mapper}{mapper}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structteqp_1_1association_1_1Association_1_1IndexMapper}{Index\+Mapper}} teqp\+::association\+::\+Association\+::mapper}
+
+
+
+Definition at line \mbox{\hyperlink{association_8hpp_source_l00143}{143}} of file \mbox{\hyperlink{association_8hpp_source}{association.\+hpp}}.
+
+\Hypertarget{classteqp_1_1association_1_1Association_ac396983cb2674c4ec4c5659b0c3bfe23}\label{classteqp_1_1association_1_1Association_ac396983cb2674c4ec4c5659b0c3bfe23} 
+\index{teqp::association::Association@{teqp::association::Association}!options@{options}}
+\index{options@{options}!teqp::association::Association@{teqp::association::Association}}
+\doxysubsubsection{\texorpdfstring{options}{options}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structteqp_1_1association_1_1AssociationOptions}{Association\+Options}} teqp\+::association\+::\+Association\+::options}
+
+
+
+Definition at line \mbox{\hyperlink{association_8hpp_source_l00142}{142}} of file \mbox{\hyperlink{association_8hpp_source}{association.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/association/\mbox{\hyperlink{association_8hpp}{association.\+hpp}}\end{DoxyCompactItemize}

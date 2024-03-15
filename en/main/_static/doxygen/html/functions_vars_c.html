@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -91,7 +93,7 @@ $(function() {
 <div class="textblock">Here is a list of all variables with links to the classes they belong to:</div>
 
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>c&#160;:&#160;<a class="el" href="structteqp_1_1GERGGeneral_1_1PureCoeffs.html#a24ce3b8a8b0163584fd6f208fa125ec1">teqp::GERGGeneral::PureCoeffs</a>, <a class="el" href="classteqp_1_1IdealHelmholtzCp0Constant.html#a79d1f727ae0542271a1dd8350d3c7520">teqp::IdealHelmholtzCp0Constant</a>, <a class="el" href="classteqp_1_1IdealHelmholtzCp0PowerT.html#a9635d2f0f3052928acfe36c8726253b2">teqp::IdealHelmholtzCp0PowerT</a>, <a class="el" href="classteqp_1_1IdealHelmholtzPlanckEinsteinGeneralized.html#a0d83b8c2b0212a46156dc25a5305fc0f">teqp::IdealHelmholtzPlanckEinsteinGeneralized</a></li>
+<li>c&#160;:&#160;<a class="el" href="structteqp_1_1GERGGeneral_1_1PureCoeffs.html#a24ce3b8a8b0163584fd6f208fa125ec1">teqp::GERGGeneral::PureCoeffs</a>, <a class="el" href="classteqp_1_1IdealHelmholtzCp0Constant.html#a79d1f727ae0542271a1dd8350d3c7520">teqp::IdealHelmholtzCp0Constant</a>, <a class="el" href="classteqp_1_1IdealHelmholtzCp0PowerT.html#a9635d2f0f3052928acfe36c8726253b2">teqp::IdealHelmholtzCp0PowerT</a>, <a class="el" href="classteqp_1_1IdealHelmholtzPlanckEinsteinGeneralized.html#a0d83b8c2b0212a46156dc25a5305fc0f">teqp::IdealHelmholtzPlanckEinsteinGeneralized</a>, <a class="el" href="structteqp_1_1LKP_1_1LKPFluidParameters.html#ae678d1bf9e13e9c738e1e98267b6f292">teqp::LKP::LKPFluidParameters</a></li>
 <li>C&#160;:&#160;<a class="el" href="classteqp_1_1NonAnalyticEOSTerm.html#ac722d3cdd6079efe65a262b8b845ee2c">teqp::NonAnalyticEOSTerm</a></li>
 <li>c&#160;:&#160;<a class="el" href="classteqp_1_1PowerEOSTerm.html#af7bd7793a6bac3f013a27added7e1698">teqp::PowerEOSTerm</a></li>
 <li>C&#160;:&#160;<a class="el" href="classteqp_1_1SAFTpolar_1_1GubbinsTwuJIntegral.html#a6d896fe5aba9ff2e1fb64b81fa84bcba">teqp::SAFTpolar::GubbinsTwuJIntegral</a>, <a class="el" href="classteqp_1_1SAFTpolar_1_1GubbinsTwuKIntegral.html#a1c0a387ea91e22c5cbb27d83e209b0e5">teqp::SAFTpolar::GubbinsTwuKIntegral</a></li>
@@ -107,8 +109,12 @@ $(function() {
 <li>CEoS&#160;:&#160;<a class="el" href="classteqp_1_1AdvancedPRaEres.html#aa87df3c5773c819ed9dae188c3b64a40">teqp::AdvancedPRaEres&lt; NumType, AlphaFunctions &gt;</a></li>
 <li>code&#160;:&#160;<a class="el" href="classteqp_1_1teqpcException.html#a970b5b8d51e688f4ee12905accc88d29">teqp::teqpcException</a>, <a class="el" href="classteqp_1_1teqpException.html#ae543a4dc6d2b3878c13d8b46bab097e0">teqp::teqpException</a></li>
 <li>coeff&#160;:&#160;<a class="el" href="structteqp_1_1CubicSuperAncillary_1_1Chebyshev.html#a84b67f38e55917c863ffc5aeaa37c067">teqp::CubicSuperAncillary::Chebyshev</a></li>
+<li>coeffs&#160;:&#160;<a class="el" href="classteqp_1_1GERGGeneral_1_1GERG200XAlphaig.html#a9795bdb6267daab417332594c1c93af9">teqp::GERGGeneral::GERG200XAlphaig</a></li>
+<li>comp_index&#160;:&#160;<a class="el" href="structteqp_1_1association_1_1Association_1_1IndexMapper.html#a463029d9f34366539e1c147189a12412">teqp::association::Association::IndexMapper</a></li>
+<li>CompCIndex_to_siteid&#160;:&#160;<a class="el" href="structteqp_1_1association_1_1Association_1_1IndexMapper.html#a85693e160c2cce47a14cf9bed45dbbee">teqp::association::Association::IndexMapper</a></li>
 <li>contributions&#160;:&#160;<a class="el" href="classteqp_1_1PureIdealHelmholtz.html#aa0d980d535cdd0fd05777dc85c8630fe">teqp::PureIdealHelmholtz</a></li>
 <li>corr&#160;:&#160;<a class="el" href="classteqp_1_1GERG2004_1_1GERG2004ResidualModel.html#a7b57199f6d4130eff44491f874aff3ec">teqp::GERG2004::GERG2004ResidualModel</a>, <a class="el" href="classteqp_1_1GERG2008_1_1GERG2008ResidualModel.html#ae57bb7d11d2782336aa08601ba23073e">teqp::GERG2008::GERG2008ResidualModel</a>, <a class="el" href="classteqp_1_1MultiFluid.html#a28a6d18f587f3d1169b2d62942503caa">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a></li>
+<li>counts&#160;:&#160;<a class="el" href="structteqp_1_1association_1_1Association_1_1IndexMapper.html#acf5acbaae145bda3237831d9bbba2bbe">teqp::association::Association::IndexMapper</a></li>
 <li>cq&#160;:&#160;<a class="el" href="classteqp_1_1twocenterljf_1_1ParameterContainer.html#aba6f6fc5e5c185fc8d1b17a839da8545">teqp::twocenterljf::ParameterContainer</a></li>
 <li>crit_termination&#160;:&#160;<a class="el" href="structteqp_1_1PVLEOptions.html#a74702cf99b284e60dd1c043d877da1d0">teqp::PVLEOptions</a>, <a class="el" href="structteqp_1_1TVLEOptions.html#a4a762810b05ad2dd5a8146681ae0bc0b">teqp::TVLEOptions</a></li>
 <li>crnij&#160;:&#160;<a class="el" href="structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms.html#aa1c61bab525fb55ac60f45eb8399de0d">teqp::SAFTVRMie::SAFTVRMieChainContributionTerms</a></li>

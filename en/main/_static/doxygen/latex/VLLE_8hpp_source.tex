@@ -256,7 +256,7 @@
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00255}\mbox{\hyperlink{namespaceteqp_1_1VLLE_ad553eb6ef7c3a743bd25e41d2d4b803d}{00255}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_1_1VLLE_ad553eb6ef7c3a743bd25e41d2d4b803d}{get\_self\_intersections}}(Iterable\&\ x,\ Iterable\&\ y)\ \{}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00256}00256\ \ \ \ \ \ \ \ \ Eigen::Array22d\ A;}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00257}00257\ \ \ \ \ \ \ \ \ std::vector<SelfIntersectionSolution>\ solns;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0;\ j\ <\ x.size()\ -\/\ 1;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0U;\ j\ <\ x.size()\ -\/\ 1;\ ++j)\ \{}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ p0\ =\ (Eigen::Array2d()\ <<\ x[j],\ y[j]).finished();}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ p1\ =\ (Eigen::Array2d()\ <<\ x[j\ +\ 1],\ y[j\ +\ 1]).finished();}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ A.col(0)\ =\ p1\ -\/\ p0;}
@@ -278,11 +278,11 @@
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00277}\mbox{\hyperlink{namespaceteqp_1_1VLLE_a25c672abedcc4ff0aee012da5be0581f}{00277}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_1_1VLLE_a25c672abedcc4ff0aee012da5be0581f}{get\_cross\_intersections}}(Iterable\&\ x1,\ Iterable\&\ y1,\ Iterable\&\ x2,\ Iterable\&\ y2)\ \{}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00278}00278\ \ \ \ \ \ \ \ \ Eigen::Array22d\ A;}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00279}00279\ \ \ \ \ \ \ \ \ std::vector<SelfIntersectionSolution>\ solns;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0;\ j\ <\ x1.size()\ -\/\ 1;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0U;\ j\ <\ x1.size()\ -\/\ 1;\ ++j)\ \{}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ p0\ =\ (Eigen::Array2d()\ <<\ x1[j],\ y1[j]).finished();}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ p1\ =\ (Eigen::Array2d()\ <<\ x1[j\ +\ 1],\ y1[j\ +\ 1]).finished();}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ A.col(0)\ =\ p1\ -\/\ p0;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ 0;\ k\ <\ x2.size()\ -\/\ 1;\ ++k)\ \{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ 0U;\ k\ <\ x2.size()\ -\/\ 1;\ ++k)\ \{}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ q0\ =\ (Eigen::Array2d()\ <<\ x2[k],\ y2[k]).finished();}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ q1\ =\ (Eigen::Array2d()\ <<\ x2[k\ +\ 1],\ y2[k\ +\ 1]).finished();}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A.col(1)\ =\ q0\ -\/\ q1;}
@@ -329,12 +329,12 @@
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//auto\&\ trace\ =\ traces[0];}}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00329}00329\ }
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ process\_intersection\ =\ [\&](\textcolor{keyword}{auto}\&\ trace,\ \textcolor{keyword}{auto}\&\ i)\ \{}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rhoL1\ =\ avg\_values(traces[0][i.j],\ traces[0][i.j\ +\ 1],\ \textcolor{stringliteral}{"{}rhoL\ /\ mol/m\string^3"{}},\ i.s);}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rhoL2\ =\ avg\_values(traces[0][i.k],\ traces[0][i.k\ +\ 1],\ \textcolor{stringliteral}{"{}rhoL\ /\ mol/m\string^3"{}},\ i.t);}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rhoV\ =\ avg\_values(traces[0][i.j],\ traces[0][i.j\ +\ 1],\ \textcolor{stringliteral}{"{}rhoV\ /\ mol/m\string^3"{}},\ i.s);}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rhoL1\ =\ avg\_values(trace[i.j],\ trace[i.j\ +\ 1],\ \textcolor{stringliteral}{"{}rhoL\ /\ mol/m\string^3"{}},\ i.s);}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rhoL2\ =\ avg\_values(trace[i.k],\ trace[i.k\ +\ 1],\ \textcolor{stringliteral}{"{}rhoL\ /\ mol/m\string^3"{}},\ i.t);}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rhoV\ =\ avg\_values(trace[i.j],\ trace[i.j\ +\ 1],\ \textcolor{stringliteral}{"{}rhoV\ /\ mol/m\string^3"{}},\ i.s);}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00334}00334\ }
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (key\ ==\ \textcolor{stringliteral}{"{}T"{}})\{}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ T\ =\ traces[0][0].at(\textcolor{stringliteral}{"{}T\ /\ K"{}});\ \textcolor{comment}{//\ All\ at\ same\ temperature}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ T\ =\ trace[0].at(\textcolor{stringliteral}{"{}T\ /\ K"{}});\ \textcolor{comment}{//\ All\ at\ same\ temperature}}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00337}00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00338}00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Polish\ the\ solution}}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00339}00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [code,\ rhoVfinal,\ rhoL1final,\ rhoL2final]\ =\ \mbox{\hyperlink{namespaceteqp_1_1VLLE_ae25bbb62557baebe155d55f4f1aa850d}{mix\_VLLE\_T}}(model,\ T,\ rhoV,\ rhoL1,\ rhoL2,\ 1e-\/10,\ 1e-\/10,\ 1e-\/10,\ 1e-\/10,\ opt.max\_steps);}
@@ -347,7 +347,7 @@
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (key\ ==\ \textcolor{stringliteral}{"{}P"{}})\{}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ p\ =\ traces[0][0].at(\textcolor{stringliteral}{"{}pL\ /\ Pa"{}});\ \textcolor{comment}{//\ all\ at\ same\ pressure}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ p\ =\ trace[0].at(\textcolor{stringliteral}{"{}pL\ /\ Pa"{}});\ \textcolor{comment}{//\ all\ at\ same\ pressure}}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Polish\ the\ solution}}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [code,\ Tfinal,\ rhoVfinal,\ rhoL1final,\ rhoL2final]\ =\ \mbox{\hyperlink{namespaceteqp_1_1VLLE_a7d999c4035b914065f050670121e84b8}{mix\_VLLE\_p}}(model,\ p,\ i.y,\ rhoV,\ rhoL1,\ rhoL2,\ 1e-\/10,\ 1e-\/10,\ 1e-\/10,\ 1e-\/10,\ opt.max\_steps);}
@@ -401,7 +401,7 @@
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00401}00401\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ intersections\ =\ \mbox{\hyperlink{namespaceteqp_1_1VLLE_a25c672abedcc4ff0aee012da5be0581f}{get\_cross\_intersections}}(x1,\ y1,\ x2,\ y2);}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00402}00402\ }
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ process\_intersection\ =\ [\&](\textcolor{keyword}{auto}\&\ trace,\ \textcolor{keyword}{auto}\&\ i)\ \{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ process\_intersection\ =\ [\&](\textcolor{keyword}{auto}\&\ i)\ \{}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rhoL1\ =\ avg\_values(traces[0][i.j],\ traces[0][i.j\ +\ 1],\ \textcolor{stringliteral}{"{}rhoL\ /\ mol/m\string^3"{}},\ i.s);}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rhoL2\ =\ avg\_values(traces[1][i.k],\ traces[1][i.k\ +\ 1],\ \textcolor{stringliteral}{"{}rhoL\ /\ mol/m\string^3"{}},\ i.t);}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rhoV\ =\ avg\_values(traces[0][i.j],\ traces[0][i.j\ +\ 1],\ \textcolor{stringliteral}{"{}rhoV\ /\ mol/m\string^3"{}},\ i.s);}
@@ -440,7 +440,7 @@
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00439}00439\ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00440}00440\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ intersection\ :\ intersections)\ \{}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00441}00441\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00442}00442\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ soln\ =\ process\_intersection(traces[0],\ intersection);}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00442}00442\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ soln\ =\ process\_intersection(intersection);}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00443}00443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rhovecL1\ =\ soln.at(\textcolor{stringliteral}{"{}polished"{}})[1].template\ get<std::valarray<double>>();}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00444}00444\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rhovecL2\ =\ soln.at(\textcolor{stringliteral}{"{}polished"{}})[2].template\ get<std::valarray<double>>();}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00445}00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rhodiff\ =\ 100*(rhovecL1.sum()\ /\ rhovecL2.sum()\ -\/\ 1);}
@@ -504,7 +504,7 @@
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00513}00513\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(drhovecVdT,\ drhovecL1dT,\ drhovecL2dT);}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00514}00514\ \ \ \ \ \};}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00515}00515\ }
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00519}\mbox{\hyperlink{namespaceteqp_1_1VLLE_a0b7c589416929bd8506bfb4843b7df8e}{00519}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_1_1VLLE_a0b7c589416929bd8506bfb4843b7df8e}{trace\_VLLE\_binary}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp::VLLE::AbstractModel}}\&\ model,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ Tinit,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\&\ rhovecV,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\&\ rhovecL1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\&\ rhovecL2,\ \textcolor{keyword}{const}\ std::optional<VLLETracerOptions>\&\ options\_\ =\ std::nullopt)\{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00519}\mbox{\hyperlink{namespaceteqp_1_1VLLE_ad06002c4e40d0be75fda7f3f51b9ce0a}{00519}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_1_1VLLE_ad06002c4e40d0be75fda7f3f51b9ce0a}{trace\_VLLE\_binary}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp::VLLE::AbstractModel}}\&\ model,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ Tinit,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\&\ rhovecVinit,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\&\ rhovecL1init,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\&\ rhovecL2init,\ \textcolor{keyword}{const}\ std::optional<VLLETracerOptions>\&\ options\_\ =\ std::nullopt)\{}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00520}00520\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ options\ =\ options\_.value\_or(\mbox{\hyperlink{structteqp_1_1VLLE_1_1VLLETracerOptions}{VLLETracerOptions}}());}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00521}00521\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00522}00522\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Typedefs\ for\ the\ types\ for\ odeint\ for\ simple\ Euler\ and\ RK45\ integrators}}
@@ -531,80 +531,112 @@
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00543}00543\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ abs\_err\ =\ options.abs\_err,\ rel\_err\ =\ options.rel\_err,\ a\_x\ =\ 1.0,\ a\_dxdt\ =\ 1.0;}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00544}00544\ \ \ \ \ \ \ \ \ controlled\_stepper\_type\ controlled\_stepper(default\_error\_checker<\ double,\ range\_algebra,\ default\_operations\ >(abs\_err,\ rel\_err,\ a\_x,\ a\_dxdt));}
 \DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00545}00545\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00546}00546\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ T\ =\ Tinit,\ dT\ =\ options.init\_dT;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00547}00547\ \ \ \ \ \ \ \ \ state\_type\ x0(3*2);}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00548}00548\ \ \ \ \ \ \ \ \ Eigen::Map<Eigen::ArrayXd>(\&(x0[0]),\ 2)\ =\ rhovecV;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00549}00549\ \ \ \ \ \ \ \ \ Eigen::Map<Eigen::ArrayXd>(\&(x0[0])\ +\ 2,\ 2)\ =\ rhovecL1;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00550}00550\ \ \ \ \ \ \ \ \ Eigen::Map<Eigen::ArrayXd>(\&(x0[0])\ +\ 4,\ 2)\ =\ rhovecL2;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00551}00551\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00552}00552\ \ \ \ \ \ \ \ \ nlohmann::json\ data\_collector\ =\ nlohmann::json::array();}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00553}00553\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ iter\ =\ 0;\ iter\ <\ options.max\_step\_count;\ ++iter)\ \{}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00554}00554\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ retry\_count\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00555}00555\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00556}00556\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ res\ =\ controlled\_step\_result::fail;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00557}00557\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00558}00558\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res\ =\ controlled\_stepper.try\_step(xprime,\ x0,\ T,\ dT);}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00559}00559\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00560}00560\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\ \&e)\ \{}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00561}00561\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.verbosity\ >\ 0)\ \{}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00562}00562\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ e.what()\ <<\ std::endl;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00563}00563\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00564}00564\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00565}00565\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00566}00566\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (res\ !=\ controlled\_step\_result::success)\ \{}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00568}00568\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Try\ again,\ with\ a\ smaller\ step\ size}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00569}00569\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iter-\/-\/;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00570}00570\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ retry\_count++;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00571}00571\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00572}00572\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00573}00573\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00574}00574\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ retry\_count\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00575}00575\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00576}00576\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reduce\ step\ size\ if\ greater\ than\ the\ specified\ max\ step\ size}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00577}00577\ \ \ \ \ \ \ \ \ \ \ \ \ dT\ =\ std::min(dT,\ options.max\_dT);}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00578}00578\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00579}00579\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Polish\ if\ requested}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00580}00580\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.polish)\{}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00581}00581\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [code,\ rhovecVnew,\ rhovecL1new,\ rhovecL2new]\ =\ \mbox{\hyperlink{namespaceteqp_1_1VLLE_ae25bbb62557baebe155d55f4f1aa850d}{teqp::VLLE::mix\_VLLE\_T}}(model,\ T,\ rhovecV,\ rhovecL1,\ rhovecL2,\ 1e-\/10,\ 1e-\/10,\ 1e-\/10,\ 1e-\/10,\ options.max\_polish\_steps);}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00582}00582\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Map<Eigen::ArrayXd>(\&(x0[0]),\ 2)\ =\ rhovecVnew;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00583}00583\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Map<Eigen::ArrayXd>(\&(x0[0])\ +\ 2,\ 2)\ =\ rhovecL1new;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00584}00584\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Map<Eigen::ArrayXd>(\&(x0[0])\ +\ 4,\ 2)\ =\ rhovecL2new;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00585}00585\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00586}00586\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00587}00587\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ rhovecV\_\ =\ Eigen::Map<const\ Eigen::ArrayXd>(\&(x0[0]),\ 2),}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00588}00588\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rhovecL1\_\ =\ Eigen::Map<const\ Eigen::ArrayXd>(\&(x0[0])\ +\ 2,\ 2),}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00589}00589\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rhovecL2\_\ =\ Eigen::Map<const\ Eigen::ArrayXd>(\&(x0[0])\ +\ 4,\ 2);}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00590}00590\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00591}00591\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ critV\ =\ model.\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a7acd8edc964ae12560b654c27aac817c}{get\_criticality\_conditions}}(T,\ rhovecV\_);}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00592}00592\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ critL1\ =\ model.\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a7acd8edc964ae12560b654c27aac817c}{get\_criticality\_conditions}}(T,\ rhovecL1\_);}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00593}00593\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ critL2\ =\ model.\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a7acd8edc964ae12560b654c27aac817c}{get\_criticality\_conditions}}(T,\ rhovecL2\_);}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00594}00594\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00595}00595\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.verbosity\ >\ 100)\{}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00596}00596\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[T,x0L1,x0L2,x0V]:\ "{}}\ <<\ T\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ rhovecL1\_[0]/rhovecL1\_.sum()\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ rhovecL2\_[0]/rhovecL2\_.sum()\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ rhovecV\_[0]/rhovecV\_.sum()\ <<\ std::endl;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00597}00597\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[crits]:\ "{}}\ <<\ critV\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ critL1\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ critL2\ <<\ std::endl;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00598}00598\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00599}00599\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00600}00600\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.terminate\_composition)\{}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00601}00601\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ x0\ =\ (Eigen::ArrayXd(3)\ <<\ rhovecL1[0]/rhovecL1.sum(),\ rhovecL2[0]/rhovecL2.sum(),\ rhovecV[0]/rhovecV.sum()).finished();}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00602}00602\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ diffs\ =\ (Eigen::ArrayXd(3)\ <<\ x0[0]-\/x0[1],\ x0[0]-\/x0[2],\ x0[1]-\/x0[2]).finished();}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00603}00603\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((diffs.cwiseAbs()\ <\ options.terminate\_composition\_tol).any())\{}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00604}00604\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00605}00605\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00606}00606\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00607}00607\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00608}00608\ \ \ \ \ \ \ \ \ \ \ \ \ nlohmann::json\ entry\{}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00609}00609\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}T\ /\ K"{}},\ T\},}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00610}00610\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}rhoL1\ /\ mol/m\string^3"{}},\ rhovecL1\},}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00611}00611\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}rhoL2\ /\ mol/m\string^3"{}},\ rhovecL2\},}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00612}00612\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}rhoV\ /\ mol/m\string^3"{}},\ rhovecV\}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00613}00613\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00614}00614\ \ \ \ \ \ \ \ \ \ \ \ \ data\_collector.push\_back(entry);}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00615}00615\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00616}00616\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ data\_collector;}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00617}00617\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00618}00618\ }
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00619}00619\ \}}
-\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00620}00620\ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00546}00546\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Copy\ variables\ into\ the\ stepping\ array}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00547}00547\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ T\ =\ Tinit,\ dT\ =\ options.init\_dT;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00548}00548\ \ \ \ \ \ \ \ \ state\_type\ x0(3*2);}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00549}00549\ \ \ \ \ \ \ \ \ Eigen::Map<Eigen::ArrayXd>(\&(x0[0]),\ 2)\ =\ rhovecVinit;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00550}00550\ \ \ \ \ \ \ \ \ Eigen::Map<Eigen::ArrayXd>(\&(x0[0])\ +\ 2,\ 2)\ =\ rhovecL1init;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00551}00551\ \ \ \ \ \ \ \ \ Eigen::Map<Eigen::ArrayXd>(\&(x0[0])\ +\ 4,\ 2)\ =\ rhovecL2init;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00552}00552\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00553}00553\ \ \ \ \ \ \ \ \ nlohmann::json\ data\_collector\ =\ nlohmann::json::array();}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00554}00554\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ iter\ =\ 0;\ iter\ <\ options.max\_step\_count;\ ++iter)\ \{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00555}00555\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ retry\_count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00556}00556\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00557}00557\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ res\ =\ controlled\_step\_result::fail;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00558}00558\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00559}00559\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res\ =\ controlled\_stepper.try\_step(xprime,\ x0,\ T,\ dT);}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00560}00560\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00561}00561\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\ \&e)\ \{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00562}00562\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.verbosity\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00563}00563\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ e.what()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00564}00564\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00565}00565\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00566}00566\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00568}00568\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (res\ !=\ controlled\_step\_result::success)\ \{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00569}00569\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Try\ again,\ with\ a\ smaller\ step\ size}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00570}00570\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iter-\/-\/;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00571}00571\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ retry\_count++;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00572}00572\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00573}00573\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00574}00574\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00575}00575\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ retry\_count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00576}00576\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00577}00577\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reduce\ step\ size\ if\ greater\ than\ the\ specified\ max\ step\ size}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00578}00578\ \ \ \ \ \ \ \ \ \ \ \ \ dT\ =\ std::min(dT,\ options.max\_dT);}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00579}00579\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00580}00580\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ rhovecV\ =\ Eigen::Map<const\ Eigen::ArrayXd>(\&(x0[0]),\ 2),}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00581}00581\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rhovecL1\ =\ Eigen::Map<const\ Eigen::ArrayXd>(\&(x0[0])\ +\ 2,\ 2),}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00582}00582\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rhovecL2\ =\ Eigen::Map<const\ Eigen::ArrayXd>(\&(x0[0])\ +\ 4,\ 2);}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00583}00583\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00584}00584\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Polish\ if\ requested}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00585}00585\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.polish)\{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00586}00586\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [code,\ rhovecVnew,\ rhovecL1new,\ rhovecL2new]\ =\ \mbox{\hyperlink{namespaceteqp_1_1VLLE_ae25bbb62557baebe155d55f4f1aa850d}{teqp::VLLE::mix\_VLLE\_T}}(model,\ T,\ rhovecV,\ rhovecL1,\ rhovecL2,\ 1e-\/10,\ 1e-\/10,\ 1e-\/10,\ 1e-\/10,\ options.max\_polish\_steps);}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00587}00587\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Map<Eigen::ArrayXd>(\&(x0[0]),\ 2)\ =\ rhovecVnew;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00588}00588\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Map<Eigen::ArrayXd>(\&(x0[0])\ +\ 2,\ 2)\ =\ rhovecL1new;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00589}00589\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Map<Eigen::ArrayXd>(\&(x0[0])\ +\ 4,\ 2)\ =\ rhovecL2new;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00590}00590\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00591}00591\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00592}00592\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ critV\ =\ model.\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a7acd8edc964ae12560b654c27aac817c}{get\_criticality\_conditions}}(T,\ rhovecV);}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00593}00593\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ critL1\ =\ model.\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a7acd8edc964ae12560b654c27aac817c}{get\_criticality\_conditions}}(T,\ rhovecL1);}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00594}00594\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ critL2\ =\ model.\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a7acd8edc964ae12560b654c27aac817c}{get\_criticality\_conditions}}(T,\ rhovecL2);}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00595}00595\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ rhomolarV\ =\ rhovecV.sum();}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00596}00596\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ molefracV\ =\ rhovecV/rhomolarV;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00597}00597\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pV\ =\ rhomolarV*model.\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a38884acb6a2663fe18967760e9438b68}{get\_R}}(molefracV)*T*(1.0\ +\ model.\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a0ce44e70fa200a4a1480d826d23ec016}{get\_Ar01}}(T,\ rhomolarV,\ molefracV));}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00598}00598\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!std::isfinite(pV))\{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00599}00599\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.verbosity\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00600}00600\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Calculated\ pressure\ is\ not\ finite"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00601}00601\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00602}00602\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00603}00603\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00604}00604\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(options.init\_dT\ >\ 0\ \&\&\ T\ >\ options.T\_limit)\{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00605}00605\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.verbosity\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00606}00606\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Exceeded\ maximum\ temperature\ of\ "{}}\ <<\ options.T\_limit\ <<\ \textcolor{stringliteral}{"{}\ K"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00607}00607\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00608}00608\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00609}00609\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00610}00610\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(options.init\_dT\ <\ 0\ \&\&\ T\ <\ options.T\_limit)\{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00611}00611\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.verbosity\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00612}00612\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Exceeded\ minimum\ temperature\ of\ "{}}\ <<\ options.T\_limit\ <<\ \textcolor{stringliteral}{"{}\ K"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00613}00613\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00614}00614\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00615}00615\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00616}00616\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00617}00617\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.verbosity\ >\ 100)\{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00618}00618\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[T,x0L1,x0L2,x0V]:\ "{}}\ <<\ T\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ rhovecL1[0]/rhovecL1.sum()\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ rhovecL2[0]/rhovecL2.sum()\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ rhovecV[0]/rhovecV.sum()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00619}00619\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[crits]:\ "{}}\ <<\ critV\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ critL1\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ critL2\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00620}00620\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00621}00621\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00622}00622\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.terminate\_composition)\{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00623}00623\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ c0\ =\ (Eigen::ArrayXd(3)\ <<\ rhovecL1[0]/rhovecL1.sum(),\ rhovecL2[0]/rhovecL2.sum(),\ rhovecV[0]/rhovecV.sum()).finished();}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00624}00624\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ diffs\ =\ (Eigen::ArrayXd(3)\ <<\ c0[0]-\/c0[1],\ c0[0]-\/c0[2],\ c0[1]-\/c0[2]).finished();}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00625}00625\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((diffs.cwiseAbs()\ <\ options.terminate\_composition\_tol).any())\{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00626}00626\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00627}00627\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00628}00628\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00629}00629\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (retry\_count\ >\ options.max\_step\_retries)\{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00630}00630\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.verbosity\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00631}00631\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Max\ retries\ of\ step\ exceeded."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00632}00632\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00633}00633\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00634}00634\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00635}00635\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00636}00636\ \ \ \ \ \ \ \ \ \ \ \ \ nlohmann::json\ entry\{}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00637}00637\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}T\ /\ K"{}},\ T\},}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00638}00638\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}rhoL1\ /\ mol/m\string^3"{}},\ rhovecL1\},}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00639}00639\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}rhoL2\ /\ mol/m\string^3"{}},\ rhovecL2\},}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00640}00640\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}rhoV\ /\ mol/m\string^3"{}},\ rhovecV\},}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00641}00641\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}critV"{}},\ critV\},}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00642}00642\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}critL1"{}},\ critL1\},}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00643}00643\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}critL2"{}},\ critL2\},}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00644}00644\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}pV\ /\ Pa"{}},\ pV\}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00645}00645\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00646}00646\ \ \ \ \ \ \ \ \ \ \ \ \ data\_collector.push\_back(entry);}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00647}00647\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00648}00648\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ data\_collector;}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00649}00649\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00650}00650\ }
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00651}00651\ \}}
+\DoxyCodeLine{\Hypertarget{VLLE_8hpp_source_l00652}00652\ \}}
 
 \end{DoxyCode}

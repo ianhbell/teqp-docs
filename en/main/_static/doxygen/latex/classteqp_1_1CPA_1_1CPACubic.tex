@@ -7,9 +7,11 @@
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classteqp_1_1CPA_1_1CPACubic_a164b6adfdb9df4aeff11c8a594cefb61}{CPACubic}} (\mbox{\hyperlink{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2a}{cubic\+\_\+flag}} flag, const std\+::valarray$<$ double $>$ \&a0, const std\+::valarray$<$ double $>$ \&bi, const std\+::valarray$<$ double $>$ \&c1, const std\+::valarray$<$ double $>$ \&Tc, double R\+\_\+gas)
+\mbox{\hyperlink{classteqp_1_1CPA_1_1CPACubic_a11daa6f79cd19a399abb2948f901ba14}{CPACubic}} (\mbox{\hyperlink{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2a}{cubic\+\_\+flag}} flag, const std\+::valarray$<$ double $>$ \&a0, const std\+::valarray$<$ double $>$ \&bi, const std\+::valarray$<$ double $>$ \&c1, const std\+::valarray$<$ double $>$ \&Tc, const double R\+\_\+gas, const std\+::optional$<$ std\+::vector$<$ std\+::vector$<$ double $>$ $>$ $>$ \&kmat=std\+::nullopt)
 \item 
-{\footnotesize template$<$typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1CPA_1_1CPACubic_a0e35b621aa6a0b22ccaa073cb8d65010}{R}} (const Vec\+Type \&molefrac) const
+std\+::size\+\_\+t \mbox{\hyperlink{classteqp_1_1CPA_1_1CPACubic_a355a4d9eb6339674cde7dee2a2c5ffe9}{size}} () const
+\item 
+{\footnotesize template$<$typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1CPA_1_1CPACubic_a7b99b744bcd278ed0b73ede22a0786da}{R}} (const Vec\+Type \&) const
 \item 
 {\footnotesize template$<$typename TType $>$ }\\auto \mbox{\hyperlink{classteqp_1_1CPA_1_1CPACubic_a308eb8e9184fe6af6abee769df3a4424}{get\+\_\+ai}} (TType T, int i) const
 \item 
@@ -22,20 +24,20 @@
 \doxysubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00137}{137}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00124}{124}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classteqp_1_1CPA_1_1CPACubic_a164b6adfdb9df4aeff11c8a594cefb61}\label{classteqp_1_1CPA_1_1CPACubic_a164b6adfdb9df4aeff11c8a594cefb61} 
+\Hypertarget{classteqp_1_1CPA_1_1CPACubic_a11daa6f79cd19a399abb2948f901ba14}\label{classteqp_1_1CPA_1_1CPACubic_a11daa6f79cd19a399abb2948f901ba14} 
 \index{teqp::CPA::CPACubic@{teqp::CPA::CPACubic}!CPACubic@{CPACubic}}
 \index{CPACubic@{CPACubic}!teqp::CPA::CPACubic@{teqp::CPA::CPACubic}}
 \doxysubsubsection{\texorpdfstring{CPACubic()}{CPACubic()}}
-{\footnotesize\ttfamily teqp\+::\+CPA\+::\+CPACubic\+::\+CPACubic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2a}{cubic\+\_\+flag}}}]{flag,  }\item[{const std\+::valarray$<$ double $>$ \&}]{a0,  }\item[{const std\+::valarray$<$ double $>$ \&}]{bi,  }\item[{const std\+::valarray$<$ double $>$ \&}]{c1,  }\item[{const std\+::valarray$<$ double $>$ \&}]{Tc,  }\item[{double}]{R\+\_\+gas }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily teqp\+::\+CPA\+::\+CPACubic\+::\+CPACubic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2a}{cubic\+\_\+flag}}}]{flag,  }\item[{const std\+::valarray$<$ double $>$ \&}]{a0,  }\item[{const std\+::valarray$<$ double $>$ \&}]{bi,  }\item[{const std\+::valarray$<$ double $>$ \&}]{c1,  }\item[{const std\+::valarray$<$ double $>$ \&}]{Tc,  }\item[{const double}]{R\+\_\+gas,  }\item[{const std\+::optional$<$ std\+::vector$<$ std\+::vector$<$ double $>$ $>$ $>$ \&}]{kmat = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00145}{145}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00131}{131}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
 
 
 
@@ -49,7 +51,7 @@ auto teqp\+::\+CPA\+::\+CPACubic\+::alphar (\begin{DoxyParamCaption}\item[{const
 
 
 
-Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00182}{182}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00170}{170}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
 
 \Hypertarget{classteqp_1_1CPA_1_1CPACubic_ad4511a91bc715338034eabde3b05f0a0}\label{classteqp_1_1CPA_1_1CPACubic_ad4511a91bc715338034eabde3b05f0a0} 
 \index{teqp::CPA::CPACubic@{teqp::CPA::CPACubic}!get\_ab@{get\_ab}}
@@ -60,7 +62,7 @@ auto teqp\+::\+CPA\+::\+CPACubic\+::get\+\_\+ab (\begin{DoxyParamCaption}\item[{
 
 
 
-Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00166}{166}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00153}{153}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
 
 \Hypertarget{classteqp_1_1CPA_1_1CPACubic_a308eb8e9184fe6af6abee769df3a4424}\label{classteqp_1_1CPA_1_1CPACubic_a308eb8e9184fe6af6abee769df3a4424} 
 \index{teqp::CPA::CPACubic@{teqp::CPA::CPACubic}!get\_ai@{get\_ai}}
@@ -71,18 +73,28 @@ auto teqp\+::\+CPA\+::\+CPACubic\+::get\+\_\+ai (\begin{DoxyParamCaption}\item[{
 
 
 
-Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00161}{161}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00148}{148}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
 
-\Hypertarget{classteqp_1_1CPA_1_1CPACubic_a0e35b621aa6a0b22ccaa073cb8d65010}\label{classteqp_1_1CPA_1_1CPACubic_a0e35b621aa6a0b22ccaa073cb8d65010} 
+\Hypertarget{classteqp_1_1CPA_1_1CPACubic_a7b99b744bcd278ed0b73ede22a0786da}\label{classteqp_1_1CPA_1_1CPACubic_a7b99b744bcd278ed0b73ede22a0786da} 
 \index{teqp::CPA::CPACubic@{teqp::CPA::CPACubic}!R@{R}}
 \index{R@{R}!teqp::CPA::CPACubic@{teqp::CPA::CPACubic}}
 \doxysubsubsection{\texorpdfstring{R()}{R()}}
 {\footnotesize\ttfamily template$<$typename Vec\+Type $>$ \\
-auto teqp\+::\+CPA\+::\+CPACubic\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+auto teqp\+::\+CPA\+::\+CPACubic\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00158}{158}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00145}{145}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+
+\Hypertarget{classteqp_1_1CPA_1_1CPACubic_a355a4d9eb6339674cde7dee2a2c5ffe9}\label{classteqp_1_1CPA_1_1CPACubic_a355a4d9eb6339674cde7dee2a2c5ffe9} 
+\index{teqp::CPA::CPACubic@{teqp::CPA::CPACubic}!size@{size}}
+\index{size@{size}!teqp::CPA::CPACubic@{teqp::CPA::CPACubic}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t teqp\+::\+CPA\+::\+CPACubic\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00142}{142}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
 
 
 

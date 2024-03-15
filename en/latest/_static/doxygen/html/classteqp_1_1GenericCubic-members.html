@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -107,9 +109,9 @@ $(function() {
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html#a510357d586b7c1e7ebbdebbe3788e217">Delta2</a></td><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html#a8772a9c3747ead5c04ebe8b5847f92b1">GenericCubic</a>(NumType Delta1, NumType Delta2, NumType OmegaA, NumType OmegaB, int superanc_index, const std::valarray&lt; NumType &gt; &amp;Tc_K, const std::valarray&lt; NumType &gt; &amp;pc_Pa, const AlphaFunctions &amp;alphas, const Eigen::ArrayXXd &amp;kmat)</td><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html#a67d6abe5e68543b88681bf134b98607e">get_a</a>(TType T, const CompType &amp;molefracs) const</td><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html#a8adc925acc51ff4782b14483388a4b5e">get_ai</a>(TType T, IndexType i) const</td><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html#a02e3a25e4730020ad7063eb0606b6cde">get_ai</a>(TType, IndexType i) const</td><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html#a46da1a3c50cf25814a3dbf6a217095db">get_b</a>(TType, const CompType &amp;molefracs) const</td><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html#aa38fa1a35f53e1073fb20181882690d2">get_bi</a>(TType T, IndexType i) const</td><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html#ada310d937ac0862b4c77ce809c89c721">get_bi</a>(TType, IndexType i) const</td><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html#ac4d84c811e80e7c24e8c12dcde7cf0d2">get_kmat</a>() const</td><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html#ae91e7a508f91c8b4e679abebdb23c15f">get_meta</a>() const</td><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html#abebafe6d3121b6c7a882f76be1a31163">kmat</a></td><td class="entry"><a class="el" href="classteqp_1_1GenericCubic.html">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>

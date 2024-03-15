@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -135,7 +137,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A (very) simple implementation of the van der Waals EOS. </p>
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00014">14</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00010">10</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acc17de42d37bd52adb0f0503d7dcee67" name="acc17de42d37bd52adb0f0503d7dcee67"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acc17de42d37bd52adb0f0503d7dcee67">&#9670;&#160;</a></span>vdWEOS1()</h2>
@@ -166,7 +168,7 @@ Public Attributes</h2></td></tr>
 
 <p>Intializer, taking the a and b constants directly. </p>
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00019">19</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00015">15</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
@@ -213,7 +215,7 @@ template&lt;typename TType , typename RhoType , typename VecType &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00037">37</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00033">33</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
@@ -242,7 +244,7 @@ template&lt;typename TType , typename RhoType , typename VecType &gt; </div>
 
 <p>Accessor functions. </p>
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00022">22</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00018">18</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
@@ -269,7 +271,7 @@ template&lt;typename TType , typename RhoType , typename VecType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00023">23</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00019">19</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
@@ -302,7 +304,7 @@ template&lt;typename TType , typename RhoType , typename VecType &gt; </div>
 
 <p>For testing, provide the pressure explicit form of the EOS. </p>
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00042">42</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00038">38</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
@@ -334,7 +336,7 @@ template&lt;class VecType &gt; </div>
 <p>Get the universal gas constant. </p>
 <dl class="section note"><dt>Note</dt><dd>Here the real universal gas constant, with no composition dependence </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00030">30</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00026">26</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>
@@ -353,7 +355,7 @@ template&lt;class VecType &gt; </div>
 
 <p>Exact value, given by k_B*N_A. </p>
 
-<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00025">25</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vdW_8hpp_source.html#l00021">21</a> of file <a class="el" href="vdW_8hpp_source.html">vdW.hpp</a>.</p>
 
 </div>
 </div>

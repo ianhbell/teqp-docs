@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -110,6 +112,7 @@ $(function() {
 <code>#include &lt;unordered_set&gt;</code><br />
 <code>#include &quot;<a class="el" href="pow__templates_8hpp_source.html">teqp/math/pow_templates.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="types_8hpp_source.html">teqp/types.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="exceptions_8hpp_source.html">teqp/exceptions.hpp</a>&quot;</code><br />
 <code>#include &quot;Eigen/Dense&quot;</code><br />
 <code>#include &lt;boost/functional/hash.hpp&gt;</code><br />
 </div>
@@ -125,6 +128,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structteqp_1_1GERGGeneral_1_1DepartureCoeffs.html">teqp::GERGGeneral::DepartureCoeffs</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structteqp_1_1GERGGeneral_1_1AlphaigCoeffs.html">teqp::GERGGeneral::AlphaigCoeffs</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1GERGGeneral_1_1GERG200XPureFluidEOS.html">teqp::GERGGeneral::GERG200XPureFluidEOS</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1GERGGeneral_1_1GERG200XReducing.html">teqp::GERGGeneral::GERG200XReducing</a></td></tr>
@@ -139,9 +144,15 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1GERGGeneral_1_1GERG200XDepartureTerm.html">teqp::GERGGeneral::GERG200XDepartureTerm</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1GERGGeneral_1_1GERG200XAlphaig.html">teqp::GERGGeneral::GERG200XAlphaig</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1GERG2004_1_1GERG2004ResidualModel.html">teqp::GERG2004::GERG2004ResidualModel</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1GERG2004_1_1GERG2004IdealGasModel.html">teqp::GERG2004::GERG2004IdealGasModel</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1GERG2008_1_1GERG2008ResidualModel.html">teqp::GERG2008::GERG2008ResidualModel</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1GERG2008_1_1GERG2008IdealGasModel.html">teqp::GERG2008::GERG2008IdealGasModel</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -160,6 +171,8 @@ Functions</h2></td></tr>
 <tr class="memitem:ac3565b8487f12789083803eed21569fb" id="r_ac3565b8487f12789083803eed21569fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteqp_1_1GERGGeneral_1_1PureInfo.html">PureInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1GERG2004.html#ac3565b8487f12789083803eed21569fb">teqp::GERG2004::get_pure_info</a> (const std::string &amp;name)</td></tr>
 <tr class="memdesc:ac3565b8487f12789083803eed21569fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the pure fluid information for a fluid from GERG-2004 monograph.  <br /></td></tr>
 <tr class="separator:ac3565b8487f12789083803eed21569fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d8d7793a6e1f6ac50177538b7ee9f80" id="r_a2d8d7793a6e1f6ac50177538b7ee9f80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteqp_1_1GERGGeneral_1_1AlphaigCoeffs.html">AlphaigCoeffs</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1GERG2004.html#a2d8d7793a6e1f6ac50177538b7ee9f80">teqp::GERG2004::get_alphaig_coeffs</a> (const std::string &amp;fluid)</td></tr>
+<tr class="separator:a2d8d7793a6e1f6ac50177538b7ee9f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc8492f3c0446b81c70beb4d5bb4e145" id="r_acc8492f3c0446b81c70beb4d5bb4e145"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteqp_1_1GERGGeneral_1_1PureCoeffs.html">PureCoeffs</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1GERG2004.html#acc8492f3c0446b81c70beb4d5bb4e145">teqp::GERG2004::get_pure_coeffs</a> (const std::string &amp;fluid)</td></tr>
 <tr class="separator:acc8492f3c0446b81c70beb4d5bb4e145"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2bfc93d176a5a722734c4852c988e56" id="r_ac2bfc93d176a5a722734c4852c988e56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteqp_1_1GERGGeneral_1_1BetasGammas.html">BetasGammas</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1GERG2004.html#ac2bfc93d176a5a722734c4852c988e56">teqp::GERG2004::get_betasgammas</a> (const std::string &amp;fluid1, const std::string &amp;fluid2)</td></tr>
@@ -174,6 +187,8 @@ Functions</h2></td></tr>
 <tr class="separator:af2b979d6c0983d486ff71e7c964282e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae7dd22f4e90fa43f0c8c55e52ef09d7" id="r_aae7dd22f4e90fa43f0c8c55e52ef09d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteqp_1_1GERGGeneral_1_1PureCoeffs.html">PureCoeffs</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1GERG2008.html#aae7dd22f4e90fa43f0c8c55e52ef09d7">teqp::GERG2008::get_pure_coeffs</a> (const std::string &amp;fluid)</td></tr>
 <tr class="separator:aae7dd22f4e90fa43f0c8c55e52ef09d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76c109dd20b2dadff5427edf749f2898" id="r_a76c109dd20b2dadff5427edf749f2898"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structteqp_1_1GERGGeneral_1_1AlphaigCoeffs.html">AlphaigCoeffs</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1GERG2008.html#a76c109dd20b2dadff5427edf749f2898">teqp::GERG2008::get_alphaig_coeffs</a> (const std::string &amp;fluid)</td></tr>
+<tr class="separator:a76c109dd20b2dadff5427edf749f2898"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>

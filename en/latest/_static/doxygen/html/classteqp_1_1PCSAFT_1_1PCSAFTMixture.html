@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -145,8 +147,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a0659f96c497197b8279e0e8cd955f99c" id="r_a0659f96c497197b8279e0e8cd955f99c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0659f96c497197b8279e0e8cd955f99c">check_kmat</a> (std::size_t N)</td></tr>
-<tr class="separator:a0659f96c497197b8279e0e8cd955f99c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7d39aed76b858c56f81774a1537878b" id="r_aa7d39aed76b858c56f81774a1537878b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7d39aed76b858c56f81774a1537878b">check_kmat</a> (Eigen::Index N)</td></tr>
+<tr class="separator:aa7d39aed76b858c56f81774a1537878b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a907f96a3d2561fb846cb6867f5fbdf87" id="r_a907f96a3d2561fb846cb6867f5fbdf87"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a907f96a3d2561fb846cb6867f5fbdf87">get_coeffs_from_names</a> (const std::vector&lt; std::string &gt; &amp;the_names)</td></tr>
 <tr class="separator:a907f96a3d2561fb846cb6867f5fbdf87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18ef0634d761d2891647238816090a3f" id="r_a18ef0634d761d2891647238816090a3f"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18ef0634d761d2891647238816090a3f">build_hardchain</a> (const std::vector&lt; <a class="el" href="structteqp_1_1PCSAFT_1_1SAFTCoeffs.html">SAFTCoeffs</a> &gt; &amp;coeffs)</td></tr>
@@ -407,8 +409,8 @@ template&lt;typename TTYPE , typename RhoType , typename VecType &gt; </div>
 
 </div>
 </div>
-<a id="a0659f96c497197b8279e0e8cd955f99c" name="a0659f96c497197b8279e0e8cd955f99c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0659f96c497197b8279e0e8cd955f99c">&#9670;&#160;</a></span>check_kmat()</h2>
+<a id="aa7d39aed76b858c56f81774a1537878b" name="aa7d39aed76b858c56f81774a1537878b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7d39aed76b858c56f81774a1537878b">&#9670;&#160;</a></span>check_kmat()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -419,7 +421,7 @@ template&lt;typename TTYPE , typename RhoType , typename VecType &gt; </div>
         <tr>
           <td class="memname">void teqp::PCSAFT::PCSAFTMixture::check_kmat </td>
           <td>(</td>
-          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>N</em></span></td><td>)</td>
+          <td class="paramtype">Eigen::Index</td>          <td class="paramname"><span class="paramname"><em>N</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

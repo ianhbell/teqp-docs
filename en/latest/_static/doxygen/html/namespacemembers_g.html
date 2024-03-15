@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -93,8 +95,9 @@ $(function() {
 <h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
 <li>GasConstantCalculator&#160;:&#160;<a class="el" href="namespaceteqp_1_1multifluid_1_1gasconstant.html#a5e8ed41f27e885b32fb717acde35f5ca">teqp::multifluid::gasconstant</a></li>
 <li>get_a()&#160;:&#160;<a class="el" href="namespaceteqp_1_1PCSAFT.html#a85066f94e2e01f8633c3789965fae6de">teqp::PCSAFT</a></li>
+<li>get_alphaig_coeffs()&#160;:&#160;<a class="el" href="namespaceteqp_1_1GERG2004.html#a2d8d7793a6e1f6ac50177538b7ee9f80">teqp::GERG2004</a>, <a class="el" href="namespaceteqp_1_1GERG2008.html#a76c109dd20b2dadff5427edf749f2898">teqp::GERG2008</a></li>
 <li>get_alphar_hs()&#160;:&#160;<a class="el" href="namespaceteqp_1_1PCSAFT.html#ae2be64354a14563364837d557d0dfa64">teqp::PCSAFT</a></li>
-<li>get_association_classes()&#160;:&#160;<a class="el" href="namespaceteqp_1_1CPA.html#a980253b3943f534e22fafd1a85fa4b1e">teqp::CPA</a></li>
+<li>get_association_classes()&#160;:&#160;<a class="el" href="namespaceteqp_1_1association.html#ab32ded9ad43cf94edc6297a7c6478068">teqp::association</a></li>
 <li>get_Attractive_contribution()&#160;:&#160;<a class="el" href="namespaceteqp_1_1twocenterljf.html#adee63356aeebf7cf7bc35ac1a4e5caa3">teqp::twocenterljf</a></li>
 <li>get_b()&#160;:&#160;<a class="el" href="namespaceteqp_1_1PCSAFT.html#ad53015a713d1dc4b14d70f1d3844ae09">teqp::PCSAFT</a></li>
 <li>get_betasgammas()&#160;:&#160;<a class="el" href="namespaceteqp_1_1GERG2004.html#ac2bfc93d176a5a722734c4852c988e56">teqp::GERG2004</a>, <a class="el" href="namespaceteqp_1_1GERG2008.html#af2b979d6c0983d486ff71e7c964282e1">teqp::GERG2008</a></li>
@@ -104,7 +107,7 @@ $(function() {
 <li>get_Brho_critical_extrap()&#160;:&#160;<a class="el" href="namespaceteqp.html#a8ce59a6988a1b97c70059a109d391179">teqp</a></li>
 <li>get_cross_intersections()&#160;:&#160;<a class="el" href="namespaceteqp_1_1VLLE.html#a25c672abedcc4ff0aee012da5be0581f">teqp::VLLE</a></li>
 <li>get_cubic_flag()&#160;:&#160;<a class="el" href="namespaceteqp_1_1CPA.html#aef8996d5cc168e4e919b4caf3e63eb97">teqp::CPA</a></li>
-<li>get_DeltaAB_pure()&#160;:&#160;<a class="el" href="namespaceteqp_1_1CPA.html#a3339d3657cc079aec3a1c557e55ef4e6">teqp::CPA</a></li>
+<li>get_DeltaAB_pure()&#160;:&#160;<a class="el" href="namespaceteqp_1_1CPA.html#a206e2cd632f07bbd93f5e28fddf7682d">teqp::CPA</a></li>
 <li>get_density_reducing()&#160;:&#160;<a class="el" href="namespaceteqp_1_1twocenterljf.html#a026c0f5249f84336b3fa4c69da6460c6">teqp::twocenterljf</a></li>
 <li>get_departure_function_matrix()&#160;:&#160;<a class="el" href="namespaceteqp.html#a794ca20d6c5c501592eccde9e87c5a2d">teqp</a></li>
 <li>get_departure_json()&#160;:&#160;<a class="el" href="namespaceteqp.html#a75aa947e3267ff1660db269220f093d8">teqp</a></li>
@@ -137,8 +140,8 @@ $(function() {
 <li>get_pure_critical_conditions_Jacobian()&#160;:&#160;<a class="el" href="namespaceteqp.html#a80148acc481909c3c660d5f4d8e8678f">teqp</a></li>
 <li>get_pure_info()&#160;:&#160;<a class="el" href="namespaceteqp_1_1GERG2004.html#ac3565b8487f12789083803eed21569fb">teqp::GERG2004</a>, <a class="el" href="namespaceteqp_1_1GERG2008.html#ac62555cefb5c43ce81ce9c6e3945cb51">teqp::GERG2008</a></li>
 <li>get_Quadrupolar_contribution()&#160;:&#160;<a class="el" href="namespaceteqp_1_1twocenterljf.html#a1f2fae1f4c5e0755659f524f55f65eb1">teqp::twocenterljf</a></li>
-<li>get_R_gas()&#160;:&#160;<a class="el" href="namespaceteqp.html#a2b7e9f6c1e890797284b6bd57d251379">teqp</a></li>
-<li>get_radial_dist()&#160;:&#160;<a class="el" href="namespaceteqp_1_1CPA.html#a7a3239ac93fe4004dadf539336dfc580">teqp::CPA</a></li>
+<li>get_R_gas()&#160;:&#160;<a class="el" href="namespaceteqp.html#aed0cabbf6a82a357adc773aa850566ea">teqp</a></li>
+<li>get_radial_dist()&#160;:&#160;<a class="el" href="namespaceteqp_1_1association.html#aee2c3faba6c39aaae73f7850cc2456ba">teqp::association</a></li>
 <li>get_self_intersections()&#160;:&#160;<a class="el" href="namespaceteqp_1_1VLLE.html#ad553eb6ef7c3a743bd25e41d2d4b803d">teqp::VLLE</a></li>
 <li>get_Tcvc()&#160;:&#160;<a class="el" href="namespaceteqp_1_1reducing.html#a4e29d71c9df6126028ff8decdebfd685">teqp::reducing</a></li>
 <li>get_temperature_reducing()&#160;:&#160;<a class="el" href="namespaceteqp_1_1twocenterljf.html#a6d2993fd7b97889813b1b96c568c5a50">teqp::twocenterljf</a></li>

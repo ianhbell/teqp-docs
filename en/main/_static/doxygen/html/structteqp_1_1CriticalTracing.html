@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -677,7 +679,7 @@ template&lt;typename Model , typename Scalar  = double, typename VecType  = Eige
     \rmderivsub{Y}{T}{\CRL} = \deriv{Y}{T}{\vec\rho}  + \sum_j \deriv{Y}{\rho_j}{T,\rho_{k\neq j}} \rmderivsub{\rho_j}{T}{\CRL}
 \]
 </p>
-<p> where the derivatives on the RHS without the subscript $\CRL$ are homogeneous derivatives taken at the mixture statepoint, and are NOT along the critical curve. </p>
+<p> where the derivatives on the RHS without the subscript CRL are homogeneous derivatives taken at the mixture statepoint, and are NOT along the critical curve. </p>
 
 <p class="definition">Definition at line <a class="el" href="critical__tracing_8hpp_source.html#l00747">747</a> of file <a class="el" href="critical__tracing_8hpp_source.html">critical_tracing.hpp</a>.</p>
 

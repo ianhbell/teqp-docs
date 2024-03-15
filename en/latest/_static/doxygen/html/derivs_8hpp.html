@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -95,15 +97,17 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#concepts">Concepts</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">derivs.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;complex&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
+<div class="textblock"><code>#include &lt;map&gt;</code><br />
 <code>#include &lt;tuple&gt;</code><br />
 <code>#include &lt;numeric&gt;</code><br />
+<code>#include &lt;concepts&gt;</code><br />
 <code>#include &quot;<a class="el" href="types_8hpp_source.html">teqp/types.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="exceptions_8hpp_source.html">teqp/exceptions.hpp</a>&quot;</code><br />
 <code>#include &lt;autodiff/forward/dual.hpp&gt;</code><br />
@@ -117,16 +121,13 @@ $(function() {
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structteqp_1_1wrt__helper.html">teqp::wrt_helper</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structteqp_1_1AlphaCallWrapper.html">teqp::AlphaCallWrapper&lt; o, Model &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class is used to wrap a model that exposes the generic functions alphar, alphaig, etc., and allow the desired member function to be called at runtime via perfect forwarding.  <a href="structteqp_1_1AlphaCallWrapper.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives&lt; Model, Scalar, VectorType &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structteqp_1_1VirialDerivatives.html">teqp::VirialDerivatives&lt; Model, Scalar, VectorType &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structteqp_1_1IsochoricDerivatives.html">teqp::IsochoricDerivatives&lt; Model, Scalar, VectorType &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1DerivativeHolderSquare.html">teqp::DerivativeHolderSquare&lt; Nderivsmax, opt &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1DerivativeHolderSquare.html">teqp::DerivativeHolderSquare&lt; Nderivsmax &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -134,14 +135,39 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceteqp" id="r_namespaceteqp"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp.html">teqp</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
+Concepts</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptteqp_1_1CallableAlpha.html">teqp::CallableAlpha</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptteqp_1_1CallableAlphar.html">teqp::CallableAlphar</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptteqp_1_1CallableAlpharTauDelta.html">teqp::CallableAlpharTauDelta</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a027d6bedbc0f12412c498d83f25509b5" id="r_a027d6bedbc0f12412c498d83f25509b5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a027d6bedbc0f12412c498d83f25509b5">get_ATrhoXi_runtime_combinations</a></td></tr>
+<tr class="separator:a027d6bedbc0f12412c498d83f25509b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8021f5002052c30327d455bbaba45f6" id="r_ad8021f5002052c30327d455bbaba45f6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8021f5002052c30327d455bbaba45f6">X</a>(a,  b,  c)&#160;&#160;&#160;if (iT == a &amp;&amp; iD == b &amp;&amp; iXi == c) { return get_ATrhoXi&lt;a,b,c&gt;(w, T, rho, molefrac, i); }</td></tr>
+<tr class="separator:ad8021f5002052c30327d455bbaba45f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaabcc5e6937c2dc2617bf2c06a545b2" id="r_abaabcc5e6937c2dc2617bf2c06a545b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abaabcc5e6937c2dc2617bf2c06a545b2">get_ATrhoXiXj_runtime_combinations</a></td></tr>
+<tr class="separator:abaabcc5e6937c2dc2617bf2c06a545b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3868379e46aff98632722fd37c0fb703" id="r_a3868379e46aff98632722fd37c0fb703"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3868379e46aff98632722fd37c0fb703">X</a>(a,  b,  c,  d)&#160;&#160;&#160;if (iT == a &amp;&amp; iD == b &amp;&amp; iXi == c &amp;&amp; iXj == d) { return get_ATrhoXiXj&lt;a,b,c,d&gt;(w, T, rho, molefrac, i, j); }</td></tr>
+<tr class="separator:a3868379e46aff98632722fd37c0fb703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0111d92f006734dd97c26703488e0df8" id="r_a0111d92f006734dd97c26703488e0df8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0111d92f006734dd97c26703488e0df8">get_ATrhoXiXjXk_runtime_combinations</a></td></tr>
+<tr class="separator:a0111d92f006734dd97c26703488e0df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afff4c4a01e135eb6a90cf31ba8afc70c" id="r_afff4c4a01e135eb6a90cf31ba8afc70c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afff4c4a01e135eb6a90cf31ba8afc70c">X</a>(a,  b,  c,  d,  e)&#160;&#160;&#160;if (iT == a &amp;&amp; iD == b &amp;&amp; iXi == c &amp;&amp; iXj == d &amp;&amp; iXk == e) { return get_ATrhoXiXjXk&lt;a,b,c,d,e&gt;(w, T, rho, molefrac, i, j, k); }</td></tr>
+<tr class="separator:afff4c4a01e135eb6a90cf31ba8afc70c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8021f5002052c30327d455bbaba45f6" id="r_ad8021f5002052c30327d455bbaba45f6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8021f5002052c30327d455bbaba45f6">X</a>(a,  b,  c)&#160;&#160;&#160;if (iT == a &amp;&amp; iD == b &amp;&amp; iXi == c) { return get_AtaudeltaXi&lt;a,b,c&gt;(w, tau, delta, molefrac, i); }</td></tr>
+<tr class="separator:ad8021f5002052c30327d455bbaba45f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3868379e46aff98632722fd37c0fb703" id="r_a3868379e46aff98632722fd37c0fb703"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3868379e46aff98632722fd37c0fb703">X</a>(a,  b,  c,  d)&#160;&#160;&#160;if (iT == a &amp;&amp; iD == b &amp;&amp; iXi == c &amp;&amp; iXj == d) { return get_AtaudeltaXiXj&lt;a,b,c,d&gt;(w, tau, delta, molefrac, i, j); }</td></tr>
+<tr class="separator:a3868379e46aff98632722fd37c0fb703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afff4c4a01e135eb6a90cf31ba8afc70c" id="r_afff4c4a01e135eb6a90cf31ba8afc70c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afff4c4a01e135eb6a90cf31ba8afc70c">X</a>(a,  b,  c,  d,  e)&#160;&#160;&#160;if (iT == a &amp;&amp; iD == b &amp;&amp; iXi == c &amp;&amp; iXj == d &amp;&amp; iXk == e) { return get_AtaudeltaXiXjXk&lt;a,b,c,d,e&gt;(w, tau, delta, molefrac, i, j, k); }</td></tr>
+<tr class="separator:afff4c4a01e135eb6a90cf31ba8afc70c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:abb423904db0ac1c8261912ca4efc3272" id="r_abb423904db0ac1c8261912ca4efc3272"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#abb423904db0ac1c8261912ca4efc3272">teqp::AlphaWrapperOption</a> { <a class="el" href="namespaceteqp.html#abb423904db0ac1c8261912ca4efc3272a4db598f63d4aea6a3c8eaddfe5c2b1e9">teqp::residual</a>
-, <a class="el" href="namespaceteqp.html#abb423904db0ac1c8261912ca4efc3272a99849a7e0c94a6066ed3faac395459be">teqp::idealgas</a>
- }</td></tr>
-<tr class="separator:abb423904db0ac1c8261912ca4efc3272"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa915939e34912de1f87776858de32f9d" id="r_aa915939e34912de1f87776858de32f9d"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de32f9d">teqp::ADBackends</a> { <a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de32f9da1f9f65b69bb4d16b7fd15a809c59d6e6">teqp::autodiff</a>
-, <a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de32f9dad8c387494b54ef11d7d960ed7311d4bf">teqp::complex_step</a>
  }</td></tr>
 <tr class="separator:aa915939e34912de1f87776858de32f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -149,9 +175,11 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a673824cda5d54f74d80f6746bb8a0d4d" id="r_a673824cda5d54f74d80f6746bb8a0d4d"><td class="memTemplParams" colspan="2">template&lt;typename TType , typename ContainerType , typename FuncType &gt; </td></tr>
 <tr class="memitem:a673824cda5d54f74d80f6746bb8a0d4d"><td class="memTemplItemLeft" align="right" valign="top">ContainerType::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#a673824cda5d54f74d80f6746bb8a0d4d">teqp::derivT</a> (const FuncType &amp;f, TType T, const ContainerType &amp;rho)</td></tr>
+<tr class="memdesc:a673824cda5d54f74d80f6746bb8a0d4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a function, use complex step derivatives to calculate the derivative with respect to the first variable which here is temperature.  <br /></td></tr>
 <tr class="separator:a673824cda5d54f74d80f6746bb8a0d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0e2c714a07ef9263b390b6814c4c00a" id="r_ae0e2c714a07ef9263b390b6814c4c00a"><td class="memTemplParams" colspan="2">template&lt;typename TType , typename ContainerType , typename FuncType , typename Integer &gt; </td></tr>
 <tr class="memitem:ae0e2c714a07ef9263b390b6814c4c00a"><td class="memTemplItemLeft" align="right" valign="top">ContainerType::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#ae0e2c714a07ef9263b390b6814c4c00a">teqp::derivrhoi</a> (const FuncType &amp;f, TType T, const ContainerType &amp;rho, Integer i)</td></tr>
+<tr class="memdesc:ae0e2c714a07ef9263b390b6814c4c00a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a function, use complex step derivatives to calculate the derivative with respect to the given composition variable.  <br /></td></tr>
 <tr class="separator:ae0e2c714a07ef9263b390b6814c4c00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab18d321f888443bbe10184550a862e9" id="r_aab18d321f888443bbe10184550a862e9"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t ... I&gt; </td></tr>
 <tr class="memitem:aab18d321f888443bbe10184550a862e9"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#aab18d321f888443bbe10184550a862e9">teqp::build_duplicated_tuple_impl</a> (const T &amp;val, std::index_sequence&lt; I... &gt;)</td></tr>
@@ -161,6 +189,287 @@ Functions</h2></td></tr>
 <tr class="memdesc:abb52b388df385acbdbcb78efa7783c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to generate a tuple of N repeated copies of argument val at compile-time.  <br /></td></tr>
 <tr class="separator:abb52b388df385acbdbcb78efa7783c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a027d6bedbc0f12412c498d83f25509b5" name="a027d6bedbc0f12412c498d83f25509b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a027d6bedbc0f12412c498d83f25509b5">&#9670;&#160;</a></span>get_ATrhoXi_runtime_combinations</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define get_ATrhoXi_runtime_combinations</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">        <a class="code hl_define" href="#ad8021f5002052c30327d455bbaba45f6">X</a>(0,0,1) \</div>
+<div class="line">        X(0,0,2) \</div>
+<div class="line">        X(0,0,3) \</div>
+<div class="line">        X(1,0,1) \</div>
+<div class="line">        X(1,0,2) \</div>
+<div class="line">        X(1,0,3) \</div>
+<div class="line">        X(0,1,1) \</div>
+<div class="line">        X(0,1,2) \</div>
+<div class="line">        X(0,1,3) \</div>
+<div class="line">        X(2,0,1) \</div>
+<div class="line">        X(2,0,2) \</div>
+<div class="line">        X(2,0,3) \</div>
+<div class="line">        X(1,1,1) \</div>
+<div class="line">        X(1,1,2) \</div>
+<div class="line">        X(1,1,3) \</div>
+<div class="line">        X(0,2,1) \</div>
+<div class="line">        X(0,2,2) \</div>
+<div class="line">        X(0,2,3)</div>
+<div class="ttc" id="aderivs_8hpp_html_ad8021f5002052c30327d455bbaba45f6"><div class="ttname"><a href="#ad8021f5002052c30327d455bbaba45f6">X</a></div><div class="ttdeci">#define X(a, b, c)</div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00261">261</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="abaabcc5e6937c2dc2617bf2c06a545b2" name="abaabcc5e6937c2dc2617bf2c06a545b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaabcc5e6937c2dc2617bf2c06a545b2">&#9670;&#160;</a></span>get_ATrhoXiXj_runtime_combinations</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define get_ATrhoXiXj_runtime_combinations</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">        <a class="code hl_define" href="#ad8021f5002052c30327d455bbaba45f6">X</a>(0,0,1,0) \</div>
+<div class="line">        X(0,0,2,0) \</div>
+<div class="line">        X(0,0,0,1) \</div>
+<div class="line">        X(0,0,0,2) \</div>
+<div class="line">        X(0,0,1,1) \</div>
+<div class="line">        X(1,0,1,0) \</div>
+<div class="line">        X(1,0,2,0) \</div>
+<div class="line">        X(1,0,0,1) \</div>
+<div class="line">        X(1,0,0,2) \</div>
+<div class="line">        X(1,0,1,1) \</div>
+<div class="line">        X(0,1,1,0) \</div>
+<div class="line">        X(0,1,2,0) \</div>
+<div class="line">        X(0,1,0,1) \</div>
+<div class="line">        X(0,1,0,2) \</div>
+<div class="line">        X(0,1,1,1)</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00289">289</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0111d92f006734dd97c26703488e0df8" name="a0111d92f006734dd97c26703488e0df8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0111d92f006734dd97c26703488e0df8">&#9670;&#160;</a></span>get_ATrhoXiXjXk_runtime_combinations</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define get_ATrhoXiXjXk_runtime_combinations</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">        <a class="code hl_define" href="#ad8021f5002052c30327d455bbaba45f6">X</a>(0,0,0,1,1) \</div>
+<div class="line">        X(0,0,1,0,1) \</div>
+<div class="line">        X(0,0,1,1,0) \</div>
+<div class="line">        X(0,0,1,1,1) \</div>
+<div class="line">        X(1,0,0,1,1) \</div>
+<div class="line">        X(1,0,1,0,1) \</div>
+<div class="line">        X(1,0,1,1,0) \</div>
+<div class="line">        X(1,0,1,1,1) \</div>
+<div class="line">        X(0,1,0,1,1) \</div>
+<div class="line">        X(0,1,1,0,1) \</div>
+<div class="line">        X(0,1,1,1,0) \</div>
+<div class="line">        X(0,1,1,1,1)</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00314">314</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ad8021f5002052c30327d455bbaba45f6" name="ad8021f5002052c30327d455bbaba45f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8021f5002052c30327d455bbaba45f6">&#9670;&#160;</a></span>X <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define X</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">a, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">b, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">c</span>&#160;)&#160;&#160;&#160;if (iT == a &amp;&amp; iD == b &amp;&amp; iXi == c) { return get_ATrhoXi&lt;a,b,c&gt;(w, T, rho, molefrac, i); }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad8021f5002052c30327d455bbaba45f6" name="ad8021f5002052c30327d455bbaba45f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8021f5002052c30327d455bbaba45f6">&#9670;&#160;</a></span>X <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define X</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">a, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">b, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">c</span>&#160;)&#160;&#160;&#160;if (iT == a &amp;&amp; iD == b &amp;&amp; iXi == c) { return get_AtaudeltaXi&lt;a,b,c&gt;(w, tau, delta, molefrac, i); }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3868379e46aff98632722fd37c0fb703" name="a3868379e46aff98632722fd37c0fb703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3868379e46aff98632722fd37c0fb703">&#9670;&#160;</a></span>X <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define X</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">a, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">b, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">c, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">d</span>&#160;)&#160;&#160;&#160;if (iT == a &amp;&amp; iD == b &amp;&amp; iXi == c &amp;&amp; iXj == d) { return get_ATrhoXiXj&lt;a,b,c,d&gt;(w, T, rho, molefrac, i, j); }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3868379e46aff98632722fd37c0fb703" name="a3868379e46aff98632722fd37c0fb703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3868379e46aff98632722fd37c0fb703">&#9670;&#160;</a></span>X <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define X</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">a, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">b, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">c, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">d</span>&#160;)&#160;&#160;&#160;if (iT == a &amp;&amp; iD == b &amp;&amp; iXi == c &amp;&amp; iXj == d) { return get_AtaudeltaXiXj&lt;a,b,c,d&gt;(w, tau, delta, molefrac, i, j); }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afff4c4a01e135eb6a90cf31ba8afc70c" name="afff4c4a01e135eb6a90cf31ba8afc70c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afff4c4a01e135eb6a90cf31ba8afc70c">&#9670;&#160;</a></span>X <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define X</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">a, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">b, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">c, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">d, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">e</span>&#160;)&#160;&#160;&#160;if (iT == a &amp;&amp; iD == b &amp;&amp; iXi == c &amp;&amp; iXj == d &amp;&amp; iXk == e) { return get_ATrhoXiXjXk&lt;a,b,c,d,e&gt;(w, T, rho, molefrac, i, j, k); }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afff4c4a01e135eb6a90cf31ba8afc70c" name="afff4c4a01e135eb6a90cf31ba8afc70c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afff4c4a01e135eb6a90cf31ba8afc70c">&#9670;&#160;</a></span>X <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define X</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">a, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">b, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">c, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">d, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">e</span>&#160;)&#160;&#160;&#160;if (iT == a &amp;&amp; iD == b &amp;&amp; iXi == c &amp;&amp; iXj == d &amp;&amp; iXk == e) { return get_AtaudeltaXiXjXk&lt;a,b,c,d,e&gt;(w, tau, delta, molefrac, i, j, k); }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

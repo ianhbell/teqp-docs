@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -120,7 +122,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a33727b0a9b4df6e33386e0199f7651c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>\( \alpha^{\rm ig}= c*\left( \frac{T-T0}{T}-\ln\left(T/T0\right)\right) \)</p>
+<div class="textblock"><p>\( \alpha^{\rm ig}= c\left( \frac{T-T_0}{T}-\ln\left(\frac{T}{T_0}\right)\right) \)</p>
 <p>from a term that is like</p>
 <p>\( \frac{c_{p0}}{R}= c \) </p>
 

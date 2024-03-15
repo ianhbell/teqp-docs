@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -174,6 +176,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af3fb55dc5f552edc99d2b08a9905ca14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc09f8048ab148e04f74a8461d9d3b4f" id="r_acc09f8048ab148e04f74a8461d9d3b4f"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc09f8048ab148e04f74a8461d9d3b4f">get_dmBnvirdTm</a> (const int Nderiv, const int NTderiv, const double T, const <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &amp;z) const =0</td></tr>
 <tr class="separator:acc09f8048ab148e04f74a8461d9d3b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94ede101f45abdc4d0c75ba334f8b0ab" id="r_a94ede101f45abdc4d0c75ba334f8b0ab"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94ede101f45abdc4d0c75ba334f8b0ab">get_ATrhoXi</a> (const double T, const int NT, const double rhomolar, int ND, const <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &amp;molefrac, const int i, const int NXi) const =0</td></tr>
+<tr class="separator:a94ede101f45abdc4d0c75ba334f8b0ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a429aa66f194436d6ffa319bdf298e286" id="r_a429aa66f194436d6ffa319bdf298e286"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a429aa66f194436d6ffa319bdf298e286">get_ATrhoXiXj</a> (const double T, const int NT, const double rhomolar, int ND, const <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &amp;molefrac, const int i, const int NXi, const int j, const int NXj) const =0</td></tr>
+<tr class="separator:a429aa66f194436d6ffa319bdf298e286"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25aa46b089225b6ea8d0ec0073b42b2e" id="r_a25aa46b089225b6ea8d0ec0073b42b2e"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25aa46b089225b6ea8d0ec0073b42b2e">get_ATrhoXiXjXk</a> (const double T, const int NT, const double rhomolar, int ND, const <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &amp;molefrac, const int i, const int NXi, const int j, const int NXj, const int k, const int NXk) const =0</td></tr>
+<tr class="separator:a25aa46b089225b6ea8d0ec0073b42b2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1381c3d125a9ceaca8cea1aee7243eb3" id="r_a1381c3d125a9ceaca8cea1aee7243eb3"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1381c3d125a9ceaca8cea1aee7243eb3">get_AtaudeltaXi</a> (const double tau, const int Ntau, const double delta, int Ndelta, const <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &amp;molefrac, const int i, const int NXi) const =0</td></tr>
+<tr class="separator:a1381c3d125a9ceaca8cea1aee7243eb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac9d0334c0d941dd64e0a7a8769eb229" id="r_aac9d0334c0d941dd64e0a7a8769eb229"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac9d0334c0d941dd64e0a7a8769eb229">get_AtaudeltaXiXj</a> (const double tau, const int Ntau, const double delta, int Ndelta, const <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &amp;molefrac, const int i, const int NXi, const int j, const int NXj) const =0</td></tr>
+<tr class="separator:aac9d0334c0d941dd64e0a7a8769eb229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5357a09fdcdf9d80bfd9d4a21ec28cc8" id="r_a5357a09fdcdf9d80bfd9d4a21ec28cc8"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5357a09fdcdf9d80bfd9d4a21ec28cc8">get_AtaudeltaXiXjXk</a> (const double tau, const int Ntau, const double delta, int Ndelta, const <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &amp;molefrac, const int i, const int NXi, const int j, const int NXj, const int k, const int NXk) const =0</td></tr>
+<tr class="separator:a5357a09fdcdf9d80bfd9d4a21ec28cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd269070e0260ff8979162d1da9b46ba" id="r_abd269070e0260ff8979162d1da9b46ba"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd269070e0260ff8979162d1da9b46ba">get_pr</a> (const double T, const <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &amp;rhovec) const =0</td></tr>
 <tr class="separator:abd269070e0260ff8979162d1da9b46ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a601a2d4304923adef3429f77ab89940a" id="r_a601a2d4304923adef3429f77ab89940a"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a601a2d4304923adef3429f77ab89940a">get_splus</a> (const double T, const <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &amp;rhovec) const =0</td></tr>
@@ -208,8 +222,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5f86b60b6ecc932c51e7f9fc81745f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad84ac400f0003843c8a780e51a8361c" id="r_aad84ac400f0003843c8a780e51a8361c"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad84ac400f0003843c8a780e51a8361c">solve_pure_critical</a> (const double T, const double rho, const std::optional&lt; nlohmann::json &gt; &amp;=std::nullopt) const</td></tr>
 <tr class="separator:aad84ac400f0003843c8a780e51a8361c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0b347b5c539106f934ce82a8e9d6d81" id="r_af0b347b5c539106f934ce82a8e9d6d81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="teqpcpp_8hpp.html#a45cc18112d93c02493616cb4259df93b">EArray2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0b347b5c539106f934ce82a8e9d6d81">extrapolate_from_critical</a> (const double Tc, const double rhoc, const double Tgiven) const</td></tr>
-<tr class="separator:af0b347b5c539106f934ce82a8e9d6d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d636a4b29cff13962ac495fc7d0d768" id="r_a7d636a4b29cff13962ac495fc7d0d768"><td class="memItemLeft" align="right" valign="top"><a class="el" href="teqpcpp_8hpp.html#a45cc18112d93c02493616cb4259df93b">EArray2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d636a4b29cff13962ac495fc7d0d768">extrapolate_from_critical</a> (const double Tc, const double rhoc, const double Tgiven, const std::optional&lt; Eigen::ArrayXd &gt; &amp;molefracs=std::nullopt) const</td></tr>
+<tr class="separator:a7d636a4b29cff13962ac495fc7d0d768"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3a4f197aa7587c9dfc700eaaa35e068" id="r_ae3a4f197aa7587c9dfc700eaaa35e068"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a>, <a class="el" href="teqpcpp_8hpp.html#a5b2ba88216611e735d3c59110ffeb1f1">EMatrixd</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3a4f197aa7587c9dfc700eaaa35e068">get_pure_critical_conditions_Jacobian</a> (const double T, const double rho, const std::optional&lt; std::size_t &gt; &amp;alternative_pure_index, const std::optional&lt; std::size_t &gt; &amp;alternative_length) const</td></tr>
 <tr class="separator:ae3a4f197aa7587c9dfc700eaaa35e068"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7fcd91d9a54b7e6d3d745be73c64eee" id="r_aa7fcd91d9a54b7e6d3d745be73c64eee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="teqpcpp_8hpp.html#a45cc18112d93c02493616cb4259df93b">EArray2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7fcd91d9a54b7e6d3d745be73c64eee">pure_VLE_T</a> (const double T, const double rhoL, const double rhoV, int maxiter, const std::optional&lt; Eigen::ArrayXd &gt; &amp;molefracs=std::nullopt) const</td></tr>
@@ -495,8 +509,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af0b347b5c539106f934ce82a8e9d6d81" name="af0b347b5c539106f934ce82a8e9d6d81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0b347b5c539106f934ce82a8e9d6d81">&#9670;&#160;</a></span>extrapolate_from_critical()</h2>
+<a id="a7d636a4b29cff13962ac495fc7d0d768" name="a7d636a4b29cff13962ac495fc7d0d768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d636a4b29cff13962ac495fc7d0d768">&#9670;&#160;</a></span>extrapolate_from_critical()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -514,7 +528,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>Tgiven</em></span>&#160;) const</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>Tgiven</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::optional&lt; Eigen::ArrayXd &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>molefracs</em><span class="paramdefsep"> = </span><span class="paramdefval">std::nullopt</span></span>&#160;) const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1360,6 +1379,402 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implemented in <a class="el" href="classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter.html#a6e487c7c6a6ee6011cc9001c3c5656b6">teqp::cppinterface::adapter::DerivativeAdapter&lt; ModelPack &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a1381c3d125a9ceaca8cea1aee7243eb3" name="a1381c3d125a9ceaca8cea1aee7243eb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1381c3d125a9ceaca8cea1aee7243eb3">&#9670;&#160;</a></span>get_AtaudeltaXi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double teqp::cppinterface::AbstractModel::get_AtaudeltaXi </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>tau</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>Ntau</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>delta</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>Ndelta</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>NXi</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter.html#a14d1f36da182d37065db7a2089d80f81">teqp::cppinterface::adapter::DerivativeAdapter&lt; ModelPack &gt;</a>.</p>
+
+</div>
+</div>
+<a id="aac9d0334c0d941dd64e0a7a8769eb229" name="aac9d0334c0d941dd64e0a7a8769eb229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac9d0334c0d941dd64e0a7a8769eb229">&#9670;&#160;</a></span>get_AtaudeltaXiXj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double teqp::cppinterface::AbstractModel::get_AtaudeltaXiXj </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>tau</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>Ntau</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>delta</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>Ndelta</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>NXi</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>j</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>NXj</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter.html#a8bbafd3004e810a6eda8fe7db83297b8">teqp::cppinterface::adapter::DerivativeAdapter&lt; ModelPack &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a5357a09fdcdf9d80bfd9d4a21ec28cc8" name="a5357a09fdcdf9d80bfd9d4a21ec28cc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5357a09fdcdf9d80bfd9d4a21ec28cc8">&#9670;&#160;</a></span>get_AtaudeltaXiXjXk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double teqp::cppinterface::AbstractModel::get_AtaudeltaXiXjXk </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>tau</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>Ntau</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>delta</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>Ndelta</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>NXi</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>j</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>NXj</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>k</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>NXk</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter.html#a4dbf50be39745c205b933013068de0f8">teqp::cppinterface::adapter::DerivativeAdapter&lt; ModelPack &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a94ede101f45abdc4d0c75ba334f8b0ab" name="a94ede101f45abdc4d0c75ba334f8b0ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94ede101f45abdc4d0c75ba334f8b0ab">&#9670;&#160;</a></span>get_ATrhoXi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double teqp::cppinterface::AbstractModel::get_ATrhoXi </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>NT</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>rhomolar</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ND</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>NXi</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter.html#ae2c30f33a61896b176c76ae74d2da92a">teqp::cppinterface::adapter::DerivativeAdapter&lt; ModelPack &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a429aa66f194436d6ffa319bdf298e286" name="a429aa66f194436d6ffa319bdf298e286"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a429aa66f194436d6ffa319bdf298e286">&#9670;&#160;</a></span>get_ATrhoXiXj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double teqp::cppinterface::AbstractModel::get_ATrhoXiXj </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>NT</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>rhomolar</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ND</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>NXi</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>j</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>NXj</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter.html#ac8898a3730dc684c4fe330a090a8e721">teqp::cppinterface::adapter::DerivativeAdapter&lt; ModelPack &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a25aa46b089225b6ea8d0ec0073b42b2e" name="a25aa46b089225b6ea8d0ec0073b42b2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25aa46b089225b6ea8d0ec0073b42b2e">&#9670;&#160;</a></span>get_ATrhoXiXjXk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double teqp::cppinterface::AbstractModel::get_ATrhoXiXjXk </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>NT</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>rhomolar</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ND</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>NXi</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>j</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>NXj</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>k</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>NXk</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter.html#a4f0bbd3134c473e2572863c60f523602">teqp::cppinterface::adapter::DerivativeAdapter&lt; ModelPack &gt;</a>.</p>
 
 </div>
 </div>

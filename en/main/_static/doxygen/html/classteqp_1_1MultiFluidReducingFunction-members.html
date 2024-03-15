@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -102,6 +104,8 @@ $(function() {
   <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html#abf6eabcfcfd221eac3f4f10cd59c14c0">betaV</a></td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html">teqp::MultiFluidReducingFunction</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html#afd9986ebbb9330bf89f84e15876ae788">gammaT</a></td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html">teqp::MultiFluidReducingFunction</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html#a36c24d799a42f77f6c4995aa4fc58b35">gammaV</a></td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html">teqp::MultiFluidReducingFunction</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html#a537b5da36949018511eadf7472bfb8bd">get_BIP</a>(const std::size_t &amp;i, const std::size_t &amp;j, const std::string &amp;key) const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html">teqp::MultiFluidReducingFunction</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html#ae1c64bf2a69c64280414ecbf5adb5102">get_mat</a>(const std::string &amp;key) const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html">teqp::MultiFluidReducingFunction</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html#aa83fbb264a58bd473242711d5b6d4716">get_rhor</a>(const MoleFractions &amp;molefracs) const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html">teqp::MultiFluidReducingFunction</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html#a22c29c10dcdfb493a015f87671859e7d">get_Tr</a>(const MoleFractions &amp;molefracs) const</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html">teqp::MultiFluidReducingFunction</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html#abd2f4379108ab31970b53ed8de55025d">MultiFluidReducingFunction</a>(const Eigen::MatrixXd &amp;betaT, const Eigen::MatrixXd &amp;gammaT, const Eigen::MatrixXd &amp;betaV, const Eigen::MatrixXd &amp;gammaV, const ArrayLike &amp;Tc, const ArrayLike &amp;vc)</td><td class="entry"><a class="el" href="classteqp_1_1MultiFluidReducingFunction.html">teqp::MultiFluidReducingFunction</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>

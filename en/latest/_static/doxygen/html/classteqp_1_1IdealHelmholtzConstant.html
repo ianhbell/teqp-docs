@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -106,9 +108,9 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aad5dd3f3f17b969939c4feef093b63ac" id="r_aad5dd3f3f17b969939c4feef093b63ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad5dd3f3f17b969939c4feef093b63ac">IdealHelmholtzConstant</a> (double <a class="el" href="#a90dc29dacda4957750bfb6419b130fca">a</a>, double <a class="el" href="#a860ff6752cb7e3c7dc051766d82330d7">R</a>)</td></tr>
 <tr class="separator:aad5dd3f3f17b969939c4feef093b63ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52dd01f6264f05bfb7d7337d9eda9e56" id="r_a52dd01f6264f05bfb7d7337d9eda9e56"><td class="memTemplParams" colspan="2">template&lt;typename TType , typename RhoType &gt; </td></tr>
-<tr class="memitem:a52dd01f6264f05bfb7d7337d9eda9e56"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a52dd01f6264f05bfb7d7337d9eda9e56">alphaig</a> (const TType &amp;T, const RhoType &amp;rho) const</td></tr>
-<tr class="separator:a52dd01f6264f05bfb7d7337d9eda9e56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4aa780a77d522ae40566d1c06905d4a" id="r_af4aa780a77d522ae40566d1c06905d4a"><td class="memTemplParams" colspan="2">template&lt;typename TType , typename RhoType &gt; </td></tr>
+<tr class="memitem:af4aa780a77d522ae40566d1c06905d4a"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af4aa780a77d522ae40566d1c06905d4a">alphaig</a> (const TType &amp;, const RhoType &amp;) const</td></tr>
+<tr class="separator:af4aa780a77d522ae40566d1c06905d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -154,8 +156,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a52dd01f6264f05bfb7d7337d9eda9e56" name="a52dd01f6264f05bfb7d7337d9eda9e56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52dd01f6264f05bfb7d7337d9eda9e56">&#9670;&#160;</a></span>alphaig()</h2>
+<a id="af4aa780a77d522ae40566d1c06905d4a" name="af4aa780a77d522ae40566d1c06905d4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4aa780a77d522ae40566d1c06905d4a">&#9670;&#160;</a></span>alphaig()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -168,12 +170,12 @@ template&lt;typename TType , typename RhoType &gt; </div>
         <tr>
           <td class="memname">auto teqp::IdealHelmholtzConstant::alphaig </td>
           <td>(</td>
-          <td class="paramtype">const TType &amp;</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+          <td class="paramtype">const TType &amp;</td>          <td class="paramname"><span class="paramname">, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const RhoType &amp;</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>&#160;) const</td>
+          <td class="paramtype">const RhoType &amp;</td>          <td class="paramname"><span class="paramname"></span>&#160;) const</td>
         </tr>
       </table>
   </td>

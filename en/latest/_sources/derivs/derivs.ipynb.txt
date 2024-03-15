@@ -56,10 +56,33 @@
     "$$\n",
     "\\frac{c_v}{R} = -\\Lambda^{\\rm tot}_{20}\n",
     "$$\n",
-    "Isobaric specific heat ($c_p\\equiv (\\partial h/\\partial T)_p$; see Eq. 3.56 from Span \\cite{Span-BOOK-2000} for the derivation):\n",
+    "Isobaric specific heat ($c_p\\equiv (\\partial h/\\partial T)_p$; see Eq. 3.56 from Span for the derivation):\n",
     "$$\n",
     "\\frac{c_p}{R} = -\\Lambda^{\\rm tot}_{20}+\\frac{(1+\\Lambda^r_{01}-\\Lambda^r_{11})^2}{1+2\\Lambda^r_{01}+\\Lambda^r_{02}}\n",
     "$$"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "4e621170",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "In teqp, these derivatives are obtained from methods like \n",
+    "\n",
+    "* :py:meth:`~teqp.teqp.AbstractModel.get_Arxy`\n",
+    "* :py:meth:`~teqp.teqp.AbstractModel.get_Ar06n`"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7622b9b7",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "where the ``A`` in this context indicates the variable $\\Lambda$ above. This naming is perhaps not ideal, since $A$ is sometimes the total Helmholtz energy, but it was a close visual mnemonic to the character $\\Lambda$."
    ]
   },
   {
@@ -68,17 +91,17 @@
    "id": "2ced52fd",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T18:58:28.173949Z",
-     "iopub.status.busy": "2024-01-05T18:58:28.173789Z",
-     "iopub.status.idle": "2024-01-05T18:58:28.186976Z",
-     "shell.execute_reply": "2024-01-05T18:58:28.186503Z"
+     "iopub.execute_input": "2024-03-15T22:33:31.347935Z",
+     "iopub.status.busy": "2024-03-15T22:33:31.347461Z",
+     "iopub.status.idle": "2024-03-15T22:33:31.361595Z",
+     "shell.execute_reply": "2024-03-15T22:33:31.361133Z"
     }
    },
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "'0.18.0'"
+       "'0.19.1'"
       ]
      },
      "execution_count": 1,
@@ -97,10 +120,10 @@
    "id": "ca35cc29",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T18:58:28.188900Z",
-     "iopub.status.busy": "2024-01-05T18:58:28.188740Z",
-     "iopub.status.idle": "2024-01-05T18:58:28.247312Z",
-     "shell.execute_reply": "2024-01-05T18:58:28.246836Z"
+     "iopub.execute_input": "2024-03-15T22:33:31.363688Z",
+     "iopub.status.busy": "2024-03-15T22:33:31.363365Z",
+     "iopub.status.idle": "2024-03-15T22:33:31.423946Z",
+     "shell.execute_reply": "2024-03-15T22:33:31.423433Z"
     }
    },
    "outputs": [],
@@ -114,10 +137,10 @@
    "id": "8d254c40",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T18:58:28.250446Z",
-     "iopub.status.busy": "2024-01-05T18:58:28.249514Z",
-     "iopub.status.idle": "2024-01-05T18:58:28.253883Z",
-     "shell.execute_reply": "2024-01-05T18:58:28.253442Z"
+     "iopub.execute_input": "2024-03-15T22:33:31.427467Z",
+     "iopub.status.busy": "2024-03-15T22:33:31.426520Z",
+     "iopub.status.idle": "2024-03-15T22:33:31.430840Z",
+     "shell.execute_reply": "2024-03-15T22:33:31.430400Z"
     }
    },
    "outputs": [],
@@ -134,10 +157,10 @@
    "id": "49ee3453",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T18:58:28.257124Z",
-     "iopub.status.busy": "2024-01-05T18:58:28.256277Z",
-     "iopub.status.idle": "2024-01-05T18:58:28.261868Z",
-     "shell.execute_reply": "2024-01-05T18:58:28.261408Z"
+     "iopub.execute_input": "2024-03-15T22:33:31.434059Z",
+     "iopub.status.busy": "2024-03-15T22:33:31.433208Z",
+     "iopub.status.idle": "2024-03-15T22:33:31.438796Z",
+     "shell.execute_reply": "2024-03-15T22:33:31.438360Z"
     }
    },
    "outputs": [
@@ -171,10 +194,10 @@
    "id": "3ae755e1",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T18:58:28.265086Z",
-     "iopub.status.busy": "2024-01-05T18:58:28.264246Z",
-     "iopub.status.idle": "2024-01-05T18:58:28.269903Z",
-     "shell.execute_reply": "2024-01-05T18:58:28.269467Z"
+     "iopub.execute_input": "2024-03-15T22:33:31.441999Z",
+     "iopub.status.busy": "2024-03-15T22:33:31.441140Z",
+     "iopub.status.idle": "2024-03-15T22:33:31.446753Z",
+     "shell.execute_reply": "2024-03-15T22:33:31.446317Z"
     }
    },
    "outputs": [
@@ -208,10 +231,10 @@
    "id": "4e0609ae",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T18:58:28.273150Z",
-     "iopub.status.busy": "2024-01-05T18:58:28.272303Z",
-     "iopub.status.idle": "2024-01-05T18:58:42.068028Z",
-     "shell.execute_reply": "2024-01-05T18:58:42.067446Z"
+     "iopub.execute_input": "2024-03-15T22:33:31.450005Z",
+     "iopub.status.busy": "2024-03-15T22:33:31.449160Z",
+     "iopub.status.idle": "2024-03-15T22:33:45.051667Z",
+     "shell.execute_reply": "2024-03-15T22:33:45.051146Z"
     }
    },
    "outputs": [
@@ -219,14 +242,14 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "580 ns ± 2.01 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)\n"
+      "593 ns ± 1.2 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "1.12 µs ± 10.4 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)\n"
+      "1.08 µs ± 1.14 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)\n"
      ]
     }
    ],
@@ -270,10 +293,10 @@
    "id": "720e120c",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T18:58:42.070114Z",
-     "iopub.status.busy": "2024-01-05T18:58:42.069947Z",
-     "iopub.status.idle": "2024-01-05T18:58:42.073412Z",
-     "shell.execute_reply": "2024-01-05T18:58:42.073022Z"
+     "iopub.execute_input": "2024-03-15T22:33:45.053893Z",
+     "iopub.status.busy": "2024-03-15T22:33:45.053545Z",
+     "iopub.status.idle": "2024-03-15T22:33:45.057190Z",
+     "shell.execute_reply": "2024-03-15T22:33:45.056710Z"
     }
    },
    "outputs": [
@@ -306,10 +329,10 @@
    "id": "92d01992",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T18:58:42.075239Z",
-     "iopub.status.busy": "2024-01-05T18:58:42.075076Z",
-     "iopub.status.idle": "2024-01-05T18:58:42.078427Z",
-     "shell.execute_reply": "2024-01-05T18:58:42.078040Z"
+     "iopub.execute_input": "2024-03-15T22:33:45.059134Z",
+     "iopub.status.busy": "2024-03-15T22:33:45.058833Z",
+     "iopub.status.idle": "2024-03-15T22:33:45.062536Z",
+     "shell.execute_reply": "2024-03-15T22:33:45.062040Z"
     }
    },
    "outputs": [
@@ -349,10 +372,10 @@
    "id": "fa4ff386",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T18:58:42.080196Z",
-     "iopub.status.busy": "2024-01-05T18:58:42.080043Z",
-     "iopub.status.idle": "2024-01-05T18:58:42.083449Z",
-     "shell.execute_reply": "2024-01-05T18:58:42.083021Z"
+     "iopub.execute_input": "2024-03-15T22:33:45.064575Z",
+     "iopub.status.busy": "2024-03-15T22:33:45.064247Z",
+     "iopub.status.idle": "2024-03-15T22:33:45.067788Z",
+     "shell.execute_reply": "2024-03-15T22:33:45.067361Z"
     }
    },
    "outputs": [
@@ -402,10 +425,10 @@
    "id": "d56640d3",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-05T18:58:42.085357Z",
-     "iopub.status.busy": "2024-01-05T18:58:42.085060Z",
-     "iopub.status.idle": "2024-01-05T18:58:42.136949Z",
-     "shell.execute_reply": "2024-01-05T18:58:42.136519Z"
+     "iopub.execute_input": "2024-03-15T22:33:45.069689Z",
+     "iopub.status.busy": "2024-03-15T22:33:45.069529Z",
+     "iopub.status.idle": "2024-03-15T22:33:45.115775Z",
+     "shell.execute_reply": "2024-03-15T22:33:45.115311Z"
     }
    },
    "outputs": [
@@ -437,6 +460,7 @@
   }
  ],
  "metadata": {
+  "celltoolbar": "Raw Cell Format",
   "kernelspec": {
    "display_name": "Python 3 (ipykernel)",
    "language": "python",

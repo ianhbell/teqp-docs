@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -113,6 +115,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a226086e725203f58a7b92333316039ad" id="r_a226086e725203f58a7b92333316039ad"><td class="memTemplParams" colspan="2">template&lt;typename MoleFractions &gt; </td></tr>
 <tr class="memitem:a226086e725203f58a7b92333316039ad"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a226086e725203f58a7b92333316039ad">get_rhor</a> (const MoleFractions &amp;molefracs) const</td></tr>
 <tr class="separator:a226086e725203f58a7b92333316039ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af873f86dc0bb4f3f0c02bc9b4dd7e143" id="r_af873f86dc0bb4f3f0c02bc9b4dd7e143"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af873f86dc0bb4f3f0c02bc9b4dd7e143">get_BIP</a> (const std::size_t &amp;i, const std::size_t &amp;j, const std::string &amp;key) const</td></tr>
+<tr class="separator:af873f86dc0bb4f3f0c02bc9b4dd7e143"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -124,7 +128,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename... Args&gt;<br />
 class teqp::ReducingTermContainer&lt; Args &gt;</div>
-<p class="definition">Definition at line <a class="el" href="multifluid__reducing_8hpp_source.html#l00260">260</a> of file <a class="el" href="multifluid__reducing_8hpp_source.html">multifluid_reducing.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="multifluid__reducing_8hpp_source.html#l00307">307</a> of file <a class="el" href="multifluid__reducing_8hpp_source.html">multifluid_reducing.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7205b04f28019c75143366b844562868" name="a7205b04f28019c75143366b844562868"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7205b04f28019c75143366b844562868">&#9670;&#160;</a></span>ReducingTermContainer()</h2>
@@ -153,11 +157,49 @@ template&lt;typename Instance &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="multifluid__reducing_8hpp_source.html#l00269">269</a> of file <a class="el" href="multifluid__reducing_8hpp_source.html">multifluid_reducing.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="multifluid__reducing_8hpp_source.html#l00316">316</a> of file <a class="el" href="multifluid__reducing_8hpp_source.html">multifluid_reducing.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="af873f86dc0bb4f3f0c02bc9b4dd7e143" name="af873f86dc0bb4f3f0c02bc9b4dd7e143"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af873f86dc0bb4f3f0c02bc9b4dd7e143">&#9670;&#160;</a></span>get_BIP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="classteqp_1_1ReducingTermContainer.html">teqp::ReducingTermContainer</a>&lt; Args &gt;::get_BIP </td>
+          <td>(</td>
+          <td class="paramtype">const std::size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>key</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="multifluid__reducing_8hpp_source.html#l00328">328</a> of file <a class="el" href="multifluid__reducing_8hpp_source.html">multifluid_reducing.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a226086e725203f58a7b92333316039ad" name="a226086e725203f58a7b92333316039ad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a226086e725203f58a7b92333316039ad">&#9670;&#160;</a></span>get_rhor()</h2>
 
@@ -185,7 +227,7 @@ template&lt;typename MoleFractions &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="multifluid__reducing_8hpp_source.html#l00277">277</a> of file <a class="el" href="multifluid__reducing_8hpp_source.html">multifluid_reducing.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="multifluid__reducing_8hpp_source.html#l00324">324</a> of file <a class="el" href="multifluid__reducing_8hpp_source.html">multifluid_reducing.hpp</a>.</p>
 
 </div>
 </div>
@@ -216,7 +258,7 @@ template&lt;typename MoleFractions &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="multifluid__reducing_8hpp_source.html#l00272">272</a> of file <a class="el" href="multifluid__reducing_8hpp_source.html">multifluid_reducing.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="multifluid__reducing_8hpp_source.html#l00319">319</a> of file <a class="el" href="multifluid__reducing_8hpp_source.html">multifluid_reducing.hpp</a>.</p>
 
 </div>
 </div>
@@ -235,7 +277,7 @@ template&lt;typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="multifluid__reducing_8hpp_source.html#l00266">266</a> of file <a class="el" href="multifluid__reducing_8hpp_source.html">multifluid_reducing.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="multifluid__reducing_8hpp_source.html#l00313">313</a> of file <a class="el" href="multifluid__reducing_8hpp_source.html">multifluid_reducing.hpp</a>.</p>
 
 </div>
 </div>
@@ -253,7 +295,7 @@ template&lt;typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="multifluid__reducing_8hpp_source.html#l00266">266</a> of file <a class="el" href="multifluid__reducing_8hpp_source.html">multifluid_reducing.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="multifluid__reducing_8hpp_source.html#l00313">313</a> of file <a class="el" href="multifluid__reducing_8hpp_source.html">multifluid_reducing.hpp</a>.</p>
 
 </div>
 </div>

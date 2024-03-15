@@ -12,14 +12,19 @@ Models
    AdvancedCubicMixing
    RK-PR
    CPA
+   LKP
 
    model_potentials
    
    PCSAFT
    SAFT-VR-Mie
    SAFT-VR-Mie-Polar
+   Association
    
    multifluid
    multifluid_mutant
-   GERG   
+   REFPROP_conversion
+   GERG
    ECS
+   
+   IdealGas

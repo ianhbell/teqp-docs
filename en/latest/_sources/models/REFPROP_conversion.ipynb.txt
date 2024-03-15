@@ -1,0 +1,250 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "4d8d718f",
+   "metadata": {},
+   "source": [
+    "## REFPROP <10.0 conversion\n",
+    "\n",
+    "As of ``teqp`` version 0.19.0, it is possible to read in the .FLD and HMX.BNC of [NIST REFPROP 10.0](https://www.nist.gov/srd/refprop) and load them into ``teqp`` multifluid models. There are two approaches; either you can pass paths to the files of interest, or you can load them into JSON once, and pass the converted JSON back into teqp's ``make_model`` function.\n",
+    "\n",
+    "The conversion code is uses that of [REFPROP-interop](https://github.com/ianhbell/REFPROP-interop) and the fluid file format of [CoolProp](https://github.com/coolprop/coolprop) is used.\n",
+    "\n",
+    "The example is based on the interaction parameters provided in the supporting information of the paper [Mixture Model for Refrigerant Pairs R-32/1234yf, R-32/1234ze(E), R-1234ze(E)/227ea, R-1234yf/152a, and R-125/1234yf](https://doi.org/10.1063/5.0135368) by Ian Bell"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "38951d36",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-03-15T22:32:40.321839Z",
+     "iopub.status.busy": "2024-03-15T22:32:40.321670Z",
+     "iopub.status.idle": "2024-03-15T22:32:40.335365Z",
+     "shell.execute_reply": "2024-03-15T22:32:40.334851Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'0.19.1'"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import json\n",
+    "import teqp\n",
+    "teqp.__version__"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "f2c9865b",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-03-15T22:32:40.337447Z",
+     "iopub.status.busy": "2024-03-15T22:32:40.337083Z",
+     "iopub.status.idle": "2024-03-15T22:32:40.385355Z",
+     "shell.execute_reply": "2024-03-15T22:32:40.384846Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# The first approach, we just pass paths to the files, they live in the folder \n",
+    "# containing this notebook, and teqp does the conversion on the fly\n",
+    "jsimple = {\n",
+    "    'kind': 'multifluid',\n",
+    "    'model': {\n",
+    "        'HMX.BNC': 'HMX.BNC',\n",
+    "        'components': ['R152A.FLD', 'NEWR1234YF.FLD'],\n",
+    "    }\n",
+    "}\n",
+    "model = teqp.make_model(jsimple)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "2ec3c0ba",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-03-15T22:32:40.387357Z",
+     "iopub.status.busy": "2024-03-15T22:32:40.387023Z",
+     "iopub.status.idle": "2024-03-15T22:32:44.081122Z",
+     "shell.execute_reply": "2024-03-15T22:32:44.080647Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "45.6 ms ± 1.46 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)\n"
+     ]
+    }
+   ],
+   "source": [
+    "%timeit teqp.make_model(jsimple)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "67df32fe",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-03-15T22:32:44.083077Z",
+     "iopub.status.busy": "2024-03-15T22:32:44.082916Z",
+     "iopub.status.idle": "2024-03-15T22:32:44.130629Z",
+     "shell.execute_reply": "2024-03-15T22:32:44.130216Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Convert each of the FLD files to JSON\n",
+    "FLD0 = teqp.convert_FLD('R152A.FLD', name='R152A')\n",
+    "FLD1 = teqp.convert_FLD('NEWR1234YF.FLD', name='R1234YF')\n",
+    "BIP, DEP = teqp.convert_HMXBNC('HMX.BNC')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "080804cc",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-03-15T22:32:44.132464Z",
+     "iopub.status.busy": "2024-03-15T22:32:44.132271Z",
+     "iopub.status.idle": "2024-03-15T22:32:44.135764Z",
+     "shell.execute_reply": "2024-03-15T22:32:44.135355Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "jconverted = {\n",
+    "    \"kind\": \"multifluid\",\n",
+    "    \"model\": {\n",
+    "        \"components\": [FLD0, FLD1],\n",
+    "        \"BIP\": BIP,\n",
+    "        \"departure\": DEP\n",
+    "    }\n",
+    "}\n",
+    "model = teqp.make_model(jconverted)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "cce51d45",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-03-15T22:32:44.137589Z",
+     "iopub.status.busy": "2024-03-15T22:32:44.137276Z",
+     "iopub.status.idle": "2024-03-15T22:32:49.139955Z",
+     "shell.execute_reply": "2024-03-15T22:32:49.139395Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "602 µs ± 2.32 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)\n"
+     ]
+    }
+   ],
+   "source": [
+    "%timeit teqp.make_model(jconverted)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f4f6c961",
+   "metadata": {},
+   "source": [
+    "From this example you can note that the first method is a lot slower because the FLD->JSON conversion needs to happen for each call, while in the second method it is much faster because only the JSON parsing needs to be done in ``teqp``."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "c77b1880",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-03-15T22:32:49.142002Z",
+     "iopub.status.busy": "2024-03-15T22:32:49.141680Z",
+     "iopub.status.idle": "2024-03-15T22:32:49.185002Z",
+     "shell.execute_reply": "2024-03-15T22:32:49.184585Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# It is also possible to prefix the path to indicate that the \n",
+    "# indicated file (after the FLD::) should be converted from REFPROP format\n",
+    "jconverted = {\n",
+    "    \"kind\": \"multifluid\",\n",
+    "    \"model\": {\n",
+    "        \"components\": [\"FLDPATH::R152A.FLD\", 'FLDPATH::NEWR1234YF.FLD'],\n",
+    "        \"BIP\": BIP,\n",
+    "        \"departure\": DEP\n",
+    "    }\n",
+    "}\n",
+    "model = teqp.make_model(jconverted)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "341ac9df",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-03-15T22:32:49.186799Z",
+     "iopub.status.busy": "2024-03-15T22:32:49.186490Z",
+     "iopub.status.idle": "2024-03-15T22:32:52.501226Z",
+     "shell.execute_reply": "2024-03-15T22:32:52.500670Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "40.8 ms ± 180 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)\n"
+     ]
+    }
+   ],
+   "source": [
+    "%timeit teqp.make_model(jconverted)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

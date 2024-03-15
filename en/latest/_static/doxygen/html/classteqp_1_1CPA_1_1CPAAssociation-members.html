@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -92,14 +94,15 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">teqp::CPA::CPAAssociation&lt; Cubic &gt; Member List</div></div>
+  <div class="headertitle"><div class="title">teqp::CPA::CPAAssociation Member List</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html">teqp::CPA::CPAAssociation&lt; Cubic &gt;</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html">teqp::CPA::CPAAssociation</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html#a5b169cbb7bdcedaec1d0f0dbfdc6a861">alphar</a>(const TType &amp;T, const RhoType &amp;rhomolar, const VecType &amp;molefrac) const</td><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html">teqp::CPA::CPAAssociation&lt; Cubic &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html#ad93f1746664881507cba7be36a13cc83">CPAAssociation</a>(const Cubic &amp;&amp;cubic, const std::vector&lt; association_classes &gt; &amp;classes, const radial_dist dist, const std::valarray&lt; double &gt; &amp;epsABi, const std::valarray&lt; double &gt; &amp;betaABi, double R_gas)</td><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html">teqp::CPA::CPAAssociation&lt; Cubic &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html#ad715254b801f57c4f370b80515782e86">alphar</a>(const TType &amp;T, const RhoType &amp;rhomolar, const VecType &amp;molefrac) const</td><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html">teqp::CPA::CPAAssociation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html#ab1eb09b53d6358c564cb824e173d42f0">CPAAssociation</a>(const std::vector&lt; association_classes &gt; &amp;classes, const radial_dist dist, const std::valarray&lt; double &gt; &amp;epsABi, const std::valarray&lt; double &gt; &amp;betaABi, const std::valarray&lt; double &gt; &amp;bi, double R_gas)</td><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html">teqp::CPA::CPAAssociation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html#af0074b46e458bfbea22b0bf7d6aa0a1d">get_assoc_calcs</a>(double T, double rhomolar, const Eigen::ArrayXd &amp;mole_fractions) const</td><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html">teqp::CPA::CPAAssociation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -103,11 +105,13 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a164b6adfdb9df4aeff11c8a594cefb61" id="r_a164b6adfdb9df4aeff11c8a594cefb61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a164b6adfdb9df4aeff11c8a594cefb61">CPACubic</a> (<a class="el" href="namespaceteqp_1_1CPA.html#a117b6f3032c46b46f6a1e9d2b5980e2a">cubic_flag</a> flag, const std::valarray&lt; double &gt; &amp;a0, const std::valarray&lt; double &gt; &amp;bi, const std::valarray&lt; double &gt; &amp;c1, const std::valarray&lt; double &gt; &amp;Tc, double R_gas)</td></tr>
-<tr class="separator:a164b6adfdb9df4aeff11c8a594cefb61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e35b621aa6a0b22ccaa073cb8d65010" id="r_a0e35b621aa6a0b22ccaa073cb8d65010"><td class="memTemplParams" colspan="2">template&lt;typename VecType &gt; </td></tr>
-<tr class="memitem:a0e35b621aa6a0b22ccaa073cb8d65010"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0e35b621aa6a0b22ccaa073cb8d65010">R</a> (const VecType &amp;molefrac) const</td></tr>
-<tr class="separator:a0e35b621aa6a0b22ccaa073cb8d65010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11daa6f79cd19a399abb2948f901ba14" id="r_a11daa6f79cd19a399abb2948f901ba14"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11daa6f79cd19a399abb2948f901ba14">CPACubic</a> (<a class="el" href="namespaceteqp_1_1CPA.html#a117b6f3032c46b46f6a1e9d2b5980e2a">cubic_flag</a> flag, const std::valarray&lt; double &gt; &amp;a0, const std::valarray&lt; double &gt; &amp;bi, const std::valarray&lt; double &gt; &amp;c1, const std::valarray&lt; double &gt; &amp;Tc, const double R_gas, const std::optional&lt; std::vector&lt; std::vector&lt; double &gt; &gt; &gt; &amp;kmat=std::nullopt)</td></tr>
+<tr class="separator:a11daa6f79cd19a399abb2948f901ba14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a355a4d9eb6339674cde7dee2a2c5ffe9" id="r_a355a4d9eb6339674cde7dee2a2c5ffe9"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a355a4d9eb6339674cde7dee2a2c5ffe9">size</a> () const</td></tr>
+<tr class="separator:a355a4d9eb6339674cde7dee2a2c5ffe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b99b744bcd278ed0b73ede22a0786da" id="r_a7b99b744bcd278ed0b73ede22a0786da"><td class="memTemplParams" colspan="2">template&lt;typename VecType &gt; </td></tr>
+<tr class="memitem:a7b99b744bcd278ed0b73ede22a0786da"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7b99b744bcd278ed0b73ede22a0786da">R</a> (const VecType &amp;) const</td></tr>
+<tr class="separator:a7b99b744bcd278ed0b73ede22a0786da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a308eb8e9184fe6af6abee769df3a4424" id="r_a308eb8e9184fe6af6abee769df3a4424"><td class="memTemplParams" colspan="2">template&lt;typename TType &gt; </td></tr>
 <tr class="memitem:a308eb8e9184fe6af6abee769df3a4424"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a308eb8e9184fe6af6abee769df3a4424">get_ai</a> (TType T, int i) const</td></tr>
 <tr class="separator:a308eb8e9184fe6af6abee769df3a4424"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,10 +124,10 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00137">137</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00124">124</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a164b6adfdb9df4aeff11c8a594cefb61" name="a164b6adfdb9df4aeff11c8a594cefb61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a164b6adfdb9df4aeff11c8a594cefb61">&#9670;&#160;</a></span>CPACubic()</h2>
+<a id="a11daa6f79cd19a399abb2948f901ba14" name="a11daa6f79cd19a399abb2948f901ba14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11daa6f79cd19a399abb2948f901ba14">&#9670;&#160;</a></span>CPACubic()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,7 +163,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>R_gas</em></span>&#160;)</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>R_gas</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::optional&lt; std::vector&lt; std::vector&lt; double &gt; &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>kmat</em><span class="paramdefsep"> = </span><span class="paramdefval">std::nullopt</span></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -169,7 +178,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00145">145</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00131">131</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
 
 </div>
 </div>
@@ -208,7 +217,7 @@ template&lt;typename TType , typename RhoType , typename VecType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00182">182</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00170">170</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
 
 </div>
 </div>
@@ -241,7 +250,7 @@ template&lt;typename TType , typename VecType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00166">166</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00153">153</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
 
 </div>
 </div>
@@ -274,12 +283,12 @@ template&lt;typename TType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00161">161</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00148">148</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a0e35b621aa6a0b22ccaa073cb8d65010" name="a0e35b621aa6a0b22ccaa073cb8d65010"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e35b621aa6a0b22ccaa073cb8d65010">&#9670;&#160;</a></span>R()</h2>
+<a id="a7b99b744bcd278ed0b73ede22a0786da" name="a7b99b744bcd278ed0b73ede22a0786da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b99b744bcd278ed0b73ede22a0786da">&#9670;&#160;</a></span>R()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -292,7 +301,7 @@ template&lt;typename VecType &gt; </div>
         <tr>
           <td class="memname">auto teqp::CPA::CPACubic::R </td>
           <td>(</td>
-          <td class="paramtype">const VecType &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em></span></td><td>)</td>
+          <td class="paramtype">const VecType &amp;</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -303,7 +312,34 @@ template&lt;typename VecType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00158">158</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00145">145</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a355a4d9eb6339674cde7dee2a2c5ffe9" name="a355a4d9eb6339674cde7dee2a2c5ffe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a355a4d9eb6339674cde7dee2a2c5ffe9">&#9670;&#160;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t teqp::CPA::CPACubic::size </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="CPA_8hpp_source.html#l00142">142</a> of file <a class="el" href="CPA_8hpp_source.html">CPA.hpp</a>.</p>
 
 </div>
 </div>

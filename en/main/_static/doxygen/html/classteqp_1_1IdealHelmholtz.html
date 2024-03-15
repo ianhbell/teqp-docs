@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -115,9 +117,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a543c3703172510f89c9aedb3404a0ca3" id="r_a543c3703172510f89c9aedb3404a0ca3"><td class="memTemplParams" colspan="2">template&lt;typename TType , typename RhoType , typename MoleFrac &gt; </td></tr>
 <tr class="memitem:a543c3703172510f89c9aedb3404a0ca3"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a543c3703172510f89c9aedb3404a0ca3">alphar</a> (const TType &amp;T, const RhoType &amp;rho, const MoleFrac &amp;molefrac) const</td></tr>
 <tr class="separator:a543c3703172510f89c9aedb3404a0ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0582fc0e4ce5f9e6f9883fdf6115394c" id="r_a0582fc0e4ce5f9e6f9883fdf6115394c"><td class="memTemplParams" colspan="2">template&lt;typename MoleFrac &gt; </td></tr>
-<tr class="memitem:a0582fc0e4ce5f9e6f9883fdf6115394c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0582fc0e4ce5f9e6f9883fdf6115394c">R</a> (const MoleFrac &amp;molefrac) const</td></tr>
-<tr class="separator:a0582fc0e4ce5f9e6f9883fdf6115394c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee4c92c12be54f19c41aab0d3a7dde30" id="r_aee4c92c12be54f19c41aab0d3a7dde30"><td class="memTemplParams" colspan="2">template&lt;typename MoleFrac &gt; </td></tr>
+<tr class="memitem:aee4c92c12be54f19c41aab0d3a7dde30"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aee4c92c12be54f19c41aab0d3a7dde30">R</a> (const MoleFrac &amp;) const</td></tr>
+<tr class="separator:aee4c92c12be54f19c41aab0d3a7dde30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -238,8 +240,8 @@ template&lt;typename TType , typename RhoType , typename MoleFrac &gt; </div>
 
 </div>
 </div>
-<a id="a0582fc0e4ce5f9e6f9883fdf6115394c" name="a0582fc0e4ce5f9e6f9883fdf6115394c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0582fc0e4ce5f9e6f9883fdf6115394c">&#9670;&#160;</a></span>R()</h2>
+<a id="aee4c92c12be54f19c41aab0d3a7dde30" name="aee4c92c12be54f19c41aab0d3a7dde30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee4c92c12be54f19c41aab0d3a7dde30">&#9670;&#160;</a></span>R()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -252,7 +254,7 @@ template&lt;typename MoleFrac &gt; </div>
         <tr>
           <td class="memname">auto teqp::IdealHelmholtz::R </td>
           <td>(</td>
-          <td class="paramtype">const MoleFrac &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em></span></td><td>)</td>
+          <td class="paramtype">const MoleFrac &amp;</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>

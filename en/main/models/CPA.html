@@ -5,10 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Cubic Plus Association (CPA) &#8212; teqp 0.18.0 documentation</title>
+    <title>Cubic Plus Association (CPA) &#8212; teqp 0.19.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
     <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
-    <script src="../_static/documentation_options.js?v=ba2e7b09"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=6f83b549"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -16,7 +17,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Model Potentials" href="model_potentials.html" />
+    <link rel="next" title="LKP (Lee-Kesler-Plöcker)" href="LKP.html" />
     <link rel="prev" title="RK-PR" href="RK-PR.html" />
   
    
@@ -43,7 +44,50 @@
             
   <section id="Cubic-Plus-Association-(CPA)">
 <h1>Cubic Plus Association (CPA)<a class="headerlink" href="#Cubic-Plus-Association-(CPA)" title="Link to this heading">¶</a></h1>
-<p>The combination of a cubic EOS with association</p>
+<p>The combination of a cubic EOS with association with the association term. The sum of the terms goes like:</p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm r} = \alpha^{\rm r}_{\rm cub} + \alpha^{\rm r}_{\rm assoc}\]</div>
+<section id="Cubic-part">
+<h2>Cubic part<a class="headerlink" href="#Cubic-part" title="Link to this heading">¶</a></h2>
+<p>The residual contribution to <span class="math notranslate nohighlight">\(\alpha\)</span> is expressed as the sum :</p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm r}_{\rm cub,rep} +\alpha^{\rm r}_{\rm cub,att}\]</div>
+<p>where the cubic parts come from</p>
+<p>The repulsive part of the cubic EOS contribution:</p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm r}_{\rm cub,rep} = -\ln(1 - b_{\rm mix}\rho)\]</div>
+<p>The attractive part of the cubic EOS contribution:</p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm r}_{\rm cub,att} = -\frac{a_{\rm mix}}{RT}\dfrac{\ln\left(\frac{\Delta_1 b_{\rm mix}\rho + 1}{\Delta_2b_{\rm mix}\rho + 1}\right)}{b_{\rm mix}\cdot(\Delta_1 - \Delta_2)}\]</div>
+<p>with the coefficients depending on the cubic type:</p>
+<p>SRK: <span class="math notranslate nohighlight">\(\Delta_1=1\)</span>, <span class="math notranslate nohighlight">\(\Delta_2=0\)</span></p>
+<p>PR: <span class="math notranslate nohighlight">\(\Delta_1=1+\sqrt{2}\)</span>, <span class="math notranslate nohighlight">\(\Delta_2=1-\sqrt{2}\)</span></p>
+<p>The mixture models used for the <span class="math notranslate nohighlight">\(a_{\rm mix}\)</span> and <span class="math notranslate nohighlight">\(b_{\rm mix}\)</span> are the classical ones:</p>
+<div class="math notranslate nohighlight">
+\[a_{\rm mix} = \sum_i\sum_jx_ix_j(1-k_{ij})a_{ij}(T)\]</div>
+<p>with x the mole fraction, <span class="math notranslate nohighlight">\(k_{ij}\)</span> a weighting parameter</p>
+<div class="math notranslate nohighlight">
+\[a_{ij}(T) = \sqrt{a_ia_j}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[a_{i}(T) = a_{0i}\left[1+c_{1i}(1-\sqrt{T/T_{{\rm crit},i}})\right]^2\]</div>
+<p>and for <span class="math notranslate nohighlight">\(b\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[b_{\rm mix} = \sum_ix_ib_i\]</div>
+<p>so there are three cubic parameters per fluid that need to be obtained though fitting: <span class="math notranslate nohighlight">\(b_{i}\)</span>, <span class="math notranslate nohighlight">\(a_{0i}\)</span>, <span class="math notranslate nohighlight">\(c_{1i}\)</span>. The value of <span class="math notranslate nohighlight">\(a_{\rm ij}\)</span> depends on temperature while <span class="math notranslate nohighlight">\(b_{\rm mix}\)</span> does not.</p>
+</section>
+<section id="Association-part">
+<h2>Association part<a class="headerlink" href="#Association-part" title="Link to this heading">¶</a></h2>
+<p>For the association, one must have a solid understanding of the association approach that is being applied. To this end, a short discussion of the general approach is required.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
 </section>
 
 
@@ -52,13 +96,24 @@
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="relations">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Cubic Plus Association (CPA)</a><ul>
+<li><a class="reference internal" href="#Cubic-part">Cubic part</a></li>
+<li><a class="reference internal" href="#Association-part">Association part</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="index.html">Models</a><ul>
       <li>Previous: <a href="RK-PR.html" title="previous chapter">RK-PR</a></li>
-      <li>Next: <a href="model_potentials.html" title="next chapter">Model Potentials</a></li>
+      <li>Next: <a href="LKP.html" title="next chapter">LKP (Lee-Kesler-Plöcker)</a></li>
   </ul></li>
   </ul></li>
 </ul>

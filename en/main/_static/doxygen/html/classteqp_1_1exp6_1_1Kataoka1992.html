@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -111,9 +113,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1a18e59f41f567eeef5d1a35df53de75" id="r_a1a18e59f41f567eeef5d1a35df53de75"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a18e59f41f567eeef5d1a35df53de75">get_alpha</a> () const</td></tr>
 <tr class="memdesc:a1a18e59f41f567eeef5d1a35df53de75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the alpha parameter.  <br /></td></tr>
 <tr class="separator:a1a18e59f41f567eeef5d1a35df53de75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4b00b0eeb05d0b36b930e051f9bcede" id="r_ad4b00b0eeb05d0b36b930e051f9bcede"><td class="memTemplParams" colspan="2">template&lt;typename TType , typename RhoType , typename MoleFracType &gt; </td></tr>
-<tr class="memitem:ad4b00b0eeb05d0b36b930e051f9bcede"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad4b00b0eeb05d0b36b930e051f9bcede">alphar</a> (const TType &amp;Tstar, const RhoType &amp;rhostar, const MoleFracType &amp;molefrac) const</td></tr>
-<tr class="separator:ad4b00b0eeb05d0b36b930e051f9bcede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af73cd99fcc7eda7a2d593f56250078d1" id="r_af73cd99fcc7eda7a2d593f56250078d1"><td class="memTemplParams" colspan="2">template&lt;typename TType , typename RhoType , typename MoleFracType &gt; </td></tr>
+<tr class="memitem:af73cd99fcc7eda7a2d593f56250078d1"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af73cd99fcc7eda7a2d593f56250078d1">alphar</a> (const TType &amp;Tstar, const RhoType &amp;rhostar, const MoleFracType &amp;) const</td></tr>
+<tr class="separator:af73cd99fcc7eda7a2d593f56250078d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Empirical EOS from: Yosuke Kataoka, Equation of State of the Fluid Defined by the Modified Buckingham (exp-6) Potential Derived by Molecular Dynamics Simulations Bulletin of the Chemical Society of Japan, 1992; 65, 2093-2103 <a href="https://doi.org/10.1246/bcsj.65.2093">https://doi.org/10.1246/bcsj.65.2093</a> </p>
@@ -154,8 +156,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad4b00b0eeb05d0b36b930e051f9bcede" name="ad4b00b0eeb05d0b36b930e051f9bcede"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4b00b0eeb05d0b36b930e051f9bcede">&#9670;&#160;</a></span>alphar()</h2>
+<a id="af73cd99fcc7eda7a2d593f56250078d1" name="af73cd99fcc7eda7a2d593f56250078d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af73cd99fcc7eda7a2d593f56250078d1">&#9670;&#160;</a></span>alphar()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,7 +180,7 @@ template&lt;typename TType , typename RhoType , typename MoleFracType &gt; </div
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const MoleFracType &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em></span>&#160;) const</td>
+          <td class="paramtype">const MoleFracType &amp;</td>          <td class="paramname"><span class="paramname"></span>&#160;) const</td>
         </tr>
       </table>
   </td>

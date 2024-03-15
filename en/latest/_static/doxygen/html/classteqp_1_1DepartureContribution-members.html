@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -100,7 +102,8 @@ $(function() {
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1DepartureContribution.html#aa952aaa53037ecc1962c04a950fa7438">alphar</a>(const TauType &amp;tau, const DeltaType &amp;delta, const MoleFractions &amp;molefracs) const</td><td class="entry"><a class="el" href="classteqp_1_1DepartureContribution.html">teqp::DepartureContribution&lt; FCollection, DepartureFunctionCollection &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1DepartureContribution.html#a8d1d40a45c44ed0445653d29155cbaf6">DepartureContribution</a>(FCollection &amp;&amp;F, DepartureFunctionCollection &amp;&amp;funcs)</td><td class="entry"><a class="el" href="classteqp_1_1DepartureContribution.html">teqp::DepartureContribution&lt; FCollection, DepartureFunctionCollection &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1DepartureContribution.html#a5f6eabf977c65f0ae263b4e24c84158c">get_alpharij</a>(const int i, const int j, const TauType &amp;tau, const DeltaType &amp;delta) const</td><td class="entry"><a class="el" href="classteqp_1_1DepartureContribution.html">teqp::DepartureContribution&lt; FCollection, DepartureFunctionCollection &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1DepartureContribution.html#ac5db4eddd335d01c7407d94f71ca8fcc">get_alpharij</a>(const std::size_t i, const std::size_t j, const TauType &amp;tau, const DeltaType &amp;delta) const</td><td class="entry"><a class="el" href="classteqp_1_1DepartureContribution.html">teqp::DepartureContribution&lt; FCollection, DepartureFunctionCollection &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1DepartureContribution.html#afe12072863e4dc4784c79b99a2bc6d1e">get_F</a>() const</td><td class="entry"><a class="el" href="classteqp_1_1DepartureContribution.html">teqp::DepartureContribution&lt; FCollection, DepartureFunctionCollection &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

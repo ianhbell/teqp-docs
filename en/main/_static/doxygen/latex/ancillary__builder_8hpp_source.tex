@@ -26,7 +26,7 @@
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00022}00022\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{auto}\ [Tcrittrue,\ rhocrittrue]\ =\ model.\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_aad84ac400f0003843c8a780e51a8361c}{solve\_pure\_critical}}(Tcritguess,\ rhocritguess);}
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{double}\ Tclosec\ =\ (1-\/Theta\_nearcrit)*Tcrittrue;}
-\DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{auto}\ rhovec\ =\ model.\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_af0b347b5c539106f934ce82a8e9d6d81}{extrapolate\_from\_critical}}(Tcrittrue,\ rhocrittrue,\ Tclosec);}
+\DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{auto}\ rhovec\ =\ model.\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a7d636a4b29cff13962ac495fc7d0d768}{extrapolate\_from\_critical}}(Tcrittrue,\ rhocrittrue,\ Tclosec);}
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{double}\ rhoL\ =\ rhovec[0],\ rhoV\ =\ rhovec[1];}
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{auto}\ molefrac\ =\ (Eigen::ArrayXd(1)\ <<\ 1.0).finished();}
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{double}\ R\ =\ model.\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a38884acb6a2663fe18967760e9438b68}{get\_R}}(molefrac);}
@@ -136,12 +136,12 @@
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00132}00132\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00133}00133\ \ \ \ \ \textcolor{keywordflow}{if}\ (verify)\{}
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Verify}}
-\DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ Thetas\_.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ Thetas\_.size();\ ++i)\{}
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ T\ =\ (1-\/Thetas\_[i])*Tcrittrue;}
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ rhoLanc\ =\ anc.rhoL(T);}
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ rhoVanc\ =\ anc.rhoV(T);}
-\DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ panc\ =\ anc.pL(T);}
+\DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00140}00140\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ double\ panc\ =\ anc.pL(T);}}
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(rhoLanc/rhoLs\_[i]-\/1)\ >\ 1e-\/2)\{}
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ T\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ rhoLs\_[i]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ rhoLanc\ <<\ std::endl;}
 \DoxyCodeLine{\Hypertarget{ancillary__builder_8hpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \}}

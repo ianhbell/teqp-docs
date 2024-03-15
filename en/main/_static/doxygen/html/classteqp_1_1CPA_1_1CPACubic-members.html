@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -99,10 +101,11 @@ $(function() {
 <p>This is the complete list of members for <a class="el" href="classteqp_1_1CPA_1_1CPACubic.html">teqp::CPA::CPACubic</a>, including all inherited members.</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html#a14901076107d2c7bc45e43350d351ac4">alphar</a>(const TType T, const RhoType rhomolar, const VecType &amp;molefrac) const</td><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html">teqp::CPA::CPACubic</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html#a164b6adfdb9df4aeff11c8a594cefb61">CPACubic</a>(cubic_flag flag, const std::valarray&lt; double &gt; &amp;a0, const std::valarray&lt; double &gt; &amp;bi, const std::valarray&lt; double &gt; &amp;c1, const std::valarray&lt; double &gt; &amp;Tc, double R_gas)</td><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html">teqp::CPA::CPACubic</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html#a11daa6f79cd19a399abb2948f901ba14">CPACubic</a>(cubic_flag flag, const std::valarray&lt; double &gt; &amp;a0, const std::valarray&lt; double &gt; &amp;bi, const std::valarray&lt; double &gt; &amp;c1, const std::valarray&lt; double &gt; &amp;Tc, const double R_gas, const std::optional&lt; std::vector&lt; std::vector&lt; double &gt; &gt; &gt; &amp;kmat=std::nullopt)</td><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html">teqp::CPA::CPACubic</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html#ad4511a91bc715338034eabde3b05f0a0">get_ab</a>(const TType T, const VecType &amp;molefrac) const</td><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html">teqp::CPA::CPACubic</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html#a308eb8e9184fe6af6abee769df3a4424">get_ai</a>(TType T, int i) const</td><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html">teqp::CPA::CPACubic</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html#a0e35b621aa6a0b22ccaa073cb8d65010">R</a>(const VecType &amp;molefrac) const</td><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html">teqp::CPA::CPACubic</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html#a7b99b744bcd278ed0b73ede22a0786da">R</a>(const VecType &amp;) const</td><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html">teqp::CPA::CPACubic</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html#a355a4d9eb6339674cde7dee2a2c5ffe9">size</a>() const</td><td class="entry"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html">teqp::CPA::CPACubic</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

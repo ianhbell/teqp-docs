@@ -9,7 +9,42 @@
 \item 
 static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_ad106c71bc38ee34a5e5c26ac85e649bd}{get\+\_\+\+Ar00}} (const Model \&model, const Scalar \&T, const Scalar \&rho, const Vector\+Type \&molefrac)
 \item 
+{\footnotesize template$<$typename Alpha\+Wrapper , typename S1 , typename S2 , typename Vec $>$ \newline
+requires Callable\+Alpha$<$Alpha\+Wrapper, S1, S2, Vec$>$}\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_a41c424d0a600d370251b0175148c1c13}{Alpha\+Caller}} (const Alpha\+Wrapper \&w, const S1 \&T, const S2 \&rho, const Vec \&molefrac)
+\item 
+{\footnotesize template$<$typename Alpha\+Wrapper , typename S1 , typename S2 , typename Vec $>$ \newline
+requires Callable\+Alphar$<$Alpha\+Wrapper, S1, S2, Vec$>$}\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_a5dbef2722157dd0d3d9fc231ed37c2cf}{Alpha\+Caller}} (const Alpha\+Wrapper \&w, const S1 \&T, const S2 \&rho, const Vec \&molefrac)
+\item 
+{\footnotesize template$<$typename Alpha\+Wrapper , typename S1 , typename S2 , typename Vec $>$ \newline
+requires Callable\+Alphar\+Tau\+Delta$<$Alpha\+Wrapper, S1, S2, Vec$>$}\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_aa55be45f23cae8e656d02088b921fd64}{Alphar\+Tau\+Delta\+Caller}} (const Alpha\+Wrapper \&w, const S1 \&T, const S2 \&rho, const Vec \&molefrac)
+\item 
+{\footnotesize template$<$typename Alpha\+Wrapper , typename S1 , typename S2 , typename Vec $>$ }\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_a62fa2c579253c2498bd16aa8fe057554}{Alphar\+Tau\+Delta\+Caller}} (const Alpha\+Wrapper \&, const S1 \&, const S2 \&, const Vec \&molefrac)
+\item 
 {\footnotesize template$<$int iT, int iD, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff, class Alpha\+Wrapper $>$ }\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_afcd8835ef51da34a0da9be4c01150a56}{get\+\_\+\+Agenxy}} (const Alpha\+Wrapper \&w, const Scalar \&T, const Scalar \&rho, const Vector\+Type \&molefrac)
+\item 
+{\footnotesize template$<$int iT, int iD, int i\+Xi, typename Alpha\+Wrapper $>$ }\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_ac8ac5de9307aaf95ca6a21dc3b4eeacc}{get\+\_\+\+ATrho\+Xi}} (const Alpha\+Wrapper \&w, const Scalar \&T, const Scalar \&rho, const Vector\+Type \&molefrac, int i)
+\item 
+{\footnotesize template$<$typename Alpha\+Wrapper $>$ }\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_a419430e2ccf3e1532a36cfe359797515}{get\+\_\+\+ATrho\+Xi\+\_\+runtime}} (const Alpha\+Wrapper \&w, const Scalar \&T, int iT, const Scalar \&rho, int iD, const Vector\+Type \&molefrac, int i, int i\+Xi)
+\item 
+{\footnotesize template$<$typename Alpha\+Wrapper $>$ }\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_a0715b29e73d17e6670bc9df4a7e39236}{get\+\_\+\+ATrho\+Xi\+Xj\+\_\+runtime}} (const Alpha\+Wrapper \&w, const Scalar \&T, int iT, const Scalar \&rho, int iD, const Vector\+Type \&molefrac, int i, int i\+Xi, int j, int i\+Xj)
+\item 
+{\footnotesize template$<$typename Alpha\+Wrapper $>$ }\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_ae55f9df5f9b0130dec730b43b2aa06eb}{get\+\_\+\+ATrho\+Xi\+Xj\+Xk\+\_\+runtime}} (const Alpha\+Wrapper \&w, const Scalar \&T, int iT, const Scalar \&rho, int iD, const Vector\+Type \&molefrac, int i, int i\+Xi, int j, int i\+Xj, int k, int i\+Xk)
+\item 
+{\footnotesize template$<$int iT, int iD, int i\+Xi, typename Alpha\+Wrapper $>$ }\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_a749c0a315bb22af05b4705516a10e763}{get\+\_\+\+Ataudelta\+Xi}} (const Alpha\+Wrapper \&w, const Scalar \&tau, const Scalar \&delta, const Vector\+Type \&molefrac, const int i)
+\item 
+{\footnotesize template$<$int iT, int iD, int i\+Xi, int i\+Xj, typename Alpha\+Wrapper $>$ }\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_aabacbc3ac853e21f8eac66b7ce4ceef6}{get\+\_\+\+Ataudelta\+Xi\+Xj}} (const Alpha\+Wrapper \&w, const Scalar \&tau, const Scalar \&delta, const Vector\+Type \&molefrac, const int i, const int j)
+\item 
+{\footnotesize template$<$int iT, int iD, int i\+Xi, int i\+Xj, int i\+Xk, typename Alpha\+Wrapper $>$ }\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_ad1bc85478087b80790eb08416dcc38dd}{get\+\_\+\+Ataudelta\+Xi\+Xj\+Xk}} (const Alpha\+Wrapper \&w, const Scalar \&tau, const Scalar \&delta, const Vector\+Type \&molefrac, const int i, const int j, const int k)
+\item 
+{\footnotesize template$<$typename Alpha\+Wrapper $>$ }\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_a5c3ec4deeffaa562889b21b336315ec5}{get\+\_\+\+Ataudelta\+Xi\+\_\+runtime}} (const Alpha\+Wrapper \&w, const Scalar \&tau, const int iT, const Scalar \&delta, const int iD, const Vector\+Type \&molefrac, const int i, const int i\+Xi)
+\item 
+{\footnotesize template$<$typename Alpha\+Wrapper $>$ }\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_a2eeaca474bdf7141590504b3d8dccd50}{get\+\_\+\+Ataudelta\+Xi\+Xj\+\_\+runtime}} (const Alpha\+Wrapper \&w, const Scalar \&tau, const int iT, const Scalar \&delta, const int iD, const Vector\+Type \&molefrac, const int i, const int i\+Xi, const int j, const int i\+Xj)
+\item 
+{\footnotesize template$<$typename Alpha\+Wrapper $>$ }\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_a5716fc6d91a88da93a9d995f01151029}{get\+\_\+\+Ataudelta\+Xi\+Xj\+Xk\+\_\+runtime}} (const Alpha\+Wrapper \&w, const Scalar \&tau, const int iT, const Scalar \&delta, const int iD, const Vector\+Type \&molefrac, const int i, int i\+Xi, const int j, const int i\+Xj, const int k, const int i\+Xk)
+\item 
+{\footnotesize template$<$int iT, int iD, int i\+Xi, int i\+Xj, typename Alpha\+Wrapper $>$ }\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_a0ad36148eb5c7db72d8eb860e88a714f}{get\+\_\+\+ATrho\+Xi\+Xj}} (const Alpha\+Wrapper \&w, const Scalar \&T, const Scalar \&rho, const Vector\+Type \&molefrac, int i, int j)
+\item 
+{\footnotesize template$<$int iT, int iD, int i\+Xi, int i\+Xj, int i\+Xk, typename Alpha\+Wrapper $>$ }\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_a2574a2370d8379b3a46a60e3b4f7d4c0}{get\+\_\+\+ATrho\+Xi\+Xj\+Xk}} (const Alpha\+Wrapper \&w, const Scalar \&T, const Scalar \&rho, const Vector\+Type \&molefrac, int i, int j, int k)
 \item 
 {\footnotesize template$<$int iT, int iD, \mbox{\hyperlink{namespaceteqp_aa915939e34912de1f87776858de32f9d}{ADBackends}} be = ADBackends\+::autodiff$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_acb14ad3ba26383bcf47aff162fae870d}{get\+\_\+\+Arxy}} (const Model \&model, const Scalar \&T, const Scalar \&rho, const Vector\+Type \&molefrac)
 \item 
@@ -54,11 +89,62 @@ static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives_ad106c71bc38ee34a5e5c2
 struct teqp\+::\+TDXDerivatives$<$ Model, Scalar, Vector\+Type $>$}
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00126}{126}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00117}{117}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{structteqp_1_1TDXDerivatives_a41c424d0a600d370251b0175148c1c13}\label{structteqp_1_1TDXDerivatives_a41c424d0a600d370251b0175148c1c13} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!AlphaCaller@{AlphaCaller}}
+\index{AlphaCaller@{AlphaCaller}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{AlphaCaller()}{AlphaCaller()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Alpha\+Wrapper , typename S1 , typename S2 , typename Vec $>$ \newline
+requires Callable\+Alpha$<$Alpha\+Wrapper, S1, S2, Vec$>$\\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::\+Alpha\+Caller (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{w,  }\item[{const S1 \&}]{T,  }\item[{const S2 \&}]{rho,  }\item[{const Vec \&}]{molefrac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00124}{124}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TDXDerivatives_a5dbef2722157dd0d3d9fc231ed37c2cf}\label{structteqp_1_1TDXDerivatives_a5dbef2722157dd0d3d9fc231ed37c2cf} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!AlphaCaller@{AlphaCaller}}
+\index{AlphaCaller@{AlphaCaller}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{AlphaCaller()}{AlphaCaller()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Alpha\+Wrapper , typename S1 , typename S2 , typename Vec $>$ \newline
+requires Callable\+Alphar$<$Alpha\+Wrapper, S1, S2, Vec$>$\\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::\+Alpha\+Caller (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{w,  }\item[{const S1 \&}]{T,  }\item[{const S2 \&}]{rho,  }\item[{const Vec \&}]{molefrac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00128}{128}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TDXDerivatives_a62fa2c579253c2498bd16aa8fe057554}\label{structteqp_1_1TDXDerivatives_a62fa2c579253c2498bd16aa8fe057554} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!AlpharTauDeltaCaller@{AlpharTauDeltaCaller}}
+\index{AlpharTauDeltaCaller@{AlpharTauDeltaCaller}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{AlpharTauDeltaCaller()}{AlpharTauDeltaCaller()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Alpha\+Wrapper , typename S1 , typename S2 , typename Vec $>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::\+Alphar\+Tau\+Delta\+Caller (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{,  }\item[{const S1 \&}]{,  }\item[{const S2 \&}]{,  }\item[{const Vec \&}]{molefrac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00137}{137}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TDXDerivatives_aa55be45f23cae8e656d02088b921fd64}\label{structteqp_1_1TDXDerivatives_aa55be45f23cae8e656d02088b921fd64} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!AlpharTauDeltaCaller@{AlpharTauDeltaCaller}}
+\index{AlpharTauDeltaCaller@{AlpharTauDeltaCaller}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{AlpharTauDeltaCaller()}{AlpharTauDeltaCaller()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Alpha\+Wrapper , typename S1 , typename S2 , typename Vec $>$ \newline
+requires Callable\+Alphar\+Tau\+Delta$<$Alpha\+Wrapper, S1, S2, Vec$>$\\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::\+Alphar\+Tau\+Delta\+Caller (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{w,  }\item[{const S1 \&}]{T,  }\item[{const S2 \&}]{rho,  }\item[{const Vec \&}]{molefrac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00133}{133}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
 \Hypertarget{structteqp_1_1TDXDerivatives_a09b653f2726596dfc604afbe30264f8a}\label{structteqp_1_1TDXDerivatives_a09b653f2726596dfc604afbe30264f8a} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Agen0n@{get\_Agen0n}}
 \index{get\_Agen0n@{get\_Agen0n}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
@@ -69,7 +155,7 @@ static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivati
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00313}{313}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00536}{536}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_a0fb34f0c009dac5e07dc723830b0e6e0}\label{structteqp_1_1TDXDerivatives_a0fb34f0c009dac5e07dc723830b0e6e0} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Agenn0@{get\_Agenn0}}
@@ -81,7 +167,7 @@ static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivati
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00341}{341}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00564}{564}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_afcd8835ef51da34a0da9be4c01150a56}\label{structteqp_1_1TDXDerivatives_afcd8835ef51da34a0da9be4c01150a56} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Agenxy@{get\_Agenxy}}
@@ -97,7 +183,7 @@ Calculate the derivative $\Lambda_{xy}$, where  \[
 
 Note\+: none of the intermediate derivatives are returned, although they are calculated 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00141}{141}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00151}{151}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_a15688c2304ccd11eda23ed1454c48e86}\label{structteqp_1_1TDXDerivatives_a15688c2304ccd11eda23ed1454c48e86} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Aig11@{get\_Aig11}}
@@ -109,7 +195,7 @@ static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivati
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00308}{308}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00531}{531}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_a1ad3cd5945f58295e168cd1b49a9f451}\label{structteqp_1_1TDXDerivatives_a1ad3cd5945f58295e168cd1b49a9f451} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Aigxy@{get\_Aigxy}}
@@ -125,7 +211,7 @@ Calculate the derivative $\Lambda^{\rm ig}_{xy}$, where  \[
 
 Note\+: none of the intermediate derivatives are returned, although they are calculated 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00252}{252}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00481}{481}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_a49ddd0428138fb768494db46fdbf709c}\label{structteqp_1_1TDXDerivatives_a49ddd0428138fb768494db46fdbf709c} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Ar@{get\_Ar}}
@@ -137,7 +223,7 @@ static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivati
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00399}{399}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00620}{620}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_ad106c71bc38ee34a5e5c26ac85e649bd}\label{structteqp_1_1TDXDerivatives_ad106c71bc38ee34a5e5c26ac85e649bd} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Ar00@{get\_Ar00}}
@@ -148,7 +234,7 @@ static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivati
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00128}{128}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00119}{119}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_a637363f7d204f299aa3ad8b44d9b5001}\label{structteqp_1_1TDXDerivatives_a637363f7d204f299aa3ad8b44d9b5001} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Ar01@{get\_Ar01}}
@@ -160,7 +246,7 @@ static Scalar \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDeriva
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00268}{268}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00491}{491}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_a76feba28c865276fe95dbc77c9fa2d6f}\label{structteqp_1_1TDXDerivatives_a76feba28c865276fe95dbc77c9fa2d6f} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Ar02@{get\_Ar02}}
@@ -172,7 +258,7 @@ static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivati
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00273}{273}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00496}{496}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_a2a6afeb2415d713abfee40267c68f3d2}\label{structteqp_1_1TDXDerivatives_a2a6afeb2415d713abfee40267c68f3d2} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Ar03@{get\_Ar03}}
@@ -184,7 +270,7 @@ static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivati
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00278}{278}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00501}{501}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_ac9d2c018477ebdd46276bd5897249436}\label{structteqp_1_1TDXDerivatives_ac9d2c018477ebdd46276bd5897249436} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Ar0n@{get\_Ar0n}}
@@ -200,7 +286,7 @@ Calculate the derivative $\Lambda^{\rm ig}_{0y}$, where  \[
 
 Note\+:The intermediate derivatives are returned 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00392}{392}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00614}{614}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_ac9d5ac217ea88869d7e31d2f6b52585d}\label{structteqp_1_1TDXDerivatives_ac9d5ac217ea88869d7e31d2f6b52585d} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Ar10@{get\_Ar10}}
@@ -212,7 +298,7 @@ static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivati
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00263}{263}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00486}{486}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_a0a7055d05f4e09e1dd33c4c5c1931795}\label{structteqp_1_1TDXDerivatives_a0a7055d05f4e09e1dd33c4c5c1931795} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Ar11@{get\_Ar11}}
@@ -224,7 +310,7 @@ static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivati
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00303}{303}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00526}{526}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_a5559c61948934ec924126d5e6279070a}\label{structteqp_1_1TDXDerivatives_a5559c61948934ec924126d5e6279070a} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Ar12@{get\_Ar12}}
@@ -236,7 +322,7 @@ static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivati
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00298}{298}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00521}{521}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_a388a84ce09bf919330c723664f63a58f}\label{structteqp_1_1TDXDerivatives_a388a84ce09bf919330c723664f63a58f} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Ar20@{get\_Ar20}}
@@ -248,7 +334,7 @@ static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivati
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00283}{283}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00506}{506}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_af815d05c526488b5a8eb773da394374f}\label{structteqp_1_1TDXDerivatives_af815d05c526488b5a8eb773da394374f} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Ar21@{get\_Ar21}}
@@ -260,7 +346,7 @@ static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivati
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00293}{293}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00516}{516}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_af3d299603df72cfca0144749289abfd7}\label{structteqp_1_1TDXDerivatives_af3d299603df72cfca0144749289abfd7} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Ar30@{get\_Ar30}}
@@ -272,7 +358,7 @@ static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivati
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00288}{288}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00511}{511}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_a6dd7e3bb179e454f9e0dd39e6ccb108d}\label{structteqp_1_1TDXDerivatives_a6dd7e3bb179e454f9e0dd39e6ccb108d} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Arn0@{get\_Arn0}}
@@ -288,7 +374,7 @@ Calculate the derivative $\Lambda^{\rm r}_{x0}$, where  \[
 
 Note\+:The intermediate derivatives are returned 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00378}{378}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00601}{601}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_acb14ad3ba26383bcf47aff162fae870d}\label{structteqp_1_1TDXDerivatives_acb14ad3ba26383bcf47aff162fae870d} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_Arxy@{get\_Arxy}}
@@ -304,7 +390,157 @@ Calculate the derivative $\Lambda^{\rm r}_{xy}$, where  \[
 
 Note\+: none of the intermediate derivatives are returned, although they are calculated 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00233}{233}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00468}{468}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TDXDerivatives_a749c0a315bb22af05b4705516a10e763}\label{structteqp_1_1TDXDerivatives_a749c0a315bb22af05b4705516a10e763} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_AtaudeltaXi@{get\_AtaudeltaXi}}
+\index{get\_AtaudeltaXi@{get\_AtaudeltaXi}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_AtaudeltaXi()}{get\_AtaudeltaXi()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$int iT, int iD, int i\+Xi, typename Alpha\+Wrapper $>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+Ataudelta\+Xi (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{w,  }\item[{const Scalar \&}]{tau,  }\item[{const Scalar \&}]{delta,  }\item[{const Vector\+Type \&}]{molefrac,  }\item[{const int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00337}{337}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TDXDerivatives_a5c3ec4deeffaa562889b21b336315ec5}\label{structteqp_1_1TDXDerivatives_a5c3ec4deeffaa562889b21b336315ec5} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_AtaudeltaXi\_runtime@{get\_AtaudeltaXi\_runtime}}
+\index{get\_AtaudeltaXi\_runtime@{get\_AtaudeltaXi\_runtime}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_AtaudeltaXi\_runtime()}{get\_AtaudeltaXi\_runtime()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Alpha\+Wrapper $>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+Ataudelta\+Xi\+\_\+runtime (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{w,  }\item[{const Scalar \&}]{tau,  }\item[{const int}]{iT,  }\item[{const Scalar \&}]{delta,  }\item[{const int}]{iD,  }\item[{const Vector\+Type \&}]{molefrac,  }\item[{const int}]{i,  }\item[{const int}]{i\+Xi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00385}{385}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TDXDerivatives_aabacbc3ac853e21f8eac66b7ce4ceef6}\label{structteqp_1_1TDXDerivatives_aabacbc3ac853e21f8eac66b7ce4ceef6} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_AtaudeltaXiXj@{get\_AtaudeltaXiXj}}
+\index{get\_AtaudeltaXiXj@{get\_AtaudeltaXiXj}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_AtaudeltaXiXj()}{get\_AtaudeltaXiXj()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$int iT, int iD, int i\+Xi, int i\+Xj, typename Alpha\+Wrapper $>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+Ataudelta\+Xi\+Xj (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{w,  }\item[{const Scalar \&}]{tau,  }\item[{const Scalar \&}]{delta,  }\item[{const Vector\+Type \&}]{molefrac,  }\item[{const int}]{i,  }\item[{const int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00350}{350}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TDXDerivatives_a2eeaca474bdf7141590504b3d8dccd50}\label{structteqp_1_1TDXDerivatives_a2eeaca474bdf7141590504b3d8dccd50} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_AtaudeltaXiXj\_runtime@{get\_AtaudeltaXiXj\_runtime}}
+\index{get\_AtaudeltaXiXj\_runtime@{get\_AtaudeltaXiXj\_runtime}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_AtaudeltaXiXj\_runtime()}{get\_AtaudeltaXiXj\_runtime()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Alpha\+Wrapper $>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+Ataudelta\+Xi\+Xj\+\_\+runtime (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{w,  }\item[{const Scalar \&}]{tau,  }\item[{const int}]{iT,  }\item[{const Scalar \&}]{delta,  }\item[{const int}]{iD,  }\item[{const Vector\+Type \&}]{molefrac,  }\item[{const int}]{i,  }\item[{const int}]{i\+Xi,  }\item[{const int}]{j,  }\item[{const int}]{i\+Xj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00393}{393}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TDXDerivatives_ad1bc85478087b80790eb08416dcc38dd}\label{structteqp_1_1TDXDerivatives_ad1bc85478087b80790eb08416dcc38dd} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_AtaudeltaXiXjXk@{get\_AtaudeltaXiXjXk}}
+\index{get\_AtaudeltaXiXjXk@{get\_AtaudeltaXiXjXk}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_AtaudeltaXiXjXk()}{get\_AtaudeltaXiXjXk()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$int iT, int iD, int i\+Xi, int i\+Xj, int i\+Xk, typename Alpha\+Wrapper $>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+Ataudelta\+Xi\+Xj\+Xk (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{w,  }\item[{const Scalar \&}]{tau,  }\item[{const Scalar \&}]{delta,  }\item[{const Vector\+Type \&}]{molefrac,  }\item[{const int}]{i,  }\item[{const int}]{j,  }\item[{const int}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00367}{367}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TDXDerivatives_a5716fc6d91a88da93a9d995f01151029}\label{structteqp_1_1TDXDerivatives_a5716fc6d91a88da93a9d995f01151029} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_AtaudeltaXiXjXk\_runtime@{get\_AtaudeltaXiXjXk\_runtime}}
+\index{get\_AtaudeltaXiXjXk\_runtime@{get\_AtaudeltaXiXjXk\_runtime}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_AtaudeltaXiXjXk\_runtime()}{get\_AtaudeltaXiXjXk\_runtime()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Alpha\+Wrapper $>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+Ataudelta\+Xi\+Xj\+Xk\+\_\+runtime (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{w,  }\item[{const Scalar \&}]{tau,  }\item[{const int}]{iT,  }\item[{const Scalar \&}]{delta,  }\item[{const int}]{iD,  }\item[{const Vector\+Type \&}]{molefrac,  }\item[{const int}]{i,  }\item[{int}]{i\+Xi,  }\item[{const int}]{j,  }\item[{const int}]{i\+Xj,  }\item[{const int}]{k,  }\item[{const int}]{i\+Xk }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00401}{401}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TDXDerivatives_ac8ac5de9307aaf95ca6a21dc3b4eeacc}\label{structteqp_1_1TDXDerivatives_ac8ac5de9307aaf95ca6a21dc3b4eeacc} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_ATrhoXi@{get\_ATrhoXi}}
+\index{get\_ATrhoXi@{get\_ATrhoXi}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_ATrhoXi()}{get\_ATrhoXi()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$int iT, int iD, int i\+Xi, typename Alpha\+Wrapper $>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+ATrho\+Xi (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{w,  }\item[{const Scalar \&}]{T,  }\item[{const Scalar \&}]{rho,  }\item[{const Vector\+Type \&}]{molefrac,  }\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculate the derivative  \[
+\Lambda_{xyz_i} = (1/T)^x(\rho)^y\deriv{^{x+y+z_i}(\alpha^r)}{(1/T)^x\partial \rho^y \partial \mathbf{Z}_i^{z_i}}}{}
+\] in which all the compositions are treated as being independent 
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00248}{248}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TDXDerivatives_a419430e2ccf3e1532a36cfe359797515}\label{structteqp_1_1TDXDerivatives_a419430e2ccf3e1532a36cfe359797515} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_ATrhoXi\_runtime@{get\_ATrhoXi\_runtime}}
+\index{get\_ATrhoXi\_runtime@{get\_ATrhoXi\_runtime}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_ATrhoXi\_runtime()}{get\_ATrhoXi\_runtime()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Alpha\+Wrapper $>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+ATrho\+Xi\+\_\+runtime (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{w,  }\item[{const Scalar \&}]{T,  }\item[{int}]{iT,  }\item[{const Scalar \&}]{rho,  }\item[{int}]{iD,  }\item[{const Vector\+Type \&}]{molefrac,  }\item[{int}]{i,  }\item[{int}]{i\+Xi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00282}{282}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TDXDerivatives_a0ad36148eb5c7db72d8eb860e88a714f}\label{structteqp_1_1TDXDerivatives_a0ad36148eb5c7db72d8eb860e88a714f} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_ATrhoXiXj@{get\_ATrhoXiXj}}
+\index{get\_ATrhoXiXj@{get\_ATrhoXiXj}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_ATrhoXiXj()}{get\_ATrhoXiXj()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$int iT, int iD, int i\+Xi, int i\+Xj, typename Alpha\+Wrapper $>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+ATrho\+Xi\+Xj (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{w,  }\item[{const Scalar \&}]{T,  }\item[{const Scalar \&}]{rho,  }\item[{const Vector\+Type \&}]{molefrac,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculate the derivative  \[
+\Lambda_{xyz_i z_j } = (1/T)^x(\rho)^y\left(\frac{\partial^{x+y+z_i+z_j}(\alpha^r)}{\partial (1/T)^x\partial \rho^y \partial \mathbf{Z}_i^{z_i} \partial \mathbf{Z}_j^{z_j}  \}\right)
+\] in which all the compositions are treated as being independent 
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00416}{416}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TDXDerivatives_a0715b29e73d17e6670bc9df4a7e39236}\label{structteqp_1_1TDXDerivatives_a0715b29e73d17e6670bc9df4a7e39236} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_ATrhoXiXj\_runtime@{get\_ATrhoXiXj\_runtime}}
+\index{get\_ATrhoXiXj\_runtime@{get\_ATrhoXiXj\_runtime}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_ATrhoXiXj\_runtime()}{get\_ATrhoXiXj\_runtime()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Alpha\+Wrapper $>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+ATrho\+Xi\+Xj\+\_\+runtime (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{w,  }\item[{const Scalar \&}]{T,  }\item[{int}]{iT,  }\item[{const Scalar \&}]{rho,  }\item[{int}]{iD,  }\item[{const Vector\+Type \&}]{molefrac,  }\item[{int}]{i,  }\item[{int}]{i\+Xi,  }\item[{int}]{j,  }\item[{int}]{i\+Xj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00307}{307}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TDXDerivatives_a2574a2370d8379b3a46a60e3b4f7d4c0}\label{structteqp_1_1TDXDerivatives_a2574a2370d8379b3a46a60e3b4f7d4c0} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_ATrhoXiXjXk@{get\_ATrhoXiXjXk}}
+\index{get\_ATrhoXiXjXk@{get\_ATrhoXiXjXk}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_ATrhoXiXjXk()}{get\_ATrhoXiXjXk()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$int iT, int iD, int i\+Xi, int i\+Xj, int i\+Xk, typename Alpha\+Wrapper $>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+ATrho\+Xi\+Xj\+Xk (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{w,  }\item[{const Scalar \&}]{T,  }\item[{const Scalar \&}]{rho,  }\item[{const Vector\+Type \&}]{molefrac,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculate the derivative  \[
+\Lambda_{xyz_i z_j z_k} = (1/T)^x(\rho)^y\left(\frac{\partial^{x+y+z_i+z_j+z_k}(\alpha^r)}{\partial (1/T)^x\partial \rho^y \partial \mathbf{Z}_i^{z_i} \partial \mathbf{Z}_j^{z_j} \partial \mathbf{Z}_k^{z_k}   \}\right
+\] in which all the compositions are treated as being independent 
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00441}{441}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TDXDerivatives_ae55f9df5f9b0130dec730b43b2aa06eb}\label{structteqp_1_1TDXDerivatives_ae55f9df5f9b0130dec730b43b2aa06eb} 
+\index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_ATrhoXiXjXk\_runtime@{get\_ATrhoXiXjXk\_runtime}}
+\index{get\_ATrhoXiXjXk\_runtime@{get\_ATrhoXiXjXk\_runtime}!teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_ATrhoXiXjXk\_runtime()}{get\_ATrhoXiXjXk\_runtime()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vector\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Alpha\+Wrapper $>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivatives}}$<$ Model, Scalar, Vector\+Type $>$\+::get\+\_\+\+ATrho\+Xi\+Xj\+Xk\+\_\+runtime (\begin{DoxyParamCaption}\item[{const Alpha\+Wrapper \&}]{w,  }\item[{const Scalar \&}]{T,  }\item[{int}]{iT,  }\item[{const Scalar \&}]{rho,  }\item[{int}]{iD,  }\item[{const Vector\+Type \&}]{molefrac,  }\item[{int}]{i,  }\item[{int}]{i\+Xi,  }\item[{int}]{j,  }\item[{int}]{i\+Xj,  }\item[{int}]{k,  }\item[{int}]{i\+Xk }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00329}{329}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 \Hypertarget{structteqp_1_1TDXDerivatives_a687b6d99df00a9be48884bba850fe8fc}\label{structteqp_1_1TDXDerivatives_a687b6d99df00a9be48884bba850fe8fc} 
 \index{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$@{teqp::TDXDerivatives$<$ Model, Scalar, VectorType $>$}!get\_neff@{get\_neff}}
@@ -316,7 +552,7 @@ static auto \mbox{\hyperlink{structteqp_1_1TDXDerivatives}{teqp\+::\+TDXDerivati
 
 
 
-Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00456}{456}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
+Definition at line \mbox{\hyperlink{derivs_8hpp_source_l00677}{677}} of file \mbox{\hyperlink{derivs_8hpp_source}{derivs.\+hpp}}.
 
 
 

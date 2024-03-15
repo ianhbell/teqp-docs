@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; teqp 0.18.0 documentation</title>
+    <title>Index &#8212; teqp 0.19.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
     <link rel="stylesheet" type="text/css" href="_static/ntd2d.css?v=88d0a8bc" />
-    <script src="_static/documentation_options.js?v=ba2e7b09"></script>
+    <script src="_static/documentation_options.js?v=6f83b549"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -114,10 +114,12 @@
       </ul></li>
       <li><a href="api/teqp.html#teqp.build_LJ126_TholJPCRD2016">build_LJ126_TholJPCRD2016() (in module teqp)</a>
 </li>
-      <li><a href="api/teqp.html#teqp.build_multifluid_model">build_multifluid_model() (in module teqp)</a>
+      <li><a href="api/teqp.html#teqp.build_multifluid_ecs_mutant">build_multifluid_ecs_mutant() (in module teqp)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/teqp.html#teqp.build_multifluid_model">build_multifluid_model() (in module teqp)</a>
+</li>
       <li><a href="api/teqp.html#teqp.build_multifluid_mutant">build_multifluid_mutant() (in module teqp)</a>
 </li>
       <li><a href="api/teqp.html#teqp.build_Psi_Hessian_autodiff">build_Psi_Hessian_autodiff() (in module teqp)</a>
@@ -156,11 +158,15 @@
 </li>
       <li><a href="api/teqp.html#teqp.canonical_SRK">canonical_SRK() (in module teqp)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.teqp.collect_component_json">collect_component_json() (in module teqp.teqp)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.teqp.convert_CoolProp_idealgas">convert_CoolProp_idealgas() (in module teqp.teqp)</a>
+</li>
+      <li><a href="api/teqp.html#teqp.teqp.convert_FLD">convert_FLD() (in module teqp.teqp)</a>
+</li>
+      <li><a href="api/teqp.html#teqp.teqp.convert_HMXBNC">convert_HMXBNC() (in module teqp.teqp)</a>
 </li>
       <li><a href="api/teqp.html#teqp.CPAfactory">CPAfactory() (in module teqp)</a>
 </li>
@@ -274,6 +280,18 @@
 </li>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Arxy">get_Arxy() (teqp.teqp.AbstractModel method)</a>
 </li>
+      <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_AtaudeltaXi">get_AtaudeltaXi() (teqp.teqp.AbstractModel method)</a>
+</li>
+      <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_AtaudeltaXiXj">get_AtaudeltaXiXj() (teqp.teqp.AbstractModel method)</a>
+</li>
+      <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_AtaudeltaXiXjXk">get_AtaudeltaXiXjXk() (teqp.teqp.AbstractModel method)</a>
+</li>
+      <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_ATrhoXi">get_ATrhoXi() (teqp.teqp.AbstractModel method)</a>
+</li>
+      <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_ATrhoXiXj">get_ATrhoXiXj() (teqp.teqp.AbstractModel method)</a>
+</li>
+      <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_ATrhoXiXjXk">get_ATrhoXiXjXk() (teqp.teqp.AbstractModel method)</a>
+</li>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_B12vir">get_B12vir() (teqp.teqp.AbstractModel method)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_B2vir">get_B2vir() (teqp.teqp.AbstractModel method)</a>
@@ -290,6 +308,8 @@
         <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_chempotVLE_autodiff">(teqp.teqp.AbstractModel method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.get_criticality_conditions">get_criticality_conditions() (in module teqp)</a>
 
       <ul>
@@ -298,8 +318,6 @@
       </ul></li>
       <li><a href="api/teqp.html#teqp.get_datapath">get_datapath() (in module teqp)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.get_dchempotdT_autodiff">get_dchempotdT_autodiff() (in module teqp)</a>
 
       <ul>
@@ -466,6 +484,8 @@
         <li><a href="api/teqp.html#teqp.teqp.VLLETracerOptions.max_step_count">(teqp.teqp.VLLETracerOptions property)</a>
 </li>
       </ul></li>
+      <li><a href="api/teqp.html#teqp.teqp.VLLETracerOptions.max_step_retries">max_step_retries (teqp.teqp.VLLETracerOptions property)</a>
+</li>
       <li><a href="api/teqp.html#teqp.teqp.PVLEOptions.max_steps">max_steps (teqp.teqp.PVLEOptions property)</a>
 
       <ul>

@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -360,7 +362,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00255" name="l00255"></a><span class="lineno"><a class="line" href="namespaceteqp_1_1VLLE.html#ad553eb6ef7c3a743bd25e41d2d4b803d">  255</a></span>    <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceteqp_1_1VLLE.html#ad553eb6ef7c3a743bd25e41d2d4b803d">get_self_intersections</a>(Iterable&amp; x, Iterable&amp; y) {</div>
 <div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        Eigen::Array22d A;</div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        std::vector&lt;SelfIntersectionSolution&gt; solns;</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; x.size() - 1; ++j) {</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0U; j &lt; x.size() - 1; ++j) {</div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>            <span class="keyword">auto</span> p0 = (Eigen::Array2d() &lt;&lt; x[j], y[j]).finished();</div>
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            <span class="keyword">auto</span> p1 = (Eigen::Array2d() &lt;&lt; x[j + 1], y[j + 1]).finished();</div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            A.col(0) = p1 - p0;</div>
@@ -384,11 +386,11 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="namespaceteqp_1_1VLLE.html#a25c672abedcc4ff0aee012da5be0581f">  277</a></span>    <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceteqp_1_1VLLE.html#a25c672abedcc4ff0aee012da5be0581f">get_cross_intersections</a>(Iterable&amp; x1, Iterable&amp; y1, Iterable&amp; x2, Iterable&amp; y2) {</div>
 <div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        Eigen::Array22d A;</div>
 <div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        std::vector&lt;SelfIntersectionSolution&gt; solns;</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; x1.size() - 1; ++j) {</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0U; j &lt; x1.size() - 1; ++j) {</div>
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>            <span class="keyword">auto</span> p0 = (Eigen::Array2d() &lt;&lt; x1[j], y1[j]).finished();</div>
 <div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>            <span class="keyword">auto</span> p1 = (Eigen::Array2d() &lt;&lt; x1[j + 1], y1[j + 1]).finished();</div>
 <div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>            A.col(0) = p1 - p0;</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; x2.size() - 1; ++k) {</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0U; k &lt; x2.size() - 1; ++k) {</div>
 <div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>                <span class="keyword">auto</span> q0 = (Eigen::Array2d() &lt;&lt; x2[k], y2[k]).finished();</div>
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>                <span class="keyword">auto</span> q1 = (Eigen::Array2d() &lt;&lt; x2[k + 1], y2[k + 1]).finished();</div>
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>                A.col(1) = q0 - q1;</div>
@@ -437,12 +439,12 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>            <span class="comment">//auto&amp; trace = traces[0];</span></div>
 <div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span> </div>
 <div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>            <span class="keyword">auto</span> process_intersection = [&amp;](<span class="keyword">auto</span>&amp; trace, <span class="keyword">auto</span>&amp; i) {</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>                rhoL1 = avg_values(traces[0][i.j], traces[0][i.j + 1], <span class="stringliteral">&quot;rhoL / mol/m^3&quot;</span>, i.s);</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>                rhoL2 = avg_values(traces[0][i.k], traces[0][i.k + 1], <span class="stringliteral">&quot;rhoL / mol/m^3&quot;</span>, i.t);</div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>                rhoV = avg_values(traces[0][i.j], traces[0][i.j + 1], <span class="stringliteral">&quot;rhoV / mol/m^3&quot;</span>, i.s);</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>                rhoL1 = avg_values(trace[i.j], trace[i.j + 1], <span class="stringliteral">&quot;rhoL / mol/m^3&quot;</span>, i.s);</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>                rhoL2 = avg_values(trace[i.k], trace[i.k + 1], <span class="stringliteral">&quot;rhoL / mol/m^3&quot;</span>, i.t);</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>                rhoV = avg_values(trace[i.j], trace[i.j + 1], <span class="stringliteral">&quot;rhoV / mol/m^3&quot;</span>, i.s);</div>
 <div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
 <div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>                <span class="keywordflow">if</span> (key == <span class="stringliteral">&quot;T&quot;</span>){</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>                    <span class="keywordtype">double</span> T = traces[0][0].at(<span class="stringliteral">&quot;T / K&quot;</span>); <span class="comment">// All at same temperature</span></div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>                    <span class="keywordtype">double</span> T = trace[0].at(<span class="stringliteral">&quot;T / K&quot;</span>); <span class="comment">// All at same temperature</span></div>
 <div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>                    </div>
 <div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>                    <span class="comment">// Polish the solution</span></div>
 <div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>                    <span class="keyword">auto</span> [code, rhoVfinal, rhoL1final, rhoL2final] = <a class="code hl_function" href="namespaceteqp_1_1VLLE.html#ae25bbb62557baebe155d55f4f1aa850d">mix_VLLE_T</a>(model, T, rhoV, rhoL1, rhoL2, 1e-10, 1e-10, 1e-10, 1e-10, opt.max_steps);</div>
@@ -455,7 +457,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>                    };</div>
 <div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>                }</div>
 <div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (key == <span class="stringliteral">&quot;P&quot;</span>){</div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>                    <span class="keywordtype">double</span> p = traces[0][0].at(<span class="stringliteral">&quot;pL / Pa&quot;</span>); <span class="comment">// all at same pressure</span></div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>                    <span class="keywordtype">double</span> p = trace[0].at(<span class="stringliteral">&quot;pL / Pa&quot;</span>); <span class="comment">// all at same pressure</span></div>
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>                    </div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>                    <span class="comment">// Polish the solution</span></div>
 <div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>                    <span class="keyword">auto</span> [code, Tfinal, rhoVfinal, rhoL1final, rhoL2final] = <a class="code hl_function" href="namespaceteqp_1_1VLLE.html#a7d999c4035b914065f050670121e84b8">mix_VLLE_p</a>(model, p, i.y, rhoV, rhoL1, rhoL2, 1e-10, 1e-10, 1e-10, 1e-10, opt.max_steps);</div>
@@ -509,7 +511,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>            }</div>
 <div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>            <span class="keyword">auto</span> intersections = <a class="code hl_function" href="namespaceteqp_1_1VLLE.html#a25c672abedcc4ff0aee012da5be0581f">get_cross_intersections</a>(x1, y1, x2, y2);</div>
 <div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span> </div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>            <span class="keyword">auto</span> process_intersection = [&amp;](<span class="keyword">auto</span>&amp; trace, <span class="keyword">auto</span>&amp; i) {</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>            <span class="keyword">auto</span> process_intersection = [&amp;](<span class="keyword">auto</span>&amp; i) {</div>
 <div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>                rhoL1 = avg_values(traces[0][i.j], traces[0][i.j + 1], <span class="stringliteral">&quot;rhoL / mol/m^3&quot;</span>, i.s);</div>
 <div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>                rhoL2 = avg_values(traces[1][i.k], traces[1][i.k + 1], <span class="stringliteral">&quot;rhoL / mol/m^3&quot;</span>, i.t);</div>
 <div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>                rhoV = avg_values(traces[0][i.j], traces[0][i.j + 1], <span class="stringliteral">&quot;rhoV / mol/m^3&quot;</span>, i.s);</div>
@@ -548,7 +550,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>            </div>
 <div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; intersection : intersections) {</div>
 <div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>                <span class="keywordflow">try</span> {</div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>                    <span class="keyword">auto</span> soln = process_intersection(traces[0], intersection);</div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>                    <span class="keyword">auto</span> soln = process_intersection(intersection);</div>
 <div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>                    <span class="keyword">auto</span> rhovecL1 = soln.at(<span class="stringliteral">&quot;polished&quot;</span>)[1].template get&lt;std::valarray&lt;double&gt;&gt;();</div>
 <div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>                    <span class="keyword">auto</span> rhovecL2 = soln.at(<span class="stringliteral">&quot;polished&quot;</span>)[2].template get&lt;std::valarray&lt;double&gt;&gt;();</div>
 <div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>                    <span class="keyword">auto</span> rhodiff = 100*(rhovecL1.sum() / rhovecL2.sum() - 1);</div>
@@ -620,7 +622,7 @@ $(function() { codefold.init(0); });
 </div>
 <div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span> </div>
 <div class="foldopen" id="foldopen00519" data-start="{" data-end="}">
-<div class="line"><a id="l00519" name="l00519"></a><span class="lineno"><a class="line" href="namespaceteqp_1_1VLLE.html#a0b7c589416929bd8506bfb4843b7df8e">  519</a></span>    <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceteqp_1_1VLLE.html#a0b7c589416929bd8506bfb4843b7df8e">trace_VLLE_binary</a>(<span class="keyword">const</span> <a class="code hl_class" href="classteqp_1_1cppinterface_1_1AbstractModel.html">teqp::VLLE::AbstractModel</a>&amp; model, <span class="keyword">const</span> <span class="keywordtype">double</span> Tinit, <span class="keyword">const</span> <a class="code hl_typedef" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a>&amp; rhovecV, <span class="keyword">const</span> <a class="code hl_typedef" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a>&amp; rhovecL1, <span class="keyword">const</span> <a class="code hl_typedef" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a>&amp; rhovecL2, <span class="keyword">const</span> std::optional&lt;VLLETracerOptions&gt;&amp; options_ = std::nullopt){</div>
+<div class="line"><a id="l00519" name="l00519"></a><span class="lineno"><a class="line" href="namespaceteqp_1_1VLLE.html#ad06002c4e40d0be75fda7f3f51b9ce0a">  519</a></span>    <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceteqp_1_1VLLE.html#ad06002c4e40d0be75fda7f3f51b9ce0a">trace_VLLE_binary</a>(<span class="keyword">const</span> <a class="code hl_class" href="classteqp_1_1cppinterface_1_1AbstractModel.html">teqp::VLLE::AbstractModel</a>&amp; model, <span class="keyword">const</span> <span class="keywordtype">double</span> Tinit, <span class="keyword">const</span> <a class="code hl_typedef" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a>&amp; rhovecVinit, <span class="keyword">const</span> <a class="code hl_typedef" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a>&amp; rhovecL1init, <span class="keyword">const</span> <a class="code hl_typedef" href="teqpcpp_8hpp.html#ab7ac7045619c2c82156719e1c3e31e1e">EArrayd</a>&amp; rhovecL2init, <span class="keyword">const</span> std::optional&lt;VLLETracerOptions&gt;&amp; options_ = std::nullopt){</div>
 <div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>        <span class="keyword">auto</span> options = options_.value_or(<a class="code hl_struct" href="structteqp_1_1VLLE_1_1VLLETracerOptions.html">VLLETracerOptions</a>());</div>
 <div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span>        </div>
 <div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span>        <span class="comment">// Typedefs for the types for odeint for simple Euler and RK45 integrators</span></div>
@@ -647,86 +649,119 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span>        <span class="keywordtype">double</span> abs_err = options.abs_err, rel_err = options.rel_err, a_x = 1.0, a_dxdt = 1.0;</div>
 <div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span>        controlled_stepper_type controlled_stepper(default_error_checker&lt; double, range_algebra, default_operations &gt;(abs_err, rel_err, a_x, a_dxdt));</div>
 <div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>        </div>
-<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>        <span class="keywordtype">double</span> T = Tinit, dT = options.init_dT;</div>
-<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>        state_type x0(3*2);</div>
-<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>        Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]), 2) = rhovecV;</div>
-<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>        Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]) + 2, 2) = rhovecL1;</div>
-<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>        Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]) + 4, 2) = rhovecL2;</div>
-<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>        </div>
-<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>        nlohmann::json data_collector = nlohmann::json::array();</div>
-<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> iter = 0; iter &lt; options.max_step_count; ++iter) {</div>
-<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span>            <span class="keywordtype">int</span> retry_count = 0;</div>
-<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>            </div>
-<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>            <span class="keyword">auto</span> res = controlled_step_result::fail;</div>
-<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>            <span class="keywordflow">try</span> {</div>
-<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span>                res = controlled_stepper.try_step(xprime, x0, T, dT);</div>
-<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>            }</div>
-<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>            <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;e) {</div>
-<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>                <span class="keywordflow">if</span> (options.verbosity &gt; 0) {</div>
-<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>                    std::cout &lt;&lt; e.what() &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span>                }</div>
-<div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span>            }</div>
-<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span>            </div>
-<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>            <span class="keywordflow">if</span> (res != controlled_step_result::success) {</div>
-<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>                <span class="comment">// Try again, with a smaller step size</span></div>
-<div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span>                iter--;</div>
-<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span>                retry_count++;</div>
-<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span>                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span>            }</div>
-<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>                retry_count = 0;</div>
-<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span>            }</div>
-<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span>            <span class="comment">// Reduce step size if greater than the specified max step size</span></div>
-<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span>            dT = std::min(dT, options.max_dT);</div>
-<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span>            </div>
-<div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span>            <span class="comment">// Polish if requested</span></div>
-<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span>            <span class="keywordflow">if</span> (options.polish){</div>
-<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span>                <span class="keyword">auto</span> [code, rhovecVnew, rhovecL1new, rhovecL2new] = <a class="code hl_function" href="namespaceteqp_1_1VLLE.html#ae25bbb62557baebe155d55f4f1aa850d">teqp::VLLE::mix_VLLE_T</a>(model, T, rhovecV, rhovecL1, rhovecL2, 1e-10, 1e-10, 1e-10, 1e-10, options.max_polish_steps);</div>
-<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span>                Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]), 2) = rhovecVnew;</div>
-<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span>                Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]) + 2, 2) = rhovecL1new;</div>
-<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>                Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]) + 4, 2) = rhovecL2new;</div>
-<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span>            }</div>
-<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span>            </div>
-<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span>            <span class="keyword">const</span> <span class="keyword">auto</span> rhovecV_ = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[0]), 2),</div>
-<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span>                       rhovecL1_ = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[0]) + 2, 2),</div>
-<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span>                       rhovecL2_ = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[0]) + 4, 2);</div>
-<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span>            </div>
-<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>            <span class="keyword">auto</span> critV = model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a7acd8edc964ae12560b654c27aac817c">get_criticality_conditions</a>(T, rhovecV_);</div>
-<div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span>            <span class="keyword">auto</span> critL1 = model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a7acd8edc964ae12560b654c27aac817c">get_criticality_conditions</a>(T, rhovecL1_);</div>
-<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>            <span class="keyword">auto</span> critL2 = model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a7acd8edc964ae12560b654c27aac817c">get_criticality_conditions</a>(T, rhovecL2_);</div>
-<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>            </div>
-<div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span>            <span class="keywordflow">if</span> (options.verbosity &gt; 100){</div>
-<div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;[T,x0L1,x0L2,x0V]: &quot;</span> &lt;&lt; T &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; rhovecL1_[0]/rhovecL1_.sum() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; rhovecL2_[0]/rhovecL2_.sum() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; rhovecV_[0]/rhovecV_.sum() &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;[crits]: &quot;</span> &lt;&lt; critV &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; critL1 &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; critL2 &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span>            }</div>
-<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>            </div>
-<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>            <span class="keywordflow">if</span> (options.terminate_composition){</div>
-<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span>                <span class="keyword">auto</span> x0 = (Eigen::ArrayXd(3) &lt;&lt; rhovecL1[0]/rhovecL1.sum(), rhovecL2[0]/rhovecL2.sum(), rhovecV[0]/rhovecV.sum()).finished();</div>
-<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>                <span class="keyword">auto</span> diffs = (Eigen::ArrayXd(3) &lt;&lt; x0[0]-x0[1], x0[0]-x0[2], x0[1]-x0[2]).finished();</div>
-<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>                <span class="keywordflow">if</span> ((diffs.cwiseAbs() &lt; options.terminate_composition_tol).any()){</div>
-<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>                }</div>
-<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>            }</div>
-<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>            </div>
-<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>            nlohmann::json entry{</div>
-<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>                {<span class="stringliteral">&quot;T / K&quot;</span>, T},</div>
-<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>                {<span class="stringliteral">&quot;rhoL1 / mol/m^3&quot;</span>, rhovecL1},</div>
-<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>                {<span class="stringliteral">&quot;rhoL2 / mol/m^3&quot;</span>, rhovecL2},</div>
-<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>                {<span class="stringliteral">&quot;rhoV / mol/m^3&quot;</span>, rhovecV}</div>
-<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>            };</div>
-<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span>            data_collector.push_back(entry);</div>
-<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>        }</div>
-<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span>        <span class="keywordflow">return</span> data_collector;</div>
-<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>    }</div>
+<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>        <span class="comment">// Copy variables into the stepping array</span></div>
+<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>        <span class="keywordtype">double</span> T = Tinit, dT = options.init_dT;</div>
+<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>        state_type x0(3*2);</div>
+<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>        Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]), 2) = rhovecVinit;</div>
+<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>        Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]) + 2, 2) = rhovecL1init;</div>
+<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>        Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]) + 4, 2) = rhovecL2init;</div>
+<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>        </div>
+<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>        nlohmann::json data_collector = nlohmann::json::array();</div>
+<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> iter = 0; iter &lt; options.max_step_count; ++iter) {</div>
+<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>            <span class="keywordtype">int</span> retry_count = 0;</div>
+<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>            </div>
+<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>            <span class="keyword">auto</span> res = controlled_step_result::fail;</div>
+<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span>            <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>                res = controlled_stepper.try_step(xprime, x0, T, dT);</div>
+<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>            }</div>
+<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>            <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;e) {</div>
+<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>                <span class="keywordflow">if</span> (options.verbosity &gt; 0) {</div>
+<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span>                    std::cout &lt;&lt; e.what() &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>                }</div>
+<div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span>            }</div>
+<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>            </div>
+<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>            <span class="keywordflow">if</span> (res != controlled_step_result::success) {</div>
+<div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span>                <span class="comment">// Try again, with a smaller step size</span></div>
+<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span>                iter--;</div>
+<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span>                retry_count++;</div>
+<div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span>            }</div>
+<div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span>                retry_count = 0;</div>
+<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span>            }</div>
+<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span>            <span class="comment">// Reduce step size if greater than the specified max step size</span></div>
+<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span>            dT = std::min(dT, options.max_dT);</div>
+<div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span>            </div>
+<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span>            <span class="keyword">const</span> <span class="keyword">auto</span> rhovecV = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[0]), 2),</div>
+<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span>                       rhovecL1 = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[0]) + 2, 2),</div>
+<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span>                       rhovecL2 = Eigen::Map&lt;const Eigen::ArrayXd&gt;(&amp;(x0[0]) + 4, 2);</div>
+<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span>            </div>
+<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>            <span class="comment">// Polish if requested</span></div>
+<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span>            <span class="keywordflow">if</span> (options.polish){</div>
+<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span>                <span class="keyword">auto</span> [code, rhovecVnew, rhovecL1new, rhovecL2new] = <a class="code hl_function" href="namespaceteqp_1_1VLLE.html#ae25bbb62557baebe155d55f4f1aa850d">teqp::VLLE::mix_VLLE_T</a>(model, T, rhovecV, rhovecL1, rhovecL2, 1e-10, 1e-10, 1e-10, 1e-10, options.max_polish_steps);</div>
+<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span>                Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]), 2) = rhovecVnew;</div>
+<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span>                Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]) + 2, 2) = rhovecL1new;</div>
+<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span>                Eigen::Map&lt;Eigen::ArrayXd&gt;(&amp;(x0[0]) + 4, 2) = rhovecL2new;</div>
+<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span>            }</div>
+<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>            </div>
+<div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span>            <span class="keyword">auto</span> critV = model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a7acd8edc964ae12560b654c27aac817c">get_criticality_conditions</a>(T, rhovecV);</div>
+<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>            <span class="keyword">auto</span> critL1 = model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a7acd8edc964ae12560b654c27aac817c">get_criticality_conditions</a>(T, rhovecL1);</div>
+<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>            <span class="keyword">auto</span> critL2 = model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a7acd8edc964ae12560b654c27aac817c">get_criticality_conditions</a>(T, rhovecL2);</div>
+<div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span>            <span class="keywordtype">double</span> rhomolarV = rhovecV.sum();</div>
+<div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span>            <span class="keyword">auto</span> molefracV = rhovecV/rhomolarV;</div>
+<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span>            <span class="keyword">auto</span> pV = rhomolarV*model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a38884acb6a2663fe18967760e9438b68">get_R</a>(molefracV)*T*(1.0 + model.<a class="code hl_function" href="classteqp_1_1cppinterface_1_1AbstractModel.html#a0ce44e70fa200a4a1480d826d23ec016">get_Ar01</a>(T, rhomolarV, molefracV));</div>
+<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span>            <span class="keywordflow">if</span> (!std::isfinite(pV)){</div>
+<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>                <span class="keywordflow">if</span> (options.verbosity &gt; 0) {</div>
+<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>                    std::cout &lt;&lt; <span class="stringliteral">&quot;Calculated pressure is not finite&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span>                }</div>
+<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>            }</div>
+<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>            <span class="keywordflow">if</span>(options.init_dT &gt; 0 &amp;&amp; T &gt; options.T_limit){</div>
+<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>                <span class="keywordflow">if</span> (options.verbosity &gt; 0) {</div>
+<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>                    std::cout &lt;&lt; <span class="stringliteral">&quot;Exceeded maximum temperature of &quot;</span> &lt;&lt; options.T_limit &lt;&lt; <span class="stringliteral">&quot; K&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>                }</div>
+<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>            }</div>
+<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>            <span class="keywordflow">if</span>(options.init_dT &lt; 0 &amp;&amp; T &lt; options.T_limit){</div>
+<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>                <span class="keywordflow">if</span> (options.verbosity &gt; 0) {</div>
+<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>                    std::cout &lt;&lt; <span class="stringliteral">&quot;Exceeded minimum temperature of &quot;</span> &lt;&lt; options.T_limit &lt;&lt; <span class="stringliteral">&quot; K&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>                }</div>
+<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>            }</div>
+<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span>            </div>
+<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>            <span class="keywordflow">if</span> (options.verbosity &gt; 100){</div>
+<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;[T,x0L1,x0L2,x0V]: &quot;</span> &lt;&lt; T &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; rhovecL1[0]/rhovecL1.sum() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; rhovecL2[0]/rhovecL2.sum() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; rhovecV[0]/rhovecV.sum() &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;[crits]: &quot;</span> &lt;&lt; critV &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; critL1 &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; critL2 &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>            }</div>
+<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span>            </div>
+<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span>            <span class="keywordflow">if</span> (options.terminate_composition){</div>
+<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span>                <span class="keyword">auto</span> c0 = (Eigen::ArrayXd(3) &lt;&lt; rhovecL1[0]/rhovecL1.sum(), rhovecL2[0]/rhovecL2.sum(), rhovecV[0]/rhovecV.sum()).finished();</div>
+<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>                <span class="keyword">auto</span> diffs = (Eigen::ArrayXd(3) &lt;&lt; c0[0]-c0[1], c0[0]-c0[2], c0[1]-c0[2]).finished();</div>
+<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span>                <span class="keywordflow">if</span> ((diffs.cwiseAbs() &lt; options.terminate_composition_tol).any()){</div>
+<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span>                }</div>
+<div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span>            }</div>
+<div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span>            <span class="keywordflow">if</span> (retry_count &gt; options.max_step_retries){</div>
+<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span>                <span class="keywordflow">if</span> (options.verbosity &gt; 0) {</div>
+<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span>                    std::cout &lt;&lt; <span class="stringliteral">&quot;Max retries of step exceeded.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span>                }</div>
+<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span>            }</div>
+<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span>            </div>
+<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span>            nlohmann::json entry{</div>
+<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>                {<span class="stringliteral">&quot;T / K&quot;</span>, T},</div>
+<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>                {<span class="stringliteral">&quot;rhoL1 / mol/m^3&quot;</span>, rhovecL1},</div>
+<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span>                {<span class="stringliteral">&quot;rhoL2 / mol/m^3&quot;</span>, rhovecL2},</div>
+<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>                {<span class="stringliteral">&quot;rhoV / mol/m^3&quot;</span>, rhovecV},</div>
+<div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span>                {<span class="stringliteral">&quot;critV&quot;</span>, critV},</div>
+<div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span>                {<span class="stringliteral">&quot;critL1&quot;</span>, critL1},</div>
+<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span>                {<span class="stringliteral">&quot;critL2&quot;</span>, critL2},</div>
+<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span>                {<span class="stringliteral">&quot;pV / Pa&quot;</span>, pV}</div>
+<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>            };</div>
+<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>            data_collector.push_back(entry);</div>
+<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>        }</div>
+<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span>        <span class="keywordflow">return</span> data_collector;</div>
+<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>    }</div>
 </div>
-<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span> </div>
-<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>}</div>
+<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span> </div>
+<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span>}</div>
 </div>
-<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>}</div>
+<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>}</div>
 <div class="ttc" id="aVLLE__types_8hpp_html"><div class="ttname"><a href="VLLE__types_8hpp.html">VLLE_types.hpp</a></div></div>
 <div class="ttc" id="aclassteqp_1_1InvalidArgument_html"><div class="ttname"><a href="classteqp_1_1InvalidArgument.html">teqp::InvalidArgument</a></div><div class="ttdef"><b>Definition</b> <a href="exceptions_8hpp_source.html#l00029">exceptions.hpp:29</a></div></div>
 <div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html">teqp::cppinterface::AbstractModel</a></div><div class="ttdef"><b>Definition</b> <a href="teqpcpp_8hpp_source.html#l00087">teqpcpp.hpp:87</a></div></div>
+<div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html_a0ce44e70fa200a4a1480d826d23ec016"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html#a0ce44e70fa200a4a1480d826d23ec016">teqp::cppinterface::AbstractModel::get_Ar01</a></div><div class="ttdeci">virtual double get_Ar01(const double T, const double rho, const REArrayd &amp;molefrac) const =0</div></div>
 <div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html_a343f6da9ec6f47f9c3ceabc3b9da5385"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html#a343f6da9ec6f47f9c3ceabc3b9da5385">teqp::cppinterface::AbstractModel::get_dpdT_constrhovec</a></div><div class="ttdeci">virtual double get_dpdT_constrhovec(const double T, const EArrayd &amp;rhovec) const =0</div></div>
 <div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html_a38884acb6a2663fe18967760e9438b68"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html#a38884acb6a2663fe18967760e9438b68">teqp::cppinterface::AbstractModel::get_R</a></div><div class="ttdeci">virtual double get_R(const EArrayd &amp;) const =0</div></div>
 <div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html_a3fa3ef617f677783233e5939a7b4f953"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html#a3fa3ef617f677783233e5939a7b4f953">teqp::cppinterface::AbstractModel::build_Psi_Hessian_autodiff</a></div><div class="ttdeci">virtual EMatrixd build_Psi_Hessian_autodiff(const double T, const EArrayd &amp;rhovec) const =0</div></div>
@@ -736,7 +771,6 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="aclassteqp_1_1cppinterface_1_1AbstractModel_html_adecc5cbd161f45bab261661008be66fb"><div class="ttname"><a href="classteqp_1_1cppinterface_1_1AbstractModel.html#adecc5cbd161f45bab261661008be66fb">teqp::cppinterface::AbstractModel::build_Psir_fgradHessian_autodiff</a></div><div class="ttdeci">virtual std::tuple&lt; double, Eigen::ArrayXd, Eigen::MatrixXd &gt; build_Psir_fgradHessian_autodiff(const double T, const EArrayd &amp;rhovec) const =0</div></div>
 <div class="ttc" id="aderivs_8hpp_html"><div class="ttname"><a href="derivs_8hpp.html">derivs.hpp</a></div></div>
 <div class="ttc" id="aexceptions_8hpp_html"><div class="ttname"><a href="exceptions_8hpp.html">exceptions.hpp</a></div></div>
-<div class="ttc" id="anamespaceteqp_1_1VLLE_html_a0b7c589416929bd8506bfb4843b7df8e"><div class="ttname"><a href="namespaceteqp_1_1VLLE.html#a0b7c589416929bd8506bfb4843b7df8e">teqp::VLLE::trace_VLLE_binary</a></div><div class="ttdeci">auto trace_VLLE_binary(const teqp::VLLE::AbstractModel &amp;model, const double Tinit, const EArrayd &amp;rhovecV, const EArrayd &amp;rhovecL1, const EArrayd &amp;rhovecL2, const std::optional&lt; VLLETracerOptions &gt; &amp;options_=std::nullopt)</div><div class="ttdoc">Given an initial VLLE solution, trace the VLLE curve. We know the VLLE curve is a function of only on...</div><div class="ttdef"><b>Definition</b> <a href="#l00519">VLLE.hpp:519</a></div></div>
 <div class="ttc" id="anamespaceteqp_1_1VLLE_html_a25c672abedcc4ff0aee012da5be0581f"><div class="ttname"><a href="namespaceteqp_1_1VLLE.html#a25c672abedcc4ff0aee012da5be0581f">teqp::VLLE::get_cross_intersections</a></div><div class="ttdeci">auto get_cross_intersections(Iterable &amp;x1, Iterable &amp;y1, Iterable &amp;x2, Iterable &amp;y2)</div><div class="ttdef"><b>Definition</b> <a href="#l00277">VLLE.hpp:277</a></div></div>
 <div class="ttc" id="anamespaceteqp_1_1VLLE_html_a50513eeeb0a1fb8ff795de5967f2195d"><div class="ttname"><a href="namespaceteqp_1_1VLLE.html#a50513eeeb0a1fb8ff795de5967f2195d">teqp::VLLE::find_VLLE_p_binary</a></div><div class="ttdeci">auto find_VLLE_p_binary(const AbstractModel &amp;model, const std::vector&lt; nlohmann::json &gt; &amp;traces, const std::optional&lt; VLLEFinderOptions &gt; &amp;options=std::nullopt)</div><div class="ttdoc">Given an isobaric VLE trace(s) for a binary mixture, obtain the VLLE solution.</div><div class="ttdef"><b>Definition</b> <a href="#l00477">VLLE.hpp:477</a></div></div>
 <div class="ttc" id="anamespaceteqp_1_1VLLE_html_a6075d7e6604eab8bdc5c3afdff70fdd0"><div class="ttname"><a href="namespaceteqp_1_1VLLE.html#a6075d7e6604eab8bdc5c3afdff70fdd0">teqp::VLLE::find_VLLE_T_binary</a></div><div class="ttdeci">auto find_VLLE_T_binary(const AbstractModel &amp;model, const std::vector&lt; nlohmann::json &gt; &amp;traces, const std::optional&lt; VLLEFinderOptions &gt; &amp;options=std::nullopt)</div><div class="ttdoc">Given an isothermal VLE trace(s) for a binary mixture, obtain the VLLE solution.</div><div class="ttdef"><b>Definition</b> <a href="#l00468">VLLE.hpp:468</a></div></div>
@@ -748,6 +782,7 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="anamespaceteqp_1_1VLLE_html_a9e02d5eeb772dafa11b8f5f96e48373dae2181b5014a67159cc230c8fe0d6c5b6"><div class="ttname"><a href="namespaceteqp_1_1VLLE.html#a9e02d5eeb772dafa11b8f5f96e48373dae2181b5014a67159cc230c8fe0d6c5b6">teqp::VLLE::VLLE_return_code::unset</a></div><div class="ttdeci">@ unset</div></div>
 <div class="ttc" id="anamespaceteqp_1_1VLLE_html_a9e02d5eeb772dafa11b8f5f96e48373daea3fe0c0ce1dbcf56ed2f32841fc181b"><div class="ttname"><a href="namespaceteqp_1_1VLLE.html#a9e02d5eeb772dafa11b8f5f96e48373daea3fe0c0ce1dbcf56ed2f32841fc181b">teqp::VLLE::VLLE_return_code::maxiter_met</a></div><div class="ttdeci">@ maxiter_met</div></div>
 <div class="ttc" id="anamespaceteqp_1_1VLLE_html_ac4d9bef0a8743dda20d148593f1d892f"><div class="ttname"><a href="namespaceteqp_1_1VLLE.html#ac4d9bef0a8743dda20d148593f1d892f">teqp::VLLE::get_drhovecdT_VLLE_binary</a></div><div class="ttdeci">auto get_drhovecdT_VLLE_binary(const AbstractModel &amp;model, double T, const EArrayd &amp;rhovecV, const EArrayd &amp;rhovecL1, const EArrayd &amp;rhovecL2)</div><div class="ttdef"><b>Definition</b> <a href="#l00481">VLLE.hpp:481</a></div></div>
+<div class="ttc" id="anamespaceteqp_1_1VLLE_html_ad06002c4e40d0be75fda7f3f51b9ce0a"><div class="ttname"><a href="namespaceteqp_1_1VLLE.html#ad06002c4e40d0be75fda7f3f51b9ce0a">teqp::VLLE::trace_VLLE_binary</a></div><div class="ttdeci">auto trace_VLLE_binary(const teqp::VLLE::AbstractModel &amp;model, const double Tinit, const EArrayd &amp;rhovecVinit, const EArrayd &amp;rhovecL1init, const EArrayd &amp;rhovecL2init, const std::optional&lt; VLLETracerOptions &gt; &amp;options_=std::nullopt)</div><div class="ttdoc">Given an initial VLLE solution, trace the VLLE curve. We know the VLLE curve is a function of only on...</div><div class="ttdef"><b>Definition</b> <a href="#l00519">VLLE.hpp:519</a></div></div>
 <div class="ttc" id="anamespaceteqp_1_1VLLE_html_ad553eb6ef7c3a743bd25e41d2d4b803d"><div class="ttname"><a href="namespaceteqp_1_1VLLE.html#ad553eb6ef7c3a743bd25e41d2d4b803d">teqp::VLLE::get_self_intersections</a></div><div class="ttdeci">auto get_self_intersections(Iterable &amp;x, Iterable &amp;y)</div><div class="ttdef"><b>Definition</b> <a href="#l00255">VLLE.hpp:255</a></div></div>
 <div class="ttc" id="anamespaceteqp_1_1VLLE_html_ae25bbb62557baebe155d55f4f1aa850d"><div class="ttname"><a href="namespaceteqp_1_1VLLE.html#ae25bbb62557baebe155d55f4f1aa850d">teqp::VLLE::mix_VLLE_T</a></div><div class="ttdeci">auto mix_VLLE_T(const AbstractModel &amp;model, double T, const EArrayd &amp;rhovecVinit, const EArrayd &amp;rhovecL1init, const EArrayd &amp;rhovecL2init, double atol, double reltol, double axtol, double relxtol, int maxiter)</div><div class="ttdef"><b>Definition</b> <a href="#l00030">VLLE.hpp:30</a></div></div>
 <div class="ttc" id="anamespaceteqp_1_1cppinterface_html"><div class="ttname"><a href="namespaceteqp_1_1cppinterface.html">teqp::cppinterface</a></div><div class="ttdef"><b>Definition</b> <a href="deriv__adapter_8hpp_source.html#l00008">deriv_adapter.hpp:8</a></div></div>

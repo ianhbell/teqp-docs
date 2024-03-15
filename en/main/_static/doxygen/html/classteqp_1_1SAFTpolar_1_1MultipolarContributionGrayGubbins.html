@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -127,19 +129,19 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a297b03adc918bfa8d120099bbd59eb0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32d2813fa8984ddcef693567aab0f3cc" id="r_a32d2813fa8984ddcef693567aab0f3cc"><td class="memTemplParams" colspan="2">template&lt;typename TTYPE , typename RhoType , typename RhoStarType , typename VecType , typename MuPrimeType &gt; </td></tr>
 <tr class="memitem:a32d2813fa8984ddcef693567aab0f3cc"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a32d2813fa8984ddcef693567aab0f3cc">get_alpha2</a> (const TTYPE &amp;T, const RhoType &amp;rhoN, const RhoStarType &amp;rhostar, const VecType &amp;mole_fractions, const MuPrimeType &amp;muprime) const</td></tr>
-<tr class="memdesc:a32d2813fa8984ddcef693567aab0f3cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return \(\alpha_2=A_2/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to $-w_o^{(2)}/\rhoN$ from Gray et al.  <br /></td></tr>
+<tr class="memdesc:a32d2813fa8984ddcef693567aab0f3cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return \(\alpha_2=A_2/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to \(-w_o^{(2)}/\rhoN\) from Gray et al.  <br /></td></tr>
 <tr class="separator:a32d2813fa8984ddcef693567aab0f3cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43af01dfc414892d97c6adf9eb60bc0f" id="r_a43af01dfc414892d97c6adf9eb60bc0f"><td class="memTemplParams" colspan="2">template&lt;typename TTYPE , typename RhoType , typename RhoStarType , typename VecType , typename MuPrimeType &gt; </td></tr>
 <tr class="memitem:a43af01dfc414892d97c6adf9eb60bc0f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a43af01dfc414892d97c6adf9eb60bc0f">get_alpha2_muprime_gradient</a> (const TTYPE &amp;T, const RhoType &amp;rhoN, const RhoStarType &amp;rhostar, const VecType &amp;mole_fractions, const MuPrimeType &amp;muprime) const</td></tr>
-<tr class="memdesc:a43af01dfc414892d97c6adf9eb60bc0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return \(\alpha_2=A_2/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to $-w_o^{(2)}/\rhoN$ from Gray et al.  <br /></td></tr>
+<tr class="memdesc:a43af01dfc414892d97c6adf9eb60bc0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return \(\alpha_2=A_2/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to \(-w_o^{(2)}/\rhoN\) from Gray et al.  <br /></td></tr>
 <tr class="separator:a43af01dfc414892d97c6adf9eb60bc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8b892f192ceacc032ef65131aa8cf6f" id="r_aa8b892f192ceacc032ef65131aa8cf6f"><td class="memTemplParams" colspan="2">template&lt;typename TTYPE , typename RhoType , typename RhoStarType , typename VecType , typename MuPrimeType &gt; </td></tr>
 <tr class="memitem:aa8b892f192ceacc032ef65131aa8cf6f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa8b892f192ceacc032ef65131aa8cf6f">get_alpha3</a> (const TTYPE &amp;T, const RhoType &amp;rhoN, const RhoStarType &amp;rhostar, const VecType &amp;mole_fractions, const MuPrimeType &amp;muprime) const</td></tr>
-<tr class="memdesc:aa8b892f192ceacc032ef65131aa8cf6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return \(\alpha_3=A_3/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to $-w_o^{(3)}/\rhoN$ from Gray et al.  <br /></td></tr>
+<tr class="memdesc:aa8b892f192ceacc032ef65131aa8cf6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return \(\alpha_3=A_3/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to \(-w_o^{(3)}/\rhoN\) from Gray et al.  <br /></td></tr>
 <tr class="separator:aa8b892f192ceacc032ef65131aa8cf6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a568d85ef7be8fc7dd95ca63862a92e95" id="r_a568d85ef7be8fc7dd95ca63862a92e95"><td class="memTemplParams" colspan="2">template&lt;typename TTYPE , typename RhoType , typename RhoStarType , typename VecType , typename MuPrimeType &gt; </td></tr>
 <tr class="memitem:a568d85ef7be8fc7dd95ca63862a92e95"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a568d85ef7be8fc7dd95ca63862a92e95">get_alpha3_muprime_gradient</a> (const TTYPE &amp;T, const RhoType &amp;rhoN, const RhoStarType &amp;rhostar, const VecType &amp;mole_fractions, const MuPrimeType &amp;muprime) const</td></tr>
-<tr class="memdesc:a568d85ef7be8fc7dd95ca63862a92e95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return \(\alpha_3=A_3/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to $-w_o^{(3)}/\rhoN$ from Gray et al.  <br /></td></tr>
+<tr class="memdesc:a568d85ef7be8fc7dd95ca63862a92e95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return \(\alpha_3=A_3/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to \(-w_o^{(3)}/\rhoN\) from Gray et al.  <br /></td></tr>
 <tr class="separator:a568d85ef7be8fc7dd95ca63862a92e95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07c5f6d0e4981dcd781062ebf54c4358" id="r_a07c5f6d0e4981dcd781062ebf54c4358"><td class="memTemplParams" colspan="2">template&lt;typename RhoType , typename PFType , typename MoleFractions &gt; </td></tr>
 <tr class="memitem:a07c5f6d0e4981dcd781062ebf54c4358"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a07c5f6d0e4981dcd781062ebf54c4358">get_rhostar</a> (const RhoType rhoN, const PFType &amp;packing_fraction, const MoleFractions &amp;mole_fractions) const</td></tr>
@@ -324,7 +326,7 @@ template&lt;typename TTYPE , typename RhoType , typename RhoStarType , typename 
 </table>
 </div><div class="memdoc">
 
-<p>Return \(\alpha_2=A_2/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to $-w_o^{(2)}/\rhoN$ from Gray et al. </p>
+<p>Return \(\alpha_2=A_2/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to \(-w_o^{(2)}/\rhoN\) from Gray et al. </p>
 
 <p class="definition">Definition at line <a class="el" href="polar__terms_8hpp_source.html#l00879">879</a> of file <a class="el" href="polar__terms_8hpp_source.html">polar_terms.hpp</a>.</p>
 
@@ -376,7 +378,7 @@ template&lt;typename TTYPE , typename RhoType , typename RhoStarType , typename 
 </table>
 </div><div class="memdoc">
 
-<p>Return \(\alpha_2=A_2/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to $-w_o^{(2)}/\rhoN$ from Gray et al. </p>
+<p>Return \(\alpha_2=A_2/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to \(-w_o^{(2)}/\rhoN\) from Gray et al. </p>
 
 <p class="definition">Definition at line <a class="el" href="polar__terms_8hpp_source.html#l00917">917</a> of file <a class="el" href="polar__terms_8hpp_source.html">polar_terms.hpp</a>.</p>
 
@@ -428,7 +430,7 @@ template&lt;typename TTYPE , typename RhoType , typename RhoStarType , typename 
 </table>
 </div><div class="memdoc">
 
-<p>Return \(\alpha_3=A_3/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to $-w_o^{(3)}/\rhoN$ from Gray et al. </p>
+<p>Return \(\alpha_3=A_3/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to \(-w_o^{(3)}/\rhoN\) from Gray et al. </p>
 
 <p class="definition">Definition at line <a class="el" href="polar__terms_8hpp_source.html#l00950">950</a> of file <a class="el" href="polar__terms_8hpp_source.html">polar_terms.hpp</a>.</p>
 
@@ -480,7 +482,7 @@ template&lt;typename TTYPE , typename RhoType , typename RhoStarType , typename 
 </table>
 </div><div class="memdoc">
 
-<p>Return \(\alpha_3=A_3/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to $-w_o^{(3)}/\rhoN$ from Gray et al. </p>
+<p>Return \(\alpha_3=A_3/(Nk_BT)\), thus this is a nondimensional term. This is equivalent to \(-w_o^{(3)}/\rhoN\) from Gray et al. </p>
 
 <p class="definition">Definition at line <a class="el" href="polar__terms_8hpp_source.html#l00998">998</a> of file <a class="el" href="polar__terms_8hpp_source.html">polar_terms.hpp</a>.</p>
 

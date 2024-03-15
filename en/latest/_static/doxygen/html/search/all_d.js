@@ -21,9 +21,12 @@ var searchData=
   ['lj126kolafanezbeda1994_5ft_18',['LJ126KolafaNezbeda1994_t',['../namespaceteqp.html#ad99a58f5bf948c1191e468377254e2ee',1,'teqp']]],
   ['ljchain_19',['LJChain',['../classteqp_1_1LJChain_1_1LJChain.html',1,'teqp::LJChain::LJChain&lt; Monomer &gt;'],['../classteqp_1_1LJChain_1_1LJChain.html#a23390cf708d2d3b5195d3e56dde7ece4',1,'teqp::LJChain::LJChain::LJChain()']]],
   ['ljchain_2ehpp_20',['LJChain.hpp',['../LJChain_8hpp.html',1,'']]],
-  ['lmat_21',['lmat',['../classteqp_1_1AdvancedPRaEres.html#a2f32b1edd959cb94813c26b5db4ea4df',1,'teqp::AdvancedPRaEres']]],
-  ['load_5fa_5fjson_5ffile_22',['load_a_JSON_file',['../namespaceteqp.html#a5f3efac006a4e11eff65affdbc051469',1,'teqp']]],
-  ['lt_23',['lt',['../classteqp_1_1DoubleExponentialEOSTerm.html#a4b0fc40cbeccd66e9dfe83d47b36bf8d',1,'teqp::DoubleExponentialEOSTerm']]],
-  ['luckasjintegral_24',['LuckasJIntegral',['../classteqp_1_1SAFTpolar_1_1LuckasJIntegral.html',1,'teqp::SAFTpolar::LuckasJIntegral'],['../classteqp_1_1SAFTpolar_1_1LuckasJIntegral.html#a653d5a681a873747a207179ffdeff5d4',1,'teqp::SAFTpolar::LuckasJIntegral::LuckasJIntegral()']]],
-  ['luckaskintegral_25',['LuckasKIntegral',['../classteqp_1_1SAFTpolar_1_1LuckasKIntegral.html',1,'teqp::SAFTpolar::LuckasKIntegral'],['../classteqp_1_1SAFTpolar_1_1LuckasKIntegral.html#aefcdd31301f6ef226e83b45b02380a3c',1,'teqp::SAFTpolar::LuckasKIntegral::LuckasKIntegral()']]]
+  ['lkp_2ehpp_21',['LKP.hpp',['../LKP_8hpp.html',1,'']]],
+  ['lkpfluidparameters_22',['LKPFluidParameters',['../structteqp_1_1LKP_1_1LKPFluidParameters.html',1,'teqp::LKP']]],
+  ['lkpmix_23',['LKPMix',['../classteqp_1_1LKP_1_1LKPMix.html',1,'teqp::LKP::LKPMix'],['../classteqp_1_1LKP_1_1LKPMix.html#a64efeeea54e7187a6689aeab43e2bd9c',1,'teqp::LKP::LKPMix::LKPMix()']]],
+  ['lmat_24',['lmat',['../classteqp_1_1AdvancedPRaEres.html#a2f32b1edd959cb94813c26b5db4ea4df',1,'teqp::AdvancedPRaEres']]],
+  ['load_5fa_5fjson_5ffile_25',['load_a_JSON_file',['../namespaceteqp.html#a5f3efac006a4e11eff65affdbc051469',1,'teqp']]],
+  ['lt_26',['lt',['../classteqp_1_1DoubleExponentialEOSTerm.html#a4b0fc40cbeccd66e9dfe83d47b36bf8d',1,'teqp::DoubleExponentialEOSTerm']]],
+  ['luckasjintegral_27',['LuckasJIntegral',['../classteqp_1_1SAFTpolar_1_1LuckasJIntegral.html',1,'teqp::SAFTpolar::LuckasJIntegral'],['../classteqp_1_1SAFTpolar_1_1LuckasJIntegral.html#a653d5a681a873747a207179ffdeff5d4',1,'teqp::SAFTpolar::LuckasJIntegral::LuckasJIntegral()']]],
+  ['luckaskintegral_28',['LuckasKIntegral',['../classteqp_1_1SAFTpolar_1_1LuckasKIntegral.html',1,'teqp::SAFTpolar::LuckasKIntegral'],['../classteqp_1_1SAFTpolar_1_1LuckasKIntegral.html#aefcdd31301f6ef226e83b45b02380a3c',1,'teqp::SAFTpolar::LuckasKIntegral::LuckasKIntegral()']]]
 ];

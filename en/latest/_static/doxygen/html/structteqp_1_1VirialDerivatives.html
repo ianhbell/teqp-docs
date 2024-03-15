@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -125,7 +127,7 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename Model, typename Scalar = double, typename VectorType = Eigen::ArrayXd&gt;<br />
 struct teqp::VirialDerivatives&lt; Model, Scalar, VectorType &gt;</div>
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00465">465</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00686">686</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a341849ff03bd0f24f5672930d97af80b" name="a341849ff03bd0f24f5672930d97af80b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a341849ff03bd0f24f5672930d97af80b">&#9670;&#160;</a></span>get_B12vir()</h2>
@@ -171,7 +173,7 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00627">627</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00848">848</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -209,7 +211,7 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00467">467</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00688">688</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -265,7 +267,7 @@ B_n = \frac{1}{(n-2)!} \lim_{\rho\to 0} \left(\frac{\partial ^{n-1}\alpha^{\rm r
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00485">485</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00706">706</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -311,7 +313,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </div><div class="memdoc">
 <p>This version of the get_Bnvir takes the maximum number of derivatives as a runtime argument and then forwards all arguments to the corresponding templated function </p>
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00528">528</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00749">749</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -370,7 +372,7 @@ template&lt;int Nderiv, int NTderiv, <a class="el" href="namespaceteqp.html#aa91
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00555">555</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00776">776</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -421,7 +423,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </div><div class="memdoc">
 <p>This version of the get_dmBnvirdTm takes the maximum number of derivatives as runtime arguments and then forwards all arguments to the templated function </p>
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00588">588</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00809">809</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>

@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -105,9 +107,60 @@ $(function() {
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad106c71bc38ee34a5e5c26ac85e649bd" id="r_ad106c71bc38ee34a5e5c26ac85e649bd"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad106c71bc38ee34a5e5c26ac85e649bd">get_Ar00</a> (const Model &amp;model, const Scalar &amp;T, const Scalar &amp;rho, const VectorType &amp;molefrac)</td></tr>
 <tr class="separator:ad106c71bc38ee34a5e5c26ac85e649bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41c424d0a600d370251b0175148c1c13" id="r_a41c424d0a600d370251b0175148c1c13"><td class="memTemplParams" colspan="2">template&lt;typename AlphaWrapper , typename S1 , typename S2 , typename Vec &gt; <br />
+requires CallableAlpha&lt;AlphaWrapper, S1, S2, Vec&gt;</td></tr>
+<tr class="memitem:a41c424d0a600d370251b0175148c1c13"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a41c424d0a600d370251b0175148c1c13">AlphaCaller</a> (const AlphaWrapper &amp;w, const S1 &amp;T, const S2 &amp;rho, const Vec &amp;molefrac)</td></tr>
+<tr class="separator:a41c424d0a600d370251b0175148c1c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dbef2722157dd0d3d9fc231ed37c2cf" id="r_a5dbef2722157dd0d3d9fc231ed37c2cf"><td class="memTemplParams" colspan="2">template&lt;typename AlphaWrapper , typename S1 , typename S2 , typename Vec &gt; <br />
+requires CallableAlphar&lt;AlphaWrapper, S1, S2, Vec&gt;</td></tr>
+<tr class="memitem:a5dbef2722157dd0d3d9fc231ed37c2cf"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5dbef2722157dd0d3d9fc231ed37c2cf">AlphaCaller</a> (const AlphaWrapper &amp;w, const S1 &amp;T, const S2 &amp;rho, const Vec &amp;molefrac)</td></tr>
+<tr class="separator:a5dbef2722157dd0d3d9fc231ed37c2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa55be45f23cae8e656d02088b921fd64" id="r_aa55be45f23cae8e656d02088b921fd64"><td class="memTemplParams" colspan="2">template&lt;typename AlphaWrapper , typename S1 , typename S2 , typename Vec &gt; <br />
+requires CallableAlpharTauDelta&lt;AlphaWrapper, S1, S2, Vec&gt;</td></tr>
+<tr class="memitem:aa55be45f23cae8e656d02088b921fd64"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa55be45f23cae8e656d02088b921fd64">AlpharTauDeltaCaller</a> (const AlphaWrapper &amp;w, const S1 &amp;T, const S2 &amp;rho, const Vec &amp;molefrac)</td></tr>
+<tr class="separator:aa55be45f23cae8e656d02088b921fd64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62fa2c579253c2498bd16aa8fe057554" id="r_a62fa2c579253c2498bd16aa8fe057554"><td class="memTemplParams" colspan="2">template&lt;typename AlphaWrapper , typename S1 , typename S2 , typename Vec &gt; </td></tr>
+<tr class="memitem:a62fa2c579253c2498bd16aa8fe057554"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a62fa2c579253c2498bd16aa8fe057554">AlpharTauDeltaCaller</a> (const AlphaWrapper &amp;, const S1 &amp;, const S2 &amp;, const Vec &amp;molefrac)</td></tr>
+<tr class="separator:a62fa2c579253c2498bd16aa8fe057554"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcd8835ef51da34a0da9be4c01150a56" id="r_afcd8835ef51da34a0da9be4c01150a56"><td class="memTemplParams" colspan="2">template&lt;int iT, int iD, <a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de32f9d">ADBackends</a> be = ADBackends::autodiff, class AlphaWrapper &gt; </td></tr>
 <tr class="memitem:afcd8835ef51da34a0da9be4c01150a56"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#afcd8835ef51da34a0da9be4c01150a56">get_Agenxy</a> (const AlphaWrapper &amp;w, const Scalar &amp;T, const Scalar &amp;rho, const VectorType &amp;molefrac)</td></tr>
 <tr class="separator:afcd8835ef51da34a0da9be4c01150a56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8ac5de9307aaf95ca6a21dc3b4eeacc" id="r_ac8ac5de9307aaf95ca6a21dc3b4eeacc"><td class="memTemplParams" colspan="2">template&lt;int iT, int iD, int iXi, typename AlphaWrapper &gt; </td></tr>
+<tr class="memitem:ac8ac5de9307aaf95ca6a21dc3b4eeacc"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac8ac5de9307aaf95ca6a21dc3b4eeacc">get_ATrhoXi</a> (const AlphaWrapper &amp;w, const Scalar &amp;T, const Scalar &amp;rho, const VectorType &amp;molefrac, int i)</td></tr>
+<tr class="separator:ac8ac5de9307aaf95ca6a21dc3b4eeacc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a419430e2ccf3e1532a36cfe359797515" id="r_a419430e2ccf3e1532a36cfe359797515"><td class="memTemplParams" colspan="2">template&lt;typename AlphaWrapper &gt; </td></tr>
+<tr class="memitem:a419430e2ccf3e1532a36cfe359797515"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a419430e2ccf3e1532a36cfe359797515">get_ATrhoXi_runtime</a> (const AlphaWrapper &amp;w, const Scalar &amp;T, int iT, const Scalar &amp;rho, int iD, const VectorType &amp;molefrac, int i, int iXi)</td></tr>
+<tr class="separator:a419430e2ccf3e1532a36cfe359797515"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0715b29e73d17e6670bc9df4a7e39236" id="r_a0715b29e73d17e6670bc9df4a7e39236"><td class="memTemplParams" colspan="2">template&lt;typename AlphaWrapper &gt; </td></tr>
+<tr class="memitem:a0715b29e73d17e6670bc9df4a7e39236"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0715b29e73d17e6670bc9df4a7e39236">get_ATrhoXiXj_runtime</a> (const AlphaWrapper &amp;w, const Scalar &amp;T, int iT, const Scalar &amp;rho, int iD, const VectorType &amp;molefrac, int i, int iXi, int j, int iXj)</td></tr>
+<tr class="separator:a0715b29e73d17e6670bc9df4a7e39236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae55f9df5f9b0130dec730b43b2aa06eb" id="r_ae55f9df5f9b0130dec730b43b2aa06eb"><td class="memTemplParams" colspan="2">template&lt;typename AlphaWrapper &gt; </td></tr>
+<tr class="memitem:ae55f9df5f9b0130dec730b43b2aa06eb"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae55f9df5f9b0130dec730b43b2aa06eb">get_ATrhoXiXjXk_runtime</a> (const AlphaWrapper &amp;w, const Scalar &amp;T, int iT, const Scalar &amp;rho, int iD, const VectorType &amp;molefrac, int i, int iXi, int j, int iXj, int k, int iXk)</td></tr>
+<tr class="separator:ae55f9df5f9b0130dec730b43b2aa06eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a749c0a315bb22af05b4705516a10e763" id="r_a749c0a315bb22af05b4705516a10e763"><td class="memTemplParams" colspan="2">template&lt;int iT, int iD, int iXi, typename AlphaWrapper &gt; </td></tr>
+<tr class="memitem:a749c0a315bb22af05b4705516a10e763"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a749c0a315bb22af05b4705516a10e763">get_AtaudeltaXi</a> (const AlphaWrapper &amp;w, const Scalar &amp;tau, const Scalar &amp;delta, const VectorType &amp;molefrac, const int i)</td></tr>
+<tr class="separator:a749c0a315bb22af05b4705516a10e763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabacbc3ac853e21f8eac66b7ce4ceef6" id="r_aabacbc3ac853e21f8eac66b7ce4ceef6"><td class="memTemplParams" colspan="2">template&lt;int iT, int iD, int iXi, int iXj, typename AlphaWrapper &gt; </td></tr>
+<tr class="memitem:aabacbc3ac853e21f8eac66b7ce4ceef6"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aabacbc3ac853e21f8eac66b7ce4ceef6">get_AtaudeltaXiXj</a> (const AlphaWrapper &amp;w, const Scalar &amp;tau, const Scalar &amp;delta, const VectorType &amp;molefrac, const int i, const int j)</td></tr>
+<tr class="separator:aabacbc3ac853e21f8eac66b7ce4ceef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1bc85478087b80790eb08416dcc38dd" id="r_ad1bc85478087b80790eb08416dcc38dd"><td class="memTemplParams" colspan="2">template&lt;int iT, int iD, int iXi, int iXj, int iXk, typename AlphaWrapper &gt; </td></tr>
+<tr class="memitem:ad1bc85478087b80790eb08416dcc38dd"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad1bc85478087b80790eb08416dcc38dd">get_AtaudeltaXiXjXk</a> (const AlphaWrapper &amp;w, const Scalar &amp;tau, const Scalar &amp;delta, const VectorType &amp;molefrac, const int i, const int j, const int k)</td></tr>
+<tr class="separator:ad1bc85478087b80790eb08416dcc38dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c3ec4deeffaa562889b21b336315ec5" id="r_a5c3ec4deeffaa562889b21b336315ec5"><td class="memTemplParams" colspan="2">template&lt;typename AlphaWrapper &gt; </td></tr>
+<tr class="memitem:a5c3ec4deeffaa562889b21b336315ec5"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5c3ec4deeffaa562889b21b336315ec5">get_AtaudeltaXi_runtime</a> (const AlphaWrapper &amp;w, const Scalar &amp;tau, const int iT, const Scalar &amp;delta, const int iD, const VectorType &amp;molefrac, const int i, const int iXi)</td></tr>
+<tr class="separator:a5c3ec4deeffaa562889b21b336315ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eeaca474bdf7141590504b3d8dccd50" id="r_a2eeaca474bdf7141590504b3d8dccd50"><td class="memTemplParams" colspan="2">template&lt;typename AlphaWrapper &gt; </td></tr>
+<tr class="memitem:a2eeaca474bdf7141590504b3d8dccd50"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2eeaca474bdf7141590504b3d8dccd50">get_AtaudeltaXiXj_runtime</a> (const AlphaWrapper &amp;w, const Scalar &amp;tau, const int iT, const Scalar &amp;delta, const int iD, const VectorType &amp;molefrac, const int i, const int iXi, const int j, const int iXj)</td></tr>
+<tr class="separator:a2eeaca474bdf7141590504b3d8dccd50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5716fc6d91a88da93a9d995f01151029" id="r_a5716fc6d91a88da93a9d995f01151029"><td class="memTemplParams" colspan="2">template&lt;typename AlphaWrapper &gt; </td></tr>
+<tr class="memitem:a5716fc6d91a88da93a9d995f01151029"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5716fc6d91a88da93a9d995f01151029">get_AtaudeltaXiXjXk_runtime</a> (const AlphaWrapper &amp;w, const Scalar &amp;tau, const int iT, const Scalar &amp;delta, const int iD, const VectorType &amp;molefrac, const int i, int iXi, const int j, const int iXj, const int k, const int iXk)</td></tr>
+<tr class="separator:a5716fc6d91a88da93a9d995f01151029"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ad36148eb5c7db72d8eb860e88a714f" id="r_a0ad36148eb5c7db72d8eb860e88a714f"><td class="memTemplParams" colspan="2">template&lt;int iT, int iD, int iXi, int iXj, typename AlphaWrapper &gt; </td></tr>
+<tr class="memitem:a0ad36148eb5c7db72d8eb860e88a714f"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0ad36148eb5c7db72d8eb860e88a714f">get_ATrhoXiXj</a> (const AlphaWrapper &amp;w, const Scalar &amp;T, const Scalar &amp;rho, const VectorType &amp;molefrac, int i, int j)</td></tr>
+<tr class="separator:a0ad36148eb5c7db72d8eb860e88a714f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2574a2370d8379b3a46a60e3b4f7d4c0" id="r_a2574a2370d8379b3a46a60e3b4f7d4c0"><td class="memTemplParams" colspan="2">template&lt;int iT, int iD, int iXi, int iXj, int iXk, typename AlphaWrapper &gt; </td></tr>
+<tr class="memitem:a2574a2370d8379b3a46a60e3b4f7d4c0"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2574a2370d8379b3a46a60e3b4f7d4c0">get_ATrhoXiXjXk</a> (const AlphaWrapper &amp;w, const Scalar &amp;T, const Scalar &amp;rho, const VectorType &amp;molefrac, int i, int j, int k)</td></tr>
+<tr class="separator:a2574a2370d8379b3a46a60e3b4f7d4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb14ad3ba26383bcf47aff162fae870d" id="r_acb14ad3ba26383bcf47aff162fae870d"><td class="memTemplParams" colspan="2">template&lt;int iT, int iD, <a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de32f9d">ADBackends</a> be = ADBackends::autodiff&gt; </td></tr>
 <tr class="memitem:acb14ad3ba26383bcf47aff162fae870d"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acb14ad3ba26383bcf47aff162fae870d">get_Arxy</a> (const Model &amp;model, const Scalar &amp;T, const Scalar &amp;rho, const VectorType &amp;molefrac)</td></tr>
 <tr class="separator:acb14ad3ba26383bcf47aff162fae870d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,8 +219,191 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename Model, typename Scalar = double, typename VectorType = Eigen::ArrayXd&gt;<br />
 struct teqp::TDXDerivatives&lt; Model, Scalar, VectorType &gt;</div>
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00126">126</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00117">117</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a41c424d0a600d370251b0175148c1c13" name="a41c424d0a600d370251b0175148c1c13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41c424d0a600d370251b0175148c1c13">&#9670;&#160;</a></span>AlphaCaller() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;typename AlphaWrapper , typename S1 , typename S2 , typename Vec &gt; <br />
+requires CallableAlpha&lt;AlphaWrapper, S1, S2, Vec&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::AlphaCaller </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const S1 &amp;</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const S2 &amp;</td>          <td class="paramname"><span class="paramname"><em>rho</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vec &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00124">124</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a5dbef2722157dd0d3d9fc231ed37c2cf" name="a5dbef2722157dd0d3d9fc231ed37c2cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dbef2722157dd0d3d9fc231ed37c2cf">&#9670;&#160;</a></span>AlphaCaller() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;typename AlphaWrapper , typename S1 , typename S2 , typename Vec &gt; <br />
+requires CallableAlphar&lt;AlphaWrapper, S1, S2, Vec&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::AlphaCaller </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const S1 &amp;</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const S2 &amp;</td>          <td class="paramname"><span class="paramname"><em>rho</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vec &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00128">128</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a62fa2c579253c2498bd16aa8fe057554" name="a62fa2c579253c2498bd16aa8fe057554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62fa2c579253c2498bd16aa8fe057554">&#9670;&#160;</a></span>AlpharTauDeltaCaller() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;typename AlphaWrapper , typename S1 , typename S2 , typename Vec &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::AlpharTauDeltaCaller </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname">, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const S1 &amp;</td>          <td class="paramname"><span class="paramname">, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const S2 &amp;</td>          <td class="paramname"><span class="paramname">, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vec &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00137">137</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa55be45f23cae8e656d02088b921fd64" name="aa55be45f23cae8e656d02088b921fd64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa55be45f23cae8e656d02088b921fd64">&#9670;&#160;</a></span>AlpharTauDeltaCaller() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;typename AlphaWrapper , typename S1 , typename S2 , typename Vec &gt; <br />
+requires CallableAlpharTauDelta&lt;AlphaWrapper, S1, S2, Vec&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::AlpharTauDeltaCaller </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const S1 &amp;</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const S2 &amp;</td>          <td class="paramname"><span class="paramname"><em>rho</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vec &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00133">133</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a09b653f2726596dfc604afbe30264f8a" name="a09b653f2726596dfc604afbe30264f8a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a09b653f2726596dfc604afbe30264f8a">&#9670;&#160;</a></span>get_Agen0n()</h2>
 
@@ -209,7 +445,7 @@ template&lt;int Nderiv, <a class="el" href="namespaceteqp.html#aa915939e34912de1
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00313">313</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00536">536</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -254,7 +490,7 @@ template&lt;int Nderiv, <a class="el" href="namespaceteqp.html#aa915939e34912de1
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00341">341</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00564">564</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -305,7 +541,7 @@ template&lt;int iT, int iD, <a class="el" href="namespaceteqp.html#aa915939e3491
 </p>
 <p>Note: none of the intermediate derivatives are returned, although they are calculated </p>
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00141">141</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00151">151</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -350,7 +586,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00308">308</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00531">531</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -401,7 +637,7 @@ template&lt;int iT, int iD, <a class="el" href="namespaceteqp.html#aa915939e3491
 </p>
 <p>Note: none of the intermediate derivatives are returned, although they are calculated </p>
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00252">252</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00481">481</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -456,7 +692,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00399">399</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00620">620</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -499,7 +735,7 @@ template&lt;typename Model , typename Scalar  = double, typename VectorType  = E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00128">128</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00119">119</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -544,7 +780,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00268">268</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00491">491</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -589,7 +825,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00273">273</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00496">496</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -634,7 +870,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00278">278</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00501">501</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -685,7 +921,7 @@ template&lt;int iD, <a class="el" href="namespaceteqp.html#aa915939e34912de1f877
 </p>
 <p>Note:The intermediate derivatives are returned </p>
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00392">392</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00614">614</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -730,7 +966,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00263">263</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00486">486</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -775,7 +1011,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00303">303</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00526">526</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -820,7 +1056,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00298">298</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00521">521</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -865,7 +1101,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00283">283</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00506">506</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -910,7 +1146,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00293">293</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00516">516</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -955,7 +1191,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00288">288</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00511">511</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -1006,7 +1242,7 @@ template&lt;int iT, <a class="el" href="namespaceteqp.html#aa915939e34912de1f877
 </p>
 <p>Note:The intermediate derivatives are returned </p>
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00378">378</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00601">601</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -1057,7 +1293,805 @@ template&lt;int iT, int iD, <a class="el" href="namespaceteqp.html#aa915939e3491
 </p>
 <p>Note: none of the intermediate derivatives are returned, although they are calculated </p>
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00233">233</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00468">468</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a749c0a315bb22af05b4705516a10e763" name="a749c0a315bb22af05b4705516a10e763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a749c0a315bb22af05b4705516a10e763">&#9670;&#160;</a></span>get_AtaudeltaXi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;int iT, int iD, int iXi, typename AlphaWrapper &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::get_AtaudeltaXi </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>tau</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>delta</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VectorType &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00337">337</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a5c3ec4deeffaa562889b21b336315ec5" name="a5c3ec4deeffaa562889b21b336315ec5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c3ec4deeffaa562889b21b336315ec5">&#9670;&#160;</a></span>get_AtaudeltaXi_runtime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;typename AlphaWrapper &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::get_AtaudeltaXi_runtime </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>tau</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>iT</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>delta</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>iD</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VectorType &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>iXi</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00385">385</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aabacbc3ac853e21f8eac66b7ce4ceef6" name="aabacbc3ac853e21f8eac66b7ce4ceef6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabacbc3ac853e21f8eac66b7ce4ceef6">&#9670;&#160;</a></span>get_AtaudeltaXiXj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;int iT, int iD, int iXi, int iXj, typename AlphaWrapper &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::get_AtaudeltaXiXj </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>tau</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>delta</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VectorType &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>j</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00350">350</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2eeaca474bdf7141590504b3d8dccd50" name="a2eeaca474bdf7141590504b3d8dccd50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eeaca474bdf7141590504b3d8dccd50">&#9670;&#160;</a></span>get_AtaudeltaXiXj_runtime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;typename AlphaWrapper &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::get_AtaudeltaXiXj_runtime </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>tau</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>iT</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>delta</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>iD</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VectorType &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>iXi</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>j</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>iXj</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00393">393</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ad1bc85478087b80790eb08416dcc38dd" name="ad1bc85478087b80790eb08416dcc38dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1bc85478087b80790eb08416dcc38dd">&#9670;&#160;</a></span>get_AtaudeltaXiXjXk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;int iT, int iD, int iXi, int iXj, int iXk, typename AlphaWrapper &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::get_AtaudeltaXiXjXk </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>tau</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>delta</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VectorType &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>j</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>k</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00367">367</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a5716fc6d91a88da93a9d995f01151029" name="a5716fc6d91a88da93a9d995f01151029"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5716fc6d91a88da93a9d995f01151029">&#9670;&#160;</a></span>get_AtaudeltaXiXjXk_runtime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;typename AlphaWrapper &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::get_AtaudeltaXiXjXk_runtime </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>tau</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>iT</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>delta</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>iD</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VectorType &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iXi</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>j</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>iXj</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>k</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>iXk</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00401">401</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac8ac5de9307aaf95ca6a21dc3b4eeacc" name="ac8ac5de9307aaf95ca6a21dc3b4eeacc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8ac5de9307aaf95ca6a21dc3b4eeacc">&#9670;&#160;</a></span>get_ATrhoXi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;int iT, int iD, int iXi, typename AlphaWrapper &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::get_ATrhoXi </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>rho</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VectorType &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculate the derivative  </p><p class="formulaDsp">
+\[
+\Lambda_{xyz_i} = (1/T)^x(\rho)^y\deriv{^{x+y+z_i}(\alpha^r)}{(1/T)^x\partial \rho^y \partial \mathbf{Z}_i^{z_i}}}{}
+\]
+</p>
+<p> in which all the compositions are treated as being independent </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00248">248</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a419430e2ccf3e1532a36cfe359797515" name="a419430e2ccf3e1532a36cfe359797515"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a419430e2ccf3e1532a36cfe359797515">&#9670;&#160;</a></span>get_ATrhoXi_runtime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;typename AlphaWrapper &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::get_ATrhoXi_runtime </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iT</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>rho</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iD</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VectorType &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iXi</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00282">282</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0ad36148eb5c7db72d8eb860e88a714f" name="a0ad36148eb5c7db72d8eb860e88a714f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ad36148eb5c7db72d8eb860e88a714f">&#9670;&#160;</a></span>get_ATrhoXiXj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;int iT, int iD, int iXi, int iXj, typename AlphaWrapper &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::get_ATrhoXiXj </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>rho</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VectorType &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculate the derivative  </p><p class="formulaDsp">
+\[
+\Lambda_{xyz_i z_j } = (1/T)^x(\rho)^y\left(\frac{\partial^{x+y+z_i+z_j}(\alpha^r)}{\partial (1/T)^x\partial \rho^y \partial \mathbf{Z}_i^{z_i} \partial \mathbf{Z}_j^{z_j}  \}\right)
+\]
+</p>
+<p> in which all the compositions are treated as being independent </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00416">416</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0715b29e73d17e6670bc9df4a7e39236" name="a0715b29e73d17e6670bc9df4a7e39236"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0715b29e73d17e6670bc9df4a7e39236">&#9670;&#160;</a></span>get_ATrhoXiXj_runtime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;typename AlphaWrapper &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::get_ATrhoXiXj_runtime </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iT</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>rho</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iD</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VectorType &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iXi</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iXj</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00307">307</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2574a2370d8379b3a46a60e3b4f7d4c0" name="a2574a2370d8379b3a46a60e3b4f7d4c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2574a2370d8379b3a46a60e3b4f7d4c0">&#9670;&#160;</a></span>get_ATrhoXiXjXk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;int iT, int iD, int iXi, int iXj, int iXk, typename AlphaWrapper &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::get_ATrhoXiXjXk </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>rho</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VectorType &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>k</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculate the derivative  </p><p class="formulaDsp">
+\[
+\Lambda_{xyz_i z_j z_k} = (1/T)^x(\rho)^y\left(\frac{\partial^{x+y+z_i+z_j+z_k}(\alpha^r)}{\partial (1/T)^x\partial \rho^y \partial \mathbf{Z}_i^{z_i} \partial \mathbf{Z}_j^{z_j} \partial \mathbf{Z}_k^{z_k}   \}\right
+\]
+</p>
+<p> in which all the compositions are treated as being independent </p>
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00441">441</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae55f9df5f9b0130dec730b43b2aa06eb" name="ae55f9df5f9b0130dec730b43b2aa06eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae55f9df5f9b0130dec730b43b2aa06eb">&#9670;&#160;</a></span>get_ATrhoXiXjXk_runtime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model , typename Scalar  = double, typename VectorType  = Eigen::ArrayXd&gt; </div>
+<div class="memtemplate">
+template&lt;typename AlphaWrapper &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="structteqp_1_1TDXDerivatives.html">teqp::TDXDerivatives</a>&lt; Model, Scalar, VectorType &gt;::get_ATrhoXiXjXk_runtime </td>
+          <td>(</td>
+          <td class="paramtype">const AlphaWrapper &amp;</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>T</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iT</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>rho</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iD</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VectorType &amp;</td>          <td class="paramname"><span class="paramname"><em>molefrac</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iXi</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iXj</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>k</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iXk</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00329">329</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>
@@ -1102,7 +2136,7 @@ template&lt;<a class="el" href="namespaceteqp.html#aa915939e34912de1f87776858de3
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00456">456</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="derivs_8hpp_source.html#l00677">677</a> of file <a class="el" href="derivs_8hpp_source.html">derivs.hpp</a>.</p>
 
 </div>
 </div>

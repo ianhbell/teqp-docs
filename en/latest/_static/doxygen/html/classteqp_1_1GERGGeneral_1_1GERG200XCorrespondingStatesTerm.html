@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -112,8 +114,8 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a40ce41b95fa20dd163eb42efcb6017c7" id="r_a40ce41b95fa20dd163eb42efcb6017c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40ce41b95fa20dd163eb42efcb6017c7">GERG200XCorrespondingStatesTerm</a> (const std::vector&lt; std::string &gt; &amp;names, const <a class="el" href="#a97390161c15b8dd94087468c1f5c06c0">GetPureCoeffs</a> &amp;get_pure_coeffs)</td></tr>
 <tr class="separator:a40ce41b95fa20dd163eb42efcb6017c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e57a9ad4f6d25d128f593b195a08e1b" id="r_a8e57a9ad4f6d25d128f593b195a08e1b"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e57a9ad4f6d25d128f593b195a08e1b">size</a> () const</td></tr>
-<tr class="separator:a8e57a9ad4f6d25d128f593b195a08e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b2eb8149a35b8e65c4e08c517c44ee1" id="r_a0b2eb8149a35b8e65c4e08c517c44ee1"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b2eb8149a35b8e65c4e08c517c44ee1">size</a> () const</td></tr>
+<tr class="separator:a0b2eb8149a35b8e65c4e08c517c44ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f1def211634451cc4460e6a9a14c615" id="r_a8f1def211634451cc4460e6a9a14c615"><td class="memTemplParams" colspan="2">template&lt;typename TauType , typename DeltaType , typename MoleFractions &gt; </td></tr>
 <tr class="memitem:a8f1def211634451cc4460e6a9a14c615"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a8f1def211634451cc4460e6a9a14c615">alphar</a> (const TauType &amp;tau, const DeltaType &amp;delta, const MoleFractions &amp;molefracs) const</td></tr>
 <tr class="separator:a8f1def211634451cc4460e6a9a14c615"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,7 +127,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00166">166</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00172">172</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a97390161c15b8dd94087468c1f5c06c0" name="a97390161c15b8dd94087468c1f5c06c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a97390161c15b8dd94087468c1f5c06c0">&#9670;&#160;</a></span>GetPureCoeffs</h2>
@@ -139,7 +141,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00168">168</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00174">174</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
 
 </div>
 </div>
@@ -171,7 +173,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00181">181</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00187">187</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
 
 </div>
 </div>
@@ -210,12 +212,12 @@ template&lt;typename TauType , typename DeltaType , typename MoleFractions &gt; 
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00186">186</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00192">192</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a8e57a9ad4f6d25d128f593b195a08e1b" name="a8e57a9ad4f6d25d128f593b195a08e1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e57a9ad4f6d25d128f593b195a08e1b">&#9670;&#160;</a></span>size()</h2>
+<a id="a0b2eb8149a35b8e65c4e08c517c44ee1" name="a0b2eb8149a35b8e65c4e08c517c44ee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b2eb8149a35b8e65c4e08c517c44ee1">&#9670;&#160;</a></span>size()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -224,7 +226,7 @@ template&lt;typename TauType , typename DeltaType , typename MoleFractions &gt; 
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto teqp::GERGGeneral::GERG200XCorrespondingStatesTerm::size </td>
+          <td class="memname">std::size_t teqp::GERGGeneral::GERG200XCorrespondingStatesTerm::size </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>
@@ -237,7 +239,7 @@ template&lt;typename TauType , typename DeltaType , typename MoleFractions &gt; 
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00183">183</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00189">189</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
 
 </div>
 </div>
@@ -254,7 +256,7 @@ template&lt;typename TauType , typename DeltaType , typename MoleFractions &gt; 
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00169">169</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GERG_8hpp_source.html#l00175">175</a> of file <a class="el" href="GERG_8hpp_source.html">GERG.hpp</a>.</p>
 
 </div>
 </div>

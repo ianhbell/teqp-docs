@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -103,7 +105,7 @@ $(function() {
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html#a280010d5d2088311318aeb12cd7903b6">build_dipolar</a>(const std::vector&lt; SAFTCoeffs &gt; &amp;coeffs) -&gt; std::optional&lt; PCSAFTDipolarContribution &gt;</td><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html">teqp::PCSAFT::PCSAFTMixture</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html#a18ef0634d761d2891647238816090a3f">build_hardchain</a>(const std::vector&lt; SAFTCoeffs &gt; &amp;coeffs)</td><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html">teqp::PCSAFT::PCSAFTMixture</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html#a67756ac3ce4dbead8aa8b61a30d61322">build_quadrupolar</a>(const std::vector&lt; SAFTCoeffs &gt; &amp;coeffs) -&gt; std::optional&lt; PCSAFTQuadrupolarContribution &gt;</td><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html">teqp::PCSAFT::PCSAFTMixture</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html#a0659f96c497197b8279e0e8cd955f99c">check_kmat</a>(std::size_t N)</td><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html">teqp::PCSAFT::PCSAFTMixture</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html#aa7d39aed76b858c56f81774a1537878b">check_kmat</a>(Eigen::Index N)</td><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html">teqp::PCSAFT::PCSAFTMixture</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html#a614fda87c336ed06eb657ab912dc6c3d">dipolar</a></td><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html">teqp::PCSAFT::PCSAFTMixture</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html#a2d43a696991efb37fe933f3943308537">epsilon_over_k</a></td><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html">teqp::PCSAFT::PCSAFTMixture</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html#ac9f4f31b6751fc3f9126a0fdd33de5ed">extract_names</a>(const std::vector&lt; SAFTCoeffs &gt; &amp;coeffs)</td><td class="entry"><a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html">teqp::PCSAFT::PCSAFTMixture</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>

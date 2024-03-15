@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -118,7 +120,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ab0bb5d89663c1467c97d00c0e0e8f845"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>\( \alpha^{\rm ig}= a\times ln(T) \)</p>
+<div class="textblock"><p>\( \alpha^{\rm ig}= a\cdot \ln(T) \)</p>
 <p>which should be compared with the original form in GERG (and REFPROP and CoolProp)</p>
 <p>\( \alpha^{\rm ig}= a^*\ln(\tau) \)</p>
 <p>with \(\tau=T_r/T \) </p>

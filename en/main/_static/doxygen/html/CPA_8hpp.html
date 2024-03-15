@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -100,9 +102,14 @@ $(function() {
   <div class="headertitle"><div class="title">CPA.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;nlohmann/json.hpp&quot;</code><br />
+<div class="textblock"><code>#include &lt;optional&gt;</code><br />
+<code>#include &lt;variant&gt;</code><br />
+<code>#include &quot;nlohmann/json.hpp&quot;</code><br />
 <code>#include &lt;Eigen/Dense&gt;</code><br />
 <code>#include &quot;<a class="el" href="types_8hpp_source.html">teqp/types.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="exceptions_8hpp_source.html">teqp/exceptions.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="association_8hpp_source.html">teqp/models/association/association.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="association__types_8hpp_source.html">teqp/models/association/association_types.hpp</a>&quot;</code><br />
 </div>
 <p><a href="CPA_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -110,9 +117,11 @@ $(function() {
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1CPA_1_1CPACubic.html">teqp::CPA::CPACubic</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html">teqp::CPA::CPAAssociation&lt; Cubic &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1CPA_1_1CPAAssociation.html">teqp::CPA::CPAAssociation</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteqp_1_1CPA_1_1CPAEOS.html">teqp::CPA::CPAEOS&lt; Cubic, Assoc &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structteqp_1_1CPA_1_1AssociationVariantWrapper.html">teqp::CPA::AssociationVariantWrapper</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -124,22 +133,6 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a90da9ae7578303110472dd2c86daba93" id="r_a90da9ae7578303110472dd2c86daba93"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1CPA.html#a90da9ae7578303110472dd2c86daba93">teqp::CPA::association_classes</a> { <br />
-&#160;&#160;<a class="el" href="namespaceteqp_1_1CPA.html#a90da9ae7578303110472dd2c86daba93a0de8ddf24fd4424e2a0d29a21de4880e">teqp::CPA::not_set</a>
-, <a class="el" href="namespaceteqp_1_1CPA.html#a90da9ae7578303110472dd2c86daba93a2157d29d0465deacbe112062f5947e1c">teqp::CPA::a1A</a>
-, <a class="el" href="namespaceteqp_1_1CPA.html#a90da9ae7578303110472dd2c86daba93a876cb7111e19c397cca9d026c87254eb">teqp::CPA::a2B</a>
-, <a class="el" href="namespaceteqp_1_1CPA.html#a90da9ae7578303110472dd2c86daba93a74e1c3529c0ef0acd44fd62fd5cb7f13">teqp::CPA::a3B</a>
-, <br />
-&#160;&#160;<a class="el" href="namespaceteqp_1_1CPA.html#a90da9ae7578303110472dd2c86daba93a9a250c2c87241fd5402dc131ee2f5e59">teqp::CPA::a4C</a>
-, <a class="el" href="namespaceteqp_1_1CPA.html#a90da9ae7578303110472dd2c86daba93a7c06311c696cd974a378c8077ae4575b">teqp::CPA::not_associating</a>
-<br />
- }</td></tr>
-<tr class="separator:a90da9ae7578303110472dd2c86daba93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e2049d65c0db615e69429c1de7bc36b" id="r_a1e2049d65c0db615e69429c1de7bc36b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1CPA.html#a1e2049d65c0db615e69429c1de7bc36b">teqp::CPA::radial_dist</a> { <a class="el" href="namespaceteqp_1_1CPA.html#a1e2049d65c0db615e69429c1de7bc36ba8d7e99c73cd5a10adaaf4c9f9a520368">teqp::CPA::CS</a>
-, <a class="el" href="namespaceteqp_1_1CPA.html#a1e2049d65c0db615e69429c1de7bc36ba56d721ccadb8bbfd8b47390d82a6ea4b">teqp::CPA::KG</a>
-, <a class="el" href="namespaceteqp_1_1CPA.html#a1e2049d65c0db615e69429c1de7bc36ba583dce1e7a2507b30a9eb71314c47d1c">teqp::CPA::OT</a>
- }</td></tr>
-<tr class="separator:a1e2049d65c0db615e69429c1de7bc36b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a117b6f3032c46b46f6a1e9d2b5980e2a" id="r_a117b6f3032c46b46f6a1e9d2b5980e2a"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1CPA.html#a117b6f3032c46b46f6a1e9d2b5980e2a">teqp::CPA::cubic_flag</a> { <a class="el" href="namespaceteqp_1_1CPA.html#a117b6f3032c46b46f6a1e9d2b5980e2aa0de8ddf24fd4424e2a0d29a21de4880e">teqp::CPA::not_set</a>
 , <a class="el" href="namespaceteqp_1_1CPA.html#a117b6f3032c46b46f6a1e9d2b5980e2aa0fe75a5189c2ea3f123621d098ddd03e">teqp::CPA::PR</a>
 , <a class="el" href="namespaceteqp_1_1CPA.html#a117b6f3032c46b46f6a1e9d2b5980e2aa31cb32d8fba23675ce53bc31bae80705">teqp::CPA::SRK</a>
@@ -154,16 +147,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a51dafbeda4f006118e5777a21502ca0f" id="r_a51dafbeda4f006118e5777a21502ca0f"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a> &gt; </td></tr>
 <tr class="memitem:a51dafbeda4f006118e5777a21502ca0f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1CPA.html#a51dafbeda4f006118e5777a21502ca0f">teqp::CPA::POW3</a> (<a class="el" href="critical__tracing_8hpp.html#a3e0ee787dc4704f51dcecb65616b234f">X</a> x)</td></tr>
 <tr class="separator:a51dafbeda4f006118e5777a21502ca0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a980253b3943f534e22fafd1a85fa4b1e" id="r_a980253b3943f534e22fafd1a85fa4b1e"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1CPA.html#a980253b3943f534e22fafd1a85fa4b1e">teqp::CPA::get_association_classes</a> (const std::string &amp;s)</td></tr>
-<tr class="separator:a980253b3943f534e22fafd1a85fa4b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a3239ac93fe4004dadf539336dfc580" id="r_a7a3239ac93fe4004dadf539336dfc580"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1CPA.html#a7a3239ac93fe4004dadf539336dfc580">teqp::CPA::get_radial_dist</a> (const std::string &amp;s)</td></tr>
-<tr class="separator:a7a3239ac93fe4004dadf539336dfc580"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3339d3657cc079aec3a1c557e55ef4e6" id="r_a3339d3657cc079aec3a1c557e55ef4e6"><td class="memTemplParams" colspan="2">template&lt;typename BType , typename TType , typename RhoType , typename VecType &gt; </td></tr>
-<tr class="memitem:a3339d3657cc079aec3a1c557e55ef4e6"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1CPA.html#a3339d3657cc079aec3a1c557e55ef4e6">teqp::CPA::get_DeltaAB_pure</a> (<a class="el" href="namespaceteqp_1_1CPA.html#a1e2049d65c0db615e69429c1de7bc36b">radial_dist</a> dist, double epsABi, double betaABi, BType b_cubic, TType RT, RhoType rhomolar, const VecType &amp;molefrac)</td></tr>
-<tr class="memdesc:a3339d3657cc079aec3a1c557e55ef4e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that calculates the association binding strength between site A of molecule i and site B on molecule j.  <br /></td></tr>
-<tr class="separator:a3339d3657cc079aec3a1c557e55ef4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a206e2cd632f07bbd93f5e28fddf7682d" id="r_a206e2cd632f07bbd93f5e28fddf7682d"><td class="memTemplParams" colspan="2">template&lt;typename BType , typename TType , typename RhoType , typename VecType &gt; </td></tr>
+<tr class="memitem:a206e2cd632f07bbd93f5e28fddf7682d"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1CPA.html#a206e2cd632f07bbd93f5e28fddf7682d">teqp::CPA::get_DeltaAB_pure</a> (radial_dist dist, double epsABi, double betaABi, BType b_cubic, TType RT, RhoType rhomolar, const VecType &amp;)</td></tr>
+<tr class="memdesc:a206e2cd632f07bbd93f5e28fddf7682d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that calculates the association binding strength between site A of molecule i and site B on molecule j.  <br /></td></tr>
+<tr class="separator:a206e2cd632f07bbd93f5e28fddf7682d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21ac3b382beca72e6a09006d34d4318e" id="r_a21ac3b382beca72e6a09006d34d4318e"><td class="memTemplParams" colspan="2">template&lt;typename BType , typename TType , typename RhoType , typename VecType &gt; </td></tr>
-<tr class="memitem:a21ac3b382beca72e6a09006d34d4318e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1CPA.html#a21ac3b382beca72e6a09006d34d4318e">teqp::CPA::XA_calc_pure</a> (int N_sites, <a class="el" href="namespaceteqp_1_1CPA.html#a90da9ae7578303110472dd2c86daba93">association_classes</a> scheme, <a class="el" href="namespaceteqp_1_1CPA.html#a1e2049d65c0db615e69429c1de7bc36b">radial_dist</a> dist, double epsABi, double betaABi, const BType b_cubic, const TType RT, const RhoType rhomolar, const VecType &amp;molefrac)</td></tr>
+<tr class="memitem:a21ac3b382beca72e6a09006d34d4318e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1CPA.html#a21ac3b382beca72e6a09006d34d4318e">teqp::CPA::XA_calc_pure</a> (int N_sites, association_classes scheme, radial_dist dist, double epsABi, double betaABi, const BType b_cubic, const TType RT, const RhoType rhomolar, const VecType &amp;molefrac)</td></tr>
 <tr class="separator:a21ac3b382beca72e6a09006d34d4318e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef8996d5cc168e4e919b4caf3e63eb97" id="r_aef8996d5cc168e4e919b4caf3e63eb97"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1CPA.html#aef8996d5cc168e4e919b4caf3e63eb97">teqp::CPA::get_cubic_flag</a> (const std::string &amp;s)</td></tr>
 <tr class="separator:aef8996d5cc168e4e919b4caf3e63eb97"><td class="memSeparator" colspan="2">&#160;</td></tr>

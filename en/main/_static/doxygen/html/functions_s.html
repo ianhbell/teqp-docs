@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -96,20 +98,23 @@ $(function() {
 <li>SAFTVRMieMixture()&#160;:&#160;<a class="el" href="classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture.html#ab91cd69e4ba51fc32456eaa8f6c851c5">teqp::SAFTVRMie::SAFTVRMieMixture</a></li>
 <li>Scalar&#160;:&#160;<a class="el" href="structteqp_1_1Functor.html#a2b51b5750a4f4608cbf24ec46737bada">teqp::Functor&lt; _Scalar, NX, NY &gt;</a></li>
 <li>schema&#160;:&#160;<a class="el" href="classteqp_1_1JSONValidator.html#a69d79bd81bf5df9cbb1ff0ab9e81cc5a">teqp::JSONValidator</a></li>
-<li>set_meta()&#160;:&#160;<a class="el" href="classteqp_1_1AdvancedPRaEres.html#a5d1e55091f7f53c0c62d5f4fd235a793">teqp::AdvancedPRaEres&lt; NumType, AlphaFunctions &gt;</a>, <a class="el" href="classteqp_1_1GenericCubic.html#a5646f2ee45660f09e70e6018d96b895b">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a>, <a class="el" href="classteqp_1_1MultiFluid.html#a78d7e3c6c69575dd65f9fea3ec516a0c">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a>, <a class="el" href="classteqp_1_1MultiFluidAdapter.html#af352dd5c0f70e8c4070aecc9b8b98820">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a></li>
+<li>set_meta()&#160;:&#160;<a class="el" href="classteqp_1_1AdvancedPRaEres.html#a5d1e55091f7f53c0c62d5f4fd235a793">teqp::AdvancedPRaEres&lt; NumType, AlphaFunctions &gt;</a>, <a class="el" href="classteqp_1_1GenericCubic.html#a5646f2ee45660f09e70e6018d96b895b">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a>, <a class="el" href="classteqp_1_1MultiFluid.html#a78d7e3c6c69575dd65f9fea3ec516a0c">teqp::MultiFluid&lt; CorrespondingTerm, DepartureTerm &gt;</a>, <a class="el" href="classteqp_1_1MultiFluidAdapter.html#af352dd5c0f70e8c4070aecc9b8b98820">teqp::MultiFluidAdapter&lt; DepartureFunction, BaseClass &gt;</a>, <a class="el" href="classteqp_1_1MultiFluidAdapter__Ecs.html#a5c813c8a8a4ba5269795ee58a99df9ce">teqp::MultiFluidAdapter_Ecs&lt; BaseClass &gt;</a></li>
 <li>sigma_A&#160;:&#160;<a class="el" href="structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms.html#a6c21115516923ed0598e67b656883b6a">teqp::SAFTVRMie::SAFTVRMieChainContributionTerms</a></li>
 <li>sigma_Angstrom&#160;:&#160;<a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTHardChainContribution.html#a48d9cd97a3954484a0d96a987a1ea8bf">teqp::PCSAFT::PCSAFTHardChainContribution</a>, <a class="el" href="classteqp_1_1PCSAFT_1_1PCSAFTMixture.html#a382c20ab1865aa53312cb7077e932ac4">teqp::PCSAFT::PCSAFTMixture</a>, <a class="el" href="structteqp_1_1PCSAFT_1_1SAFTCoeffs.html#afdf6610053cba2f0d015578934f477ac">teqp::PCSAFT::SAFTCoeffs</a></li>
 <li>sigma_ij&#160;:&#160;<a class="el" href="structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms.html#a1bdee0641e1ac071933c703a4d3e7cc8">teqp::SAFTVRMie::SAFTVRMieChainContributionTerms</a></li>
 <li>sigma_m&#160;:&#160;<a class="el" href="structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs.html#aa01e4b90c07dde3874de0187a1a47141">teqp::SAFTVRMie::SAFTVRMieCoeffs</a></li>
 <li>sign_term&#160;:&#160;<a class="el" href="classteqp_1_1SAFTpolar_1_1GubbinsTwuKIntegral.html#a881ddcc9d2ef596ef3c705e374fc64ae">teqp::SAFTpolar::GubbinsTwuKIntegral</a></li>
-<li>size()&#160;:&#160;<a class="el" href="classteqp_1_1CorrespondingStatesContribution.html#a11f8099e2835618ecde6da39a6312eb7">teqp::CorrespondingStatesContribution&lt; EOSCollection &gt;</a>, <a class="el" href="classteqp_1_1EOSTermContainer.html#a0d03a81a2a69f869937f6494ad13739c">teqp::EOSTermContainer&lt; Args &gt;</a>, <a class="el" href="classteqp_1_1GERGGeneral_1_1GERG200XCorrespondingStatesTerm.html#a8e57a9ad4f6d25d128f593b195a08e1b">teqp::GERGGeneral::GERG200XCorrespondingStatesTerm</a>, <a class="el" href="classteqp_1_1ModelContainer.html#ae6994d8afc2b3c8dbd90f727bf7c5d88">teqp::ModelContainer&lt; Args &gt;</a></li>
-<li>sizes()&#160;:&#160;<a class="el" href="structteqp_1_1GERGGeneral_1_1DepartureCoeffs.html#ab2250acafdaaf69b8a7e9ba9d5d25eaa">teqp::GERGGeneral::DepartureCoeffs</a>, <a class="el" href="structteqp_1_1GERGGeneral_1_1PureCoeffs.html#a64bad69980be741cd0e05af2ef240d05">teqp::GERGGeneral::PureCoeffs</a></li>
+<li>simple&#160;:&#160;<a class="el" href="classteqp_1_1LKP_1_1LKPMix.html#a46d4ea8a89d84a3e0e88b9dbe54e1c06">teqp::LKP::LKPMix</a></li>
+<li>site_order&#160;:&#160;<a class="el" href="structteqp_1_1association_1_1AssociationOptions.html#a69f5f26d7d27c03a213ca7452f54aec8">teqp::association::AssociationOptions</a></li>
+<li>size()&#160;:&#160;<a class="el" href="classteqp_1_1CorrespondingStatesContribution.html#a11f8099e2835618ecde6da39a6312eb7">teqp::CorrespondingStatesContribution&lt; EOSCollection &gt;</a>, <a class="el" href="classteqp_1_1CPA_1_1CPACubic.html#a355a4d9eb6339674cde7dee2a2c5ffe9">teqp::CPA::CPACubic</a>, <a class="el" href="classteqp_1_1EOSTermContainer.html#a0d03a81a2a69f869937f6494ad13739c">teqp::EOSTermContainer&lt; Args &gt;</a>, <a class="el" href="classteqp_1_1GERGGeneral_1_1GERG200XAlphaig.html#a0f87e75fb64bb4c6a6051fb261b35f47">teqp::GERGGeneral::GERG200XAlphaig</a>, <a class="el" href="classteqp_1_1GERGGeneral_1_1GERG200XCorrespondingStatesTerm.html#a0b2eb8149a35b8e65c4e08c517c44ee1">teqp::GERGGeneral::GERG200XCorrespondingStatesTerm</a>, <a class="el" href="classteqp_1_1ModelContainer.html#ae6994d8afc2b3c8dbd90f727bf7c5d88">teqp::ModelContainer&lt; Args &gt;</a></li>
+<li>sizes()&#160;:&#160;<a class="el" href="structteqp_1_1GERGGeneral_1_1AlphaigCoeffs.html#acedbe8c41cb13b722e5e087e65d0572c">teqp::GERGGeneral::AlphaigCoeffs</a>, <a class="el" href="structteqp_1_1GERGGeneral_1_1DepartureCoeffs.html#ab2250acafdaaf69b8a7e9ba9d5d25eaa">teqp::GERGGeneral::DepartureCoeffs</a>, <a class="el" href="structteqp_1_1GERGGeneral_1_1PureCoeffs.html#a64bad69980be741cd0e05af2ef240d05">teqp::GERGGeneral::PureCoeffs</a></li>
 <li>skip_dircheck_count&#160;:&#160;<a class="el" href="structteqp_1_1TCABOptions.html#ac7e1863eb4df94765af7dd5c9550854a">teqp::TCABOptions</a></li>
 <li>small_T_count&#160;:&#160;<a class="el" href="structteqp_1_1TCABOptions.html#afb8acb03771e9d845d8fd9607fe85d63">teqp::TCABOptions</a></li>
 <li>solve_pure_critical()&#160;:&#160;<a class="el" href="classteqp_1_1cppinterface_1_1AbstractModel.html#aad84ac400f0003843c8a780e51a8361c">teqp::cppinterface::AbstractModel</a></li>
 <li>sorted_eigen()&#160;:&#160;<a class="el" href="structteqp_1_1CriticalTracing.html#a1db77b056e8224fd776b88fcafd7fb60">teqp::CriticalTracing&lt; Model, Scalar, VecType &gt;</a></li>
 <li>stability_rel_drho&#160;:&#160;<a class="el" href="structteqp_1_1TCABOptions.html#a8b4a4b5d8176756facf29ce8c4352c01">teqp::TCABOptions</a></li>
 <li>success&#160;:&#160;<a class="el" href="structteqp_1_1MixVLEReturn.html#a7f767c5d5a5bb063662d65898c4de8ad">teqp::MixVLEReturn</a></li>
+<li>successive_substitution()&#160;:&#160;<a class="el" href="classteqp_1_1association_1_1Association.html#ac06e5ee4acd915be9fff21d5ea5ebf2a">teqp::association::Association</a></li>
 <li>superanc_code&#160;:&#160;<a class="el" href="classteqp_1_1AdvancedPRaEres.html#aa98d61bb927c9cf8719fea31d26ccc27">teqp::AdvancedPRaEres&lt; NumType, AlphaFunctions &gt;</a></li>
 <li>superanc_index&#160;:&#160;<a class="el" href="classteqp_1_1GenericCubic.html#a3a73a33990aa84297276b818538bee68">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a></li>
 <li>superanc_rhoLV()&#160;:&#160;<a class="el" href="classteqp_1_1AdvancedPRaEres.html#adf68748af800b1b7fe3e62e218fc4445">teqp::AdvancedPRaEres&lt; NumType, AlphaFunctions &gt;</a>, <a class="el" href="classteqp_1_1GenericCubic.html#aa0b56dfaaa60a54755f2a139ce122400">teqp::GenericCubic&lt; NumType, AlphaFunctions &gt;</a>, <a class="el" href="classteqp_1_1QuantumCorrectedPR.html#a59a99d09cf019d611512b3bf7125fa51">teqp::QuantumCorrectedPR</a></li>

@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['isochoric_5farray_5fargs_0',['ISOCHORIC_array_args',['../teqpcpp_8hpp.html#a8595f4aa8531de7895ec5ee635875372',1,'teqpcpp.hpp']]],
-  ['isochoric_5fdouble_5fargs_1',['ISOCHORIC_double_args',['../teqpcpp_8hpp.html#a231be4496358f8a6d0d9d41618c24103',1,'teqpcpp.hpp']]],
-  ['isochoric_5fmatrix_5fargs_2',['ISOCHORIC_matrix_args',['../teqpcpp_8hpp.html#a180d987324dea13296e5c966cb5f17a9',1,'teqpcpp.hpp']]],
-  ['isochoric_5fmultimatrix_5fargs_3',['ISOCHORIC_multimatrix_args',['../teqpcpp_8hpp.html#a63f88652f783b174c28db6ed17a8716a',1,'teqpcpp.hpp']]]
+  ['get_5fatrhoxi_5fruntime_5fcombinations_0',['get_ATrhoXi_runtime_combinations',['../derivs_8hpp.html#a027d6bedbc0f12412c498d83f25509b5',1,'derivs.hpp']]],
+  ['get_5fatrhoxixj_5fruntime_5fcombinations_1',['get_ATrhoXiXj_runtime_combinations',['../derivs_8hpp.html#abaabcc5e6937c2dc2617bf2c06a545b2',1,'derivs.hpp']]],
+  ['get_5fatrhoxixjxk_5fruntime_5fcombinations_2',['get_ATrhoXiXjXk_runtime_combinations',['../derivs_8hpp.html#a0111d92f006734dd97c26703488e0df8',1,'derivs.hpp']]]
 ];

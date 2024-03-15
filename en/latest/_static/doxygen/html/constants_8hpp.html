@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -111,20 +113,24 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2b7e9f6c1e890797284b6bd57d251379" id="r_a2b7e9f6c1e890797284b6bd57d251379"><td class="memTemplParams" colspan="2">template&lt;typename NumType &gt; </td></tr>
-<tr class="memitem:a2b7e9f6c1e890797284b6bd57d251379"><td class="memTemplItemLeft" align="right" valign="top">const auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#a2b7e9f6c1e890797284b6bd57d251379">teqp::get_R_gas</a> ()</td></tr>
-<tr class="memdesc:a2b7e9f6c1e890797284b6bd57d251379"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Gas constant, according to CODATA 2019, in the given number type  <br /></td></tr>
-<tr class="separator:a2b7e9f6c1e890797284b6bd57d251379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed0cabbf6a82a357adc773aa850566ea" id="r_aed0cabbf6a82a357adc773aa850566ea"><td class="memTemplParams" colspan="2">template&lt;typename NumType &gt; </td></tr>
+<tr class="memitem:aed0cabbf6a82a357adc773aa850566ea"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceteqp.html#aed0cabbf6a82a357adc773aa850566ea">teqp::get_R_gas</a> ()</td></tr>
+<tr class="memdesc:aed0cabbf6a82a357adc773aa850566ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Gas constant, according to CODATA 2019, in the given number type  <br /></td></tr>
+<tr class="separator:aed0cabbf6a82a357adc773aa850566ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:abc1c549711a399faeb28b21e06e15341" id="r_abc1c549711a399faeb28b21e06e15341"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1constants.html#abc1c549711a399faeb28b21e06e15341">teqp::constants::R_CODATA2002</a> = 8.314472</td></tr>
+<tr class="memdesc:abc1c549711a399faeb28b21e06e15341"><td class="mdescLeft">&#160;</td><td class="mdescRight">molar gas constant from CODATA 2002: <a href="https://doi.org/10.1103/RevModPhys.77.1">https://doi.org/10.1103/RevModPhys.77.1</a>  <br /></td></tr>
 <tr class="separator:abc1c549711a399faeb28b21e06e15341"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34b3f1fba657c07dbe48f403952c12c4" id="r_a34b3f1fba657c07dbe48f403952c12c4"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1constants.html#a34b3f1fba657c07dbe48f403952c12c4">teqp::constants::R_CODATA2006</a> = 8.314472</td></tr>
+<tr class="memdesc:a34b3f1fba657c07dbe48f403952c12c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">molar gas constant from CODATA 2006: <a href="https://doi.org/10.1103/RevModPhys.80.633">https://doi.org/10.1103/RevModPhys.80.633</a>  <br /></td></tr>
 <tr class="separator:a34b3f1fba657c07dbe48f403952c12c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa092e1fa6b58bb2fa58402b7a8730b08" id="r_aa092e1fa6b58bb2fa58402b7a8730b08"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1constants.html#aa092e1fa6b58bb2fa58402b7a8730b08">teqp::constants::R_CODATA2010</a> = 8.3144621</td></tr>
+<tr class="memdesc:aa092e1fa6b58bb2fa58402b7a8730b08"><td class="mdescLeft">&#160;</td><td class="mdescRight">molar gas constant from CODATA 2010: <a href="https://doi.org/10.1103/RevModPhys.84.1527">https://doi.org/10.1103/RevModPhys.84.1527</a>  <br /></td></tr>
 <tr class="separator:aa092e1fa6b58bb2fa58402b7a8730b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f8107bd47ea8d65e191b20bf8ceef42" id="r_a4f8107bd47ea8d65e191b20bf8ceef42"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1constants.html#a4f8107bd47ea8d65e191b20bf8ceef42">teqp::constants::R_CODATA2017</a> = 8.31446261815324</td></tr>
+<tr class="memdesc:a4f8107bd47ea8d65e191b20bf8ceef42"><td class="mdescLeft">&#160;</td><td class="mdescRight">molar gas constant from CODATA 2017: <a href="https://doi.org/10.1103/RevModPhys.84.1527">https://doi.org/10.1103/RevModPhys.84.1527</a>  <br /></td></tr>
 <tr class="separator:a4f8107bd47ea8d65e191b20bf8ceef42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e3e5158be88eb1085a672719da757f1" id="r_a7e3e5158be88eb1085a672719da757f1"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1constants.html#a7e3e5158be88eb1085a672719da757f1">teqp::constants::N_A</a> = 6.02214076e23</td></tr>
 <tr class="memdesc:a7e3e5158be88eb1085a672719da757f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avogadro's number.  <br /></td></tr>
@@ -133,10 +139,12 @@ Variables</h2></td></tr>
 <tr class="memdesc:af499703efbccb03de34807166cd5ca8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boltzmann constant.  <br /></td></tr>
 <tr class="separator:af499703efbccb03de34807166cd5ca8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c2dbf62f0863fdf9bc9a26810360925" id="r_a3c2dbf62f0863fdf9bc9a26810360925"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1constants.html#a3c2dbf62f0863fdf9bc9a26810360925">teqp::constants::epsilon_0</a> = 8.8541878128e-12</td></tr>
+<tr class="memdesc:a3c2dbf62f0863fdf9bc9a26810360925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vacuum permittivity (<a href="https://en.wikipedia.org/wiki/Vacuum_permittivity">https://en.wikipedia.org/wiki/Vacuum_permittivity</a>), in F/m, or C^2⋅N^−1⋅m^−2.  <br /></td></tr>
 <tr class="separator:a3c2dbf62f0863fdf9bc9a26810360925"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01b4326c3f7cca584a62d8df35cea7f0" id="r_a01b4326c3f7cca584a62d8df35cea7f0"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1constants.html#a01b4326c3f7cca584a62d8df35cea7f0">teqp::constants::PI</a> = 3.141592653589793238462643383279502884197</td></tr>
 <tr class="separator:a01b4326c3f7cca584a62d8df35cea7f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5ab7c283962f62cb4351865b59f34ba" id="r_aa5ab7c283962f62cb4351865b59f34ba"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1constants.html#aa5ab7c283962f62cb4351865b59f34ba">teqp::constants::k_e</a> = 1.0/(4.0*<a class="el" href="namespaceteqp_1_1constants.html#a01b4326c3f7cca584a62d8df35cea7f0">PI</a>*<a class="el" href="namespaceteqp_1_1constants.html#a3c2dbf62f0863fdf9bc9a26810360925">epsilon_0</a>)</td></tr>
+<tr class="memdesc:aa5ab7c283962f62cb4351865b59f34ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coulomb constant, with units of N m^2 / C^2.  <br /></td></tr>
 <tr class="separator:aa5ab7c283962f62cb4351865b59f34ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

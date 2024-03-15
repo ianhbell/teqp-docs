@@ -10,6 +10,7 @@
 {\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
 {\ttfamily \#include "{}teqp/math/pow\+\_\+templates.\+hpp"{}}\newline
 {\ttfamily \#include "{}teqp/types.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/exceptions.\+hpp"{}}\newline
 {\ttfamily \#include "{}Eigen/\+Dense"{}}\newline
 {\ttfamily \#include $<$boost/functional/hash.\+hpp$>$}\newline
 \doxysubsubsection*{Classes}
@@ -22,6 +23,8 @@ struct \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureCoeffs}{teqp\+::\+GERGG
 struct \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1BetasGammas}{teqp\+::\+GERGGeneral\+::\+Betas\+Gammas}}
 \item 
 struct \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1DepartureCoeffs}{teqp\+::\+GERGGeneral\+::\+Departure\+Coeffs}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs}{teqp\+::\+GERGGeneral\+::\+Alphaig\+Coeffs}}
 \item 
 class \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XPureFluidEOS}{teqp\+::\+GERGGeneral\+::\+GERG200\+XPure\+Fluid\+EOS}}
 \item 
@@ -37,9 +40,15 @@ class \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XDepartureFunction}{te
 \item 
 class \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XDepartureTerm}{teqp\+::\+GERGGeneral\+::\+GERG200\+XDeparture\+Term}}
 \item 
+class \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig}{teqp\+::\+GERGGeneral\+::\+GERG200\+XAlphaig}}
+\item 
 class \mbox{\hyperlink{classteqp_1_1GERG2004_1_1GERG2004ResidualModel}{teqp\+::\+GERG2004\+::\+GERG2004\+Residual\+Model}}
 \item 
+class \mbox{\hyperlink{classteqp_1_1GERG2004_1_1GERG2004IdealGasModel}{teqp\+::\+GERG2004\+::\+GERG2004\+Ideal\+Gas\+Model}}
+\item 
 class \mbox{\hyperlink{classteqp_1_1GERG2008_1_1GERG2008ResidualModel}{teqp\+::\+GERG2008\+::\+GERG2008\+Residual\+Model}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1GERG2008_1_1GERG2008IdealGasModel}{teqp\+::\+GERG2008\+::\+GERG2008\+Ideal\+Gas\+Model}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
@@ -57,6 +66,8 @@ namespace \mbox{\hyperlink{namespaceteqp_1_1GERG2008}{teqp\+::\+GERG2008}}
 \item 
 \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureInfo}{Pure\+Info}} \mbox{\hyperlink{namespaceteqp_1_1GERG2004_ac3565b8487f12789083803eed21569fb}{teqp\+::\+GERG2004\+::get\+\_\+pure\+\_\+info}} (const std\+::string \&name)
 \begin{DoxyCompactList}\small\item\em Get the pure fluid information for a fluid from GERG-\/2004 monograph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs}{Alphaig\+Coeffs}} \mbox{\hyperlink{namespaceteqp_1_1GERG2004_a2d8d7793a6e1f6ac50177538b7ee9f80}{teqp\+::\+GERG2004\+::get\+\_\+alphaig\+\_\+coeffs}} (const std\+::string \&fluid)
+\item 
 \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureCoeffs}{Pure\+Coeffs}} \mbox{\hyperlink{namespaceteqp_1_1GERG2004_acc8492f3c0446b81c70beb4d5bb4e145}{teqp\+::\+GERG2004\+::get\+\_\+pure\+\_\+coeffs}} (const std\+::string \&fluid)
 \item 
 \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1BetasGammas}{Betas\+Gammas}} \mbox{\hyperlink{namespaceteqp_1_1GERG2004_ac2bfc93d176a5a722734c4852c988e56}{teqp\+::\+GERG2004\+::get\+\_\+betasgammas}} (const std\+::string \&fluid1, const std\+::string \&fluid2)
@@ -70,6 +81,8 @@ auto \mbox{\hyperlink{namespaceteqp_1_1GERG2008_ac62555cefb5c43ce81ce9c6e3945cb5
 \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1BetasGammas}{Betas\+Gammas}} \mbox{\hyperlink{namespaceteqp_1_1GERG2008_af2b979d6c0983d486ff71e7c964282e1}{teqp\+::\+GERG2008\+::get\+\_\+betasgammas}} (const std\+::string \&fluid1, const std\+::string \&fluid2)
 \item 
 \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureCoeffs}{Pure\+Coeffs}} \mbox{\hyperlink{namespaceteqp_1_1GERG2008_aae7dd22f4e90fa43f0c8c55e52ef09d7}{teqp\+::\+GERG2008\+::get\+\_\+pure\+\_\+coeffs}} (const std\+::string \&fluid)
+\item 
+\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs}{Alphaig\+Coeffs}} \mbox{\hyperlink{namespaceteqp_1_1GERG2008_a76c109dd20b2dadff5427edf749f2898}{teqp\+::\+GERG2008\+::get\+\_\+alphaig\+\_\+coeffs}} (const std\+::string \&fluid)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}

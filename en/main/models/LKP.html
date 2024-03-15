@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>LKP (Lee-Kesler-Plöcker) &#8212; teqp 0.19.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Model Potentials" href="model_potentials.html" />
+    <link rel="prev" title="Cubic Plus Association (CPA)" href="CPA.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="LKP-(Lee-Kesler-Plöcker)">
+<h1>LKP (Lee-Kesler-Plöcker)<a class="headerlink" href="#LKP-(Lee-Kesler-Plöcker)" title="Link to this heading">¶</a></h1>
+<p>The LKP model is a sort of hybrid between corresponding states and multiparameter EOS, simple EOS are developed for a reference fluid, and a simple fluid, and the acentric factor of the mixture is used to weight the two.</p>
+<p>The reduced residual Helmholtz energy for the mixture is evaluated from</p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm r} = \left(1-\frac{\omega_{\rm mix}}{\omega_{\rm ref}}\right)\alpha^{\rm r}_{\rm simple} + \frac{\omega_{\rm mix}}{\omega_{\rm ref}}\alpha^{\rm r}_{\rm ref}\]</div>
+<p>where the contributions are each of the form</p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm r}_{X}(\tau, \delta) = B\left(\frac{\delta}{Z_c}\right) + \frac{C}{2}\left(\frac{\delta}{Z_c}\right)^2 + \frac{D}{5}\left(\frac{\delta}{Z_c}\right)^5 - \frac{c_4\tau^3}{2\gamma}\left(\gamma\left(\frac{\delta}{Z_c}\right)^2+\beta+1\right)\exp\left(-\gamma\left(\frac{\delta}{Z_c}\right)^2\right) + \frac{c_4\tau^3}{2\gamma}(\beta+1)\]</div>
+<p>where <span class="math notranslate nohighlight">\(X\)</span> is one of simple or reference (abbreviation: ref) with the matching sets of coefficients taken from this table:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>var</p></th>
+<th class="head"><p>simple</p></th>
+<th class="head"><p>reference</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(b_1\)</span></p></td>
+<td><p>0.1181193</p></td>
+<td><p>0.2026579</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(b_2\)</span></p></td>
+<td><p>0.265728</p></td>
+<td><p>0.331511</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(b_3\)</span></p></td>
+<td><p>0.154790</p></td>
+<td><p>0.276550e-1</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(b_4\)</span></p></td>
+<td><p>0.303230e-1</p></td>
+<td><p>0.203488</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(c_1\)</span></p></td>
+<td><p>0.236744e-1</p></td>
+<td><p>0.313385e-1</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(c_2\)</span></p></td>
+<td><p>0.186984e-1</p></td>
+<td><p>0.503618e-1</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(c_3\)</span></p></td>
+<td><p>0</p></td>
+<td><p>0.169010e-1</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(c_4\)</span></p></td>
+<td><p>0.427240e-1</p></td>
+<td><p>0.41577e-1</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(d_1\)</span></p></td>
+<td><p>0.155428e-4</p></td>
+<td><p>0.487360e-4</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(d_2\)</span></p></td>
+<td><p>0.623689e-4</p></td>
+<td><p>0.740336e-5</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\beta\)</span></p></td>
+<td><p>0.653920</p></td>
+<td><p>1.226</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\gamma\)</span></p></td>
+<td><p>0.601670e-1</p></td>
+<td><p>0.03754</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\omega\)</span></p></td>
+<td><p>0.0</p></td>
+<td><p>0.3978</p></td>
+</tr>
+</tbody>
+</table>
+<p>The terms in the contributions are given by:</p>
+<div class="math notranslate nohighlight">
+\[B = b_1 - b_2\tau - b_3\tau^2 - b_4\tau^3\]</div>
+<div class="math notranslate nohighlight">
+\[C = c_1 - c_2\tau + c_3\tau^3\]</div>
+<div class="math notranslate nohighlight">
+\[D = d_1 + d_2\tau\]</div>
+<p>For density, the reduced density <span class="math notranslate nohighlight">\(\delta\)</span> is defined by</p>
+<div class="math notranslate nohighlight">
+\[\delta = \frac{\rho}{\rho_{\rm red}} = v_{\rm c,mix}\rho\]</div>
+<p>in which the reducing density is the reciprocal of the pseudo-critical volume obtained from</p>
+<div class="math notranslate nohighlight">
+\[v_{\rm c, mix} = \sum_{i=1}^{N-1}\sum_{j=i+1}^N x_ix_jv_{ij}\]</div>
+<div class="math notranslate nohighlight">
+\[v_{c,ij} = \frac{1}{8}(v_{c,i}^{1/3} + v_{c,j}^{1/3})^3\]</div>
+<p>and the critical volumes are estimated from</p>
+<div class="math notranslate nohighlight">
+\[v_{c,i} = (0.2905-0.085\omega_i)\frac{RT_{c,i}}{p_{c,i}}\]</div>
+<p>For temperature, the reciprocal reduced density is defined by</p>
+<div class="math notranslate nohighlight">
+\[\tau = \frac{T_{\rm c,mix}}{T}\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[T_{\rm c,mix} = \frac{1}{v_{c,mix}^{\eta}}\sum_{i=1}^{N-1}\sum_{j=i+1}^{N}x_ix_jv_{c,ij}^{\eta}T_{c,ij}\]</div>
+<p>with <span class="math notranslate nohighlight">\(\eta=0.25\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[T_{c,ij} = k_{ij}\sqrt{T_{c,i}T_{c,j}}\]</div>
+<p>Note: the default interaction parameter <span class="math notranslate nohighlight">\(k_{ij}\)</span> is therefore 1, rather than 0 in the case of SAFT and cubic models.</p>
+<p>Finally the parameter <span class="math notranslate nohighlight">\(Z_c\)</span> is defined by</p>
+<div class="math notranslate nohighlight">
+\[Z_c = 0.2905-0.085\omega_{\rm mix}\]</div>
+<p>with the mixture acentric factor defined by</p>
+<div class="math notranslate nohighlight">
+\[\omega_{\rm mix} = \sum_i x_i\omega_i\]</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">teqp</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">spec</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Tcrit / K&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">190.564</span><span class="p">,</span> <span class="mf">126.192</span><span class="p">],</span>
+    <span class="s2">&quot;pcrit / Pa&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">4.5992e6</span><span class="p">,</span> <span class="mf">3.3958e6</span><span class="p">],</span>
+    <span class="s2">&quot;acentric&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.011</span><span class="p">,</span> <span class="mf">0.037</span><span class="p">],</span>
+    <span class="s2">&quot;R / J/mol/K&quot;</span><span class="p">:</span> <span class="mf">8.3144598</span><span class="p">,</span>
+    <span class="s2">&quot;kmat&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.977</span><span class="p">],[</span><span class="mf">0.977</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]]</span>
+<span class="p">}</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span><span class="s1">&#39;kind&#39;</span><span class="p">:</span> <span class="s1">&#39;LKP&#39;</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="n">spec</span><span class="p">},</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A little sanity check, with the check value from TREND</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.18568096994998817</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar00</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mf">8000.1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]))</span> <span class="o">-</span> <span class="n">expected</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">diff</span> <span class="o">&lt;</span> <span class="mf">1e-13</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Models</a><ul>
+      <li>Previous: <a href="CPA.html" title="previous chapter">Cubic Plus Association (CPA)</a></li>
+      <li>Next: <a href="model_potentials.html" title="next chapter">Model Potentials</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/LKP.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/LKP.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

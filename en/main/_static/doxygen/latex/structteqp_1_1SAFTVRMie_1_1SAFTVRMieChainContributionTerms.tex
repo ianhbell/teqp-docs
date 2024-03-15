@@ -36,7 +36,7 @@ auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms
 \begin{DoxyCompactList}\small\item\em Eq. A6 from Lafitte, accounting for the case of rho\+\_\+s=0, for which the limit is zero. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Zeta\+Type , typename IJ $>$ }\\auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a66860f58dcefa0dae70c84cc53ecab62}{get\+\_\+\+Bhatij}} (const Zeta\+Type \&zeta\+\_\+x, const Zeta\+Type \&one\+\_\+minus\+\_\+zeta\+\_\+x3, const IJ \&I, const IJ \&J) const
 \item 
-{\footnotesize template$<$typename Zeta\+Type , typename IJ $>$ }\\auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a9a15ad0ad86577a67308c1faff59904d}{get\+\_\+rhod\+Bijdrho}} (const Zeta\+Type \&zeta\+\_\+x, const Zeta\+Type \&one\+\_\+minus\+\_\+zeta\+\_\+x3, const IJ \&I, const IJ \&J, const Zeta\+Type \&Bhatij) const
+{\footnotesize template$<$typename Zeta\+Type , typename IJ $>$ }\\auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_afa77fb90587b51b3ae00a846f3ae77db}{get\+\_\+rhod\+Bijdrho}} (const Zeta\+Type \&zeta\+\_\+x, const Zeta\+Type \&, const IJ \&I, const IJ \&J, const Zeta\+Type \&Bhatij) const
 \item 
 {\footnotesize template$<$typename Zeta\+Type $>$ }\\auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3d38a4cd33c2027d66970e601449bbb}{get\+\_\+a1\+Shatij}} (const Zeta\+Type \&zeta\+\_\+x\+\_\+eff, double lambda\+\_\+ij) const
 \item 
@@ -57,7 +57,7 @@ const Eigen\+::\+Array\+Xd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMie
 \item 
 const Eigen\+::\+Array\+XXd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1dfb96fc987212c7b8e4eff244f2c021}{kmat}}
 \item 
-const std\+::size\+\_\+t \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}{N}}
+const Eigen\+::\+Index \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ade43036d933ec33a7ee9563a205a6997}{N}}
 \item 
 const \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99d}{Epsilonij\+Flags}} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a2aff3e1bd76a481de88389b25a73b4d5}{epsilon\+\_\+ij\+\_\+flag}} = \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99da3e49737fec08c6d5766a83d7a12ad8c1}{Epsilonij\+Flags\+::k\+Lafitte}}
 \item 
@@ -272,12 +272,12 @@ since $\rho_s\frac{\partial \zeta_x}{\partial \rho_s}  = \zeta_x$
 
 Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00732}{732}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
 
-\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a9a15ad0ad86577a67308c1faff59904d}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a9a15ad0ad86577a67308c1faff59904d} 
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_afa77fb90587b51b3ae00a846f3ae77db}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_afa77fb90587b51b3ae00a846f3ae77db} 
 \index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!get\_rhodBijdrho@{get\_rhodBijdrho}}
 \index{get\_rhodBijdrho@{get\_rhodBijdrho}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
 \doxysubsubsection{\texorpdfstring{get\_rhodBijdrho()}{get\_rhodBijdrho()}}
 {\footnotesize\ttfamily template$<$typename Zeta\+Type , typename IJ $>$ \\
-auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+rhod\+Bijdrho (\begin{DoxyParamCaption}\item[{const Zeta\+Type \&}]{zeta\+\_\+x,  }\item[{const Zeta\+Type \&}]{one\+\_\+minus\+\_\+zeta\+\_\+x3,  }\item[{const IJ \&}]{I,  }\item[{const IJ \&}]{J,  }\item[{const Zeta\+Type \&}]{Bhatij }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+rhod\+Bijdrho (\begin{DoxyParamCaption}\item[{const Zeta\+Type \&}]{zeta\+\_\+x,  }\item[{const Zeta\+Type \&}]{,  }\item[{const IJ \&}]{I,  }\item[{const IJ \&}]{J,  }\item[{const Zeta\+Type \&}]{Bhatij }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \[
 B = \hat B_{ij}\kappa \rho_s
@@ -504,11 +504,11 @@ Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00259}{259}} of file 
 
 Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00252}{252}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
 
-\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae3a4c2887d9db351926a30f39d8a8c3e} 
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ade43036d933ec33a7ee9563a205a6997}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ade43036d933ec33a7ee9563a205a6997} 
 \index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!N@{N}}
 \index{N@{N}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
 \doxysubsubsection{\texorpdfstring{N}{N}}
-{\footnotesize\ttfamily const std\+::size\+\_\+t teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::N}
+{\footnotesize\ttfamily const Eigen\+::\+Index teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::N}
 
 
 

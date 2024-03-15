@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -125,6 +127,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a1645d60ca4f45a4b3af62c4d9291ce68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96b2477b49a0466894acbfb5bc410d1c" id="r_a96b2477b49a0466894acbfb5bc410d1c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96b2477b49a0466894acbfb5bc410d1c">T_limit</a> = 100000</td></tr>
 <tr class="separator:a96b2477b49a0466894acbfb5bc410d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a122c212407454e6fd9d1e9407a37a8c5" id="r_a122c212407454e6fd9d1e9407a37a8c5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a122c212407454e6fd9d1e9407a37a8c5">max_step_retries</a> = 10</td></tr>
+<tr class="separator:a122c212407454e6fd9d1e9407a37a8c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -207,6 +211,22 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="VLLE__types_8hpp_source.html#l00024">24</a> of file <a class="el" href="VLLE__types_8hpp_source.html">VLLE_types.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a122c212407454e6fd9d1e9407a37a8c5" name="a122c212407454e6fd9d1e9407a37a8c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a122c212407454e6fd9d1e9407a37a8c5">&#9670;&#160;</a></span>max_step_retries</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int teqp::VLLE::VLLETracerOptions::max_step_retries = 10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="VLLE__types_8hpp_source.html#l00035">35</a> of file <a class="el" href="VLLE__types_8hpp_source.html">VLLE_types.hpp</a>.</p>
 
 </div>
 </div>

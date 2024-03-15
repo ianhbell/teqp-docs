@@ -1,16 +1,23 @@
 \doxysection{include/teqp/models/\+CPA.hpp File Reference}
 \hypertarget{CPA_8hpp}{}\label{CPA_8hpp}\index{include/teqp/models/CPA.hpp@{include/teqp/models/CPA.hpp}}
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include $<$variant$>$}\newline
 {\ttfamily \#include "{}nlohmann/json.\+hpp"{}}\newline
 {\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
 {\ttfamily \#include "{}teqp/types.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/exceptions.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/models/association/association.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/models/association/association\+\_\+types.\+hpp"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classteqp_1_1CPA_1_1CPACubic}{teqp\+::\+CPA\+::\+CPACubic}}
 \item 
-class \mbox{\hyperlink{classteqp_1_1CPA_1_1CPAAssociation}{teqp\+::\+CPA\+::\+CPAAssociation$<$ Cubic $>$}}
+class \mbox{\hyperlink{classteqp_1_1CPA_1_1CPAAssociation}{teqp\+::\+CPA\+::\+CPAAssociation}}
 \item 
 class \mbox{\hyperlink{classteqp_1_1CPA_1_1CPAEOS}{teqp\+::\+CPA\+::\+CPAEOS$<$ Cubic, Assoc $>$}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1CPA_1_1AssociationVariantWrapper}{teqp\+::\+CPA\+::\+Association\+Variant\+Wrapper}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
@@ -21,21 +28,6 @@ namespace \mbox{\hyperlink{namespaceteqp_1_1CPA}{teqp\+::\+CPA}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
-\item 
-enum class \mbox{\hyperlink{namespaceteqp_1_1CPA_a90da9ae7578303110472dd2c86daba93}{teqp\+::\+CPA\+::association\+\_\+classes}} \{ \newline
-\mbox{\hyperlink{namespaceteqp_1_1CPA_a90da9ae7578303110472dd2c86daba93a0de8ddf24fd4424e2a0d29a21de4880e}{teqp\+::\+CPA\+::not\+\_\+set}}
-, \mbox{\hyperlink{namespaceteqp_1_1CPA_a90da9ae7578303110472dd2c86daba93a2157d29d0465deacbe112062f5947e1c}{teqp\+::\+CPA\+::a1A}}
-, \mbox{\hyperlink{namespaceteqp_1_1CPA_a90da9ae7578303110472dd2c86daba93a876cb7111e19c397cca9d026c87254eb}{teqp\+::\+CPA\+::a2B}}
-, \mbox{\hyperlink{namespaceteqp_1_1CPA_a90da9ae7578303110472dd2c86daba93a74e1c3529c0ef0acd44fd62fd5cb7f13}{teqp\+::\+CPA\+::a3B}}
-, \newline
-\mbox{\hyperlink{namespaceteqp_1_1CPA_a90da9ae7578303110472dd2c86daba93a9a250c2c87241fd5402dc131ee2f5e59}{teqp\+::\+CPA\+::a4C}}
-, \mbox{\hyperlink{namespaceteqp_1_1CPA_a90da9ae7578303110472dd2c86daba93a7c06311c696cd974a378c8077ae4575b}{teqp\+::\+CPA\+::not\+\_\+associating}}
- \}
-\item 
-enum class \mbox{\hyperlink{namespaceteqp_1_1CPA_a1e2049d65c0db615e69429c1de7bc36b}{teqp\+::\+CPA\+::radial\+\_\+dist}} \{ \mbox{\hyperlink{namespaceteqp_1_1CPA_a1e2049d65c0db615e69429c1de7bc36ba8d7e99c73cd5a10adaaf4c9f9a520368}{teqp\+::\+CPA\+::\+CS}}
-, \mbox{\hyperlink{namespaceteqp_1_1CPA_a1e2049d65c0db615e69429c1de7bc36ba56d721ccadb8bbfd8b47390d82a6ea4b}{teqp\+::\+CPA\+::\+KG}}
-, \mbox{\hyperlink{namespaceteqp_1_1CPA_a1e2049d65c0db615e69429c1de7bc36ba583dce1e7a2507b30a9eb71314c47d1c}{teqp\+::\+CPA\+::\+OT}}
- \}
 \item 
 enum class \mbox{\hyperlink{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2a}{teqp\+::\+CPA\+::cubic\+\_\+flag}} \{ \mbox{\hyperlink{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2aa0de8ddf24fd4424e2a0d29a21de4880e}{teqp\+::\+CPA\+::not\+\_\+set}}
 , \mbox{\hyperlink{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2aa0fe75a5189c2ea3f123621d098ddd03e}{teqp\+::\+CPA\+::\+PR}}
@@ -49,13 +41,9 @@ enum class \mbox{\hyperlink{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e
 \item 
 {\footnotesize template$<$typename \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}} $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1CPA_a51dafbeda4f006118e5777a21502ca0f}{teqp\+::\+CPA\+::\+POW3}} (\mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}} x)
 \item 
-auto \mbox{\hyperlink{namespaceteqp_1_1CPA_a980253b3943f534e22fafd1a85fa4b1e}{teqp\+::\+CPA\+::get\+\_\+association\+\_\+classes}} (const std\+::string \&s)
-\item 
-auto \mbox{\hyperlink{namespaceteqp_1_1CPA_a7a3239ac93fe4004dadf539336dfc580}{teqp\+::\+CPA\+::get\+\_\+radial\+\_\+dist}} (const std\+::string \&s)
-\item 
-{\footnotesize template$<$typename BType , typename TType , typename Rho\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1CPA_a3339d3657cc079aec3a1c557e55ef4e6}{teqp\+::\+CPA\+::get\+\_\+\+Delta\+AB\+\_\+pure}} (\mbox{\hyperlink{namespaceteqp_1_1CPA_a1e2049d65c0db615e69429c1de7bc36b}{radial\+\_\+dist}} dist, double eps\+ABi, double beta\+ABi, BType b\+\_\+cubic, TType RT, Rho\+Type rhomolar, const Vec\+Type \&molefrac)
+{\footnotesize template$<$typename BType , typename TType , typename Rho\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1CPA_a206e2cd632f07bbd93f5e28fddf7682d}{teqp\+::\+CPA\+::get\+\_\+\+Delta\+AB\+\_\+pure}} (radial\+\_\+dist dist, double eps\+ABi, double beta\+ABi, BType b\+\_\+cubic, TType RT, Rho\+Type rhomolar, const Vec\+Type \&)
 \begin{DoxyCompactList}\small\item\em Function that calculates the association binding strength between site A of molecule i and site B on molecule j. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename BType , typename TType , typename Rho\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1CPA_a21ac3b382beca72e6a09006d34d4318e}{teqp\+::\+CPA\+::\+XA\+\_\+calc\+\_\+pure}} (int N\+\_\+sites, \mbox{\hyperlink{namespaceteqp_1_1CPA_a90da9ae7578303110472dd2c86daba93}{association\+\_\+classes}} scheme, \mbox{\hyperlink{namespaceteqp_1_1CPA_a1e2049d65c0db615e69429c1de7bc36b}{radial\+\_\+dist}} dist, double eps\+ABi, double beta\+ABi, const BType b\+\_\+cubic, const TType RT, const Rho\+Type rhomolar, const Vec\+Type \&molefrac)
+{\footnotesize template$<$typename BType , typename TType , typename Rho\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1CPA_a21ac3b382beca72e6a09006d34d4318e}{teqp\+::\+CPA\+::\+XA\+\_\+calc\+\_\+pure}} (int N\+\_\+sites, association\+\_\+classes scheme, radial\+\_\+dist dist, double eps\+ABi, double beta\+ABi, const BType b\+\_\+cubic, const TType RT, const Rho\+Type rhomolar, const Vec\+Type \&molefrac)
 \item 
 auto \mbox{\hyperlink{namespaceteqp_1_1CPA_aef8996d5cc168e4e919b4caf3e63eb97}{teqp\+::\+CPA\+::get\+\_\+cubic\+\_\+flag}} (const std\+::string \&s)
 \item 

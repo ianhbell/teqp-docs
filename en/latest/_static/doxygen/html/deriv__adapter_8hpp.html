@@ -25,6 +25,8 @@ window.MathJax = {
   },
   tex: {
     macros: {    deriv: ["{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}",3],
+    rhoN: "{\\rho_{\\rm N}}",
+    CRL: "{\\rm CRL}",
     },
     packages: ['base','configmacros','newcommand','autoload']
   }
@@ -40,7 +42,7 @@ window.MathJax = {
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teqp<span id="projectnumber">&#160;0.14.0</span>
+   <div id="projectname">teqp<span id="projectnumber">&#160;0.19.1</span>
    </div>
   </td>
  </tr>
@@ -159,9 +161,11 @@ Functions</h2></td></tr>
 <tr class="separator:a2547bd09dd15d77df96d24ffe436dd91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af51f148c792bf18aeb0d8c1324b98a40" id="r_af51f148c792bf18aeb0d8c1324b98a40"><td class="memTemplParams" colspan="2">template&lt;typename ModelType &gt; </td></tr>
 <tr class="memitem:af51f148c792bf18aeb0d8c1324b98a40"><td class="memTemplItemLeft" align="right" valign="top">const ModelType &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1cppinterface_1_1adapter.html#af51f148c792bf18aeb0d8c1324b98a40">teqp::cppinterface::adapter::get_model_cref</a> (const <a class="el" href="classteqp_1_1cppinterface_1_1AbstractModel.html">AbstractModel</a> *am)</td></tr>
+<tr class="memdesc:af51f148c792bf18aeb0d8c1324b98a40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a const reference to the model that is being held in a <a class="el" href="classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter.html">DerivativeAdapter</a> instance.  <br /></td></tr>
 <tr class="separator:af51f148c792bf18aeb0d8c1324b98a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d3ac82dad3193fc633f226be831dfce" id="r_a4d3ac82dad3193fc633f226be831dfce"><td class="memTemplParams" colspan="2">template&lt;typename ModelType &gt; </td></tr>
 <tr class="memitem:a4d3ac82dad3193fc633f226be831dfce"><td class="memTemplItemLeft" align="right" valign="top">ModelType &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceteqp_1_1cppinterface_1_1adapter.html#a4d3ac82dad3193fc633f226be831dfce">teqp::cppinterface::adapter::get_model_ref</a> (<a class="el" href="classteqp_1_1cppinterface_1_1AbstractModel.html">AbstractModel</a> *am)</td></tr>
+<tr class="memdesc:a4d3ac82dad3193fc633f226be831dfce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a mutable reference to the model.  <br /></td></tr>
 <tr class="separator:a4d3ac82dad3193fc633f226be831dfce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -180,7 +184,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="deriv__adapter_8hpp_source.html#l00073">73</a> of file <a class="el" href="deriv__adapter_8hpp_source.html">deriv_adapter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="deriv__adapter_8hpp_source.html#l00078">78</a> of file <a class="el" href="deriv__adapter_8hpp_source.html">deriv_adapter.hpp</a>.</p>
 
 </div>
 </div>
@@ -199,7 +203,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="deriv__adapter_8hpp_source.html#l00073">73</a> of file <a class="el" href="deriv__adapter_8hpp_source.html">deriv_adapter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="deriv__adapter_8hpp_source.html#l00078">78</a> of file <a class="el" href="deriv__adapter_8hpp_source.html">deriv_adapter.hpp</a>.</p>
 
 </div>
 </div>
@@ -218,7 +222,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="deriv__adapter_8hpp_source.html#l00073">73</a> of file <a class="el" href="deriv__adapter_8hpp_source.html">deriv_adapter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="deriv__adapter_8hpp_source.html#l00078">78</a> of file <a class="el" href="deriv__adapter_8hpp_source.html">deriv_adapter.hpp</a>.</p>
 
 </div>
 </div>
@@ -237,7 +241,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="deriv__adapter_8hpp_source.html#l00073">73</a> of file <a class="el" href="deriv__adapter_8hpp_source.html">deriv_adapter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="deriv__adapter_8hpp_source.html#l00078">78</a> of file <a class="el" href="deriv__adapter_8hpp_source.html">deriv_adapter.hpp</a>.</p>
 
 </div>
 </div>
@@ -256,7 +260,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="deriv__adapter_8hpp_source.html#l00073">73</a> of file <a class="el" href="deriv__adapter_8hpp_source.html">deriv_adapter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="deriv__adapter_8hpp_source.html#l00078">78</a> of file <a class="el" href="deriv__adapter_8hpp_source.html">deriv_adapter.hpp</a>.</p>
 
 </div>
 </div>
@@ -279,7 +283,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="deriv__adapter_8hpp_source.html#l00073">73</a> of file <a class="el" href="deriv__adapter_8hpp_source.html">deriv_adapter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="deriv__adapter_8hpp_source.html#l00078">78</a> of file <a class="el" href="deriv__adapter_8hpp_source.html">deriv_adapter.hpp</a>.</p>
 
 </div>
 </div>
