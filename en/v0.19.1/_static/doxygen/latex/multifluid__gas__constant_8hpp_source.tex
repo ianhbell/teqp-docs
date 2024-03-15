@@ -1,0 +1,45 @@
+\doxysection{multifluid\+\_\+gas\+\_\+constant.\+hpp}
+\hypertarget{multifluid__gas__constant_8hpp_source}{}\label{multifluid__gas__constant_8hpp_source}\index{include/teqp/models/multifluid\_gas\_constant.hpp@{include/teqp/models/multifluid\_gas\_constant.hpp}}
+\mbox{\hyperlink{multifluid__gas__constant_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{constants_8hpp}{teqp/constants.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00005}00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp}{teqp}}\{}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00006}\mbox{\hyperlink{namespaceteqp_1_1multifluid}{00006}}\ \textcolor{keyword}{namespace\ }multifluid\{}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00007}\mbox{\hyperlink{namespaceteqp_1_1multifluid_1_1gasconstant}{00007}}\ \textcolor{keyword}{namespace\ }gasconstant\{}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00009}\mbox{\hyperlink{classteqp_1_1multifluid_1_1gasconstant_1_1MoleFractionWeighted}{00009}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1multifluid_1_1gasconstant_1_1MoleFractionWeighted}{MoleFractionWeighted}}\ \{}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\ Rvals;}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00011}00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00012}00012\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00013}\mbox{\hyperlink{classteqp_1_1multifluid_1_1gasconstant_1_1MoleFractionWeighted_a42bc3bcc60fb4e21b940fee923102522}{00013}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1multifluid_1_1gasconstant_1_1MoleFractionWeighted_a42bc3bcc60fb4e21b940fee923102522}{MoleFractionWeighted}}(\textcolor{keyword}{const}\ std::vector<double>\&\ Rvals)\ :\ Rvals(Rvals)\ \{\};}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00014}00014\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ MoleFractions>}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00016}\mbox{\hyperlink{classteqp_1_1multifluid_1_1gasconstant_1_1MoleFractionWeighted_a628996f46851a3a0f3c3d5ce940d6e6a}{00016}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1multifluid_1_1gasconstant_1_1MoleFractionWeighted_a628996f46851a3a0f3c3d5ce940d6e6a}{get\_R}}(\textcolor{keyword}{const}\ MoleFractions\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }resulttype\ =\ std::common\_type\_t<\textcolor{keyword}{decltype}(molefracs[0])>;\ \textcolor{comment}{//\ Type\ promotion,\ without\ the\ const-\/ness}}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ resulttype\ out\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ N\ =\ molefracs.size();}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ N;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ out\ +=\ molefracs[i]\ *\ Rvals[i];}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(out);}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00025}00025\ \};}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00027}\mbox{\hyperlink{classteqp_1_1multifluid_1_1gasconstant_1_1CODATA}{00027}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1multifluid_1_1gasconstant_1_1CODATA}{CODATA}}\{}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00028}00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ MoleFractions>}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00030}\mbox{\hyperlink{classteqp_1_1multifluid_1_1gasconstant_1_1CODATA_afc5ed41485cb7e8c18b131b8d5db8469}{00030}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1multifluid_1_1gasconstant_1_1CODATA_afc5ed41485cb7e8c18b131b8d5db8469}{get\_R}}(\textcolor{keyword}{const}\ MoleFractions\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ get\_R\_gas<decltype(molefracs[0])>();}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00032}00032\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00033}00033\ \};}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00035}\mbox{\hyperlink{namespaceteqp_1_1multifluid_1_1gasconstant_a5e8ed41f27e885b32fb717acde35f5ca}{00035}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_1_1multifluid_1_1gasconstant_a5e8ed41f27e885b32fb717acde35f5ca}{GasConstantCalculator}}\ =\ std::variant<MoleFractionWeighted,\ CODATA>;}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00038}00038\ \}}
+\DoxyCodeLine{\Hypertarget{multifluid__gas__constant_8hpp_source_l00039}00039\ \}}
+
+\end{DoxyCode}

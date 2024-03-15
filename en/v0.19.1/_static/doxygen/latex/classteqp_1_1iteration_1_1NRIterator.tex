@@ -1,0 +1,171 @@
+\doxysection{teqp\+::iteration\+::NRIterator Class Reference}
+\hypertarget{classteqp_1_1iteration_1_1NRIterator}{}\label{classteqp_1_1iteration_1_1NRIterator}\index{teqp::iteration::NRIterator@{teqp::iteration::NRIterator}}
+
+
+{\ttfamily \#include $<$iteration.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_af15a9a362bbd635afe7a150b3b4cb5fc}{NRIterator}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \texorpdfstring{$\ast$}{*}ar, const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \texorpdfstring{$\ast$}{*}aig, const std\+::vector$<$ char $>$ \&vars, const Eigen\+::\+Ref$<$ const Eigen\+::\+Array\+Xd $>$ \&vals, double T, double rho, const Eigen\+::\+Ref$<$ const Eigen\+::\+Array\+Xd $>$ \&z)
+\item 
+std\+::vector$<$ char $>$ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a1c429a1b2b15583bb3e13da0e693cf41}{get\+\_\+vars}} () const
+\begin{DoxyCompactList}\small\item\em Return the variables that are being used in the iteration. \end{DoxyCompactList}\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_ae028f002452b71bab31f76901de9ce99}{get\+\_\+vals}} () const
+\begin{DoxyCompactList}\small\item\em Return the target values to be obtained. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a49c949373f28a4d0de7a40353d58bf0c}{get\+\_\+T}} () const
+\begin{DoxyCompactList}\small\item\em Return the current temperature. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a5b12df1e0349a9e93dc3c7dd2342e8b4}{get\+\_\+rho}} () const
+\begin{DoxyCompactList}\small\item\em Return the current molar density. \end{DoxyCompactList}\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a048d638c0415c0941345e721a2fa0383}{get\+\_\+molefrac}} () const
+\begin{DoxyCompactList}\small\item\em Return the current mole fractions. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a80f7693d568d8b915fd2fc1a7573b96f}{calc\+\_\+step}} (double T, double rho)
+\item 
+auto \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a4526d5ba96b15732fabe79d6322bfa24}{take\+\_\+step}} ()
+\begin{DoxyCompactList}\small\item\em Take one step, return the residuals. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a80e975486efc70992f8b0f3eaac11e69}{take\+\_\+steps}} (int N)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for doing Newton-\/\+Raphson steps to solve for two unknown thermodynamic variables 
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1iteration_1_1NRIterator_af15a9a362bbd635afe7a150b3b4cb5fc}\label{classteqp_1_1iteration_1_1NRIterator_af15a9a362bbd635afe7a150b3b4cb5fc} 
+\index{teqp::iteration::NRIterator@{teqp::iteration::NRIterator}!NRIterator@{NRIterator}}
+\index{NRIterator@{NRIterator}!teqp::iteration::NRIterator@{teqp::iteration::NRIterator}}
+\doxysubsubsection{\texorpdfstring{NRIterator()}{NRIterator()}}
+{\footnotesize\ttfamily teqp\+::iteration\+::\+NRIterator\+::\+NRIterator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \texorpdfstring{$\ast$}{*}}]{ar,  }\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \texorpdfstring{$\ast$}{*}}]{aig,  }\item[{const std\+::vector$<$ char $>$ \&}]{vars,  }\item[{const Eigen\+::\+Ref$<$ const Eigen\+::\+Array\+Xd $>$ \&}]{vals,  }\item[{double}]{T,  }\item[{double}]{rho,  }\item[{const Eigen\+::\+Ref$<$ const Eigen\+::\+Array\+Xd $>$ \&}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1iteration_1_1NRIterator_a80f7693d568d8b915fd2fc1a7573b96f}\label{classteqp_1_1iteration_1_1NRIterator_a80f7693d568d8b915fd2fc1a7573b96f} 
+\index{teqp::iteration::NRIterator@{teqp::iteration::NRIterator}!calc\_step@{calc\_step}}
+\index{calc\_step@{calc\_step}!teqp::iteration::NRIterator@{teqp::iteration::NRIterator}}
+\doxysubsubsection{\texorpdfstring{calc\_step()}{calc\_step()}}
+{\footnotesize\ttfamily auto teqp\+::iteration\+::\+NRIterator\+::calc\+\_\+step (\begin{DoxyParamCaption}\item[{double}]{T,  }\item[{double}]{rho }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Do the calculations needed for the step and return the step and the other data In C++, the copy will be elided (the return value will be moved) 
+\begin{DoxyParams}{Parameters}
+{\em T} & Temperature \\
+\hline
+{\em rho} & Molar density \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{classteqp_1_1iteration_1_1NRIterator_a048d638c0415c0941345e721a2fa0383}\label{classteqp_1_1iteration_1_1NRIterator_a048d638c0415c0941345e721a2fa0383} 
+\index{teqp::iteration::NRIterator@{teqp::iteration::NRIterator}!get\_molefrac@{get\_molefrac}}
+\index{get\_molefrac@{get\_molefrac}!teqp::iteration::NRIterator@{teqp::iteration::NRIterator}}
+\doxysubsubsection{\texorpdfstring{get\_molefrac()}{get\_molefrac()}}
+{\footnotesize\ttfamily Eigen\+::\+Array\+Xd teqp\+::iteration\+::\+NRIterator\+::get\+\_\+molefrac (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the current mole fractions. 
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{classteqp_1_1iteration_1_1NRIterator_a5b12df1e0349a9e93dc3c7dd2342e8b4}\label{classteqp_1_1iteration_1_1NRIterator_a5b12df1e0349a9e93dc3c7dd2342e8b4} 
+\index{teqp::iteration::NRIterator@{teqp::iteration::NRIterator}!get\_rho@{get\_rho}}
+\index{get\_rho@{get\_rho}!teqp::iteration::NRIterator@{teqp::iteration::NRIterator}}
+\doxysubsubsection{\texorpdfstring{get\_rho()}{get\_rho()}}
+{\footnotesize\ttfamily auto teqp\+::iteration\+::\+NRIterator\+::get\+\_\+rho (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the current molar density. 
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{classteqp_1_1iteration_1_1NRIterator_a49c949373f28a4d0de7a40353d58bf0c}\label{classteqp_1_1iteration_1_1NRIterator_a49c949373f28a4d0de7a40353d58bf0c} 
+\index{teqp::iteration::NRIterator@{teqp::iteration::NRIterator}!get\_T@{get\_T}}
+\index{get\_T@{get\_T}!teqp::iteration::NRIterator@{teqp::iteration::NRIterator}}
+\doxysubsubsection{\texorpdfstring{get\_T()}{get\_T()}}
+{\footnotesize\ttfamily auto teqp\+::iteration\+::\+NRIterator\+::get\+\_\+T (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the current temperature. 
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{classteqp_1_1iteration_1_1NRIterator_ae028f002452b71bab31f76901de9ce99}\label{classteqp_1_1iteration_1_1NRIterator_ae028f002452b71bab31f76901de9ce99} 
+\index{teqp::iteration::NRIterator@{teqp::iteration::NRIterator}!get\_vals@{get\_vals}}
+\index{get\_vals@{get\_vals}!teqp::iteration::NRIterator@{teqp::iteration::NRIterator}}
+\doxysubsubsection{\texorpdfstring{get\_vals()}{get\_vals()}}
+{\footnotesize\ttfamily Eigen\+::\+Array\+Xd teqp\+::iteration\+::\+NRIterator\+::get\+\_\+vals (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the target values to be obtained. 
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{classteqp_1_1iteration_1_1NRIterator_a1c429a1b2b15583bb3e13da0e693cf41}\label{classteqp_1_1iteration_1_1NRIterator_a1c429a1b2b15583bb3e13da0e693cf41} 
+\index{teqp::iteration::NRIterator@{teqp::iteration::NRIterator}!get\_vars@{get\_vars}}
+\index{get\_vars@{get\_vars}!teqp::iteration::NRIterator@{teqp::iteration::NRIterator}}
+\doxysubsubsection{\texorpdfstring{get\_vars()}{get\_vars()}}
+{\footnotesize\ttfamily std\+::vector$<$ char $>$ teqp\+::iteration\+::\+NRIterator\+::get\+\_\+vars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the variables that are being used in the iteration. 
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{classteqp_1_1iteration_1_1NRIterator_a4526d5ba96b15732fabe79d6322bfa24}\label{classteqp_1_1iteration_1_1NRIterator_a4526d5ba96b15732fabe79d6322bfa24} 
+\index{teqp::iteration::NRIterator@{teqp::iteration::NRIterator}!take\_step@{take\_step}}
+\index{take\_step@{take\_step}!teqp::iteration::NRIterator@{teqp::iteration::NRIterator}}
+\doxysubsubsection{\texorpdfstring{take\_step()}{take\_step()}}
+{\footnotesize\ttfamily auto teqp\+::iteration\+::\+NRIterator\+::take\+\_\+step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Take one step, return the residuals. 
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{classteqp_1_1iteration_1_1NRIterator_a80e975486efc70992f8b0f3eaac11e69}\label{classteqp_1_1iteration_1_1NRIterator_a80e975486efc70992f8b0f3eaac11e69} 
+\index{teqp::iteration::NRIterator@{teqp::iteration::NRIterator}!take\_steps@{take\_steps}}
+\index{take\_steps@{take\_steps}!teqp::iteration::NRIterator@{teqp::iteration::NRIterator}}
+\doxysubsubsection{\texorpdfstring{take\_steps()}{take\_steps()}}
+{\footnotesize\ttfamily auto teqp\+::iteration\+::\+NRIterator\+::take\+\_\+steps (\begin{DoxyParamCaption}\item[{int}]{N }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Take a given number of steps 
+\begin{DoxyParams}{Parameters}
+{\em N} & The number of steps to take \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{iteration_8hpp}{iteration.\+hpp}}\end{DoxyCompactItemize}

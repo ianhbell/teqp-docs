@@ -1,0 +1,330 @@
+\doxysection{teqp\+::Critical\+Tracing\texorpdfstring{$<$}{<} Model, Scalar, Vec\+Type \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structteqp_1_1CriticalTracing}{}\label{structteqp_1_1CriticalTracing}\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+
+
+{\ttfamily \#include $<$critical\+\_\+tracing.\+hpp$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1CriticalTracing_1_1psi1derivs}{psi1derivs}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_a1db77b056e8224fd776b88fcafd7fb60}{sorted\+\_\+eigen}} (const Eigen\+::\+Matrix\+Xd \&H)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_ad82bbdb4ca32575f8c790595d6e1cd39}{eigen\+\_\+problem}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const Scalar T, const Vec\+Type \&rhovec, const std\+::optional$<$ Vec\+Type $>$ \&alignment\+\_\+v0=std\+::nullopt)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_a4672573046206312625cacb660ed0d12}{get\+\_\+minimum\+\_\+eigenvalue\+\_\+\+Psi\+\_\+\+Hessian}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const Scalar T, const Vec\+Type \&rhovec)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_a26a0d79ab0a71e255da2a7d2570e33a6}{get\+\_\+derivs}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const double T, const Vec\+Type \&rhovec, const std\+::optional$<$ Vec\+Type $>$ \&alignment\+\_\+v0=std\+::nullopt)
+\item 
+{\footnotesize template$<$typename Iterable $>$ }\\static bool \mbox{\hyperlink{structteqp_1_1CriticalTracing_ae752896516f358f13cd107e33e6557ee}{all}} (const Iterable \&foo)
+\item 
+{\footnotesize template$<$typename Iterable $>$ }\\static bool \mbox{\hyperlink{structteqp_1_1CriticalTracing_a60d307d823092a0501ee10d06b738eb8}{any}} (const Iterable \&foo)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_aadc9988431e25d16a4f06d838fba971c}{get\+\_\+drhovec\+\_\+d\+T\+\_\+crit}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const Scalar \&T, const Vec\+Type \&rhovec)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_a58f002c2a51cd3197325537ed4192283}{get\+\_\+criticality\+\_\+conditions}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const Scalar T, const Vec\+Type \&rhovec)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_adeae0b4157e30febfe2e9cbcb02626f2}{Eigen\+Vector\+Path}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const Scalar T, const Vec\+Type \&rhovec, const Vec\+Type \&u1, Scalar drho)
+\begin{DoxyCompactList}\small\item\em The Eigen\+Vector\+Path function of Algorithm 2 from Deiters and Bell\+: \href{https://dx.doi.org/10.1021/acs.iecr.0c03667}{\texttt{ https\+://dx.\+doi.\+org/10.\+1021/acs.\+iecr.\+0c03667}}. \end{DoxyCompactList}\item 
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_a6470dc32d03c1064afae2795707bc581}{is\+\_\+locally\+\_\+stable}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const Scalar T, const Vec\+Type \&rhovec, const Scalar stability\+\_\+rel\+\_\+drho)
+\begin{DoxyCompactList}\small\item\em The Local\+Stability function of Algorithm 2 from Deiters and Bell\+: \href{https://dx.doi.org/10.1021/acs.iecr.0c03667}{\texttt{ https\+://dx.\+doi.\+org/10.\+1021/acs.\+iecr.\+0c03667}}. \end{DoxyCompactList}\item 
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_aed906f375c68d3ff081da84f0e655033}{critical\+\_\+polish\+\_\+fixedmolefrac}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const Scalar T, const Vec\+Type \&rhovec, const Scalar z0)
+\begin{DoxyCompactList}\small\item\em Polish a critical point while keeping the overall composition constant and iterating for temperature and overall density. \end{DoxyCompactList}\item 
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_a936639ccdf473f1baf6b31de5d844c05}{critical\+\_\+polish\+\_\+fixedrho}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const Scalar T, const Vec\+Type \&rhovec, const int i)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_a694a1d7ec85c7fffd2cb1be6793124c2}{critical\+\_\+polish\+\_\+fixedT}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const Scalar T, const Vec\+Type \&rhovec)
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_a63d36347a49f33418664094d5f921288}{trace\+\_\+critical\+\_\+arclength\+\_\+binary}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const Scalar \&T0, const Vec\+Type \&rhovec0, const std\+::optional$<$ std\+::string $>$ \&filename\+\_\+=std\+::nullopt, const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1TCABOptions}{TCABOptions}} $>$ \&options\+\_\+=std\+::nullopt) -\/$>$ nlohmann\+::json
+\item 
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_ae525580115a886baec24b92f3d22db8d}{get\+\_\+dp\+\_\+d\+T\+\_\+crit}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const Scalar \&T, const Vec\+Type \&rhovec)
+\begin{DoxyCompactList}\small\item\em Calculate dp/dT along the critical locus at given T, rhovec. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_af420554b971d00e9e5a78ec851eb07df}{get\+\_\+dp\+\_\+d\+T\+\_\+crit}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_a62c39f71300e771d0aca8a3c06390b32}{trace\+\_\+critical\+\_\+arclength\+\_\+binary}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_a2bddef308f4ff5363291da8dda405b93}{critical\+\_\+polish\+\_\+fixedmolefrac}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_ab420d1dac1af9c9e7c6b6337f23e624c}{get\+\_\+drhovec\+\_\+d\+T\+\_\+crit}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_ae224d6e2449ffc23a6eb469d01327d1e}{get\+\_\+derivs}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing_a0c97869b8b6fd8ccf5e47e7dd9f513d7}{eigen\+\_\+problem}} (const Templated\+Model \&model, Params \&\&... params)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Model, typename Scalar = double, typename Vec\+Type = Eigen\+::\+Array\+Xd$>$\newline
+struct teqp\+::\+Critical\+Tracing$<$ Model, Scalar, Vec\+Type $>$}
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structteqp_1_1CriticalTracing_ae752896516f358f13cd107e33e6557ee}\label{structteqp_1_1CriticalTracing_ae752896516f358f13cd107e33e6557ee} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!all@{all}}
+\index{all@{all}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{all()}{all()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Iterable $>$ \\
+static bool \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::all (\begin{DoxyParamCaption}\item[{const Iterable \&}]{foo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00197}{197}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_a60d307d823092a0501ee10d06b738eb8}\label{structteqp_1_1CriticalTracing_a60d307d823092a0501ee10d06b738eb8} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!any@{any}}
+\index{any@{any}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{any()}{any()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Iterable $>$ \\
+static bool \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::any (\begin{DoxyParamCaption}\item[{const Iterable \&}]{foo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00201}{201}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_aed906f375c68d3ff081da84f0e655033}\label{structteqp_1_1CriticalTracing_aed906f375c68d3ff081da84f0e655033} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!critical\_polish\_fixedmolefrac@{critical\_polish\_fixedmolefrac}}
+\index{critical\_polish\_fixedmolefrac@{critical\_polish\_fixedmolefrac}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{critical\_polish\_fixedmolefrac()}{critical\_polish\_fixedmolefrac()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::critical\+\_\+polish\+\_\+fixedmolefrac (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const Scalar}]{T,  }\item[{const Vec\+Type \&}]{rhovec,  }\item[{const Scalar}]{z0 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Polish a critical point while keeping the overall composition constant and iterating for temperature and overall density. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00334}{334}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_a2bddef308f4ff5363291da8dda405b93}\label{structteqp_1_1CriticalTracing_a2bddef308f4ff5363291da8dda405b93} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!critical\_polish\_fixedmolefrac@{critical\_polish\_fixedmolefrac}}
+\index{critical\_polish\_fixedmolefrac@{critical\_polish\_fixedmolefrac}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{critical\_polish\_fixedmolefrac()}{critical\_polish\_fixedmolefrac()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::critical\+\_\+polish\+\_\+fixedmolefrac (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00768}{768}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_a936639ccdf473f1baf6b31de5d844c05}\label{structteqp_1_1CriticalTracing_a936639ccdf473f1baf6b31de5d844c05} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!critical\_polish\_fixedrho@{critical\_polish\_fixedrho}}
+\index{critical\_polish\_fixedrho@{critical\_polish\_fixedrho}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{critical\_polish\_fixedrho()}{critical\_polish\_fixedrho()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::critical\+\_\+polish\+\_\+fixedrho (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const Scalar}]{T,  }\item[{const Vec\+Type \&}]{rhovec,  }\item[{const int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00354}{354}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_a694a1d7ec85c7fffd2cb1be6793124c2}\label{structteqp_1_1CriticalTracing_a694a1d7ec85c7fffd2cb1be6793124c2} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!critical\_polish\_fixedT@{critical\_polish\_fixedT}}
+\index{critical\_polish\_fixedT@{critical\_polish\_fixedT}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{critical\_polish\_fixedT()}{critical\_polish\_fixedT()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::critical\+\_\+polish\+\_\+fixedT (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const Scalar}]{T,  }\item[{const Vec\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00375}{375}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_ad82bbdb4ca32575f8c790595d6e1cd39}\label{structteqp_1_1CriticalTracing_ad82bbdb4ca32575f8c790595d6e1cd39} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!eigen\_problem@{eigen\_problem}}
+\index{eigen\_problem@{eigen\_problem}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{eigen\_problem()}{eigen\_problem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::eigen\+\_\+problem (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const Scalar}]{T,  }\item[{const Vec\+Type \&}]{rhovec,  }\item[{const std\+::optional$<$ Vec\+Type $>$ \&}]{alignment\+\_\+v0 = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_a0c97869b8b6fd8ccf5e47e7dd9f513d7}\label{structteqp_1_1CriticalTracing_a0c97869b8b6fd8ccf5e47e7dd9f513d7} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!eigen\_problem@{eigen\_problem}}
+\index{eigen\_problem@{eigen\_problem}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{eigen\_problem()}{eigen\_problem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::eigen\+\_\+problem (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00768}{768}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_adeae0b4157e30febfe2e9cbcb02626f2}\label{structteqp_1_1CriticalTracing_adeae0b4157e30febfe2e9cbcb02626f2} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!EigenVectorPath@{EigenVectorPath}}
+\index{EigenVectorPath@{EigenVectorPath}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{EigenVectorPath()}{EigenVectorPath()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::\+Eigen\+Vector\+Path (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const Scalar}]{T,  }\item[{const Vec\+Type \&}]{rhovec,  }\item[{const Vec\+Type \&}]{u1,  }\item[{Scalar}]{drho }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The Eigen\+Vector\+Path function of Algorithm 2 from Deiters and Bell\+: \href{https://dx.doi.org/10.1021/acs.iecr.0c03667}{\texttt{ https\+://dx.\+doi.\+org/10.\+1021/acs.\+iecr.\+0c03667}}. 
+
+There is a typo in the paper\+: the last step should be rho + 2\texorpdfstring{$\ast$}{*}drho\texorpdfstring{$\ast$}{*}dir 
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00291}{291}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_a58f002c2a51cd3197325537ed4192283}\label{structteqp_1_1CriticalTracing_a58f002c2a51cd3197325537ed4192283} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!get\_criticality\_conditions@{get\_criticality\_conditions}}
+\index{get\_criticality\_conditions@{get\_criticality\_conditions}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_criticality\_conditions()}{get\_criticality\_conditions()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::get\+\_\+criticality\+\_\+conditions (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const Scalar}]{T,  }\item[{const Vec\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00281}{281}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_a26a0d79ab0a71e255da2a7d2570e33a6}\label{structteqp_1_1CriticalTracing_a26a0d79ab0a71e255da2a7d2570e33a6} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!get\_derivs@{get\_derivs}}
+\index{get\_derivs@{get\_derivs}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_derivs()}{get\_derivs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::get\+\_\+derivs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const double}]{T,  }\item[{const Vec\+Type \&}]{rhovec,  }\item[{const std\+::optional$<$ Vec\+Type $>$ \&}]{alignment\+\_\+v0 = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00129}{129}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_ae224d6e2449ffc23a6eb469d01327d1e}\label{structteqp_1_1CriticalTracing_ae224d6e2449ffc23a6eb469d01327d1e} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!get\_derivs@{get\_derivs}}
+\index{get\_derivs@{get\_derivs}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_derivs()}{get\_derivs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::get\+\_\+derivs (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00768}{768}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_ae525580115a886baec24b92f3d22db8d}\label{structteqp_1_1CriticalTracing_ae525580115a886baec24b92f3d22db8d} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!get\_dp\_dT\_crit@{get\_dp\_dT\_crit}}
+\index{get\_dp\_dT\_crit@{get\_dp\_dT\_crit}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_dp\_dT\_crit()}{get\_dp\_dT\_crit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::get\+\_\+dp\+\_\+d\+T\+\_\+crit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vec\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Calculate dp/dT along the critical locus at given T, rhovec. 
+
+\[
+    \rmderivsub{Y}{T}{\CRL} = \deriv{Y}{T}{\vec\rho}  + \sum_j \deriv{Y}{\rho_j}{T,\rho_{k\neq j}} \rmderivsub{\rho_j}{T}{\CRL}
+\] where the derivatives on the RHS without the subscript CRL are homogeneous derivatives taken at the mixture statepoint, and are NOT along the critical curve. 
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00747}{747}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_af420554b971d00e9e5a78ec851eb07df}\label{structteqp_1_1CriticalTracing_af420554b971d00e9e5a78ec851eb07df} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!get\_dp\_dT\_crit@{get\_dp\_dT\_crit}}
+\index{get\_dp\_dT\_crit@{get\_dp\_dT\_crit}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_dp\_dT\_crit()}{get\_dp\_dT\_crit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::get\+\_\+dp\+\_\+d\+T\+\_\+crit (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00768}{768}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_aadc9988431e25d16a4f06d838fba971c}\label{structteqp_1_1CriticalTracing_aadc9988431e25d16a4f06d838fba971c} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!get\_drhovec\_dT\_crit@{get\_drhovec\_dT\_crit}}
+\index{get\_drhovec\_dT\_crit@{get\_drhovec\_dT\_crit}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_drhovec\_dT\_crit()}{get\_drhovec\_dT\_crit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::get\+\_\+drhovec\+\_\+d\+T\+\_\+crit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const Scalar \&}]{T,  }\item[{const Vec\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00205}{205}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_ab420d1dac1af9c9e7c6b6337f23e624c}\label{structteqp_1_1CriticalTracing_ab420d1dac1af9c9e7c6b6337f23e624c} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!get\_drhovec\_dT\_crit@{get\_drhovec\_dT\_crit}}
+\index{get\_drhovec\_dT\_crit@{get\_drhovec\_dT\_crit}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_drhovec\_dT\_crit()}{get\_drhovec\_dT\_crit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::get\+\_\+drhovec\+\_\+d\+T\+\_\+crit (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00768}{768}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_a4672573046206312625cacb660ed0d12}\label{structteqp_1_1CriticalTracing_a4672573046206312625cacb660ed0d12} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!get\_minimum\_eigenvalue\_Psi\_Hessian@{get\_minimum\_eigenvalue\_Psi\_Hessian}}
+\index{get\_minimum\_eigenvalue\_Psi\_Hessian@{get\_minimum\_eigenvalue\_Psi\_Hessian}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_minimum\_eigenvalue\_Psi\_Hessian()}{get\_minimum\_eigenvalue\_Psi\_Hessian()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::get\+\_\+minimum\+\_\+eigenvalue\+\_\+\+Psi\+\_\+\+Hessian (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const Scalar}]{T,  }\item[{const Vec\+Type \&}]{rhovec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00125}{125}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_a6470dc32d03c1064afae2795707bc581}\label{structteqp_1_1CriticalTracing_a6470dc32d03c1064afae2795707bc581} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!is\_locally\_stable@{is\_locally\_stable}}
+\index{is\_locally\_stable@{is\_locally\_stable}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{is\_locally\_stable()}{is\_locally\_stable()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::is\+\_\+locally\+\_\+stable (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const Scalar}]{T,  }\item[{const Vec\+Type \&}]{rhovec,  }\item[{const Scalar}]{stability\+\_\+rel\+\_\+drho }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The Local\+Stability function of Algorithm 2 from Deiters and Bell\+: \href{https://dx.doi.org/10.1021/acs.iecr.0c03667}{\texttt{ https\+://dx.\+doi.\+org/10.\+1021/acs.\+iecr.\+0c03667}}. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00316}{316}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_a1db77b056e8224fd776b88fcafd7fb60}\label{structteqp_1_1CriticalTracing_a1db77b056e8224fd776b88fcafd7fb60} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!sorted\_eigen@{sorted\_eigen}}
+\index{sorted\_eigen@{sorted\_eigen}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{sorted\_eigen()}{sorted\_eigen()}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::sorted\+\_\+eigen (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xd \&}]{H }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_a63d36347a49f33418664094d5f921288}\label{structteqp_1_1CriticalTracing_a63d36347a49f33418664094d5f921288} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!trace\_critical\_arclength\_binary@{trace\_critical\_arclength\_binary}}
+\index{trace\_critical\_arclength\_binary@{trace\_critical\_arclength\_binary}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{trace\_critical\_arclength\_binary()}{trace\_critical\_arclength\_binary()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::trace\+\_\+critical\+\_\+arclength\+\_\+binary (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const Scalar \&}]{T0,  }\item[{const Vec\+Type \&}]{rhovec0,  }\item[{const std\+::optional$<$ std\+::string $>$ \&}]{filename\+\_\+ = {\ttfamily std\+:\+:nullopt},  }\item[{const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1TCABOptions}{TCABOptions}} $>$ \&}]{options\+\_\+ = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption}) -\/$>$ nlohmann\+::json \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00391}{391}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{structteqp_1_1CriticalTracing_a62c39f71300e771d0aca8a3c06390b32}\label{structteqp_1_1CriticalTracing_a62c39f71300e771d0aca8a3c06390b32} 
+\index{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}!trace\_critical\_arclength\_binary@{trace\_critical\_arclength\_binary}}
+\index{trace\_critical\_arclength\_binary@{trace\_critical\_arclength\_binary}!teqp::CriticalTracing$<$ Model, Scalar, VecType $>$@{teqp::CriticalTracing$<$ Model, Scalar, VecType $>$}}
+\doxysubsubsection{\texorpdfstring{trace\_critical\_arclength\_binary()}{trace\_critical\_arclength\_binary()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Model , typename Scalar  = double, typename Vec\+Type  = Eigen\+::\+Array\+Xd$>$ \\
+template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ \\
+static auto \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing}}$<$ Model, Scalar, Vec\+Type $>$\+::trace\+\_\+critical\+\_\+arclength\+\_\+binary (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{model,  }\item[{Params \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00768}{768}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{critical__tracing_8hpp}{critical\+\_\+tracing.\+hpp}}\end{DoxyCompactItemize}

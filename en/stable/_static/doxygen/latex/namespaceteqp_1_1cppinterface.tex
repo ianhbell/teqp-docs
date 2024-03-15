@@ -1,0 +1,171 @@
+\doxysection{teqp\+::cppinterface Namespace Reference}
+\hypertarget{namespaceteqp_1_1cppinterface}{}\label{namespaceteqp_1_1cppinterface}\index{teqp::cppinterface@{teqp::cppinterface}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter}{adapter}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices}{Iteration\+Matrices}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}{Model\+Pointer\+Factory\+Function}} = std\+::function$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}}$>$(const nlohmann\+::json \&j)$>$
+\item 
+using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_aaea408772075eade4e896e9b4c518591}{makefunc}} = \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}{Model\+Pointer\+Factory\+Function}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Array $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2bcecf3d939d9f0f6b45d39dfe9e830d}{build\+\_\+iteration\+\_\+\+Jv}} (const std\+::vector$<$ char $>$ \&vars, const Eigen\+::\+Array$<$ double, 3, 3 $>$ \&Ar, const Eigen\+::\+Array$<$ double, 3, 3 $>$ \&Aig, const double R, const double T, const double rho, const Array \&z)
+\begin{DoxyCompactList}\small\item\em A convenience function for calculation of Jacobian terms of the form $ J_{i0} = \frac{\partial y}{\partial T} $ and $ J_{i1} = \frac{\partial y}{\partial \rho} $ where $y$ is one of the thermodynamic variables in vars. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a0e731ebdf104bc67dc7832e33a523d4f}{make\+\_\+model}} (const nlohmann\+::json \&, bool validate=true)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a667d9cdc8dabc48e3280d8b481e60ee3}{make\+\_\+multifluid\+\_\+model}} (const std\+::vector$<$ std\+::string $>$ \&components, const std\+::string \&coolprop\+\_\+root, const std\+::string \&BIPcollectionpath=\{\}, const nlohmann\+::json \&flags=\{\}, const std\+::string \&departurepath=\{\})
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_ab4863d72627c8e55868bb4fca25192a6}{build\+\_\+model\+\_\+ptr}} (const nlohmann\+::json \&json, bool validate=true)
+\item 
+nlohmann\+::json \mbox{\hyperlink{namespaceteqp_1_1cppinterface_af204b0796feb1504c577749f82e496a2}{get\+\_\+model\+\_\+schema}} (const std\+::string \&kind)
+\begin{DoxyCompactList}\small\item\em Return the schema for the given model kind. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a99c55e372f03fbc42f067db77bac520a}{add\+\_\+model\+\_\+pointer\+\_\+factory\+\_\+function}} (const std\+::string \&key, \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}{Model\+Pointer\+Factory\+Function}} \&func)
+\begin{DoxyCompactList}\small\item\em This function allows you to inject your own model factory function into the set of factory functions implemented in teqp. This allows you to add your own model at runtime. As an example of how to do this, see src/test\+\_\+runtime\+\_\+model\+\_\+inclusion.\+cpp. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a432d204a25bfde3ea0cfc27bf3007526}{make\+\_\+\+SAFTVRMie}} (const nlohmann\+::json \&j)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespaceteqp_1_1cppinterface_aaea408772075eade4e896e9b4c518591}\label{namespaceteqp_1_1cppinterface_aaea408772075eade4e896e9b4c518591} 
+\index{teqp::cppinterface@{teqp::cppinterface}!makefunc@{makefunc}}
+\index{makefunc@{makefunc}!teqp::cppinterface@{teqp::cppinterface}}
+\doxysubsubsection{\texorpdfstring{makefunc}{makefunc}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_aaea408772075eade4e896e9b4c518591}{teqp\+::cppinterface\+::makefunc}} = \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}{Model\+Pointer\+Factory\+Function}}}
+
+
+
+Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{teqp__impl__factory_8cpp_source}{teqp\+\_\+impl\+\_\+factory.\+cpp}}.
+
+\Hypertarget{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}\label{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28} 
+\index{teqp::cppinterface@{teqp::cppinterface}!ModelPointerFactoryFunction@{ModelPointerFactoryFunction}}
+\index{ModelPointerFactoryFunction@{ModelPointerFactoryFunction}!teqp::cppinterface@{teqp::cppinterface}}
+\doxysubsubsection{\texorpdfstring{ModelPointerFactoryFunction}{ModelPointerFactoryFunction}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}{teqp\+::cppinterface\+::\+Model\+Pointer\+Factory\+Function}} = std\+::function$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}}$>$(const nlohmann\+::json \&j)$>$}
+
+
+
+Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00194}{194}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceteqp_1_1cppinterface_a99c55e372f03fbc42f067db77bac520a}\label{namespaceteqp_1_1cppinterface_a99c55e372f03fbc42f067db77bac520a} 
+\index{teqp::cppinterface@{teqp::cppinterface}!add\_model\_pointer\_factory\_function@{add\_model\_pointer\_factory\_function}}
+\index{add\_model\_pointer\_factory\_function@{add\_model\_pointer\_factory\_function}!teqp::cppinterface@{teqp::cppinterface}}
+\doxysubsubsection{\texorpdfstring{add\_model\_pointer\_factory\_function()}{add\_model\_pointer\_factory\_function()}}
+{\footnotesize\ttfamily void teqp\+::cppinterface\+::add\+\_\+model\+\_\+pointer\+\_\+factory\+\_\+function (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key,  }\item[{\mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d3ee1732137436bcf03cd43813f2e28}{Model\+Pointer\+Factory\+Function}} \&}]{func }\end{DoxyParamCaption})}
+
+
+
+This function allows you to inject your own model factory function into the set of factory functions implemented in teqp. This allows you to add your own model at runtime. As an example of how to do this, see src/test\+\_\+runtime\+\_\+model\+\_\+inclusion.\+cpp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key used to define the model \\
+\hline
+{\em func} & The Model\+Pointer\+Factory\+Function factory function used to generate the wrapped model \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{teqp__impl__factory_8cpp_source}{teqp\+\_\+impl\+\_\+factory.\+cpp}}.
+
+\Hypertarget{namespaceteqp_1_1cppinterface_a2bcecf3d939d9f0f6b45d39dfe9e830d}\label{namespaceteqp_1_1cppinterface_a2bcecf3d939d9f0f6b45d39dfe9e830d} 
+\index{teqp::cppinterface@{teqp::cppinterface}!build\_iteration\_Jv@{build\_iteration\_Jv}}
+\index{build\_iteration\_Jv@{build\_iteration\_Jv}!teqp::cppinterface@{teqp::cppinterface}}
+\doxysubsubsection{\texorpdfstring{build\_iteration\_Jv()}{build\_iteration\_Jv()}}
+{\footnotesize\ttfamily template$<$typename Array $>$ \\
+auto teqp\+::cppinterface\+::build\+\_\+iteration\+\_\+\+Jv (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ char $>$ \&}]{vars,  }\item[{const Eigen\+::\+Array$<$ double, 3, 3 $>$ \&}]{Ar,  }\item[{const Eigen\+::\+Array$<$ double, 3, 3 $>$ \&}]{Aig,  }\item[{const double}]{R,  }\item[{const double}]{T,  }\item[{const double}]{rho,  }\item[{const Array \&}]{z }\end{DoxyParamCaption})}
+
+
+
+A convenience function for calculation of Jacobian terms of the form $ J_{i0} = \frac{\partial y}{\partial T} $ and $ J_{i1} = \frac{\partial y}{\partial \rho} $ where $y$ is one of the thermodynamic variables in vars. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vars} & A set of chars, allowed are \textquotesingle{}H\textquotesingle{},\textquotesingle{}S\textquotesingle{},\textquotesingle{}U\textquotesingle{},\textquotesingle{}P\textquotesingle{},\textquotesingle{}T\textquotesingle{},\textquotesingle{}D\textquotesingle{} \\
+\hline
+{\em Ar} & The matrix of derivatives of $\alpha^{\rm r}$, perhaps obtained from \doxylink{classteqp_1_1DerivativeHolderSquare}{teqp\+::\+Derivative\+Holder\+Square}, or via get\+\_\+deriv\+\_\+mat2 of the \doxylink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model} \\
+\hline
+{\em Aig} & The matrix of derivatives of $\alpha^{\rm ig}$, perhaps obtained from \doxylink{classteqp_1_1DerivativeHolderSquare}{teqp\+::\+Derivative\+Holder\+Square}, or via get\+\_\+deriv\+\_\+mat2 of the \doxylink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model} \\
+\hline
+{\em R} & The molar gas constant \\
+\hline
+{\em T} & Temperature \\
+\hline
+{\em rho} & Molar density \\
+\hline
+{\em z} & Mole fractions \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{cpp_2derivs_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{cpp_2derivs_8hpp_source}{derivs.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1cppinterface_ab4863d72627c8e55868bb4fca25192a6}\label{namespaceteqp_1_1cppinterface_ab4863d72627c8e55868bb4fca25192a6} 
+\index{teqp::cppinterface@{teqp::cppinterface}!build\_model\_ptr@{build\_model\_ptr}}
+\index{build\_model\_ptr@{build\_model\_ptr}!teqp::cppinterface@{teqp::cppinterface}}
+\doxysubsubsection{\texorpdfstring{build\_model\_ptr()}{build\_model\_ptr()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ teqp\+::cppinterface\+::build\+\_\+model\+\_\+ptr (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{json,  }\item[{bool}]{validate = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{teqp__impl__factory_8cpp_source}{teqp\+\_\+impl\+\_\+factory.\+cpp}}.
+
+\Hypertarget{namespaceteqp_1_1cppinterface_af204b0796feb1504c577749f82e496a2}\label{namespaceteqp_1_1cppinterface_af204b0796feb1504c577749f82e496a2} 
+\index{teqp::cppinterface@{teqp::cppinterface}!get\_model\_schema@{get\_model\_schema}}
+\index{get\_model\_schema@{get\_model\_schema}!teqp::cppinterface@{teqp::cppinterface}}
+\doxysubsubsection{\texorpdfstring{get\_model\_schema()}{get\_model\_schema()}}
+{\footnotesize\ttfamily nlohmann\+::json teqp\+::cppinterface\+::get\+\_\+model\+\_\+schema (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{kind }\end{DoxyParamCaption})}
+
+
+
+Return the schema for the given model kind. 
+
+
+
+Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{teqp__impl__factory_8cpp_source}{teqp\+\_\+impl\+\_\+factory.\+cpp}}.
+
+\Hypertarget{namespaceteqp_1_1cppinterface_a0e731ebdf104bc67dc7832e33a523d4f}\label{namespaceteqp_1_1cppinterface_a0e731ebdf104bc67dc7832e33a523d4f} 
+\index{teqp::cppinterface@{teqp::cppinterface}!make\_model@{make\_model}}
+\index{make\_model@{make\_model}!teqp::cppinterface@{teqp::cppinterface}}
+\doxysubsubsection{\texorpdfstring{make\_model()}{make\_model()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} $>$ teqp\+::cppinterface\+::make\+\_\+model (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j,  }\item[{bool}]{validate = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00089}{89}} of file \mbox{\hyperlink{teqp__impl__factory_8cpp_source}{teqp\+\_\+impl\+\_\+factory.\+cpp}}.
+
+\Hypertarget{namespaceteqp_1_1cppinterface_a667d9cdc8dabc48e3280d8b481e60ee3}\label{namespaceteqp_1_1cppinterface_a667d9cdc8dabc48e3280d8b481e60ee3} 
+\index{teqp::cppinterface@{teqp::cppinterface}!make\_multifluid\_model@{make\_multifluid\_model}}
+\index{make\_multifluid\_model@{make\_multifluid\_model}!teqp::cppinterface@{teqp::cppinterface}}
+\doxysubsubsection{\texorpdfstring{make\_multifluid\_model()}{make\_multifluid\_model()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} $>$ teqp\+::cppinterface\+::make\+\_\+multifluid\+\_\+model (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{components,  }\item[{const std\+::string \&}]{coolprop\+\_\+root,  }\item[{const std\+::string \&}]{BIPcollectionpath = {\ttfamily \{\}},  }\item[{const nlohmann\+::json \&}]{flags = {\ttfamily \{\}},  }\item[{const std\+::string \&}]{departurepath = {\ttfamily \{\}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{teqp__impl__factory_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{teqp__impl__factory_8cpp_source}{teqp\+\_\+impl\+\_\+factory.\+cpp}}.
+
+\Hypertarget{namespaceteqp_1_1cppinterface_a432d204a25bfde3ea0cfc27bf3007526}\label{namespaceteqp_1_1cppinterface_a432d204a25bfde3ea0cfc27bf3007526} 
+\index{teqp::cppinterface@{teqp::cppinterface}!make\_SAFTVRMie@{make\_SAFTVRMie}}
+\index{make\_SAFTVRMie@{make\_SAFTVRMie}!teqp::cppinterface@{teqp::cppinterface}}
+\doxysubsubsection{\texorpdfstring{make\_SAFTVRMie()}{make\_SAFTVRMie()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ teqp\+::cppinterface\+::make\+\_\+\+SAFTVRMie (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{model__factories_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{model__factories_8cpp_source}{model\+\_\+factories.\+cpp}}.
+

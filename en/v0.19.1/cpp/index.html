@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C++ interface &#8212; teqp 0.19.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Derivatives" href="../derivs/index.html" />
+    <link rel="prev" title="Getting Started" href="../getting_started/index.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="c-interface">
+<h1>C++ interface<a class="headerlink" href="#c-interface" title="Link to this heading">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>The abstract base class defining the public C++ interface of teqp is documented in <a class="reference external" href="../_static/doxygen/html/classteqp_1_1cppinterface_1_1AbstractModel.html">AbstractModel</a>.  This interface was developed because re-compilation of the core of <code class="docutils literal notranslate"><span class="pre">teqp</span></code> is VERY slow, due to the heavy use of templates, which makes the code very flexible, but difficult to work with when doing development. Especially users that would like to only <em>use</em> the library but not be forced to pay the price of recompilation benefit from this approach.</p>
+<p>As a user, a new model instance (a std::unique_ptr&lt;teqp::AbstactModel*&gt;) can be created by passing properly formatted JSON data structure to the <a class="reference external" href="../_static/doxygen/html/namespaceteqp_1_1cppinterface.html#a0e731ebdf104bc67dc7832e33a523d4f">make_model()</a> function.</p>
+</section>
+<section id="object-model">
+<h2>Object Model<a class="headerlink" href="#object-model" title="Link to this heading">¶</a></h2>
+<p>The object model in teqp is convoluted because of the requirements to have models that use templated types to allow the use of automatic differentiation types. Instances of classes with templated methods cannot be stored directly in generic STL containers like <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> or <code class="docutils literal notranslate"><span class="pre">std::list</span></code> (though they can be stored in <code class="docutils literal notranslate"><span class="pre">std::tuple</span></code>, but <code class="docutils literal notranslate"><span class="pre">tuple</span></code> cannot be constructed at runtime because they have complete type knowledge and C++ is strongly typed). Thus, some sort of wrapping is required (in C++ the technical term is type erasure) to store objects of a homogenous interface in dynamic containers like <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>.</p>
+<p>A number of type-erasure classes are defined, especially the <a class="reference external" href="../_static/doxygen/html/classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter.html">DerivativeAdapter</a> class which does type erasure on a model that it holds. This <a class="reference external" href="../_static/doxygen/html/classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter.html">DerivativeAdapter</a> class has an interface that takes STL types (and Eigen arrays in some cases) as input arguments, and then calls lower-level methods that can operate with a range of different numerical types, and call the templated methods of a model.</p>
+<p>As a developer/implementer of a thermodynamic model, the class implementing the thermodynamic model for a contribution to <span class="math notranslate nohighlight">\(\alpha\)</span> must satisfy the following requirements:</p>
+<ul class="simple">
+<li><p>It must have a method called <code class="docutils literal notranslate"><span class="pre">alphar</span></code> that takes three arguments that are all generic types. The first argument is the temperature, the second argument is the molar density, and the third is the mole fractions. In the case of some equations of state for model potentials, the temperature and density are treated as being in reduced units. The function should be called <code class="docutils literal notranslate"><span class="pre">alphar</span></code> even for Helmholtz energy contributions that are for ideal gases. You can think of the <code class="docutils literal notranslate"><span class="pre">r</span></code> in <code class="docutils literal notranslate"><span class="pre">alphar</span></code> standing for <code class="docutils literal notranslate"><span class="pre">reduced</span></code> instead of <code class="docutils literal notranslate"><span class="pre">residual</span></code> if that helps.</p></li>
+<li><p>It must have a method called <code class="docutils literal notranslate"><span class="pre">R</span></code> that takes a single argument that is the mole fractions of the components. It then returns the molar gas constant of the mixture. For most models it suffices to return 8.31446261815324, which is <a class="reference external" href="https://en.wikipedia.org/wiki/Gas_constant">the CODATA value of the molar gas constant</a> , and is available in the <a class="reference external" href="../_static/doxygen/html/namespaceteqp_1_1constants.html">teqp::constants</a> namespace.  The reason the <code class="docutils literal notranslate"><span class="pre">R</span></code> method must be implemented is the multiparameter models in which the molar gas constant of diffent components is slightly different based upon when the EOS was published. Also, some of the other models used different values of R (or Avogadro’s constant) when being developed and if you want to get perfect reproducibility these details matter.</p></li>
+</ul>
+<p>This model instance is then passed to one of two methods in the <a class="reference external" href="../_static/doxygen/html/namespaceteqp_1_1cppinterface_1_1adapter.html">teqp::cppinterface::adapter</a> namespace: <a class="reference external" href="../_static/doxygen/html/namespaceteqp_1_1cppinterface_1_1adapter.html#a8815be35c71d998189588fefb08f3032">teqp::cppinterface::adapter::make_owned()</a> or <a class="reference external" href="../_static/doxygen/html/namespaceteqp_1_1cppinterface_1_1adapter.html#a2547bd09dd15d77df96d24ffe436dd91">teqp::cppinterface::adapter::make_cview()</a>. As the name suggests, if you pass the class instance to the <code class="docutils literal notranslate"><span class="pre">make_owned</span></code> function, it takes ownership of the model and the argument passed to the function is invalidated. On the contrary, the <code class="docutils literal notranslate"><span class="pre">make_cview</span></code> method is just a “viewer” of the model without taking ownership, so you need to watch out that the lifetime of the model you pass to this function is longer than the time you are using the wrapper model.</p>
+<p>For instance this minimal working model of the van der Waals EOS demonstrates some of the things to be aware of:</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">/// A (very) simple implementation of the van der Waals EOS</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">myvdWEOS1</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="n">myvdWEOS1</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="w">    </span><span class="c1">/// \brief Get the universal gas constant</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">VecType</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">R</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">VecType</span><span class="o">&amp;</span><span class="w"> </span><span class="cm">/*molefrac*/</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">constants</span><span class="o">::</span><span class="n">R_CODATA2017</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">/// The evaluation of \f$ \alpha^{\rm r}=a/(RT) \f$</span>
+<span class="w">    </span><span class="c1">/// \param T The temperature</span>
+<span class="w">    </span><span class="c1">/// \param rhotot The molar density</span>
+<span class="w">    </span><span class="c1">/// \param molefrac The mole fractions of each component</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">TType</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">RhoType</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">VecType</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">alphar</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TType</span><span class="w"> </span><span class="o">&amp;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">RhoType</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhotot</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VecType</span><span class="w"> </span><span class="o">&amp;</span><span class="n">molefrac</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">teqp</span><span class="o">::</span><span class="n">forceeval</span><span class="p">(</span><span class="o">-</span><span class="n">log</span><span class="p">(</span><span class="mf">1.0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhotot</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">molefrac</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhotot</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>The name of the class is entirely arbitrary, you could call it just as well <code class="docutils literal notranslate"><span class="pre">GreatVdWModel</span></code> instead of <code class="docutils literal notranslate"><span class="pre">myvdWEOS1</span></code>.</p>
+<p>A complete example could then read:</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;catch2/catch_test_macros.hpp&gt;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;teqp/cpp/teqpcpp.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;teqp/cpp/deriv_adapter.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;teqp/types.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;teqp/constants.hpp&quot;</span>
+
+<span class="c1">/// A (very) simple implementation of the van der Waals EOS</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">myvdWEOS1</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="n">myvdWEOS1</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="w">    </span><span class="c1">/// \brief Get the universal gas constant</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">VecType</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">R</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">VecType</span><span class="o">&amp;</span><span class="w"> </span><span class="cm">/*molefrac*/</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">constants</span><span class="o">::</span><span class="n">R_CODATA2017</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">/// The evaluation of \f$ \alpha^{\rm r}=a/(RT) \f$</span>
+<span class="w">    </span><span class="c1">/// \param T The temperature</span>
+<span class="w">    </span><span class="c1">/// \param rhotot The molar density</span>
+<span class="w">    </span><span class="c1">/// \param molefrac The mole fractions of each component</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">TType</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">RhoType</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">VecType</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">alphar</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TType</span><span class="w"> </span><span class="o">&amp;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">RhoType</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhotot</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VecType</span><span class="w"> </span><span class="o">&amp;</span><span class="n">molefrac</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">teqp</span><span class="o">::</span><span class="n">forceeval</span><span class="p">(</span><span class="o">-</span><span class="n">log</span><span class="p">(</span><span class="mf">1.0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhotot</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">molefrac</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhotot</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">TEST_CASE</span><span class="p">(</span><span class="s">&quot;Check adding a model at runtime&quot;</span><span class="p">){</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">teqp</span><span class="o">::</span><span class="nn">cppinterface</span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">teqp</span><span class="o">::</span><span class="nn">cppinterface</span><span class="o">::</span><span class="nn">adapter</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">R</span><span class="s">&quot;</span><span class="dl">(</span>
+<span class="s">    {&quot;kind&quot;: &quot;myvdW&quot;, &quot;model&quot;: {&quot;a&quot;: 1.2, &quot;b&quot;: 3.4}}</span>
+<span class="s">    </span><span class="dl">)</span><span class="s">&quot;</span><span class="n">_json</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">ModelPointerFactoryFunction</span><span class="w"> </span><span class="n">func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="n">nlohmann</span><span class="o">::</span><span class="n">json</span><span class="o">&amp;</span><span class="w"> </span><span class="n">j</span><span class="p">){</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">make_owned</span><span class="p">(</span><span class="n">myvdWEOS1</span><span class="p">(</span><span class="n">j</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">j</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">)));</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="n">add_model_pointer_factory_function</span><span class="p">(</span><span class="s">&quot;myvdW&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">func</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_model</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this runnable example (runnable once the include paths are correct and the code is linked against the <code class="docutils literal notranslate"><span class="pre">teqpcpp</span></code> C++ library), a new factory function is registered with the <a class="reference external" href="../_static/doxygen/html/namespaceteqp_1_1cppinterface.html#a99c55e372f03fbc42f067db77bac520a">add_model_pointer_factory_function()</a> function and then this function is used to generate a <code class="docutils literal notranslate"><span class="pre">std::unique_ptr&lt;AbstractModel*&gt;</span></code>. Once the model has been created, it is possible to cast it back to the original type, but you must know the type of the class that you are holding (at compile time). The <a class="reference external" href="../_static/doxygen/html/namespaceteqp_1_1cppinterface_1_1adapter.html#af51f148c792bf18aeb0d8c1324b98a40">teqp::cppinterface::adapter::get_model_cref()</a> is a convenience function to do this casting.</p>
+</section>
+<section id="c-details">
+<h2>C++ Details<a class="headerlink" href="#c-details" title="Link to this heading">¶</a></h2>
+<section id="don-t-return-expressions">
+<h3>Don’t return expressions<a class="headerlink" href="#don-t-return-expressions" title="Link to this heading">¶</a></h3>
+<p>The most important thing to be sure of when developing models in teqp is that you do not return expressions from functions. For instance in the simple function:</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">T2</span><span class="o">&gt;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">alphar</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T1</span><span class="w"> </span><span class="o">&amp;</span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T2</span><span class="o">&amp;</span><span class="w"> </span><span class="n">v2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>if the types of <code class="docutils literal notranslate"><span class="pre">T1</span></code> and <code class="docutils literal notranslate"><span class="pre">T2</span></code> are both <code class="docutils literal notranslate"><span class="pre">autodiff::real</span></code> (the same problem occurs for other autodiff types), the value of <code class="docutils literal notranslate"><span class="pre">v1</span> <span class="pre">+</span> <span class="pre">v2</span></code> is an expression type that is lazily evaluated, and the expression holds references to the actual values of the variables <code class="docutils literal notranslate"><span class="pre">v1</span></code> and <code class="docutils literal notranslate"><span class="pre">v2</span></code>. This lazy evaluation is how autodiff can be so fast. Once the expression is returned from this function, the variables that it was pointing to are no longer valid because they have fallen out of scope and you can silently be pointing to invalid memory locations.</p>
+<p>In order to avoid this problem you can use the function <code class="docutils literal notranslate"><span class="pre">teqp::forceeval</span></code> to force the evaluation of the expression, copying all the variables into the expression, and removing the possibility of dangling references after the function returns.</p>
+<p>One way to ensure that you are not running into this problem is to enable the Address Sanitizer option “Detect Use of stack after return” in XCode (its in the Diagnostic panel of the “Edit Scheme…” option). Other address sanitizer tools have similar functionality.</p>
+</section>
+<section id="generic-return-types">
+<h3>Generic return types<a class="headerlink" href="#generic-return-types" title="Link to this heading">¶</a></h3>
+<p>Taking the example shown above, in the function <code class="docutils literal notranslate"><span class="pre">alphar</span></code> all the arguments have templated type. Sometimes you will need to make use of one or more of the types in intermediate calculations within the function, and you might need to determine the type of an expression to for instance allocate a vector of this type. As an example, let’s say that we are going to multiply three different variables together. In the <code class="docutils literal notranslate"><span class="pre">alphar</span></code> context, let’s assume that <code class="docutils literal notranslate"><span class="pre">T</span></code> is of type double, <code class="docutils literal notranslate"><span class="pre">rhomolar</span></code> is of type <code class="docutils literal notranslate"><span class="pre">std::complex&lt;double&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">molefracs</span></code> is of type <code class="docutils literal notranslate"><span class="pre">Eigen::ArrayXcd</span></code>. In the case of the expression <code class="docutils literal notranslate"><span class="pre">T*rhomolar*molefracs[0]</span></code>, the result will be calculated based on the type promotion to a <code class="docutils literal notranslate"><span class="pre">std::complex&lt;double&gt;</span></code>, so the result type of this product is <code class="docutils literal notranslate"><span class="pre">std::complex&lt;double&gt;</span></code>. If you want to let the compiler determine this type for you, you can do:</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">resulttype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">common_type_t</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">molefracs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>and if you need want to work with the types of the variables, usually because you need to cover all your bases for all the templat permutations, you can do instead</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">resulttype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">common_type_t</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">T</span><span class="p">),</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">rhomolar</span><span class="p">),</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">molefracs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">resulttype</span><span class="o">&gt;</span><span class="w"> </span><span class="n">buffer</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>and if you need to remove the <code class="docutils literal notranslate"><span class="pre">const</span></code> of your variable types, you can do with <code class="docutils literal notranslate"><span class="pre">std::decay_t&lt;</span> <span class="pre">&gt;</span></code>.</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">C++ interface</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#object-model">Object Model</a></li>
+<li><a class="reference internal" href="#c-details">C++ Details</a><ul>
+<li><a class="reference internal" href="#don-t-return-expressions">Don’t return expressions</a></li>
+<li><a class="reference internal" href="#generic-return-types">Generic return types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../getting_started/index.html" title="previous chapter">Getting Started</a></li>
+      <li>Next: <a href="../derivs/index.html" title="next chapter">Derivatives</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/cpp/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/cpp/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

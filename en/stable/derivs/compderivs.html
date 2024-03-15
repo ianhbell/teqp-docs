@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Composition derivatives &#8212; teqp 0.19.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Models" href="../models/index.html" />
+    <link rel="prev" title="Thermodynamic Derivatives" href="derivs.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="Composition-derivatives">
+<h1>Composition derivatives<a class="headerlink" href="#Composition-derivatives" title="Link to this heading">¶</a></h1>
+<p>For other mixture calculations composition derivatives of the form</p>
+<div class="math notranslate nohighlight">
+\[\Lambda^r_{xyz_i} = (1/T)^x(\rho)^y\left(\frac{\partial^{x+y+z_i}(\alpha^r)}{\partial (1/T)^x\partial \rho^y \partial \mathbf{Z}_i^{z_i}}   \right)\]</div>
+<p>are needed. This function is exposed in teqp (as of version 0.19) as the function <code class="docutils literal notranslate"><span class="pre">get_ATrhoXi</span></code>. In order to limit the binary size and compilation time, x has a max of 2 and y does as well. <code class="docutils literal notranslate"><span class="pre">z_i</span></code> can be up to 3, and must be at least 1, otherwise you can use the other derivative functions that do not require any composition derivatives.</p>
+<p>The mixed composition derivative of the form</p>
+<div class="math notranslate nohighlight">
+\[\Lambda^r_{xyz_i z_j } = (1/T)^x(\rho)^y\left(\frac{\partial^{x+y+z_i+z_j}(\alpha^r)}{\partial (1/T)^x\partial \rho^y \partial \mathbf{Z}_i^{z_i} \partial \mathbf{Z}_j^{z_j}  }\right)\]</div>
+<p>supports <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> either 0 or 1, with at most two composition derivatives. The triple composition derivative of the form</p>
+<div class="math notranslate nohighlight">
+\[\Lambda^r_{xyz_i z_j z_k} = (1/T)^x(\rho)^y\left(\frac{\partial^{x+y+z_i+z_j+z_k}(\alpha^r)}{\partial (1/T)^x\partial \rho^y \partial \mathbf{Z}_i^{z_i} \partial \mathbf{Z}_j^{z_j} \partial \mathbf{Z}_k^{z_k}   }\right)\]</div>
+<p>supports <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> either 0 or 1, with up to first derivatives in each composition variable. If this is not enough derivatives, open a feature request here : <a class="reference external" href="https://github.com/usnistgov/teqp/issues">https://github.com/usnistgov/teqp/issues</a></p>
+<section id="\tau-and-\delta-derivatives">
+<h2><span class="math notranslate nohighlight">\(\tau\)</span> and <span class="math notranslate nohighlight">\(\delta\)</span> derivatives<a class="headerlink" href="#\tau-and-\delta-derivatives" title="Link to this heading">¶</a></h2>
+<p>In the multi-fluid modeling approach used in NIST REFPROP and the GERG-2004 GERG-2008 models, the derivatives are in the form</p>
+<div class="math notranslate nohighlight">
+\[\Lambda^r_{xyz_i} = \tau^x\delta^y\left(\frac{\partial^{x+y+z_i}(\alpha^r)}{\partial \tau^x\partial \delta^y \partial \mathbf{Z}_i^{z_i}}   \right)\]</div>
+<p>with <span class="math notranslate nohighlight">\(\tau=T_{\rm red}(\mathbf{Z})/T\)</span> and <span class="math notranslate nohighlight">\(\delta=\rho/\rho_{\rm red}(\mathbf{Z})\)</span>. The higher derivatives are similarly equal to</p>
+<div class="math notranslate nohighlight">
+\[\Lambda^r_{xyz_i z_j } = \tau^x\delta^y\left(\frac{\partial^{x+y+z_i+z_j}(\alpha^r)}{\partial \tau^x\partial \delta^y \partial \mathbf{Z}_i^{z_i} \partial \mathbf{Z}_j^{z_j}  }\right)\]</div>
+<div class="math notranslate nohighlight">
+\[\Lambda^r_{xyz_i z_j z_k} = \tau^x\delta^y\left(\frac{\partial^{x+y+z_i+z_j+z_k}(\alpha^r)}{\partial \tau^x\partial \delta^y \partial \mathbf{Z}_i^{z_i} \partial \mathbf{Z}_j^{z_j} \partial \mathbf{Z}_k^{z_k}   }\right)\]</div>
+<p>The same limitations on the numbers of derivatives are used for the derivatives with <span class="math notranslate nohighlight">\((1/T)\)</span> and <span class="math notranslate nohighlight">\(\rho\)</span> as independent variables.</p>
+<p>The Python methods are documented here:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../api/teqp.html#teqp.teqp.AbstractModel.get_ATrhoXi" title="teqp.teqp.AbstractModel.get_ATrhoXi"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_ATrhoXi()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/teqp.html#teqp.teqp.AbstractModel.get_ATrhoXiXj" title="teqp.teqp.AbstractModel.get_ATrhoXiXj"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_ATrhoXiXj()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/teqp.html#teqp.teqp.AbstractModel.get_ATrhoXiXjXk" title="teqp.teqp.AbstractModel.get_ATrhoXiXjXk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_ATrhoXiXjXk()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/teqp.html#teqp.teqp.AbstractModel.get_AtaudeltaXi" title="teqp.teqp.AbstractModel.get_AtaudeltaXi"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_AtaudeltaXi()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/teqp.html#teqp.teqp.AbstractModel.get_AtaudeltaXiXj" title="teqp.teqp.AbstractModel.get_AtaudeltaXiXj"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_AtaudeltaXiXj()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/teqp.html#teqp.teqp.AbstractModel.get_AtaudeltaXiXjXk" title="teqp.teqp.AbstractModel.get_AtaudeltaXiXjXk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_AtaudeltaXiXjXk()</span></code></a></p></li>
+</ul>
+</section>
+<section id="xN-(in)dependent">
+<h2>xN (in)dependent<a class="headerlink" href="#xN-(in)dependent" title="Link to this heading">¶</a></h2>
+<p>Let’s suppose that some quantity <span class="math notranslate nohighlight">\(\Upsilon\)</span> depends on mole fractions. If all the mole fractions are considered to be independent, the total differential is obtained from <span class="math notranslate nohighlight">\(\renewcommand{\deriv}[3]{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}\)</span></p>
+<div class="math notranslate nohighlight">
+\[{\rm d} \Upsilon = \sum_j\deriv{\Upsilon}{x_j}{x_{i\neq j}} {\rm d}x_j\]</div>
+<p>If instead the last mole fraction is defined to be dependent on the others via</p>
+<div class="math notranslate nohighlight">
+\[x_N = 1-\sum_{i=1}^{N-1}x_i\]</div>
+<p>then the total differential is obtained from</p>
+<div class="math notranslate nohighlight">
+\[{\rm d} \Upsilon = \sum_{j=1}^{N-1}\deriv{\Upsilon}{x_j}{x_{i\neq j}} {\rm d}x_j + \deriv{\Upsilon}{x_N}{x_{i\neq j}} {\rm d}{x_N}\]</div>
+<p>where <span class="math notranslate nohighlight">\(x_N\)</span> is considered to be an independent variable in the derivative <span class="math notranslate nohighlight">\(\deriv{\Upsilon}{x_N}{x_{i\neq j}}\)</span>. Thus derivatives with respect to one of the dependent mole fractions (<span class="math notranslate nohighlight">\(x_k\)</span> with <span class="math notranslate nohighlight">\(k &lt; N\)</span>) would be equal to</p>
+<div class="math notranslate nohighlight">
+\[\deriv{\Upsilon}{x_k}{x_{j\neq k}} =\deriv{\Upsilon}{x_k}{x_{i\neq k}} - \deriv{\Upsilon}{x_N}{x_{i\neq N}}\]</div>
+<p>because</p>
+<div class="math notranslate nohighlight">
+\[\deriv{x_N}{x_i}{} = -1\]</div>
+<p>So if the library (e.g., CoolProp and TREND) allows for the fractions to be dependent (either option is allowed in CoolProp, TREND uses N-1 independent mole fractions), you can use the molar composition derivatives with the mole fractions treated as being independent to obtain derivatives with one of the mole fractions dependent on the other <span class="math notranslate nohighlight">\(N-1\)</span> fractions.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">teqp</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">teqp</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.19.1&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;components&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Methane&quot;</span><span class="p">,</span> <span class="s2">&quot;Nitrogen&quot;</span><span class="p">,</span> <span class="s2">&quot;Oxygen&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="n">teqp</span><span class="o">.</span><span class="n">get_datapath</span><span class="p">(),</span>
+    <span class="s1">&#39;BIP&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;departure&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span>
+<span class="p">}</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span><span class="s1">&#39;kind&#39;</span><span class="p">:</span><span class="s1">&#39;multifluid&#39;</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="n">j</span><span class="p">})</span>
+
+
+<span class="n">T</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1"># K</span>
+<span class="n">rhomolar</span> <span class="o">=</span> <span class="mi">3000</span> <span class="c1"># mol/m^3</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span> <span class="c1"># mole fractions</span>
+
+<span class="n">Tr</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_Tr</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="n">rhor</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_rhor</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="n">Tr</span><span class="o">/</span><span class="n">T</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="n">rhomolar</span><span class="o">/</span><span class="n">rhor</span>
+
+<span class="n">Ntau</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Ndelta</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Nxi</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_AtaudeltaXi</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">Ntau</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">Ndelta</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Nxi</span><span class="p">))</span>
+
+<span class="n">Ntau</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Ndelta</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Nxi</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_AtaudeltaXi</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">Ntau</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">Ndelta</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Nxi</span><span class="p">))</span>
+
+<span class="n">Ntau</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Ndelta</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Nxi</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_AtaudeltaXi</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">Ntau</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">Ndelta</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Nxi</span><span class="p">))</span>
+
+<span class="n">Ntau</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Ndelta</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Nxi</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_AtaudeltaXi</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">Ntau</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">Ndelta</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Nxi</span><span class="p">))</span>
+
+<span class="n">Ntau</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Ndelta</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Nxi</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_AtaudeltaXi</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">Ntau</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">Ndelta</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Nxi</span><span class="p">))</span>
+
+<span class="n">Ntau</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Ndelta</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Nxi</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_AtaudeltaXi</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">Ntau</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">Ndelta</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Nxi</span><span class="p">))</span>
+
+<span class="n">Ntau</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Ndelta</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Nxi</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Nxj</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_AtaudeltaXiXj</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">Ntau</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">Ndelta</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Nxi</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Nxj</span><span class="p">))</span>
+
+<span class="n">Ntau</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Ndelta</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Nxi</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Nxj</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_AtaudeltaXiXj</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">Ntau</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">Ndelta</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Nxi</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Nxj</span><span class="p">))</span>
+
+<span class="n">Ntau</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Ndelta</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Nxi</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Nxj</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Nxk</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_AtaudeltaXiXjXk</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">Ntau</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">Ndelta</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Nxi</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Nxj</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">Nxk</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-0.043587384253511226
+-0.2118857998812584
+-0.03650566667904927
+-0.07488856488580686
+-0.2069389009652925
+0.014468933385218782
+-0.005978809921279949
+-0.00279185550001082
+0.0
+</pre></div></div>
+</div>
+<p>With CoolProp, version 6.6.0, the following script in C++:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;AbstractState.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Backends/Helmholtz/MixtureDerivatives.h&quot;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">CoolProp</span><span class="o">::</span><span class="n">AbstractState</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AS</span><span class="p">(</span>
+<span class="w">        </span><span class="n">CoolProp</span><span class="o">::</span><span class="n">AbstractState</span><span class="o">::</span><span class="n">factory</span><span class="p">(</span><span class="s">&quot;HEOS&quot;</span><span class="p">,</span><span class="s">&quot;Methane&amp;Nitrogen&amp;Oxygen&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="n">AS</span><span class="o">-&gt;</span><span class="n">set_mole_fractions</span><span class="p">({</span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">});</span>
+<span class="w">    </span><span class="n">AS</span><span class="o">-&gt;</span><span class="n">specify_phase</span><span class="p">(</span><span class="n">CoolProp</span><span class="o">::</span><span class="n">iphase_gas</span><span class="p">);</span>
+<span class="w">    </span><span class="n">AS</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(</span><span class="n">CoolProp</span><span class="o">::</span><span class="n">DmolarT_INPUTS</span><span class="p">,</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">);</span>
+<span class="w">    </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">HEOS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">CoolProp</span><span class="o">::</span><span class="n">HelmholtzEOSMixtureBackend</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">AS</span><span class="p">.</span><span class="n">get</span><span class="p">());</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">xN</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">CoolProp</span><span class="o">::</span><span class="n">x_N_dependency_flag</span><span class="o">::</span><span class="n">XN_INDEPENDENT</span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">md</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CoolProp</span><span class="o">::</span><span class="n">MixtureDerivatives</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">md</span><span class="o">::</span><span class="n">dalphar_dxi</span><span class="p">(</span><span class="n">HEOS</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">xN</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">md</span><span class="o">::</span><span class="n">d2alphar_dxi_dTau</span><span class="p">(</span><span class="n">HEOS</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">xN</span><span class="p">)</span><span class="o">*</span><span class="n">AS</span><span class="o">-&gt;</span><span class="n">tau</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">md</span><span class="o">::</span><span class="n">d2alphar_dxi_dDelta</span><span class="p">(</span><span class="n">HEOS</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">xN</span><span class="p">)</span><span class="o">*</span><span class="n">AS</span><span class="o">-&gt;</span><span class="n">delta</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">md</span><span class="o">::</span><span class="n">d3alphar_dxi_dTau2</span><span class="p">(</span><span class="n">HEOS</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">xN</span><span class="p">)</span><span class="o">*</span><span class="n">pow</span><span class="p">(</span><span class="n">AS</span><span class="o">-&gt;</span><span class="n">tau</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">md</span><span class="o">::</span><span class="n">d3alphar_dxi_dDelta_dTau</span><span class="p">(</span><span class="n">HEOS</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">xN</span><span class="p">)</span><span class="o">*</span><span class="n">AS</span><span class="o">-&gt;</span><span class="n">tau</span><span class="p">()</span><span class="o">*</span><span class="n">AS</span><span class="o">-&gt;</span><span class="n">delta</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">md</span><span class="o">::</span><span class="n">d3alphar_dxi_dDelta2</span><span class="p">(</span><span class="n">HEOS</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">xN</span><span class="p">)</span><span class="o">*</span><span class="n">pow</span><span class="p">(</span><span class="n">AS</span><span class="o">-&gt;</span><span class="n">delta</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">md</span><span class="o">::</span><span class="n">d3alphar_dxi_dxj_dTau</span><span class="p">(</span><span class="n">HEOS</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">xN</span><span class="p">)</span><span class="o">*</span><span class="n">AS</span><span class="o">-&gt;</span><span class="n">tau</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">md</span><span class="o">::</span><span class="n">d3alphar_dxi_dxj_dDelta</span><span class="p">(</span><span class="n">HEOS</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">xN</span><span class="p">)</span><span class="o">*</span><span class="n">AS</span><span class="o">-&gt;</span><span class="n">delta</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">md</span><span class="o">::</span><span class="n">d3alphardxidxjdxk</span><span class="p">(</span><span class="n">HEOS</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">xN</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>yields the output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-0.0435874
+-0.211886
+-0.0365057
+-0.0748886
+-0.206939
+0.0144689
+-0.00597881
+-0.00279186
+0
+</pre></div>
+</div>
+<p>which is the same as the above</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Composition derivatives</a><ul>
+<li><a class="reference internal" href="#\tau-and-\delta-derivatives"><span class="math notranslate nohighlight">\(\tau\)</span> and <span class="math notranslate nohighlight">\(\delta\)</span> derivatives</a></li>
+<li><a class="reference internal" href="#xN-(in)dependent">xN (in)dependent</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Derivatives</a><ul>
+      <li>Previous: <a href="derivs.html" title="previous chapter">Thermodynamic Derivatives</a></li>
+      <li>Next: <a href="../models/index.html" title="next chapter">Models</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/derivs/compderivs.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/derivs/compderivs.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

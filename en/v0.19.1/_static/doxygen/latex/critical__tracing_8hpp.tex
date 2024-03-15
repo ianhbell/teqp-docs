@@ -1,0 +1,76 @@
+\doxysection{include/teqp/algorithms/critical\+\_\+tracing.hpp File Reference}
+\hypertarget{critical__tracing_8hpp}{}\label{critical__tracing_8hpp}\index{include/teqp/algorithms/critical\_tracing.hpp@{include/teqp/algorithms/critical\_tracing.hpp}}
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include "{}nlohmann/json.\+hpp"{}}\newline
+{\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
+{\ttfamily \#include "{}teqp/algorithms/rootfinding.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/algorithms/critical\+\_\+pure.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/algorithms/critical\+\_\+tracing\+\_\+types.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/exceptions.\+hpp"{}}\newline
+{\ttfamily \#include $<$boost/numeric/odeint/stepper/controlled\+\_\+runge\+\_\+kutta.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/numeric/odeint/stepper/runge\+\_\+kutta\+\_\+cash\+\_\+karp54.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/numeric/odeint/stepper/euler.\+hpp$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1CriticalTracing}{teqp\+::\+Critical\+Tracing$<$ Model, Scalar, Vec\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1CriticalTracing_1_1psi1derivs}{teqp\+::\+Critical\+Tracing$<$ Model, Scalar, Vec\+Type $>$\+::psi1derivs}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{critical__tracing_8hpp_a0889efeda2e18e401308a9382e534d69}{CRIT\+\_\+\+FUNCTIONS\+\_\+\+TO\+\_\+\+WRAP}}
+\item 
+\#define \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(f)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{critical__tracing_8hpp_a0889efeda2e18e401308a9382e534d69}\label{critical__tracing_8hpp_a0889efeda2e18e401308a9382e534d69} 
+\index{critical\_tracing.hpp@{critical\_tracing.hpp}!CRIT\_FUNCTIONS\_TO\_WRAP@{CRIT\_FUNCTIONS\_TO\_WRAP}}
+\index{CRIT\_FUNCTIONS\_TO\_WRAP@{CRIT\_FUNCTIONS\_TO\_WRAP}!critical\_tracing.hpp@{critical\_tracing.hpp}}
+\doxysubsubsection{\texorpdfstring{CRIT\_FUNCTIONS\_TO\_WRAP}{CRIT\_FUNCTIONS\_TO\_WRAP}}
+{\footnotesize\ttfamily \#define CRIT\+\_\+\+FUNCTIONS\+\_\+\+TO\+\_\+\+WRAP}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(get\_dp\_dT\_crit)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(trace\_critical\_arclength\_binary)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(critical\_polish\_fixedmolefrac)\ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(get\_drhovec\_dT\_crit)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(get\_derivs)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(eigen\_problem)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00753}{753}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+
+\Hypertarget{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f} 
+\index{critical\_tracing.hpp@{critical\_tracing.hpp}!X@{X}}
+\index{X@{X}!critical\_tracing.hpp@{critical\_tracing.hpp}}
+\doxysubsubsection{\texorpdfstring{X}{X}}
+{\footnotesize\ttfamily \#define X(\begin{DoxyParamCaption}\item[{}]{f }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TemplatedModel,\ \textcolor{keyword}{typename}\ ...Params,\ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<not\ std::is\_base\_of<teqp::cppinterface::AbstractModel,\ TemplatedModel>::value>::type>\ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ f(\textcolor{keyword}{const}\ TemplatedModel\&\ model,\ Params\&\&...\ params)\{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a39a57d164c9ab5bc08627135ad8f7930}{view}}\ =\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a2547bd09dd15d77df96d24ffe436dd91}{teqp::cppinterface::adapter::make\_cview}}(model);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{AbstractModel}}\&\ am\ =\ *\mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a39a57d164c9ab5bc08627135ad8f7930}{view}}.get();\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ f(am,\ std::forward<Params>(params)...);\ \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{critical__tracing_8hpp_source_l00761}{761}} of file \mbox{\hyperlink{critical__tracing_8hpp_source}{critical\+\_\+tracing.\+hpp}}.
+

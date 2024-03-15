@@ -1,0 +1,169 @@
+\doxysection{teqp\+::GERGGeneral\+::GERG200\+XReducing Class Reference}
+\hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XReducing}{}\label{classteqp_1_1GERGGeneral_1_1GERG200XReducing}\index{teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}}
+
+
+{\ttfamily \#include $<$GERG.\+hpp$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1GERG200XReducing_1_1Matrices}{Matrices}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1GERG200XReducing_1_1TcVc}{Tc\+Vc}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_ad8ff6693e8367c1373ff78db748b090d}{Get\+Pure\+Info}} = std\+::function$<$\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureInfo}{Pure\+Info}}(const std\+::string\&)$>$
+\item 
+using \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a219dea25812ae9ea44c4f7fb05cb6991}{Get\+Betas\+Gammas}} = std\+::function$<$\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1BetasGammas}{Betas\+Gammas}}(const std\+::string\&,const std\+::string\&)$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a313f7a5b264ae6de68adf2651adc89d8}{GERG200\+XReducing}} (const std\+::vector$<$ std\+::string $>$ \&names, const \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_ad8ff6693e8367c1373ff78db748b090d}{Get\+Pure\+Info}} \&get\+\_\+pure\+\_\+info, const \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a219dea25812ae9ea44c4f7fb05cb6991}{Get\+Betas\+Gammas}} \&get\+\_\+betasgammas)
+\item 
+auto \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a18225e824d0a40e7a368a92ebdc9fa31}{get\+\_\+\+Tcvec}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_af18907648ed26fc14072e5bc5d4e59c3}{get\+\_\+vcvec}} () const
+\item 
+{\footnotesize template$<$typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a76114e71187c8e622b7bfedecb8bb7cb}{Y}} (const Mole\+Fractions \&z, const std\+::vector$<$ double $>$ \&Yc, const Eigen\+::\+Array\+XXd \&beta, const Eigen\+::\+Array\+XXd \&Yij) const
+\item 
+{\footnotesize template$<$typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a5aeaedc2fffe2fd2fa72b317fd19ac6a}{get\+\_\+\+Tr}} (const Mole\+Fractions \&z) const
+\item 
+{\footnotesize template$<$typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a8a966d88d84be44d27471464700d0dc8}{get\+\_\+rhor}} (const Mole\+Fractions \&z) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_ad8ff6693e8367c1373ff78db748b090d}{Get\+Pure\+Info}} \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a13818855a64c8100ddcdc57c6dd76d56}{\+\_\+get\+\_\+pure\+\_\+info}}
+\item 
+\mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a219dea25812ae9ea44c4f7fb05cb6991}{Get\+Betas\+Gammas}} \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a11e5c54eb96d9dced4a345f1c878b75c}{\+\_\+get\+\_\+betasgammas}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00089}{89}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a219dea25812ae9ea44c4f7fb05cb6991}\label{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a219dea25812ae9ea44c4f7fb05cb6991} 
+\index{teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}!GetBetasGammas@{GetBetasGammas}}
+\index{GetBetasGammas@{GetBetasGammas}!teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}}
+\doxysubsubsection{\texorpdfstring{GetBetasGammas}{GetBetasGammas}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a219dea25812ae9ea44c4f7fb05cb6991}{teqp\+::\+GERGGeneral\+::\+GERG200\+XReducing\+::\+Get\+Betas\+Gammas}} = std\+::function$<$\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1BetasGammas}{Betas\+Gammas}}(const std\+::string\&,const std\+::string\&)$>$}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00097}{97}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XReducing_ad8ff6693e8367c1373ff78db748b090d}\label{classteqp_1_1GERGGeneral_1_1GERG200XReducing_ad8ff6693e8367c1373ff78db748b090d} 
+\index{teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}!GetPureInfo@{GetPureInfo}}
+\index{GetPureInfo@{GetPureInfo}!teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}}
+\doxysubsubsection{\texorpdfstring{GetPureInfo}{GetPureInfo}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_ad8ff6693e8367c1373ff78db748b090d}{teqp\+::\+GERGGeneral\+::\+GERG200\+XReducing\+::\+Get\+Pure\+Info}} = std\+::function$<$\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureInfo}{Pure\+Info}}(const std\+::string\&)$>$}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00095}{95}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a313f7a5b264ae6de68adf2651adc89d8}\label{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a313f7a5b264ae6de68adf2651adc89d8} 
+\index{teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}!GERG200XReducing@{GERG200XReducing}}
+\index{GERG200XReducing@{GERG200XReducing}!teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}}
+\doxysubsubsection{\texorpdfstring{GERG200XReducing()}{GERG200XReducing()}}
+{\footnotesize\ttfamily teqp\+::\+GERGGeneral\+::\+GERG200\+XReducing\+::\+GERG200\+XReducing (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{names,  }\item[{const \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_ad8ff6693e8367c1373ff78db748b090d}{Get\+Pure\+Info}} \&}]{get\+\_\+pure\+\_\+info,  }\item[{const \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a219dea25812ae9ea44c4f7fb05cb6991}{Get\+Betas\+Gammas}} \&}]{get\+\_\+betasgammas }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00138}{138}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a8a966d88d84be44d27471464700d0dc8}\label{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a8a966d88d84be44d27471464700d0dc8} 
+\index{teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}!get\_rhor@{get\_rhor}}
+\index{get\_rhor@{get\_rhor}!teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}}
+\doxysubsubsection{\texorpdfstring{get\_rhor()}{get\_rhor()}}
+{\footnotesize\ttfamily template$<$typename Mole\+Fractions $>$ \\
+auto teqp\+::\+GERGGeneral\+::\+GERG200\+XReducing\+::get\+\_\+rhor (\begin{DoxyParamCaption}\item[{const Mole\+Fractions \&}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00167}{167}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a18225e824d0a40e7a368a92ebdc9fa31}\label{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a18225e824d0a40e7a368a92ebdc9fa31} 
+\index{teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}!get\_Tcvec@{get\_Tcvec}}
+\index{get\_Tcvec@{get\_Tcvec}!teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}}
+\doxysubsubsection{\texorpdfstring{get\_Tcvec()}{get\_Tcvec()}}
+{\footnotesize\ttfamily auto teqp\+::\+GERGGeneral\+::\+GERG200\+XReducing\+::get\+\_\+\+Tcvec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00140}{140}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a5aeaedc2fffe2fd2fa72b317fd19ac6a}\label{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a5aeaedc2fffe2fd2fa72b317fd19ac6a} 
+\index{teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}!get\_Tr@{get\_Tr}}
+\index{get\_Tr@{get\_Tr}!teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}}
+\doxysubsubsection{\texorpdfstring{get\_Tr()}{get\_Tr()}}
+{\footnotesize\ttfamily template$<$typename Mole\+Fractions $>$ \\
+auto teqp\+::\+GERGGeneral\+::\+GERG200\+XReducing\+::get\+\_\+\+Tr (\begin{DoxyParamCaption}\item[{const Mole\+Fractions \&}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00162}{162}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XReducing_af18907648ed26fc14072e5bc5d4e59c3}\label{classteqp_1_1GERGGeneral_1_1GERG200XReducing_af18907648ed26fc14072e5bc5d4e59c3} 
+\index{teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}!get\_vcvec@{get\_vcvec}}
+\index{get\_vcvec@{get\_vcvec}!teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}}
+\doxysubsubsection{\texorpdfstring{get\_vcvec()}{get\_vcvec()}}
+{\footnotesize\ttfamily auto teqp\+::\+GERGGeneral\+::\+GERG200\+XReducing\+::get\+\_\+vcvec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00141}{141}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a76114e71187c8e622b7bfedecb8bb7cb}\label{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a76114e71187c8e622b7bfedecb8bb7cb} 
+\index{teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}!Y@{Y}}
+\index{Y@{Y}!teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}}
+\doxysubsubsection{\texorpdfstring{Y()}{Y()}}
+{\footnotesize\ttfamily template$<$typename Mole\+Fractions $>$ \\
+auto teqp\+::\+GERGGeneral\+::\+GERG200\+XReducing\+::Y (\begin{DoxyParamCaption}\item[{const Mole\+Fractions \&}]{z,  }\item[{const std\+::vector$<$ double $>$ \&}]{Yc,  }\item[{const Eigen\+::\+Array\+XXd \&}]{beta,  }\item[{const Eigen\+::\+Array\+XXd \&}]{Yij }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00144}{144}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a11e5c54eb96d9dced4a345f1c878b75c}\label{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a11e5c54eb96d9dced4a345f1c878b75c} 
+\index{teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}!\_get\_betasgammas@{\_get\_betasgammas}}
+\index{\_get\_betasgammas@{\_get\_betasgammas}!teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}}
+\doxysubsubsection{\texorpdfstring{\_get\_betasgammas}{\_get\_betasgammas}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a219dea25812ae9ea44c4f7fb05cb6991}{Get\+Betas\+Gammas}} teqp\+::\+GERGGeneral\+::\+GERG200\+XReducing\+::\+\_\+get\+\_\+betasgammas}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00098}{98}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a13818855a64c8100ddcdc57c6dd76d56}\label{classteqp_1_1GERGGeneral_1_1GERG200XReducing_a13818855a64c8100ddcdc57c6dd76d56} 
+\index{teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}!\_get\_pure\_info@{\_get\_pure\_info}}
+\index{\_get\_pure\_info@{\_get\_pure\_info}!teqp::GERGGeneral::GERG200XReducing@{teqp::GERGGeneral::GERG200XReducing}}
+\doxysubsubsection{\texorpdfstring{\_get\_pure\_info}{\_get\_pure\_info}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XReducing_ad8ff6693e8367c1373ff78db748b090d}{Get\+Pure\+Info}} teqp\+::\+GERGGeneral\+::\+GERG200\+XReducing\+::\+\_\+get\+\_\+pure\+\_\+info}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00096}{96}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\+GERG/\mbox{\hyperlink{GERG_8hpp}{GERG.\+hpp}}\end{DoxyCompactItemize}

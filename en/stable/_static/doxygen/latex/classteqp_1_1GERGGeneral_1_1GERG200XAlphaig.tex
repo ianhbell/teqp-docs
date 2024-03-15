@@ -1,0 +1,197 @@
+\doxysection{teqp\+::GERGGeneral\+::GERG200\+XAlphaig Class Reference}
+\hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig}{}\label{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig}\index{teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}}
+
+
+{\ttfamily \#include $<$GERG.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a402a116d3b805f167ced1a30feabd82f}{Get\+Pure\+Info}} = std\+::function$<$\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureInfo}{Pure\+Info}}(const std\+::string\&)$>$
+\item 
+using \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a8b053994ac2f79187b78c425e1aa8d9f}{Get\+Alphaig\+Coeffs}} = std\+::function$<$\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs}{Alphaig\+Coeffs}}(const std\+::string\&)$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_ad70533268ddf3a6abbb6664cbde43f59}{GERG200\+XAlphaig}} (const std\+::vector$<$ std\+::string $>$ \&names, const \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a402a116d3b805f167ced1a30feabd82f}{Get\+Pure\+Info}} \&get\+\_\+pure\+\_\+info, const \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a8b053994ac2f79187b78c425e1aa8d9f}{Get\+Alphaig\+Coeffs}} \&get\+\_\+alphaig\+\_\+coeffs)
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a0f87e75fb64bb4c6a6051fb261b35f47}{size}} () const
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a7dee6c85f5c45fa375e39d32fd4131ec}{alphaig\+\_\+pure}} (const TType \&T, const Rho\+Type \&rhomolar, const int i) const
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a013289e537dcc0381b051ae89657cb03}{alphaig}} (const TType \&T, const Rho\+Type \&rhomolar, const Mole\+Fractions \&molefracs) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a402a116d3b805f167ced1a30feabd82f}{Get\+Pure\+Info}} \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_aec01c6b8feb70d154085fafd7f1f4820}{\+\_\+get\+\_\+pure\+\_\+info}}
+\item 
+\mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a8b053994ac2f79187b78c425e1aa8d9f}{Get\+Alphaig\+Coeffs}} \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_ae91d6c04f9333af734a90e67c4472404}{\+\_\+get\+\_\+alphaig\+\_\+coeffs}}
+\item 
+const double \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a57c639c999caf0ad049e289cd372e3b4}{Rstar}} = 8.\+314510
+\item 
+const double \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_ac99e17e49f00afb022e9bf000f5e31b8}{R}} = 8.\+314472
+\item 
+const std\+::vector$<$ double $>$ \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_ae217cdab937a466293b146370c0465bc}{Tc}}
+\item 
+const std\+::vector$<$ double $>$ \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_aebe7dd0171bd95f7e7d1331f82978197}{rhoc}}
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs}{Alphaig\+Coeffs}} $>$ \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a9795bdb6267daab417332594c1c93af9}{coeffs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00307}{307}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a8b053994ac2f79187b78c425e1aa8d9f}\label{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a8b053994ac2f79187b78c425e1aa8d9f} 
+\index{teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}!GetAlphaigCoeffs@{GetAlphaigCoeffs}}
+\index{GetAlphaigCoeffs@{GetAlphaigCoeffs}!teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}}
+\doxysubsubsection{\texorpdfstring{GetAlphaigCoeffs}{GetAlphaigCoeffs}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a8b053994ac2f79187b78c425e1aa8d9f}{teqp\+::\+GERGGeneral\+::\+GERG200\+XAlphaig\+::\+Get\+Alphaig\+Coeffs}} = std\+::function$<$\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs}{Alphaig\+Coeffs}}(const std\+::string\&)$>$}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00311}{311}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a402a116d3b805f167ced1a30feabd82f}\label{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a402a116d3b805f167ced1a30feabd82f} 
+\index{teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}!GetPureInfo@{GetPureInfo}}
+\index{GetPureInfo@{GetPureInfo}!teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}}
+\doxysubsubsection{\texorpdfstring{GetPureInfo}{GetPureInfo}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a402a116d3b805f167ced1a30feabd82f}{teqp\+::\+GERGGeneral\+::\+GERG200\+XAlphaig\+::\+Get\+Pure\+Info}} = std\+::function$<$\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureInfo}{Pure\+Info}}(const std\+::string\&)$>$}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00309}{309}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_ad70533268ddf3a6abbb6664cbde43f59}\label{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_ad70533268ddf3a6abbb6664cbde43f59} 
+\index{teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}!GERG200XAlphaig@{GERG200XAlphaig}}
+\index{GERG200XAlphaig@{GERG200XAlphaig}!teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}}
+\doxysubsubsection{\texorpdfstring{GERG200XAlphaig()}{GERG200XAlphaig()}}
+{\footnotesize\ttfamily teqp\+::\+GERGGeneral\+::\+GERG200\+XAlphaig\+::\+GERG200\+XAlphaig (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{names,  }\item[{const \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a402a116d3b805f167ced1a30feabd82f}{Get\+Pure\+Info}} \&}]{get\+\_\+pure\+\_\+info,  }\item[{const \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a8b053994ac2f79187b78c425e1aa8d9f}{Get\+Alphaig\+Coeffs}} \&}]{get\+\_\+alphaig\+\_\+coeffs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00345}{345}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a013289e537dcc0381b051ae89657cb03}\label{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a013289e537dcc0381b051ae89657cb03} 
+\index{teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}!alphaig@{alphaig}}
+\index{alphaig@{alphaig}!teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}}
+\doxysubsubsection{\texorpdfstring{alphaig()}{alphaig()}}
+{\footnotesize\ttfamily template$<$typename TType , typename Rho\+Type , typename Mole\+Fractions $>$ \\
+auto teqp\+::\+GERGGeneral\+::\+GERG200\+XAlphaig\+::alphaig (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Rho\+Type \&}]{rhomolar,  }\item[{const Mole\+Fractions \&}]{molefracs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00369}{369}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a7dee6c85f5c45fa375e39d32fd4131ec}\label{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a7dee6c85f5c45fa375e39d32fd4131ec} 
+\index{teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}!alphaig\_pure@{alphaig\_pure}}
+\index{alphaig\_pure@{alphaig\_pure}!teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}}
+\doxysubsubsection{\texorpdfstring{alphaig\_pure()}{alphaig\_pure()}}
+{\footnotesize\ttfamily template$<$typename TType , typename Rho\+Type $>$ \\
+auto teqp\+::\+GERGGeneral\+::\+GERG200\+XAlphaig\+::alphaig\+\_\+pure (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Rho\+Type \&}]{rhomolar,  }\item[{const int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00354}{354}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a0f87e75fb64bb4c6a6051fb261b35f47}\label{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a0f87e75fb64bb4c6a6051fb261b35f47} 
+\index{teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}!size@{size}}
+\index{size@{size}!teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t teqp\+::\+GERGGeneral\+::\+GERG200\+XAlphaig\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00351}{351}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_ae91d6c04f9333af734a90e67c4472404}\label{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_ae91d6c04f9333af734a90e67c4472404} 
+\index{teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}!\_get\_alphaig\_coeffs@{\_get\_alphaig\_coeffs}}
+\index{\_get\_alphaig\_coeffs@{\_get\_alphaig\_coeffs}!teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}}
+\doxysubsubsection{\texorpdfstring{\_get\_alphaig\_coeffs}{\_get\_alphaig\_coeffs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a8b053994ac2f79187b78c425e1aa8d9f}{Get\+Alphaig\+Coeffs}} teqp\+::\+GERGGeneral\+::\+GERG200\+XAlphaig\+::\+\_\+get\+\_\+alphaig\+\_\+coeffs}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00312}{312}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_aec01c6b8feb70d154085fafd7f1f4820}\label{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_aec01c6b8feb70d154085fafd7f1f4820} 
+\index{teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}!\_get\_pure\_info@{\_get\_pure\_info}}
+\index{\_get\_pure\_info@{\_get\_pure\_info}!teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}}
+\doxysubsubsection{\texorpdfstring{\_get\_pure\_info}{\_get\_pure\_info}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a402a116d3b805f167ced1a30feabd82f}{Get\+Pure\+Info}} teqp\+::\+GERGGeneral\+::\+GERG200\+XAlphaig\+::\+\_\+get\+\_\+pure\+\_\+info}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00310}{310}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a9795bdb6267daab417332594c1c93af9}\label{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a9795bdb6267daab417332594c1c93af9} 
+\index{teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}!coeffs@{coeffs}}
+\index{coeffs@{coeffs}!teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}}
+\doxysubsubsection{\texorpdfstring{coeffs}{coeffs}}
+{\footnotesize\ttfamily const std\+::vector$<$\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs}{Alphaig\+Coeffs}}$>$ teqp\+::\+GERGGeneral\+::\+GERG200\+XAlphaig\+::coeffs}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00343}{343}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_ac99e17e49f00afb022e9bf000f5e31b8}\label{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_ac99e17e49f00afb022e9bf000f5e31b8} 
+\index{teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}!R@{R}}
+\index{R@{R}!teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}}
+\doxysubsubsection{\texorpdfstring{R}{R}}
+{\footnotesize\ttfamily const double teqp\+::\+GERGGeneral\+::\+GERG200\+XAlphaig\+::R = 8.\+314472}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00340}{340}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_aebe7dd0171bd95f7e7d1331f82978197}\label{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_aebe7dd0171bd95f7e7d1331f82978197} 
+\index{teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}!rhoc@{rhoc}}
+\index{rhoc@{rhoc}!teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}}
+\doxysubsubsection{\texorpdfstring{rhoc}{rhoc}}
+{\footnotesize\ttfamily const std\+::vector$<$double$>$ teqp\+::\+GERGGeneral\+::\+GERG200\+XAlphaig\+::rhoc}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00342}{342}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a57c639c999caf0ad049e289cd372e3b4}\label{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_a57c639c999caf0ad049e289cd372e3b4} 
+\index{teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}!Rstar@{Rstar}}
+\index{Rstar@{Rstar}!teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}}
+\doxysubsubsection{\texorpdfstring{Rstar}{Rstar}}
+{\footnotesize\ttfamily const double teqp\+::\+GERGGeneral\+::\+GERG200\+XAlphaig\+::\+Rstar = 8.\+314510}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00339}{339}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_ae217cdab937a466293b146370c0465bc}\label{classteqp_1_1GERGGeneral_1_1GERG200XAlphaig_ae217cdab937a466293b146370c0465bc} 
+\index{teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}!Tc@{Tc}}
+\index{Tc@{Tc}!teqp::GERGGeneral::GERG200XAlphaig@{teqp::GERGGeneral::GERG200XAlphaig}}
+\doxysubsubsection{\texorpdfstring{Tc}{Tc}}
+{\footnotesize\ttfamily const std\+::vector$<$double$>$ teqp\+::\+GERGGeneral\+::\+GERG200\+XAlphaig\+::\+Tc}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00342}{342}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\+GERG/\mbox{\hyperlink{GERG_8hpp}{GERG.\+hpp}}\end{DoxyCompactItemize}

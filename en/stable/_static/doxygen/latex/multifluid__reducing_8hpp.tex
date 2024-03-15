@@ -1,0 +1,37 @@
+\doxysection{include/teqp/models/multifluid\+\_\+reducing.hpp File Reference}
+\hypertarget{multifluid__reducing_8hpp}{}\label{multifluid__reducing_8hpp}\index{include/teqp/models/multifluid\_reducing.hpp@{include/teqp/models/multifluid\_reducing.hpp}}
+{\ttfamily \#include "{}teqp/types.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classteqp_1_1MultiFluidReducingFunction}{teqp\+::\+Multi\+Fluid\+Reducing\+Function}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction}{teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1ReducingTermContainer}{teqp\+::\+Reducing\+Term\+Container$<$ Args $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1reducing}{teqp\+::reducing}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceteqp_acbf67c7fb462e29705f3a9e0f1e6f85a}{teqp\+::\+Reducing\+Functions}} = \mbox{\hyperlink{classteqp_1_1ReducingTermContainer}{Reducing\+Term\+Container}}$<$\mbox{\hyperlink{classteqp_1_1MultiFluidReducingFunction}{Multi\+Fluid\+Reducing\+Function}}, \mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction}{Multi\+Fluid\+Invariant\+Reducing\+Function}}$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1reducing_a969c80144237886a9d5a167a6490cd8f}{teqp\+::reducing\+::get\+\_\+\+BIPdep}} (const nlohmann\+::json \&collection, const std\+::vector$<$ std\+::string $>$ \&identifiers, const nlohmann\+::json \&flags)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1reducing_a14883afaae55de5ee4d51a95c16f000c}{teqp\+::reducing\+::get\+\_\+binary\+\_\+interaction\+\_\+double}} (const nlohmann\+::json \&collection, const std\+::vector$<$ std\+::string $>$ \&identifiers, const nlohmann\+::json \&flags, const std\+::vector$<$ double $>$ \&Tc, const std\+::vector$<$ double $>$ \&vc)
+\begin{DoxyCompactList}\small\item\em Get the binary interaction parameters for a given binary pair. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Tcvec , typename vcvec $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1reducing_add7f58519ca95ee6f25b8bde8e2cfbd9}{teqp\+::reducing\+::get\+\_\+\+BIP\+\_\+matrices}} (const nlohmann\+::json \&collection, const std\+::vector$<$ std\+::string $>$ \&components, const nlohmann\+::json \&flags, const Tcvec \&Tc, const vcvec \&vc)
+\begin{DoxyCompactList}\small\item\em Build the matrices of betaT, gammaT, betaV, gammaV for the multi-\/fluid model. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1reducing_a4e29d71c9df6126028ff8decdebfd685}{teqp\+::reducing\+::get\+\_\+\+Tcvc}} (const std\+::vector$<$ nlohmann\+::json $>$ \&pure\+JSON)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1reducing_a67622bd570e4dccfdf83cd5b9f32dbfa}{teqp\+::reducing\+::get\+\_\+\+F\+\_\+matrix}} (const nlohmann\+::json \&collection, const std\+::vector$<$ std\+::string $>$ \&identifiers, const nlohmann\+::json \&flags)
+\begin{DoxyCompactList}\small\item\em Get the matrix F of Fij factors multiplying the departure functions. \end{DoxyCompactList}\end{DoxyCompactItemize}

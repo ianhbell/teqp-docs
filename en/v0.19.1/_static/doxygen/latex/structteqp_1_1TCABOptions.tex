@@ -1,0 +1,316 @@
+\doxysection{teqp\+::TCABOptions Struct Reference}
+\hypertarget{structteqp_1_1TCABOptions}{}\label{structteqp_1_1TCABOptions}\index{teqp::TCABOptions@{teqp::TCABOptions}}
+
+
+{\ttfamily \#include $<$critical\+\_\+tracing\+\_\+types.\+hpp$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{structteqp_1_1TCABOptions_a50fd7009a8e0158ea7d9117c78225fd8}{abs\+\_\+err}} = 1.\+0e-\/6
+\item 
+double \mbox{\hyperlink{structteqp_1_1TCABOptions_a78b4b80953d17fa11e0db583327053a6}{rel\+\_\+err}} = 1.\+0e-\/6
+\item 
+double \mbox{\hyperlink{structteqp_1_1TCABOptions_afcf1b00dd51580716f487076f6df47ab}{init\+\_\+dt}} = 10
+\begin{DoxyCompactList}\small\item\em The initial step size. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structteqp_1_1TCABOptions_a4c052a945cee8b5aa31a96c33a284b8c}{max\+\_\+dt}} = 10000000000
+\item 
+double \mbox{\hyperlink{structteqp_1_1TCABOptions_a1af352073bb5aa4952a65852c94e7a71}{T\+\_\+tol}} = 1e-\/6
+\begin{DoxyCompactList}\small\item\em The tolerance on temperature to indicate that it is converged. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structteqp_1_1TCABOptions_aaf7e5c5fb027ae89d893dc7e8f7dd93b}{init\+\_\+c}} = 1.\+0
+\begin{DoxyCompactList}\small\item\em The c parameter which controls the initial search direction for the first step. Choices are 1 or -\/1. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structteqp_1_1TCABOptions_afb8acb03771e9d845d8fd9607fe85d63}{small\+\_\+\+T\+\_\+count}} = 5
+\begin{DoxyCompactList}\small\item\em How many small temperature steps indicates convergence. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structteqp_1_1TCABOptions_ab0f77623bcaa87da9fafc1a05ab5d7be}{integration\+\_\+order}} = 5
+\begin{DoxyCompactList}\small\item\em The order of integration, either 1 for simple Euler or 5 for adaptive RK45. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structteqp_1_1TCABOptions_a3e5bb75e067776c1390f3d2e04a3d50d}{max\+\_\+step\+\_\+count}} = 1000
+\begin{DoxyCompactList}\small\item\em Maximum number of steps allowed. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structteqp_1_1TCABOptions_ac7e1863eb4df94765af7dd5c9550854a}{skip\+\_\+dircheck\+\_\+count}} = 1
+\begin{DoxyCompactList}\small\item\em Only start checking the direction dot product after this many steps. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structteqp_1_1TCABOptions_ac1f222b5eecee33c7e22b4e10d700262}{polish}} = false
+\begin{DoxyCompactList}\small\item\em If true, polish the solution at every step. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structteqp_1_1TCABOptions_a35313a919237c53c86274fc094c5261c}{polish\+\_\+reltol\+\_\+T}} = 0.\+01
+\begin{DoxyCompactList}\small\item\em The maximum allowed change in temperature when polishing. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structteqp_1_1TCABOptions_ae9ef38c3e71073d05bb3741bee90e3aa}{polish\+\_\+reltol\+\_\+rho}} = 0.\+05
+\begin{DoxyCompactList}\small\item\em The maximum allowed change in any molar concentration when polishing. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structteqp_1_1TCABOptions_af80f02e29ecb3102c4a2eccc667a5db4}{terminate\+\_\+negative\+\_\+density}} = true
+\begin{DoxyCompactList}\small\item\em Stop the tracing if the density is negative. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structteqp_1_1TCABOptions_add3c4a4c4d23e1a1624a339c4a91dfac}{calc\+\_\+stability}} = false
+\begin{DoxyCompactList}\small\item\em Calculate the local stability with the method of Deiters and Bell. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structteqp_1_1TCABOptions_a8b4a4b5d8176756facf29ce8c4352c01}{stability\+\_\+rel\+\_\+drho}} = 0.\+001
+\begin{DoxyCompactList}\small\item\em The relative size of the step (relative to the sum of the molar concentration vector) to be used when taking the step in the direction of $\sigma_1$ when assessing local stability. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structteqp_1_1TCABOptions_afa558362fd0ee22925a1b55c5191b08d}{verbosity}} = 0
+\begin{DoxyCompactList}\small\item\em The greater the verbosity, the more output you will get, especially about polishing failures. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structteqp_1_1TCABOptions_a9f413e64d5e9f0d9d9f599eb36e8b080}{polish\+\_\+exception\+\_\+on\+\_\+fail}} = false
+\begin{DoxyCompactList}\small\item\em If true, when polishing fails, throw an exception, otherwise, terminate tracing. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structteqp_1_1TCABOptions_a99290ee6eddd2949e4122316a5e39147}{pure\+\_\+endpoint\+\_\+polish}} = false
+\begin{DoxyCompactList}\small\item\em If true, if the last step crossed into negative concentrations, try to interpolate to find the pure fluid endpoint hiding in the data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00005}{5}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structteqp_1_1TCABOptions_a50fd7009a8e0158ea7d9117c78225fd8}\label{structteqp_1_1TCABOptions_a50fd7009a8e0158ea7d9117c78225fd8} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!abs\_err@{abs\_err}}
+\index{abs\_err@{abs\_err}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{abs\_err}{abs\_err}}
+{\footnotesize\ttfamily double teqp\+::\+TCABOptions\+::abs\+\_\+err = 1.\+0e-\/6}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00006}{6}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_add3c4a4c4d23e1a1624a339c4a91dfac}\label{structteqp_1_1TCABOptions_add3c4a4c4d23e1a1624a339c4a91dfac} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!calc\_stability@{calc\_stability}}
+\index{calc\_stability@{calc\_stability}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{calc\_stability}{calc\_stability}}
+{\footnotesize\ttfamily bool teqp\+::\+TCABOptions\+::calc\+\_\+stability = false}
+
+
+
+Calculate the local stability with the method of Deiters and Bell. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_aaf7e5c5fb027ae89d893dc7e8f7dd93b}\label{structteqp_1_1TCABOptions_aaf7e5c5fb027ae89d893dc7e8f7dd93b} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!init\_c@{init\_c}}
+\index{init\_c@{init\_c}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{init\_c}{init\_c}}
+{\footnotesize\ttfamily double teqp\+::\+TCABOptions\+::init\+\_\+c = 1.\+0}
+
+
+
+The c parameter which controls the initial search direction for the first step. Choices are 1 or -\/1. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_afcf1b00dd51580716f487076f6df47ab}\label{structteqp_1_1TCABOptions_afcf1b00dd51580716f487076f6df47ab} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!init\_dt@{init\_dt}}
+\index{init\_dt@{init\_dt}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{init\_dt}{init\_dt}}
+{\footnotesize\ttfamily double teqp\+::\+TCABOptions\+::init\+\_\+dt = 10}
+
+
+
+The initial step size. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_ab0f77623bcaa87da9fafc1a05ab5d7be}\label{structteqp_1_1TCABOptions_ab0f77623bcaa87da9fafc1a05ab5d7be} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!integration\_order@{integration\_order}}
+\index{integration\_order@{integration\_order}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{integration\_order}{integration\_order}}
+{\footnotesize\ttfamily int teqp\+::\+TCABOptions\+::integration\+\_\+order = 5}
+
+
+
+The order of integration, either 1 for simple Euler or 5 for adaptive RK45. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_a4c052a945cee8b5aa31a96c33a284b8c}\label{structteqp_1_1TCABOptions_a4c052a945cee8b5aa31a96c33a284b8c} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!max\_dt@{max\_dt}}
+\index{max\_dt@{max\_dt}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{max\_dt}{max\_dt}}
+{\footnotesize\ttfamily double teqp\+::\+TCABOptions\+::max\+\_\+dt = 10000000000}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00009}{9}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_a3e5bb75e067776c1390f3d2e04a3d50d}\label{structteqp_1_1TCABOptions_a3e5bb75e067776c1390f3d2e04a3d50d} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!max\_step\_count@{max\_step\_count}}
+\index{max\_step\_count@{max\_step\_count}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{max\_step\_count}{max\_step\_count}}
+{\footnotesize\ttfamily int teqp\+::\+TCABOptions\+::max\+\_\+step\+\_\+count = 1000}
+
+
+
+Maximum number of steps allowed. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_ac1f222b5eecee33c7e22b4e10d700262}\label{structteqp_1_1TCABOptions_ac1f222b5eecee33c7e22b4e10d700262} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!polish@{polish}}
+\index{polish@{polish}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{polish}{polish}}
+{\footnotesize\ttfamily bool teqp\+::\+TCABOptions\+::polish = false}
+
+
+
+If true, polish the solution at every step. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_a9f413e64d5e9f0d9d9f599eb36e8b080}\label{structteqp_1_1TCABOptions_a9f413e64d5e9f0d9d9f599eb36e8b080} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!polish\_exception\_on\_fail@{polish\_exception\_on\_fail}}
+\index{polish\_exception\_on\_fail@{polish\_exception\_on\_fail}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{polish\_exception\_on\_fail}{polish\_exception\_on\_fail}}
+{\footnotesize\ttfamily bool teqp\+::\+TCABOptions\+::polish\+\_\+exception\+\_\+on\+\_\+fail = false}
+
+
+
+If true, when polishing fails, throw an exception, otherwise, terminate tracing. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_ae9ef38c3e71073d05bb3741bee90e3aa}\label{structteqp_1_1TCABOptions_ae9ef38c3e71073d05bb3741bee90e3aa} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!polish\_reltol\_rho@{polish\_reltol\_rho}}
+\index{polish\_reltol\_rho@{polish\_reltol\_rho}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{polish\_reltol\_rho}{polish\_reltol\_rho}}
+{\footnotesize\ttfamily double teqp\+::\+TCABOptions\+::polish\+\_\+reltol\+\_\+rho = 0.\+05}
+
+
+
+The maximum allowed change in any molar concentration when polishing. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_a35313a919237c53c86274fc094c5261c}\label{structteqp_1_1TCABOptions_a35313a919237c53c86274fc094c5261c} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!polish\_reltol\_T@{polish\_reltol\_T}}
+\index{polish\_reltol\_T@{polish\_reltol\_T}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{polish\_reltol\_T}{polish\_reltol\_T}}
+{\footnotesize\ttfamily double teqp\+::\+TCABOptions\+::polish\+\_\+reltol\+\_\+T = 0.\+01}
+
+
+
+The maximum allowed change in temperature when polishing. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_a99290ee6eddd2949e4122316a5e39147}\label{structteqp_1_1TCABOptions_a99290ee6eddd2949e4122316a5e39147} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!pure\_endpoint\_polish@{pure\_endpoint\_polish}}
+\index{pure\_endpoint\_polish@{pure\_endpoint\_polish}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{pure\_endpoint\_polish}{pure\_endpoint\_polish}}
+{\footnotesize\ttfamily bool teqp\+::\+TCABOptions\+::pure\+\_\+endpoint\+\_\+polish = false}
+
+
+
+If true, if the last step crossed into negative concentrations, try to interpolate to find the pure fluid endpoint hiding in the data. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_a78b4b80953d17fa11e0db583327053a6}\label{structteqp_1_1TCABOptions_a78b4b80953d17fa11e0db583327053a6} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!rel\_err@{rel\_err}}
+\index{rel\_err@{rel\_err}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{rel\_err}{rel\_err}}
+{\footnotesize\ttfamily double teqp\+::\+TCABOptions\+::rel\+\_\+err = 1.\+0e-\/6}
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00007}{7}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_ac7e1863eb4df94765af7dd5c9550854a}\label{structteqp_1_1TCABOptions_ac7e1863eb4df94765af7dd5c9550854a} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!skip\_dircheck\_count@{skip\_dircheck\_count}}
+\index{skip\_dircheck\_count@{skip\_dircheck\_count}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{skip\_dircheck\_count}{skip\_dircheck\_count}}
+{\footnotesize\ttfamily int teqp\+::\+TCABOptions\+::skip\+\_\+dircheck\+\_\+count = 1}
+
+
+
+Only start checking the direction dot product after this many steps. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_afb8acb03771e9d845d8fd9607fe85d63}\label{structteqp_1_1TCABOptions_afb8acb03771e9d845d8fd9607fe85d63} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!small\_T\_count@{small\_T\_count}}
+\index{small\_T\_count@{small\_T\_count}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{small\_T\_count}{small\_T\_count}}
+{\footnotesize\ttfamily int teqp\+::\+TCABOptions\+::small\+\_\+\+T\+\_\+count = 5}
+
+
+
+How many small temperature steps indicates convergence. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_a8b4a4b5d8176756facf29ce8c4352c01}\label{structteqp_1_1TCABOptions_a8b4a4b5d8176756facf29ce8c4352c01} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!stability\_rel\_drho@{stability\_rel\_drho}}
+\index{stability\_rel\_drho@{stability\_rel\_drho}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{stability\_rel\_drho}{stability\_rel\_drho}}
+{\footnotesize\ttfamily double teqp\+::\+TCABOptions\+::stability\+\_\+rel\+\_\+drho = 0.\+001}
+
+
+
+The relative size of the step (relative to the sum of the molar concentration vector) to be used when taking the step in the direction of $\sigma_1$ when assessing local stability. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_a1af352073bb5aa4952a65852c94e7a71}\label{structteqp_1_1TCABOptions_a1af352073bb5aa4952a65852c94e7a71} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!T\_tol@{T\_tol}}
+\index{T\_tol@{T\_tol}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{T\_tol}{T\_tol}}
+{\footnotesize\ttfamily double teqp\+::\+TCABOptions\+::\+T\+\_\+tol = 1e-\/6}
+
+
+
+The tolerance on temperature to indicate that it is converged. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00010}{10}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_af80f02e29ecb3102c4a2eccc667a5db4}\label{structteqp_1_1TCABOptions_af80f02e29ecb3102c4a2eccc667a5db4} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!terminate\_negative\_density@{terminate\_negative\_density}}
+\index{terminate\_negative\_density@{terminate\_negative\_density}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{terminate\_negative\_density}{terminate\_negative\_density}}
+{\footnotesize\ttfamily bool teqp\+::\+TCABOptions\+::terminate\+\_\+negative\+\_\+density = true}
+
+
+
+Stop the tracing if the density is negative. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+\Hypertarget{structteqp_1_1TCABOptions_afa558362fd0ee22925a1b55c5191b08d}\label{structteqp_1_1TCABOptions_afa558362fd0ee22925a1b55c5191b08d} 
+\index{teqp::TCABOptions@{teqp::TCABOptions}!verbosity@{verbosity}}
+\index{verbosity@{verbosity}!teqp::TCABOptions@{teqp::TCABOptions}}
+\doxysubsubsection{\texorpdfstring{verbosity}{verbosity}}
+{\footnotesize\ttfamily int teqp\+::\+TCABOptions\+::verbosity = 0}
+
+
+
+The greater the verbosity, the more output you will get, especially about polishing failures. 
+
+
+
+Definition at line \mbox{\hyperlink{critical__tracing__types_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{critical__tracing__types_8hpp_source}{critical\+\_\+tracing\+\_\+types.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{critical__tracing__types_8hpp}{critical\+\_\+tracing\+\_\+types.\+hpp}}\end{DoxyCompactItemize}

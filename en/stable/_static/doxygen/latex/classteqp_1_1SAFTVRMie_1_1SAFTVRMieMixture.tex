@@ -1,0 +1,321 @@
+\doxysection{teqp\+::SAFTVRMie\+::SAFTVRMie\+Mixture Class Reference}
+\hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+
+
+A class used to evaluate mixtures using the SAFT-\/\+VR-\/\+Mie model.  
+
+
+
+
+{\ttfamily \#include $<$saftvrmie.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aaf9839c5410dd674ad6a98c69ab82795}{build\+\_\+polar}} (const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs}{SAFTVRMie\+Coeffs}} $>$ \&coeffs) -\/$>$ decltype(this-\/$>$polar)
+\item 
+\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_ab91cd69e4ba51fc32456eaa8f6c851c5}{SAFTVRMie\+Mixture}} (const std\+::vector$<$ std\+::string $>$ \&names, const std\+::optional$<$ Eigen\+::\+Array\+XXd $>$ \&kmat=std\+::nullopt, const std\+::optional$<$ nlohmann\+::json $>$ \&flags=std\+::nullopt)
+\item 
+\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a9dc1aba0b30f8b9efb2039ac648f6c6c}{SAFTVRMie\+Mixture}} (const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs}{SAFTVRMie\+Coeffs}} $>$ \&coeffs, const std\+::optional$<$ Eigen\+::\+Array\+XXd $>$ \&kmat=std\+::nullopt, const std\+::optional$<$ nlohmann\+::json $>$ \&flags=std\+::nullopt)
+\item 
+\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa49c306f0d05163bcdd8d576e36b1ad2}{SAFTVRMie\+Mixture}} (\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms}{SAFTVRMie\+Chain\+Contribution\+Terms}} \&\&terms, const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs}{SAFTVRMie\+Coeffs}} $>$ \&coeffs, std\+::optional$<$ \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_ae1b6a97e5f8657351e2574d0ea54f588}{SAFTpolar\+::multipolar\+\_\+contributions\+\_\+variant}} $>$ \&\&polar=std\+::nullopt)
+\item 
+\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMie\+Mixture}} \& \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a2405f18510e2e5b8b248dc9f24cdcbac}{operator=}} (const \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMie\+Mixture}} \&)=delete
+\item 
+auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_ab6f00ba446e30a6736b1f0ee9d9df829}{chain\+\_\+factory}} (const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs}{SAFTVRMie\+Coeffs}} $>$ \&coeffs, const std\+::optional$<$ Eigen\+::\+Array\+XXd $>$ \&kmat)
+\item 
+const auto \& \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a6bb65e83e1f862d6250e78217ba676a1}{get\+\_\+polar}} () const
+\item 
+bool \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa875978d5dffc43aee0fdedd497423f3}{has\+\_\+polar}} () const
+\item 
+const auto \& \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_adf65e18340de53eac3f550e5f8548780}{get\+\_\+terms}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a6af2015abccadf535ed28da78d7cf4f7}{get\+\_\+core\+\_\+calcs}} (double T, double rhomolar, const Eigen\+::\+Array\+Xd \&mole\+\_\+fractions) const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa5f7be2694175cedaeefb1d6f8425ea3}{get\+\_\+names}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a2c9155447f528395ca7289289fe7613e}{get\+\_\+\+Bib\+Te\+XKeys}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a7f511a2e65761ab8c3be5ebd0755142a}{get\+\_\+m}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a3318aeea8555f09c40df8d1f4f96657b}{get\+\_\+sigma\+\_\+\+Angstrom}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a3e0f29dead60d6c81f3f9c37708e6538}{get\+\_\+sigma\+\_\+m}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_ae2c8855f0b835cdf1fb0fd02a53532f9}{get\+\_\+epsilon\+\_\+over\+\_\+k\+\_\+K}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a25be2fd11025e40365d1553c7dfc2fc1}{get\+\_\+kmat}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a303fd843512d8d9f65b5514cb702f6c1}{get\+\_\+lambda\+\_\+r}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a555e33ef99ab39499b4e55887d6d0484}{get\+\_\+lambda\+\_\+a}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a4e7fed24aa2db3baef428f3d1ef22007}{get\+\_\+\+EPSKIJ\+\_\+matrix}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a914d98be3d90768c930b0c405b228ceb}{get\+\_\+\+SIGMAIJ\+\_\+matrix}} () const
+\item 
+{\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a701652b70a2e8559c728b248156dce1c}{R}} (const Vec\+Type \&molefrac) const
+\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a9725debdf80800d766eb37a502ca02bb}{alphar}} (const TTYPE \&T, const Rho\+Type \&rhomolar, const Vec\+Type \&mole\+\_\+fractions) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static auto \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_af4a05584817b825d3db4f8291d9941ce}{build\+\_\+chain}} (const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs}{SAFTVRMie\+Coeffs}} $>$ \&coeffs, const std\+::optional$<$ Eigen\+::\+Array\+XXd $>$ \&kmat, const std\+::optional$<$ nlohmann\+::json $>$ \&flags=std\+::nullopt)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class used to evaluate mixtures using the SAFT-\/\+VR-\/\+Mie model. 
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00741}{741}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_ab91cd69e4ba51fc32456eaa8f6c851c5}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_ab91cd69e4ba51fc32456eaa8f6c851c5} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!SAFTVRMieMixture@{SAFTVRMieMixture}}
+\index{SAFTVRMieMixture@{SAFTVRMieMixture}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{SAFTVRMieMixture()}{SAFTVRMieMixture()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::\+SAFTVRMie\+Mixture (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{names,  }\item[{const std\+::optional$<$ Eigen\+::\+Array\+XXd $>$ \&}]{kmat = {\ttfamily std\+:\+:nullopt},  }\item[{const std\+::optional$<$ nlohmann\+::json $>$ \&}]{flags = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00823}{823}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a9dc1aba0b30f8b9efb2039ac648f6c6c}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a9dc1aba0b30f8b9efb2039ac648f6c6c} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!SAFTVRMieMixture@{SAFTVRMieMixture}}
+\index{SAFTVRMieMixture@{SAFTVRMieMixture}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{SAFTVRMieMixture()}{SAFTVRMieMixture()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::\+SAFTVRMie\+Mixture (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs}{SAFTVRMie\+Coeffs}} $>$ \&}]{coeffs,  }\item[{const std\+::optional$<$ Eigen\+::\+Array\+XXd $>$ \&}]{kmat = {\ttfamily std\+:\+:nullopt},  }\item[{const std\+::optional$<$ nlohmann\+::json $>$ \&}]{flags = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00824}{824}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa49c306f0d05163bcdd8d576e36b1ad2}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa49c306f0d05163bcdd8d576e36b1ad2} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!SAFTVRMieMixture@{SAFTVRMieMixture}}
+\index{SAFTVRMieMixture@{SAFTVRMieMixture}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{SAFTVRMieMixture()}{SAFTVRMieMixture()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::\+SAFTVRMie\+Mixture (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms}{SAFTVRMie\+Chain\+Contribution\+Terms}} \&\&}]{terms,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs}{SAFTVRMie\+Coeffs}} $>$ \&}]{coeffs,  }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_ae1b6a97e5f8657351e2574d0ea54f588}{SAFTpolar\+::multipolar\+\_\+contributions\+\_\+variant}} $>$ \&\&}]{polar = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00825}{825}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a9725debdf80800d766eb37a502ca02bb}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a9725debdf80800d766eb37a502ca02bb} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily template$<$typename TTYPE , typename Rho\+Type , typename Vec\+Type $>$ \\
+auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::alphar (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T,  }\item[{const Rho\+Type \&}]{rhomolar,  }\item[{const Vec\+Type \&}]{mole\+\_\+fractions }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00900}{900}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_af4a05584817b825d3db4f8291d9941ce}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_af4a05584817b825d3db4f8291d9941ce} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!build\_chain@{build\_chain}}
+\index{build\_chain@{build\_chain}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{build\_chain()}{build\_chain()}}
+{\footnotesize\ttfamily static auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::build\+\_\+chain (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs}{SAFTVRMie\+Coeffs}} $>$ \&}]{coeffs,  }\item[{const std\+::optional$<$ Eigen\+::\+Array\+XXd $>$ \&}]{kmat,  }\item[{const std\+::optional$<$ nlohmann\+::json $>$ \&}]{flags = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00778}{778}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aaf9839c5410dd674ad6a98c69ab82795}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aaf9839c5410dd674ad6a98c69ab82795} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!build\_polar@{build\_polar}}
+\index{build\_polar@{build\_polar}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{build\_polar()}{build\_polar()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::build\+\_\+polar (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs}{SAFTVRMie\+Coeffs}} $>$ \&}]{coeffs }\end{DoxyParamCaption}) -\/$>$ decltype(this-\/$>$polar)\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00801}{801}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_ab6f00ba446e30a6736b1f0ee9d9df829}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_ab6f00ba446e30a6736b1f0ee9d9df829} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!chain\_factory@{chain\_factory}}
+\index{chain\_factory@{chain\_factory}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{chain\_factory()}{chain\_factory()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::chain\+\_\+factory (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs}{SAFTVRMie\+Coeffs}} $>$ \&}]{coeffs,  }\item[{const std\+::optional$<$ Eigen\+::\+Array\+XXd $>$ \&}]{kmat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00831}{831}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a2c9155447f528395ca7289289fe7613e}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a2c9155447f528395ca7289289fe7613e} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!get\_BibTeXKeys@{get\_BibTeXKeys}}
+\index{get\_BibTeXKeys@{get\_BibTeXKeys}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{get\_BibTeXKeys()}{get\_BibTeXKeys()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::get\+\_\+\+Bib\+Te\+XKeys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00873}{873}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a6af2015abccadf535ed28da78d7cf4f7}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a6af2015abccadf535ed28da78d7cf4f7} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!get\_core\_calcs@{get\_core\_calcs}}
+\index{get\_core\_calcs@{get\_core\_calcs}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{get\_core\_calcs()}{get\_core\_calcs()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::get\+\_\+core\+\_\+calcs (\begin{DoxyParamCaption}\item[{double}]{T,  }\item[{double}]{rhomolar,  }\item[{const Eigen\+::\+Array\+Xd \&}]{mole\+\_\+fractions }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00841}{841}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_ae2c8855f0b835cdf1fb0fd02a53532f9}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_ae2c8855f0b835cdf1fb0fd02a53532f9} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!get\_epsilon\_over\_k\_K@{get\_epsilon\_over\_k\_K}}
+\index{get\_epsilon\_over\_k\_K@{get\_epsilon\_over\_k\_K}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{get\_epsilon\_over\_k\_K()}{get\_epsilon\_over\_k\_K()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::get\+\_\+epsilon\+\_\+over\+\_\+k\+\_\+K (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00877}{877}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a4e7fed24aa2db3baef428f3d1ef22007}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a4e7fed24aa2db3baef428f3d1ef22007} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!get\_EPSKIJ\_matrix@{get\_EPSKIJ\_matrix}}
+\index{get\_EPSKIJ\_matrix@{get\_EPSKIJ\_matrix}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{get\_EPSKIJ\_matrix()}{get\_EPSKIJ\_matrix()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::get\+\_\+\+EPSKIJ\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00881}{881}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a25be2fd11025e40365d1553c7dfc2fc1}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a25be2fd11025e40365d1553c7dfc2fc1} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!get\_kmat@{get\_kmat}}
+\index{get\_kmat@{get\_kmat}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{get\_kmat()}{get\_kmat()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::get\+\_\+kmat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00878}{878}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a555e33ef99ab39499b4e55887d6d0484}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a555e33ef99ab39499b4e55887d6d0484} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!get\_lambda\_a@{get\_lambda\_a}}
+\index{get\_lambda\_a@{get\_lambda\_a}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{get\_lambda\_a()}{get\_lambda\_a()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::get\+\_\+lambda\+\_\+a (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00880}{880}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a303fd843512d8d9f65b5514cb702f6c1}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a303fd843512d8d9f65b5514cb702f6c1} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!get\_lambda\_r@{get\_lambda\_r}}
+\index{get\_lambda\_r@{get\_lambda\_r}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{get\_lambda\_r()}{get\_lambda\_r()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::get\+\_\+lambda\+\_\+r (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00879}{879}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a7f511a2e65761ab8c3be5ebd0755142a}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a7f511a2e65761ab8c3be5ebd0755142a} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!get\_m@{get\_m}}
+\index{get\_m@{get\_m}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{get\_m()}{get\_m()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::get\+\_\+m (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00874}{874}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa5f7be2694175cedaeefb1d6f8425ea3}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa5f7be2694175cedaeefb1d6f8425ea3} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!get\_names@{get\_names}}
+\index{get\_names@{get\_names}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{get\_names()}{get\_names()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::get\+\_\+names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00872}{872}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a6bb65e83e1f862d6250e78217ba676a1}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a6bb65e83e1f862d6250e78217ba676a1} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!get\_polar@{get\_polar}}
+\index{get\_polar@{get\_polar}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{get\_polar()}{get\_polar()}}
+{\footnotesize\ttfamily const auto \& teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::get\+\_\+polar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00835}{835}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a3318aeea8555f09c40df8d1f4f96657b}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a3318aeea8555f09c40df8d1f4f96657b} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!get\_sigma\_Angstrom@{get\_sigma\_Angstrom}}
+\index{get\_sigma\_Angstrom@{get\_sigma\_Angstrom}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{get\_sigma\_Angstrom()}{get\_sigma\_Angstrom()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::get\+\_\+sigma\+\_\+\+Angstrom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00875}{875}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a3e0f29dead60d6c81f3f9c37708e6538}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a3e0f29dead60d6c81f3f9c37708e6538} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!get\_sigma\_m@{get\_sigma\_m}}
+\index{get\_sigma\_m@{get\_sigma\_m}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{get\_sigma\_m()}{get\_sigma\_m()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::get\+\_\+sigma\+\_\+m (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00876}{876}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a914d98be3d90768c930b0c405b228ceb}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a914d98be3d90768c930b0c405b228ceb} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!get\_SIGMAIJ\_matrix@{get\_SIGMAIJ\_matrix}}
+\index{get\_SIGMAIJ\_matrix@{get\_SIGMAIJ\_matrix}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{get\_SIGMAIJ\_matrix()}{get\_SIGMAIJ\_matrix()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::get\+\_\+\+SIGMAIJ\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00882}{882}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_adf65e18340de53eac3f550e5f8548780}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_adf65e18340de53eac3f550e5f8548780} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!get\_terms@{get\_terms}}
+\index{get\_terms@{get\_terms}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{get\_terms()}{get\_terms()}}
+{\footnotesize\ttfamily const auto \& teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::get\+\_\+terms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00840}{840}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa875978d5dffc43aee0fdedd497423f3}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_aa875978d5dffc43aee0fdedd497423f3} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!has\_polar@{has\_polar}}
+\index{has\_polar@{has\_polar}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{has\_polar()}{has\_polar()}}
+{\footnotesize\ttfamily bool teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::has\+\_\+polar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00838}{838}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a2405f18510e2e5b8b248dc9f24cdcbac}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a2405f18510e2e5b8b248dc9f24cdcbac} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!operator=@{operator=}}
+\index{operator=@{operator=}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMie\+Mixture}} \& teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMie\+Mixture}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a701652b70a2e8559c728b248156dce1c}\label{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture_a701652b70a2e8559c728b248156dce1c} 
+\index{teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}!R@{R}}
+\index{R@{R}!teqp::SAFTVRMie::SAFTVRMieMixture@{teqp::SAFTVRMie::SAFTVRMieMixture}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily template$<$class Vec\+Type $>$ \\
+auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Mixture\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00895}{895}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\mbox{\hyperlink{saftvrmie_8hpp}{saftvrmie.\+hpp}}\end{DoxyCompactItemize}

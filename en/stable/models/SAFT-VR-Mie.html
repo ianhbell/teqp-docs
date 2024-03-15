@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SAFT-VR-Mie &#8212; teqp 0.19.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SAFT-VR-Mie with polar contributions" href="SAFT-VR-Mie-Polar.html" />
+    <link rel="prev" title="PC-SAFT" href="PCSAFT.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="SAFT-VR-Mie">
+<h1>SAFT-VR-Mie<a class="headerlink" href="#SAFT-VR-Mie" title="Link to this heading">¶</a></h1>
+<p>The SAFT-VR-Mie EOS of Lafitte et al. (<a class="reference external" href="https://doi.org/10.1063/1.4819786">https://doi.org/10.1063/1.4819786</a>) is based on the use of a Mie potential of the form</p>
+<div class="math notranslate nohighlight">
+\[u(r) = C\epsilon \left((\sigma/r)^{\lambda_r}-(\sigma/r)^{\lambda_a}\right)\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[C = \frac{\lambda_r}{\lambda_r-\lambda_a}\left(\frac{\lambda_r}{\lambda_a}\right)^{\lambda_a/(\lambda_r-\lambda_a)}\]</div>
+<p>which allows for a better representation of thermodynamic properties in general, but not always.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">teqp</span>
+<span class="n">teqp</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.19.1&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">CoolProp.CoolProp</span> <span class="k">as</span> <span class="nn">CP</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show two ways to instantiate a SAFT-VR-Mie model, the</span>
+<span class="c1"># first by providing the coefficients, and the second</span>
+<span class="c1"># by providing the name of the species. Only a very small</span>
+<span class="c1"># number of molecules are provided for testing, you should</span>
+<span class="c1"># plan on providing your own parameters.</span>
+<span class="c1">#</span>
+<span class="c1"># Show that both give the same result for the residual pressure</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s1">&#39;SAFT-VR-Mie&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;coeffs&quot;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ethane&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;BibTeXKey&quot;</span><span class="p">:</span> <span class="s2">&quot;Lafitte&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="mf">1.4373</span><span class="p">,</span>
+            <span class="s2">&quot;epsilon_over_k&quot;</span><span class="p">:</span> <span class="mf">206.12</span><span class="p">,</span> <span class="c1"># [K]</span>
+            <span class="s2">&quot;sigma_m&quot;</span><span class="p">:</span> <span class="mf">3.7257e-10</span><span class="p">,</span>
+            <span class="s2">&quot;lambda_r&quot;</span><span class="p">:</span> <span class="mf">12.4</span><span class="p">,</span>
+            <span class="s2">&quot;lambda_a&quot;</span><span class="p">:</span> <span class="mf">6.0</span>
+        <span class="p">}]</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+<span class="n">display</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar01</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s1">&#39;SAFT-VR-Mie&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Ethane&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+<span class="n">display</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar01</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-0.04926724350863724
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-0.04926724350863724
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here is an example of using teqp to trace VLE for propane</span>
+<span class="c1"># with the default parameters of PC-SAFT and SAFT-VR-Mie</span>
+<span class="c1"># models</span>
+<span class="k">for</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;SAFT-VR-Mie&#39;</span><span class="p">,</span> <span class="s1">&#39;PCSAFT&#39;</span><span class="p">]:</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="n">kind</span><span class="p">,</span>
+        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Propane&quot;</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">Tc</span><span class="p">,</span> <span class="n">rhoc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">solve_pure_critical</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+
+    <span class="c1"># Extrapolate away from the critical point</span>
+    <span class="n">Ti</span> <span class="o">=</span> <span class="n">Tc</span><span class="o">*</span><span class="mf">0.9997</span>
+    <span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">extrapolate_from_critical</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">rhoc</span><span class="p">,</span> <span class="n">Ti</span><span class="p">)</span>
+
+    <span class="n">o</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">Ti</span>
+    <span class="k">while</span> <span class="n">T</span> <span class="o">&gt;</span> <span class="mi">88</span><span class="p">:</span>
+        <span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">pure_VLE_T</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">T</span> <span class="o">-=</span> <span class="mf">0.1</span>
+        <span class="n">o</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;rhoL&#39;</span><span class="p">:</span> <span class="n">rhoL</span><span class="p">,</span> <span class="s1">&#39;rhoV&#39;</span><span class="p">:</span> <span class="n">rhoV</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="n">T</span><span class="p">})</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+    <span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rhoL&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rhoV&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">line</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+
+<span class="c1"># From the reference EOS of Lemmon et al. via CoolProp</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Propane&#39;</span>
+<span class="n">Tc</span> <span class="o">=</span> <span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;Tcrit&#39;</span><span class="p">)</span>
+<span class="n">Ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">88</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">rhoL</span> <span class="o">=</span> <span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="s1">&#39;Dmolar&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">Ts</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">name</span><span class="p">)</span>
+<span class="n">rhoV</span> <span class="o">=</span> <span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="s1">&#39;Dmolar&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">Ts</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">name</span><span class="p">)</span>
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rhoL</span><span class="p">,</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Reference EOS&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rhoV</span><span class="p">,</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\rho$ / mol/m$^3$&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$T$ / K&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;SAFTVRMIE_PCSAFT.pdf&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/models_SAFT-VR-Mie_4_0.png" src="../_images/models_SAFT-VR-Mie_4_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Time calculation of critical points</span>
+<span class="k">for</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;SAFT-VR-Mie&#39;</span><span class="p">,</span> <span class="s1">&#39;PCSAFT&#39;</span><span class="p">]:</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="n">kind</span><span class="p">,</span>
+        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Propane&quot;</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+    <span class="o">%</span><span class="k">timeit</span> model.solve_pure_critical(300, 10000)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.25 ms ± 6.94 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+215 µs ± 188 ns per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Checking the effective hardness of interaction,</span>
+<span class="c1"># the neff parameter defined in https://doi.org/10.1063/5.0007583</span>
+<span class="c1"># SAFT-VR-Mie comes closest to the right behavior</span>
+<span class="n">modelVR</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span>
+        <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s1">&#39;SAFT-VR-Mie&#39;</span><span class="p">,</span>
+        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Methane&quot;</span><span class="p">]</span> <span class="p">}</span>
+<span class="p">})</span>
+<span class="n">modelPCSAFT</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span>
+        <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s1">&#39;PCSAFT&#39;</span><span class="p">,</span>
+        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Methane&quot;</span><span class="p">]</span> <span class="p">}</span>
+<span class="p">})</span>
+<span class="n">modelMF</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">build_multifluid_model</span><span class="p">([</span><span class="s2">&quot;Methane&quot;</span><span class="p">],</span> <span class="n">teqp</span><span class="o">.</span><span class="n">get_datapath</span><span class="p">())</span>
+
+<span class="k">for</span> <span class="n">model</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">modelVR</span><span class="p">,</span> <span class="s1">&#39;SAFT-VR-Mie&#39;</span><span class="p">),</span>
+                     <span class="p">(</span><span class="n">modelPCSAFT</span><span class="p">,</span> <span class="s1">&#39;PC-SAFT&#39;</span><span class="p">),</span>
+                     <span class="p">(</span><span class="n">modelMF</span><span class="p">,</span> <span class="s1">&#39;reference EOS&#39;</span><span class="p">)]:</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">rho</span> <span class="o">=</span> <span class="mf">1e-5</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+    <span class="n">neff</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">T_</span> <span class="ow">in</span> <span class="n">T</span><span class="p">:</span>
+        <span class="n">neff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_neff</span><span class="p">(</span><span class="n">T_</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">neff</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$T$ / K&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$n_{\rm eff}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/models_SAFT-VR-Mie_6_0.png" src="../_images/models_SAFT-VR-Mie_6_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Checking the temperature derivative of the virial coefficient</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Methane&#39;</span>
+<span class="n">modelVR</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span>
+        <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s1">&#39;SAFT-VR-Mie&#39;</span><span class="p">,</span>
+        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="p">}</span>
+<span class="p">})</span>
+<span class="n">modelPCSAFT</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span>
+        <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s1">&#39;PCSAFT&#39;</span><span class="p">,</span>
+        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="p">}</span>
+<span class="p">})</span>
+<span class="n">modelMF</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">build_multifluid_model</span><span class="p">([</span><span class="n">name</span><span class="p">],</span> <span class="n">teqp</span><span class="o">.</span><span class="n">get_datapath</span><span class="p">())</span>
+
+<span class="k">for</span> <span class="n">model</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">modelVR</span><span class="p">,</span> <span class="s1">&#39;SAFT-VR-Mie&#39;</span><span class="p">),</span>
+                     <span class="p">(</span><span class="n">modelPCSAFT</span><span class="p">,</span> <span class="s1">&#39;PC-SAFT&#39;</span><span class="p">),</span>
+                     <span class="p">(</span><span class="n">modelMF</span><span class="p">,</span> <span class="s1">&#39;reference EOS&#39;</span><span class="p">)]:</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">B</span><span class="p">,</span> <span class="n">TdBdT</span><span class="p">,</span> <span class="n">thetan</span> <span class="o">=</span> <span class="p">[],[],[]</span>
+    <span class="k">for</span> <span class="n">T_</span> <span class="ow">in</span> <span class="n">T</span><span class="p">:</span>
+        <span class="n">TdBdT</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_dmBnvirdTm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">T_</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="n">T_</span><span class="p">)</span>
+        <span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_dmBnvirdTm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">T_</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+        <span class="n">thetan</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">TdBdT</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">thetan</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$T$ / K&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$B+T\times$d$B$/d$T$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/models_SAFT-VR-Mie_7_0.png" src="../_images/models_SAFT-VR-Mie_7_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Time model instantiation</span>
+<span class="k">for</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;SAFT-VR-Mie&#39;</span><span class="p">,</span> <span class="s1">&#39;PCSAFT&#39;</span><span class="p">]:</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="n">kind</span><span class="p">,</span>
+        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Propane&quot;</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="o">%</span><span class="k">timeit</span> teqp.make_model(j)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+795 µs ± 2.5 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+331 µs ± 2.23 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</pre></div></div>
+</div>
+<section id="Calculation-of-diameter">
+<h2>Calculation of diameter<a class="headerlink" href="#Calculation-of-diameter" title="Link to this heading">¶</a></h2>
+<p>The calculation of the diameter is based upon</p>
+<div class="math notranslate nohighlight">
+\[d_{ii} = \int_0^{\sigma_{ii}}(1-\exp(-\beta u_{ii}^{\rm Mie}(r)){\rm d}r\]</div>
+<p>but the integrand is basically constant from 0 to some cutoff value of <span class="math notranslate nohighlight">\(r\)</span>, which we’ll call <span class="math notranslate nohighlight">\(r_{\rm cut}\)</span>. So first we need to find the value of <span class="math notranslate nohighlight">\(r_{\rm cut}\)</span> that makes the integrand take its constant value, which is explained well in the paper from Aasen (<a class="reference external" href="https://github.com/ClapeyronThermo/Clapeyron.jl/issues/152#issuecomment-1480324192">https://github.com/ClapeyronThermo/Clapeyron.jl/issues/152#issuecomment-1480324192</a>). Finding the cutoff value is obtained when</p>
+<div class="math notranslate nohighlight">
+\[\exp(-\beta u_{ii}^{\rm Mie}(r)) = EPS\]</div>
+<p>where EPS is the numerical precision of the floating point type. Taking the logs of both sides,</p>
+<div class="math notranslate nohighlight">
+\[-\beta u_{ii}^{\rm Mie} = \ln(EPS)\]</div>
+<p>To get a starting value, it is first assumed that only the repulsive contribution contributes to the potential, yielding <span class="math notranslate nohighlight">\(u^{\rm rep} = C\epsilon(\sigma/r)^{\lambda_r}\)</span> which yields</p>
+<div class="math notranslate nohighlight">
+\[-\beta C\epsilon(\sigma/r)^{\lambda_r} = \ln(EPS)\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[(\sigma/r)_{\rm guess} = (-\ln(EPS)/(\beta C \epsilon))^{1/\lambda_r}\]</div>
+<p>Then we solve for the residual <span class="math notranslate nohighlight">\(R(r)=0\)</span>, where <span class="math notranslate nohighlight">\(R_0=\exp(-u/T)-EPS\)</span>. Equivalently we can write the residual in logarithmic terms as <span class="math notranslate nohighlight">\(R=-u/T-\ln(EPS)\)</span>. This simplifies the rootfinding as you need <span class="math notranslate nohighlight">\(R\)</span>, <span class="math notranslate nohighlight">\(R'\)</span> and <span class="math notranslate nohighlight">\(R''\)</span> to apply Halley’s method, which are themselves quite straightforward to obtain because <span class="math notranslate nohighlight">\(R'=-u'/T\)</span>, <span class="math notranslate nohighlight">\(R''=-u''/T\)</span>, where the primes are derivatives taken with respect to <span class="math notranslate nohighlight">\(\sigma/r\)</span>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculation of the residual function (needed for Halley&#39;s method)</span>
+<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sy</span>
+<span class="n">kappa</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">lambda_r</span><span class="p">,</span> <span class="n">lambda_a</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;kappa, j, lambda_r, lambda_a&#39;</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">kappa</span><span class="o">*</span><span class="p">(</span><span class="n">j</span><span class="o">**</span><span class="n">lambda_r</span> <span class="o">-</span> <span class="n">j</span><span class="o">**</span><span class="n">lambda_a</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sy</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">sy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\displaystyle \kappa \left(- \frac{j^{\lambda_{a}} \lambda_{a}}{j} + \frac{j^{\lambda_{r}} \lambda_{r}}{j}\right)$</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\displaystyle \frac{\kappa \left(- j^{\lambda_{a}} \lambda_{a}^{2} + j^{\lambda_{a}} \lambda_{a} + j^{\lambda_{r}} \lambda_{r}^{2} - j^{\lambda_{r}} \lambda_{r}\right)}{j^{2}}$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here is a small example of using adaptive quadrature</span>
+<span class="c1"># to obtain the quasi-exact value of d for ethane</span>
+<span class="c1"># according to the pure-fluid parameters given in</span>
+<span class="c1"># Lafitte et al.</span>
+
+<span class="n">epskB</span> <span class="o">=</span> <span class="mf">206.12</span> <span class="c1"># [K]</span>
+<span class="n">sigma_m</span> <span class="o">=</span> <span class="mf">3.7257e-10</span> <span class="c1"># [m]</span>
+<span class="n">lambda_r</span> <span class="o">=</span> <span class="mf">12.4</span>
+<span class="n">lambda_a</span> <span class="o">=</span> <span class="mf">6.0</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">lambda_r</span><span class="o">/</span><span class="p">(</span><span class="n">lambda_r</span><span class="o">-</span><span class="n">lambda_a</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">lambda_r</span><span class="o">/</span><span class="n">lambda_a</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">lambda_a</span><span class="o">/</span><span class="p">(</span><span class="n">lambda_r</span><span class="o">-</span><span class="n">lambda_a</span><span class="p">))</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">300.0</span> <span class="c1"># [K]</span>
+
+<span class="c1"># The classical method based on adaptive quadrature</span>
+<span class="k">def</span> <span class="nf">integrand</span><span class="p">(</span><span class="n">r_m</span><span class="p">):</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">C</span><span class="o">*</span><span class="n">epskB</span><span class="o">*</span><span class="p">((</span><span class="n">sigma_m</span><span class="o">/</span><span class="n">r_m</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">lambda_r</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">sigma_m</span><span class="o">/</span><span class="n">r_m</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">lambda_a</span><span class="p">))</span>
+    <span class="k">return</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">u</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;quasi-exact; (value, error estimate):&#39;</span><span class="p">)</span>
+<span class="n">exact</span><span class="p">,</span> <span class="n">exact_error</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">sigma_m</span><span class="p">,</span> <span class="n">epsrel</span><span class="o">=</span><span class="mf">1e-16</span><span class="p">,</span> <span class="n">epsabs</span><span class="o">=</span><span class="mf">1e-16</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">exact</span><span class="o">*</span><span class="mf">1e10</span><span class="p">,</span> <span class="n">exact_error</span><span class="o">*</span><span class="mf">1e10</span><span class="p">)</span>
+
+<span class="n">j</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s1">&#39;SAFT-VR-Mie&#39;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Ethane&quot;</span><span class="p">]}}</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_core_calcs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="p">)[</span><span class="s2">&quot;dmat&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;teqp; (value, error from quasi-exact in %)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="p">(</span><span class="n">exact</span><span class="o">*</span><span class="mf">1e10</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+quasi-exact; (value, error estimate):
+3.597838592720949 3.228005612223332e-12
+teqp; (value, error from quasi-exact in %)
+3.597838640613809 1.331156429529301e-06
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">SAFT-VR-Mie</a><ul>
+<li><a class="reference internal" href="#Calculation-of-diameter">Calculation of diameter</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Models</a><ul>
+      <li>Previous: <a href="PCSAFT.html" title="previous chapter">PC-SAFT</a></li>
+      <li>Next: <a href="SAFT-VR-Mie-Polar.html" title="next chapter">SAFT-VR-Mie with polar contributions</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/SAFT-VR-Mie.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/SAFT-VR-Mie.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

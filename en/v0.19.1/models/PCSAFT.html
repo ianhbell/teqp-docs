@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PC-SAFT &#8212; teqp 0.19.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SAFT-VR-Mie" href="SAFT-VR-Mie.html" />
+    <link rel="prev" title="Model Potentials" href="model_potentials.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="PC-SAFT">
+<h1>PC-SAFT<a class="headerlink" href="#PC-SAFT" title="Link to this heading">¶</a></h1>
+<p>The PC-SAFT implementation in teqp is based on the implementation of Gross and Sadowski (<a class="reference external" href="https://doi.org/10.1021/ie0003887">https://doi.org/10.1021/ie0003887</a>), with the typo from their paper fixed. It does NOT include the association contribution, only the dispersive contributions.</p>
+<p>The model in teqp requires the user to specify the values of <code class="docutils literal notranslate"><span class="pre">sigma</span></code>, <code class="docutils literal notranslate"><span class="pre">epsilon/kB</span></code>, and <code class="docutils literal notranslate"><span class="pre">m</span></code> for each substance. A very few substances are hardcoded in teqp, for testing purposes.</p>
+<p>The Python class is here: <code class="xref py py-class docutils literal notranslate"><span class="pre">PCSAFTEOS</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">teqp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">teqp</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.19.1&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TeXkey</span> <span class="o">=</span> <span class="s1">&#39;Gross-IECR-2001&#39;</span>
+<span class="n">ms</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.6069</span><span class="p">,</span> <span class="mf">2.0020</span><span class="p">]</span>
+<span class="n">eoverk</span> <span class="o">=</span> <span class="p">[</span><span class="mf">150.03</span><span class="p">,</span> <span class="mf">191.42</span><span class="p">,</span> <span class="mf">208.11</span><span class="p">]</span>
+<span class="n">sigmas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.7039</span><span class="p">,</span> <span class="mf">3.5206</span><span class="p">,</span> <span class="mf">3.6184</span><span class="p">]</span>
+
+<span class="n">coeffs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ms</span><span class="p">)):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">SAFTCoeffs</span><span class="p">()</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">m</span> <span class="o">=</span> <span class="n">ms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">epsilon_over_k</span> <span class="o">=</span> <span class="n">eoverk</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">sigma_Angstrom</span> <span class="o">=</span> <span class="n">sigmas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">coeffs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">PCSAFTEOS</span><span class="p">(</span><span class="n">coeffs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here are some rudimentary timing results</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">300.0</span>
+<span class="n">rhovec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="n">rhovec</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">rhovec</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">rhovec</span><span class="p">)</span>
+<span class="o">%</span><span class="k">timeit</span> model.get_fugacity_coefficients(T,rhovec)
+<span class="o">%</span><span class="k">timeit</span> (-1.0)*model.get_Ar20(T, rho, x)
+<span class="o">%</span><span class="k">timeit</span> model.get_partial_molar_volumes(T, rhovec)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+4.27 µs ± 13.9 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+4.24 µs ± 2.63 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+19.1 µs ± 3.84 µs per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+</pre></div></div>
+</div>
+<p>The model parameters can be queried:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">get_m</span><span class="p">(),</span> <span class="n">model</span><span class="o">.</span><span class="n">get_epsilon_over_k_K</span><span class="p">(),</span> <span class="n">model</span><span class="o">.</span><span class="n">get_sigma_Angstrom</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(array([1.    , 1.6069, 2.002 ]),
+ array([150.03, 191.42, 208.11]),
+ array([3.7039, 3.5206, 3.6184]))
+</pre></div></div>
+</div>
+<section id="Adjusting-k_ij">
+<h2>Adjusting k_ij<a class="headerlink" href="#Adjusting-k_ij" title="Link to this heading">¶</a></h2>
+<p>Fine-tuned values of <span class="math notranslate nohighlight">\(k_{ij}\)</span> can be provided when instantiating the model. A complete matrix of all the <span class="math notranslate nohighlight">\(k_{ij}\)</span> values must be provided. This allows for asymmetric mixing models in which <span class="math notranslate nohighlight">\(k_{ij}\neq k_{ji}\)</span>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k_01</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span> <span class="n">k_10</span> <span class="o">=</span> <span class="n">k_01</span>
+<span class="n">kmat</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">k_01</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="n">k_10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">PCSAFTEOS</span><span class="p">(</span><span class="n">coeffs</span><span class="p">,</span> <span class="n">kmat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># and the matrix of parameters can be printed back out</span>
+<span class="n">model</span><span class="o">.</span><span class="n">get_kmat</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[0.  , 0.01, 0.  ],
+       [0.01, 0.  , 0.  ],
+       [0.  , 0.  , 0.  ]])
+</pre></div></div>
+</div>
+</section>
+<section id="Superancillary">
+<h2>Superancillary<a class="headerlink" href="#Superancillary" title="Link to this heading">¶</a></h2>
+<p>The superancillary equation for PC-SAFT has been developed, and is much more involved than that of the cubic EOS. As a consequence, the superancillary equation has been provided as a separate package rather than integrating it into to teqp to minimize the binary size of teqp. It can be installed from PYPI with: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">PCSAFTsuperanc</span></code></p>
+<p>The scaling in the superancillaries uses reduced variables:</p>
+<div class="math notranslate nohighlight">
+\[\tilde T = T/(\epsilon/k_{\rm B})\]</div>
+<div class="math notranslate nohighlight">
+\[\tilde\rho = \rho_{\rm N}\sigma^3\]</div>
+<p>where <span class="math notranslate nohighlight">\(\rho_{\rm N}\)</span> is the number density, and the other parameters are from the PC-SAFT model</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">PCSAFTsuperanc</span>
+
+<span class="n">sigma_m</span> <span class="o">=</span> <span class="mf">3e-10</span> <span class="c1"># [meter]</span>
+<span class="n">e_over_k</span> <span class="o">=</span> <span class="mf">150.0</span> <span class="c1"># [K]</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># The saturation temperature</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">300</span>
+
+<span class="p">[</span><span class="n">Ttilde_crit</span><span class="p">,</span> <span class="n">Ttilde_min</span><span class="p">]</span> <span class="o">=</span> <span class="n">PCSAFTsuperanc</span><span class="o">.</span><span class="n">get_Ttilde_crit_min</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ttilde crit:&#39;</span><span class="p">,</span> <span class="n">Ttilde_crit</span><span class="p">)</span>
+
+<span class="c1"># Get the scaled densities for liquid and vapor phases</span>
+<span class="p">[</span><span class="n">tilderhoL</span><span class="p">,</span> <span class="n">tilderhoV</span><span class="p">]</span> <span class="o">=</span> <span class="n">PCSAFTsuperanc</span><span class="o">.</span><span class="n">PCSAFTsuperanc_rhoLV</span><span class="p">(</span><span class="n">Ttilde</span><span class="o">=</span><span class="n">T</span><span class="o">/</span><span class="n">e_over_k</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+<span class="c1"># Convert back to molar densities</span>
+<span class="n">N_A</span> <span class="o">=</span> <span class="n">PCSAFTsuperanc</span><span class="o">.</span><span class="n">N_A</span> <span class="c1"># The value of Avogadro&#39;s constant used in superancillaries</span>
+<span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span> <span class="o">=</span> <span class="p">[</span><span class="n">tilderho</span><span class="o">/</span><span class="p">(</span><span class="n">N_A</span><span class="o">*</span><span class="n">sigma_m</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">tilderho</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tilderhoL</span><span class="p">,</span> <span class="n">tilderhoV</span><span class="p">]]</span>
+
+<span class="c1"># As a sanity check, confirm that we got the same pressure in both phases</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">SAFTCoeffs</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">sigma_Angstrom</span> <span class="o">=</span> <span class="n">sigma_m</span><span class="o">*</span><span class="mf">1e10</span>
+<span class="n">c</span><span class="o">.</span><span class="n">epsilon_over_k</span> <span class="o">=</span> <span class="n">e_over_k</span>
+<span class="n">c</span><span class="o">.</span><span class="n">m</span> <span class="o">=</span> <span class="n">m</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">PCSAFTEOS</span><span class="p">([</span><span class="n">c</span><span class="p">])</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+<span class="n">pL</span> <span class="o">=</span> <span class="n">rhoL</span><span class="o">*</span><span class="n">model</span><span class="o">.</span><span class="n">get_R</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="n">T</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar01</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhoL</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+<span class="n">pV</span> <span class="o">=</span> <span class="n">rhoV</span><span class="o">*</span><span class="n">model</span><span class="o">.</span><span class="n">get_R</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="n">T</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar01</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhoV</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pressures are:&#39;</span><span class="p">,</span> <span class="n">pL</span><span class="p">,</span> <span class="n">pV</span><span class="p">,</span> <span class="s1">&#39;Pa&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Ttilde crit: 2.648680568587752
+Pressures are: 227809.12314460654 227809.12314409122 Pa
+</pre></div></div>
+</div>
+</section>
+<section id="Maximum-density">
+<h2>Maximum density<a class="headerlink" href="#Maximum-density" title="Link to this heading">¶</a></h2>
+<p>The maximum number density allowed by the EOS is defined based on the packing fraction. To get a molar density, divide by Avogadro’s number. The function is conveniently exposed in Python:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_rhoN</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">PCSAFTEOS</span><span class="p">(</span><span class="n">coeffs</span><span class="p">)</span><span class="o">.</span><span class="n">max_rhoN</span><span class="p">(</span><span class="mf">130.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">max_rhoN</span><span class="p">)</span>
+<span class="n">max_rhoN</span><span class="o">/</span><span class="mf">6.022e23</span> <span class="c1"># the maximum molar density in mol/m^3</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.9139171771761775e+28
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+31782.085306811314
+</pre></div></div>
+</div>
+</section>
+<section id="Polar-contributions">
+<h2>Polar contributions<a class="headerlink" href="#Polar-contributions" title="Link to this heading">¶</a></h2>
+<p>As of teqp version 0.15, quadrupolar and dipolar contributions have been added to the hard chain plus dispersion model which is referred to conventionally as PC-SAFT. The definitions of the reduced dipolar and quadrupolar parameters are not well documented, so they are given here. The work of Stoll, Vrabec, and Hasse (<a class="reference external" href="https://doi.org/10.1063/1.1623475">https://doi.org/10.1063/1.1623475</a>) clearly describes the formulation of the star-scaling.</p>
+<p>In SI units, the reduced squared dipole moment is defined by</p>
+<div class="math notranslate nohighlight">
+\[(\mu^*)^2_{\rm conventional} = \frac{(\mu[Cm])^2}{4\pi\epsilon_0(\varepsilon[J])(\sigma[m])^3}\]</div>
+<div class="math notranslate nohighlight">
+\[(Q^*)^2_{\rm conventional} = \frac{(\mu[Cm])^2}{4\pi\epsilon_0(\varepsilon[J])(\sigma[m])^5}\]</div>
+<p>In the PC-SAFT formulation, the only difference is the addition of dividing the denominator by the number of segments <span class="math notranslate nohighlight">\(m\)</span></p>
+<div class="math notranslate nohighlight">
+\[(\mu^*)^2 = \frac{(\mu[Cm])^2}{4\pi\epsilon_0m(\varepsilon/k_{\rm B}[K])k_B(\sigma[m])^3}\]</div>
+<div class="math notranslate nohighlight">
+\[(Q^*)^2 = \frac{(Q[Cm^2])^2}{4\pi\epsilon_0m(\varepsilon/k_B[K])k_B(\sigma[m])^5}\]</div>
+<p>The unit conversions are obtained from</p>
+<div class="math notranslate nohighlight">
+\[(\sigma[m]) = (10^{-10}m/A)(\sigma[A])\]</div>
+<div class="math notranslate nohighlight">
+\[(\mu[Cm]) = (3.33564 \times 10^{-30}  Cm/D)(\mu[D])\]</div>
+<p>and <span class="math notranslate nohighlight">\(\epsilon_0=8.85419e-12\)</span> C<span class="math notranslate nohighlight">\(^2\)</span> N<span class="math notranslate nohighlight">\(^{-1}\)</span> m<span class="math notranslate nohighlight">\(^{-2}\)</span> is the permittivity of vacuum.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CO2 with quadrupolar contributions</span>
+<span class="n">j</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;kind&#39;</span><span class="p">:</span> <span class="s1">&#39;PCSAFT&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;coeffs&#39;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;CO2&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;BibTeXKey&#39;</span><span class="p">:</span> <span class="s1">&#39;Gross-AICHEJ&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;m&#39;</span><span class="p">:</span> <span class="mf">1.5131</span><span class="p">,</span>
+             <span class="s1">&#39;sigma_Angstrom&#39;</span><span class="p">:</span> <span class="mf">3.1869</span><span class="p">,</span>
+             <span class="s1">&#39;epsilon_over_k&#39;</span><span class="p">:</span> <span class="mf">169.33</span><span class="p">,</span>
+             <span class="s1">&#39;(Q^*)^2&#39;</span><span class="p">:</span> <span class="mf">1.26</span><span class="p">,</span> <span class="c1"># modified from the values in Gross and Vrabec since the base model is different</span>
+             <span class="s1">&#39;nQ&#39;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="n">Tc</span><span class="p">,</span> <span class="n">rhoc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">solve_pure_critical</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">11000</span><span class="p">)</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">Tc</span><span class="o">*</span><span class="mf">0.999</span>
+<span class="n">rhoL_</span><span class="p">,</span> <span class="n">rhoV_</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">extrapolate_from_critical</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">rhoc</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+<span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">pure_VLE_T</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhoL_</span><span class="p">,</span> <span class="n">rhoV_</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">CoolProp.CoolProp</span> <span class="k">as</span> <span class="nn">CP</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+<span class="n">o</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">T_</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">215</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
+    <span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">pure_VLE_T</span><span class="p">(</span><span class="n">T_</span><span class="p">,</span> <span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">o</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+          <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="n">T_</span><span class="p">,</span> <span class="s1">&#39;rhoL&#39;</span><span class="p">:</span> <span class="n">rhoL</span><span class="p">,</span> <span class="s1">&#39;rhoV&#39;</span><span class="p">:</span> <span class="n">rhoV</span><span class="p">,</span>
+          <span class="s1">&#39;rhoLSW&#39;</span><span class="p">:</span> <span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="s1">&#39;Dmolar&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">T_</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;CO2&#39;</span><span class="p">),</span>
+          <span class="s1">&#39;rhoVSW&#39;</span><span class="p">:</span> <span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="s1">&#39;Dmolar&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">T_</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CO2&#39;</span><span class="p">)</span>
+        <span class="p">})</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rhoL&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PCSAFT+Q&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rhoV&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rhoLSW&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;S&amp;W&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rhoVSW&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\rho$ / mol/m$^3$&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;$T$ / K&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/models_PCSAFT_15_0.png" src="../_images/models_PCSAFT_15_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Acetone with dipolar contributions</span>
+<span class="n">j</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;kind&#39;</span><span class="p">:</span> <span class="s1">&#39;PCSAFT&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;coeffs&#39;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;acetone&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;BibTeXKey&#39;</span><span class="p">:</span> <span class="s1">&#39;Gross-IECR&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;m&#39;</span><span class="p">:</span> <span class="mf">2.7447</span><span class="p">,</span>
+             <span class="s1">&#39;sigma_Angstrom&#39;</span><span class="p">:</span> <span class="mf">3.2742</span><span class="p">,</span>
+             <span class="s1">&#39;epsilon_over_k&#39;</span><span class="p">:</span> <span class="mf">232.99</span><span class="p">,</span>
+             <span class="s1">&#39;(mu^*)^2&#39;</span><span class="p">:</span> <span class="mf">1.9</span><span class="p">,</span> <span class="c1"># modified from the values in Gross and Vrabec since the base model is different</span>
+             <span class="s1">&#39;nmu&#39;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="n">Tc</span><span class="p">,</span> <span class="n">rhoc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">solve_pure_critical</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">11000</span><span class="p">)</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">Tc</span><span class="o">*</span><span class="mf">0.999</span>
+<span class="n">rhoL_</span><span class="p">,</span> <span class="n">rhoV_</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">extrapolate_from_critical</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">rhoc</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+<span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">pure_VLE_T</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhoL_</span><span class="p">,</span> <span class="n">rhoV_</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">CoolProp.CoolProp</span> <span class="k">as</span> <span class="nn">CP</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+<span class="n">o</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">T_</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">215</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
+    <span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">pure_VLE_T</span><span class="p">(</span><span class="n">T_</span><span class="p">,</span> <span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">o</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+          <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="n">T_</span><span class="p">,</span> <span class="s1">&#39;rhoL&#39;</span><span class="p">:</span> <span class="n">rhoL</span><span class="p">,</span> <span class="s1">&#39;rhoV&#39;</span><span class="p">:</span> <span class="n">rhoV</span><span class="p">,</span>
+          <span class="s1">&#39;rhoLSW&#39;</span><span class="p">:</span> <span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="s1">&#39;Dmolar&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">T_</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;acetone&#39;</span><span class="p">),</span>
+          <span class="s1">&#39;rhoVSW&#39;</span><span class="p">:</span> <span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="s1">&#39;Dmolar&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">T_</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;acetone&#39;</span><span class="p">)</span>
+        <span class="p">})</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rhoL&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PCSAFT+D&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rhoV&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rhoLSW&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;S&amp;W&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rhoVSW&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\rho$ / mol/m$^3$&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;$T$ / K&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/models_PCSAFT_16_0.png" src="../_images/models_PCSAFT_16_0.png" />
+</div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">PC-SAFT</a><ul>
+<li><a class="reference internal" href="#Adjusting-k_ij">Adjusting k_ij</a></li>
+<li><a class="reference internal" href="#Superancillary">Superancillary</a></li>
+<li><a class="reference internal" href="#Maximum-density">Maximum density</a></li>
+<li><a class="reference internal" href="#Polar-contributions">Polar contributions</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Models</a><ul>
+      <li>Previous: <a href="model_potentials.html" title="previous chapter">Model Potentials</a></li>
+      <li>Next: <a href="SAFT-VR-Mie.html" title="next chapter">SAFT-VR-Mie</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/PCSAFT.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/PCSAFT.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

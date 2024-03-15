@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Models &#8212; teqp 0.19.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Constructing Models" href="make_model.html" />
+    <link rel="prev" title="Composition derivatives" href="../derivs/compderivs.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="models">
+<h1>Models<a class="headerlink" href="#models" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="make_model.html">Constructing Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cubics.html">General cubics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cubics.html#Adjusting-k_ij">Adjusting k_ij</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cubics.html#Superancillary">Superancillary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cubics.html#a-and-b">a and b</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cubics.html#alpha-functions">alpha functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="QuantumPR.html">Quantum PR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AdvancedCubicMixing.html">Advanced cubic mixing rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RK-PR.html">RK-PR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CPA.html">Cubic Plus Association (CPA)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CPA.html#Cubic-part">Cubic part</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CPA.html#Association-part">Association part</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LKP.html">LKP (Lee-Kesler-Plöcker)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_potentials.html">Model Potentials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model_potentials.html#Square-well">Square-well</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_potentials.html#EXP-6">EXP-6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_potentials.html#Lennard-Jones-Fluid">Lennard-Jones Fluid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_potentials.html#Two-Center-Lennard-Jones-Fluid">Two-Center Lennard-Jones Fluid</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PCSAFT.html">PC-SAFT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PCSAFT.html#Adjusting-k_ij">Adjusting k_ij</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCSAFT.html#Superancillary">Superancillary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCSAFT.html#Maximum-density">Maximum density</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCSAFT.html#Polar-contributions">Polar contributions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SAFT-VR-Mie.html">SAFT-VR-Mie</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SAFT-VR-Mie.html#Calculation-of-diameter">Calculation of diameter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SAFT-VR-Mie-Polar.html">SAFT-VR-Mie with polar contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Association.html">Association</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Association.html#Site-Interactions">Site Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Association.html#Interaction-strength">Interaction strength</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Association.html#Radial-distribution-function">Radial distribution function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multi-fluid EOS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multifluid.html#Ancillary-Equations">Ancillary Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multifluid.html#Ammonia-Water">Ammonia-Water</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multifluid.html#Pure-fluid-loading">Pure fluid loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multifluid.html#Mixture-model-loading">Mixture model loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multifluid.html#Estimation-of-interaction-parameters">Estimation of interaction parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid_mutant.html">Multfluid mutant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="REFPROP_conversion.html">REFPROP &lt;10.0 conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GERG.html">GERG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">Extended Corresponding States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IdealGas.html">Ideal-gas Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="IdealGas.html#IdealHelmholtzConstant">IdealHelmholtzConstant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IdealGas.html#IdealHelmholtzLogT">IdealHelmholtzLogT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IdealGas.html#IdealHelmholtzLead">IdealHelmholtzLead</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IdealGas.html#IdealHelmholtzPowerT">IdealHelmholtzPowerT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IdealGas.html#IdealHelmholtzPlanckEinstein">IdealHelmholtzPlanckEinstein</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IdealGas.html#IdealHelmholtzPlanckEinsteinGeneralized">IdealHelmholtzPlanckEinsteinGeneralized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IdealGas.html#IdealHelmholtzGERG2004Cosh">IdealHelmholtzGERG2004Cosh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IdealGas.html#IdealHelmholtzGERG2004Sinh">IdealHelmholtzGERG2004Sinh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IdealGas.html#IdealHelmholtzCp0Constant">IdealHelmholtzCp0Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IdealGas.html#IdealHelmholtzCp0PowerT">IdealHelmholtzCp0PowerT</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../derivs/compderivs.html" title="previous chapter">Composition derivatives</a></li>
+      <li>Next: <a href="make_model.html" title="next chapter">Constructing Models</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

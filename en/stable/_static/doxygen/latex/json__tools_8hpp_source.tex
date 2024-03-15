@@ -1,0 +1,148 @@
+\doxysection{json\+\_\+tools.\+hpp}
+\hypertarget{json__tools_8hpp_source}{}\label{json__tools_8hpp_source}\index{include/teqp/json\_tools.hpp@{include/teqp/json\_tools.hpp}}
+\mbox{\hyperlink{json__tools_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}nlohmann/json.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <nlohmann/json-\/schema.hpp>}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exceptions_8hpp}{teqp/exceptions.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <Eigen/Dense>}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00012}00012\ \textcolor{keyword}{using\ }nlohmann::json;}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00013}00013\ \textcolor{keyword}{using\ }nlohmann::json\_schema::json\_validator;}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00015}00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp}{teqp}}\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00016}00016\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00018}\mbox{\hyperlink{namespaceteqp_a5f3efac006a4e11eff65affdbc051469}{00018}}\ \ \ \ \ \textcolor{keyword}{inline}\ nlohmann::json\ \mbox{\hyperlink{namespaceteqp_a5f3efac006a4e11eff65affdbc051469}{load\_a\_JSON\_file}}(\textcolor{keyword}{const}\ std::string\&\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!std::filesystem::is\_regular\_file(path))\ \{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Path\ to\ be\ loaded\ does\ not\ exist:\ "{}}\ +\ path);}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ stream\ =\ std::ifstream(path);}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!stream)\ \{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}File\ stream\ cannot\ be\ opened\ from:\ "{}}\ +\ path);}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nlohmann::json::parse(stream);}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}File\ at\ "{}}\ +\ path\ +\ \textcolor{stringliteral}{"{}\ is\ not\ valid\ JSON"{}});}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00032}00032\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00034}\mbox{\hyperlink{namespaceteqp_a82028c79c5797818e7bbba8f88b4d4a6}{00034}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_a82028c79c5797818e7bbba8f88b4d4a6}{all\_same\_length}}(\textcolor{keyword}{const}\ nlohmann::json\&\ j,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ ks)\ \{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ std::set<\textcolor{keyword}{decltype}(j[0].size())>\ lengths;}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ :\ ks)\ \{\ lengths.insert(j.at(k).size());\ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lengths.size()\ ==\ 1;}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00040}\mbox{\hyperlink{namespaceteqp_a0387f578fa55e79f0da380ebd38b22e9}{00040}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_a0387f578fa55e79f0da380ebd38b22e9}{build\_square\_matrix}}\ =\ [](\textcolor{keyword}{const}\ nlohmann::json\&\ j)\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j.is\_null()\ ||\ (j.is\_array()\ \&\&\ j.size()\ ==\ 0))\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Eigen::ArrayXXd(0,\ 0);}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::valarray<std::valarray<double>>\ m\ =\ j;}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ assume\ that\ the\ matrix\ is\ square,\ resize}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::ArrayXXd\ mat(m.size(),\ m.size());}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m.size()\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mat;}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Then\ copy\ elements\ over}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ m.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ row\ =\ m[i];}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (row.size()\ !=\ \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(mat.rows()))\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}provided\ matrix\ is\ not\ square"{}});}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ 0U;\ k\ <\ row.size();\ ++k)\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mat(i,\ k)\ =\ row[k];}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mat;}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}(\textcolor{keyword}{const}\ nlohmann::json::exception\&)\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}Unable\ to\ convert\ this\ kmat\ to\ a\ NxN\ matrix\ of\ doubles:"{}}\ +\ j.dump(2));}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00066}00066\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00077}\mbox{\hyperlink{namespaceteqp_ad4771b0bb9c922bc937e72f81b4431df}{00077}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_ad4771b0bb9c922bc937e72f81b4431df}{multilevel\_JSON\_load}}(\textcolor{keyword}{const}\ nlohmann::json\ \&j,\ \textcolor{keyword}{const}\ std::string\&\ default\_path)\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ is\_valid\_path\ =\ [](\textcolor{keyword}{const}\ std::string\ \&\ s)\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::filesystem::is\_regular\_file(s)\ ||\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ this\ will\ return\ true\ if\ the\ function\ CAN\ BE\ CALLED\ without\ exception,\ indicating\ it\ could\ be\ a\ path}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}(...)\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ not\ provided\ (NULL,\ empty\ array\ or\ empty\ string),\ load\ from\ the\ default\ path\ provided}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j.is\_null()\ ||\ (j.is\_array()\ \&\&\ j.empty())\ ||\ (j.is\_string()\ \&\&\ j.get<std::string>().empty()))\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_a5f3efac006a4e11eff65affdbc051469}{load\_a\_JSON\_file}}(default\_path);}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (j.is\_object())\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assume\ we\ are\ already\ providing\ the\ thing}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ j;}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (j.is\_array()\ \&\&\ j.size()\ >\ 0)\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ j;}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (j.is\_string())\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ a\ string,\ either\ data\ in\ JSON\ format,\ or\ a\ path-\/like\ thing}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ s\ =\ j.get<std::string>();}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ path\ to\ existing\ file,\ use\ it}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_valid\_path(s)\ \&\&\ std::filesystem::is\_regular\_file(s))\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_a5f3efac006a4e11eff65affdbc051469}{load\_a\_JSON\_file}}(s);}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Or\ assume\ it\ is\ a\ string\ in\ JSON\ format}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nlohmann::json::parse(s);}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}Unable\ to\ load\ the\ argument\ to\ multilevel\_JSON\_load"{}});}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00115}00115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00120}\mbox{\hyperlink{classteqp_1_1JSONValidator}{00120}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1JSONValidator}{JSONValidator}}\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00121}00121\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00122}\mbox{\hyperlink{classteqp_1_1JSONValidator_a69d79bd81bf5df9cbb1ff0ab9e81cc5a}{00122}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ nlohmann::json\ \mbox{\hyperlink{classteqp_1_1JSONValidator_a69d79bd81bf5df9cbb1ff0ab9e81cc5a}{schema}};}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00123}00123\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00124}\mbox{\hyperlink{classteqp_1_1JSONValidator_a2b35809941f4177ba29d0f6fe18586cc}{00124}}\ \ \ \ \ \ \ \ \ json\_validator\ \mbox{\hyperlink{classteqp_1_1JSONValidator_a2b35809941f4177ba29d0f6fe18586cc}{validator}};\ \textcolor{comment}{//\ create\ validator}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00125}00125\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Instantiate\ the\ validator\ object,\ will\ throw\ if\ the\ schema\ is\ invalid}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00127}\mbox{\hyperlink{classteqp_1_1JSONValidator_a0535c8fb572f81615dbb30513b43b3fd}{00127}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1JSONValidator_a0535c8fb572f81615dbb30513b43b3fd}{JSONValidator}}(\textcolor{keyword}{const}\ nlohmann::json\&\ \mbox{\hyperlink{classteqp_1_1JSONValidator_a69d79bd81bf5df9cbb1ff0ab9e81cc5a}{schema}})\ :\ \mbox{\hyperlink{classteqp_1_1JSONValidator_a69d79bd81bf5df9cbb1ff0ab9e81cc5a}{schema}}(\mbox{\hyperlink{classteqp_1_1JSONValidator_a69d79bd81bf5df9cbb1ff0ab9e81cc5a}{schema}})\ \{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1JSONValidator_a2b35809941f4177ba29d0f6fe18586cc}{validator}}.set\_root\_schema(\mbox{\hyperlink{classteqp_1_1JSONValidator_a69d79bd81bf5df9cbb1ff0ab9e81cc5a}{schema}});\ \textcolor{comment}{//\ insert\ root-\/schema}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00130}00130\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Return\ the\ validation\ errors\ when\ trying\ to\ validate\ the\ JSON}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00132}\mbox{\hyperlink{classteqp_1_1JSONValidator_a81eb972abf14e0000e7cf1bfeaefc757}{00132}}\ \ \ \ \ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{classteqp_1_1JSONValidator_a81eb972abf14e0000e7cf1bfeaefc757}{get\_validation\_errors}}(\textcolor{keyword}{const}\ nlohmann::json\&\ j)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Custom\ error\ handler\ */}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }custom\_error\_handler\ :\ \textcolor{keyword}{public}\ nlohmann::json\_schema::basic\_error\_handler}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::string>\ errors;}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ error(\textcolor{keyword}{const}\ nlohmann::json::json\_pointer\ \&ptr,\ \textcolor{keyword}{const}\ json\ \&instance,\ \textcolor{keyword}{const}\ std::string\ \&message)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00140}00140\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nlohmann::json\_schema::basic\_error\_handler::error(ptr,\ instance,\ message);}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ss\ <<\ ptr\ <<\ \textcolor{stringliteral}{"{}:"{}}\ <<\ instance\ <<\ \textcolor{stringliteral}{"{}':\ "{}}\ <<\ message\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ errors.push\_back(ss.str());}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ handler;}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1JSONValidator_a2b35809941f4177ba29d0f6fe18586cc}{validator}}.validate(j,\ handler);\ \textcolor{comment}{//\ validate\ the\ document}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ handler.errors;}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00150}00150\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ A\ quick\ checker\ for\ validation\ of\ the\ JSON}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00152}\mbox{\hyperlink{classteqp_1_1JSONValidator_a5c05c2f997256a8bcd6370111cdd46f0}{00152}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classteqp_1_1JSONValidator_a5c05c2f997256a8bcd6370111cdd46f0}{is\_valid}}(\textcolor{keyword}{const}\ nlohmann::json\&j\ )\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1JSONValidator_a81eb972abf14e0000e7cf1bfeaefc757}{get\_validation\_errors}}(j).empty();\ \}}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00153}00153\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{json__tools_8hpp_source_l00155}00155\ \}}
+
+\end{DoxyCode}

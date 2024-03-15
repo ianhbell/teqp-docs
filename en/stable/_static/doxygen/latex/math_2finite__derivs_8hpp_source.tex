@@ -1,0 +1,65 @@
+\doxysection{finite\+\_\+derivs.\+hpp}
+\hypertarget{math_2finite__derivs_8hpp_source}{}\label{math_2finite__derivs_8hpp_source}\index{include/teqp/math/finite\_derivs.hpp@{include/teqp/math/finite\_derivs.hpp}}
+\mbox{\hyperlink{math_2finite__derivs_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00003}00003\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp}{teqp}}\{}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00018}00018\ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ Nderiv,\ \textcolor{keywordtype}{int}\ Norder,\ \textcolor{keyword}{typename}\ Function,\ \textcolor{keyword}{typename}\ Scalar>}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00019}\mbox{\hyperlink{namespaceteqp_a12e535a8d5233799f0230d606e3e036e}{00019}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_a12e535a8d5233799f0230d606e3e036e}{centered\_diff}}(\textcolor{keyword}{const}\ Function\ \&f,\ \textcolor{keyword}{const}\ Scalar\ x,\ \textcolor{keyword}{const}\ Scalar\ h)\ \{}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{struct\ }DiffCoeffs\ \{}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ std::valarray<int>\ k;}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ std::valarray<Scalar>\ c;}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00024}00024\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00025}00025\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//\ See\ https://en.wikipedia.org/wiki/Finite\_difference\_coefficient\#Central\_finite\_difference}}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00027}00027\ \ \ \ \ \textcolor{comment}{//\ Watch\ out\ that\ if\ you\ would\ like\ to\ use\ extended\ precision,\ you\ also\ need\ to\ keep\ }}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//\ all\ the\ coefficients\ in\ extended\ precision\ too}}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ This\ is\ because\ 1.0/2.0\ is\ different\ than\ casting\ each\ of\ 1.0\ and\ 2.0\ to\ extended\ precision}}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//\ and\ then\ taking\ their\ ratio}}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00032}00032\ \ \ \ \ \textcolor{keyword}{using\ }r\ =\ Scalar;}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00033}00033\ \ \ \ \ \textcolor{keyword}{static}\ std::map<std::tuple<int,\ int>,\ DiffCoeffs>\ CentralDiffCoeffs\ =\ \{}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \{\{1,\ 2\},\ \{\{-\/1,1\},\ \ \ \ \ \ \{-\/r(1)/r(2),\ r(1)/r(2)\}\}\ \},}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \{\{1,\ 4\},\ \{\{-\/2,-\/1,1,2\},\ \{r(1)/\ r(12),\ -\/r(2)/r(3),\ r(2)/r(3),\ -\/r(1)/r(12)\}\}\ \},}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \{\{1,\ 6\},\ \{\{-\/3,-\/2,-\/1,1,2,3\},\ \{-\/r(1)/r(60),\ r(3)/r(20),\ -\/r(3)/r(4),\ r(3)/r(4),\ -\/r(3)/r(20),\ r(1)/r(60)\}\}\ \},}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \{\{2,\ 2\},\ \{\{-\/1,0,1\},\ \{1,\ -\/2,\ 1\}\ \}\},}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \{\{2,\ 4\},\ \{\{-\/2,-\/1,0,1,2\},\ \{r(-\/1)/r(12),\ r(4)/r(3),\ r(-\/5)/r(2),\ r(4)/r(3),\ r(-\/1)/r(12)\}\}\ \},}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \{\{2,\ 6\},\ \{\{-\/3,-\/2,-\/1,0,1,2,3\},\ \{r(1)/r(90),\ r(-\/3)/r(20),\ r(3)/r(2),\ r(-\/49)/r(18),\ r(3)/r(2),\ r(-\/3)/r(20),\ r(1)/r(90)\}\}\ \},}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \{\{3,\ 2\},\ \{\{-\/2,\ -\/1,\ 0,\ 1,\ 2\},\ \{r(-\/1)/r(2),\ r(1),\ 0,\ r(-\/1),\ r(1)/r(2)\}\}\ \},}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \{\{3,\ 4\},\ \{\{-\/3,-\/2,-\/1,0,1,2,3\},\ \{r(1)/r(8),\ r(-\/1),\ r(13)/r(8),\ 0,\ r(-\/13)/r(8),\ r(1),\ r(-\/1)/r(8)\}\}\ \},}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \{\{3,\ 6\},\ \{\{-\/4,-\/3,-\/2,-\/1,0,1,2,3,4\},\ \{r(-\/7)/r(240),\ r(3)/r(10),\ r(-\/169)/r(120),\ r(61)/r(30),\ 0,\ r(-\/61)/r(30),\ r(169)/r(120),\ r(-\/3)/r(10),\ r(7)/r(240)\}\}\ \},}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \{\{4,\ 2\},\ \{\{-\/2,-\/1,0,1,2\},\ \{1,-\/4,6,-\/4,1\}\}\ \},}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \{\{4,\ 4\},\ \{\{-\/3,-\/2,-\/1,0,1,2,3\},\ \{-\/r(1)/r(6),\ r(2),\ -\/r(13)/r(2),\ r(28)/r(3.0),\ -\/r(13)/r(2),\ r(2),\ -\/r(1)/r(6)\}\}\ \},}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \{\{4,\ 6\},\ \{\{-\/4,-\/3,-\/2,-\/1,0,1,2,3,4\},\ \{r(7)/r(240),\ -\/r(2)/r(5),\ r(169)/r(60),\ -\/r(122)/r(15),\ r(91)/r(8),\ -\/r(122)/r(15),\ r(169)/r(60),\ -\/r(2)/r(5),\ r(7)/r(240)\}\}\ \},}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00049}00049\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{auto}\ [k,\ c]\ =\ CentralDiffCoeffs[std::make\_tuple(Nderiv,\ Norder)];}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (c.size()\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Cannot\ obtain\ the\ necessary\ finite\ differentiation\ coefficients"{}});}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00055}00055\ \ \ \ \ \textcolor{comment}{//\ Sanity\ check...}}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{if}\ (c.size()\ !=\ k.size())\ \{}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Finite\ differentiation\ coefficient\ arrays\ not\ the\ same\ size"{}});}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00058}00058\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00059}00059\ \ \ \ \ Scalar\ num\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ k.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ num\ =\ num\ +\ c[i]*f(x\ +\ h*k[i]);}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00063}00063\ \ \ \ \ \textcolor{keyword}{auto}\ val\ =\ num\ /\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(h,\ Nderiv);}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{return}\ val;}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00065}00065\ \}}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00067}00067\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Function,\ \textcolor{keyword}{typename}\ Scalarx,\ \textcolor{keyword}{typename}\ Scalary>}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00068}\mbox{\hyperlink{namespaceteqp_a952b700001b4c0097e2f381122d7a323}{00068}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_a952b700001b4c0097e2f381122d7a323}{centered\_diff\_xy}}(\textcolor{keyword}{const}\ Function\ \&f,\ \textcolor{keyword}{const}\ Scalarx\ x,\ \textcolor{keyword}{const}\ Scalary\ y,\ \textcolor{keyword}{const}\ Scalarx\ dx,\ \textcolor{keyword}{const}\ Scalary\ dy)\ \{}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{return}\ (f(x+dx,\ y+dy)\ -\/\ f(x+dx,\ y-\/dy)\ -\/\ f(x-\/dx,\ y+dy)\ +\ f(x-\/dx,\ y-\/dy))/(4*dx*dy);}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00070}00070\ \}}
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00071}00071\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{math_2finite__derivs_8hpp_source_l00072}00072\ \};\ \textcolor{comment}{//\ namespace\ teqp}}
+
+\end{DoxyCode}

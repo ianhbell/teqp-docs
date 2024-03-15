@@ -1,0 +1,492 @@
+\doxysection{teqp\+::Advanced\+PRa\+Eres\texorpdfstring{$<$}{<} Num\+Type, Alpha\+Functions \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classteqp_1_1AdvancedPRaEres}{}\label{classteqp_1_1AdvancedPRaEres}\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+
+
+{\ttfamily \#include $<$cubics.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a20660041b8dc93283fbb2afc0256cb3d}{Advanced\+PRa\+Eres}} (const std\+::valarray$<$ Num\+Type $>$ \&\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a26ec2ffa642fd8902ad5712dd54bbd26}{Tc\+\_\+K}}, const std\+::valarray$<$ Num\+Type $>$ \&\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a8359707bf180379b72851316025a3449}{pc\+\_\+\+Pa}}, const Alpha\+Functions \&\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a4b78972bcd421c6f33dba0f570bdeee4}{alphas}}, const \mbox{\hyperlink{namespaceteqp_a9c5a1a892880b5bb58042dd88b92a25d}{Residual\+Helmholtz\+Over\+RTVariant}} \&\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a39c8635b69f1b5386a5411c8858028b0}{ares}}, const Eigen\+::\+Array\+XXd \&\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a2f32b1edd959cb94813c26b5db4ea4df}{lmat}}, const Advanced\+PRa\+EOptions \&options=\{\})
+\item 
+void \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a5d1e55091f7f53c0c62d5f4fd235a793}{set\+\_\+meta}} (const nlohmann\+::json \&j)
+\item 
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_af0b463bf173974085fa790ede239a2d5}{get\+\_\+meta}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_abc20cd57e157345bd1ef3b5ef00bd757}{get\+\_\+lmat}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a3d5714027661b78812894b43223a062a}{get\+\_\+\+Tc\+\_\+K}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_ad40f7bf45fd4681c38ef593fef55c0da}{get\+\_\+pc\+\_\+\+Pa}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_adf68748af800b1b7fe3e62e218fc4445}{superanc\+\_\+rho\+LV}} (double T, std\+::optional$<$ std\+::size\+\_\+t $>$ ifluid=std\+::nullopt) const
+\item 
+{\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_ab71a84f278aa5b7a10a242e6f061bf02}{R}} (const Vec\+Type \&) const
+\begin{DoxyCompactList}\small\item\em Universal gas constant, exact number. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TType , typename Comp\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a0bb8aa7fa9a1eb4c2603f83c4826d422}{get\+\_\+a}} (TType T, const Comp\+Type \&molefracs) const
+\item 
+{\footnotesize template$<$typename TType , typename Comp\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_afdb5b28557db5154f0e3edfd5db5f70f}{get\+\_\+am\+\_\+over\+\_\+bm}} (TType T, const Comp\+Type \&molefracs) const
+\item 
+{\footnotesize template$<$typename TType , typename Comp\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a1444a110b0a2eafa21ea3c50e5df0b7c}{get\+\_\+b}} (TType T, const Comp\+Type \&molefracs) const
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_afdf38180bf103e42943226a62601a5a4}{alphar}} (const TType \&T, const Rho\+Type \&rho, const Mole\+Frac\+Type \&molefrac) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a36a2874e1c813b1fedfc894611f91105}{get\+\_\+bi}} (double \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a26ec2ffa642fd8902ad5712dd54bbd26}{Tc\+\_\+K}}, double \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a8359707bf180379b72851316025a3449}{pc\+\_\+\+Pa}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const Num\+Type \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_ab84fd7bcc563faa3ce7ec4e460a92432}{Delta1}} = 1+sqrt(2.\+0)
+\item 
+const Num\+Type \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a546caad9453858fb6c8f901b3f4e4433}{Delta2}} = 1-\/sqrt(2.\+0)
+\item 
+const Num\+Type \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_af762fd56f4be8cd1a07582fff8f61814}{OmegaA}} = 0.\+45723552892138218938
+\item 
+const Num\+Type \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a564a06bc95149a541b4dcd7af2e95d17}{OmegaB}} = 0.\+077796073903888455972
+\item 
+const int \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_aa98d61bb927c9cf8719fea31d26ccc27}{superanc\+\_\+code}} = \mbox{\hyperlink{namespaceteqp_1_1CubicSuperAncillary_a4f1aff916639fada1bf5e2cde841eb5b}{Cubic\+Super\+Ancillary\+::\+PR\+\_\+\+CODE}}
+\item 
+const Num\+Type \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_ab4ba5880b8fd8b1719266bd07d52c6cc}{Ru}} = \mbox{\hyperlink{namespaceteqp_aed0cabbf6a82a357adc773aa850566ea}{get\+\_\+\+R\+\_\+gas}}$<$double$>$()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename TType , typename Index\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a4938508943d254bff6edd8610d4b96b0}{get\+\_\+ai}} (TType \&T, Index\+Type i) const
+\item 
+{\footnotesize template$<$typename TType , typename Index\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a8bf66f58b47deba1aa0166c2c40b34bc}{get\+\_\+bi}} (TType \&, Index\+Type i) const
+\item 
+{\footnotesize template$<$typename Index\+Type $>$ }\\void \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a22bdb3b8bc54c2a6521092ad7fccecaa}{check\+\_\+lmat}} (Index\+Type N)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::valarray$<$ Num\+Type $>$ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a26ec2ffa642fd8902ad5712dd54bbd26}{Tc\+\_\+K}}
+\item 
+std\+::valarray$<$ Num\+Type $>$ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a8359707bf180379b72851316025a3449}{pc\+\_\+\+Pa}}
+\item 
+std\+::valarray$<$ Num\+Type $>$ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a3ed1d8cf5ead5289e7f5915a3e80ee85}{ai}}
+\item 
+std\+::valarray$<$ Num\+Type $>$ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a9c20a363f459f566ef64dc7d6b82a9f5}{bi}}
+\item 
+const Alpha\+Functions \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a4b78972bcd421c6f33dba0f570bdeee4}{alphas}}
+\item 
+const \mbox{\hyperlink{namespaceteqp_a9c5a1a892880b5bb58042dd88b92a25d}{Residual\+Helmholtz\+Over\+RTVariant}} \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a39c8635b69f1b5386a5411c8858028b0}{ares}}
+\item 
+Eigen\+::\+Array\+XXd \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a2f32b1edd959cb94813c26b5db4ea4df}{lmat}}
+\item 
+const \mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418ead}{Advanced\+PRa\+EMixing\+Rules}} \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a53fdca23edceaa780c8eef8ee900d360}{brule}}
+\item 
+const double \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a2032b061b93818d2f14701d3f3df28f3}{s}}
+\item 
+const double \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_aa87df3c5773c819ed9dae188c3b64a40}{CEoS}}
+\item 
+nlohmann\+::json \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres_a241f82fdb0fc3b5dea9aaeec81bb42ea}{meta}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Num\+Type, typename Alpha\+Functions = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$\newline
+class teqp\+::\+Advanced\+PRa\+Eres$<$ Num\+Type, Alpha\+Functions $>$}
+Cubic EOS with advanced mixing rules, the Eo\+S/aE method of Jaubert and co-\/workers 
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00559}{559}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a20660041b8dc93283fbb2afc0256cb3d}\label{classteqp_1_1AdvancedPRaEres_a20660041b8dc93283fbb2afc0256cb3d} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!AdvancedPRaEres@{AdvancedPRaEres}}
+\index{AdvancedPRaEres@{AdvancedPRaEres}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{AdvancedPRaEres()}{AdvancedPRaEres()}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+\mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+Advanced\+PRa\+Eres (\begin{DoxyParamCaption}\item[{const std\+::valarray$<$ Num\+Type $>$ \&}]{Tc\+\_\+K,  }\item[{const std\+::valarray$<$ Num\+Type $>$ \&}]{pc\+\_\+\+Pa,  }\item[{const Alpha\+Functions \&}]{alphas,  }\item[{const \mbox{\hyperlink{namespaceteqp_a9c5a1a892880b5bb58042dd88b92a25d}{Residual\+Helmholtz\+Over\+RTVariant}} \&}]{ares,  }\item[{const Eigen\+::\+Array\+XXd \&}]{lmat,  }\item[{const Advanced\+PRa\+EOptions \&}]{options = {\ttfamily \{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00609}{609}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1AdvancedPRaEres_afdf38180bf103e42943226a62601a5a4}\label{classteqp_1_1AdvancedPRaEres_afdf38180bf103e42943226a62601a5a4} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Rho\+Type \&}]{rho,  }\item[{const Mole\+Frac\+Type \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00712}{712}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a22bdb3b8bc54c2a6521092ad7fccecaa}\label{classteqp_1_1AdvancedPRaEres_a22bdb3b8bc54c2a6521092ad7fccecaa} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!check\_lmat@{check\_lmat}}
+\index{check\_lmat@{check\_lmat}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{check\_lmat()}{check\_lmat()}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+template$<$typename Index\+Type $>$ \\
+void \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::check\+\_\+lmat (\begin{DoxyParamCaption}\item[{Index\+Type}]{N }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00596}{596}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a0bb8aa7fa9a1eb4c2603f83c4826d422}\label{classteqp_1_1AdvancedPRaEres_a0bb8aa7fa9a1eb4c2603f83c4826d422} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!get\_a@{get\_a}}
+\index{get\_a@{get\_a}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{get\_a()}{get\_a()}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+template$<$typename TType , typename Comp\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+a (\begin{DoxyParamCaption}\item[{TType}]{T,  }\item[{const Comp\+Type \&}]{molefracs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00670}{670}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a4938508943d254bff6edd8610d4b96b0}\label{classteqp_1_1AdvancedPRaEres_a4938508943d254bff6edd8610d4b96b0} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!get\_ai@{get\_ai}}
+\index{get\_ai@{get\_ai}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{get\_ai()}{get\_ai()}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+template$<$typename TType , typename Index\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+ai (\begin{DoxyParamCaption}\item[{TType \&}]{T,  }\item[{Index\+Type}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00587}{587}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_afdb5b28557db5154f0e3edfd5db5f70f}\label{classteqp_1_1AdvancedPRaEres_afdb5b28557db5154f0e3edfd5db5f70f} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!get\_am\_over\_bm@{get\_am\_over\_bm}}
+\index{get\_am\_over\_bm@{get\_am\_over\_bm}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{get\_am\_over\_bm()}{get\_am\_over\_bm()}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+template$<$typename TType , typename Comp\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+am\+\_\+over\+\_\+bm (\begin{DoxyParamCaption}\item[{TType}]{T,  }\item[{const Comp\+Type \&}]{molefracs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00675}{675}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a1444a110b0a2eafa21ea3c50e5df0b7c}\label{classteqp_1_1AdvancedPRaEres_a1444a110b0a2eafa21ea3c50e5df0b7c} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!get\_b@{get\_b}}
+\index{get\_b@{get\_b}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{get\_b()}{get\_b()}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+template$<$typename TType , typename Comp\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+b (\begin{DoxyParamCaption}\item[{TType}]{T,  }\item[{const Comp\+Type \&}]{molefracs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00685}{685}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a36a2874e1c813b1fedfc894611f91105}\label{classteqp_1_1AdvancedPRaEres_a36a2874e1c813b1fedfc894611f91105} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!get\_bi@{get\_bi}}
+\index{get\_bi@{get\_bi}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{get\_bi()}{get\_bi()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+static double \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+bi (\begin{DoxyParamCaption}\item[{double}]{Tc\+\_\+K,  }\item[{double}]{pc\+\_\+\+Pa }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00627}{627}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a8bf66f58b47deba1aa0166c2c40b34bc}\label{classteqp_1_1AdvancedPRaEres_a8bf66f58b47deba1aa0166c2c40b34bc} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!get\_bi@{get\_bi}}
+\index{get\_bi@{get\_bi}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{get\_bi()}{get\_bi()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+template$<$typename TType , typename Index\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+bi (\begin{DoxyParamCaption}\item[{TType \&}]{,  }\item[{Index\+Type}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00593}{593}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_abc20cd57e157345bd1ef3b5ef00bd757}\label{classteqp_1_1AdvancedPRaEres_abc20cd57e157345bd1ef3b5ef00bd757} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!get\_lmat@{get\_lmat}}
+\index{get\_lmat@{get\_lmat}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{get\_lmat()}{get\_lmat()}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+lmat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00623}{623}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_af0b463bf173974085fa790ede239a2d5}\label{classteqp_1_1AdvancedPRaEres_af0b463bf173974085fa790ede239a2d5} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!get\_meta@{get\_meta}}
+\index{get\_meta@{get\_meta}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{get\_meta()}{get\_meta()}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+meta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00622}{622}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_ad40f7bf45fd4681c38ef593fef55c0da}\label{classteqp_1_1AdvancedPRaEres_ad40f7bf45fd4681c38ef593fef55c0da} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!get\_pc\_Pa@{get\_pc\_Pa}}
+\index{get\_pc\_Pa@{get\_pc\_Pa}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{get\_pc\_Pa()}{get\_pc\_Pa()}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+pc\+\_\+\+Pa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00625}{625}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a3d5714027661b78812894b43223a062a}\label{classteqp_1_1AdvancedPRaEres_a3d5714027661b78812894b43223a062a} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!get\_Tc\_K@{get\_Tc\_K}}
+\index{get\_Tc\_K@{get\_Tc\_K}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{get\_Tc\_K()}{get\_Tc\_K()}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+\+Tc\+\_\+K (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00624}{624}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_ab71a84f278aa5b7a10a242e6f061bf02}\label{classteqp_1_1AdvancedPRaEres_ab71a84f278aa5b7a10a242e6f061bf02} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!R@{R}}
+\index{R@{R}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+template$<$class Vec\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Universal gas constant, exact number. 
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00665}{665}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a5d1e55091f7f53c0c62d5f4fd235a793}\label{classteqp_1_1AdvancedPRaEres_a5d1e55091f7f53c0c62d5f4fd235a793} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!set\_meta@{set\_meta}}
+\index{set\_meta@{set\_meta}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{set\_meta()}{set\_meta()}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+void \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::set\+\_\+meta (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00621}{621}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_adf68748af800b1b7fe3e62e218fc4445}\label{classteqp_1_1AdvancedPRaEres_adf68748af800b1b7fe3e62e218fc4445} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!superanc\_rhoLV@{superanc\_rhoLV}}
+\index{superanc\_rhoLV@{superanc\_rhoLV}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{superanc\_rhoLV()}{superanc\_rhoLV()}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+auto \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::superanc\+\_\+rho\+LV (\begin{DoxyParamCaption}\item[{double}]{T,  }\item[{std\+::optional$<$ std\+::size\+\_\+t $>$}]{ifluid = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return a tuple of saturated liquid and vapor densities for the EOS given the temperature Uses the superancillary equations from Bell and Deiters\+: 
+\begin{DoxyParams}{Parameters}
+{\em T} & Temperature \\
+\hline
+{\em ifluid} & Must be provided in the case of mixtures \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00637}{637}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a3ed1d8cf5ead5289e7f5915a3e80ee85}\label{classteqp_1_1AdvancedPRaEres_a3ed1d8cf5ead5289e7f5915a3e80ee85} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!ai@{ai}}
+\index{ai@{ai}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{ai}{ai}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+std\+::valarray$<$Num\+Type$>$ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::ai\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00574}{574}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a4b78972bcd421c6f33dba0f570bdeee4}\label{classteqp_1_1AdvancedPRaEres_a4b78972bcd421c6f33dba0f570bdeee4} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!alphas@{alphas}}
+\index{alphas@{alphas}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{alphas}{alphas}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+const Alpha\+Functions \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::alphas\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00576}{576}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a39c8635b69f1b5386a5411c8858028b0}\label{classteqp_1_1AdvancedPRaEres_a39c8635b69f1b5386a5411c8858028b0} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!ares@{ares}}
+\index{ares@{ares}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{ares}{ares}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+const \mbox{\hyperlink{namespaceteqp_a9c5a1a892880b5bb58042dd88b92a25d}{Residual\+Helmholtz\+Over\+RTVariant}} \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::ares\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00577}{577}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a9c20a363f459f566ef64dc7d6b82a9f5}\label{classteqp_1_1AdvancedPRaEres_a9c20a363f459f566ef64dc7d6b82a9f5} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!bi@{bi}}
+\index{bi@{bi}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{bi}{bi}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+std\+::valarray$<$Num\+Type$>$ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::bi\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00574}{574}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a53fdca23edceaa780c8eef8ee900d360}\label{classteqp_1_1AdvancedPRaEres_a53fdca23edceaa780c8eef8ee900d360} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!brule@{brule}}
+\index{brule@{brule}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{brule}{brule}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+const \mbox{\hyperlink{namespaceteqp_a285cebddf2ec0d69865e0e8c80418ead}{Advanced\+PRa\+EMixing\+Rules}} \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::brule\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00580}{580}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_aa87df3c5773c819ed9dae188c3b64a40}\label{classteqp_1_1AdvancedPRaEres_aa87df3c5773c819ed9dae188c3b64a40} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!CEoS@{CEoS}}
+\index{CEoS@{CEoS}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{CEoS}{CEoS}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+const double \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+CEoS\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00582}{582}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_ab84fd7bcc563faa3ce7ec4e460a92432}\label{classteqp_1_1AdvancedPRaEres_ab84fd7bcc563faa3ce7ec4e460a92432} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!Delta1@{Delta1}}
+\index{Delta1@{Delta1}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{Delta1}{Delta1}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+const Num\+Type \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+Delta1 = 1+sqrt(2.\+0)}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00562}{562}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a546caad9453858fb6c8f901b3f4e4433}\label{classteqp_1_1AdvancedPRaEres_a546caad9453858fb6c8f901b3f4e4433} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!Delta2@{Delta2}}
+\index{Delta2@{Delta2}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{Delta2}{Delta2}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+const Num\+Type \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+Delta2 = 1-\/sqrt(2.\+0)}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00563}{563}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a2f32b1edd959cb94813c26b5db4ea4df}\label{classteqp_1_1AdvancedPRaEres_a2f32b1edd959cb94813c26b5db4ea4df} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!lmat@{lmat}}
+\index{lmat@{lmat}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{lmat}{lmat}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+Eigen\+::\+Array\+XXd \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::lmat\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00578}{578}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a241f82fdb0fc3b5dea9aaeec81bb42ea}\label{classteqp_1_1AdvancedPRaEres_a241f82fdb0fc3b5dea9aaeec81bb42ea} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!meta@{meta}}
+\index{meta@{meta}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{meta}{meta}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+nlohmann\+::json \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::meta\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00584}{584}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_af762fd56f4be8cd1a07582fff8f61814}\label{classteqp_1_1AdvancedPRaEres_af762fd56f4be8cd1a07582fff8f61814} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!OmegaA@{OmegaA}}
+\index{OmegaA@{OmegaA}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{OmegaA}{OmegaA}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+const Num\+Type \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+OmegaA = 0.\+45723552892138218938}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00565}{565}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a564a06bc95149a541b4dcd7af2e95d17}\label{classteqp_1_1AdvancedPRaEres_a564a06bc95149a541b4dcd7af2e95d17} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!OmegaB@{OmegaB}}
+\index{OmegaB@{OmegaB}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{OmegaB}{OmegaB}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+const Num\+Type \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+OmegaB = 0.\+077796073903888455972}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00566}{566}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a8359707bf180379b72851316025a3449}\label{classteqp_1_1AdvancedPRaEres_a8359707bf180379b72851316025a3449} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!pc\_Pa@{pc\_Pa}}
+\index{pc\_Pa@{pc\_Pa}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{pc\_Pa}{pc\_Pa}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+std\+::valarray$<$Num\+Type$>$ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::pc\+\_\+\+Pa\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00572}{572}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_ab4ba5880b8fd8b1719266bd07d52c6cc}\label{classteqp_1_1AdvancedPRaEres_ab4ba5880b8fd8b1719266bd07d52c6cc} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!Ru@{Ru}}
+\index{Ru@{Ru}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{Ru}{Ru}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+const Num\+Type \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+Ru = \mbox{\hyperlink{namespaceteqp_aed0cabbf6a82a357adc773aa850566ea}{get\+\_\+\+R\+\_\+gas}}$<$double$>$()}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00662}{662}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a2032b061b93818d2f14701d3f3df28f3}\label{classteqp_1_1AdvancedPRaEres_a2032b061b93818d2f14701d3f3df28f3} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!s@{s}}
+\index{s@{s}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{s}{s}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+const double \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::s\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00581}{581}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_aa98d61bb927c9cf8719fea31d26ccc27}\label{classteqp_1_1AdvancedPRaEres_aa98d61bb927c9cf8719fea31d26ccc27} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!superanc\_code@{superanc\_code}}
+\index{superanc\_code@{superanc\_code}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{superanc\_code}{superanc\_code}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+const int \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::superanc\+\_\+code = \mbox{\hyperlink{namespaceteqp_1_1CubicSuperAncillary_a4f1aff916639fada1bf5e2cde841eb5b}{Cubic\+Super\+Ancillary\+::\+PR\+\_\+\+CODE}}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00567}{567}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1AdvancedPRaEres_a26ec2ffa642fd8902ad5712dd54bbd26}\label{classteqp_1_1AdvancedPRaEres_a26ec2ffa642fd8902ad5712dd54bbd26} 
+\index{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}!Tc\_K@{Tc\_K}}
+\index{Tc\_K@{Tc\_K}!teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$@{teqp::AdvancedPRaEres$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{Tc\_K}{Tc\_K}}
+{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions  = std\+::vector$<$\+Alpha\+Function\+Options$>$$>$ \\
+std\+::valarray$<$Num\+Type$>$ \mbox{\hyperlink{classteqp_1_1AdvancedPRaEres}{teqp\+::\+Advanced\+PRa\+Eres}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+Tc\+\_\+K\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00572}{572}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\mbox{\hyperlink{cubics_8hpp}{cubics.\+hpp}}\end{DoxyCompactItemize}

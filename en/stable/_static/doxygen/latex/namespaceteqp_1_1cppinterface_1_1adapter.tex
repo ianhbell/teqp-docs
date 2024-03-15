@@ -1,0 +1,114 @@
+\doxysection{teqp\+::cppinterface\+::adapter Namespace Reference}
+\hypertarget{namespaceteqp_1_1cppinterface_1_1adapter}{}\label{namespaceteqp_1_1cppinterface_1_1adapter}\index{teqp::cppinterface::adapter@{teqp::cppinterface::adapter}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_1_1internal}{internal}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1cppinterface_1_1adapter_1_1ConstViewer}{Const\+Viewer}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{Derivative\+Adapter}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1cppinterface_1_1adapter_1_1Owner}{Owner}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Templated\+Model $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a39a57d164c9ab5bc08627135ad8f7930}{view}} (const Templated\+Model \&tp)
+\item 
+{\footnotesize template$<$typename Templated\+Model $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a2f4ff8e58ed42e90166d7ba043f1f049}{own}} (const Templated\+Model \&\&tp)
+\item 
+{\footnotesize template$<$typename Templated\+Model $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a8815be35c71d998189588fefb08f3032}{make\+\_\+owned}} (const Templated\+Model \&tmodel)
+\item 
+{\footnotesize template$<$typename Templated\+Model $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a2547bd09dd15d77df96d24ffe436dd91}{make\+\_\+cview}} (const Templated\+Model \&tmodel)
+\item 
+{\footnotesize template$<$typename Model\+Type $>$ }\\const Model\+Type \& \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_af51f148c792bf18aeb0d8c1324b98a40}{get\+\_\+model\+\_\+cref}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \texorpdfstring{$\ast$}{*}am)
+\begin{DoxyCompactList}\small\item\em Get a const reference to the model that is being held in a \doxylink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{Derivative\+Adapter} instance. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Model\+Type $>$ }\\Model\+Type \& \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a4d3ac82dad3193fc633f226be831dfce}{get\+\_\+model\+\_\+ref}} (\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \texorpdfstring{$\ast$}{*}am)
+\begin{DoxyCompactList}\small\item\em Get a mutable reference to the model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceteqp_1_1cppinterface_1_1adapter_af51f148c792bf18aeb0d8c1324b98a40}\label{namespaceteqp_1_1cppinterface_1_1adapter_af51f148c792bf18aeb0d8c1324b98a40} 
+\index{teqp::cppinterface::adapter@{teqp::cppinterface::adapter}!get\_model\_cref@{get\_model\_cref}}
+\index{get\_model\_cref@{get\_model\_cref}!teqp::cppinterface::adapter@{teqp::cppinterface::adapter}}
+\doxysubsubsection{\texorpdfstring{get\_model\_cref()}{get\_model\_cref()}}
+{\footnotesize\ttfamily template$<$typename Model\+Type $>$ \\
+const Model\+Type \& teqp\+::cppinterface\+::adapter\+::get\+\_\+model\+\_\+cref (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \texorpdfstring{$\ast$}{*}}]{am }\end{DoxyParamCaption})}
+
+
+
+Get a const reference to the model that is being held in a \doxylink{classteqp_1_1cppinterface_1_1adapter_1_1DerivativeAdapter}{Derivative\+Adapter} instance. 
+
+\begin{DoxyNote}{Note}
+Available for both ownership and const viewer holder types. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00169}{169}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1cppinterface_1_1adapter_a4d3ac82dad3193fc633f226be831dfce}\label{namespaceteqp_1_1cppinterface_1_1adapter_a4d3ac82dad3193fc633f226be831dfce} 
+\index{teqp::cppinterface::adapter@{teqp::cppinterface::adapter}!get\_model\_ref@{get\_model\_ref}}
+\index{get\_model\_ref@{get\_model\_ref}!teqp::cppinterface::adapter@{teqp::cppinterface::adapter}}
+\doxysubsubsection{\texorpdfstring{get\_model\_ref()}{get\_model\_ref()}}
+{\footnotesize\ttfamily template$<$typename Model\+Type $>$ \\
+Model\+Type \& teqp\+::cppinterface\+::adapter\+::get\+\_\+model\+\_\+ref (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \texorpdfstring{$\ast$}{*}}]{am }\end{DoxyParamCaption})}
+
+
+
+Get a mutable reference to the model. 
+
+\begin{DoxyNote}{Note}
+Only available when the holder type is ownership (not available for const viewer holder type) 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00193}{193}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1cppinterface_1_1adapter_a2547bd09dd15d77df96d24ffe436dd91}\label{namespaceteqp_1_1cppinterface_1_1adapter_a2547bd09dd15d77df96d24ffe436dd91} 
+\index{teqp::cppinterface::adapter@{teqp::cppinterface::adapter}!make\_cview@{make\_cview}}
+\index{make\_cview@{make\_cview}!teqp::cppinterface::adapter@{teqp::cppinterface::adapter}}
+\doxysubsubsection{\texorpdfstring{make\_cview()}{make\_cview()}}
+{\footnotesize\ttfamily template$<$typename Templated\+Model $>$ \\
+auto teqp\+::cppinterface\+::adapter\+::make\+\_\+cview (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{tmodel }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00158}{158}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1cppinterface_1_1adapter_a8815be35c71d998189588fefb08f3032}\label{namespaceteqp_1_1cppinterface_1_1adapter_a8815be35c71d998189588fefb08f3032} 
+\index{teqp::cppinterface::adapter@{teqp::cppinterface::adapter}!make\_owned@{make\_owned}}
+\index{make\_owned@{make\_owned}!teqp::cppinterface::adapter@{teqp::cppinterface::adapter}}
+\doxysubsubsection{\texorpdfstring{make\_owned()}{make\_owned()}}
+{\footnotesize\ttfamily template$<$typename Templated\+Model $>$ \\
+auto teqp\+::cppinterface\+::adapter\+::make\+\_\+owned (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{tmodel }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00153}{153}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1cppinterface_1_1adapter_a2f4ff8e58ed42e90166d7ba043f1f049}\label{namespaceteqp_1_1cppinterface_1_1adapter_a2f4ff8e58ed42e90166d7ba043f1f049} 
+\index{teqp::cppinterface::adapter@{teqp::cppinterface::adapter}!own@{own}}
+\index{own@{own}!teqp::cppinterface::adapter@{teqp::cppinterface::adapter}}
+\doxysubsubsection{\texorpdfstring{own()}{own()}}
+{\footnotesize\ttfamily template$<$typename Templated\+Model $>$ \\
+auto teqp\+::cppinterface\+::adapter\+::own (\begin{DoxyParamCaption}\item[{const Templated\+Model \&\&}]{tp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00148}{148}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1cppinterface_1_1adapter_a39a57d164c9ab5bc08627135ad8f7930}\label{namespaceteqp_1_1cppinterface_1_1adapter_a39a57d164c9ab5bc08627135ad8f7930} 
+\index{teqp::cppinterface::adapter@{teqp::cppinterface::adapter}!view@{view}}
+\index{view@{view}!teqp::cppinterface::adapter@{teqp::cppinterface::adapter}}
+\doxysubsubsection{\texorpdfstring{view()}{view()}}
+{\footnotesize\ttfamily template$<$typename Templated\+Model $>$ \\
+auto teqp\+::cppinterface\+::adapter\+::view (\begin{DoxyParamCaption}\item[{const Templated\+Model \&}]{tp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00144}{144}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+

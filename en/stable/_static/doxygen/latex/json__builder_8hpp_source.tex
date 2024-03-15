@@ -1,0 +1,100 @@
+\doxysection{json\+\_\+builder.\+hpp}
+\hypertarget{json__builder_8hpp_source}{}\label{json__builder_8hpp_source}\index{include/teqp/json\_builder.hpp@{include/teqp/json\_builder.hpp}}
+\mbox{\hyperlink{json__builder_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#pragma\ message("{}Header\ \`{}teqp/json\_builder.hpp`\ is\ deprecated!"{})}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fwd_8hpp}{teqp/models/fwd.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lennardjones_8hpp}{teqp/models/mie/lennardjones.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mie_8hpp}{teqp/models/mie/mie.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exceptions_8hpp}{teqp/exceptions.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{deriv__adapter_8hpp}{teqp/cpp/deriv\_adapter.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}nlohmann/json.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00015}00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp}{teqp}}\ \{}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00017}00017\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00018}00018\ \textcolor{comment}{\ \ \ \ inline\ AllowedModels\ build\_model(const\ nlohmann::json\&\ json)\ \{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00019}00019\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00020}00020\ \textcolor{comment}{\ \ \ \ \ \ \ \ //\ Extract\ the\ name\ of\ the\ model\ and\ the\ model\ parameters}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00021}00021\ \textcolor{comment}{\ \ \ \ \ \ \ \ std::string\ kind\ =\ json.at("{}kind"{});}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00022}00022\ \textcolor{comment}{\ \ \ \ \ \ \ \ auto\ spec\ =\ json.at("{}model"{});}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00023}00023\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00024}00024\ \textcolor{comment}{\ \ \ \ \ \ \ \ if\ (kind\ ==\ "{}vdW1"{})\ \{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00025}00025\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ vdWEOS1(spec.at("{}a"{}),\ spec.at("{}b"{}));}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00026}00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00027}00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}vdW"{})\ \{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00028}00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ vdWEOS<double>(spec.at("{}Tcrit\ /\ K"{}),\ spec.at("{}pcrit\ /\ Pa"{}));}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00029}00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00030}00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}PR"{})\ \{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00031}00031\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ std::valarray<double>\ Tc\_K\ =\ spec.at("{}Tcrit\ /\ K"{}),\ pc\_Pa\ =\ spec.at("{}pcrit\ /\ Pa"{}),\ acentric\ =\ spec.at("{}acentric"{});}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00032}00032\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ Eigen::ArrayXXd\ kmat(0,\ 0);}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00033}00033\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ if\ (spec.contains("{}kmat"{}))\{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00034}00034\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ kmat\ =\ build\_square\_matrix(spec.at("{}kmat"{}));}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00035}00035\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00036}00036\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ canonical\_PR(Tc\_K,\ pc\_Pa,\ acentric,\ kmat);}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00037}00037\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00038}00038\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}SRK"{})\ \{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00039}00039\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ std::valarray<double>\ Tc\_K\ =\ spec.at("{}Tcrit\ /\ K"{}),\ pc\_Pa\ =\ spec.at("{}pcrit\ /\ Pa"{}),\ acentric\ =\ spec.at("{}acentric"{});}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00040}00040\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ Eigen::ArrayXXd\ kmat(0,\ 0);}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00041}00041\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ if\ (spec.contains("{}kmat"{}))\{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00042}00042\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ kmat\ =\ build\_square\_matrix(spec.at("{}kmat"{}));}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00043}00043\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00044}00044\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ canonical\_SRK(Tc\_K,\ pc\_Pa,\ acentric,\ kmat);}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00045}00045\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00046}00046\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}CPA"{})\ \{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00047}00047\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ CPA::CPAfactory(spec);}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00048}00048\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00049}00049\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}PCSAFT"{})\ \{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00050}00050\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ PCSAFT::PCSAFTfactory(spec);}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00051}00051\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00052}00052\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}SAFT-\/VR-\/Mie"{})\ \{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00053}00053\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ SAFTVRMie::SAFTVRMiefactory(spec);}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00054}00054\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00055}00055\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}multifluid"{})\ \{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00056}00056\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ multifluidfactory(spec);}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00057}00057\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00058}00058\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}SW\_EspindolaHeredia2009"{})\{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00059}00059\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ squarewell::EspindolaHeredia2009(spec.at("{}lambda"{}));}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00060}00060\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00061}00061\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}EXP6\_Kataoka1992"{})\{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00062}00062\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ exp6::Kataoka1992(spec.at("{}alpha"{}));}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00063}00063\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00064}00064\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}AmmoniaWaterTillnerRoth"{})\{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00065}00065\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ AmmoniaWaterTillnerRoth();}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00066}00066\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00067}00067\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}LJ126\_TholJPCRD2016"{})\{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00068}00068\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ build\_LJ126\_TholJPCRD2016();}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}LJ126\_KolafaNezbeda1994"{})\{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ LJ126KolafaNezbeda1994();}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00072}00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00073}00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}LJ126\_Johnson1993"{})\{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00074}00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ LJ126Johnson1993();}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00075}00075\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00076}00076\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}Mie\_Pohl2023"{})\{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00077}00077\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ Mie::Mie6Pohl2023(spec.at("{}lambda\_a"{}));}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00078}00078\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00079}00079\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}2CLJF-\/Dipole"{})\{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00080}00080\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ twocenterljf::build\_two\_center\_model\_dipole(spec.at("{}author"{}),\ spec.at("{}L\string^*"{}),\ spec.at("{}(mu\string^*)\string^2"{}));}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00081}00081\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00082}00082\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}2CLJF-\/Quadrupole"{})\{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00083}00083\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ twocenterljf::build\_two\_center\_model\_quadrupole(spec.at("{}author"{}),\ spec.at("{}L\string^*"{}),\ spec.at("{}(mu\string^*)\string^2"{}));}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00084}00084\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00085}00085\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ if\ (kind\ ==\ "{}IdealHelmholtz"{})\{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00086}00086\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ IdealHelmholtz(spec);}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00087}00087\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00088}00088\ \textcolor{comment}{\ \ \ \ \ \ \ \ else\ \{}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00089}00089\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ throw\ teqpcException(30,\ "{}Unknown\ kind:"{}\ +\ kind);}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00090}00090\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00091}00091\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00092}00092\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{json__builder_8hpp_source_l00094}00094\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,109 @@
+\doxysection{vd\+W.\+hpp}
+\hypertarget{vdW_8hpp_source}{}\label{vdW_8hpp_source}\index{include/teqp/models/vdW.hpp@{include/teqp/models/vdW.hpp}}
+\mbox{\hyperlink{vdW_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{constants_8hpp}{teqp/constants.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8hpp}{teqp/types.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exceptions_8hpp}{teqp/exceptions.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00007}00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp}{teqp}}\ \{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00010}\mbox{\hyperlink{classteqp_1_1vdWEOS1}{00010}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1vdWEOS1}{vdWEOS1}}\ \{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00011}00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordtype}{double}\ a,\ b;}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00013}00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00015}\mbox{\hyperlink{classteqp_1_1vdWEOS1_acc17de42d37bd52adb0f0503d7dcee67}{00015}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1vdWEOS1_acc17de42d37bd52adb0f0503d7dcee67}{vdWEOS1}}(\textcolor{keywordtype}{double}\ a,\ \textcolor{keywordtype}{double}\ b)\ :\ a(a),\ b(b)\ \{\};}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00016}00016\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00018}\mbox{\hyperlink{classteqp_1_1vdWEOS1_ad1332897821d9e572aa5ef8174f50b88}{00018}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classteqp_1_1vdWEOS1_ad1332897821d9e572aa5ef8174f50b88}{get\_a}}()\textcolor{keyword}{\ const}\{\ \textcolor{keywordflow}{return}\ a;\ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00019}\mbox{\hyperlink{classteqp_1_1vdWEOS1_a43e2c3b9b69b1ce265c6ee0a08a326ce}{00019}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classteqp_1_1vdWEOS1_a43e2c3b9b69b1ce265c6ee0a08a326ce}{get\_b}}()\textcolor{keyword}{\ const}\{\ \textcolor{keywordflow}{return}\ b;\ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00021}\mbox{\hyperlink{classteqp_1_1vdWEOS1_afafe7adffb4fe02a735891d7f9974c73}{00021}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classteqp_1_1vdWEOS1_afafe7adffb4fe02a735891d7f9974c73}{Ru}}\ =\ 1.380649e-\/23\ *\ 6.02214076e23;\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ VecType>}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00026}\mbox{\hyperlink{classteqp_1_1vdWEOS1_a87b54720a30bc9e5c4e7275ae891a132}{00026}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1vdWEOS1_a87b54720a30bc9e5c4e7275ae891a132}{R}}(\textcolor{keyword}{const}\ VecType\&\ \textcolor{comment}{/*molefrac*/})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1vdWEOS1_afafe7adffb4fe02a735891d7f9974c73}{Ru}};\ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00032}00032\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ RhoType,\ \textcolor{keyword}{typename}\ VecType>}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00033}\mbox{\hyperlink{classteqp_1_1vdWEOS1_afeb31140f46c7480dc716966267f12ed}{00033}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1vdWEOS1_afeb31140f46c7480dc716966267f12ed}{alphar}}(\textcolor{keyword}{const}\ TType\ \&T,\ \textcolor{keyword}{const}\ RhoType\&\ rhotot,\ \textcolor{keyword}{const}\ VecType\ \&molefrac)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(-\/log(1.0\ -\/\ b\ *\ rhotot)\ -\/\ (a\ /\ (\mbox{\hyperlink{classteqp_1_1vdWEOS1_a87b54720a30bc9e5c4e7275ae891a132}{R}}(molefrac)\ *\ T))\ *\ rhotot);}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00038}\mbox{\hyperlink{classteqp_1_1vdWEOS1_a6a5aedaf389bbe58a7782d9a5d1fa4b9}{00038}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classteqp_1_1vdWEOS1_a6a5aedaf389bbe58a7782d9a5d1fa4b9}{p}}(\textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ v)\ \{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1vdWEOS1_afafe7adffb4fe02a735891d7f9974c73}{Ru}}*T/(v\ -\/\ b)\ -\/\ a/(v*v);}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00041}00041\ \};}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00044}00044\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ NumType>}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00045}\mbox{\hyperlink{classteqp_1_1vdWEOS}{00045}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1vdWEOS}{vdWEOS}}\ \{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00046}00046\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00047}\mbox{\hyperlink{classteqp_1_1vdWEOS_a5d1de12863ce0ac5e23880cfdc3cfc57}{00047}}\ \ \ \ \ std::valarray<NumType>\ \mbox{\hyperlink{classteqp_1_1vdWEOS_a5d1de12863ce0ac5e23880cfdc3cfc57}{ai}},\ \mbox{\hyperlink{classteqp_1_1vdWEOS_a50bec2bd4a49785e247554cebd0be7d9}{bi}};}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00048}\mbox{\hyperlink{classteqp_1_1vdWEOS_a2b5c84cbbee76d9861efab59a7bf114d}{00048}}\ \ \ \ \ std::valarray<std::valarray<NumType>>\ \mbox{\hyperlink{classteqp_1_1vdWEOS_a2b5c84cbbee76d9861efab59a7bf114d}{k}};}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00050}00050\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ IndexType>}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00051}\mbox{\hyperlink{classteqp_1_1vdWEOS_a2436dfed625d23a39bb5a19db1f627a3}{00051}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1vdWEOS_a2436dfed625d23a39bb5a19db1f627a3}{get\_ai}}(TType\ \textcolor{comment}{/*T*/},\ IndexType\ i)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1vdWEOS_a5d1de12863ce0ac5e23880cfdc3cfc57}{ai}}[i];\ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ IndexType>}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00054}\mbox{\hyperlink{classteqp_1_1vdWEOS_a3a4fea9ee801a9cca09a06eb5aa17f42}{00054}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1vdWEOS_a3a4fea9ee801a9cca09a06eb5aa17f42}{get\_bi}}(TType\ \textcolor{comment}{/*T*/},\ IndexType\ i)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1vdWEOS_a50bec2bd4a49785e247554cebd0be7d9}{bi}}[i];\ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00056}00056\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00062}\mbox{\hyperlink{classteqp_1_1vdWEOS_a1cb12fc9e95fba03c06d16114b015dec}{00062}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1vdWEOS_a1cb12fc9e95fba03c06d16114b015dec}{vdWEOS}}(\textcolor{keyword}{const}\ std::valarray<NumType>\&\ Tc\_K,\ \textcolor{keyword}{const}\ std::valarray<NumType>\&\ pc\_Pa)}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00063}00063\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Tc\_K.size()\ !=\ pc\_Pa.size())\{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}Sizes\ of\ Tc\_K\ "{}}\ +\ std::to\_string(Tc\_K.size())\ +\ \textcolor{stringliteral}{"{}\ and\ pc\_Pa"{}}\ +\ std::to\_string(pc\_Pa.size())\ +\ \textcolor{stringliteral}{"{}\ do\ not\ agree"{}});}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1vdWEOS_a5d1de12863ce0ac5e23880cfdc3cfc57}{ai}}.resize(Tc\_K.size());}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1vdWEOS_a50bec2bd4a49785e247554cebd0be7d9}{bi}}.resize(Tc\_K.size());}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ Tc\_K.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1vdWEOS_a5d1de12863ce0ac5e23880cfdc3cfc57}{ai}}[i]\ =\ 27.0\ /\ 64.0\ *\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(\mbox{\hyperlink{classteqp_1_1vdWEOS_aa595f2a8d78964ec437e2e8dab56eafb}{Ru}}\ *\ Tc\_K[i],\ 2)\ /\ pc\_Pa[i];}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1vdWEOS_a50bec2bd4a49785e247554cebd0be7d9}{bi}}[i]\ =\ 1.0\ /\ 8.0\ *\ \mbox{\hyperlink{classteqp_1_1vdWEOS_aa595f2a8d78964ec437e2e8dab56eafb}{Ru}}\ *\ Tc\_K[i]\ /\ pc\_Pa[i];}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1vdWEOS_a2b5c84cbbee76d9861efab59a7bf114d}{k}}\ =\ std::valarray<std::valarray<NumType>>(std::valarray<NumType>(0.0,\ Tc\_K.size()),\ Tc\_K.size());}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00074}00074\ \ \ \ \ \};\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00075}00075\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00078}00078\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ CompType>}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00079}\mbox{\hyperlink{classteqp_1_1vdWEOS_aa89bf1e615a6b3955462a5b90c44c372}{00079}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1vdWEOS_aa89bf1e615a6b3955462a5b90c44c372}{a}}(TType\ \textcolor{comment}{/*T*/},\ \textcolor{keyword}{const}\ CompType\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ CompType::value\_type\ a\_\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ molefracs.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0;\ j\ <\ molefracs.size();\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ aij\ =\ (1\ -\/\ \mbox{\hyperlink{classteqp_1_1vdWEOS_a2b5c84cbbee76d9861efab59a7bf114d}{k}}[i][j])\ *\ sqrt(this-\/>ai[i]\ *\ this-\/>ai[j]);}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a\_\ =\ a\_\ +\ molefracs[i]\ *\ molefracs[j]\ *\ aij;}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(a\_);}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00088}00088\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00092}00092\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ CompType>}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00093}\mbox{\hyperlink{classteqp_1_1vdWEOS_aec5b3e01151143f06c0e3697c9fc118a}{00093}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1vdWEOS_aec5b3e01151143f06c0e3697c9fc118a}{b}}(\textcolor{keyword}{const}\ CompType\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ CompType::value\_type\ b\_\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ molefracs.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ b\_\ =\ b\_\ +\ molefracs[i]\ *\ \mbox{\hyperlink{classteqp_1_1vdWEOS_a50bec2bd4a49785e247554cebd0be7d9}{bi}}[i];}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(b\_);}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00099}00099\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00101}\mbox{\hyperlink{classteqp_1_1vdWEOS_aa595f2a8d78964ec437e2e8dab56eafb}{00101}}\ \ \ \ \ \textcolor{keyword}{const}\ NumType\ \mbox{\hyperlink{classteqp_1_1vdWEOS_aa595f2a8d78964ec437e2e8dab56eafb}{Ru}}\ =\ get\_R\_gas<double>();\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00106}00106\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ VecType>}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00107}\mbox{\hyperlink{classteqp_1_1vdWEOS_ad03431376a2d7979c0d7d320c39c1806}{00107}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1vdWEOS_ad03431376a2d7979c0d7d320c39c1806}{R}}(\textcolor{keyword}{const}\ VecType\&\ \textcolor{comment}{/*molefrac*/})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1vdWEOS_aa595f2a8d78964ec437e2e8dab56eafb}{Ru}};}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00109}00109\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00115}00115\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ RhoType,\ \textcolor{keyword}{typename}\ MoleFracType>}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00116}\mbox{\hyperlink{classteqp_1_1vdWEOS_a0f23cc2b229d6aa24eddcd24c22e8da8}{00116}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1vdWEOS_a0f23cc2b229d6aa24eddcd24c22e8da8}{alphar}}(\textcolor{keyword}{const}\ TType\ \&T,}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RhoType\&\ rho,}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ MoleFracType\ \&molefrac)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00119}00119\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(molefrac.size())\ !=\ \mbox{\hyperlink{classteqp_1_1vdWEOS_a5d1de12863ce0ac5e23880cfdc3cfc57}{ai}}.size())\ \{}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}mole\ fractions\ must\ be\ of\ size\ "{}}\ +\ std::to\_string(\mbox{\hyperlink{classteqp_1_1vdWEOS_a5d1de12863ce0ac5e23880cfdc3cfc57}{ai}}.size())\ +\ \textcolor{stringliteral}{"{}\ but\ are\ of\ size\ "{}}\ +\ std::to\_string(molefrac.size()));}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Psiminus\ =\ -\/log(1.0\ -\/\ \mbox{\hyperlink{classteqp_1_1vdWEOS_aec5b3e01151143f06c0e3697c9fc118a}{b}}(molefrac)\ *\ rho);}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Psiplus\ =\ rho;}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ val\ =\ Psiminus\ -\/\ \mbox{\hyperlink{classteqp_1_1vdWEOS_aa89bf1e615a6b3955462a5b90c44c372}{a}}(T,\ molefrac)\ /\ (\mbox{\hyperlink{classteqp_1_1vdWEOS_aa595f2a8d78964ec437e2e8dab56eafb}{Ru}}\ *\ T)\ *\ Psiplus;}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(val);}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00127}00127\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00128}00128\ \};}
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{vdW_8hpp_source_l00130}00130\ \};\ \textcolor{comment}{//\ namespace\ teqp}}
+
+\end{DoxyCode}

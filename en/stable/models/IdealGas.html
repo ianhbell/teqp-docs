@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Ideal-gas Models &#8212; teqp 0.19.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Algorithms" href="../algorithms/index.html" />
+    <link rel="prev" title="Extended Corresponding States" href="ECS.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="Ideal-gas-Models">
+<h1>Ideal-gas Models<a class="headerlink" href="#Ideal-gas-Models" title="Link to this heading">¶</a></h1>
+<p>The collection of ideal-gas contributions are described below. They are summed to yield the ideal-gas contribution from</p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm ig} =\sum_i x_i\left( \alpha^{\rm ig}_i(T,\rho) + \ln(x_i) \right)\]</div>
+<p>Null mole fractions <span class="math notranslate nohighlight">\(x_i=0\)</span> do not contribute to the summation because</p>
+<div class="math notranslate nohighlight">
+\[\lim_{x_i \to 0} x_i\ln(x_i)= 0\]</div>
+<section id="IdealHelmholtzConstant">
+<h2>IdealHelmholtzConstant<a class="headerlink" href="#IdealHelmholtzConstant" title="Link to this heading">¶</a></h2>
+<p>JSON arguments: <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code></p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm ig}= a\]</div>
+</section>
+<section id="IdealHelmholtzLogT">
+<h2>IdealHelmholtzLogT<a class="headerlink" href="#IdealHelmholtzLogT" title="Link to this heading">¶</a></h2>
+<p>JSON arguments: <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code></p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm ig}= a\ln(T)\]</div>
+<p>which should be compared with the original form in GERG (and REFPROP and CoolProp)</p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm ig}= a^*\ln(\tau)\]</div>
+<p>with <span class="math notranslate nohighlight">\(\tau=T_r/T\)</span>.</p>
+</section>
+<section id="IdealHelmholtzLead">
+<h2>IdealHelmholtzLead<a class="headerlink" href="#IdealHelmholtzLead" title="Link to this heading">¶</a></h2>
+<p>JSON arguments: <code class="docutils literal notranslate"><span class="pre">&quot;a_1&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;a_2&quot;</span></code></p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm ig}= \ln(\rho) + a_1 + a_2/T\]</div>
+<p>which should be compared with the original form in GERG (and REFPROP and CoolProp)</p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm ig}= \ln(\delta) + a_1^* + a_2^*\tau\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(a_1\)</span> contains an additive factor of <span class="math notranslate nohighlight">\(-\ln(\rho_r)\)</span> and <span class="math notranslate nohighlight">\(a_2\)</span> contains a multiplicative factor of <span class="math notranslate nohighlight">\(T_r\)</span> relative to the former because <span class="math notranslate nohighlight">\(\delta=\rho/\rho_r\)</span> and <span class="math notranslate nohighlight">\(\tau=T_r/T\)</span>.</p>
+</section>
+<section id="IdealHelmholtzPowerT">
+<h2>IdealHelmholtzPowerT<a class="headerlink" href="#IdealHelmholtzPowerT" title="Link to this heading">¶</a></h2>
+<p>JSON arguments: <code class="docutils literal notranslate"><span class="pre">&quot;n&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;t&quot;</span></code></p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm ig}= \sum_k n_kT^{t_k}\]</div>
+</section>
+<section id="IdealHelmholtzPlanckEinstein">
+<h2>IdealHelmholtzPlanckEinstein<a class="headerlink" href="#IdealHelmholtzPlanckEinstein" title="Link to this heading">¶</a></h2>
+<p>JSON arguments: <code class="docutils literal notranslate"><span class="pre">&quot;n&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;theta&quot;</span></code></p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm ig}= \sum_k n_k\ln(1-\exp(-\theta_k/T))\]</div>
+</section>
+<section id="IdealHelmholtzPlanckEinsteinGeneralized">
+<h2>IdealHelmholtzPlanckEinsteinGeneralized<a class="headerlink" href="#IdealHelmholtzPlanckEinsteinGeneralized" title="Link to this heading">¶</a></h2>
+<p>JSON arguments: <code class="docutils literal notranslate"><span class="pre">&quot;n&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;c&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;d&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;theta&quot;</span></code></p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm ig}= \sum_k n_k\ln(c_k+d_k\exp(\theta_k/T))\]</div>
+</section>
+<section id="IdealHelmholtzGERG2004Cosh">
+<h2>IdealHelmholtzGERG2004Cosh<a class="headerlink" href="#IdealHelmholtzGERG2004Cosh" title="Link to this heading">¶</a></h2>
+<p>JSON arguments: <code class="docutils literal notranslate"><span class="pre">&quot;n&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;theta&quot;</span></code></p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm ig}= \sum_k n_k \ln(|\cosh(\theta_k/T)|)\]</div>
+<p>See Table 7.6 in GERG-2004 monograph</p>
+</section>
+<section id="IdealHelmholtzGERG2004Sinh">
+<h2>IdealHelmholtzGERG2004Sinh<a class="headerlink" href="#IdealHelmholtzGERG2004Sinh" title="Link to this heading">¶</a></h2>
+<p>JSON arguments: <code class="docutils literal notranslate"><span class="pre">&quot;n&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;theta&quot;</span></code></p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm ig}= \sum_k n_k \ln(|\sinh(\theta_k/T)|)\]</div>
+</section>
+<section id="IdealHelmholtzCp0Constant">
+<h2>IdealHelmholtzCp0Constant<a class="headerlink" href="#IdealHelmholtzCp0Constant" title="Link to this heading">¶</a></h2>
+<p>JSON arguments: <code class="docutils literal notranslate"><span class="pre">&quot;c&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;T_0&quot;</span></code></p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm ig}= c\left( \frac{T-T_0}{T}-\ln\left(\frac{T}{T_0}\right)\right)\]</div>
+<p>from a term that is like</p>
+<div class="math notranslate nohighlight">
+\[\frac{c_{p0}}{R}= c\]</div>
+</section>
+<section id="IdealHelmholtzCp0PowerT">
+<h2>IdealHelmholtzCp0PowerT<a class="headerlink" href="#IdealHelmholtzCp0PowerT" title="Link to this heading">¶</a></h2>
+<p>JSON arguments: <code class="docutils literal notranslate"><span class="pre">&quot;c&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;t&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;T_0&quot;</span></code></p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm ig}= c\left[T^{t}\left(\frac{1}{t+1}-\frac{1}{t}\right)-\frac{T_0^{t+1}}{T(t+1)}+\frac{T_0^t}{t}\right]\]</div>
+<p>from a term that is like</p>
+<div class="math notranslate nohighlight">
+\[\frac{c_{p0}}{R}= cT^t, t \neq 0\]</div>
+<p>The C++ classes implementing these functions are at:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="../_static/doxygen/html/classteqp_1_1IdealHelmholtzConstant.html">IdealHelmholtzConstant</a></p></li>
+<li><p><a class="reference external" href="../_static/doxygen/html/classteqp_1_1IdealHelmholtzLogT.html">IdealHelmholtzLogT</a></p></li>
+<li><p><a class="reference external" href="../_static/doxygen/html/classteqp_1_1IdealHelmholtzLead.html">IdealHelmholtzLead</a></p></li>
+<li><p><a class="reference external" href="../_static/doxygen/html/classteqp_1_1IdealHelmholtzPowerT.html">IdealHelmholtzPowerT</a></p></li>
+<li><p><a class="reference external" href="../_static/doxygen/html/classteqp_1_1IdealHelmholtzPlanckEinstein.html">IdealHelmholtzPlanckEinstein</a></p></li>
+<li><p><a class="reference external" href="../_static/doxygen/html/classteqp_1_1IdealHelmholtzPlanckEinsteinGeneralized.html">IdealHelmholtzPlanckEinsteinGeneralized</a></p></li>
+<li><p><a class="reference external" href="../_static/doxygen/html/classteqp_1_1IdealHelmholtzGERG2004Cosh.html">IdealHelmholtzGERG2004Cosh</a></p></li>
+<li><p><a class="reference external" href="../_static/doxygen/html/classteqp_1_1IdealHelmholtzGERG2004Sinh.html">IdealHelmholtzGERG2004Sinh</a></p></li>
+<li><p><a class="reference external" href="../_static/doxygen/html/classteqp_1_1IdealHelmholtzCp0Constant.html">IdealHelmholtzCp0Constant</a></p></li>
+<li><p><a class="reference external" href="../_static/doxygen/html/classteqp_1_1IdealHelmholtzCp0PowerT.html">IdealHelmholtzCp0PowerT</a></p></li>
+</ul>
+<section id="Conversion">
+<h3>Conversion<a class="headerlink" href="#Conversion" title="Link to this heading">¶</a></h3>
+<p>Conversion of terms from CoolProp format to teqp format is carried out in the function <a class="reference external" href="../_static/doxygen/html/namespaceteqp.html#a7a981a876b9ae93df09b98744a1f66ef">CoolProp2teqp_alphaig_term_reformatter()</a>.</p>
+<p>For instance the leading term in CoolProp goes like:</p>
+<div class="math notranslate nohighlight">
+\[\alpha = \ln(\delta) + a_1^* + a_2^*\tau\]</div>
+<p>with the * indicating the CoolProp formulation. The term reads like</p>
+<div class="math notranslate nohighlight">
+\[\alpha = \ln(\rho) + a_1 + a_2/T\]</div>
+<p>in teqp. Refactoring the CoolProp term reads</p>
+<div class="math notranslate nohighlight">
+\[\alpha = \ln(\rho) - \ln(\rho_r) + a_1^* + a_2^*\left(\frac{T_r}{T}\right)\]</div>
+<p>so that <span class="math notranslate nohighlight">\(a_1 = a_1^*-\ln(\rho_r)\)</span> and <span class="math notranslate nohighlight">\(a_2=a_2^*T_r\)</span></p>
+<p>In some cases reconstitutions of terms are required, as the supported terms in the libraries are somewhat different. The term used in CoolProp to do the offsets to enthalpy and entropy is of the form</p>
+<div class="math notranslate nohighlight">
+\[\alpha = a_1^* + a_2^*\tau = a_1^* + a_2^*\left(\frac{T_r}{T}\right)\]</div>
+<p>so that term can be rewritten as an <code class="docutils literal notranslate"><span class="pre">IdealHelmholtzPowerT</span></code> with coefficients of <span class="math notranslate nohighlight">\(a_1^*\)</span> and <span class="math notranslate nohighlight">\(a_2^*T_r\)</span> and exponents of 0 and -1.</p>
+<p>Most of the remaining terms can be converted in a straightforward fashion, except for some of GERG formulations that are a bit trickier. Mostly, the only conversion required is to multiply or divide by reducing temperatures so that all arguments are in terms of temperature as independent variable.</p>
+<p>The mathematics describing how to do the conversion from a term in <span class="math notranslate nohighlight">\(c_p^0/R\)</span> follows:</p>
+<div class="math notranslate nohighlight">
+\[\alpha_0 =\frac{a_0}{RT}= -1+\ln\frac{\rho T}{\rho_0T_0}+\frac{h_0^0}{RT}-\frac{s_0^0}{R}+\frac{1}{RT}\int_{T_0}^T c_p^0(T)dT-\frac{1}{R}\int_{T_0}^T \frac{c_p^0(T)}{T}dT\]</div>
+<div class="math notranslate nohighlight">
+\[\alpha_0 =\frac{a_0}{RT}= \ln(\rho) + \ln(T)-\ln(\rho_0T_0)-1+\frac{h_0^0}{RT}-\frac{s_0^0}{R}+\frac{1}{RT}\int_{T_0}^T c_p^0(T)dT-\frac{1}{R}\int_{T_0}^T \frac{c_p^0(T)}{T}dT\]</div>
+<p>You can set the values of <span class="math notranslate nohighlight">\(h_0^0\)</span> and <span class="math notranslate nohighlight">\(h_0^0\)</span> to any value, including zero. So if you are converting a term from <span class="math notranslate nohighlight">\(c_p^0/R\)</span>, then you could do</p>
+<div class="math notranslate nohighlight">
+\[\alpha_0 =\frac{a_0}{RT}= \ln(\rho) + \ln(T)-\ln(\rho_0T_0)-1+\frac{1}{RT}\int_{T_0}^T c_p^0(T)dT-\frac{1}{R}\int_{T_0}^T \frac{c_p^0(T)}{T}dT\]</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">teqp</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">json</span>
+<span class="n">display</span><span class="p">(</span><span class="n">teqp</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.19.1&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">get_datapath</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;/dev/fluids/n-Propane.json&#39;</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+<span class="n">jig</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">convert_CoolProp_idealgas</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;As in the fluid file (matches Lemmon JPCRD 2009 exactly)::::&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">))[</span><span class="s1">&#39;EOS&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;alpha0&#39;</span><span class="p">],</span><span class="n">indent</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">And after conversion::::&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">jig</span><span class="p">,</span><span class="n">indent</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+As in the fluid file (matches Lemmon JPCRD 2009 exactly)::::
+[
+ {
+  &#34;a1&#34;: -4.970583,
+  &#34;a2&#34;: 4.29352,
+  &#34;type&#34;: &#34;IdealGasHelmholtzLead&#34;
+ },
+ {
+  &#34;a&#34;: 3,
+  &#34;type&#34;: &#34;IdealGasHelmholtzLogTau&#34;
+ },
+ {
+  &#34;n&#34;: [
+   3.043,
+   5.874,
+   9.337,
+   7.922
+  ],
+  &#34;t&#34;: [
+   1.062478,
+   3.344237,
+   5.363757,
+   11.762957
+  ],
+  &#34;type&#34;: &#34;IdealGasHelmholtzPlanckEinstein&#34;
+ }
+]
+
+
+And after conversion::::
+{
+ &#34;R&#34;: 8.314472,
+ &#34;terms&#34;: [
+  {
+   &#34;R&#34;: 8.314472,
+   &#34;a_1&#34;: -13.487776191416238,
+   &#34;a_2&#34;: 1588.1301128,
+   &#34;type&#34;: &#34;Lead&#34;
+  },
+  {
+   &#34;R&#34;: 8.314472,
+   &#34;a&#34;: 17.739616992418114,
+   &#34;type&#34;: &#34;Constant&#34;
+  },
+  {
+   &#34;R&#34;: 8.314472,
+   &#34;a&#34;: -3.0,
+   &#34;type&#34;: &#34;LogT&#34;
+  },
+  {
+   &#34;R&#34;: 8.314472,
+   &#34;n&#34;: [
+    3.043,
+    5.874,
+    9.337,
+    7.922
+   ],
+   &#34;theta&#34;: [
+    392.99998742,
+    1236.99982393,
+    1984.0000767299998,
+    4351.00016473
+   ],
+   &#34;type&#34;: &#34;PlanckEinstein&#34;
+  }
+ ]
+}
+</pre></div></div>
+</div>
+<p>Note that the two leading terms of Lemmon generates three terms in teqp because the forms of the terms are slightly different</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># As an worked example, the conversions can be carried out like so, with the values from Lemmon given name of b instead of a</span>
+<span class="n">b_1</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.970583</span>
+<span class="n">b_2</span> <span class="o">=</span> <span class="mf">4.29352</span>
+<span class="n">Tr</span> <span class="o">=</span> <span class="mf">369.89</span> <span class="c1"># K</span>
+<span class="n">rhor</span> <span class="o">=</span> <span class="mi">5000</span> <span class="c1"># mol/m^3</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a_1:&#39;</span><span class="p">,</span> <span class="n">b_1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rhor</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a_2:&#39;</span><span class="p">,</span> <span class="n">b_2</span><span class="o">*</span><span class="n">Tr</span><span class="p">)</span>
+<span class="c1"># The 3*ln(tau) term turns into 3*ln(Tr) - 3*ln(T)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Tr</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># and the theta values are obtained</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.062478</span><span class="p">,</span> <span class="mf">3.344237</span><span class="p">,</span> <span class="mf">5.363757</span><span class="p">,</span> <span class="mf">11.762957</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">t</span><span class="o">*</span><span class="n">Tr</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+a_1: -13.487776191416238
+a_2: 1588.1301128
+17.739616992418114
+[392.99998742, 1236.99982393, 1984.0000767299998, 4351.00016473]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aig</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">IdealHelmholtz</span><span class="p">([</span><span class="n">jig</span><span class="p">])</span>
+<span class="o">-</span><span class="n">aig</span><span class="o">.</span><span class="n">get_Ar20</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+7.863830967842212
+</pre></div></div>
+</div>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Ideal-gas Models</a><ul>
+<li><a class="reference internal" href="#IdealHelmholtzConstant">IdealHelmholtzConstant</a></li>
+<li><a class="reference internal" href="#IdealHelmholtzLogT">IdealHelmholtzLogT</a></li>
+<li><a class="reference internal" href="#IdealHelmholtzLead">IdealHelmholtzLead</a></li>
+<li><a class="reference internal" href="#IdealHelmholtzPowerT">IdealHelmholtzPowerT</a></li>
+<li><a class="reference internal" href="#IdealHelmholtzPlanckEinstein">IdealHelmholtzPlanckEinstein</a></li>
+<li><a class="reference internal" href="#IdealHelmholtzPlanckEinsteinGeneralized">IdealHelmholtzPlanckEinsteinGeneralized</a></li>
+<li><a class="reference internal" href="#IdealHelmholtzGERG2004Cosh">IdealHelmholtzGERG2004Cosh</a></li>
+<li><a class="reference internal" href="#IdealHelmholtzGERG2004Sinh">IdealHelmholtzGERG2004Sinh</a></li>
+<li><a class="reference internal" href="#IdealHelmholtzCp0Constant">IdealHelmholtzCp0Constant</a></li>
+<li><a class="reference internal" href="#IdealHelmholtzCp0PowerT">IdealHelmholtzCp0PowerT</a><ul>
+<li><a class="reference internal" href="#Conversion">Conversion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Models</a><ul>
+      <li>Previous: <a href="ECS.html" title="previous chapter">Extended Corresponding States</a></li>
+      <li>Next: <a href="../algorithms/index.html" title="next chapter">Algorithms</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/IdealGas.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/IdealGas.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

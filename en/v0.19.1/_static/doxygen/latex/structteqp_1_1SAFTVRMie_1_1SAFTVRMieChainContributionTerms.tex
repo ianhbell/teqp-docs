@@ -1,0 +1,541 @@
+\doxysection{teqp\+::SAFTVRMie\+::SAFTVRMie\+Chain\+Contribution\+Terms Struct Reference}
+\hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms}{}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms}\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+
+
+Things that only depend on the components themselves, but not on composition, temperature, or density.  
+
+
+
+
+{\ttfamily \#include $<$saftvrmie.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a29d73ad071227eec0a65b321c1ba9acd}{SAFTVRMie\+Chain\+Contribution\+Terms}} (const Eigen\+::\+Array\+Xd \&\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}{m}}, const Eigen\+::\+Array\+Xd \&\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}{epsilon\+\_\+over\+\_\+k}}, const Eigen\+::\+Array\+Xd \&sigma\+\_\+m, const Eigen\+::\+Array\+Xd \&\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a412bc13d14ac47f445dc22da5f649eab}{lambda\+\_\+r}}, const Eigen\+::\+Array\+Xd \&\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a3494497fb5d10507eeb716a136e7d745}{lambda\+\_\+a}}, const Eigen\+::\+Array\+XXd \&\mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1dfb96fc987212c7b8e4eff244f2c021}{kmat}}, const std\+::optional$<$ nlohmann\+::json $>$ \&flags=std\+::nullopt)
+\item 
+auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a4a1b4917391033a6b611253a72c6205b}{get\+\_\+\+EPSKIJ\+\_\+\+K\+\_\+matrix}} () const
+\begin{DoxyCompactList}\small\item\em Get the matrix of $\varepsilon_{ij}/k_B$ with the entries in K. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a84f592805af2d5c8bb32effe319d0d04}{get\+\_\+\+SIGMAIJ\+\_\+m\+\_\+matrix}} () const
+\begin{DoxyCompactList}\small\item\em Get the matrix of $\sigma_{ij}$ with the entries in m. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename RType $>$ }\\auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a244a918405b32006ea0b29db861e24ec}{get\+\_\+uii\+\_\+over\+\_\+kB}} (std\+::size\+\_\+t i, const RType \&r) const
+\begin{DoxyCompactList}\small\item\em Eq. A2 from Lafitte. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TType $>$ }\\auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a8e23439864c149a8078682c5e84692dd}{get\+\_\+j\+\_\+cutoff\+\_\+dii}} (std\+::size\+\_\+t i, const TType \&T) const
+\begin{DoxyCompactList}\small\item\em Solve for the value of $j=\sigma/r$ for which the integrand in $d_{ii}$ becomes equal to 1 to numerical precision. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TType $>$ }\\TType \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_adfc9fa817c43364e662f767a302d7135}{get\+\_\+dii}} (std\+::size\+\_\+t i, const TType \&T) const
+\item 
+{\footnotesize template$<$typename TType $>$ }\\auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af209404299da205d87d41b3d64fd3b27}{get\+\_\+dmat}} (const TType \&T) const
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a43474ab4250245d612dc0706af2eac6b}{get\+\_\+core\+\_\+calcs}} (const TType \&T, const Rho\+Type \&rhomolar, const Vec\+Type \&molefracs) const
+\item 
+{\footnotesize template$<$typename Rho\+Type $>$ }\\auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ab9b5e7b32dfe69a9d0278ac957740d57}{get\+\_\+\+KHS}} (const Rho\+Type \&pf) const
+\begin{DoxyCompactList}\small\item\em Eq. A21 from Lafitte. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rho\+Type $>$ }\\auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aeecec063f712c546d7060e306006bc61}{get\+\_\+rhos\+\_\+d\+K\+\_\+\+HS\+\_\+drhos}} (const Rho\+Type \&zeta\+\_\+x) const
+\item 
+{\footnotesize template$<$typename Rho\+Type , typename Zeta\+Type $>$ }\\auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aad6a2029a7c349a977876baa09867748}{get\+\_\+a\+\_\+\+HS}} (const Rho\+Type \&rhos, const Eigen\+::\+Array$<$ Zeta\+Type, 4, 1 $>$ \&zeta) const
+\begin{DoxyCompactList}\small\item\em Eq. A6 from Lafitte, accounting for the case of rho\+\_\+s=0, for which the limit is zero. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Zeta\+Type , typename IJ $>$ }\\auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a66860f58dcefa0dae70c84cc53ecab62}{get\+\_\+\+Bhatij}} (const Zeta\+Type \&zeta\+\_\+x, const Zeta\+Type \&one\+\_\+minus\+\_\+zeta\+\_\+x3, const IJ \&I, const IJ \&J) const
+\item 
+{\footnotesize template$<$typename Zeta\+Type , typename IJ $>$ }\\auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_afa77fb90587b51b3ae00a846f3ae77db}{get\+\_\+rhod\+Bijdrho}} (const Zeta\+Type \&zeta\+\_\+x, const Zeta\+Type \&, const IJ \&I, const IJ \&J, const Zeta\+Type \&Bhatij) const
+\item 
+{\footnotesize template$<$typename Zeta\+Type $>$ }\\auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3d38a4cd33c2027d66970e601449bbb}{get\+\_\+a1\+Shatij}} (const Zeta\+Type \&zeta\+\_\+x\+\_\+eff, double lambda\+\_\+ij) const
+\item 
+{\footnotesize template$<$typename Zeta\+Type $>$ }\\auto \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a0cf1f2436720624284b9ac8706a7ffac}{get\+\_\+rhoda1\+Shatijdrho}} (const Zeta\+Type \&zeta\+\_\+x, const Zeta\+Type \&zeta\+\_\+x\+\_\+eff, const Zeta\+Type \&dzetaxeffdzetax, double lambda\+\_\+ij) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const Eigen\+::\+Array\+Xd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}{m}}
+\item 
+const Eigen\+::\+Array\+Xd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}{epsilon\+\_\+over\+\_\+k}}
+\item 
+const Eigen\+::\+Array\+Xd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a6c21115516923ed0598e67b656883b6a}{sigma\+\_\+A}}
+\item 
+const Eigen\+::\+Array\+Xd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a3494497fb5d10507eeb716a136e7d745}{lambda\+\_\+a}}
+\item 
+const Eigen\+::\+Array\+Xd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a412bc13d14ac47f445dc22da5f649eab}{lambda\+\_\+r}}
+\item 
+const Eigen\+::\+Array\+XXd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1dfb96fc987212c7b8e4eff244f2c021}{kmat}}
+\item 
+const Eigen\+::\+Index \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ade43036d933ec33a7ee9563a205a6997}{N}}
+\item 
+const \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99d}{Epsilonij\+Flags}} \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a2aff3e1bd76a481de88389b25a73b4d5}{epsilon\+\_\+ij\+\_\+flag}} = \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99da3e49737fec08c6d5766a83d7a12ad8c1}{Epsilonij\+Flags\+::k\+Lafitte}}
+\item 
+const Eigen\+::\+Array\+XXd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}{lambda\+\_\+r\+\_\+ij}}
+\item 
+const Eigen\+::\+Array\+XXd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}{lambda\+\_\+a\+\_\+ij}}
+\item 
+const Eigen\+::\+Array\+XXd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a41b3236eedccecea26f2d4594a0ba601}{C\+\_\+ij}}
+\item 
+const Eigen\+::\+Array\+XXd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a395dd0980f10ac232d401fc3f8ff20b9}{alpha\+\_\+ij}}
+\item 
+const Eigen\+::\+Array\+XXd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1bdee0641e1ac071933c703a4d3e7cc8}{sigma\+\_\+ij}}
+\item 
+const Eigen\+::\+Array\+XXd \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a5a6a2c3051bb7a0e2188ba676934684a}{epsilon\+\_\+ij}}
+\item 
+const std\+::vector$<$ Eigen\+::\+Array\+XXd $>$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa1c61bab525fb55ac60f45eb8399de0d}{crnij}}
+\item 
+const std\+::vector$<$ Eigen\+::\+Array\+XXd $>$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ace4b65dd34c5ec3ff2200dc4f304110c}{canij}}
+\item 
+const std\+::vector$<$ Eigen\+::\+Array\+XXd $>$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae07460a54a3f407084427a03359eb301}{c2rnij}}
+\item 
+const std\+::vector$<$ Eigen\+::\+Array\+XXd $>$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abf03de2fc8c17e8094eba114bac12a2c}{c2anij}}
+\item 
+const std\+::vector$<$ Eigen\+::\+Array\+XXd $>$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa46cd860bb925047d1040cec128bcca3}{carnij}}
+\item 
+const std\+::vector$<$ Eigen\+::\+Array\+XXd $>$ \mbox{\hyperlink{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a09a23ce25043a61c60598a2721f3b4d1}{fkij}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Things that only depend on the components themselves, but not on composition, temperature, or density. 
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00085}{85}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a29d73ad071227eec0a65b321c1ba9acd}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a29d73ad071227eec0a65b321c1ba9acd} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!SAFTVRMieChainContributionTerms@{SAFTVRMieChainContributionTerms}}
+\index{SAFTVRMieChainContributionTerms@{SAFTVRMieChainContributionTerms}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{SAFTVRMieChainContributionTerms()}{SAFTVRMieChainContributionTerms()}}
+{\footnotesize\ttfamily teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::\+SAFTVRMie\+Chain\+Contribution\+Terms (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Array\+Xd \&}]{m,  }\item[{const Eigen\+::\+Array\+Xd \&}]{epsilon\+\_\+over\+\_\+k,  }\item[{const Eigen\+::\+Array\+Xd \&}]{sigma\+\_\+m,  }\item[{const Eigen\+::\+Array\+Xd \&}]{lambda\+\_\+r,  }\item[{const Eigen\+::\+Array\+Xd \&}]{lambda\+\_\+a,  }\item[{const Eigen\+::\+Array\+XXd \&}]{kmat,  }\item[{const std\+::optional$<$ nlohmann\+::json $>$ \&}]{flags = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00264}{264}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3d38a4cd33c2027d66970e601449bbb}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3d38a4cd33c2027d66970e601449bbb} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!get\_a1Shatij@{get\_a1Shatij}}
+\index{get\_a1Shatij@{get\_a1Shatij}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{get\_a1Shatij()}{get\_a1Shatij()}}
+{\footnotesize\ttfamily template$<$typename Zeta\+Type $>$ \\
+auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+a1\+Shatij (\begin{DoxyParamCaption}\item[{const Zeta\+Type \&}]{zeta\+\_\+x\+\_\+eff,  }\item[{double}]{lambda\+\_\+ij }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyNote}{Note}
+Starting from Eq. A16 from Lafitte
+\end{DoxyNote}
+\[
+\hat a^S_{1,ii} = \frac{a^S_{1,ii}}{2\pi\epsilon_{ij}d^3_{ij}\rho_s}
+\] so  \[
+a^S_{1,ii} = \kappa\rho_s\hat a^S_{1,ii}
+\] 
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00714}{714}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aad6a2029a7c349a977876baa09867748}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aad6a2029a7c349a977876baa09867748} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!get\_a\_HS@{get\_a\_HS}}
+\index{get\_a\_HS@{get\_a\_HS}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{get\_a\_HS()}{get\_a\_HS()}}
+{\footnotesize\ttfamily template$<$typename Rho\+Type , typename Zeta\+Type $>$ \\
+auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+a\+\_\+\+HS (\begin{DoxyParamCaption}\item[{const Rho\+Type \&}]{rhos,  }\item[{const Eigen\+::\+Array$<$ Zeta\+Type, 4, 1 $>$ \&}]{zeta }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Eq. A6 from Lafitte, accounting for the case of rho\+\_\+s=0, for which the limit is zero. 
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00658}{658}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a66860f58dcefa0dae70c84cc53ecab62}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a66860f58dcefa0dae70c84cc53ecab62} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!get\_Bhatij@{get\_Bhatij}}
+\index{get\_Bhatij@{get\_Bhatij}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{get\_Bhatij()}{get\_Bhatij()}}
+{\footnotesize\ttfamily template$<$typename Zeta\+Type , typename IJ $>$ \\
+auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+\+Bhatij (\begin{DoxyParamCaption}\item[{const Zeta\+Type \&}]{zeta\+\_\+x,  }\item[{const Zeta\+Type \&}]{one\+\_\+minus\+\_\+zeta\+\_\+x3,  }\item[{const IJ \&}]{I,  }\item[{const IJ \&}]{J }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyNote}{Note}
+Starting from Eq. A12 from Lafitte
+\end{DoxyNote}
+Defining\+:  \[
+\hat B_{ij} \equiv \frac{B_{ij}}{2\pi\epsilon_{ij}d^3_{ij}\rho_s} = \frac{1-\zeta_x/2}{(1-\zeta_x)^3}I-\frac{9\zeta_x(1+\zeta_x)}{2(1-\zeta_x)^3}J
+\] 
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00678}{678}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a43474ab4250245d612dc0706af2eac6b}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a43474ab4250245d612dc0706af2eac6b} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!get\_core\_calcs@{get\_core\_calcs}}
+\index{get\_core\_calcs@{get\_core\_calcs}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{get\_core\_calcs()}{get\_core\_calcs()}}
+{\footnotesize\ttfamily template$<$typename TType , typename Rho\+Type , typename Vec\+Type $>$ \\
+auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+core\+\_\+calcs (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Rho\+Type \&}]{rhomolar,  }\item[{const Vec\+Type \&}]{molefracs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00396}{396}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_adfc9fa817c43364e662f767a302d7135}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_adfc9fa817c43364e662f767a302d7135} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!get\_dii@{get\_dii}}
+\index{get\_dii@{get\_dii}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{get\_dii()}{get\_dii()}}
+{\footnotesize\ttfamily template$<$typename TType $>$ \\
+TType teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+dii (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{const TType \&}]{T }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyNote}{Note}
+Eq. A9 from Lafitte
+\end{DoxyNote}
+The calculation of the diameter is based upon  \[
+ d_{ii} = \int_0^{\sigma_{ii}}(1-\exp(-\beta u_{ii}^{\rm Mie}(r)){\rm d}r
+ \] which is broken up into two parts\+:  \[
+ d = \int_0^{r_{\rm cut}} 1 {\rm d} r + \int_{r_{\rm cut}}^{\sigma_{ii}} [1-\exp(-\beta u_{ii}^{\rm Mie}(r))] {\rm d}r
+ \] but the integrand is basically constant (to numerical precision) from 0 to some cutoff value of $r$, which we\textquotesingle{}ll call $r_{\rm cut}$. So first we need to find the value of $r_{\rm cut}$ that makes the integrand take its constant value, which is explained well in the paper from Aasen (\href{https://github.com/ClapeyronThermo/Clapeyron.jl/issues/152\#issuecomment-1480324192}{\texttt{ https\+://github.\+com/\+Clapeyron\+Thermo/\+Clapeyron.\+jl/issues/152\#issuecomment-\/1480324192}}). Finding the cutoff value is obtained when  \[
+ \exp(-\beta u_{ii}^{\rm Mie}(r)) = EPS
+ \] where EPS is the numerical precision of the floating point type. Taking the logs of both sides,  \[
+ -\beta u_{ii}^{\rm Mie} = \ln(EPS)
+ \]
+
+To get a starting value, it is first assumed that only the repulsive contribution contributes to the potential, yielding $u^{\rm rep} = C\epsilon(\sigma/r)^{\lambda_r}$ (with $C$ the same as the full potential with attraction) which yields  \[
+ -\beta C\epsilon(\sigma/r)^{\lambda_r} = \ln(EPS)
+ \] and  \[
+ (\sigma/r)_{\rm guess} = (-\ln(EPS)/(\beta C \epsilon))^{1/\lambda_r}
+ \]
+
+Then we solve for the residual $R(r)=0$, where $R_0=\exp(-u/T)-EPS$. Equivalently we can write the residual in logarithmic terms as $R=-u/T-\ln(EPS)$. This simplifies the rootfinding as you need $R$, $R\textnormal{\textquotesingle}$ and $R\textnormal{\textquotesingle}\textnormal{\textquotesingle}$ to apply Halley\textquotesingle{}s method, which are themselves quite straightforward to obtain because $R\textnormal{\textquotesingle}=-u\textnormal{\textquotesingle}/T$, $R\textnormal{\textquotesingle}\textnormal{\textquotesingle}=-u\textnormal{\textquotesingle}\textnormal{\textquotesingle}/T$, where the primes are derivatives taken with respect to $\sigma/r$. 
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00362}{362}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af209404299da205d87d41b3d64fd3b27}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af209404299da205d87d41b3d64fd3b27} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!get\_dmat@{get\_dmat}}
+\index{get\_dmat@{get\_dmat}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{get\_dmat()}{get\_dmat()}}
+{\footnotesize\ttfamily template$<$typename TType $>$ \\
+auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+dmat (\begin{DoxyParamCaption}\item[{const TType \&}]{T }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00379}{379}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a4a1b4917391033a6b611253a72c6205b}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a4a1b4917391033a6b611253a72c6205b} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!get\_EPSKIJ\_K\_matrix@{get\_EPSKIJ\_K\_matrix}}
+\index{get\_EPSKIJ\_K\_matrix@{get\_EPSKIJ\_K\_matrix}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{get\_EPSKIJ\_K\_matrix()}{get\_EPSKIJ\_K\_matrix()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+\+EPSKIJ\+\_\+\+K\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the matrix of $\varepsilon_{ij}/k_B$ with the entries in K. 
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00284}{284}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a8e23439864c149a8078682c5e84692dd}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a8e23439864c149a8078682c5e84692dd} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!get\_j\_cutoff\_dii@{get\_j\_cutoff\_dii}}
+\index{get\_j\_cutoff\_dii@{get\_j\_cutoff\_dii}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{get\_j\_cutoff\_dii()}{get\_j\_cutoff\_dii()}}
+{\footnotesize\ttfamily template$<$typename TType $>$ \\
+auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+j\+\_\+cutoff\+\_\+dii (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{const TType \&}]{T }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Solve for the value of $j=\sigma/r$ for which the integrand in $d_{ii}$ becomes equal to 1 to numerical precision. 
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00297}{297}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ab9b5e7b32dfe69a9d0278ac957740d57}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ab9b5e7b32dfe69a9d0278ac957740d57} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!get\_KHS@{get\_KHS}}
+\index{get\_KHS@{get\_KHS}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{get\_KHS()}{get\_KHS()}}
+{\footnotesize\ttfamily template$<$typename Rho\+Type $>$ \\
+auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+\+KHS (\begin{DoxyParamCaption}\item[{const Rho\+Type \&}]{pf }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Eq. A21 from Lafitte. 
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00640}{640}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a0cf1f2436720624284b9ac8706a7ffac}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a0cf1f2436720624284b9ac8706a7ffac} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!get\_rhoda1Shatijdrho@{get\_rhoda1Shatijdrho}}
+\index{get\_rhoda1Shatijdrho@{get\_rhoda1Shatijdrho}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{get\_rhoda1Shatijdrho()}{get\_rhoda1Shatijdrho()}}
+{\footnotesize\ttfamily template$<$typename Zeta\+Type $>$ \\
+auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+rhoda1\+Shatijdrho (\begin{DoxyParamCaption}\item[{const Zeta\+Type \&}]{zeta\+\_\+x,  }\item[{const Zeta\+Type \&}]{zeta\+\_\+x\+\_\+eff,  }\item[{const Zeta\+Type \&}]{dzetaxeffdzetax,  }\item[{double}]{lambda\+\_\+ij }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\[
+\left(\frac{\partial a^S_{1,ii}}{\partial \rho_s}\right)_{T,\vec{z}} = \kappa\left(\hat a^S_{1,ii} + \rho_s\frac{\partial \hat a^S_{1,ii}}{\partial \rho_s} \right)
+\]
+
+\[
+\left(\frac{\partial a^S_{1,ii}}{\partial \rho_s}\right)_{T,\vec{z}} = \kappa\left(\hat a^S_{1,ii} + \rho_s\frac{\partial \hat a^S_{1,ii}}{\partial \zeta_{x,eff}}\frac{\partial \zeta_{x,eff}}{\partial \zeta_x}\frac{\partial \zeta_x}{\partial \rho_s} \right)
+\]
+
+since $\rho_s\frac{\partial \zeta_x}{\partial \rho_s}  = \zeta_x$ 
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00732}{732}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_afa77fb90587b51b3ae00a846f3ae77db}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_afa77fb90587b51b3ae00a846f3ae77db} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!get\_rhodBijdrho@{get\_rhodBijdrho}}
+\index{get\_rhodBijdrho@{get\_rhodBijdrho}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{get\_rhodBijdrho()}{get\_rhodBijdrho()}}
+{\footnotesize\ttfamily template$<$typename Zeta\+Type , typename IJ $>$ \\
+auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+rhod\+Bijdrho (\begin{DoxyParamCaption}\item[{const Zeta\+Type \&}]{zeta\+\_\+x,  }\item[{const Zeta\+Type \&}]{,  }\item[{const IJ \&}]{I,  }\item[{const IJ \&}]{J,  }\item[{const Zeta\+Type \&}]{Bhatij }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\[
+B = \hat B_{ij}\kappa \rho_s
+\]  \[
+ \left(\frac{\partial B_{ij}}{\partial \rho_s}\right)_{T,\vec{z}} = \kappa\left(\hat B + \zeta_x \frac{\partial \hat B}{\partial \zeta_x}\right)
+ \] and thus  \[
+\rho_s \left(\frac{\partial B_{ij}}{\partial \rho_s}\right)_{T,\vec{z}} = \hat B + \zeta_x \frac{\partial \hat B}{\partial \zeta_x}
+ \] 
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00697}{697}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aeecec063f712c546d7060e306006bc61}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aeecec063f712c546d7060e306006bc61} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!get\_rhos\_dK\_HS\_drhos@{get\_rhos\_dK\_HS\_drhos}}
+\index{get\_rhos\_dK\_HS\_drhos@{get\_rhos\_dK\_HS\_drhos}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{get\_rhos\_dK\_HS\_drhos()}{get\_rhos\_dK\_HS\_drhos()}}
+{\footnotesize\ttfamily template$<$typename Rho\+Type $>$ \\
+auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+rhos\+\_\+d\+K\+\_\+\+HS\+\_\+drhos (\begin{DoxyParamCaption}\item[{const Rho\+Type \&}]{zeta\+\_\+x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\[
+ \rho_s\frac{\partial K_{HS}}{\partial \rho_s} = \zeta\frac{\partial K_{HS}}{\partial \zeta}
+\] 
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00650}{650}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a84f592805af2d5c8bb32effe319d0d04}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a84f592805af2d5c8bb32effe319d0d04} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!get\_SIGMAIJ\_m\_matrix@{get\_SIGMAIJ\_m\_matrix}}
+\index{get\_SIGMAIJ\_m\_matrix@{get\_SIGMAIJ\_m\_matrix}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{get\_SIGMAIJ\_m\_matrix()}{get\_SIGMAIJ\_m\_matrix()}}
+{\footnotesize\ttfamily auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+\+SIGMAIJ\+\_\+m\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the matrix of $\sigma_{ij}$ with the entries in m. 
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00286}{286}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a244a918405b32006ea0b29db861e24ec}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a244a918405b32006ea0b29db861e24ec} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!get\_uii\_over\_kB@{get\_uii\_over\_kB}}
+\index{get\_uii\_over\_kB@{get\_uii\_over\_kB}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{get\_uii\_over\_kB()}{get\_uii\_over\_kB()}}
+{\footnotesize\ttfamily template$<$typename RType $>$ \\
+auto teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::get\+\_\+uii\+\_\+over\+\_\+kB (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{const RType \&}]{r }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Eq. A2 from Lafitte. 
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00290}{290}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a395dd0980f10ac232d401fc3f8ff20b9}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a395dd0980f10ac232d401fc3f8ff20b9} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!alpha\_ij@{alpha\_ij}}
+\index{alpha\_ij@{alpha\_ij}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{alpha\_ij}{alpha\_ij}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+XXd teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::alpha\+\_\+ij}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00259}{259}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abf03de2fc8c17e8094eba114bac12a2c}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abf03de2fc8c17e8094eba114bac12a2c} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!c2anij@{c2anij}}
+\index{c2anij@{c2anij}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{c2anij}{c2anij}}
+{\footnotesize\ttfamily const std\+::vector$<$Eigen\+::\+Array\+XXd$>$ teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::c2anij}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00261}{261}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae07460a54a3f407084427a03359eb301}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ae07460a54a3f407084427a03359eb301} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!c2rnij@{c2rnij}}
+\index{c2rnij@{c2rnij}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{c2rnij}{c2rnij}}
+{\footnotesize\ttfamily const std\+::vector$<$Eigen\+::\+Array\+XXd$>$ teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::c2rnij}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00261}{261}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a41b3236eedccecea26f2d4594a0ba601}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a41b3236eedccecea26f2d4594a0ba601} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!C\_ij@{C\_ij}}
+\index{C\_ij@{C\_ij}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{C\_ij}{C\_ij}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+XXd teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::\+C\+\_\+ij}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00259}{259}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ace4b65dd34c5ec3ff2200dc4f304110c}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ace4b65dd34c5ec3ff2200dc4f304110c} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!canij@{canij}}
+\index{canij@{canij}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{canij}{canij}}
+{\footnotesize\ttfamily const std\+::vector$<$Eigen\+::\+Array\+XXd$>$ teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::canij}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00261}{261}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa46cd860bb925047d1040cec128bcca3}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa46cd860bb925047d1040cec128bcca3} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!carnij@{carnij}}
+\index{carnij@{carnij}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{carnij}{carnij}}
+{\footnotesize\ttfamily const std\+::vector$<$Eigen\+::\+Array\+XXd$>$ teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::carnij}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00261}{261}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa1c61bab525fb55ac60f45eb8399de0d}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa1c61bab525fb55ac60f45eb8399de0d} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!crnij@{crnij}}
+\index{crnij@{crnij}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{crnij}{crnij}}
+{\footnotesize\ttfamily const std\+::vector$<$Eigen\+::\+Array\+XXd$>$ teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::crnij}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00261}{261}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a5a6a2c3051bb7a0e2188ba676934684a}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a5a6a2c3051bb7a0e2188ba676934684a} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!epsilon\_ij@{epsilon\_ij}}
+\index{epsilon\_ij@{epsilon\_ij}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{epsilon\_ij}{epsilon\_ij}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+XXd teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::epsilon\+\_\+ij}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00259}{259}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a2aff3e1bd76a481de88389b25a73b4d5}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a2aff3e1bd76a481de88389b25a73b4d5} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!epsilon\_ij\_flag@{epsilon\_ij\_flag}}
+\index{epsilon\_ij\_flag@{epsilon\_ij\_flag}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{epsilon\_ij\_flag}{epsilon\_ij\_flag}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99d}{Epsilonij\+Flags}} teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::epsilon\+\_\+ij\+\_\+flag = \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a1fb827f6b306ec5429e1b48f911ee99da3e49737fec08c6d5766a83d7a12ad8c1}{Epsilonij\+Flags\+::k\+Lafitte}}}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00256}{256}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1ca0dc8e0c566278ad9ed90177c59ee0} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!epsilon\_over\_k@{epsilon\_over\_k}}
+\index{epsilon\_over\_k@{epsilon\_over\_k}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{epsilon\_over\_k}{epsilon\_over\_k}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+Xd teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::epsilon\+\_\+over\+\_\+k}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00252}{252}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a09a23ce25043a61c60598a2721f3b4d1}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a09a23ce25043a61c60598a2721f3b4d1} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!fkij@{fkij}}
+\index{fkij@{fkij}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{fkij}{fkij}}
+{\footnotesize\ttfamily const std\+::vector$<$Eigen\+::\+Array\+XXd$>$ teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::fkij}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00262}{262}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1dfb96fc987212c7b8e4eff244f2c021}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1dfb96fc987212c7b8e4eff244f2c021} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!kmat@{kmat}}
+\index{kmat@{kmat}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{kmat}{kmat}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+XXd teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::kmat}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00253}{253}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a3494497fb5d10507eeb716a136e7d745}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a3494497fb5d10507eeb716a136e7d745} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!lambda\_a@{lambda\_a}}
+\index{lambda\_a@{lambda\_a}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{lambda\_a}{lambda\_a}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+Xd teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::lambda\+\_\+a}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00252}{252}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_abc9cafe920cafa75837d5e7b82cc1532} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!lambda\_a\_ij@{lambda\_a\_ij}}
+\index{lambda\_a\_ij@{lambda\_a\_ij}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{lambda\_a\_ij}{lambda\_a\_ij}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+XXd teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::lambda\+\_\+a\+\_\+ij}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00259}{259}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a412bc13d14ac47f445dc22da5f649eab}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a412bc13d14ac47f445dc22da5f649eab} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!lambda\_r@{lambda\_r}}
+\index{lambda\_r@{lambda\_r}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{lambda\_r}{lambda\_r}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+Xd teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::lambda\+\_\+r}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00252}{252}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_aa5108a733281c7c75214bdf3ef9e2923} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!lambda\_r\_ij@{lambda\_r\_ij}}
+\index{lambda\_r\_ij@{lambda\_r\_ij}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{lambda\_r\_ij}{lambda\_r\_ij}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+XXd teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::lambda\+\_\+r\+\_\+ij}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00259}{259}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_af3aa3e9e2c893e6526243981ecadc1d5} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!m@{m}}
+\index{m@{m}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+Xd teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::m}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00252}{252}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ade43036d933ec33a7ee9563a205a6997}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_ade43036d933ec33a7ee9563a205a6997} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!N@{N}}
+\index{N@{N}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily const Eigen\+::\+Index teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::N}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00255}{255}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a6c21115516923ed0598e67b656883b6a}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a6c21115516923ed0598e67b656883b6a} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!sigma\_A@{sigma\_A}}
+\index{sigma\_A@{sigma\_A}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{sigma\_A}{sigma\_A}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+Xd teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::sigma\+\_\+A}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00252}{252}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+\Hypertarget{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1bdee0641e1ac071933c703a4d3e7cc8}\label{structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms_a1bdee0641e1ac071933c703a4d3e7cc8} 
+\index{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}!sigma\_ij@{sigma\_ij}}
+\index{sigma\_ij@{sigma\_ij}!teqp::SAFTVRMie::SAFTVRMieChainContributionTerms@{teqp::SAFTVRMie::SAFTVRMieChainContributionTerms}}
+\doxysubsubsection{\texorpdfstring{sigma\_ij}{sigma\_ij}}
+{\footnotesize\ttfamily const Eigen\+::\+Array\+XXd teqp\+::\+SAFTVRMie\+::\+SAFTVRMie\+Chain\+Contribution\+Terms\+::sigma\+\_\+ij}
+
+
+
+Definition at line \mbox{\hyperlink{saftvrmie_8hpp_source_l00259}{259}} of file \mbox{\hyperlink{saftvrmie_8hpp_source}{saftvrmie.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\mbox{\hyperlink{saftvrmie_8hpp}{saftvrmie.\+hpp}}\end{DoxyCompactItemize}

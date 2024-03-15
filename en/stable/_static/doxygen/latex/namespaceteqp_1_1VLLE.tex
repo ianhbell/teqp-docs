@@ -1,0 +1,193 @@
+\doxysection{teqp\+::VLLE Namespace Reference}
+\hypertarget{namespaceteqp_1_1VLLE}{}\label{namespaceteqp_1_1VLLE}\index{teqp::VLLE@{teqp::VLLE}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1VLLE_1_1SelfIntersectionSolution}{Self\+Intersection\+Solution}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1VLLE_1_1VLLEFinderOptions}{VLLEFinder\+Options}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1VLLE_1_1VLLETracerOptions}{VLLETracer\+Options}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373d}{VLLE\+\_\+return\+\_\+code}} \{ \mbox{\hyperlink{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373dae2181b5014a67159cc230c8fe0d6c5b6}{unset}}
+, \mbox{\hyperlink{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373da79529417e6e5d5a8ee4a87fe543d9164}{xtol\+\_\+satisfied}}
+, \mbox{\hyperlink{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373da558e548fc28bae980b285c3a760e7de5}{functol\+\_\+satisfied}}
+, \mbox{\hyperlink{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373daea3fe0c0ce1dbcf56ed2f32841fc181b}{maxiter\+\_\+met}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_ae25bbb62557baebe155d55f4f1aa850d}{mix\+\_\+\+VLLE\+\_\+T}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+Vinit, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L1init, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L2init, double atol, double reltol, double axtol, double relxtol, int maxiter)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_a7d999c4035b914065f050670121e84b8}{mix\+\_\+\+VLLE\+\_\+p}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, double p, double Tinit, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+Vinit, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L1init, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L2init, double atol, double reltol, double axtol, double relxtol, int maxiter)
+\item 
+{\footnotesize template$<$typename Iterable $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_ad553eb6ef7c3a743bd25e41d2d4b803d}{get\+\_\+self\+\_\+intersections}} (Iterable \&x, Iterable \&y)
+\item 
+{\footnotesize template$<$typename Iterable $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_a25c672abedcc4ff0aee012da5be0581f}{get\+\_\+cross\+\_\+intersections}} (Iterable \&x1, Iterable \&y1, Iterable \&x2, Iterable \&y2)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_a904fdf34279116df5ec4e4fc47cc6ba2}{find\+\_\+\+VLLE\+\_\+gen\+\_\+binary}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const std\+::vector$<$ nlohmann\+::json $>$ \&traces, const std\+::string \&key, const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1VLLE_1_1VLLEFinderOptions}{VLLEFinder\+Options}} $>$ options=std\+::nullopt)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_a6075d7e6604eab8bdc5c3afdff70fdd0}{find\+\_\+\+VLLE\+\_\+\+T\+\_\+binary}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const std\+::vector$<$ nlohmann\+::json $>$ \&traces, const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1VLLE_1_1VLLEFinderOptions}{VLLEFinder\+Options}} $>$ \&options=std\+::nullopt)
+\begin{DoxyCompactList}\small\item\em Given an isothermal VLE trace(s) for a binary mixture, obtain the \doxylink{namespaceteqp_1_1VLLE}{VLLE} solution. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_a50513eeeb0a1fb8ff795de5967f2195d}{find\+\_\+\+VLLE\+\_\+p\+\_\+binary}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const std\+::vector$<$ nlohmann\+::json $>$ \&traces, const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1VLLE_1_1VLLEFinderOptions}{VLLEFinder\+Options}} $>$ \&options=std\+::nullopt)
+\begin{DoxyCompactList}\small\item\em Given an isobaric VLE trace(s) for a binary mixture, obtain the \doxylink{namespaceteqp_1_1VLLE}{VLLE} solution. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_ac4d9bef0a8743dda20d148593f1d892f}{get\+\_\+drhovecd\+T\+\_\+\+VLLE\+\_\+binary}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovecV, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L1, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L2)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1VLLE_ad06002c4e40d0be75fda7f3f51b9ce0a}{trace\+\_\+\+VLLE\+\_\+binary}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::\+VLLE\+::\+Abstract\+Model}} \&model, const double Tinit, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+Vinit, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L1init, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&rhovec\+L2init, const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1VLLE_1_1VLLETracerOptions}{VLLETracer\+Options}} $>$ \&options\+\_\+=std\+::nullopt)
+\begin{DoxyCompactList}\small\item\em Given an initial \doxylink{namespaceteqp_1_1VLLE}{VLLE} solution, trace the \doxylink{namespaceteqp_1_1VLLE}{VLLE} curve. We know the \doxylink{namespaceteqp_1_1VLLE}{VLLE} curve is a function of only one state variable by Gibbs\textquotesingle{} rule. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373d}\label{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373d} 
+\index{teqp::VLLE@{teqp::VLLE}!VLLE\_return\_code@{VLLE\_return\_code}}
+\index{VLLE\_return\_code@{VLLE\_return\_code}!teqp::VLLE@{teqp::VLLE}}
+\doxysubsubsection{\texorpdfstring{VLLE\_return\_code}{VLLE\_return\_code}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373d}{teqp\+::\+VLLE\+::\+VLLE\+\_\+return\+\_\+code}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{unset@{unset}!teqp::VLLE@{teqp::VLLE}}\index{teqp::VLLE@{teqp::VLLE}!unset@{unset}}}\Hypertarget{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373dae2181b5014a67159cc230c8fe0d6c5b6}\label{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373dae2181b5014a67159cc230c8fe0d6c5b6} 
+unset&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{xtol\_satisfied@{xtol\_satisfied}!teqp::VLLE@{teqp::VLLE}}\index{teqp::VLLE@{teqp::VLLE}!xtol\_satisfied@{xtol\_satisfied}}}\Hypertarget{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373da79529417e6e5d5a8ee4a87fe543d9164}\label{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373da79529417e6e5d5a8ee4a87fe543d9164} 
+xtol\+\_\+satisfied&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{functol\_satisfied@{functol\_satisfied}!teqp::VLLE@{teqp::VLLE}}\index{teqp::VLLE@{teqp::VLLE}!functol\_satisfied@{functol\_satisfied}}}\Hypertarget{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373da558e548fc28bae980b285c3a760e7de5}\label{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373da558e548fc28bae980b285c3a760e7de5} 
+functol\+\_\+satisfied&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{maxiter\_met@{maxiter\_met}!teqp::VLLE@{teqp::VLLE}}\index{teqp::VLLE@{teqp::VLLE}!maxiter\_met@{maxiter\_met}}}\Hypertarget{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373daea3fe0c0ce1dbcf56ed2f32841fc181b}\label{namespaceteqp_1_1VLLE_a9e02d5eeb772dafa11b8f5f96e48373daea3fe0c0ce1dbcf56ed2f32841fc181b} 
+maxiter\+\_\+met&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{VLLE__types_8hpp_source_l00006}{6}} of file \mbox{\hyperlink{VLLE__types_8hpp_source}{VLLE\+\_\+types.\+hpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceteqp_1_1VLLE_a904fdf34279116df5ec4e4fc47cc6ba2}\label{namespaceteqp_1_1VLLE_a904fdf34279116df5ec4e4fc47cc6ba2} 
+\index{teqp::VLLE@{teqp::VLLE}!find\_VLLE\_gen\_binary@{find\_VLLE\_gen\_binary}}
+\index{find\_VLLE\_gen\_binary@{find\_VLLE\_gen\_binary}!teqp::VLLE@{teqp::VLLE}}
+\doxysubsubsection{\texorpdfstring{find\_VLLE\_gen\_binary()}{find\_VLLE\_gen\_binary()}}
+{\footnotesize\ttfamily auto teqp\+::\+VLLE\+::find\+\_\+\+VLLE\+\_\+gen\+\_\+binary (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const std\+::vector$<$ nlohmann\+::json $>$ \&}]{traces,  }\item[{const std\+::string \&}]{key,  }\item[{const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1VLLE_1_1VLLEFinderOptions}{VLLEFinder\+Options}} $>$}]{options = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLLE_8hpp_source_l00300}{300}} of file \mbox{\hyperlink{VLLE_8hpp_source}{VLLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1VLLE_a50513eeeb0a1fb8ff795de5967f2195d}\label{namespaceteqp_1_1VLLE_a50513eeeb0a1fb8ff795de5967f2195d} 
+\index{teqp::VLLE@{teqp::VLLE}!find\_VLLE\_p\_binary@{find\_VLLE\_p\_binary}}
+\index{find\_VLLE\_p\_binary@{find\_VLLE\_p\_binary}!teqp::VLLE@{teqp::VLLE}}
+\doxysubsubsection{\texorpdfstring{find\_VLLE\_p\_binary()}{find\_VLLE\_p\_binary()}}
+{\footnotesize\ttfamily auto teqp\+::\+VLLE\+::find\+\_\+\+VLLE\+\_\+p\+\_\+binary (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const std\+::vector$<$ nlohmann\+::json $>$ \&}]{traces,  }\item[{const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1VLLE_1_1VLLEFinderOptions}{VLLEFinder\+Options}} $>$ \&}]{options = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Given an isobaric VLE trace(s) for a binary mixture, obtain the \doxylink{namespaceteqp_1_1VLLE}{VLLE} solution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & The Model to be used for the thermodynamics \\
+\hline
+{\em traces} & The nlohmann\+::json formatted information from the traces, perhaps obtained from trace\+\_\+\+VLE\+\_\+isobar\+\_\+binary \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{VLLE_8hpp_source_l00477}{477}} of file \mbox{\hyperlink{VLLE_8hpp_source}{VLLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1VLLE_a6075d7e6604eab8bdc5c3afdff70fdd0}\label{namespaceteqp_1_1VLLE_a6075d7e6604eab8bdc5c3afdff70fdd0} 
+\index{teqp::VLLE@{teqp::VLLE}!find\_VLLE\_T\_binary@{find\_VLLE\_T\_binary}}
+\index{find\_VLLE\_T\_binary@{find\_VLLE\_T\_binary}!teqp::VLLE@{teqp::VLLE}}
+\doxysubsubsection{\texorpdfstring{find\_VLLE\_T\_binary()}{find\_VLLE\_T\_binary()}}
+{\footnotesize\ttfamily auto teqp\+::\+VLLE\+::find\+\_\+\+VLLE\+\_\+\+T\+\_\+binary (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{const std\+::vector$<$ nlohmann\+::json $>$ \&}]{traces,  }\item[{const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1VLLE_1_1VLLEFinderOptions}{VLLEFinder\+Options}} $>$ \&}]{options = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Given an isothermal VLE trace(s) for a binary mixture, obtain the \doxylink{namespaceteqp_1_1VLLE}{VLLE} solution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & The Model to be used for the thermodynamics \\
+\hline
+{\em traces} & The nlohmann\+::json formatted information from the traces, perhaps obtained from trace\+\_\+\+VLE\+\_\+isotherm\+\_\+binary \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{VLLE_8hpp_source_l00468}{468}} of file \mbox{\hyperlink{VLLE_8hpp_source}{VLLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1VLLE_a25c672abedcc4ff0aee012da5be0581f}\label{namespaceteqp_1_1VLLE_a25c672abedcc4ff0aee012da5be0581f} 
+\index{teqp::VLLE@{teqp::VLLE}!get\_cross\_intersections@{get\_cross\_intersections}}
+\index{get\_cross\_intersections@{get\_cross\_intersections}!teqp::VLLE@{teqp::VLLE}}
+\doxysubsubsection{\texorpdfstring{get\_cross\_intersections()}{get\_cross\_intersections()}}
+{\footnotesize\ttfamily template$<$typename Iterable $>$ \\
+auto teqp\+::\+VLLE\+::get\+\_\+cross\+\_\+intersections (\begin{DoxyParamCaption}\item[{Iterable \&}]{x1,  }\item[{Iterable \&}]{y1,  }\item[{Iterable \&}]{x2,  }\item[{Iterable \&}]{y2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLLE_8hpp_source_l00277}{277}} of file \mbox{\hyperlink{VLLE_8hpp_source}{VLLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1VLLE_ac4d9bef0a8743dda20d148593f1d892f}\label{namespaceteqp_1_1VLLE_ac4d9bef0a8743dda20d148593f1d892f} 
+\index{teqp::VLLE@{teqp::VLLE}!get\_drhovecdT\_VLLE\_binary@{get\_drhovecdT\_VLLE\_binary}}
+\index{get\_drhovecdT\_VLLE\_binary@{get\_drhovecdT\_VLLE\_binary}!teqp::VLLE@{teqp::VLLE}}
+\doxysubsubsection{\texorpdfstring{get\_drhovecdT\_VLLE\_binary()}{get\_drhovecdT\_VLLE\_binary()}}
+{\footnotesize\ttfamily auto teqp\+::\+VLLE\+::get\+\_\+drhovecd\+T\+\_\+\+VLLE\+\_\+binary (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{double}]{T,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{rhovecV,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{rhovec\+L1,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{rhovec\+L2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLLE_8hpp_source_l00481}{481}} of file \mbox{\hyperlink{VLLE_8hpp_source}{VLLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1VLLE_ad553eb6ef7c3a743bd25e41d2d4b803d}\label{namespaceteqp_1_1VLLE_ad553eb6ef7c3a743bd25e41d2d4b803d} 
+\index{teqp::VLLE@{teqp::VLLE}!get\_self\_intersections@{get\_self\_intersections}}
+\index{get\_self\_intersections@{get\_self\_intersections}!teqp::VLLE@{teqp::VLLE}}
+\doxysubsubsection{\texorpdfstring{get\_self\_intersections()}{get\_self\_intersections()}}
+{\footnotesize\ttfamily template$<$typename Iterable $>$ \\
+auto teqp\+::\+VLLE\+::get\+\_\+self\+\_\+intersections (\begin{DoxyParamCaption}\item[{Iterable \&}]{x,  }\item[{Iterable \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Derived from \href{https://stackoverflow.com/a/17931809}{\texttt{ https\+://stackoverflow.\+com/a/17931809}} 
+
+Definition at line \mbox{\hyperlink{VLLE_8hpp_source_l00255}{255}} of file \mbox{\hyperlink{VLLE_8hpp_source}{VLLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1VLLE_a7d999c4035b914065f050670121e84b8}\label{namespaceteqp_1_1VLLE_a7d999c4035b914065f050670121e84b8} 
+\index{teqp::VLLE@{teqp::VLLE}!mix\_VLLE\_p@{mix\_VLLE\_p}}
+\index{mix\_VLLE\_p@{mix\_VLLE\_p}!teqp::VLLE@{teqp::VLLE}}
+\doxysubsubsection{\texorpdfstring{mix\_VLLE\_p()}{mix\_VLLE\_p()}}
+{\footnotesize\ttfamily auto teqp\+::\+VLLE\+::mix\+\_\+\+VLLE\+\_\+p (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{double}]{p,  }\item[{double}]{Tinit,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{rhovec\+Vinit,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{rhovec\+L1init,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{rhovec\+L2init,  }\item[{double}]{atol,  }\item[{double}]{reltol,  }\item[{double}]{axtol,  }\item[{double}]{relxtol,  }\item[{int}]{maxiter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLLE_8hpp_source_l00134}{134}} of file \mbox{\hyperlink{VLLE_8hpp_source}{VLLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1VLLE_ae25bbb62557baebe155d55f4f1aa850d}\label{namespaceteqp_1_1VLLE_ae25bbb62557baebe155d55f4f1aa850d} 
+\index{teqp::VLLE@{teqp::VLLE}!mix\_VLLE\_T@{mix\_VLLE\_T}}
+\index{mix\_VLLE\_T@{mix\_VLLE\_T}!teqp::VLLE@{teqp::VLLE}}
+\doxysubsubsection{\texorpdfstring{mix\_VLLE\_T()}{mix\_VLLE\_T()}}
+{\footnotesize\ttfamily auto teqp\+::\+VLLE\+::mix\+\_\+\+VLLE\+\_\+T (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{model,  }\item[{double}]{T,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{rhovec\+Vinit,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{rhovec\+L1init,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{rhovec\+L2init,  }\item[{double}]{atol,  }\item[{double}]{reltol,  }\item[{double}]{axtol,  }\item[{double}]{relxtol,  }\item[{int}]{maxiter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{VLLE_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{VLLE_8hpp_source}{VLLE.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1VLLE_ad06002c4e40d0be75fda7f3f51b9ce0a}\label{namespaceteqp_1_1VLLE_ad06002c4e40d0be75fda7f3f51b9ce0a} 
+\index{teqp::VLLE@{teqp::VLLE}!trace\_VLLE\_binary@{trace\_VLLE\_binary}}
+\index{trace\_VLLE\_binary@{trace\_VLLE\_binary}!teqp::VLLE@{teqp::VLLE}}
+\doxysubsubsection{\texorpdfstring{trace\_VLLE\_binary()}{trace\_VLLE\_binary()}}
+{\footnotesize\ttfamily auto teqp\+::\+VLLE\+::trace\+\_\+\+VLLE\+\_\+binary (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::\+VLLE\+::\+Abstract\+Model}} \&}]{model,  }\item[{const double}]{Tinit,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{rhovec\+Vinit,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{rhovec\+L1init,  }\item[{const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} \&}]{rhovec\+L2init,  }\item[{const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1VLLE_1_1VLLETracerOptions}{VLLETracer\+Options}} $>$ \&}]{options\+\_\+ = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Given an initial \doxylink{namespaceteqp_1_1VLLE}{VLLE} solution, trace the \doxylink{namespaceteqp_1_1VLLE}{VLLE} curve. We know the \doxylink{namespaceteqp_1_1VLLE}{VLLE} curve is a function of only one state variable by Gibbs\textquotesingle{} rule. 
+
+
+
+Definition at line \mbox{\hyperlink{VLLE_8hpp_source_l00519}{519}} of file \mbox{\hyperlink{VLLE_8hpp_source}{VLLE.\+hpp}}.
+

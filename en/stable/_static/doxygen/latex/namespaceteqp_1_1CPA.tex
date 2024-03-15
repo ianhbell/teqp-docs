@@ -1,0 +1,134 @@
+\doxysection{teqp\+::CPA Namespace Reference}
+\hypertarget{namespaceteqp_1_1CPA}{}\label{namespaceteqp_1_1CPA}\index{teqp::CPA@{teqp::CPA}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1CPA_1_1AssociationVariantWrapper}{Association\+Variant\+Wrapper}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1CPA_1_1CPAAssociation}{CPAAssociation}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1CPA_1_1CPACubic}{CPACubic}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1CPA_1_1CPAEOS}{CPAEOS}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2a}{cubic\+\_\+flag}} \{ \mbox{\hyperlink{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2aa0de8ddf24fd4424e2a0d29a21de4880e}{not\+\_\+set}}
+, \mbox{\hyperlink{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2aa0fe75a5189c2ea3f123621d098ddd03e}{PR}}
+, \mbox{\hyperlink{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2aa31cb32d8fba23675ce53bc31bae80705}{SRK}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}} $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1CPA_a2b7d1e2c552e215b664220fc3ad14c56}{POW2}} (\mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}} x)
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}} $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1CPA_a51dafbeda4f006118e5777a21502ca0f}{POW3}} (\mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}} x)
+\item 
+{\footnotesize template$<$typename BType , typename TType , typename Rho\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1CPA_a206e2cd632f07bbd93f5e28fddf7682d}{get\+\_\+\+Delta\+AB\+\_\+pure}} (radial\+\_\+dist dist, double eps\+ABi, double beta\+ABi, BType b\+\_\+cubic, TType RT, Rho\+Type rhomolar, const Vec\+Type \&)
+\begin{DoxyCompactList}\small\item\em Function that calculates the association binding strength between site A of molecule i and site B on molecule j. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename BType , typename TType , typename Rho\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{namespaceteqp_1_1CPA_a21ac3b382beca72e6a09006d34d4318e}{XA\+\_\+calc\+\_\+pure}} (int N\+\_\+sites, association\+\_\+classes scheme, radial\+\_\+dist dist, double eps\+ABi, double beta\+ABi, const BType b\+\_\+cubic, const TType RT, const Rho\+Type rhomolar, const Vec\+Type \&molefrac)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1CPA_aef8996d5cc168e4e919b4caf3e63eb97}{get\+\_\+cubic\+\_\+flag}} (const std\+::string \&s)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1CPA_aac7faad3d0f09b4600630c7ae67d56ea}{CPAfactory}} (const nlohmann\+::json \&j)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2a}\label{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2a} 
+\index{teqp::CPA@{teqp::CPA}!cubic\_flag@{cubic\_flag}}
+\index{cubic\_flag@{cubic\_flag}!teqp::CPA@{teqp::CPA}}
+\doxysubsubsection{\texorpdfstring{cubic\_flag}{cubic\_flag}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2a}{teqp\+::\+CPA\+::cubic\+\_\+flag}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{not\_set@{not\_set}!teqp::CPA@{teqp::CPA}}\index{teqp::CPA@{teqp::CPA}!not\_set@{not\_set}}}\Hypertarget{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2aa0de8ddf24fd4424e2a0d29a21de4880e}\label{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2aa0de8ddf24fd4424e2a0d29a21de4880e} 
+not\+\_\+set&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PR@{PR}!teqp::CPA@{teqp::CPA}}\index{teqp::CPA@{teqp::CPA}!PR@{PR}}}\Hypertarget{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2aa0fe75a5189c2ea3f123621d098ddd03e}\label{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2aa0fe75a5189c2ea3f123621d098ddd03e} 
+PR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SRK@{SRK}!teqp::CPA@{teqp::CPA}}\index{teqp::CPA@{teqp::CPA}!SRK@{SRK}}}\Hypertarget{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2aa31cb32d8fba23675ce53bc31bae80705}\label{namespaceteqp_1_1CPA_a117b6f3032c46b46f6a1e9d2b5980e2aa31cb32d8fba23675ce53bc31bae80705} 
+SRK&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00114}{114}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceteqp_1_1CPA_aac7faad3d0f09b4600630c7ae67d56ea}\label{namespaceteqp_1_1CPA_aac7faad3d0f09b4600630c7ae67d56ea} 
+\index{teqp::CPA@{teqp::CPA}!CPAfactory@{CPAfactory}}
+\index{CPAfactory@{CPAfactory}!teqp::CPA@{teqp::CPA}}
+\doxysubsubsection{\texorpdfstring{CPAfactory()}{CPAfactory()}}
+{\footnotesize\ttfamily auto teqp\+::\+CPA\+::\+CPAfactory (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+A factory function to return an instantiated \doxylink{namespaceteqp_1_1CPA}{CPA} instance given the JSON representation of the model 
+
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00301}{301}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1CPA_aef8996d5cc168e4e919b4caf3e63eb97}\label{namespaceteqp_1_1CPA_aef8996d5cc168e4e919b4caf3e63eb97} 
+\index{teqp::CPA@{teqp::CPA}!get\_cubic\_flag@{get\_cubic\_flag}}
+\index{get\_cubic\_flag@{get\_cubic\_flag}!teqp::CPA@{teqp::CPA}}
+\doxysubsubsection{\texorpdfstring{get\_cubic\_flag()}{get\_cubic\_flag()}}
+{\footnotesize\ttfamily auto teqp\+::\+CPA\+::get\+\_\+cubic\+\_\+flag (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00115}{115}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1CPA_a206e2cd632f07bbd93f5e28fddf7682d}\label{namespaceteqp_1_1CPA_a206e2cd632f07bbd93f5e28fddf7682d} 
+\index{teqp::CPA@{teqp::CPA}!get\_DeltaAB\_pure@{get\_DeltaAB\_pure}}
+\index{get\_DeltaAB\_pure@{get\_DeltaAB\_pure}!teqp::CPA@{teqp::CPA}}
+\doxysubsubsection{\texorpdfstring{get\_DeltaAB\_pure()}{get\_DeltaAB\_pure()}}
+{\footnotesize\ttfamily template$<$typename BType , typename TType , typename Rho\+Type , typename Vec\+Type $>$ \\
+auto teqp\+::\+CPA\+::get\+\_\+\+Delta\+AB\+\_\+pure (\begin{DoxyParamCaption}\item[{radial\+\_\+dist}]{dist,  }\item[{double}]{eps\+ABi,  }\item[{double}]{beta\+ABi,  }\item[{BType}]{b\+\_\+cubic,  }\item[{TType}]{RT,  }\item[{Rho\+Type}]{rhomolar,  }\item[{const Vec\+Type \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function that calculates the association binding strength between site A of molecule i and site B on molecule j. 
+
+
+
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1CPA_a2b7d1e2c552e215b664220fc3ad14c56}\label{namespaceteqp_1_1CPA_a2b7d1e2c552e215b664220fc3ad14c56} 
+\index{teqp::CPA@{teqp::CPA}!POW2@{POW2}}
+\index{POW2@{POW2}!teqp::CPA@{teqp::CPA}}
+\doxysubsubsection{\texorpdfstring{POW2()}{POW2()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}} $>$ \\
+auto teqp\+::\+CPA\+::\+POW2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1CPA_a51dafbeda4f006118e5777a21502ca0f}\label{namespaceteqp_1_1CPA_a51dafbeda4f006118e5777a21502ca0f} 
+\index{teqp::CPA@{teqp::CPA}!POW3@{POW3}}
+\index{POW3@{POW3}!teqp::CPA@{teqp::CPA}}
+\doxysubsubsection{\texorpdfstring{POW3()}{POW3()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}} $>$ \\
+auto teqp\+::\+CPA\+::\+POW3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1CPA_a21ac3b382beca72e6a09006d34d4318e}\label{namespaceteqp_1_1CPA_a21ac3b382beca72e6a09006d34d4318e} 
+\index{teqp::CPA@{teqp::CPA}!XA\_calc\_pure@{XA\_calc\_pure}}
+\index{XA\_calc\_pure@{XA\_calc\_pure}!teqp::CPA@{teqp::CPA}}
+\doxysubsubsection{\texorpdfstring{XA\_calc\_pure()}{XA\_calc\_pure()}}
+{\footnotesize\ttfamily template$<$typename BType , typename TType , typename Rho\+Type , typename Vec\+Type $>$ \\
+auto teqp\+::\+CPA\+::\+XA\+\_\+calc\+\_\+pure (\begin{DoxyParamCaption}\item[{int}]{N\+\_\+sites,  }\item[{association\+\_\+classes}]{scheme,  }\item[{radial\+\_\+dist}]{dist,  }\item[{double}]{eps\+ABi,  }\item[{double}]{beta\+ABi,  }\item[{const BType}]{b\+\_\+cubic,  }\item[{const TType}]{RT,  }\item[{const Rho\+Type}]{rhomolar,  }\item[{const Vec\+Type \&}]{molefrac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Routine that calculates the fractions of sites Ai not bound to other active sites for pure fluids Some association schemes are explicitly solvable for self-\/associating compounds, see Huang and Radosz, Ind. Eng. Chem. Res., 29 (11), 1990 So far implemented association schemes \+: 1A, 2B, 3B, 4C (see Kontogeorgis et al., Ind. Eng. Chem. Res. 2006, 45, 4855 -\/ 4868) 
+
+Definition at line \mbox{\hyperlink{CPA_8hpp_source_l00068}{68}} of file \mbox{\hyperlink{CPA_8hpp_source}{CPA.\+hpp}}.
+

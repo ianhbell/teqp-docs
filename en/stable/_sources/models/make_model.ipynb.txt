@@ -1,0 +1,234 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "0f7ef656",
+   "metadata": {},
+   "source": [
+    "# Constructing Models\n",
+    "\n",
+    "With a few exceptions, most models are constructed by describing the model in JSON format, and passing the JSON-formatted information to the ``make_model`` function.  There are some convenience functions exposed for backwards compatibility, but as of version 0.14.0, all model construction should go via this route.\n",
+    "\n",
+    "At the C++ level, the returned value from the ``make_model`` function is a ``shared_ptr`` that wraps a pointer to an ``AbstractModel`` class.  The ``AbstractModel`` class is an abstract class which defines the public C++ interface.\n",
+    "\n",
+    "In Python, construction is in two parts. First, the model is constructed, which only includes the common methods.  Then, the model-specific attributes and methods are attached with the ``attach_model_specific_methods`` method.\n",
+    "\n",
+    "The JSON structure is of two parts, the ``kind`` field is a case-sensitive string defining which model kind is being constructed, and the ``model`` field contains all the information needed to build the model. In the case of hard-coded models, nothing is provided in the ``model`` field, but it must still be provided.\n",
+    "\n",
+    "Also, the argument to ``make_model`` must be valid JSON. So if you are working with numpy array datatypes, make sure to convert them to a list (which is convertible to JSON). Example below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "d3ab9d9c",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-03-15T22:40:38.049165Z",
+     "iopub.status.busy": "2024-03-15T22:40:38.048842Z",
+     "iopub.status.idle": "2024-03-15T22:40:38.120925Z",
+     "shell.execute_reply": "2024-03-15T22:40:38.120402Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'0.19.1'"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import teqp, numpy as np\n",
+    "teqp.__version__"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "39bd96e0",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-03-15T22:40:38.123452Z",
+     "iopub.status.busy": "2024-03-15T22:40:38.123050Z",
+     "iopub.status.idle": "2024-03-15T22:40:38.127112Z",
+     "shell.execute_reply": "2024-03-15T22:40:38.126678Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<teqp.teqp.AbstractModel at 0x7d6db379c050>"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "teqp.make_model({'kind': 'vdW1', 'model': {'a': 1, 'b': 2}})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "45d41b7f",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-03-15T22:40:38.129349Z",
+     "iopub.status.busy": "2024-03-15T22:40:38.129016Z",
+     "iopub.status.idle": "2024-03-15T22:40:38.299686Z",
+     "shell.execute_reply": "2024-03-15T22:40:38.299118Z"
+    },
+    "tags": [
+     "raises-exception"
+    ]
+   },
+   "outputs": [
+    {
+     "ename": "RuntimeError",
+     "evalue": ":{\"B\":2,\"a\":1}': required property 'b' not found in object\n|/|\\|:{\"B\":2,\"a\":1}': validation failed for additional property 'B': instance invalid as per false-schema\n",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mRuntimeError\u001b[0m                              Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[3], line 2\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[38;5;66;03m# Fields are case-sensitive\u001b[39;00m\n\u001b[0;32m----> 2\u001b[0m \u001b[43mteqp\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mmake_model\u001b[49m\u001b[43m(\u001b[49m\u001b[43m{\u001b[49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[38;5;124;43mkind\u001b[39;49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[43m:\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[38;5;124;43mvdW1\u001b[39;49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[38;5;124;43mmodel\u001b[39;49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[43m:\u001b[49m\u001b[43m \u001b[49m\u001b[43m{\u001b[49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[38;5;124;43ma\u001b[39;49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[43m:\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;241;43m1\u001b[39;49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[38;5;124;43mB\u001b[39;49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[43m:\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;241;43m2\u001b[39;49m\u001b[43m}\u001b[49m\u001b[43m}\u001b[49m\u001b[43m)\u001b[49m\n",
+      "File \u001b[0;32m/opt/conda/lib/python3.11/site-packages/teqp/__init__.py:47\u001b[0m, in \u001b[0;36mmake_model\u001b[0;34m(*args, **kwargs)\u001b[0m\n\u001b[1;32m     42\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21mmake_model\u001b[39m(\u001b[38;5;241m*\u001b[39margs, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mkwargs):\n\u001b[1;32m     43\u001b[0m \u001b[38;5;250m    \u001b[39m\u001b[38;5;124;03m\"\"\"\u001b[39;00m\n\u001b[1;32m     44\u001b[0m \u001b[38;5;124;03m    This function is in two parts; first the make_model function (renamed to _make_model in the Python interface)\u001b[39;00m\n\u001b[1;32m     45\u001b[0m \u001b[38;5;124;03m    is used to make the model and then the model-specific methods are attached to the instance\u001b[39;00m\n\u001b[1;32m     46\u001b[0m \u001b[38;5;124;03m    \"\"\"\u001b[39;00m\n\u001b[0;32m---> 47\u001b[0m     AS \u001b[38;5;241m=\u001b[39m \u001b[43m_make_model\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;241;43m*\u001b[39;49m\u001b[43margs\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;241;43m*\u001b[39;49m\u001b[38;5;241;43m*\u001b[39;49m\u001b[43mkwargs\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     48\u001b[0m     attach_model_specific_methods(AS)\n\u001b[1;32m     49\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m AS\n",
+      "\u001b[0;31mRuntimeError\u001b[0m: :{\"B\":2,\"a\":1}': required property 'b' not found in object\n|/|\\|:{\"B\":2,\"a\":1}': validation failed for additional property 'B': instance invalid as per false-schema\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Fields are case-sensitive\n",
+    "teqp.make_model({'kind': 'vdW1', 'model': {'a': 1, 'B': 2}})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "907f3619",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-03-15T22:40:38.302064Z",
+     "iopub.status.busy": "2024-03-15T22:40:38.301653Z",
+     "iopub.status.idle": "2024-03-15T22:40:38.306073Z",
+     "shell.execute_reply": "2024-03-15T22:40:38.305687Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<teqp.teqp.AbstractModel at 0x7d6d9cda79b0>"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# A hard-coded model\n",
+    "teqp.make_model({\n",
+    "    'kind': 'AmmoniaWaterTillnerRoth', \n",
+    "    'model': {}\n",
+    "})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "800b86f4",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-03-15T22:40:38.307842Z",
+     "iopub.status.busy": "2024-03-15T22:40:38.307679Z",
+     "iopub.status.idle": "2024-03-15T22:40:38.311712Z",
+     "shell.execute_reply": "2024-03-15T22:40:38.311216Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<teqp.teqp.AbstractModel at 0x7d6d9cda7b90>"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Show what to do with numpy array\n",
+    "Tc_K = np.array([100,200])\n",
+    "pc_Pa = np.array([3e6, 4e6])\n",
+    "teqp.make_model({\n",
+    "    \"kind\": \"vdW\", \n",
+    "    \"model\": {\n",
+    "        \"Tcrit / K\": Tc_K.tolist(), \n",
+    "        \"pcrit / Pa\": pc_Pa.tolist()\n",
+    "    }\n",
+    "})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "bccc9f19",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-03-15T22:40:38.313672Z",
+     "iopub.status.busy": "2024-03-15T22:40:38.313366Z",
+     "iopub.status.idle": "2024-03-15T22:40:38.316398Z",
+     "shell.execute_reply": "2024-03-15T22:40:38.315971Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# methane with conventional PC-SAFT\n",
+    "j = {\n",
+    "    'kind': 'PCSAFT',\n",
+    "    'model': {\n",
+    "        'coeffs': [{\n",
+    "            'name': 'methane',\n",
+    "             'BibTeXKey': 'Gross-IECR-2001',\n",
+    "             'm': 1.00,\n",
+    "             'sigma_Angstrom': 3.7039,\n",
+    "             'epsilon_over_k': 150.03,\n",
+    "        }]\n",
+    "    }\n",
+    "}\n",
+    "model = teqp.make_model(j)"
+   ]
+  }
+ ],
+ "metadata": {
+  "celltoolbar": "Tags",
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -1,0 +1,291 @@
+\doxysection{teqp\+::SAFTpolar\+::Multipolar\+Contribution\+Gray\+Gubbins\texorpdfstring{$<$}{<} JIntegral, KIntegral \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+
+
+{\ttfamily \#include $<$polar\+\_\+terms.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_aaf99e6b369f9f75d46c38bed04c54ae4}{Multipolar\+Contribution\+Gray\+Gubbins}} (const Eigen\+::\+ArrayX$<$ double $>$ \&sigma\+\_\+m, const Eigen\+::\+ArrayX$<$ double $>$ \&epsilon\+\_\+over\+\_\+k, const Eigen\+::\+Matrix\+Xd \&SIGMAIJ, const Eigen\+::\+Matrix\+Xd \&EPSKIJ, const Eigen\+::\+ArrayX$<$ double $>$ \&mu, const Eigen\+::\+ArrayX$<$ double $>$ \&Q, const std\+::optional$<$ nlohmann\+::json $>$ \&flags)
+\item 
+\mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{Multipolar\+Contribution\+Gray\+Gubbins}} \& \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a63c5138a8156ff8e74dc92a8f1e0a880}{operator=}} (const \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{Multipolar\+Contribution\+Gray\+Gubbins}} \&)=delete
+\item 
+{\footnotesize template$<$typename Jintegral , typename TTYPE , typename Rho\+Star\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_ac3fdb2fa8ab6438a5fb8422eb22c8530}{get\+\_\+\+In}} (const Jintegral \&J, int n, double sigmaij, const TTYPE \&Tstar, const Rho\+Star\+Type \&rhostar) const
+\begin{DoxyCompactList}\small\item\em Appendix B of Gray et al. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Star\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_acc6b0afc9fbd3c075f16c19a15e59e86}{Immm}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j, std\+::size\+\_\+t k, const TTYPE \&T, const Rho\+Star\+Type \&rhostar) const
+\begin{DoxyCompactList}\small\item\em Appendix B of Gray et al. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Star\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a9e81c0eba084ab3bf15825d3ea638373}{ImmQ}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j, std\+::size\+\_\+t k, const TTYPE \&T, const Rho\+Star\+Type \&rhostar) const
+\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Star\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_ae460826a9754ccce70d2ae8012adb77f}{Im\+QQ}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j, std\+::size\+\_\+t k, const TTYPE \&T, const Rho\+Star\+Type \&rhostar) const
+\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Star\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a297b03adc918bfa8d120099bbd59eb0b}{IQQQ}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j, std\+::size\+\_\+t k, const TTYPE \&T, const Rho\+Star\+Type \&rhostar) const
+\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Rho\+Star\+Type , typename Vec\+Type , typename Mu\+Prime\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a32d2813fa8984ddcef693567aab0f3cc}{get\+\_\+alpha2}} (const TTYPE \&T, const Rho\+Type \&rhoN, const Rho\+Star\+Type \&rhostar, const Vec\+Type \&mole\+\_\+fractions, const Mu\+Prime\+Type \&muprime) const
+\begin{DoxyCompactList}\small\item\em Return $\alpha_2=A_2/(Nk_BT)$, thus this is a nondimensional term. This is equivalent to $-w_o^{(2)}/\rhoN$ from Gray et al. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Rho\+Star\+Type , typename Vec\+Type , typename Mu\+Prime\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a43af01dfc414892d97c6adf9eb60bc0f}{get\+\_\+alpha2\+\_\+muprime\+\_\+gradient}} (const TTYPE \&T, const Rho\+Type \&rhoN, const Rho\+Star\+Type \&rhostar, const Vec\+Type \&mole\+\_\+fractions, const Mu\+Prime\+Type \&muprime) const
+\begin{DoxyCompactList}\small\item\em Return $\alpha_2=A_2/(Nk_BT)$, thus this is a nondimensional term. This is equivalent to $-w_o^{(2)}/\rhoN$ from Gray et al. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Rho\+Star\+Type , typename Vec\+Type , typename Mu\+Prime\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_aa8b892f192ceacc032ef65131aa8cf6f}{get\+\_\+alpha3}} (const TTYPE \&T, const Rho\+Type \&rhoN, const Rho\+Star\+Type \&rhostar, const Vec\+Type \&mole\+\_\+fractions, const Mu\+Prime\+Type \&muprime) const
+\begin{DoxyCompactList}\small\item\em Return $\alpha_3=A_3/(Nk_BT)$, thus this is a nondimensional term. This is equivalent to $-w_o^{(3)}/\rhoN$ from Gray et al. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Rho\+Star\+Type , typename Vec\+Type , typename Mu\+Prime\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a568d85ef7be8fc7dd95ca63862a92e95}{get\+\_\+alpha3\+\_\+muprime\+\_\+gradient}} (const TTYPE \&T, const Rho\+Type \&rhoN, const Rho\+Star\+Type \&rhostar, const Vec\+Type \&mole\+\_\+fractions, const Mu\+Prime\+Type \&muprime) const
+\begin{DoxyCompactList}\small\item\em Return $\alpha_3=A_3/(Nk_BT)$, thus this is a nondimensional term. This is equivalent to $-w_o^{(3)}/\rhoN$ from Gray et al. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rho\+Type , typename PFType , typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a07c5f6d0e4981dcd781062ebf54c4358}{get\+\_\+rhostar}} (const Rho\+Type rhoN, const PFType \&packing\+\_\+fraction, const Mole\+Fractions \&mole\+\_\+fractions) const
+\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Rho\+Star\+Type , typename Vec\+Type , typename Mu\+Prime\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_abbdbbf644f8b385a2d3954df8d6971ca}{get\+\_\+\+Eprime}} (const TTYPE \&T, const Rho\+Type \&rhoN, const Rho\+Star\+Type \&rhostar, const Vec\+Type \&mole\+\_\+fractions, const Mu\+Prime\+Type \&muprime) const
+\begin{DoxyCompactList}\small\item\em Get the polarization term $ E\textnormal{\textquotesingle} \equiv -\frac{1}{\vec{N}}\left(\frac{\partial A_{\rm perturb}}{\partial \mu\textnormal{\textquotesingle}}\right)_{V,T,\vec{N}} $. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Rho\+Star\+Type , typename Vec\+Type , typename Mu\+Prime\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a5010dba1ed8a925cd3ca4e1babe202a4}{iterate\+\_\+muprime\+\_\+\+SS}} (const TTYPE \&T, const Rho\+Type \&rhoN, const Rho\+Star\+Type \&rhostar, const Vec\+Type \&mole\+\_\+fractions, const Mu\+Prime\+Type \&mu, const int max\+\_\+steps) const
+\begin{DoxyCompactList}\small\item\em Use successive substitution to obtain the effective dipole moment based solely on the perturbation term (and not the $U_p$ term) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Rho\+Star\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_ad2e1b0703070f209a44a7931b7aedaff}{eval}} (const TTYPE \&T, const Rho\+Type \&rhoN, const Rho\+Star\+Type \&rhostar, const Vec\+Type \&mole\+\_\+fractions) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a2f5ab14e51a33eaebd269cabb7ba214c}{multipolar\+\_\+argument\+\_\+spec}} \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a9b3eb5935b94ee88e5b60d515806fd46}{arg\+\_\+spec}} = \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a2f5ab14e51a33eaebd269cabb7ba214ca3cbd679acd26dbde6cf6773a2136b4da}{multipolar\+\_\+argument\+\_\+spec\+::\+TK\+\_\+rho\+Nm3\+\_\+rhostar\+\_\+molefractions}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class JIntegral, class KIntegral$>$\newline
+class teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins$<$ JIntegral, KIntegral $>$}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em JIntegral} & A type that can be indexed with a single integer n to give the J\texorpdfstring{$^\wedge$}{\string^}\{(n)\} integral \\
+\hline
+{\em KIntegral} & A type that can be indexed with a two integers a and b to give the K(a,b) integral\\
+\hline
+\end{DoxyTemplParams}
+The flexibility was added to include J and K integrals from either Luckas et al. or Gubbins and Twu (or any others following the interface) 
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l00765}{765}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_aaf99e6b369f9f75d46c38bed04c54ae4}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_aaf99e6b369f9f75d46c38bed04c54ae4} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!MultipolarContributionGrayGubbins@{MultipolarContributionGrayGubbins}}
+\index{MultipolarContributionGrayGubbins@{MultipolarContributionGrayGubbins}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{MultipolarContributionGrayGubbins()}{MultipolarContributionGrayGubbins()}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+\mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::\+Multipolar\+Contribution\+Gray\+Gubbins (\begin{DoxyParamCaption}\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{sigma\+\_\+m,  }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{epsilon\+\_\+over\+\_\+k,  }\item[{const Eigen\+::\+Matrix\+Xd \&}]{SIGMAIJ,  }\item[{const Eigen\+::\+Matrix\+Xd \&}]{EPSKIJ,  }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{mu,  }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{Q,  }\item[{const std\+::optional$<$ nlohmann\+::json $>$ \&}]{flags }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l00827}{827}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_ad2e1b0703070f209a44a7931b7aedaff}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_ad2e1b0703070f209a44a7931b7aedaff} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!eval@{eval}}
+\index{eval@{eval}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+template$<$typename TTYPE , typename Rho\+Type , typename Rho\+Star\+Type , typename Vec\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::eval (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T,  }\item[{const Rho\+Type \&}]{rhoN,  }\item[{const Rho\+Star\+Type \&}]{rhostar,  }\item[{const Vec\+Type \&}]{mole\+\_\+fractions }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l01136}{1136}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a32d2813fa8984ddcef693567aab0f3cc}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a32d2813fa8984ddcef693567aab0f3cc} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!get\_alpha2@{get\_alpha2}}
+\index{get\_alpha2@{get\_alpha2}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{get\_alpha2()}{get\_alpha2()}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+template$<$typename TTYPE , typename Rho\+Type , typename Rho\+Star\+Type , typename Vec\+Type , typename Mu\+Prime\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::get\+\_\+alpha2 (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T,  }\item[{const Rho\+Type \&}]{rhoN,  }\item[{const Rho\+Star\+Type \&}]{rhostar,  }\item[{const Vec\+Type \&}]{mole\+\_\+fractions,  }\item[{const Mu\+Prime\+Type \&}]{muprime }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return $\alpha_2=A_2/(Nk_BT)$, thus this is a nondimensional term. This is equivalent to $-w_o^{(2)}/\rhoN$ from Gray et al. 
+
+
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l00879}{879}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a43af01dfc414892d97c6adf9eb60bc0f}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a43af01dfc414892d97c6adf9eb60bc0f} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!get\_alpha2\_muprime\_gradient@{get\_alpha2\_muprime\_gradient}}
+\index{get\_alpha2\_muprime\_gradient@{get\_alpha2\_muprime\_gradient}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{get\_alpha2\_muprime\_gradient()}{get\_alpha2\_muprime\_gradient()}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+template$<$typename TTYPE , typename Rho\+Type , typename Rho\+Star\+Type , typename Vec\+Type , typename Mu\+Prime\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::get\+\_\+alpha2\+\_\+muprime\+\_\+gradient (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T,  }\item[{const Rho\+Type \&}]{rhoN,  }\item[{const Rho\+Star\+Type \&}]{rhostar,  }\item[{const Vec\+Type \&}]{mole\+\_\+fractions,  }\item[{const Mu\+Prime\+Type \&}]{muprime }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return $\alpha_2=A_2/(Nk_BT)$, thus this is a nondimensional term. This is equivalent to $-w_o^{(2)}/\rhoN$ from Gray et al. 
+
+
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l00917}{917}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_aa8b892f192ceacc032ef65131aa8cf6f}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_aa8b892f192ceacc032ef65131aa8cf6f} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!get\_alpha3@{get\_alpha3}}
+\index{get\_alpha3@{get\_alpha3}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{get\_alpha3()}{get\_alpha3()}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+template$<$typename TTYPE , typename Rho\+Type , typename Rho\+Star\+Type , typename Vec\+Type , typename Mu\+Prime\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::get\+\_\+alpha3 (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T,  }\item[{const Rho\+Type \&}]{rhoN,  }\item[{const Rho\+Star\+Type \&}]{rhostar,  }\item[{const Vec\+Type \&}]{mole\+\_\+fractions,  }\item[{const Mu\+Prime\+Type \&}]{muprime }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return $\alpha_3=A_3/(Nk_BT)$, thus this is a nondimensional term. This is equivalent to $-w_o^{(3)}/\rhoN$ from Gray et al. 
+
+
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l00950}{950}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a568d85ef7be8fc7dd95ca63862a92e95}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a568d85ef7be8fc7dd95ca63862a92e95} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!get\_alpha3\_muprime\_gradient@{get\_alpha3\_muprime\_gradient}}
+\index{get\_alpha3\_muprime\_gradient@{get\_alpha3\_muprime\_gradient}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{get\_alpha3\_muprime\_gradient()}{get\_alpha3\_muprime\_gradient()}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+template$<$typename TTYPE , typename Rho\+Type , typename Rho\+Star\+Type , typename Vec\+Type , typename Mu\+Prime\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::get\+\_\+alpha3\+\_\+muprime\+\_\+gradient (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T,  }\item[{const Rho\+Type \&}]{rhoN,  }\item[{const Rho\+Star\+Type \&}]{rhostar,  }\item[{const Vec\+Type \&}]{mole\+\_\+fractions,  }\item[{const Mu\+Prime\+Type \&}]{muprime }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return $\alpha_3=A_3/(Nk_BT)$, thus this is a nondimensional term. This is equivalent to $-w_o^{(3)}/\rhoN$ from Gray et al. 
+
+
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l00998}{998}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_abbdbbf644f8b385a2d3954df8d6971ca}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_abbdbbf644f8b385a2d3954df8d6971ca} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!get\_Eprime@{get\_Eprime}}
+\index{get\_Eprime@{get\_Eprime}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{get\_Eprime()}{get\_Eprime()}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+template$<$typename TTYPE , typename Rho\+Type , typename Rho\+Star\+Type , typename Vec\+Type , typename Mu\+Prime\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::get\+\_\+\+Eprime (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T,  }\item[{const Rho\+Type \&}]{rhoN,  }\item[{const Rho\+Star\+Type \&}]{rhostar,  }\item[{const Vec\+Type \&}]{mole\+\_\+fractions,  }\item[{const Mu\+Prime\+Type \&}]{muprime }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the polarization term $ E\textnormal{\textquotesingle} \equiv -\frac{1}{\vec{N}}\left(\frac{\partial A_{\rm perturb}}{\partial \mu\textnormal{\textquotesingle}}\right)_{V,T,\vec{N}} $. 
+
+
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l01071}{1071}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_ac3fdb2fa8ab6438a5fb8422eb22c8530}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_ac3fdb2fa8ab6438a5fb8422eb22c8530} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!get\_In@{get\_In}}
+\index{get\_In@{get\_In}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{get\_In()}{get\_In()}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+template$<$typename Jintegral , typename TTYPE , typename Rho\+Star\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::get\+\_\+\+In (\begin{DoxyParamCaption}\item[{const Jintegral \&}]{J,  }\item[{int}]{n,  }\item[{double}]{sigmaij,  }\item[{const TTYPE \&}]{Tstar,  }\item[{const Rho\+Star\+Type \&}]{rhostar }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Appendix B of Gray et al. 
+
+
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l00847}{847}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a07c5f6d0e4981dcd781062ebf54c4358}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a07c5f6d0e4981dcd781062ebf54c4358} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!get\_rhostar@{get\_rhostar}}
+\index{get\_rhostar@{get\_rhostar}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{get\_rhostar()}{get\_rhostar()}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+template$<$typename Rho\+Type , typename PFType , typename Mole\+Fractions $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::get\+\_\+rhostar (\begin{DoxyParamCaption}\item[{const Rho\+Type}]{rhoN,  }\item[{const PFType \&}]{packing\+\_\+fraction,  }\item[{const Mole\+Fractions \&}]{mole\+\_\+fractions }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l01042}{1042}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_acc6b0afc9fbd3c075f16c19a15e59e86}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_acc6b0afc9fbd3c075f16c19a15e59e86} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!Immm@{Immm}}
+\index{Immm@{Immm}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{Immm()}{Immm()}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+template$<$typename TTYPE , typename Rho\+Star\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::\+Immm (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j,  }\item[{std\+::size\+\_\+t}]{k,  }\item[{const TTYPE \&}]{T,  }\item[{const Rho\+Star\+Type \&}]{rhostar }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Appendix B of Gray et al. 
+
+
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l00853}{853}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a9e81c0eba084ab3bf15825d3ea638373}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a9e81c0eba084ab3bf15825d3ea638373} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!ImmQ@{ImmQ}}
+\index{ImmQ@{ImmQ}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{ImmQ()}{ImmQ()}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+template$<$typename TTYPE , typename Rho\+Star\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::\+ImmQ (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j,  }\item[{std\+::size\+\_\+t}]{k,  }\item[{const TTYPE \&}]{T,  }\item[{const Rho\+Star\+Type \&}]{rhostar }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l00859}{859}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_ae460826a9754ccce70d2ae8012adb77f}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_ae460826a9754ccce70d2ae8012adb77f} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!ImQQ@{ImQQ}}
+\index{ImQQ@{ImQQ}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{ImQQ()}{ImQQ()}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+template$<$typename TTYPE , typename Rho\+Star\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::\+Im\+QQ (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j,  }\item[{std\+::size\+\_\+t}]{k,  }\item[{const TTYPE \&}]{T,  }\item[{const Rho\+Star\+Type \&}]{rhostar }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l00865}{865}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a297b03adc918bfa8d120099bbd59eb0b}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a297b03adc918bfa8d120099bbd59eb0b} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!IQQQ@{IQQQ}}
+\index{IQQQ@{IQQQ}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{IQQQ()}{IQQQ()}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+template$<$typename TTYPE , typename Rho\+Star\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::\+IQQQ (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j,  }\item[{std\+::size\+\_\+t}]{k,  }\item[{const TTYPE \&}]{T,  }\item[{const Rho\+Star\+Type \&}]{rhostar }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l00871}{871}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a5010dba1ed8a925cd3ca4e1babe202a4}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a5010dba1ed8a925cd3ca4e1babe202a4} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!iterate\_muprime\_SS@{iterate\_muprime\_SS}}
+\index{iterate\_muprime\_SS@{iterate\_muprime\_SS}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{iterate\_muprime\_SS()}{iterate\_muprime\_SS()}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+template$<$typename TTYPE , typename Rho\+Type , typename Rho\+Star\+Type , typename Vec\+Type , typename Mu\+Prime\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::iterate\+\_\+muprime\+\_\+\+SS (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T,  }\item[{const Rho\+Type \&}]{rhoN,  }\item[{const Rho\+Star\+Type \&}]{rhostar,  }\item[{const Vec\+Type \&}]{mole\+\_\+fractions,  }\item[{const Mu\+Prime\+Type \&}]{mu,  }\item[{const int}]{max\+\_\+steps }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Use successive substitution to obtain the effective dipole moment based solely on the perturbation term (and not the $U_p$ term) 
+
+
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l01118}{1118}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a63c5138a8156ff8e74dc92a8f1e0a880}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a63c5138a8156ff8e74dc92a8f1e0a880} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+\mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{Multipolar\+Contribution\+Gray\+Gubbins}} \& \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a9b3eb5935b94ee88e5b60d515806fd46}\label{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins_a9b3eb5935b94ee88e5b60d515806fd46} 
+\index{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}!arg\_spec@{arg\_spec}}
+\index{arg\_spec@{arg\_spec}!teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$@{teqp::SAFTpolar::MultipolarContributionGrayGubbins$<$ JIntegral, KIntegral $>$}}
+\doxysubsubsection{\texorpdfstring{arg\_spec}{arg\_spec}}
+{\footnotesize\ttfamily template$<$class JIntegral , class KIntegral $>$ \\
+constexpr \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a2f5ab14e51a33eaebd269cabb7ba214c}{multipolar\+\_\+argument\+\_\+spec}} \mbox{\hyperlink{classteqp_1_1SAFTpolar_1_1MultipolarContributionGrayGubbins}{teqp\+::\+SAFTpolar\+::\+Multipolar\+Contribution\+Gray\+Gubbins}}$<$ JIntegral, KIntegral $>$\+::arg\+\_\+spec = \mbox{\hyperlink{namespaceteqp_1_1SAFTpolar_a2f5ab14e51a33eaebd269cabb7ba214ca3cbd679acd26dbde6cf6773a2136b4da}{multipolar\+\_\+argument\+\_\+spec\+::\+TK\+\_\+rho\+Nm3\+\_\+rhostar\+\_\+molefractions}}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{polar__terms_8hpp_source_l00767}{767}} of file \mbox{\hyperlink{polar__terms_8hpp_source}{polar\+\_\+terms.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/saft/\mbox{\hyperlink{polar__terms_8hpp}{polar\+\_\+terms.\+hpp}}\end{DoxyCompactItemize}

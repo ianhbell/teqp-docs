@@ -1,0 +1,100 @@
+\doxysection{teqp\+::Ideal\+Helmholtz\+Lead Class Reference}
+\hypertarget{classteqp_1_1IdealHelmholtzLead}{}\label{classteqp_1_1IdealHelmholtzLead}\index{teqp::IdealHelmholtzLead@{teqp::IdealHelmholtzLead}}
+
+
+{\ttfamily \#include $<$ideal\+\_\+eosterms.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1IdealHelmholtzLead_aa6ae97f848e84790ba8e0118c876c086}{Ideal\+Helmholtz\+Lead}} (double \mbox{\hyperlink{classteqp_1_1IdealHelmholtzLead_ae8ed8785ba0069c5f891b37813df4d08}{a\+\_\+1}}, double \mbox{\hyperlink{classteqp_1_1IdealHelmholtzLead_afc1da9f04dc71744e46405bdc0a2c3c1}{a\+\_\+2}}, double \mbox{\hyperlink{classteqp_1_1IdealHelmholtzLead_acac41bb2b94f215fa3d495079ad2eaf7}{R}})
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1IdealHelmholtzLead_a536945ea5f816647307034ac69dbc267}{alphaig}} (const TType \&T, const Rho\+Type \&rho) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{classteqp_1_1IdealHelmholtzLead_ae8ed8785ba0069c5f891b37813df4d08}{a\+\_\+1}}
+\item 
+const double \mbox{\hyperlink{classteqp_1_1IdealHelmholtzLead_afc1da9f04dc71744e46405bdc0a2c3c1}{a\+\_\+2}}
+\item 
+const double \mbox{\hyperlink{classteqp_1_1IdealHelmholtzLead_acac41bb2b94f215fa3d495079ad2eaf7}{R}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+$ \alpha^{\rm ig}= \ln(\rho) + a_1 + a_2/T $
+
+which should be compared with the original form in GERG (and REFPROP and Cool\+Prop)
+
+$ \alpha^{\rm ig}= \ln(\delta) + a_1^* + a_2^*\tau $
+
+Note that $a_1$ contains an additive factor of $-ln(\rho_r)$ and $a_2$ contains a multiplicative factor of $T_r$ relative to the former 
+
+Definition at line \mbox{\hyperlink{ideal__eosterms_8hpp_source_l00058}{58}} of file \mbox{\hyperlink{ideal__eosterms_8hpp_source}{ideal\+\_\+eosterms.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1IdealHelmholtzLead_aa6ae97f848e84790ba8e0118c876c086}\label{classteqp_1_1IdealHelmholtzLead_aa6ae97f848e84790ba8e0118c876c086} 
+\index{teqp::IdealHelmholtzLead@{teqp::IdealHelmholtzLead}!IdealHelmholtzLead@{IdealHelmholtzLead}}
+\index{IdealHelmholtzLead@{IdealHelmholtzLead}!teqp::IdealHelmholtzLead@{teqp::IdealHelmholtzLead}}
+\doxysubsubsection{\texorpdfstring{IdealHelmholtzLead()}{IdealHelmholtzLead()}}
+{\footnotesize\ttfamily teqp\+::\+Ideal\+Helmholtz\+Lead\+::\+Ideal\+Helmholtz\+Lead (\begin{DoxyParamCaption}\item[{double}]{a\+\_\+1,  }\item[{double}]{a\+\_\+2,  }\item[{double}]{R }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{ideal__eosterms_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{ideal__eosterms_8hpp_source}{ideal\+\_\+eosterms.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1IdealHelmholtzLead_a536945ea5f816647307034ac69dbc267}\label{classteqp_1_1IdealHelmholtzLead_a536945ea5f816647307034ac69dbc267} 
+\index{teqp::IdealHelmholtzLead@{teqp::IdealHelmholtzLead}!alphaig@{alphaig}}
+\index{alphaig@{alphaig}!teqp::IdealHelmholtzLead@{teqp::IdealHelmholtzLead}}
+\doxysubsubsection{\texorpdfstring{alphaig()}{alphaig()}}
+{\footnotesize\ttfamily template$<$typename TType , typename Rho\+Type $>$ \\
+auto teqp\+::\+Ideal\+Helmholtz\+Lead\+::alphaig (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Rho\+Type \&}]{rho }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{ideal__eosterms_8hpp_source_l00064}{64}} of file \mbox{\hyperlink{ideal__eosterms_8hpp_source}{ideal\+\_\+eosterms.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1IdealHelmholtzLead_ae8ed8785ba0069c5f891b37813df4d08}\label{classteqp_1_1IdealHelmholtzLead_ae8ed8785ba0069c5f891b37813df4d08} 
+\index{teqp::IdealHelmholtzLead@{teqp::IdealHelmholtzLead}!a\_1@{a\_1}}
+\index{a\_1@{a\_1}!teqp::IdealHelmholtzLead@{teqp::IdealHelmholtzLead}}
+\doxysubsubsection{\texorpdfstring{a\_1}{a\_1}}
+{\footnotesize\ttfamily const double teqp\+::\+Ideal\+Helmholtz\+Lead\+::a\+\_\+1}
+
+
+
+Definition at line \mbox{\hyperlink{ideal__eosterms_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{ideal__eosterms_8hpp_source}{ideal\+\_\+eosterms.\+hpp}}.
+
+\Hypertarget{classteqp_1_1IdealHelmholtzLead_afc1da9f04dc71744e46405bdc0a2c3c1}\label{classteqp_1_1IdealHelmholtzLead_afc1da9f04dc71744e46405bdc0a2c3c1} 
+\index{teqp::IdealHelmholtzLead@{teqp::IdealHelmholtzLead}!a\_2@{a\_2}}
+\index{a\_2@{a\_2}!teqp::IdealHelmholtzLead@{teqp::IdealHelmholtzLead}}
+\doxysubsubsection{\texorpdfstring{a\_2}{a\_2}}
+{\footnotesize\ttfamily const double teqp\+::\+Ideal\+Helmholtz\+Lead\+::a\+\_\+2}
+
+
+
+Definition at line \mbox{\hyperlink{ideal__eosterms_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{ideal__eosterms_8hpp_source}{ideal\+\_\+eosterms.\+hpp}}.
+
+\Hypertarget{classteqp_1_1IdealHelmholtzLead_acac41bb2b94f215fa3d495079ad2eaf7}\label{classteqp_1_1IdealHelmholtzLead_acac41bb2b94f215fa3d495079ad2eaf7} 
+\index{teqp::IdealHelmholtzLead@{teqp::IdealHelmholtzLead}!R@{R}}
+\index{R@{R}!teqp::IdealHelmholtzLead@{teqp::IdealHelmholtzLead}}
+\doxysubsubsection{\texorpdfstring{R}{R}}
+{\footnotesize\ttfamily const double teqp\+::\+Ideal\+Helmholtz\+Lead\+::R}
+
+
+
+Definition at line \mbox{\hyperlink{ideal__eosterms_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{ideal__eosterms_8hpp_source}{ideal\+\_\+eosterms.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/\mbox{\hyperlink{ideal__eosterms_8hpp}{ideal\+\_\+eosterms.\+hpp}}\end{DoxyCompactItemize}

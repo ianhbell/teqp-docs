@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Association &#8212; teqp 0.19.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Multi-fluid EOS" href="multifluid.html" />
+    <link rel="prev" title="SAFT-VR-Mie with polar contributions" href="SAFT-VR-Mie-Polar.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="Association">
+<h1>Association<a class="headerlink" href="#Association" title="Link to this heading">¶</a></h1>
+<p><img alt="Two example molecules, each with multiple assocation sites" src="../_images/Molecule.drawio.svg" /></p>
+<section id="Site-Interactions">
+<h2>Site Interactions<a class="headerlink" href="#Site-Interactions" title="Link to this heading">¶</a></h2>
+<p>Each unique site type per unique molecule is characterized by a numerical index <code class="docutils literal notranslate"><span class="pre">siteid</span></code>, which (for consistency with C++) starts with <code class="docutils literal notranslate"><span class="pre">0</span></code>. In the example above, the indices would go like:</p>
+<p><code class="docutils literal notranslate"><span class="pre">0</span></code>: site type A on left molecule (multiplicity of 2)</p>
+<p><code class="docutils literal notranslate"><span class="pre">1</span></code>: site type B on left molecule (multiplicity of 1)</p>
+<p><code class="docutils literal notranslate"><span class="pre">2</span></code>: site type C on left molecule (multiplicity of 1)</p>
+<p><code class="docutils literal notranslate"><span class="pre">3</span></code>: site type A on right molecule (multiplicity of 1)</p>
+<p><code class="docutils literal notranslate"><span class="pre">4</span></code>: site type B on right molecule (multiplicity of 1)</p>
+<p>Within a molecule, the numbering of sites is arbitrary, but the mapping cannot be changed once it is defined.</p>
+<p>Association can occur when a site can “dock” with another kind of site. In the most common kind of association used to model hydrogen bonding, there are two classes of sites, positive or negative (<code class="docutils literal notranslate"><span class="pre">e</span></code> and <code class="docutils literal notranslate"><span class="pre">H</span></code> in Clapeyron.jl). teqp allows for great flexibility in defining the site types and how they are permitted to interact with each other.</p>
+<p>The work of Langenbach and Enders (2012) shows how to construct a counting matrix to make the successive substitution faster because not all sites are included in the summation, rather the sites within a molecule are clustered into groups, since all sites of a similar type will have the same association fractions. Thus a counting matrix <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> can be defined, with entries <span class="math notranslate nohighlight">\(D_{IJ}\)</span> for the pair of siteid <code class="docutils literal notranslate"><span class="pre">I</span></code> and <code class="docutils literal notranslate"><span class="pre">J</span></code> with the pseudocode</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_DIJ</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Return the value of an entry in the D_{IJ} matrix</span>
+
+<span class="sd">    For a given unique site, look at all other sites on all other molecules</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">typei</span> <span class="o">=</span> <span class="n">inv_mapping</span><span class="p">[</span><span class="n">I</span><span class="p">]</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">typej</span> <span class="o">=</span> <span class="n">inv_mapping</span><span class="p">[</span><span class="n">J</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">typej</span> <span class="ow">in</span> <span class="n">interaction_partners</span><span class="p">[</span><span class="n">typei</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">counts</span><span class="p">[</span><span class="n">J</span><span class="p">]</span>
+    <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>in which the dictionary <code class="docutils literal notranslate"><span class="pre">interaction_parameters</span></code> defines which sites are allowed to interact with each other. The typical alcohol+water family would be modeled with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">interaction_parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">],</span> <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>and to follow the system considered above, we would have:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inv_mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">),</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">),</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">),</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">),</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># multiplicities for each siteid</span>
+</pre></div>
+</div>
+<p>The definition of the dictionary <code class="docutils literal notranslate"><span class="pre">interaction_parameters</span></code> would depend on how you want to allow the sites to associate. Sites that are not permitted to interact with each other are removed from the D matrix (are set to zero).</p>
+<p>The successive substitution step gives the estimated values with</p>
+<div class="math notranslate nohighlight">
+\[X_{\rm step} = \frac{1}{1+\rho_N \sum_Jx_JX_{J}D_{IJ}\Delta_{IJ}}\]</div>
+<p>in which <span class="math notranslate nohighlight">\(\rho_N\)</span> is the number density (molecules per volume) of the entire mixture, <span class="math notranslate nohighlight">\(\Delta_{IJ}\)</span> is the interaction strength (volume per site) between site with <code class="docutils literal notranslate"><span class="pre">siteid</span></code> of <code class="docutils literal notranslate"><span class="pre">I</span></code> and that with <code class="docutils literal notranslate"><span class="pre">siteid</span></code> of <code class="docutils literal notranslate"><span class="pre">J</span></code> and <span class="math notranslate nohighlight">\(x_{J}\)</span> is the mole fraction of the molecule that site <code class="docutils literal notranslate"><span class="pre">J</span></code> is found in.</p>
+<p>Acceleration can be achieved by taking only a partial step of successive substitution, weighted by <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[X_{\rm new} = \alpha X_{\rm old} + (1-\alpha)X_{\rm step}\]</div>
+<p>This is the method utilized in Langenbach and Enders.</p>
+</section>
+<section id="Interaction-strength">
+<h2>Interaction strength<a class="headerlink" href="#Interaction-strength" title="Link to this heading">¶</a></h2>
+<p>The interaction site strength is a matrix with side length of the number of <code class="docutils literal notranslate"><span class="pre">siteid</span></code>. It is a block matrix because practically speaking the interaction sites are still about molecule-molecule interactions</p>
+<div class="math notranslate nohighlight">
+\[\Delta_{IJ} = gb_{IJ}\beta_{IJ}\left(\exp\left(\frac{\epsilon_{IJ}}{RT}\right)-1\right)/N_A\]</div>
+<p>Reminder: <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\epsilon\)</span> values are associated with the <em>molecule</em>, not the site.</p>
+<section id="CR1-combining-rule">
+<h3>CR1 combining rule<a class="headerlink" href="#CR1-combining-rule" title="Link to this heading">¶</a></h3>
+<p>In the CR1 combining rule:</p>
+<div class="math notranslate nohighlight">
+\[b_{IJ} = b_{ij} = \frac{b_i  + b_j}{2}\]</div>
+<div class="math notranslate nohighlight">
+\[\beta_{IJ} = \beta_{ij} = \sqrt{\beta_i\beta_j}\]</div>
+<div class="math notranslate nohighlight">
+\[\epsilon_{IJ} = \epsilon_{ij} = \frac{\epsilon_i + \epsilon_j}{2}\]</div>
+<p>in which <span class="math notranslate nohighlight">\(i\)</span> is the molecule index associated with <code class="docutils literal notranslate"><span class="pre">siteid</span></code> <span class="math notranslate nohighlight">\(I\)</span> and the same for <span class="math notranslate nohighlight">\(j\)</span> and <span class="math notranslate nohighlight">\(J\)</span></p>
+</section>
+</section>
+<section id="Radial-distribution-function">
+<h2>Radial distribution function<a class="headerlink" href="#Radial-distribution-function" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">CS</span></code>: <span class="math notranslate nohighlight">\(g= \frac{2-\eta}{2(1-\eta)^2}\)</span></p>
+<p><code class="docutils literal notranslate"><span class="pre">KG</span></code>: <span class="math notranslate nohighlight">\(g= \frac{1}{1 - 1.9\eta}\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(\eta = b_{\rm mix}\rho/4\)</span> in which <span class="math notranslate nohighlight">\(\rho\)</span> is density with units to match the reciprocal of <span class="math notranslate nohighlight">\(b_{\rm mix}\)</span> (so if <span class="math notranslate nohighlight">\(b_{\rm mix}\)</span> is mean covolume per atom, then <span class="math notranslate nohighlight">\(\rho\)</span> is the number density <span class="math notranslate nohighlight">\(\rho_{\rm N}\)</span>)</p>
+<p>References:</p>
+<ol class="upperalpha simple" start="11">
+<li><p>Langenbach &amp; S. Enders (2012): Cross-association of multi-component systems, Molecular Physics, 110:11-12, 1249-1260; <a class="reference external" href="https://dx.doi.org/10.1080/00268976.2012.668963">https://dx.doi.org/10.1080/00268976.2012.668963</a></p></li>
+</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">teqp</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ethanol</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;a0i / Pa m^6/mol^2&quot;</span><span class="p">:</span> <span class="mf">0.85164</span><span class="p">,</span>
+    <span class="s2">&quot;bi / m^3/mol&quot;</span><span class="p">:</span> <span class="mf">0.0491e-3</span><span class="p">,</span>
+    <span class="s2">&quot;c1&quot;</span><span class="p">:</span> <span class="mf">0.7502</span><span class="p">,</span>
+    <span class="s2">&quot;Tc / K&quot;</span><span class="p">:</span> <span class="mf">513.92</span><span class="p">,</span>
+    <span class="s2">&quot;epsABi / J/mol&quot;</span><span class="p">:</span> <span class="mf">21500.0</span><span class="p">,</span>
+    <span class="s2">&quot;betaABi&quot;</span><span class="p">:</span> <span class="mf">0.008</span><span class="p">,</span>
+    <span class="s2">&quot;sites&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">water</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;a0i / Pa m^6/mol^2&quot;</span><span class="p">:</span> <span class="mf">0.12277</span><span class="p">,</span>
+    <span class="s2">&quot;bi / m^3/mol&quot;</span><span class="p">:</span> <span class="mf">0.0000145</span><span class="p">,</span>
+    <span class="s2">&quot;c1&quot;</span><span class="p">:</span> <span class="mf">0.6736</span><span class="p">,</span>
+    <span class="s2">&quot;Tc / K&quot;</span><span class="p">:</span> <span class="mf">647.13</span><span class="p">,</span>
+    <span class="s2">&quot;epsABi / J/mol&quot;</span><span class="p">:</span> <span class="mf">16655.0</span><span class="p">,</span>
+    <span class="s2">&quot;betaABi&quot;</span><span class="p">:</span> <span class="mf">0.0692</span><span class="p">,</span>
+    <span class="s2">&quot;sites&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">jCPA</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;cubic&quot;</span><span class="p">:</span> <span class="s2">&quot;SRK&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;radial_dist&quot;</span><span class="p">:</span> <span class="s2">&quot;CS&quot;</span><span class="p">,</span>
+<span class="c1">#     &quot;combining&quot;: &quot;CR1&quot;, # No other option is implemented yet</span>
+    <span class="s2">&quot;pures&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">ethanol</span><span class="p">,</span> <span class="n">water</span><span class="p">],</span>
+    <span class="s2">&quot;R_gas / J/mol/K&quot;</span><span class="p">:</span> <span class="mf">8.31446261815324</span>
+<span class="p">}</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;CPA&quot;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">jCPA</span><span class="p">,</span> <span class="s2">&quot;validate&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">303.15</span> <span class="c1"># K</span>
+<span class="n">rhomolar</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">3.0680691201961814e-5</span> <span class="c1"># mol/m^3</span>
+<span class="n">molefracs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+
+<span class="c1"># Note: passing data back and forth in JSON format is done for convenience and flexibility, not speed</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_assoc_calcs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhomolar</span><span class="p">,</span> <span class="n">molefracs</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;D:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;∆:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;Delta&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X_A:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;X_A&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;siteid-&gt;(component, name):&#39;</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;to_CompSite&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(component, name)-&gt;siteid:&#39;</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;to_siteid&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;multiplicities:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;counts&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+D: [[0 1 0 2]
+ [1 0 2 0]
+ [0 1 0 2]
+ [1 0 2 0]]
+∆: [[5.85623687e-27 5.85623687e-27 4.26510827e-27 4.26510827e-27]
+ [5.85623687e-27 5.85623687e-27 4.26510827e-27 4.26510827e-27]
+ [4.26510827e-27 4.26510827e-27 2.18581242e-27 2.18581242e-27]
+ [4.26510827e-27 4.26510827e-27 2.18581242e-27 2.18581242e-27]]
+X_A: [0.062584   0.062584   0.10938445 0.10938445]
+siteid-&gt;(component, name): [[0, [0, &#39;H&#39;]], [1, [0, &#39;e&#39;]], [2, [1, &#39;H&#39;]], [3, [1, &#39;e&#39;]]]
+(component, name)-&gt;siteid: [[[0, &#39;H&#39;], 0], [[0, &#39;e&#39;], 1], [[1, &#39;H&#39;], 2], [[1, &#39;e&#39;], 3]]
+multiplicities: [1 1 2 2]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For completeness, here is the worked Python example that was used to develop the association implementation in teqp:</span>
+
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">class</span> <span class="nc">AssocClass</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">molecules</span><span class="p">):</span>
+
+        <span class="c1"># Get all the kinds of sites present</span>
+        <span class="n">mapping</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">def</span> <span class="nf">sort_sites</span><span class="p">(</span><span class="n">sites</span><span class="p">):</span>
+            <span class="n">counts</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">sites</span><span class="p">)</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+                    <span class="n">out</span> <span class="o">+=</span> <span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">counts</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">out</span>
+
+        <span class="n">uid</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">molecule</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">molecules</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="n">sort_sites</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">molecule</span><span class="p">)):</span>
+                <span class="n">mapping</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">site</span><span class="p">)]</span> <span class="o">=</span> <span class="n">uid</span>
+                <span class="n">counts</span><span class="p">[</span><span class="n">uid</span><span class="p">]</span> <span class="o">=</span> <span class="n">molecule</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">site</span><span class="p">)</span>
+                <span class="n">uid</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">inv_mapping</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">mapping</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span> <span class="c1"># from superindex to (molecule, site pair)</span>
+
+        <span class="n">interaction_partners</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;P&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="k">def</span> <span class="nf">get_DIJ</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot; Return the value of an entry in the D_{IJ} matrix</span>
+
+<span class="sd">            For a given unique site, look at all other sites on all other molecules</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">typei</span> <span class="o">=</span> <span class="n">inv_mapping</span><span class="p">[</span><span class="n">I</span><span class="p">]</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">typej</span> <span class="o">=</span> <span class="n">inv_mapping</span><span class="p">[</span><span class="n">J</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">typej</span> <span class="ow">in</span> <span class="n">interaction_partners</span><span class="p">[</span><span class="n">typei</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="n">counts</span><span class="p">[</span><span class="n">J</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+
+        <span class="n">Ngroups</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Ngroups</span><span class="p">,</span> <span class="n">Ngroups</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">I</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Ngroups</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">J</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Ngroups</span><span class="p">):</span>
+                <span class="n">D</span><span class="p">[</span><span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_DIJ</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">)</span>
+
+        <span class="c1"># Store variables needed for later use</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">D</span> <span class="o">=</span> <span class="n">D</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inv_mapping</span> <span class="o">=</span> <span class="n">inv_mapping</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Ngroups</span> <span class="o">=</span> <span class="n">Ngroups</span>
+
+        <span class="c1"># ethanol, water</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b_Lmol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0491</span><span class="p">,</span> <span class="mf">0.0145</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epsilon_barLmol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">215.00</span><span class="p">,</span> <span class="mf">166.55</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beta</span> <span class="o">=</span> <span class="p">[</span><span class="mf">8e-3</span><span class="p">,</span> <span class="mf">69.2e-3</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">b_m3mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">b_Lmol</span><span class="o">/</span><span class="mf">1e3</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="mf">8.31446261815324</span> <span class="c1"># J/(mol*K)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epsilon_K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon_barLmol</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">R</span> <span class="c1"># K, from (bar*L)/mol * (1e5 Pa/bar) * (Pa / 1000 L), Pa*m^3 = J, then we divide by R to do [J/mol]/[J/mol/K] -&gt; K</span>
+
+    <span class="k">def</span> <span class="nf">get_xJ</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">moleculemolefracs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the fractions of sites within the mixture, not to be confused</span>
+<span class="sd">        with the mole fractions of molecules within the mixture</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">xJ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span>
+        <span class="k">for</span> <span class="n">J</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">j</span><span class="p">,</span> <span class="n">sitej</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_mapping</span><span class="p">[</span><span class="n">J</span><span class="p">]</span> <span class="c1"># molecule index and site name</span>
+            <span class="n">xJ</span><span class="p">[</span><span class="n">J</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">counts</span><span class="p">[</span><span class="n">J</span><span class="p">]</span><span class="o">*</span><span class="n">moleculemolefracs</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">counter</span> <span class="o">+=</span> <span class="n">xJ</span><span class="p">[</span><span class="n">J</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">xJ</span><span class="o">/</span><span class="n">counter</span>
+
+    <span class="k">def</span> <span class="nf">get_bmix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">molefracs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">b_m3mol</span><span class="o">*</span><span class="n">molefracs</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get_bij</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; CR1 &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">b_m3mol</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">b_m3mol</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+
+    <span class="k">def</span> <span class="nf">get_epsilon_k_IJ_CR1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; CR1 &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">epsilon_K</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon_K</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+
+    <span class="k">def</span> <span class="nf">get_beta_IJ_CR1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; CR1 &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">**</span><span class="mf">0.5</span>
+
+    <span class="k">def</span> <span class="nf">get_DeltaIJ</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">rhomolar</span><span class="p">,</span> <span class="n">molefracs</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+        <span class="n">b_ij</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_bij</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+        <span class="n">bmix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_bmix</span><span class="p">(</span><span class="n">molefracs</span><span class="p">)</span>
+        <span class="n">eta</span> <span class="o">=</span> <span class="n">bmix</span><span class="o">*</span><span class="n">rhomolar</span><span class="o">/</span><span class="mi">4</span> <span class="c1"># packing fraction</span>
+        <span class="n">g_ij</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="n">eta</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">eta</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">beta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_beta_IJ_CR1</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="n">j</span><span class="p">)</span> <span class="c1"># dimensionless</span>
+        <span class="n">eRT</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_epsilon_k_IJ_CR1</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="n">j</span><span class="p">)</span><span class="o">/</span><span class="n">T</span> <span class="c1"># epsilon/(R*T), dimensionless</span>
+        <span class="k">return</span> <span class="n">g_ij</span><span class="o">*</span><span class="n">b_ij</span><span class="o">*</span><span class="n">beta</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">eRT</span><span class="p">)</span><span class="o">-</span><span class="mf">1.0</span><span class="p">)</span> <span class="c1"># epsilon_k_IJ is in K, beta_IJ is dimensionless</span>
+
+    <span class="k">def</span> <span class="nf">get_Delta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">rhomolar</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">molefracs</span><span class="p">,</span> <span class="n">Ngroups</span><span class="p">):</span>
+        <span class="n">Delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Ngroups</span><span class="p">,</span> <span class="n">Ngroups</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">I</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Ngroups</span><span class="p">):</span>
+            <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_mapping</span><span class="p">[</span><span class="n">I</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">J</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Ngroups</span><span class="p">):</span>
+                <span class="n">j</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_mapping</span><span class="p">[</span><span class="n">J</span><span class="p">]</span>
+                <span class="n">Delta</span><span class="p">[</span><span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_DeltaIJ</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhomolar</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="n">j</span><span class="p">,</span> <span class="n">molefracs</span><span class="o">=</span><span class="n">molefracs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Delta</span>
+
+    <span class="k">def</span> <span class="nf">X_iter_Langenbach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">T</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">rhomolar</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">molefracs</span><span class="p">,</span> <span class="n">init</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Iterate with successive substitution to obtain the non-bonded fraction of each site</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            T (float): Temperature, K</span>
+<span class="sd">            rhomolar (float): Molar density, mol/m^3</span>
+<span class="sd">            molefracs (array): Mole fractions of the components</span>
+<span class="sd">            init (array): Starting values for X_A</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            array: non-bonded fractions for each site as one big array, indexed by site family</span>
+
+<span class="sd">        TODO: why do we need mole fractions here and site fractions elsewhere?</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># xJ = np.array(self.get_xJ(moleculemolefracs=molefracs), ndmin=2) # row vector</span>
+
+        <span class="n">XXJ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">molefracs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">inv_mapping</span><span class="p">[</span><span class="n">J</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="k">for</span> <span class="n">J</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Ngroups</span><span class="p">)])</span>
+        <span class="n">N_A</span> <span class="o">=</span> <span class="mf">6.02214076e23</span> <span class="c1"># [1/mol]</span>
+        <span class="n">Delta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_Delta</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhomolar</span><span class="p">,</span> <span class="n">Ngroups</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Ngroups</span><span class="p">,</span> <span class="n">molefracs</span><span class="o">=</span><span class="n">molefracs</span><span class="p">)</span><span class="o">/</span><span class="n">N_A</span>
+        <span class="n">rhoN</span> <span class="o">=</span> <span class="n">rhomolar</span><span class="o">*</span><span class="n">N_A</span> <span class="c1"># number density, in 1/m^3</span>
+        <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">init</span><span class="p">[:],</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># copy, row vector</span>
+
+        <span class="n">DD</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="n">Delta</span> <span class="c1"># coefficient-wise product</span>
+        <span class="n">DDX</span> <span class="o">=</span> <span class="n">XXJ</span><span class="o">*</span><span class="n">DD</span> <span class="c1"># coefficient-wise product</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
+            <span class="c1"># The naive treatment</span>
+            <span class="n">summer</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="k">for</span> <span class="n">J</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Ngroups</span><span class="p">):</span>
+                <span class="n">summer</span> <span class="o">+=</span> <span class="n">Y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">J</span><span class="p">]</span><span class="o">*</span><span class="n">XXJ</span><span class="p">[</span><span class="n">J</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">[:,</span><span class="n">J</span><span class="p">]</span><span class="o">*</span><span class="n">Delta</span><span class="p">[:,</span><span class="n">J</span><span class="p">]</span>
+            <span class="c1"># Optimized treatment</span>
+            <span class="n">summer2</span> <span class="o">=</span> <span class="p">(</span><span class="n">DDX</span><span class="nd">@Y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+            <span class="c1"># print(summer, summer2)</span>
+            <span class="n">term</span> <span class="o">=</span> <span class="n">rhoN</span><span class="o">*</span><span class="n">summer2</span>
+            <span class="n">Y</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">Y</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">term</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">Y</span>
+
+    <span class="k">def</span> <span class="nf">X_A_pure_Langenbach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">T</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">rhomolar</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate the association fractions for a pure fluid</span>
+<span class="sd">        based upon the method of Eq. 20, from</span>
+<span class="sd">        Langenbach &amp; Enders, Mol. Phys.</span>
+<span class="sd">        URL: https://www.tandfonline.com/doi/abs/10.1080/00268976.2012.668963</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            int (int): Index of the pure fluid</span>
+<span class="sd">            T (float): Temperature, K</span>
+<span class="sd">            rhomolar (float): Molar density, mol/m^3</span>
+<span class="sd">            molefracs (_type_): Molar fractions, array</span>
+
+<span class="sd">        TODO: why do we need site fractions here and mole fractions elsewhere?</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">molefracs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">b_m3mol</span><span class="p">)</span>
+        <span class="n">molefracs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">xJ</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_xJ</span><span class="p">(</span><span class="n">moleculemolefracs</span><span class="o">=</span><span class="n">molefracs</span><span class="p">)</span>
+        <span class="n">N_A</span> <span class="o">=</span> <span class="mf">6.02214076e23</span> <span class="c1"># [1/mol]</span>
+        <span class="n">Delta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_Delta</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhomolar</span><span class="p">,</span> <span class="n">Ngroups</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Ngroups</span><span class="p">,</span> <span class="n">molefracs</span><span class="o">=</span><span class="n">molefracs</span><span class="p">)</span><span class="o">/</span><span class="n">N_A</span>
+        <span class="n">common</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">rhomolar</span><span class="o">*</span><span class="n">N_A</span><span class="o">*</span><span class="p">(</span><span class="n">xJ</span><span class="nd">@self</span><span class="o">.</span><span class="n">D</span><span class="nd">@Delta</span><span class="p">),</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">common</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">common</span>
+
+    <span class="k">def</span> <span class="nf">X_A_pure_HuangRadosz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">T</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">rhomolar</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">klass</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use the explicit solutions from Huang and Radosz to obtain the</span>
+<span class="sd">        association fraction for a pure fluid</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            i (int): The fluid index for which the method is being applied</span>
+<span class="sd">            T (float): Temperature, K</span>
+<span class="sd">            rhomolar (float): Molar density, in mol/m^3</span>
+<span class="sd">            klass (str): Association class, one in {&#39;2B&#39;,&#39;3B&#39;,&#39;4C&#39;}</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: value of X_A</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">b_ij</span> <span class="o">=</span> <span class="n">b_cubic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_bij</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">betaABi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_beta_IJ_CR1</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="mf">8.31446261815324</span>
+        <span class="n">RT</span> <span class="o">=</span> <span class="n">R</span><span class="o">*</span><span class="n">T</span>
+        <span class="n">epsABi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_epsilon_k_IJ_CR1</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">R</span> <span class="c1"># To get J/mol</span>
+
+        <span class="n">eta</span> <span class="o">=</span> <span class="n">b_ij</span><span class="o">*</span><span class="n">rhomolar</span><span class="o">/</span><span class="mi">4</span> <span class="c1"># packing fraction</span>
+        <span class="n">g_vm_ref</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="n">eta</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">eta</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">DeltaAiBj</span> <span class="o">=</span> <span class="n">g_vm_ref</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">epsABi</span><span class="o">/</span><span class="n">RT</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">*</span><span class="n">b_cubic</span><span class="o">*</span> <span class="n">betaABi</span>
+
+        <span class="k">if</span> <span class="n">klass</span> <span class="o">==</span> <span class="s1">&#39;2B&#39;</span><span class="p">:</span>
+            <span class="n">X_A</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">rhomolar</span> <span class="o">*</span> <span class="n">DeltaAiBj</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">rhomolar</span> <span class="o">*</span> <span class="n">DeltaAiBj</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">klass</span> <span class="o">==</span> <span class="s1">&#39;3B&#39;</span><span class="p">:</span>
+            <span class="n">X_A</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">rhomolar</span> <span class="o">*</span> <span class="n">DeltaAiBj</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">rhomolar</span> <span class="o">*</span> <span class="n">DeltaAiBj</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">rhomolar</span> <span class="o">*</span> <span class="n">DeltaAiBj</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">4.0</span> <span class="o">*</span> <span class="n">rhomolar</span> <span class="o">*</span> <span class="n">DeltaAiBj</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">klass</span> <span class="o">==</span> <span class="s1">&#39;4C&#39;</span><span class="p">:</span>
+            <span class="n">X_A</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">8.0</span> <span class="o">*</span> <span class="n">rhomolar</span> <span class="o">*</span> <span class="n">DeltaAiBj</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">4.0</span> <span class="o">*</span> <span class="n">rhomolar</span> <span class="o">*</span> <span class="n">DeltaAiBj</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">X_A</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">AssocClass</span><span class="p">([(</span><span class="s1">&#39;B&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">)])</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">D</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">==</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+    <span class="c1">#### 4C water</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">AssocClass</span><span class="p">([(),</span> <span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)])</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mf">303.15</span>
+    <span class="n">rhomolar</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">1.7915123921401366e-5</span>
+    <span class="n">X_A_Clapeyron</span> <span class="o">=</span> <span class="mf">0.07920738195861185</span> <span class="c1"># version 0.5.9</span>
+    <span class="n">X_A_HR</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">X_A_pure_HuangRadosz</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">rhomolar</span><span class="o">=</span><span class="n">rhomolar</span><span class="p">,</span> <span class="n">klass</span><span class="o">=</span><span class="s1">&#39;4C&#39;</span><span class="p">)</span>
+    <span class="n">X_A_La</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">X_A_pure_Langenbach</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">rhomolar</span><span class="o">=</span><span class="n">rhomolar</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">assert</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">X_A_HR</span> <span class="o">-</span> <span class="n">X_A_Clapeyron</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">X_A_La</span> <span class="o">-</span> <span class="n">X_A_Clapeyron</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span><span class="p">)</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">X_iter_Langenbach</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">rhomolar</span><span class="o">=</span><span class="n">rhomolar</span><span class="p">,</span> <span class="n">molefracs</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">init</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]))</span>
+
+    <span class="c1">### 2B ethanol</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">AssocClass</span><span class="p">([(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">),</span> <span class="p">()])</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mf">303.15</span>
+    <span class="n">rhomolar</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">1.7915123921401366e-5</span>
+    <span class="n">X_A_Clapeyron</span> <span class="o">=</span> <span class="mf">0.020464699705843845</span> <span class="c1"># version 0.5.9</span>
+    <span class="n">X_A_HR</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">X_A_pure_HuangRadosz</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">rhomolar</span><span class="o">=</span><span class="n">rhomolar</span><span class="p">,</span> <span class="n">klass</span><span class="o">=</span><span class="s1">&#39;2B&#39;</span><span class="p">)</span>
+    <span class="n">X_A_La</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">X_A_pure_Langenbach</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">rhomolar</span><span class="o">=</span><span class="n">rhomolar</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">assert</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">X_A_HR</span> <span class="o">-</span> <span class="n">X_A_Clapeyron</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">X_A_La</span> <span class="o">-</span> <span class="n">X_A_Clapeyron</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span><span class="p">)</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">X_iter_Langenbach</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">rhomolar</span><span class="o">=</span><span class="n">rhomolar</span><span class="p">,</span> <span class="n">molefracs</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">init</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]))</span>
+
+    <span class="n">a</span> <span class="o">=</span> <span class="n">AssocClass</span><span class="p">([(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)])</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mf">303.15</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">D</span><span class="p">)</span>
+    <span class="n">rhomolar</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">3.0680691201961814e-5</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">get_Delta</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhomolar</span><span class="p">,</span> <span class="n">molefracs</span><span class="o">=</span><span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span> <span class="n">Ngroups</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="mf">6.02214076e23</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">X_iter_Langenbach</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">rhomolar</span><span class="o">=</span><span class="n">rhomolar</span><span class="p">,</span> <span class="n">molefracs</span><span class="o">=</span><span class="p">[</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span> <span class="n">init</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[0 1 0 2]
+ [1 0 2 0]
+ [0 1 0 2]
+ [1 0 2 0]]
+[[5.85623687e-27 5.85623687e-27 4.26510827e-27 4.26510827e-27]
+ [5.85623687e-27 5.85623687e-27 4.26510827e-27 4.26510827e-27]
+ [4.26510827e-27 4.26510827e-27 2.18581242e-27 2.18581242e-27]
+ [4.26510827e-27 4.26510827e-27 2.18581242e-27 2.18581242e-27]]
+[[0.062584   0.062584   0.10938445 0.10938445]]
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Association</a><ul>
+<li><a class="reference internal" href="#Site-Interactions">Site Interactions</a></li>
+<li><a class="reference internal" href="#Interaction-strength">Interaction strength</a><ul>
+<li><a class="reference internal" href="#CR1-combining-rule">CR1 combining rule</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Radial-distribution-function">Radial distribution function</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Models</a><ul>
+      <li>Previous: <a href="SAFT-VR-Mie-Polar.html" title="previous chapter">SAFT-VR-Mie with polar contributions</a></li>
+      <li>Next: <a href="multifluid.html" title="next chapter">Multi-fluid EOS</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/Association.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/Association.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>teqp &#8212; teqp 0.19.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="teqp package" href="teqp.html" />
+    <link rel="prev" title="Multi-fluid Parameter Fitting" href="../fitting/MultifluidBIPFitting.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="teqp">
+<h1>teqp<a class="headerlink" href="#teqp" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="teqp.html">teqp package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="teqp.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teqp.html#module-teqp.teqp">teqp.teqp module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel"><code class="docutils literal notranslate"><span class="pre">AbstractModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.build_Psi_Hessian_autodiff"><code class="docutils literal notranslate"><span class="pre">AbstractModel.build_Psi_Hessian_autodiff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.build_Psir_Hessian_autodiff"><code class="docutils literal notranslate"><span class="pre">AbstractModel.build_Psir_Hessian_autodiff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.build_Psir_gradient_autodiff"><code class="docutils literal notranslate"><span class="pre">AbstractModel.build_Psir_gradient_autodiff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.build_d2PsirdTdrhoi_autodiff"><code class="docutils literal notranslate"><span class="pre">AbstractModel.build_d2PsirdTdrhoi_autodiff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.dpsatdT_pure"><code class="docutils literal notranslate"><span class="pre">AbstractModel.dpsatdT_pure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.eigen_problem"><code class="docutils literal notranslate"><span class="pre">AbstractModel.eigen_problem()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.extrapolate_from_critical"><code class="docutils literal notranslate"><span class="pre">AbstractModel.extrapolate_from_critical()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.find_VLLE_T_binary"><code class="docutils literal notranslate"><span class="pre">AbstractModel.find_VLLE_T_binary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.find_VLLE_p_binary"><code class="docutils literal notranslate"><span class="pre">AbstractModel.find_VLLE_p_binary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_ATrhoXi"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_ATrhoXi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_ATrhoXiXj"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_ATrhoXiXj()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_ATrhoXiXjXk"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_ATrhoXiXjXk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar00"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar00()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar00n"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar00n()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar01"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar01()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar01n"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar01n()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar02"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar02()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar02n"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar02n()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar03"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar03()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar03n"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar03n()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar04"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar04()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar04n"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar04n()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar05n"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar05n()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar06n"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar06n()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar10"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar10()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar11"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar11()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar12"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar12()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar13"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar13()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar14"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar14()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar20"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar20()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar21"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar21()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar22"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar22()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar23"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar23()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Ar24"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Ar24()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Arxy"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Arxy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_AtaudeltaXi"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_AtaudeltaXi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_AtaudeltaXiXj"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_AtaudeltaXiXj()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_AtaudeltaXiXjXk"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_AtaudeltaXiXjXk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_B12vir"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_B12vir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_B2vir"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_B2vir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_Bnvir"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_Bnvir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_R"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_R()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_chempotVLE_autodiff"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_chempotVLE_autodiff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_criticality_conditions"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_criticality_conditions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_dchempotdT_autodiff"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_dchempotdT_autodiff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_deriv_mat2"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_deriv_mat2()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_dmBnvirdTm"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_dmBnvirdTm()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_dp_dT_crit"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_dp_dT_crit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_dpsat_dTsat_isopleth"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_dpsat_dTsat_isopleth()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_drhovec_dT_crit"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_drhovec_dT_crit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_drhovecdT_psat"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_drhovecdT_psat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_drhovecdp_Tsat"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_drhovecdp_Tsat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_fugacity_coefficients"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_fugacity_coefficients()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_minimum_eigenvalue_Psi_Hessian"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_minimum_eigenvalue_Psi_Hessian()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_neff"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_neff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_partial_molar_volumes"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_partial_molar_volumes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_pr"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_pr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_pure_critical_conditions_Jacobian"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_pure_critical_conditions_Jacobian()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.get_splus"><code class="docutils literal notranslate"><span class="pre">AbstractModel.get_splus()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.mix_VLE_Tp"><code class="docutils literal notranslate"><span class="pre">AbstractModel.mix_VLE_Tp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.mix_VLE_Tx"><code class="docutils literal notranslate"><span class="pre">AbstractModel.mix_VLE_Tx()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.mix_VLLE_T"><code class="docutils literal notranslate"><span class="pre">AbstractModel.mix_VLLE_T()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.mixture_VLE_px"><code class="docutils literal notranslate"><span class="pre">AbstractModel.mixture_VLE_px()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.pure_VLE_T"><code class="docutils literal notranslate"><span class="pre">AbstractModel.pure_VLE_T()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.solve_pure_critical"><code class="docutils literal notranslate"><span class="pre">AbstractModel.solve_pure_critical()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.trace_VLE_isobar_binary"><code class="docutils literal notranslate"><span class="pre">AbstractModel.trace_VLE_isobar_binary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.trace_VLE_isotherm_binary"><code class="docutils literal notranslate"><span class="pre">AbstractModel.trace_VLE_isotherm_binary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.trace_VLLE_binary"><code class="docutils literal notranslate"><span class="pre">AbstractModel.trace_VLLE_binary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.AbstractModel.trace_critical_arclength_binary"><code class="docutils literal notranslate"><span class="pre">AbstractModel.trace_critical_arclength_binary()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.IterationMatrices"><code class="docutils literal notranslate"><span class="pre">IterationMatrices</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.IterationMatrices.J"><code class="docutils literal notranslate"><span class="pre">IterationMatrices.J</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.IterationMatrices.v"><code class="docutils literal notranslate"><span class="pre">IterationMatrices.v</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.IterationMatrices.vars"><code class="docutils literal notranslate"><span class="pre">IterationMatrices.vars</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEReturn"><code class="docutils literal notranslate"><span class="pre">MixVLEReturn</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEReturn.T"><code class="docutils literal notranslate"><span class="pre">MixVLEReturn.T</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEReturn.initial_r"><code class="docutils literal notranslate"><span class="pre">MixVLEReturn.initial_r</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEReturn.message"><code class="docutils literal notranslate"><span class="pre">MixVLEReturn.message</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEReturn.num_fev"><code class="docutils literal notranslate"><span class="pre">MixVLEReturn.num_fev</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEReturn.num_iter"><code class="docutils literal notranslate"><span class="pre">MixVLEReturn.num_iter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEReturn.r"><code class="docutils literal notranslate"><span class="pre">MixVLEReturn.r</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEReturn.return_code"><code class="docutils literal notranslate"><span class="pre">MixVLEReturn.return_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEReturn.rhovecL"><code class="docutils literal notranslate"><span class="pre">MixVLEReturn.rhovecL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEReturn.rhovecV"><code class="docutils literal notranslate"><span class="pre">MixVLEReturn.rhovecV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEReturn.success"><code class="docutils literal notranslate"><span class="pre">MixVLEReturn.success</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLETpFlags"><code class="docutils literal notranslate"><span class="pre">MixVLETpFlags</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLETpFlags.atol"><code class="docutils literal notranslate"><span class="pre">MixVLETpFlags.atol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLETpFlags.axtol"><code class="docutils literal notranslate"><span class="pre">MixVLETpFlags.axtol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLETpFlags.maxiter"><code class="docutils literal notranslate"><span class="pre">MixVLETpFlags.maxiter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLETpFlags.reltol"><code class="docutils literal notranslate"><span class="pre">MixVLETpFlags.reltol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLETpFlags.relxtol"><code class="docutils literal notranslate"><span class="pre">MixVLETpFlags.relxtol</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEpxFlags"><code class="docutils literal notranslate"><span class="pre">MixVLEpxFlags</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEpxFlags.atol"><code class="docutils literal notranslate"><span class="pre">MixVLEpxFlags.atol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEpxFlags.axtol"><code class="docutils literal notranslate"><span class="pre">MixVLEpxFlags.axtol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEpxFlags.maxiter"><code class="docutils literal notranslate"><span class="pre">MixVLEpxFlags.maxiter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEpxFlags.reltol"><code class="docutils literal notranslate"><span class="pre">MixVLEpxFlags.reltol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MixVLEpxFlags.relxtol"><code class="docutils literal notranslate"><span class="pre">MixVLEpxFlags.relxtol</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.MultiFluidVLEAncillaries"><code class="docutils literal notranslate"><span class="pre">MultiFluidVLEAncillaries</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MultiFluidVLEAncillaries.pL"><code class="docutils literal notranslate"><span class="pre">MultiFluidVLEAncillaries.pL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MultiFluidVLEAncillaries.pV"><code class="docutils literal notranslate"><span class="pre">MultiFluidVLEAncillaries.pV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MultiFluidVLEAncillaries.rhoL"><code class="docutils literal notranslate"><span class="pre">MultiFluidVLEAncillaries.rhoL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.MultiFluidVLEAncillaries.rhoV"><code class="docutils literal notranslate"><span class="pre">MultiFluidVLEAncillaries.rhoV</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.NRIterator"><code class="docutils literal notranslate"><span class="pre">NRIterator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.NRIterator.get_T"><code class="docutils literal notranslate"><span class="pre">NRIterator.get_T()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.NRIterator.get_molefrac"><code class="docutils literal notranslate"><span class="pre">NRIterator.get_molefrac()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.NRIterator.get_rho"><code class="docutils literal notranslate"><span class="pre">NRIterator.get_rho()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.NRIterator.get_vals"><code class="docutils literal notranslate"><span class="pre">NRIterator.get_vals()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.NRIterator.get_vars"><code class="docutils literal notranslate"><span class="pre">NRIterator.get_vars()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.NRIterator.take_step"><code class="docutils literal notranslate"><span class="pre">NRIterator.take_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.NRIterator.take_steps"><code class="docutils literal notranslate"><span class="pre">NRIterator.take_steps()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions"><code class="docutils literal notranslate"><span class="pre">PVLEOptions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.abs_err"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.abs_err</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.calc_criticality"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.calc_criticality</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.crit_termination"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.crit_termination</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.init_c"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.init_c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.init_dt"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.init_dt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.integration_order"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.integration_order</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.max_dt"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.max_dt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.max_steps"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.max_steps</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.polish"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.polish</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.polish_exception_on_fail"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.polish_exception_on_fail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.polish_reltol_rho"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.polish_reltol_rho</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.rel_err"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.rel_err</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.terminate_unstable"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.terminate_unstable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.PVLEOptions.verbosity"><code class="docutils literal notranslate"><span class="pre">PVLEOptions.verbosity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.SAFTCoeffs"><code class="docutils literal notranslate"><span class="pre">SAFTCoeffs</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.SAFTCoeffs.BibTeXKey"><code class="docutils literal notranslate"><span class="pre">SAFTCoeffs.BibTeXKey</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.SAFTCoeffs.Qstar2"><code class="docutils literal notranslate"><span class="pre">SAFTCoeffs.Qstar2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.SAFTCoeffs.epsilon_over_k"><code class="docutils literal notranslate"><span class="pre">SAFTCoeffs.epsilon_over_k</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.SAFTCoeffs.m"><code class="docutils literal notranslate"><span class="pre">SAFTCoeffs.m</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.SAFTCoeffs.mustar2"><code class="docutils literal notranslate"><span class="pre">SAFTCoeffs.mustar2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.SAFTCoeffs.nQ"><code class="docutils literal notranslate"><span class="pre">SAFTCoeffs.nQ</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.SAFTCoeffs.name"><code class="docutils literal notranslate"><span class="pre">SAFTCoeffs.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.SAFTCoeffs.nmu"><code class="docutils literal notranslate"><span class="pre">SAFTCoeffs.nmu</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.SAFTCoeffs.sigma_Angstrom"><code class="docutils literal notranslate"><span class="pre">SAFTCoeffs.sigma_Angstrom</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions"><code class="docutils literal notranslate"><span class="pre">TCABOptions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.T_tol"><code class="docutils literal notranslate"><span class="pre">TCABOptions.T_tol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.abs_err"><code class="docutils literal notranslate"><span class="pre">TCABOptions.abs_err</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.calc_stability"><code class="docutils literal notranslate"><span class="pre">TCABOptions.calc_stability</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.init_c"><code class="docutils literal notranslate"><span class="pre">TCABOptions.init_c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.init_dt"><code class="docutils literal notranslate"><span class="pre">TCABOptions.init_dt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.integration_order"><code class="docutils literal notranslate"><span class="pre">TCABOptions.integration_order</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.max_dt"><code class="docutils literal notranslate"><span class="pre">TCABOptions.max_dt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.max_step_count"><code class="docutils literal notranslate"><span class="pre">TCABOptions.max_step_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.polish"><code class="docutils literal notranslate"><span class="pre">TCABOptions.polish</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.polish_exception_on_fail"><code class="docutils literal notranslate"><span class="pre">TCABOptions.polish_exception_on_fail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.polish_reltol_T"><code class="docutils literal notranslate"><span class="pre">TCABOptions.polish_reltol_T</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.polish_reltol_rho"><code class="docutils literal notranslate"><span class="pre">TCABOptions.polish_reltol_rho</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.pure_endpoint_polish"><code class="docutils literal notranslate"><span class="pre">TCABOptions.pure_endpoint_polish</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.rel_err"><code class="docutils literal notranslate"><span class="pre">TCABOptions.rel_err</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.skip_dircheck_count"><code class="docutils literal notranslate"><span class="pre">TCABOptions.skip_dircheck_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.small_T_count"><code class="docutils literal notranslate"><span class="pre">TCABOptions.small_T_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.stability_rel_drho"><code class="docutils literal notranslate"><span class="pre">TCABOptions.stability_rel_drho</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TCABOptions.verbosity"><code class="docutils literal notranslate"><span class="pre">TCABOptions.verbosity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions"><code class="docutils literal notranslate"><span class="pre">TVLEOptions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.abs_err"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.abs_err</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.calc_criticality"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.calc_criticality</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.crit_termination"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.crit_termination</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.init_c"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.init_c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.init_dt"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.init_dt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.integration_order"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.integration_order</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.max_dt"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.max_dt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.max_steps"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.max_steps</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.p_termination"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.p_termination</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.polish"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.polish</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.polish_exception_on_fail"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.polish_exception_on_fail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.polish_reltol_rho"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.polish_reltol_rho</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.rel_err"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.rel_err</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.terminate_unstable"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.terminate_unstable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.TVLEOptions.verbosity"><code class="docutils literal notranslate"><span class="pre">TVLEOptions.verbosity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.VLEAncillary"><code class="docutils literal notranslate"><span class="pre">VLEAncillary</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLEAncillary.T_r"><code class="docutils literal notranslate"><span class="pre">VLEAncillary.T_r</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLEAncillary.Tmax"><code class="docutils literal notranslate"><span class="pre">VLEAncillary.Tmax</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLEAncillary.Tmin"><code class="docutils literal notranslate"><span class="pre">VLEAncillary.Tmin</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.VLE_return_code"><code class="docutils literal notranslate"><span class="pre">VLE_return_code</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLE_return_code.functol_satisfied"><code class="docutils literal notranslate"><span class="pre">VLE_return_code.functol_satisfied</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLE_return_code.maxfev_met"><code class="docutils literal notranslate"><span class="pre">VLE_return_code.maxfev_met</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLE_return_code.maxiter_met"><code class="docutils literal notranslate"><span class="pre">VLE_return_code.maxiter_met</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLE_return_code.name"><code class="docutils literal notranslate"><span class="pre">VLE_return_code.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLE_return_code.notfinite_step"><code class="docutils literal notranslate"><span class="pre">VLE_return_code.notfinite_step</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLE_return_code.unset"><code class="docutils literal notranslate"><span class="pre">VLE_return_code.unset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLE_return_code.value"><code class="docutils literal notranslate"><span class="pre">VLE_return_code.value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLE_return_code.xtol_satisfied"><code class="docutils literal notranslate"><span class="pre">VLE_return_code.xtol_satisfied</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.VLLEFinderOptions"><code class="docutils literal notranslate"><span class="pre">VLLEFinderOptions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLEFinderOptions.max_steps"><code class="docutils literal notranslate"><span class="pre">VLLEFinderOptions.max_steps</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLEFinderOptions.rho_trivial_threshold"><code class="docutils literal notranslate"><span class="pre">VLLEFinderOptions.rho_trivial_threshold</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.T_limit"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.T_limit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.abs_err"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.abs_err</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.init_dT"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.init_dT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.max_dT"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.max_dT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.max_polish_steps"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.max_polish_steps</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.max_step_count"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.max_step_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.max_step_retries"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.max_step_retries</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.polish"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.polish</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.rel_err"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.rel_err</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.terminate_composition"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.terminate_composition</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.terminate_composition_tol"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.terminate_composition_tol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="teqp.html#teqp.teqp.VLLETracerOptions.verbosity"><code class="docutils literal notranslate"><span class="pre">VLLETracerOptions.verbosity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.attach_model_specific_methods"><code class="docutils literal notranslate"><span class="pre">attach_model_specific_methods()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.build_alias_map"><code class="docutils literal notranslate"><span class="pre">build_alias_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.build_ancillaries"><code class="docutils literal notranslate"><span class="pre">build_ancillaries()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.collect_component_json"><code class="docutils literal notranslate"><span class="pre">collect_component_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.convert_CoolProp_idealgas"><code class="docutils literal notranslate"><span class="pre">convert_CoolProp_idealgas()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.convert_FLD"><code class="docutils literal notranslate"><span class="pre">convert_FLD()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.convert_HMXBNC"><code class="docutils literal notranslate"><span class="pre">convert_HMXBNC()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.get_BIPdep"><code class="docutils literal notranslate"><span class="pre">get_BIPdep()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.teqp.get_departure_json"><code class="docutils literal notranslate"><span class="pre">get_departure_json()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teqp.html#module-teqp">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.AmmoniaWaterTillnerRoth"><code class="docutils literal notranslate"><span class="pre">AmmoniaWaterTillnerRoth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.CPAfactory"><code class="docutils literal notranslate"><span class="pre">CPAfactory()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.IdealHelmholtz"><code class="docutils literal notranslate"><span class="pre">IdealHelmholtz()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.PCSAFTEOS"><code class="docutils literal notranslate"><span class="pre">PCSAFTEOS()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.build_LJ126_TholJPCRD2016"><code class="docutils literal notranslate"><span class="pre">build_LJ126_TholJPCRD2016()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.build_Psi_Hessian_autodiff"><code class="docutils literal notranslate"><span class="pre">build_Psi_Hessian_autodiff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.build_Psir_Hessian_autodiff"><code class="docutils literal notranslate"><span class="pre">build_Psir_Hessian_autodiff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.build_Psir_gradient_autodiff"><code class="docutils literal notranslate"><span class="pre">build_Psir_gradient_autodiff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.build_d2PsirdTdrhoi_autodiff"><code class="docutils literal notranslate"><span class="pre">build_d2PsirdTdrhoi_autodiff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.build_multifluid_ecs_mutant"><code class="docutils literal notranslate"><span class="pre">build_multifluid_ecs_mutant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.build_multifluid_model"><code class="docutils literal notranslate"><span class="pre">build_multifluid_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.build_multifluid_mutant"><code class="docutils literal notranslate"><span class="pre">build_multifluid_mutant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.canonical_PR"><code class="docutils literal notranslate"><span class="pre">canonical_PR()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.canonical_SRK"><code class="docutils literal notranslate"><span class="pre">canonical_SRK()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.deprecated_caller"><code class="docutils literal notranslate"><span class="pre">deprecated_caller()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.eigen_problem"><code class="docutils literal notranslate"><span class="pre">eigen_problem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.extrapolate_from_critical"><code class="docutils literal notranslate"><span class="pre">extrapolate_from_critical()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.find_VLLE_T_binary"><code class="docutils literal notranslate"><span class="pre">find_VLLE_T_binary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.get_B2virget_B12vir"><code class="docutils literal notranslate"><span class="pre">get_B2virget_B12vir()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.get_chempotVLE_autodiff"><code class="docutils literal notranslate"><span class="pre">get_chempotVLE_autodiff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.get_criticality_conditions"><code class="docutils literal notranslate"><span class="pre">get_criticality_conditions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.get_datapath"><code class="docutils literal notranslate"><span class="pre">get_datapath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.get_dchempotdT_autodiff"><code class="docutils literal notranslate"><span class="pre">get_dchempotdT_autodiff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.get_dpsat_dTsat_isopleth"><code class="docutils literal notranslate"><span class="pre">get_dpsat_dTsat_isopleth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.get_drhovec_dT_crit"><code class="docutils literal notranslate"><span class="pre">get_drhovec_dT_crit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.get_drhovecdT_psat"><code class="docutils literal notranslate"><span class="pre">get_drhovecdT_psat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.get_drhovecdp_Tsat"><code class="docutils literal notranslate"><span class="pre">get_drhovecdp_Tsat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.get_fugacity_coefficients"><code class="docutils literal notranslate"><span class="pre">get_fugacity_coefficients()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.get_minimum_eigenvalue_Psi_Hessian"><code class="docutils literal notranslate"><span class="pre">get_minimum_eigenvalue_Psi_Hessian()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.get_partial_molar_volumes"><code class="docutils literal notranslate"><span class="pre">get_partial_molar_volumes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.get_pr"><code class="docutils literal notranslate"><span class="pre">get_pr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.get_pure_critical_conditions_Jacobian"><code class="docutils literal notranslate"><span class="pre">get_pure_critical_conditions_Jacobian()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.get_splus"><code class="docutils literal notranslate"><span class="pre">get_splus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.make_model"><code class="docutils literal notranslate"><span class="pre">make_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.make_vdW1"><code class="docutils literal notranslate"><span class="pre">make_vdW1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.mix_VLE_Tx"><code class="docutils literal notranslate"><span class="pre">mix_VLE_Tx()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.mix_VLLE_T"><code class="docutils literal notranslate"><span class="pre">mix_VLLE_T()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.mixture_VLE_px"><code class="docutils literal notranslate"><span class="pre">mixture_VLE_px()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.pure_VLE_T"><code class="docutils literal notranslate"><span class="pre">pure_VLE_T()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.solve_pure_critical"><code class="docutils literal notranslate"><span class="pre">solve_pure_critical()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.tolist"><code class="docutils literal notranslate"><span class="pre">tolist()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.trace_VLE_isobar_binary"><code class="docutils literal notranslate"><span class="pre">trace_VLE_isobar_binary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.trace_VLE_isotherm_binary"><code class="docutils literal notranslate"><span class="pre">trace_VLE_isotherm_binary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.trace_critical_arclength_binary"><code class="docutils literal notranslate"><span class="pre">trace_critical_arclength_binary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.vdWEOS"><code class="docutils literal notranslate"><span class="pre">vdWEOS()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="teqp.html#teqp.vdWEOS1"><code class="docutils literal notranslate"><span class="pre">vdWEOS1()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../fitting/MultifluidBIPFitting.html" title="previous chapter">Multi-fluid Parameter Fitting</a></li>
+      <li>Next: <a href="teqp.html" title="next chapter">teqp package</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/modules.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/api/modules.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

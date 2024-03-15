@@ -1,0 +1,101 @@
+\doxysection{teqp\+::squarewell\+::Espindola\+Heredia2009 Class Reference}
+\hypertarget{classteqp_1_1squarewell_1_1EspindolaHeredia2009}{}\label{classteqp_1_1squarewell_1_1EspindolaHeredia2009}\index{teqp::squarewell::EspindolaHeredia2009@{teqp::squarewell::EspindolaHeredia2009}}
+
+
+{\ttfamily \#include $<$squarewell.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1squarewell_1_1EspindolaHeredia2009_a0258374cc1bdaec1aaf499a73e23d899}{Espindola\+Heredia2009}} (double lambda)
+\item 
+{\footnotesize template$<$typename Mole\+Frac\+Type $>$ }\\double \mbox{\hyperlink{classteqp_1_1squarewell_1_1EspindolaHeredia2009_abbd0b64cd11be68ff2ec196b34c4626e}{R}} (const Mole\+Frac\+Type \&) const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1squarewell_1_1EspindolaHeredia2009_a5e32d31fe76a533ec631571fcecaf098}{get\+\_\+lambda}} () const
+\begin{DoxyCompactList}\small\item\em Return the lambda parameter. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1squarewell_1_1EspindolaHeredia2009_a09fc70c61967ed5012854b391b5e5ff6}{alphar}} (const TType \&Tstar, const Rho\+Type \&rhostar, const Mole\+Frac\+Type \&) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Rodolfo Espíndola-\/\+Heredia, Fernando del Río and Anatol Malijevsky Optimized equation of the state of the square-\/well fluid of variable range based on a fourth-\/order free-\/energy expansion J. Chem. Phys. 130, 024509 (2009); \href{https://doi.org/10.1063/1.3054361}{\texttt{ https\+://doi.\+org/10.\+1063/1.\+3054361}}
+
+\[
+     V(r) = \left\lbrace \begin{array}{cc}
+         \infty & r < \sigma \\
+         -\varepsilon & \sigma < r < \lambda\sigma \\
+         0 & r > \lambda \sigma
+         \end{array}\right.
+\]
+
+Note\+: if needed, all the terms that don\textquotesingle{}t depend on T or rho could be pre-\/calculated at model initialization for a small speed boost 
+
+Definition at line \mbox{\hyperlink{squarewell_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{squarewell_8hpp_source}{squarewell.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1squarewell_1_1EspindolaHeredia2009_a0258374cc1bdaec1aaf499a73e23d899}\label{classteqp_1_1squarewell_1_1EspindolaHeredia2009_a0258374cc1bdaec1aaf499a73e23d899} 
+\index{teqp::squarewell::EspindolaHeredia2009@{teqp::squarewell::EspindolaHeredia2009}!EspindolaHeredia2009@{EspindolaHeredia2009}}
+\index{EspindolaHeredia2009@{EspindolaHeredia2009}!teqp::squarewell::EspindolaHeredia2009@{teqp::squarewell::EspindolaHeredia2009}}
+\doxysubsubsection{\texorpdfstring{EspindolaHeredia2009()}{EspindolaHeredia2009()}}
+{\footnotesize\ttfamily teqp\+::squarewell\+::\+Espindola\+Heredia2009\+::\+Espindola\+Heredia2009 (\begin{DoxyParamCaption}\item[{double}]{lambda }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{squarewell_8hpp_source_l00172}{172}} of file \mbox{\hyperlink{squarewell_8hpp_source}{squarewell.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1squarewell_1_1EspindolaHeredia2009_a09fc70c61967ed5012854b391b5e5ff6}\label{classteqp_1_1squarewell_1_1EspindolaHeredia2009_a09fc70c61967ed5012854b391b5e5ff6} 
+\index{teqp::squarewell::EspindolaHeredia2009@{teqp::squarewell::EspindolaHeredia2009}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::squarewell::EspindolaHeredia2009@{teqp::squarewell::EspindolaHeredia2009}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ \\
+auto teqp\+::squarewell\+::\+Espindola\+Heredia2009\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{Tstar,  }\item[{const Rho\+Type \&}]{rhostar,  }\item[{const Mole\+Frac\+Type \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tstar} & $T^*=T/(\epsilon/k) $ \\
+\hline
+{\em rhostar} & $\rho^*=\rho_{\rm N}\sigma^3 $ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+mole fractions must be provided, but are ignored in this case 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{squarewell_8hpp_source_l00189}{189}} of file \mbox{\hyperlink{squarewell_8hpp_source}{squarewell.\+hpp}}.
+
+\Hypertarget{classteqp_1_1squarewell_1_1EspindolaHeredia2009_a5e32d31fe76a533ec631571fcecaf098}\label{classteqp_1_1squarewell_1_1EspindolaHeredia2009_a5e32d31fe76a533ec631571fcecaf098} 
+\index{teqp::squarewell::EspindolaHeredia2009@{teqp::squarewell::EspindolaHeredia2009}!get\_lambda@{get\_lambda}}
+\index{get\_lambda@{get\_lambda}!teqp::squarewell::EspindolaHeredia2009@{teqp::squarewell::EspindolaHeredia2009}}
+\doxysubsubsection{\texorpdfstring{get\_lambda()}{get\_lambda()}}
+{\footnotesize\ttfamily auto teqp\+::squarewell\+::\+Espindola\+Heredia2009\+::get\+\_\+lambda (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the lambda parameter. 
+
+
+
+Definition at line \mbox{\hyperlink{squarewell_8hpp_source_l00179}{179}} of file \mbox{\hyperlink{squarewell_8hpp_source}{squarewell.\+hpp}}.
+
+\Hypertarget{classteqp_1_1squarewell_1_1EspindolaHeredia2009_abbd0b64cd11be68ff2ec196b34c4626e}\label{classteqp_1_1squarewell_1_1EspindolaHeredia2009_abbd0b64cd11be68ff2ec196b34c4626e} 
+\index{teqp::squarewell::EspindolaHeredia2009@{teqp::squarewell::EspindolaHeredia2009}!R@{R}}
+\index{R@{R}!teqp::squarewell::EspindolaHeredia2009@{teqp::squarewell::EspindolaHeredia2009}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily template$<$typename Mole\+Frac\+Type $>$ \\
+double teqp\+::squarewell\+::\+Espindola\+Heredia2009\+::R (\begin{DoxyParamCaption}\item[{const Mole\+Frac\+Type \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{squarewell_8hpp_source_l00176}{176}} of file \mbox{\hyperlink{squarewell_8hpp_source}{squarewell.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/model\+\_\+potentials/\mbox{\hyperlink{squarewell_8hpp}{squarewell.\+hpp}}\end{DoxyCompactItemize}

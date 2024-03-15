@@ -1,0 +1,76 @@
+\doxysection{fwd.\+hpp}
+\hypertarget{fwd_8hpp_source}{}\label{fwd_8hpp_source}\index{include/teqp/models/fwd.hpp@{include/teqp/models/fwd.hpp}}
+\mbox{\hyperlink{fwd_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <valarray>}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <variant>}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vdW_8hpp}{teqp/models/vdW.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cubics_8hpp}{teqp/models/cubics.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{CPA_8hpp}{teqp/models/CPA.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{pcsaft_8hpp}{teqp/models/pcsaft.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{saftvrmie_8hpp}{teqp/models/saftvrmie.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{multifluid_8hpp}{teqp/models/multifluid.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{multifluid__mutant_8hpp}{teqp/models/multifluid\_mutant.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ECSHuberEly_8hpp}{teqp/models/ECSHuberEly.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ideal__eosterms_8hpp}{teqp/ideal\_eosterms.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ammonia__water_8hpp}{teqp/models/ammonia\_water.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{squarewell_8hpp}{teqp/models/model\_potentials/squarewell.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exp6_8hpp}{teqp/models/model\_potentials/exp6.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{2center__ljf_8hpp}{teqp/models/model\_potentials/2center\_ljf.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lennardjones_8hpp}{teqp/models/mie/lennardjones.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mie_8hpp}{teqp/models/mie/mie.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{GERG_8hpp}{teqp/models/GERG/GERG.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LKP_8hpp}{teqp/models/LKP.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00032}00032\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp}{teqp}}\ \{}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00034}\mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{00034}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{vad}}\ =\ std::valarray<double>;}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00035}\mbox{\hyperlink{namespaceteqp_a28dadf1c0320a0f649ee5652486d4f70}{00035}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_a28dadf1c0320a0f649ee5652486d4f70}{vecs}}\ =\ std::vector<std::string>;}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ Define\ the\ EOS\ types\ by\ interrogating\ the\ types\ returned\ by\ the\ respective}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ factory\ function\ or\ by\ alias\ of\ the\ class\ name}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00039}\mbox{\hyperlink{namespaceteqp_af0143b3f923665100709c22a285bfd98}{00039}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_af0143b3f923665100709c22a285bfd98}{canonical\_cubic\_t}}\ =\ \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespaceteqp_a388557f5b1209cf4a37a2bb3b9a6f9d5}{canonical\_PR}}(\mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{vad}}\{\},\ \mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{vad}}\{\},\ \mbox{\hyperlink{namespaceteqp_af129d886ebb7fcaf26242da2cf497907}{vad}}\{\}));}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00040}\mbox{\hyperlink{namespaceteqp_afcf6a51266c52a06dd9dd8386c23fd0a}{00040}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_afcf6a51266c52a06dd9dd8386c23fd0a}{PCSAFT\_t}}\ =\ \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespaceteqp_1_1PCSAFT_aa5526ea705fa284efc14bf790640b5a8}{PCSAFT::PCSAFTfactory}}(nlohmann::json\{\}));}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00041}\mbox{\hyperlink{namespaceteqp_a05c6161efb6a7a27c466278bc8aeecf1}{00041}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_a05c6161efb6a7a27c466278bc8aeecf1}{SAFTVRMie\_t}}\ =\ \textcolor{keyword}{decltype}(\mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture}{SAFTVRMie::SAFTVRMieMixture}}(\mbox{\hyperlink{namespaceteqp_a28dadf1c0320a0f649ee5652486d4f70}{vecs}}\{\}));}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00042}\mbox{\hyperlink{namespaceteqp_abca56121053f4dcf814154a48e1b27c3}{00042}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_abca56121053f4dcf814154a48e1b27c3}{CPA\_t}}\ =\ \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespaceteqp_1_1CPA_aac7faad3d0f09b4600630c7ae67d56ea}{CPA::CPAfactory}}(nlohmann::json\{\}));}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00043}\mbox{\hyperlink{namespaceteqp_a30015ca07e3a8970b64d24e212431e78}{00043}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_a30015ca07e3a8970b64d24e212431e78}{multifluid\_t}}\ =\ \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multifluidfactory}}(nlohmann::json\{\}));}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00044}\mbox{\hyperlink{namespaceteqp_afd2ddf64b68cce28c54119ecf6b0914b}{00044}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_afd2ddf64b68cce28c54119ecf6b0914b}{multifluidmutant\_t}}\ =\ \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespaceteqp_a67c30f6c7f5a9888c1ffd32962194f07}{build\_multifluid\_mutant}}(\mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multifluidfactory}}(nlohmann::json\{\}),\ nlohmann::json\{\}));}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00045}\mbox{\hyperlink{namespaceteqp_a4fdce82f5a1b688b43e6bf0fe63718b9}{00045}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_a4fdce82f5a1b688b43e6bf0fe63718b9}{ammonia\_water\_TillnerRoth\_t}}\ =\ AmmoniaWaterTillnerRoth;}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00046}\mbox{\hyperlink{namespaceteqp_aef68ee45f75085569c877c08555bc919}{00046}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classteqp_1_1squarewell_1_1EspindolaHeredia2009}{SW\_EspindolaHeredia2009\_t}}\ =\ \mbox{\hyperlink{classteqp_1_1squarewell_1_1EspindolaHeredia2009}{squarewell::EspindolaHeredia2009}};}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00047}\mbox{\hyperlink{namespaceteqp_ad95abe1f153d9e7c26d7b194090f0278}{00047}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992}{EXP6\_Kataoka1992\_t}}\ =\ \mbox{\hyperlink{classteqp_1_1exp6_1_1Kataoka1992}{exp6::Kataoka1992}};}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00048}\mbox{\hyperlink{namespaceteqp_a8438428c7c8039390d0bd229e56d8670}{00048}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classteqp_1_1vdWEOS}{vdWEOS\_t}}\ =\ \mbox{\hyperlink{classteqp_1_1vdWEOS}{vdWEOS<double>}};}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00049}\mbox{\hyperlink{namespaceteqp_a707a367fe97e2502d09729fdcc9f53fc}{00049}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_a707a367fe97e2502d09729fdcc9f53fc}{twocenterLJF\_t}}\ =\ \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespaceteqp_1_1twocenterljf_a741b94ae9616bd833cf30553e67bf369}{twocenterljf::build\_two\_center\_model\_dipole}}(std::string\{\},\ \textcolor{keywordtype}{double}\{\},\ \textcolor{keywordtype}{double}\{\}));}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00050}\mbox{\hyperlink{namespaceteqp_ad99a58f5bf948c1191e468377254e2ee}{00050}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classteqp_1_1LJ126KolafaNezbeda1994}{LJ126KolafaNezbeda1994\_t}}\ =\ \mbox{\hyperlink{classteqp_1_1LJ126KolafaNezbeda1994}{LJ126KolafaNezbeda1994}};}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00051}\mbox{\hyperlink{namespaceteqp_a70e60319333af23b0807870452390c68}{00051}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classteqp_1_1LJ126Johnson1993}{LJ126Johnson1993\_t}}\ =\ \mbox{\hyperlink{classteqp_1_1LJ126Johnson1993}{LJ126Johnson1993}};}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00052}\mbox{\hyperlink{namespaceteqp_ac1d89312aa7604e1207f887cb9d85915}{00052}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023}{Mie6Pohl2023\_t}}\ =\ \mbox{\hyperlink{classteqp_1_1Mie_1_1Mie6Pohl2023}{Mie::Mie6Pohl2023}};}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00053}\mbox{\hyperlink{namespaceteqp_af20ae9b7642b8f410bad887680dfa601}{00053}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR}{QuantumPR\_t}}\ =\ \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR}{QuantumCorrectedPR}};}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00055}\mbox{\hyperlink{namespaceteqp_a1959bb60f21c0547efe48ad193b27619}{00055}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classteqp_1_1IdealHelmholtz}{idealgas\_t}}\ =\ \mbox{\hyperlink{classteqp_1_1IdealHelmholtz}{IdealHelmholtz}};}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00057}00057\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00058}00058\ \textcolor{comment}{\ \ \ \ \ //\ The\ set\ of\ these\ models\ is\ exposed\ in\ the\ variant}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00059}00059\ \textcolor{comment}{\ \ \ \ using\ AllowedModels\ =\ std::variant<}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00060}00060\ \textcolor{comment}{\ \ \ \ \ \ \ \ vdWEOS1,}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00061}00061\ \textcolor{comment}{\ \ \ \ \ \ \ \ vdWEOS\_t,}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00062}00062\ \textcolor{comment}{\ \ \ \ \ \ \ \ canonical\_cubic\_t,}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00063}00063\ \textcolor{comment}{\ \ \ \ \ \ \ \ PCSAFT\_t,}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00064}00064\ \textcolor{comment}{\ \ \ \ \ \ \ \ SAFTVRMie\_t,}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00065}00065\ \textcolor{comment}{\ \ \ \ \ \ \ \ CPA\_t,}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00066}00066\ \textcolor{comment}{\ \ \ \ \ \ \ \ multifluid\_t,}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00067}00067\ \textcolor{comment}{\ \ \ \ \ \ \ \ multifluidmutant\_t,}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00068}00068\ \textcolor{comment}{\ \ \ \ \ \ \ \ idealgas\_t,}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \ \ \ \ ammonia\_water\_TillnerRoth\_t,}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ SW\_EspindolaHeredia2009\_t,}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ EXP6\_Kataoka1992\_t,}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00072}00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ twocenterLJF\_t,}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00073}00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ LJ126KolafaNezbeda1994\_t,}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00074}00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ LJ126Johnson1993\_t,}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00075}00075\ \textcolor{comment}{\ \ \ \ \ \ \ \ Mie6Pohl2023\_t}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00076}00076\ \textcolor{comment}{\ \ \ \ >;}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00077}00077\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{fwd_8hpp_source_l00078}00078\ \}}
+
+\end{DoxyCode}

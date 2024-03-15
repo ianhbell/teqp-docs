@@ -1,0 +1,109 @@
+\doxysection{teqp\+::GERG2004 Namespace Reference}
+\hypertarget{namespaceteqp_1_1GERG2004}{}\label{namespaceteqp_1_1GERG2004}\index{teqp::GERG2004@{teqp::GERG2004}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classteqp_1_1GERG2004_1_1GERG2004IdealGasModel}{GERG2004\+Ideal\+Gas\+Model}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1GERG2004_1_1GERG2004ResidualModel}{GERG2004\+Residual\+Model}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureInfo}{Pure\+Info}} \mbox{\hyperlink{namespaceteqp_1_1GERG2004_ac3565b8487f12789083803eed21569fb}{get\+\_\+pure\+\_\+info}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Get the pure fluid information for a fluid from GERG-\/2004 monograph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs}{Alphaig\+Coeffs}} \mbox{\hyperlink{namespaceteqp_1_1GERG2004_a2d8d7793a6e1f6ac50177538b7ee9f80}{get\+\_\+alphaig\+\_\+coeffs}} (const std\+::string \&fluid)
+\item 
+\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureCoeffs}{Pure\+Coeffs}} \mbox{\hyperlink{namespaceteqp_1_1GERG2004_acc8492f3c0446b81c70beb4d5bb4e145}{get\+\_\+pure\+\_\+coeffs}} (const std\+::string \&fluid)
+\item 
+\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1BetasGammas}{Betas\+Gammas}} \mbox{\hyperlink{namespaceteqp_1_1GERG2004_ac2bfc93d176a5a722734c4852c988e56}{get\+\_\+betasgammas}} (const std\+::string \&fluid1, const std\+::string \&fluid2)
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{namespaceteqp_1_1GERG2004_ac4b9790dc771255ecb6b7f1e9d235736}{get\+\_\+\+Fij}} (const std\+::string \&fluid1, const std\+::string \&fluid2, bool ok\+\_\+missing=true)
+\item 
+\mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1DepartureCoeffs}{Departure\+Coeffs}} \mbox{\hyperlink{namespaceteqp_1_1GERG2004_ad9060059cbfa1b03c3bb15b844dba72f}{get\+\_\+departurecoeffs}} (const std\+::string \&fluid1, const std\+::string \&fluid2)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespaceteqp_1_1GERG2004_a88d52e4912e9dafe4c27b948bbaf84a3}{component\+\_\+names}} = \{"{}methane"{}, "{}nitrogen"{},"{}carbondioxide"{},"{}ethane"{},"{}propane"{},"{}n-\/butane"{},"{}isobutane"{},"{}n-\/pentane"{},"{}isopentane"{},"{}n-\/hexane"{},"{}n-\/heptane"{},"{}n-\/octane"{},"{}hydrogen"{}, "{}oxygen"{},"{}carbonmonoxide"{},"{}water"{},"{}helium"{},"{}argon"{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceteqp_1_1GERG2004_a2d8d7793a6e1f6ac50177538b7ee9f80}\label{namespaceteqp_1_1GERG2004_a2d8d7793a6e1f6ac50177538b7ee9f80} 
+\index{teqp::GERG2004@{teqp::GERG2004}!get\_alphaig\_coeffs@{get\_alphaig\_coeffs}}
+\index{get\_alphaig\_coeffs@{get\_alphaig\_coeffs}!teqp::GERG2004@{teqp::GERG2004}}
+\doxysubsubsection{\texorpdfstring{get\_alphaig\_coeffs()}{get\_alphaig\_coeffs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs}{Alphaig\+Coeffs}} teqp\+::\+GERG2004\+::get\+\_\+alphaig\+\_\+coeffs (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{fluid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00425}{425}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1GERG2004_ac2bfc93d176a5a722734c4852c988e56}\label{namespaceteqp_1_1GERG2004_ac2bfc93d176a5a722734c4852c988e56} 
+\index{teqp::GERG2004@{teqp::GERG2004}!get\_betasgammas@{get\_betasgammas}}
+\index{get\_betasgammas@{get\_betasgammas}!teqp::GERG2004@{teqp::GERG2004}}
+\doxysubsubsection{\texorpdfstring{get\_betasgammas()}{get\_betasgammas()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1BetasGammas}{Betas\+Gammas}} teqp\+::\+GERG2004\+::get\+\_\+betasgammas (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{fluid1,  }\item[{const std\+::string \&}]{fluid2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00552}{552}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1GERG2004_ad9060059cbfa1b03c3bb15b844dba72f}\label{namespaceteqp_1_1GERG2004_ad9060059cbfa1b03c3bb15b844dba72f} 
+\index{teqp::GERG2004@{teqp::GERG2004}!get\_departurecoeffs@{get\_departurecoeffs}}
+\index{get\_departurecoeffs@{get\_departurecoeffs}!teqp::GERG2004@{teqp::GERG2004}}
+\doxysubsubsection{\texorpdfstring{get\_departurecoeffs()}{get\_departurecoeffs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1DepartureCoeffs}{Departure\+Coeffs}} teqp\+::\+GERG2004\+::get\+\_\+departurecoeffs (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{fluid1,  }\item[{const std\+::string \&}]{fluid2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00762}{762}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1GERG2004_ac4b9790dc771255ecb6b7f1e9d235736}\label{namespaceteqp_1_1GERG2004_ac4b9790dc771255ecb6b7f1e9d235736} 
+\index{teqp::GERG2004@{teqp::GERG2004}!get\_Fij@{get\_Fij}}
+\index{get\_Fij@{get\_Fij}!teqp::GERG2004@{teqp::GERG2004}}
+\doxysubsubsection{\texorpdfstring{get\_Fij()}{get\_Fij()}}
+{\footnotesize\ttfamily std\+::optional$<$ double $>$ teqp\+::\+GERG2004\+::get\+\_\+\+Fij (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{fluid1,  }\item[{const std\+::string \&}]{fluid2,  }\item[{bool}]{ok\+\_\+missing = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Table A3.\+6 from GERG 2004 monograph
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00725}{725}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1GERG2004_acc8492f3c0446b81c70beb4d5bb4e145}\label{namespaceteqp_1_1GERG2004_acc8492f3c0446b81c70beb4d5bb4e145} 
+\index{teqp::GERG2004@{teqp::GERG2004}!get\_pure\_coeffs@{get\_pure\_coeffs}}
+\index{get\_pure\_coeffs@{get\_pure\_coeffs}!teqp::GERG2004@{teqp::GERG2004}}
+\doxysubsubsection{\texorpdfstring{get\_pure\_coeffs()}{get\_pure\_coeffs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureCoeffs}{Pure\+Coeffs}} teqp\+::\+GERG2004\+::get\+\_\+pure\+\_\+coeffs (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{fluid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00468}{468}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{namespaceteqp_1_1GERG2004_ac3565b8487f12789083803eed21569fb}\label{namespaceteqp_1_1GERG2004_ac3565b8487f12789083803eed21569fb} 
+\index{teqp::GERG2004@{teqp::GERG2004}!get\_pure\_info@{get\_pure\_info}}
+\index{get\_pure\_info@{get\_pure\_info}!teqp::GERG2004@{teqp::GERG2004}}
+\doxysubsubsection{\texorpdfstring{get\_pure\_info()}{get\_pure\_info()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1PureInfo}{Pure\+Info}} teqp\+::\+GERG2004\+::get\+\_\+pure\+\_\+info (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the pure fluid information for a fluid from GERG-\/2004 monograph. 
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00391}{391}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespaceteqp_1_1GERG2004_a88d52e4912e9dafe4c27b948bbaf84a3}\label{namespaceteqp_1_1GERG2004_a88d52e4912e9dafe4c27b948bbaf84a3} 
+\index{teqp::GERG2004@{teqp::GERG2004}!component\_names@{component\_names}}
+\index{component\_names@{component\_names}!teqp::GERG2004@{teqp::GERG2004}}
+\doxysubsubsection{\texorpdfstring{component\_names}{component\_names}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$ teqp\+::\+GERG2004\+::component\+\_\+names = \{"{}methane"{}, "{}nitrogen"{},"{}carbondioxide"{},"{}ethane"{},"{}propane"{},"{}n-\/butane"{},"{}isobutane"{},"{}n-\/pentane"{},"{}isopentane"{},"{}n-\/hexane"{},"{}n-\/heptane"{},"{}n-\/octane"{},"{}hydrogen"{}, "{}oxygen"{},"{}carbonmonoxide"{},"{}water"{},"{}helium"{},"{}argon"{}\}}
+
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00388}{388}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+

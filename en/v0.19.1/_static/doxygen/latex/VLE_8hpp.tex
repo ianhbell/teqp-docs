@@ -1,0 +1,124 @@
+\doxysection{include/teqp/algorithms/\+VLE.hpp File Reference}
+\hypertarget{VLE_8hpp}{}\label{VLE_8hpp}\index{include/teqp/algorithms/VLE.hpp@{include/teqp/algorithms/VLE.hpp}}
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include "{}teqp/derivs.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/exceptions.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/algorithms/critical\+\_\+tracing.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/algorithms/critical\+\_\+pure.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/algorithms/\+VLE\+\_\+types.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/algorithms/\+VLE\+\_\+pure.\+hpp"{}}\newline
+{\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
+{\ttfamily \#include $<$boost/numeric/odeint/stepper/controlled\+\_\+runge\+\_\+kutta.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/numeric/odeint/stepper/runge\+\_\+kutta\+\_\+cash\+\_\+karp54.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/numeric/odeint/stepper/euler.\+hpp$>$}\newline
+{\ttfamily \#include $<$unsupported/\+Eigen/\+Non\+Linear\+Optimization$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1Functor}{teqp\+::\+Functor$<$ \+\_\+\+Scalar, NX, NY $>$}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1hybrj__functor____mix__VLE__Tp}{teqp\+::hybrj\+\_\+functor\+\_\+\+\_\+mix\+\_\+\+VLE\+\_\+\+Tp$<$ Model $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{VLE_8hpp_a91292bd9d012ce957434d4aa14bbfa3f}{VLE\+\_\+\+FUNCTIONS\+\_\+\+TO\+\_\+\+WRAP}}
+\item 
+\#define \mbox{\hyperlink{VLE_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(f)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class A , class B $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a4fa49b70ad97e59d91d236f7437e899c}{teqp\+::linsolve}} (const A \&a, const B \&b)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_a5795b3879712fe63c9870a29cfd29905}{teqp\+::mix\+\_\+\+VLE\+\_\+\+Tx}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, double T, const Eigen\+::\+Array\+Xd \&rhovec\+L0, const Eigen\+::\+Array\+Xd \&rhovec\+V0, const Eigen\+::\+Array\+Xd \&xspec, double atol, double reltol, double axtol, double relxtol, int maxiter)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_ac09ec2a6e2dfb57a38f42ed084bc9f58}{teqp\+::mix\+\_\+\+VLE\+\_\+\+Tp}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, double T, double pgiven, const Eigen\+::\+Array\+Xd \&rhovec\+L0, const Eigen\+::\+Array\+Xd \&rhovec\+V0, const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1MixVLETpFlags}{Mix\+VLETp\+Flags}} $>$ \&flags\+\_\+=std\+::nullopt)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_aa0e91cea3c6012535d2718e2874826b4}{teqp\+::mixture\+\_\+\+VLE\+\_\+px}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, double p\+\_\+spec, const Eigen\+::\+Array\+Xd \&xmolar\+\_\+spec, double T0, const Eigen\+::\+Array\+Xd \&rhovec\+L0, const Eigen\+::\+Array\+Xd \&rhovec\+V0, const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1MixVLEpxFlags}{Mix\+VLEpx\+Flags}} $>$ \&flags\+\_\+=std\+::nullopt)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_ad95f85237b414adcadafedae95c6ab43}{teqp\+::get\+\_\+drhovecdp\+\_\+\+Tsat}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const double \&T, const Eigen\+::\+Array\+Xd \&rhovecL, const Eigen\+::\+Array\+Xd \&rhovecV)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_af6e5d0686b44d8f1d32191349e7cae79}{teqp\+::get\+\_\+drhovecd\+T\+\_\+psat}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const double \&T, const Eigen\+::\+Array\+Xd \&rhovecL, const Eigen\+::\+Array\+Xd \&rhovecV)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_a9d9e7c2e7090d997b838ad7d722fe636}{teqp\+::get\+\_\+drhovecd\+T\+\_\+xsat}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, const double \&T, const Eigen\+::\+Array\+Xd \&rhovecL, const Eigen\+::\+Array\+Xd \&rhovecV)
+\item 
+{\footnotesize template$<$typename Model  = Abstract\+Model$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a0c78e97744bd0ec82197f40149e03d4b}{teqp\+::get\+\_\+dpsat\+\_\+d\+Tsat\+\_\+isopleth}} (const Model \&model, const double \&T, const Eigen\+::\+Array\+Xd \&rhovecL, const Eigen\+::\+Array\+Xd \&rhovecV)
+\begin{DoxyCompactList}\small\item\em Derivative of pressure w.\+r.\+t. temperature along the isopleth of a phase envelope (at constant composition of the bulk phase with the first concentration array) \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceteqp_a56339c8078f4369f5a988a87cfc1344e}{teqp\+::trace\+\_\+\+VLE\+\_\+isotherm\+\_\+binary}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&model, double T, const Eigen\+::\+Array\+Xd \&rhovec\+L0, const Eigen\+::\+Array\+Xd \&rhovec\+V0, const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1TVLEOptions}{TVLEOptions}} $>$ \&options=std\+::nullopt)
+\item 
+{\footnotesize template$<$typename Model  = Abstract\+Model$>$ }\\auto \mbox{\hyperlink{namespaceteqp_af320b714fb1758cc835cfe8bb1eb3fd2}{teqp\+::trace\+\_\+\+VLE\+\_\+isobar\+\_\+binary}} (const Model \&model, double p, double T0, const Eigen\+::\+Array\+Xd \&rhovec\+L0, const Eigen\+::\+Array\+Xd \&rhovec\+V0, const std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1PVLEOptions}{PVLEOptions}} $>$ \&options=std\+::nullopt)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_ad8ed28be253b638ae6d36c2264e906c6}{teqp\+::trace\+\_\+\+VLE\+\_\+isobar\+\_\+binary}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_aa22c5614274353738a4581d42e8a602c}{teqp\+::trace\+\_\+\+VLE\+\_\+isotherm\+\_\+binary}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a6c919b765714374b997319b849386ef0}{teqp\+::get\+\_\+dpsat\+\_\+d\+Tsat\+\_\+isopleth}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a2f0531eeb36c04568a4ca02586f72ccf}{teqp\+::get\+\_\+drhovecd\+T\+\_\+xsat}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_ac6b850d418acefcc77b51a2de52c06c8}{teqp\+::get\+\_\+drhovecd\+T\+\_\+psat}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_abba198d50880f29905a1133ffaf40868}{teqp\+::get\+\_\+drhovecdp\+\_\+\+Tsat}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a9692edf46f169b11b22991ee0145df6b}{teqp\+::trace\+\_\+critical\+\_\+arclength\+\_\+binary}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_ad8574895c4ac11f4afc0c44c99e610a4}{teqp\+::mixture\+\_\+\+VLE\+\_\+px}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a857c08f14bb6d19558b186416c152474}{teqp\+::mix\+\_\+\+VLE\+\_\+\+Tp}} (const Templated\+Model \&model, Params \&\&... params)
+\item 
+{\footnotesize template$<$typename Templated\+Model , typename ... Params, typename  = typename std\+::enable\+\_\+if$<$not std\+::is\+\_\+base\+\_\+of$<$teqp\+::cppinterface\+::\+Abstract\+Model, Templated\+Model$>$\+::value$>$\+::type$>$ }\\auto \mbox{\hyperlink{namespaceteqp_a44b67c5bb411fe3aa4589f51c11747eb}{teqp\+::mix\+\_\+\+VLE\+\_\+\+Tx}} (const Templated\+Model \&model, Params \&\&... params)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{VLE_8hpp_a91292bd9d012ce957434d4aa14bbfa3f}\label{VLE_8hpp_a91292bd9d012ce957434d4aa14bbfa3f} 
+\index{VLE.hpp@{VLE.hpp}!VLE\_FUNCTIONS\_TO\_WRAP@{VLE\_FUNCTIONS\_TO\_WRAP}}
+\index{VLE\_FUNCTIONS\_TO\_WRAP@{VLE\_FUNCTIONS\_TO\_WRAP}!VLE.hpp@{VLE.hpp}}
+\doxysubsubsection{\texorpdfstring{VLE\_FUNCTIONS\_TO\_WRAP}{VLE\_FUNCTIONS\_TO\_WRAP}}
+{\footnotesize\ttfamily \#define VLE\+\_\+\+FUNCTIONS\+\_\+\+TO\+\_\+\+WRAP}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{VLE_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(trace\_VLE\_isobar\_binary)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(trace\_VLE\_isotherm\_binary)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(get\_dpsat\_dTsat\_isopleth)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(get\_drhovecdT\_xsat)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(get\_drhovecdT\_psat)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(get\_drhovecdp\_Tsat)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(trace\_critical\_arclength\_binary)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(mixture\_VLE\_px)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(mix\_VLE\_Tp)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(mix\_VLE\_Tx)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01286}{1286}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+
+\Hypertarget{VLE_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{VLE_8hpp_a3e0ee787dc4704f51dcecb65616b234f} 
+\index{VLE.hpp@{VLE.hpp}!X@{X}}
+\index{X@{X}!VLE.hpp@{VLE.hpp}}
+\doxysubsubsection{\texorpdfstring{X}{X}}
+{\footnotesize\ttfamily \#define X(\begin{DoxyParamCaption}\item[{}]{f }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TemplatedModel,\ \textcolor{keyword}{typename}\ ...Params,\ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<not\ std::is\_base\_of<teqp::cppinterface::AbstractModel,\ TemplatedModel>::value>::type>\ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ f(\textcolor{keyword}{const}\ TemplatedModel\&\ model,\ Params\&\&...\ params)\{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a39a57d164c9ab5bc08627135ad8f7930}{view}}\ =\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a2547bd09dd15d77df96d24ffe436dd91}{teqp::cppinterface::adapter::make\_cview}}(model);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{AbstractModel}}\&\ am\ =\ *\mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a39a57d164c9ab5bc08627135ad8f7930}{view}}.get();\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ f(am,\ std::forward<Params>(params)...);\ \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{VLE_8hpp_source_l01298}{1298}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
+

@@ -1,0 +1,80 @@
+\doxysection{teqp\+::PCSAFT\+::PCSAFTLibrary Class Reference}
+\hypertarget{classteqp_1_1PCSAFT_1_1PCSAFTLibrary}{}\label{classteqp_1_1PCSAFT_1_1PCSAFTLibrary}\index{teqp::PCSAFT::PCSAFTLibrary@{teqp::PCSAFT::PCSAFTLibrary}}
+
+
+Manager class for \doxylink{namespaceteqp_1_1PCSAFT}{PCSAFT} coefficients.  
+
+
+
+
+{\ttfamily \#include $<$pcsaft.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1PCSAFT_1_1PCSAFTLibrary_a5a4ea66b831d36aab849003ac67e7de8}{PCSAFTLibrary}} ()
+\item 
+void \mbox{\hyperlink{classteqp_1_1PCSAFT_1_1PCSAFTLibrary_a5881f61d5c2a221638040fd0e28b76f8}{insert\+\_\+normal\+\_\+fluid}} (const std\+::string \&name, double m, const double sigma\+\_\+\+Angstrom, const double epsilon\+\_\+over\+\_\+k, const std\+::string \&Bib\+Te\+XKey)
+\item 
+const auto \& \mbox{\hyperlink{classteqp_1_1PCSAFT_1_1PCSAFTLibrary_a6ca72f62792a6f06b4d396c9dbb02172}{get\+\_\+normal\+\_\+fluid}} (const std\+::string \&name)
+\item 
+auto \mbox{\hyperlink{classteqp_1_1PCSAFT_1_1PCSAFTLibrary_a747a2d68aabb5edf09fbc2d027a091ec}{get\+\_\+coeffs}} (const std\+::vector$<$ std\+::string $>$ \&names)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manager class for \doxylink{namespaceteqp_1_1PCSAFT}{PCSAFT} coefficients. 
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1PCSAFT_1_1PCSAFTLibrary_a5a4ea66b831d36aab849003ac67e7de8}\label{classteqp_1_1PCSAFT_1_1PCSAFTLibrary_a5a4ea66b831d36aab849003ac67e7de8} 
+\index{teqp::PCSAFT::PCSAFTLibrary@{teqp::PCSAFT::PCSAFTLibrary}!PCSAFTLibrary@{PCSAFTLibrary}}
+\index{PCSAFTLibrary@{PCSAFTLibrary}!teqp::PCSAFT::PCSAFTLibrary@{teqp::PCSAFT::PCSAFTLibrary}}
+\doxysubsubsection{\texorpdfstring{PCSAFTLibrary()}{PCSAFTLibrary()}}
+{\footnotesize\ttfamily teqp\+::\+PCSAFT\+::\+PCSAFTLibrary\+::\+PCSAFTLibrary (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1PCSAFT_1_1PCSAFTLibrary_a747a2d68aabb5edf09fbc2d027a091ec}\label{classteqp_1_1PCSAFT_1_1PCSAFTLibrary_a747a2d68aabb5edf09fbc2d027a091ec} 
+\index{teqp::PCSAFT::PCSAFTLibrary@{teqp::PCSAFT::PCSAFTLibrary}!get\_coeffs@{get\_coeffs}}
+\index{get\_coeffs@{get\_coeffs}!teqp::PCSAFT::PCSAFTLibrary@{teqp::PCSAFT::PCSAFTLibrary}}
+\doxysubsubsection{\texorpdfstring{get\_coeffs()}{get\_coeffs()}}
+{\footnotesize\ttfamily auto teqp\+::\+PCSAFT\+::\+PCSAFTLibrary\+::get\+\_\+coeffs (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{names }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1PCSAFT_1_1PCSAFTLibrary_a6ca72f62792a6f06b4d396c9dbb02172}\label{classteqp_1_1PCSAFT_1_1PCSAFTLibrary_a6ca72f62792a6f06b4d396c9dbb02172} 
+\index{teqp::PCSAFT::PCSAFTLibrary@{teqp::PCSAFT::PCSAFTLibrary}!get\_normal\_fluid@{get\_normal\_fluid}}
+\index{get\_normal\_fluid@{get\_normal\_fluid}!teqp::PCSAFT::PCSAFTLibrary@{teqp::PCSAFT::PCSAFTLibrary}}
+\doxysubsubsection{\texorpdfstring{get\_normal\_fluid()}{get\_normal\_fluid()}}
+{\footnotesize\ttfamily const auto \& teqp\+::\+PCSAFT\+::\+PCSAFTLibrary\+::get\+\_\+normal\+\_\+fluid (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1PCSAFT_1_1PCSAFTLibrary_a5881f61d5c2a221638040fd0e28b76f8}\label{classteqp_1_1PCSAFT_1_1PCSAFTLibrary_a5881f61d5c2a221638040fd0e28b76f8} 
+\index{teqp::PCSAFT::PCSAFTLibrary@{teqp::PCSAFT::PCSAFTLibrary}!insert\_normal\_fluid@{insert\_normal\_fluid}}
+\index{insert\_normal\_fluid@{insert\_normal\_fluid}!teqp::PCSAFT::PCSAFTLibrary@{teqp::PCSAFT::PCSAFTLibrary}}
+\doxysubsubsection{\texorpdfstring{insert\_normal\_fluid()}{insert\_normal\_fluid()}}
+{\footnotesize\ttfamily void teqp\+::\+PCSAFT\+::\+PCSAFTLibrary\+::insert\+\_\+normal\+\_\+fluid (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{double}]{m,  }\item[{const double}]{sigma\+\_\+\+Angstrom,  }\item[{const double}]{epsilon\+\_\+over\+\_\+k,  }\item[{const std\+::string \&}]{Bib\+Te\+XKey }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\mbox{\hyperlink{pcsaft_8hpp}{pcsaft.\+hpp}}\end{DoxyCompactItemize}

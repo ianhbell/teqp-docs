@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SAFT-VR-Mie with polar contributions &#8212; teqp 0.19.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Association" href="Association.html" />
+    <link rel="prev" title="SAFT-VR-Mie" href="SAFT-VR-Mie.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="SAFT-VR-Mie-with-polar-contributions">
+<h1>SAFT-VR-Mie with polar contributions<a class="headerlink" href="#SAFT-VR-Mie-with-polar-contributions" title="Link to this heading">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">teqp</span>
+<span class="n">teqp</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.19.1&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ek</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># [K]</span>
+<span class="n">sigma_m</span> <span class="o">=</span> <span class="mf">3e-10</span>
+
+<span class="n">N_A</span> <span class="o">=</span> <span class="mf">6.022e23</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># # From https://arxiv.org/pdf/mtrl-th/9501001.pdf which pulled from M. van Leeuwen and B. Smit, Phys. Rev. Lett. 71, 3991 (1993)</span>
+<span class="c1"># These data need to be rescaled according to Hentschke et al. (DOI: https://doi.org/10.1103/physreve.75.011506)</span>
+<span class="c1"># mustar2 = [2.5, 3.0, 3.5, 4.0]</span>
+<span class="c1"># T = [2.63, 3.35, 4.20, 5.07]</span>
+<span class="c1"># rho = [0.29, 0.25, 0.24, 0.24]</span>
+<span class="c1"># ax1.plot(mustar2, T, &#39;d&#39;)</span>
+<span class="c1"># ax2.plot(mustar2, rho, &#39;d&#39;)</span>
+
+<span class="c1"># Comparing with Hentschke, DOI: https://doi.org/10.1103/physreve.75.011506</span>
+<span class="n">mustar2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">T</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.41</span><span class="p">,</span> <span class="mf">1.60</span><span class="p">,</span> <span class="mf">1.82</span><span class="p">,</span> <span class="mf">2.06</span><span class="p">]</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.30</span><span class="p">,</span> <span class="mf">0.31</span><span class="p">,</span> <span class="mf">0.312</span><span class="p">,</span> <span class="mf">0.289</span><span class="p">]</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mustar2</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mustar2</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+<span class="n">kB</span> <span class="o">=</span> <span class="mf">1.380649e-23</span> <span class="c1"># Boltzmann&#39;s constant, J/K</span>
+<span class="n">epsilon_0</span> <span class="o">=</span> <span class="mf">8.8541878128e-12</span> <span class="c1"># Vacuum permittivity</span>
+
+<span class="k">for</span> <span class="n">polar_model</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;GrossVrabec&#39;</span><span class="p">,</span><span class="s1">&#39;GubbinsTwu+GubbinsTwu&#39;</span><span class="p">,</span><span class="s1">&#39;GubbinsTwu+Luckas&#39;</span><span class="p">]:</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">TT</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">DD</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">rhostar_guess</span> <span class="o">=</span> <span class="mf">0.27</span>
+    <span class="n">Tstar_guess</span> <span class="o">=</span> <span class="mf">1.5</span>
+    <span class="k">for</span> <span class="n">mustar2</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">):</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+        <span class="n">mu2_C2m2</span> <span class="o">=</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">epsilon_0</span><span class="o">*</span><span class="n">sigma_m</span><span class="o">**</span><span class="mi">3</span><span class="o">*</span><span class="n">ek</span><span class="o">*</span><span class="n">kB</span><span class="o">*</span><span class="n">mustar2</span>
+        <span class="n">mu_Cm</span> <span class="o">=</span> <span class="n">mu2_C2m2</span><span class="o">**</span><span class="mf">0.5</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s1">&#39;SAFT-VR-Mie&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;polar_model&quot;</span><span class="p">:</span> <span class="n">polar_model</span><span class="p">,</span>
+                <span class="s2">&quot;coeffs&quot;</span><span class="p">:</span> <span class="p">[{</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Stockmayer&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;BibTeXKey&quot;</span><span class="p">:</span> <span class="s2">&quot;me&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+                    <span class="s2">&quot;epsilon_over_k&quot;</span><span class="p">:</span> <span class="n">ek</span><span class="p">,</span> <span class="c1"># [K]</span>
+                    <span class="s2">&quot;sigma_m&quot;</span><span class="p">:</span> <span class="n">sigma_m</span><span class="p">,</span>
+                    <span class="s2">&quot;lambda_r&quot;</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span>
+                    <span class="s2">&quot;lambda_a&quot;</span><span class="p">:</span> <span class="mf">6.0</span><span class="p">,</span>
+                    <span class="s2">&quot;mu_Cm&quot;</span><span class="p">:</span> <span class="n">mu_Cm</span><span class="p">,</span>
+                    <span class="s2">&quot;nmu&quot;</span><span class="p">:</span> <span class="mf">1.0</span>
+                <span class="p">}]</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+
+        <span class="n">T</span><span class="p">,</span> <span class="n">rho</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">solve_pure_critical</span><span class="p">(</span><span class="n">Tstar_guess</span><span class="o">*</span><span class="n">ek</span><span class="p">,</span> <span class="n">rhostar_guess</span><span class="o">/</span><span class="p">(</span><span class="n">N_A</span><span class="o">*</span><span class="n">sigma_m</span><span class="o">**</span><span class="mi">3</span><span class="p">))</span>
+        <span class="c1"># Store the values</span>
+        <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mustar2</span><span class="p">)</span>
+        <span class="n">TT</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">ek</span><span class="p">)</span>
+        <span class="n">DD</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rho</span><span class="o">*</span><span class="n">N_A</span><span class="o">*</span><span class="n">sigma_m</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+        <span class="c1"># Update the guess for the next calculation</span>
+        <span class="n">Tstar_guess</span> <span class="o">=</span> <span class="n">TT</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">rhostar_guess</span> <span class="o">=</span> <span class="n">DD</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">TT</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">polar_model</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">DD</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$T^*$&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\rho^*$&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$(\mu^*)^2$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/models_SAFT-VR-Mie-Polar_3_0.png" src="../_images/models_SAFT-VR-Mie-Polar_3_0.png" />
+</div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Models</a><ul>
+      <li>Previous: <a href="SAFT-VR-Mie.html" title="previous chapter">SAFT-VR-Mie</a></li>
+      <li>Next: <a href="Association.html" title="next chapter">Association</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/SAFT-VR-Mie-Polar.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/SAFT-VR-Mie-Polar.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>
