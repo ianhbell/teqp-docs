@@ -1,14 +1,20 @@
 var searchData=
 [
   ['parametercontainer_0',['ParameterContainer',['../classteqp_1_1twocenterljf_1_1ParameterContainer.html',1,'teqp::twocenterljf']]],
-  ['pcsafthardchaincontribution_1',['PCSAFTHardChainContribution',['../classteqp_1_1PCSAFT_1_1PCSAFTHardChainContribution.html',1,'teqp::PCSAFT']]],
-  ['pcsaftlibrary_2',['PCSAFTLibrary',['../classteqp_1_1PCSAFT_1_1PCSAFTLibrary.html',1,'teqp::PCSAFT']]],
-  ['pcsaftmixture_3',['PCSAFTMixture',['../classteqp_1_1PCSAFT_1_1PCSAFTMixture.html',1,'teqp::PCSAFT']]],
-  ['polarizablearrays_4',['PolarizableArrays',['../structteqp_1_1SAFTpolar_1_1PolarizableArrays.html',1,'teqp::SAFTpolar']]],
-  ['powereosterm_5',['PowerEOSTerm',['../classteqp_1_1PowerEOSTerm.html',1,'teqp']]],
-  ['psi1derivs_6',['psi1derivs',['../structteqp_1_1CriticalTracing_1_1psi1derivs.html',1,'teqp::CriticalTracing']]],
-  ['purecoeffs_7',['PureCoeffs',['../structteqp_1_1GERGGeneral_1_1PureCoeffs.html',1,'teqp::GERGGeneral']]],
-  ['pureidealhelmholtz_8',['PureIdealHelmholtz',['../classteqp_1_1PureIdealHelmholtz.html',1,'teqp']]],
-  ['pureinfo_9',['PureInfo',['../structteqp_1_1GERGGeneral_1_1PureInfo.html',1,'teqp::GERGGeneral']]],
-  ['pvleoptions_10',['PVLEOptions',['../structteqp_1_1PVLEOptions.html',1,'teqp']]]
+  ['pcsaftgrosssadowski2001term_1',['PCSAFTGrossSadowski2001Term',['../classteqp_1_1PCSAFTGrossSadowski2001Term.html',1,'teqp']]],
+  ['pcsafthardchaincontribution_2',['PCSAFTHardChainContribution',['../classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution.html',1,'teqp::saft::pcsaft']]],
+  ['pcsaftlibrary_3',['PCSAFTLibrary',['../classteqp_1_1saft_1_1pcsaft_1_1PCSAFTLibrary.html',1,'teqp::saft::pcsaft']]],
+  ['pcsaftmixture_4',['PCSAFTMixture',['../classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture.html',1,'teqp::saft::pcsaft']]],
+  ['pcsaftpuregrosssadowski2001_5',['PCSAFTPureGrossSadowski2001',['../classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001.html',1,'teqp::saft::PCSAFT']]],
+  ['polarizablearrays_6',['PolarizableArrays',['../structteqp_1_1SAFTpolar_1_1PolarizableArrays.html',1,'teqp::SAFTpolar']]],
+  ['powereosterm_7',['PowerEOSTerm',['../classteqp_1_1PowerEOSTerm.html',1,'teqp']]],
+  ['powereostermcoeffs_8',['PowerEOSTermCoeffs',['../structteqp_1_1PowerEOSTerm_1_1PowerEOSTermCoeffs.html',1,'teqp::PowerEOSTerm']]],
+  ['psi1derivs_9',['psi1derivs',['../structteqp_1_1CriticalTracing_1_1psi1derivs.html',1,'teqp::CriticalTracing']]],
+  ['pspecification_10',['PSpecification',['../structteqp_1_1algorithms_1_1phase__equil_1_1PSpecification.html',1,'teqp::algorithms::phase_equil']]],
+  ['purecoeffs_11',['PureCoeffs',['../structteqp_1_1GERGGeneral_1_1PureCoeffs.html',1,'teqp::GERGGeneral']]],
+  ['pureidealhelmholtz_12',['PureIdealHelmholtz',['../classteqp_1_1PureIdealHelmholtz.html',1,'teqp']]],
+  ['pureinfo_13',['PureInfo',['../structteqp_1_1GERGGeneral_1_1PureInfo.html',1,'teqp::GERGGeneral']]],
+  ['pureparameteroptimizer_14',['PureParameterOptimizer',['../classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer.html',1,'teqp::algorithms::pure_param_optimization']]],
+  ['pvleoptions_15',['PVLEOptions',['../structteqp_1_1PVLEOptions.html',1,'teqp']]],
+  ['pvtnoniterativepoint_16',['PVTNoniterativePoint',['../structteqp_1_1algorithms_1_1pure__param__optimization_1_1PVTNoniterativePoint.html',1,'teqp::algorithms::pure_param_optimization']]]
 ];

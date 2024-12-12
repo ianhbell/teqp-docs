@@ -1,12 +1,17 @@
 \doxysection{include/teqp/models/multifluid\+\_\+eosterms.hpp File Reference}
 \hypertarget{multifluid__eosterms_8hpp}{}\label{multifluid__eosterms_8hpp}\index{include/teqp/models/multifluid\_eosterms.hpp@{include/teqp/models/multifluid\_eosterms.hpp}}
 {\ttfamily \#include "{}teqp/types.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/exceptions.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/models/cubics.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/models/saft/pcsaftpure.\+hpp"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classteqp_1_1JustPowerEOSTerm}{teqp\+::\+Just\+Power\+EOSTerm}}
 \item 
 class \mbox{\hyperlink{classteqp_1_1PowerEOSTerm}{teqp\+::\+Power\+EOSTerm}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1PowerEOSTerm_1_1PowerEOSTermCoeffs}{teqp\+::\+Power\+EOSTerm\+::\+Power\+EOSTerm\+Coeffs}}
 \item 
 class \mbox{\hyperlink{classteqp_1_1ExponentialEOSTerm}{teqp\+::\+Exponential\+EOSTerm}}
 \item 
@@ -26,6 +31,10 @@ class \mbox{\hyperlink{classteqp_1_1NullEOSTerm}{teqp\+::\+Null\+EOSTerm}}
 \item 
 class \mbox{\hyperlink{classteqp_1_1NonAnalyticEOSTerm}{teqp\+::\+Non\+Analytic\+EOSTerm}}
 \item 
+class \mbox{\hyperlink{classteqp_1_1GenericCubicTerm}{teqp\+::\+Generic\+Cubic\+Term}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1PCSAFTGrossSadowski2001Term}{teqp\+::\+PCSAFTGross\+Sadowski2001\+Term}}
+\item 
 class \mbox{\hyperlink{classteqp_1_1EOSTermContainer}{teqp\+::\+EOSTerm\+Container$<$ Args $>$}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
@@ -36,7 +45,7 @@ namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-using \mbox{\hyperlink{namespaceteqp_a938309ff9743af397eb5c97bbacee8c0}{teqp\+::\+EOSTerms}} = \mbox{\hyperlink{classteqp_1_1EOSTermContainer}{EOSTerm\+Container}}$<$\mbox{\hyperlink{classteqp_1_1JustPowerEOSTerm}{Just\+Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1PowerEOSTerm}{Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaussianEOSTerm}{Gaussian\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1NonAnalyticEOSTerm}{Non\+Analytic\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1Lemmon2005EOSTerm}{Lemmon2005\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaoBEOSTerm}{Gao\+BEOSTerm}}, \mbox{\hyperlink{classteqp_1_1ExponentialEOSTerm}{Exponential\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1DoubleExponentialEOSTerm}{Double\+Exponential\+EOSTerm}}$>$
+using \mbox{\hyperlink{namespaceteqp_a68accf9639ff5789ac89c9dace45e49e}{teqp\+::\+EOSTerms}} = \mbox{\hyperlink{classteqp_1_1EOSTermContainer}{EOSTerm\+Container}}$<$\mbox{\hyperlink{classteqp_1_1JustPowerEOSTerm}{Just\+Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1PowerEOSTerm}{Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaussianEOSTerm}{Gaussian\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1NonAnalyticEOSTerm}{Non\+Analytic\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1Lemmon2005EOSTerm}{Lemmon2005\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaoBEOSTerm}{Gao\+BEOSTerm}}, \mbox{\hyperlink{classteqp_1_1ExponentialEOSTerm}{Exponential\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1DoubleExponentialEOSTerm}{Double\+Exponential\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GenericCubicTerm}{Generic\+Cubic\+Term}}, \mbox{\hyperlink{classteqp_1_1PCSAFTGrossSadowski2001Term}{PCSAFTGross\+Sadowski2001\+Term}}$>$
 \item 
 using \mbox{\hyperlink{namespaceteqp_a77d3d89dc9371516d36e225ae15f7626}{teqp\+::\+Departure\+Terms}} = \mbox{\hyperlink{classteqp_1_1EOSTermContainer}{EOSTerm\+Container}}$<$\mbox{\hyperlink{classteqp_1_1JustPowerEOSTerm}{Just\+Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1PowerEOSTerm}{Power\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GaussianEOSTerm}{Gaussian\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1GERG2004EOSTerm}{GERG2004\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1NullEOSTerm}{Null\+EOSTerm}}, \mbox{\hyperlink{classteqp_1_1DoubleExponentialEOSTerm}{Double\+Exponential\+EOSTerm}},\mbox{\hyperlink{classteqp_1_1Chebyshev2DEOSTerm}{Chebyshev2\+DEOSTerm}}$>$
 \end{DoxyCompactItemize}

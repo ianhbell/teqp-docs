@@ -20,11 +20,14 @@ Models
    SAFT-VR-Mie
    SAFT-VR-Mie-Polar
    Association
+   Check_Dufal_water
    
    multifluid
    multifluid_mutant
    REFPROP_conversion
    GERG
    ECS
+   MultifluidPlusAssociation
+   MultifluidPlusAC
    
    IdealGas

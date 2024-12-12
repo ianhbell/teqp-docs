@@ -8,6 +8,8 @@
 \begin{DoxyCompactItemize}
 \item 
 std\+::set$<$ std\+::size\+\_\+t $>$ \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_acedbe8c41cb13b722e5e087e65d0572c}{sizes}} ()
+\item 
+auto \mbox{\hyperlink{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_a3030d12c5c1e70940bbebe5f72ef310d}{recalc\+\_\+integration\+\_\+constants}} (double T, double Tci, double rho, double rhoci, double Rstar\+\_\+R)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -26,11 +28,34 @@ Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00036}{36}} of file \mbox{
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_acedbe8c41cb13b722e5e087e65d0572c}\label{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_acedbe8c41cb13b722e5e087e65d0572c} 
-\index{teqp::GERGGeneral::AlphaigCoeffs@{teqp::GERGGeneral::AlphaigCoeffs}!sizes@{sizes}}
+\Hypertarget{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_a3030d12c5c1e70940bbebe5f72ef310d}\index{teqp::GERGGeneral::AlphaigCoeffs@{teqp::GERGGeneral::AlphaigCoeffs}!recalc\_integration\_constants@{recalc\_integration\_constants}}
+\index{recalc\_integration\_constants@{recalc\_integration\_constants}!teqp::GERGGeneral::AlphaigCoeffs@{teqp::GERGGeneral::AlphaigCoeffs}}
+\doxysubsubsection{\texorpdfstring{recalc\_integration\_constants()}{recalc\_integration\_constants()}}
+{\footnotesize\ttfamily \label{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_a3030d12c5c1e70940bbebe5f72ef310d} 
+auto teqp\+::\+GERGGeneral\+::\+Alphaig\+Coeffs\+::recalc\+\_\+integration\+\_\+constants (\begin{DoxyParamCaption}\item[{double}]{T}{, }\item[{double}]{Tci}{, }\item[{double}]{rho}{, }\item[{double}]{rhoci}{, }\item[{double}]{Rstar\+\_\+R}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Solve the 2x2 system of equations to yield the integration constants matching h0(298.\+15 K, 101.\+325 k\+Pa) = 0 and s0(298.\+15 K, 101.\+325 k\+Pa) = 0 h = 0, so h/(R\texorpdfstring{$\ast$}{*}T) = 0 and Aig10 = -\/1 
+\begin{DoxyParams}{Parameters}
+{\em T} & Reference temperature, K \\
+\hline
+{\em Tci} & Critical temperature of the component, K \\
+\hline
+{\em rho} & Molar density at the reference state, mol/m\texorpdfstring{$^\wedge$}{\string^}3 \\
+\hline
+{\em rhoci} & Molar density at teh critical point, mol/m\texorpdfstring{$^\wedge$}{\string^}3 \\
+\hline
+{\em Rstar\+\_\+R} & ratio of $R^* / R $ \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
+
+\Hypertarget{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_acedbe8c41cb13b722e5e087e65d0572c}\index{teqp::GERGGeneral::AlphaigCoeffs@{teqp::GERGGeneral::AlphaigCoeffs}!sizes@{sizes}}
 \index{sizes@{sizes}!teqp::GERGGeneral::AlphaigCoeffs@{teqp::GERGGeneral::AlphaigCoeffs}}
 \doxysubsubsection{\texorpdfstring{sizes()}{sizes()}}
-{\footnotesize\ttfamily std\+::set$<$ std\+::size\+\_\+t $>$ teqp\+::\+GERGGeneral\+::\+Alphaig\+Coeffs\+::sizes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_acedbe8c41cb13b722e5e087e65d0572c} 
+std\+::set$<$ std\+::size\+\_\+t $>$ teqp\+::\+GERGGeneral\+::\+Alphaig\+Coeffs\+::sizes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -39,21 +64,21 @@ Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00038}{38}} of file \mbox{
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_ae86970e597365c70b3ca0039a2493ea3}\label{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_ae86970e597365c70b3ca0039a2493ea3} 
-\index{teqp::GERGGeneral::AlphaigCoeffs@{teqp::GERGGeneral::AlphaigCoeffs}!n0@{n0}}
+\Hypertarget{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_ae86970e597365c70b3ca0039a2493ea3}\index{teqp::GERGGeneral::AlphaigCoeffs@{teqp::GERGGeneral::AlphaigCoeffs}!n0@{n0}}
 \index{n0@{n0}!teqp::GERGGeneral::AlphaigCoeffs@{teqp::GERGGeneral::AlphaigCoeffs}}
 \doxysubsubsection{\texorpdfstring{n0}{n0}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ teqp\+::\+GERGGeneral\+::\+Alphaig\+Coeffs\+::n0}
+{\footnotesize\ttfamily \label{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_ae86970e597365c70b3ca0039a2493ea3} 
+std\+::vector$<$double$>$ teqp\+::\+GERGGeneral\+::\+Alphaig\+Coeffs\+::n0}
 
 
 
 Definition at line \mbox{\hyperlink{GERG_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{GERG_8hpp_source}{GERG.\+hpp}}.
 
-\Hypertarget{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_a314d25421aa0984e7e246a0ae75c32f7}\label{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_a314d25421aa0984e7e246a0ae75c32f7} 
-\index{teqp::GERGGeneral::AlphaigCoeffs@{teqp::GERGGeneral::AlphaigCoeffs}!theta0@{theta0}}
+\Hypertarget{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_a314d25421aa0984e7e246a0ae75c32f7}\index{teqp::GERGGeneral::AlphaigCoeffs@{teqp::GERGGeneral::AlphaigCoeffs}!theta0@{theta0}}
 \index{theta0@{theta0}!teqp::GERGGeneral::AlphaigCoeffs@{teqp::GERGGeneral::AlphaigCoeffs}}
 \doxysubsubsection{\texorpdfstring{theta0}{theta0}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ teqp\+::\+GERGGeneral\+::\+Alphaig\+Coeffs\+::theta0}
+{\footnotesize\ttfamily \label{structteqp_1_1GERGGeneral_1_1AlphaigCoeffs_a314d25421aa0984e7e246a0ae75c32f7} 
+std\+::vector$<$double$>$ teqp\+::\+GERGGeneral\+::\+Alphaig\+Coeffs\+::theta0}
 
 
 

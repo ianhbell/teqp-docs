@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>VLLE &#8212; teqp 0.19.1 documentation</title>
+    <title>VLLE &#8212; teqp 0.22.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
     <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
-    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../_static/documentation_options.js?v=5686f5df"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -47,7 +47,7 @@
 <p>Following the approach described in Bell et al.: <a class="reference external" href="https://doi.org/10.1021/acs.iecr.1c04703">https://doi.org/10.1021/acs.iecr.1c04703</a></p>
 <p>for the mixture of nitrogen + ethane, with the default thermodynamic model in teqp, which is the GERG-2008 mixing parameters (no departure function).</p>
 <p>Two traces are made, and the intersection is obtained, this gives you the VLLE solution.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -74,8 +74,14 @@
         <span class="n">j</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">trace_VLE_isotherm_binary</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhovecL</span><span class="p">,</span> <span class="n">rhovecV</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
         <span class="n">traces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">model</span><span class="p">,</span> <span class="n">traces</span>
-
-<span class="n">T</span> <span class="o">=</span> <span class="mf">120.3420</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="mf">120.3420</span>
 <span class="n">model</span><span class="p">,</span> <span class="n">traces</span> <span class="o">=</span> <span class="n">get_traces</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">ipures</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">traces</span><span class="p">:</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
@@ -112,55 +118,70 @@
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 rhovec / mol/m^3 | p / Pa
-[3.66984834e+03 3.25893958e+00] 2321103.087319132
-[19890.16767481  1698.86505766] 2321103.087318946
-[ 5641.24690517 16140.85769908] 2321103.0873195715
+[3.66984834e+03 3.25893958e+00] 2321103.0873191245
+[19890.16767481  1698.86505766] 2321103.0873192116
+[ 5641.24690517 16140.85769908] 2321103.087318882
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/algorithms_VLLE_1_1.png" src="../_images/algorithms_VLLE_1_1.png" />
+<img alt="../_images/algorithms_VLLE_2_1.png" src="../_images/algorithms_VLLE_2_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Trace from both pure fluid endpoints</span>
-<span class="n">T</span> <span class="o">=</span> <span class="mi">113</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="mf">113.0</span>
 <span class="n">model</span><span class="p">,</span> <span class="n">traces</span> <span class="o">=</span> <span class="n">get_traces</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">ipures</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># Find the VLLE solution for the starting temperature</span>
 <span class="n">solns</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">find_VLLE_T_binary</span><span class="p">(</span><span class="n">traces</span><span class="p">)</span>
 <span class="n">rhovecV</span><span class="p">,</span> <span class="n">rhovecL1</span><span class="p">,</span> <span class="n">rhovecL2</span> <span class="o">=</span> <span class="n">solns</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;polished&#39;</span><span class="p">]</span>
 
-<span class="c1"># Obtain the VLLE trace towards higher temperatures</span>
-<span class="n">opt</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">VLLETracerOptions</span><span class="p">()</span>
-<span class="n">a</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">VLLE</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">trace_VLLE_binary</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a</span><span class="p">(</span><span class="n">rhovecV</span><span class="p">),</span> <span class="n">a</span><span class="p">(</span><span class="n">rhovecL1</span><span class="p">),</span> <span class="n">a</span><span class="p">(</span><span class="n">rhovecL2</span><span class="p">),</span> <span class="n">opt</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">VLLE</span><span class="p">)</span>
+<span class="c1"># Trace towards lower and higher temperatures</span>
+<span class="k">for</span> <span class="n">init_dT</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">1.0e-3</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0e-3</span><span class="p">]:</span>
 
-<span class="c1"># Add the pressure to the DataFrame</span>
-<span class="k">def</span> <span class="nf">add_ps</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-    <span class="n">T</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;T / K&#39;</span><span class="p">]</span>
-    <span class="n">rhovec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
-    <span class="n">rhotot</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">rhovec</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">rhovec</span><span class="o">/</span><span class="n">rhotot</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">rhotot</span><span class="o">*</span><span class="n">model</span><span class="o">.</span><span class="n">get_R</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">T</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar01</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhotot</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">p</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;p / Pa&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">add_ps</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;rhoV / mol/m^3&#39;</span><span class="p">)</span>
+    <span class="n">opt</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">VLLETracerOptions</span><span class="p">()</span>
+    <span class="n">opt</span><span class="o">.</span><span class="n">init_dT</span> <span class="o">=</span> <span class="n">init_dT</span>
+    <span class="n">opt</span><span class="o">.</span><span class="n">T_limit</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">init_dT</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">10000</span>
+    <span class="n">opt</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">VLLE</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">trace_VLLE_binary</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a</span><span class="p">(</span><span class="n">rhovecV</span><span class="p">),</span> <span class="n">a</span><span class="p">(</span><span class="n">rhovecL1</span><span class="p">),</span> <span class="n">a</span><span class="p">(</span><span class="n">rhovecL2</span><span class="p">),</span> <span class="n">opt</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">VLLE</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;No results&#39;</span><span class="p">)</span>
 
-<span class="c1"># Plot the p-T curve</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;T / K&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;p / Pa&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$T$ / K&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;$p$ / Pa&#39;</span><span class="p">);</span>
+    <span class="c1"># Add the pressure to the DataFrame</span>
+    <span class="k">def</span> <span class="nf">add_ps</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;T / K&#39;</span><span class="p">]</span>
+        <span class="n">rhovec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="n">rhotot</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">rhovec</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">rhovec</span><span class="o">/</span><span class="n">rhotot</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">rhotot</span><span class="o">*</span><span class="n">model</span><span class="o">.</span><span class="n">get_R</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">T</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar01</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhotot</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">p</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;p / Pa&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">add_ps</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;rhoV / mol/m^3&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Plot the p-T curve</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;T / K&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;p / Pa&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$T$ / K&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;$p$ / Pa&#39;</span><span class="p">,</span> <span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Nitrogen + ethane VLLE curve&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Calculated pressure is not finite
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -172,7 +193,7 @@ Text(0.5, 1.0, &#39;Nitrogen + ethane VLLE curve&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/algorithms_VLLE_2_1.png" src="../_images/algorithms_VLLE_2_1.png" />
+<img alt="../_images/algorithms_VLLE_3_2.png" src="../_images/algorithms_VLLE_3_2.png" />
 </div>
 </div>
 </section>

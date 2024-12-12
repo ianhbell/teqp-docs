@@ -1,0 +1,104 @@
+\doxysection{teqp\+::saft\+::polar\+\_\+terms\+::Gross\+Vrabec\+::Dipolar\+Contribution\+Gross\+Vrabec Class Reference}
+\hypertarget{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec}{}\label{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec}\index{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec}}
+
+
+{\ttfamily \#include $<$Gross\+Vrabec.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec_a726b42e5bca3647812b24aac2df9bfb3}{Dipolar\+Contribution\+Gross\+Vrabec}} (const Eigen\+::\+ArrayX$<$ double $>$ \&m, const Eigen\+::\+ArrayX$<$ double $>$ \&sigma\+\_\+\+Angstrom, const Eigen\+::\+ArrayX$<$ double $>$ \&epsilon\+\_\+over\+\_\+k, const Eigen\+::\+ArrayX$<$ double $>$ \&mustar2, const Eigen\+::\+ArrayX$<$ double $>$ \&nmu)
+\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Eta\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec_a077ee0637e8bf8581fc2a2d8d2d6dda1}{get\+\_\+alpha2\+DD}} (const TTYPE \&T, const Rho\+Type \&rho\+N\+\_\+\+A3, const Eta\+Type \&eta, const Vec\+Type \&mole\+\_\+fractions) const
+\begin{DoxyCompactList}\small\item\em Eq. 8 from Gross and Vrabec. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Eta\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec_a6450b7cb18d26428304f5b8cc4c78e15}{get\+\_\+alpha3\+DD}} (const TTYPE \&T, const Rho\+Type \&rho\+N\+\_\+\+A3, const Eta\+Type \&eta, const Vec\+Type \&mole\+\_\+fractions) const
+\begin{DoxyCompactList}\small\item\em Eq. 9 from Gross and Vrabec. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Eta\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec_a26de07f5d215b13869f702d4ca9e566c}{eval}} (const TTYPE \&T, const Rho\+Type \&rho\+\_\+\+A3, const Eta\+Type \&eta, const Vec\+Type \&mole\+\_\+fractions) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const bool \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec_a94a57a93ebbeaae5ffcf4ea0a38df2ee}{has\+\_\+a\+\_\+polar}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{GrossVrabec_8hpp_source_l00113}{113}} of file \mbox{\hyperlink{GrossVrabec_8hpp_source}{Gross\+Vrabec.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec_a726b42e5bca3647812b24aac2df9bfb3}\index{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec}!DipolarContributionGrossVrabec@{DipolarContributionGrossVrabec}}
+\index{DipolarContributionGrossVrabec@{DipolarContributionGrossVrabec}!teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec}}
+\doxysubsubsection{\texorpdfstring{DipolarContributionGrossVrabec()}{DipolarContributionGrossVrabec()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec_a726b42e5bca3647812b24aac2df9bfb3} 
+teqp\+::saft\+::polar\+\_\+terms\+::\+Gross\+Vrabec\+::\+Dipolar\+Contribution\+Gross\+Vrabec\+::\+Dipolar\+Contribution\+Gross\+Vrabec (\begin{DoxyParamCaption}\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{m}{, }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{sigma\+\_\+\+Angstrom}{, }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{epsilon\+\_\+over\+\_\+k}{, }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{mustar2}{, }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{nmu}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GrossVrabec_8hpp_source_l00118}{118}} of file \mbox{\hyperlink{GrossVrabec_8hpp_source}{Gross\+Vrabec.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec_a26de07f5d215b13869f702d4ca9e566c}\index{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec}!eval@{eval}}
+\index{eval@{eval}!teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec_a26de07f5d215b13869f702d4ca9e566c} 
+template$<$typename TTYPE , typename Rho\+Type , typename Eta\+Type , typename Vec\+Type $>$ \\
+auto teqp\+::saft\+::polar\+\_\+terms\+::\+Gross\+Vrabec\+::\+Dipolar\+Contribution\+Gross\+Vrabec\+::eval (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T}{, }\item[{const Rho\+Type \&}]{rho\+\_\+\+A3}{, }\item[{const Eta\+Type \&}]{eta}{, }\item[{const Vec\+Type \&}]{mole\+\_\+fractions}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GrossVrabec_8hpp_source_l00182}{182}} of file \mbox{\hyperlink{GrossVrabec_8hpp_source}{Gross\+Vrabec.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec_a077ee0637e8bf8581fc2a2d8d2d6dda1}\index{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec}!get\_alpha2DD@{get\_alpha2DD}}
+\index{get\_alpha2DD@{get\_alpha2DD}!teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec}}
+\doxysubsubsection{\texorpdfstring{get\_alpha2DD()}{get\_alpha2DD()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec_a077ee0637e8bf8581fc2a2d8d2d6dda1} 
+template$<$typename TTYPE , typename Rho\+Type , typename Eta\+Type , typename Vec\+Type $>$ \\
+auto teqp\+::saft\+::polar\+\_\+terms\+::\+Gross\+Vrabec\+::\+Dipolar\+Contribution\+Gross\+Vrabec\+::get\+\_\+alpha2\+DD (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T}{, }\item[{const Rho\+Type \&}]{rho\+N\+\_\+\+A3}{, }\item[{const Eta\+Type \&}]{eta}{, }\item[{const Vec\+Type \&}]{mole\+\_\+fractions}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Eq. 8 from Gross and Vrabec. 
+
+
+
+Definition at line \mbox{\hyperlink{GrossVrabec_8hpp_source_l00130}{130}} of file \mbox{\hyperlink{GrossVrabec_8hpp_source}{Gross\+Vrabec.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec_a6450b7cb18d26428304f5b8cc4c78e15}\index{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec}!get\_alpha3DD@{get\_alpha3DD}}
+\index{get\_alpha3DD@{get\_alpha3DD}!teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec}}
+\doxysubsubsection{\texorpdfstring{get\_alpha3DD()}{get\_alpha3DD()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec_a6450b7cb18d26428304f5b8cc4c78e15} 
+template$<$typename TTYPE , typename Rho\+Type , typename Eta\+Type , typename Vec\+Type $>$ \\
+auto teqp\+::saft\+::polar\+\_\+terms\+::\+Gross\+Vrabec\+::\+Dipolar\+Contribution\+Gross\+Vrabec\+::get\+\_\+alpha3\+DD (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T}{, }\item[{const Rho\+Type \&}]{rho\+N\+\_\+\+A3}{, }\item[{const Eta\+Type \&}]{eta}{, }\item[{const Vec\+Type \&}]{mole\+\_\+fractions}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Eq. 9 from Gross and Vrabec. 
+
+
+
+Definition at line \mbox{\hyperlink{GrossVrabec_8hpp_source_l00154}{154}} of file \mbox{\hyperlink{GrossVrabec_8hpp_source}{Gross\+Vrabec.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec_a94a57a93ebbeaae5ffcf4ea0a38df2ee}\index{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec}!has\_a\_polar@{has\_a\_polar}}
+\index{has\_a\_polar@{has\_a\_polar}!teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::DipolarContributionGrossVrabec}}
+\doxysubsubsection{\texorpdfstring{has\_a\_polar}{has\_a\_polar}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec_a94a57a93ebbeaae5ffcf4ea0a38df2ee} 
+const bool teqp\+::saft\+::polar\+\_\+terms\+::\+Gross\+Vrabec\+::\+Dipolar\+Contribution\+Gross\+Vrabec\+::has\+\_\+a\+\_\+polar}
+
+
+
+Definition at line \mbox{\hyperlink{GrossVrabec_8hpp_source_l00117}{117}} of file \mbox{\hyperlink{GrossVrabec_8hpp_source}{Gross\+Vrabec.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/saft/polar\+\_\+terms/\mbox{\hyperlink{GrossVrabec_8hpp}{Gross\+Vrabec.\+hpp}}\end{DoxyCompactItemize}

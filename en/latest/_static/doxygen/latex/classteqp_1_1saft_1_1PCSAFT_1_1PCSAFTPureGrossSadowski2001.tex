@@ -1,0 +1,155 @@
+\doxysection{teqp\+::saft\+::PCSAFT\+::PCSAFTPure\+Gross\+Sadowski2001 Class Reference}
+\hypertarget{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001}{}\label{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001}\index{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}}
+
+
+{\ttfamily \#include $<$pcsaftpure.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_afb7aa484a483a21ae09b5db1e9c8d8e5}{PCSAFTPure\+Gross\+Sadowski2001}} (const nlohmann\+::json \&j)
+\item 
+{\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_adb6c899feb739c19b6d1dc01bf3beb9f}{R}} (const Vec\+Type \&molefrac) const
+\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_aa3eb1ece99a5d7d461a566625821e2e6}{alphar}} (const TTYPE \&T, const Rho\+Type \&rhomolar, const Vec\+Type \&) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_add58903e3f7283263d8733c13b4c16ec}{pi}} = 3.\+141592653589793238462643383279502884197
+\item 
+const Eigen\+::\+Array$<$ double, 7, 6 $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_a962b908e4fca751ef5e7cffb66bcbc05}{coeff}}
+\item 
+const double \mbox{\hyperlink{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_a7d2fcaa4ce5743de46c9ed30ae660664}{m}}
+\item 
+const double \mbox{\hyperlink{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_a64a025b67cb959f839cc04806262705b}{sigma\+\_\+A}}
+\item 
+const double \mbox{\hyperlink{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_a4e2e08f53c33ca29a528861a87d45adb}{eps\+\_\+k}}
+\item 
+double \mbox{\hyperlink{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_aaf15b83a528d16a98c840451071374b1}{kappa1}}
+\item 
+double \mbox{\hyperlink{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_af6dc2643b7dfc611e0526c848a793bd5}{kappa2}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The model of Gross \& Sadowski, simplified down to the case of pure fluids 
+
+Definition at line \mbox{\hyperlink{pcsaftpure_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{pcsaftpure_8hpp_source}{pcsaftpure.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_afb7aa484a483a21ae09b5db1e9c8d8e5}\index{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}!PCSAFTPureGrossSadowski2001@{PCSAFTPureGrossSadowski2001}}
+\index{PCSAFTPureGrossSadowski2001@{PCSAFTPureGrossSadowski2001}!teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}}
+\doxysubsubsection{\texorpdfstring{PCSAFTPureGrossSadowski2001()}{PCSAFTPureGrossSadowski2001()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_afb7aa484a483a21ae09b5db1e9c8d8e5} 
+teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTPure\+Gross\+Sadowski2001\+::\+PCSAFTPure\+Gross\+Sadowski2001 (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaftpure_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{pcsaftpure_8hpp_source}{pcsaftpure.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_aa3eb1ece99a5d7d461a566625821e2e6}\index{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_aa3eb1ece99a5d7d461a566625821e2e6} 
+template$<$typename TTYPE , typename Rho\+Type , typename Vec\+Type $>$ \\
+auto teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTPure\+Gross\+Sadowski2001\+::alphar (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T}{, }\item[{const Rho\+Type \&}]{rhomolar}{, }\item[{const Vec\+Type \&}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaftpure_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{pcsaftpure_8hpp_source}{pcsaftpure.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_adb6c899feb739c19b6d1dc01bf3beb9f}\index{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}!R@{R}}
+\index{R@{R}!teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_adb6c899feb739c19b6d1dc01bf3beb9f} 
+template$<$class Vec\+Type $>$ \\
+auto teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTPure\+Gross\+Sadowski2001\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaftpure_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{pcsaftpure_8hpp_source}{pcsaftpure.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_a962b908e4fca751ef5e7cffb66bcbc05}\index{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}!coeff@{coeff}}
+\index{coeff@{coeff}!teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}}
+\doxysubsubsection{\texorpdfstring{coeff}{coeff}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_a962b908e4fca751ef5e7cffb66bcbc05} 
+const Eigen\+::\+Array$<$double, 7, 6$>$ teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTPure\+Gross\+Sadowski2001\+::coeff}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaftpure_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{pcsaftpure_8hpp_source}{pcsaftpure.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_a4e2e08f53c33ca29a528861a87d45adb}\index{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}!eps\_k@{eps\_k}}
+\index{eps\_k@{eps\_k}!teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}}
+\doxysubsubsection{\texorpdfstring{eps\_k}{eps\_k}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_a4e2e08f53c33ca29a528861a87d45adb} 
+const double teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTPure\+Gross\+Sadowski2001\+::eps\+\_\+k}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaftpure_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{pcsaftpure_8hpp_source}{pcsaftpure.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_aaf15b83a528d16a98c840451071374b1}\index{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}!kappa1@{kappa1}}
+\index{kappa1@{kappa1}!teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}}
+\doxysubsubsection{\texorpdfstring{kappa1}{kappa1}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_aaf15b83a528d16a98c840451071374b1} 
+double teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTPure\+Gross\+Sadowski2001\+::kappa1}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaftpure_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{pcsaftpure_8hpp_source}{pcsaftpure.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_af6dc2643b7dfc611e0526c848a793bd5}\index{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}!kappa2@{kappa2}}
+\index{kappa2@{kappa2}!teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}}
+\doxysubsubsection{\texorpdfstring{kappa2}{kappa2}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_af6dc2643b7dfc611e0526c848a793bd5} 
+double teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTPure\+Gross\+Sadowski2001\+::kappa2}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaftpure_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{pcsaftpure_8hpp_source}{pcsaftpure.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_a7d2fcaa4ce5743de46c9ed30ae660664}\index{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}!m@{m}}
+\index{m@{m}!teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}}
+\doxysubsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_a7d2fcaa4ce5743de46c9ed30ae660664} 
+const double teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTPure\+Gross\+Sadowski2001\+::m}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaftpure_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{pcsaftpure_8hpp_source}{pcsaftpure.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_add58903e3f7283263d8733c13b4c16ec}\index{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}!pi@{pi}}
+\index{pi@{pi}!teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}}
+\doxysubsubsection{\texorpdfstring{pi}{pi}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_add58903e3f7283263d8733c13b4c16ec} 
+const double teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTPure\+Gross\+Sadowski2001\+::pi = 3.\+141592653589793238462643383279502884197}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaftpure_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{pcsaftpure_8hpp_source}{pcsaftpure.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_a64a025b67cb959f839cc04806262705b}\index{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}!sigma\_A@{sigma\_A}}
+\index{sigma\_A@{sigma\_A}!teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001@{teqp::saft::PCSAFT::PCSAFTPureGrossSadowski2001}}
+\doxysubsubsection{\texorpdfstring{sigma\_A}{sigma\_A}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1PCSAFT_1_1PCSAFTPureGrossSadowski2001_a64a025b67cb959f839cc04806262705b} 
+const double teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTPure\+Gross\+Sadowski2001\+::sigma\+\_\+A}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaftpure_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{pcsaftpure_8hpp_source}{pcsaftpure.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/saft/\mbox{\hyperlink{pcsaftpure_8hpp}{pcsaftpure.\+hpp}}\end{DoxyCompactItemize}

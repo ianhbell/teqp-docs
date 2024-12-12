@@ -16,10 +16,8 @@
     "\n",
     "The residual contribution to $\\alpha$ is expressed as the sum :\n",
     "$$\n",
-    "\\alpha^{\\rm r}_{\\rm cub,rep} +\\alpha^{\\rm r}_{\\rm cub,att}\n",
-    "$$ where the cubic parts come from\n",
-    "\n",
-    "The repulsive part of the cubic EOS contribution:\n",
+    "\\alpha^{\\rm r}_{\\rm assoc} = \\alpha^{\\rm r}_{\\rm cub,rep} +\\alpha^{\\rm r}_{\\rm cub,att}\n",
+    "$$ where the cubic parts come from two separate contributions. The repulsive part of the cubic EOS contribution is:\n",
     "$$\n",
     "\\alpha^{\\rm r}_{\\rm cub,rep} = -\\ln(1 - b_{\\rm mix}\\rho) \n",
     "$$\n",
@@ -38,7 +36,7 @@
     "$$\n",
     "a_{\\rm mix} = \\sum_i\\sum_jx_ix_j(1-k_{ij})a_{ij}(T)\n",
     "$$\n",
-    "with x the mole fraction, $k_{ij}$ a weighting parameter\n",
+    "with $x$ the mole fraction, $k_{ij}$ a weighting parameter\n",
     "$$\n",
     "a_{ij}(T) = \\sqrt{a_ia_j}\n",
     "$$\n",
@@ -50,21 +48,109 @@
     "$$\n",
     "b_{\\rm mix} = \\sum_ix_ib_i\n",
     "$$\n",
-    "so there are three cubic parameters per fluid that need to be obtained though fitting: $b_{i}$, $a_{0i}$, $c_{1i}$. The value of $a_{\\rm ij}$ depends on temperature while $b_{\\rm mix}$ does not.\n",
+    "so there are three cubic parameters per fluid that need to be obtained though fitting: $b_{i}$, $a_{0i}$, $c_{1i}$. The value of $a_{ij}$ depends on temperature while $b_{\\rm mix}$ does not.\n",
     "\n",
     "## Association part\n",
     "\n",
-    "For the association, one must have a solid understanding of the association approach that is being applied. To this end, a short discussion of the general approach is required. \n",
-    "\n"
+    "The residual contribution of the association to the Helmholtz energy $\\alpha^{\\rm r}_{\\rm assoc}$ is formulated as:\n",
+    "$$\n",
+    "\\alpha^{\\rm r}_{\\rm assoc} = \\sum_{i} x_i \\sum_{A_i} \\left(\\ln(Y_{A_i}) - \\frac{Y_{A_i}}{2} \\right) + \\frac{M_i}{2},\n",
+    "$$\n",
+    "where $x_i$ is the mole fraction of molecule $i$, $A_i$ is a site of type $A$ on molecule $i$ that can interact with other site types (e.g., type $B$). $Y_{A_i}$ then is the monomer mole fraction of site $A_i$ and $M_i$ is the count of association sites of molecule $i$.\n",
+    "The monomer mole fraction $Y_{A_i}$ can be calculated with:\n",
+    "$$\n",
+    "Y_{A_i} = \\frac{1}{1+\\rho N_{\\rm A} \\sum_j \\sum_{B_j} x_j Y_{B_j} \\Delta_{A_i B_j}}.\n",
+    "$$\n",
+    "$\\rho$ is the molar density of the mixture, $N_{\\rm A}$ is the Avogadro constant, $j$ is the index for a molecule that can be the same as molecule $i$. $B_j$ is a site of type $B$ on molecule $j$ and $\\Delta_{A_i B_j}$ is the interaction strength between the sites. The calculation of $\\Delta_{A_i B_j}$, $Y_{A_i}$ and $Y_{B_j}$ is explained in more detail in the documentation about association.\n",
+    "\n",
+    "The important thing to understand is whether a site is an electron acceptor (positively charged) or electron donor (negatively charged) and how many sites are present on a molecule. For example, water is usually considered a molecule with two electron acceptor (labeled as \"H\" in teqp) and two electron donor (labeled as \"e\" in teqp) sites. The site types have to be specified.                  "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": null,
-   "id": "2180ef67",
-   "metadata": {},
+   "execution_count": 1,
+   "id": "1a9a8a1f-ee6f-46eb-b8ce-84c18593139e",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-12-12T18:08:38.786189Z",
+     "iopub.status.busy": "2024-12-12T18:08:38.786034Z",
+     "iopub.status.idle": "2024-12-12T18:08:38.843837Z",
+     "shell.execute_reply": "2024-12-12T18:08:38.843351Z"
+    }
+   },
    "outputs": [],
-   "source": []
+   "source": [
+    "import teqp, numpy as np"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "e33af4ac-8922-4cea-8dec-a775091f3e55",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-12-12T18:08:38.846094Z",
+     "iopub.status.busy": "2024-12-12T18:08:38.845880Z",
+     "iopub.status.idle": "2024-12-12T18:08:38.854457Z",
+     "shell.execute_reply": "2024-12-12T18:08:38.854021Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "D: [[0 2]\n",
+      " [2 0]]\n",
+      "∆: [[1.24389806e-27 1.24389806e-27]\n",
+      " [1.24389806e-27 1.24389806e-27]]\n",
+      "X_A: [0.54879025 0.54879025]\n",
+      "siteid->(component, name): [[0, [0, 'H']], [1, [0, 'e']]]\n",
+      "(component, name)->siteid: [[[0, 'H'], 0], [[0, 'e'], 1]]\n",
+      "multiplicities: [2 2]\n",
+      "pressure in Pa:  84414.03871039051\n"
+     ]
+    }
+   ],
+   "source": [
+    "water = {\n",
+    "    \"a0i / Pa m^6/mol^2\": 0.12277,\n",
+    "    \"bi / m^3/mol\": 0.0000145,\n",
+    "    \"c1\": 0.6736,\n",
+    "    \"Tc / K\": 647.13,\n",
+    "    \"epsABi / J/mol\": 16655.0,\n",
+    "    \"betaABi\": 0.0692,\n",
+    "#   here the site types are declared. \"e\" for electron donor, \"H\" for electron acceptor\n",
+    "    \"sites\": [\"e\",\"e\",\"H\",\"H\"]\n",
+    "}\n",
+    "\n",
+    "jCPA = {\n",
+    "    \"cubic\": \"SRK\",\n",
+    "    \"radial_dist\": \"CS\",\n",
+    "#     \"combining\": \"CR1\", # No other option is implemented yet\n",
+    "    \"pures\": [water],\n",
+    "    \"R_gas / J/mol/K\": 8.31446261815324\n",
+    "}\n",
+    "\n",
+    "model = teqp.make_model({\"kind\": \"CPA\", \"model\": jCPA, \"validate\": False}, False)\n",
+    "\n",
+    "T = 303.15 # K\n",
+    "rhomolar = 1000 # mol/m^3\n",
+    "molefracs = np.array([1.0])\n",
+    "\n",
+    "# Note: passing data back and forth in JSON format is done for convenience and flexibility, not speed\n",
+    "res = model.get_assoc_calcs(T, rhomolar, molefracs)\n",
+    "\n",
+    "print('D:', np.array(res['D']))\n",
+    "print('∆:', np.array(res['Delta']))\n",
+    "print('X_A:', np.array(res['X_A']))\n",
+    "print('siteid->(component, name):', res['to_CompSite'])\n",
+    "print('(component, name)->siteid:', res['to_siteid'])\n",
+    "print('multiplicities:', np.array(res['counts']))\n",
+    "\n",
+    "\n",
+    "print('pressure in Pa: ',T*rhomolar*model.get_R(molefracs) * ( 1+ model.get_Ar01(T,rhomolar,molefracs)))"
+   ]
   }
  ],
  "metadata": {

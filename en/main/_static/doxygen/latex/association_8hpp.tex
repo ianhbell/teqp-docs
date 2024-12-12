@@ -2,10 +2,14 @@
 \hypertarget{association_8hpp}{}\label{association_8hpp}\index{include/teqp/models/association/association.hpp@{include/teqp/models/association/association.hpp}}
 {\ttfamily \#include $<$map$>$}\newline
 {\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$variant$>$}\newline
 {\ttfamily \#include "{}teqp/constants.\+hpp"{}}\newline
 {\ttfamily \#include "{}teqp/types.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/exceptions.\+hpp"{}}\newline
 {\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
+{\ttfamily \#include "{}teqp/math/pow\+\_\+templates.\+hpp"{}}\newline
 {\ttfamily \#include "{}teqp/models/association/association\+\_\+types.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/json\+\_\+tools.\+hpp"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -21,9 +25,16 @@ struct \mbox{\hyperlink{structteqp_1_1association_1_1Association_1_1IndexMapper}
 namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
 \item 
 namespace \mbox{\hyperlink{namespaceteqp_1_1association}{teqp\+::association}}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1association_1_1DufalMatrices}{teqp\+::association\+::\+Dufal\+Matrices}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{namespaceteqp_1_1association_aceaa7c1c45747f0905669487c95d7a99}{teqp\+::association\+::from\+\_\+json}} (const nlohmann\+::json \&j, \mbox{\hyperlink{structteqp_1_1association_1_1AssociationOptions}{Association\+Options}} \&o)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::unordered\+\_\+map$<$ int, Eigen\+::\+Matrix\+Xd $>$ \mbox{\hyperlink{namespaceteqp_1_1association_1_1DufalMatrices_a8fb54606a684c34066454417365efc90}{teqp\+::association\+::\+Dufal\+Matrices\+::bcoeffs}}
 \end{DoxyCompactItemize}

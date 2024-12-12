@@ -1,0 +1,126 @@
+\doxysection{teqp\+::multifluid\+::multifluid\+\_\+activity\+::Multifluid\+Plus\+Activity Class Reference}
+\hypertarget{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity}{}\label{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity}\index{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity@{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity}}
+
+
+{\ttfamily \#include $<$multifluid\+\_\+activity.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_a38ae42b32228e6c0884ebce2111ead3d}{Multifluid\+Plus\+Activity}} (const nlohmann\+::json \&spec)
+\item 
+auto \mbox{\hyperlink{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_abc8aeeff1277582f84ede610c2070c9e}{calc\+\_\+g\+ER\+\_\+over\+\_\+\+RT}} (double T, const Eigen\+::\+Array\+Xd \&molefrac) const
+\begin{DoxyCompactList}\small\item\em Calculate the dimensionless value of $g_{\rm GE}^{\rm E,R}/RT$ from the AC model. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_a34fa647985a2dfec22c176c75c959f24}{calc\+\_\+lngamma\+\_\+resid}} (const double T, const Eigen\+::\+Array\+Xd \&molefrac) const
+\begin{DoxyCompactList}\small\item\em Calculate the value of array $\ln\gamma^{\rm R}$ from the AC model without any of the AD types. \end{DoxyCompactList}\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_a1cb23f5132182213433647b7a2571e5a}{calc\+\_\+lngamma\+\_\+comb}} (const double T, const Eigen\+::\+Array\+Xd \&molefrac) const
+\begin{DoxyCompactList}\small\item\em Calculate the value of array $\ln\gamma^{\rm comb}$ from the AC model without any of the AD types. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_ad579aa4e36f5e8d1399570ee78f749d4}{R}} (const Vec\+Type \&molefrac) const
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_acb6c5ef2abef1d00da76c533cbcec482}{alphar\+\_\+activity}} (const TType \&T, const Rho\+Type \&rho, const Mole\+Fractions \&molefrac) const
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_a59792cd05314dd1f765f20f2c39c7f5b}{alphar}} (const TType \&T, const Rho\+Type \&rho, const Mole\+Fractions \&molefrac) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementing the general approach of\+: Jaeger et al., A theoretically based departure function for multi-\/fluid mixture models, \href{https://doi.org/10.1016/j.fluid.2018.04.015}{\texttt{ https\+://doi.\+org/10.\+1016/j.\+fluid.\+2018.\+04.\+015}} 
+
+Definition at line \mbox{\hyperlink{multifluid__activity_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{multifluid__activity_8hpp_source}{multifluid\+\_\+activity.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_a38ae42b32228e6c0884ebce2111ead3d}\index{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity@{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity}!MultifluidPlusActivity@{MultifluidPlusActivity}}
+\index{MultifluidPlusActivity@{MultifluidPlusActivity}!teqp::multifluid::multifluid\_activity::MultifluidPlusActivity@{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity}}
+\doxysubsubsection{\texorpdfstring{MultifluidPlusActivity()}{MultifluidPlusActivity()}}
+{\footnotesize\ttfamily \label{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_a38ae42b32228e6c0884ebce2111ead3d} 
+teqp\+::multifluid\+::multifluid\+\_\+activity\+::\+Multifluid\+Plus\+Activity\+::\+Multifluid\+Plus\+Activity (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{spec}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__activity_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{multifluid__activity_8hpp_source}{multifluid\+\_\+activity.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_a59792cd05314dd1f765f20f2c39c7f5b}\index{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity@{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::multifluid::multifluid\_activity::MultifluidPlusActivity@{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily \label{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_a59792cd05314dd1f765f20f2c39c7f5b} 
+template$<$typename TType , typename Rho\+Type , typename Mole\+Fractions $>$ \\
+auto teqp\+::multifluid\+::multifluid\+\_\+activity\+::\+Multifluid\+Plus\+Activity\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T}{, }\item[{const Rho\+Type \&}]{rho}{, }\item[{const Mole\+Fractions \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__activity_8hpp_source_l00104}{104}} of file \mbox{\hyperlink{multifluid__activity_8hpp_source}{multifluid\+\_\+activity.\+hpp}}.
+
+\Hypertarget{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_acb6c5ef2abef1d00da76c533cbcec482}\index{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity@{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity}!alphar\_activity@{alphar\_activity}}
+\index{alphar\_activity@{alphar\_activity}!teqp::multifluid::multifluid\_activity::MultifluidPlusActivity@{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity}}
+\doxysubsubsection{\texorpdfstring{alphar\_activity()}{alphar\_activity()}}
+{\footnotesize\ttfamily \label{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_acb6c5ef2abef1d00da76c533cbcec482} 
+template$<$typename TType , typename Rho\+Type , typename Mole\+Fractions $>$ \\
+auto teqp\+::multifluid\+::multifluid\+\_\+activity\+::\+Multifluid\+Plus\+Activity\+::alphar\+\_\+activity (\begin{DoxyParamCaption}\item[{const TType \&}]{T}{, }\item[{const Rho\+Type \&}]{rho}{, }\item[{const Mole\+Fractions \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__activity_8hpp_source_l00078}{78}} of file \mbox{\hyperlink{multifluid__activity_8hpp_source}{multifluid\+\_\+activity.\+hpp}}.
+
+\Hypertarget{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_abc8aeeff1277582f84ede610c2070c9e}\index{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity@{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity}!calc\_gER\_over\_RT@{calc\_gER\_over\_RT}}
+\index{calc\_gER\_over\_RT@{calc\_gER\_over\_RT}!teqp::multifluid::multifluid\_activity::MultifluidPlusActivity@{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity}}
+\doxysubsubsection{\texorpdfstring{calc\_gER\_over\_RT()}{calc\_gER\_over\_RT()}}
+{\footnotesize\ttfamily \label{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_abc8aeeff1277582f84ede610c2070c9e} 
+auto teqp\+::multifluid\+::multifluid\+\_\+activity\+::\+Multifluid\+Plus\+Activity\+::calc\+\_\+g\+ER\+\_\+over\+\_\+\+RT (\begin{DoxyParamCaption}\item[{double}]{T}{, }\item[{const Eigen\+::\+Array\+Xd \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate the dimensionless value of $g_{\rm GE}^{\rm E,R}/RT$ from the AC model. 
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__activity_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{multifluid__activity_8hpp_source}{multifluid\+\_\+activity.\+hpp}}.
+
+\Hypertarget{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_a1cb23f5132182213433647b7a2571e5a}\index{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity@{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity}!calc\_lngamma\_comb@{calc\_lngamma\_comb}}
+\index{calc\_lngamma\_comb@{calc\_lngamma\_comb}!teqp::multifluid::multifluid\_activity::MultifluidPlusActivity@{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity}}
+\doxysubsubsection{\texorpdfstring{calc\_lngamma\_comb()}{calc\_lngamma\_comb()}}
+{\footnotesize\ttfamily \label{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_a1cb23f5132182213433647b7a2571e5a} 
+Eigen\+::\+Array\+Xd teqp\+::multifluid\+::multifluid\+\_\+activity\+::\+Multifluid\+Plus\+Activity\+::calc\+\_\+lngamma\+\_\+comb (\begin{DoxyParamCaption}\item[{const double}]{T}{, }\item[{const Eigen\+::\+Array\+Xd \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate the value of array $\ln\gamma^{\rm comb}$ from the AC model without any of the AD types. 
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__activity_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{multifluid__activity_8hpp_source}{multifluid\+\_\+activity.\+hpp}}.
+
+\Hypertarget{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_a34fa647985a2dfec22c176c75c959f24}\index{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity@{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity}!calc\_lngamma\_resid@{calc\_lngamma\_resid}}
+\index{calc\_lngamma\_resid@{calc\_lngamma\_resid}!teqp::multifluid::multifluid\_activity::MultifluidPlusActivity@{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity}}
+\doxysubsubsection{\texorpdfstring{calc\_lngamma\_resid()}{calc\_lngamma\_resid()}}
+{\footnotesize\ttfamily \label{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_a34fa647985a2dfec22c176c75c959f24} 
+auto teqp\+::multifluid\+::multifluid\+\_\+activity\+::\+Multifluid\+Plus\+Activity\+::calc\+\_\+lngamma\+\_\+resid (\begin{DoxyParamCaption}\item[{const double}]{T}{, }\item[{const Eigen\+::\+Array\+Xd \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate the value of array $\ln\gamma^{\rm R}$ from the AC model without any of the AD types. 
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__activity_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{multifluid__activity_8hpp_source}{multifluid\+\_\+activity.\+hpp}}.
+
+\Hypertarget{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_ad579aa4e36f5e8d1399570ee78f749d4}\index{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity@{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity}!R@{R}}
+\index{R@{R}!teqp::multifluid::multifluid\_activity::MultifluidPlusActivity@{teqp::multifluid::multifluid\_activity::MultifluidPlusActivity}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily \label{classteqp_1_1multifluid_1_1multifluid__activity_1_1MultifluidPlusActivity_ad579aa4e36f5e8d1399570ee78f749d4} 
+template$<$class Vec\+Type $>$ \\
+auto teqp\+::multifluid\+::multifluid\+\_\+activity\+::\+Multifluid\+Plus\+Activity\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__activity_8hpp_source_l00073}{73}} of file \mbox{\hyperlink{multifluid__activity_8hpp_source}{multifluid\+\_\+activity.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/multifluid/\mbox{\hyperlink{multifluid__activity_8hpp}{multifluid\+\_\+activity.\+hpp}}\end{DoxyCompactItemize}

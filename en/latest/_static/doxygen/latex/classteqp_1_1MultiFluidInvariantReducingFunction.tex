@@ -10,7 +10,7 @@
 {\footnotesize template$<$typename Array\+Like $>$ }\\\mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction_a16a75e221f11b9b00a1d6a110faed1d3}{Multi\+Fluid\+Invariant\+Reducing\+Function}} (const Eigen\+::\+Matrix\+Xd \&\mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction_ae57593cb61a0c75309fb60b8883726b2}{phiT}}, const Eigen\+::\+Matrix\+Xd \&\mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction_a056ca42dd67ce64c0b5101724eee248f}{lambdaT}}, const Eigen\+::\+Matrix\+Xd \&\mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction_a9f0a6c11e36ff9036a7cf23b4dd18cd2}{phiV}}, const Eigen\+::\+Matrix\+Xd \&\mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction_adc3be2c04efcf1ab2cd2f768af524545}{lambdaV}}, const Array\+Like \&\mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction_a1c39208f211663fc0fec6d7d9d15b8e1}{Tc}}, const Array\+Like \&\mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction_ad306b3e6cc513bbd2beca4420405ba97}{vc}})
 \item 
 {\footnotesize template$<$typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction_ae426fcda6d36293cc96dcaf7f70b2635}{Y}} (const Mole\+Fractions \&z, const Eigen\+::\+Matrix\+Xd \&phi, const Eigen\+::\+Matrix\+Xd \&lambda, const Eigen\+::\+Matrix\+Xd \&Yij) const
-\item 
+\begin{DoxyCompactList}\small\item\em As implemented in Table 7.\+18 from GERG-\/2004. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction_a7e330bb7545a188c68d294ab69549ad1}{get\+\_\+\+Tr}} (const Mole\+Fractions \&molefracs) const
 \item 
 {\footnotesize template$<$typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1MultiFluidInvariantReducingFunction_a59b29852c1781299d077b11838dd76c3}{get\+\_\+rhor}} (const Mole\+Fractions \&molefracs) const
@@ -39,73 +39,17 @@ const Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1MultiFluidInvariantRedu
 \doxysubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00244}{244}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00264}{264}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_a16a75e221f11b9b00a1d6a110faed1d3}\label{classteqp_1_1MultiFluidInvariantReducingFunction_a16a75e221f11b9b00a1d6a110faed1d3} 
-\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!MultiFluidInvariantReducingFunction@{MultiFluidInvariantReducingFunction}}
+\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_a16a75e221f11b9b00a1d6a110faed1d3}\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!MultiFluidInvariantReducingFunction@{MultiFluidInvariantReducingFunction}}
 \index{MultiFluidInvariantReducingFunction@{MultiFluidInvariantReducingFunction}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
 \doxysubsubsection{\texorpdfstring{MultiFluidInvariantReducingFunction()}{MultiFluidInvariantReducingFunction()}}
-{\footnotesize\ttfamily template$<$typename Array\+Like $>$ \\
-teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xd \&}]{phiT,  }\item[{const Eigen\+::\+Matrix\+Xd \&}]{lambdaT,  }\item[{const Eigen\+::\+Matrix\+Xd \&}]{phiV,  }\item[{const Eigen\+::\+Matrix\+Xd \&}]{lambdaV,  }\item[{const Array\+Like \&}]{Tc,  }\item[{const Array\+Like \&}]{vc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00253}{253}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
-
-
-
-\doxysubsection{Member Function Documentation}
-\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_acca4bd1858248f78cbd2cabcdcefd206}\label{classteqp_1_1MultiFluidInvariantReducingFunction_acca4bd1858248f78cbd2cabcdcefd206} 
-\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!get\_BIP@{get\_BIP}}
-\index{get\_BIP@{get\_BIP}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
-\doxysubsubsection{\texorpdfstring{get\_BIP()}{get\_BIP()}}
-{\footnotesize\ttfamily auto teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::get\+\_\+\+BIP (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t \&}]{i,  }\item[{const std\+::size\+\_\+t \&}]{j,  }\item[{const std\+::string \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00294}{294}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
-
-\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_acf837c4906a49db7101ce726ba6abf16}\label{classteqp_1_1MultiFluidInvariantReducingFunction_acf837c4906a49db7101ce726ba6abf16} 
-\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!get\_mat@{get\_mat}}
-\index{get\_mat@{get\_mat}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
-\doxysubsubsection{\texorpdfstring{get\_mat()}{get\_mat()}}
-{\footnotesize\ttfamily const auto \& teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::get\+\_\+mat (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00287}{287}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
-
-\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_a59b29852c1781299d077b11838dd76c3}\label{classteqp_1_1MultiFluidInvariantReducingFunction_a59b29852c1781299d077b11838dd76c3} 
-\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!get\_rhor@{get\_rhor}}
-\index{get\_rhor@{get\_rhor}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
-\doxysubsubsection{\texorpdfstring{get\_rhor()}{get\_rhor()}}
-{\footnotesize\ttfamily template$<$typename Mole\+Fractions $>$ \\
-auto teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::get\+\_\+rhor (\begin{DoxyParamCaption}\item[{const Mole\+Fractions \&}]{molefracs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00285}{285}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
-
-\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_a7e330bb7545a188c68d294ab69549ad1}\label{classteqp_1_1MultiFluidInvariantReducingFunction_a7e330bb7545a188c68d294ab69549ad1} 
-\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!get\_Tr@{get\_Tr}}
-\index{get\_Tr@{get\_Tr}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
-\doxysubsubsection{\texorpdfstring{get\_Tr()}{get\_Tr()}}
-{\footnotesize\ttfamily template$<$typename Mole\+Fractions $>$ \\
-auto teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::get\+\_\+\+Tr (\begin{DoxyParamCaption}\item[{const Mole\+Fractions \&}]{molefracs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00284}{284}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
-
-\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_ae426fcda6d36293cc96dcaf7f70b2635}\label{classteqp_1_1MultiFluidInvariantReducingFunction_ae426fcda6d36293cc96dcaf7f70b2635} 
-\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!Y@{Y}}
-\index{Y@{Y}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
-\doxysubsubsection{\texorpdfstring{Y()}{Y()}}
-{\footnotesize\ttfamily template$<$typename Mole\+Fractions $>$ \\
-auto teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::Y (\begin{DoxyParamCaption}\item[{const Mole\+Fractions \&}]{z,  }\item[{const Eigen\+::\+Matrix\+Xd \&}]{phi,  }\item[{const Eigen\+::\+Matrix\+Xd \&}]{lambda,  }\item[{const Eigen\+::\+Matrix\+Xd \&}]{Yij }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1MultiFluidInvariantReducingFunction_a16a75e221f11b9b00a1d6a110faed1d3} 
+template$<$typename Array\+Like $>$ \\
+teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xd \&}]{phiT}{, }\item[{const Eigen\+::\+Matrix\+Xd \&}]{lambdaT}{, }\item[{const Eigen\+::\+Matrix\+Xd \&}]{phiV}{, }\item[{const Eigen\+::\+Matrix\+Xd \&}]{lambdaV}{, }\item[{const Array\+Like \&}]{Tc}{, }\item[{const Array\+Like \&}]{vc}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -113,66 +57,126 @@ Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00273}{273
 
 
 
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_acca4bd1858248f78cbd2cabcdcefd206}\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!get\_BIP@{get\_BIP}}
+\index{get\_BIP@{get\_BIP}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
+\doxysubsubsection{\texorpdfstring{get\_BIP()}{get\_BIP()}}
+{\footnotesize\ttfamily \label{classteqp_1_1MultiFluidInvariantReducingFunction_acca4bd1858248f78cbd2cabcdcefd206} 
+auto teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::get\+\_\+\+BIP (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t \&}]{i}{, }\item[{const std\+::size\+\_\+t \&}]{j}{, }\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00317}{317}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
+
+\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_acf837c4906a49db7101ce726ba6abf16}\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!get\_mat@{get\_mat}}
+\index{get\_mat@{get\_mat}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
+\doxysubsubsection{\texorpdfstring{get\_mat()}{get\_mat()}}
+{\footnotesize\ttfamily \label{classteqp_1_1MultiFluidInvariantReducingFunction_acf837c4906a49db7101ce726ba6abf16} 
+const auto \& teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::get\+\_\+mat (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00310}{310}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
+
+\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_a59b29852c1781299d077b11838dd76c3}\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!get\_rhor@{get\_rhor}}
+\index{get\_rhor@{get\_rhor}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
+\doxysubsubsection{\texorpdfstring{get\_rhor()}{get\_rhor()}}
+{\footnotesize\ttfamily \label{classteqp_1_1MultiFluidInvariantReducingFunction_a59b29852c1781299d077b11838dd76c3} 
+template$<$typename Mole\+Fractions $>$ \\
+auto teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::get\+\_\+rhor (\begin{DoxyParamCaption}\item[{const Mole\+Fractions \&}]{molefracs}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00308}{308}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
+
+\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_a7e330bb7545a188c68d294ab69549ad1}\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!get\_Tr@{get\_Tr}}
+\index{get\_Tr@{get\_Tr}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
+\doxysubsubsection{\texorpdfstring{get\_Tr()}{get\_Tr()}}
+{\footnotesize\ttfamily \label{classteqp_1_1MultiFluidInvariantReducingFunction_a7e330bb7545a188c68d294ab69549ad1} 
+template$<$typename Mole\+Fractions $>$ \\
+auto teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::get\+\_\+\+Tr (\begin{DoxyParamCaption}\item[{const Mole\+Fractions \&}]{molefracs}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00307}{307}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
+
+\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_ae426fcda6d36293cc96dcaf7f70b2635}\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!Y@{Y}}
+\index{Y@{Y}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
+\doxysubsubsection{\texorpdfstring{Y()}{Y()}}
+{\footnotesize\ttfamily \label{classteqp_1_1MultiFluidInvariantReducingFunction_ae426fcda6d36293cc96dcaf7f70b2635} 
+template$<$typename Mole\+Fractions $>$ \\
+auto teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::Y (\begin{DoxyParamCaption}\item[{const Mole\+Fractions \&}]{z}{, }\item[{const Eigen\+::\+Matrix\+Xd \&}]{phi}{, }\item[{const Eigen\+::\+Matrix\+Xd \&}]{lambda}{, }\item[{const Eigen\+::\+Matrix\+Xd \&}]{Yij}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+As implemented in Table 7.\+18 from GERG-\/2004. 
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00294}{294}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
+
+
+
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_a056ca42dd67ce64c0b5101724eee248f}\label{classteqp_1_1MultiFluidInvariantReducingFunction_a056ca42dd67ce64c0b5101724eee248f} 
-\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!lambdaT@{lambdaT}}
+\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_a056ca42dd67ce64c0b5101724eee248f}\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!lambdaT@{lambdaT}}
 \index{lambdaT@{lambdaT}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
 \doxysubsubsection{\texorpdfstring{lambdaT}{lambdaT}}
-{\footnotesize\ttfamily const Eigen\+::\+Matrix\+Xd teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::lambdaT}
+{\footnotesize\ttfamily \label{classteqp_1_1MultiFluidInvariantReducingFunction_a056ca42dd67ce64c0b5101724eee248f} 
+const Eigen\+::\+Matrix\+Xd teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::lambdaT}
 
 
 
-Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00249}{249}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00269}{269}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
 
-\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_adc3be2c04efcf1ab2cd2f768af524545}\label{classteqp_1_1MultiFluidInvariantReducingFunction_adc3be2c04efcf1ab2cd2f768af524545} 
-\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!lambdaV@{lambdaV}}
+\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_adc3be2c04efcf1ab2cd2f768af524545}\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!lambdaV@{lambdaV}}
 \index{lambdaV@{lambdaV}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
 \doxysubsubsection{\texorpdfstring{lambdaV}{lambdaV}}
-{\footnotesize\ttfamily const Eigen\+::\+Matrix\+Xd teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::lambdaV}
+{\footnotesize\ttfamily \label{classteqp_1_1MultiFluidInvariantReducingFunction_adc3be2c04efcf1ab2cd2f768af524545} 
+const Eigen\+::\+Matrix\+Xd teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::lambdaV}
 
 
 
-Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00249}{249}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00269}{269}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
 
-\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_ae57593cb61a0c75309fb60b8883726b2}\label{classteqp_1_1MultiFluidInvariantReducingFunction_ae57593cb61a0c75309fb60b8883726b2} 
-\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!phiT@{phiT}}
+\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_ae57593cb61a0c75309fb60b8883726b2}\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!phiT@{phiT}}
 \index{phiT@{phiT}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
 \doxysubsubsection{\texorpdfstring{phiT}{phiT}}
-{\footnotesize\ttfamily const Eigen\+::\+Matrix\+Xd teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::phiT}
+{\footnotesize\ttfamily \label{classteqp_1_1MultiFluidInvariantReducingFunction_ae57593cb61a0c75309fb60b8883726b2} 
+const Eigen\+::\+Matrix\+Xd teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::phiT}
 
 
 
-Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00249}{249}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00269}{269}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
 
-\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_a9f0a6c11e36ff9036a7cf23b4dd18cd2}\label{classteqp_1_1MultiFluidInvariantReducingFunction_a9f0a6c11e36ff9036a7cf23b4dd18cd2} 
-\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!phiV@{phiV}}
+\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_a9f0a6c11e36ff9036a7cf23b4dd18cd2}\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!phiV@{phiV}}
 \index{phiV@{phiV}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
 \doxysubsubsection{\texorpdfstring{phiV}{phiV}}
-{\footnotesize\ttfamily const Eigen\+::\+Matrix\+Xd teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::phiV}
+{\footnotesize\ttfamily \label{classteqp_1_1MultiFluidInvariantReducingFunction_a9f0a6c11e36ff9036a7cf23b4dd18cd2} 
+const Eigen\+::\+Matrix\+Xd teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::phiV}
 
 
 
-Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00249}{249}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00269}{269}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
 
-\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_a1c39208f211663fc0fec6d7d9d15b8e1}\label{classteqp_1_1MultiFluidInvariantReducingFunction_a1c39208f211663fc0fec6d7d9d15b8e1} 
-\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!Tc@{Tc}}
+\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_a1c39208f211663fc0fec6d7d9d15b8e1}\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!Tc@{Tc}}
 \index{Tc@{Tc}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
 \doxysubsubsection{\texorpdfstring{Tc}{Tc}}
-{\footnotesize\ttfamily const Eigen\+::\+Array\+Xd teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::\+Tc}
+{\footnotesize\ttfamily \label{classteqp_1_1MultiFluidInvariantReducingFunction_a1c39208f211663fc0fec6d7d9d15b8e1} 
+const Eigen\+::\+Array\+Xd teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::\+Tc}
 
 
 
-Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00250}{250}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00270}{270}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
 
-\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_ad306b3e6cc513bbd2beca4420405ba97}\label{classteqp_1_1MultiFluidInvariantReducingFunction_ad306b3e6cc513bbd2beca4420405ba97} 
-\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!vc@{vc}}
+\Hypertarget{classteqp_1_1MultiFluidInvariantReducingFunction_ad306b3e6cc513bbd2beca4420405ba97}\index{teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}!vc@{vc}}
 \index{vc@{vc}!teqp::MultiFluidInvariantReducingFunction@{teqp::MultiFluidInvariantReducingFunction}}
 \doxysubsubsection{\texorpdfstring{vc}{vc}}
-{\footnotesize\ttfamily const Eigen\+::\+Array\+Xd teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::vc}
+{\footnotesize\ttfamily \label{classteqp_1_1MultiFluidInvariantReducingFunction_ad306b3e6cc513bbd2beca4420405ba97} 
+const Eigen\+::\+Array\+Xd teqp\+::\+Multi\+Fluid\+Invariant\+Reducing\+Function\+::vc}
 
 
 
-Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00250}{250}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
+Definition at line \mbox{\hyperlink{multifluid__reducing_8hpp_source_l00270}{270}} of file \mbox{\hyperlink{multifluid__reducing_8hpp_source}{multifluid\+\_\+reducing.\+hpp}}.
 
 
 

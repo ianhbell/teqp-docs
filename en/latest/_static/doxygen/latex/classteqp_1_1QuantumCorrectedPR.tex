@@ -10,7 +10,7 @@
 \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_a9bfd85ebc5cb4b594117a6a230ee59f5}{Quantum\+Corrected\+PR}} (const nlohmann\+::json \&j)
 \item 
 {\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_ac5fd0d4bfb2ee04ff15a0330501a62cc}{R}} (const Vec\+Type \&) const
-\begin{DoxyCompactList}\small\item\em Universal gas constant, exact number. \end{DoxyCompactList}\item 
+\item 
 auto \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_ad6c1ce5e3ff2e088f9beb78854ea0445}{get\+\_\+kmat}} () const
 \item 
 auto \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_adc6286a4ee1c11853fb6ee0ac5f04798}{get\+\_\+lmat}} () const
@@ -29,12 +29,7 @@ auto \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_a33cce0077154530c53f1f2604
 \item 
 {\footnotesize template$<$typename TType , typename Rho\+Type , typename Fractions\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_a67183353dfd539a39482a2aab7aac239}{alphar}} (const TType \&T, const Rho\+Type \&rhoinit, const Fractions\+Type \&molefrac) const
 \item 
-auto \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_a59a99d09cf019d611512b3bf7125fa51}{superanc\+\_\+rho\+LV}} (double T) const
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-const double \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_ac8b983eeec5793ba209e19faf82c8f99}{Ru}} = \mbox{\hyperlink{namespaceteqp_aed0cabbf6a82a357adc773aa850566ea}{get\+\_\+\+R\+\_\+gas}}$<$double$>$()
+auto \mbox{\hyperlink{classteqp_1_1QuantumCorrectedPR_aca0dc5a22f2258eadb3d7d85bad35681}{superanc\+\_\+rho\+LV}} (double T, const std\+::optional$<$ std\+::size\+\_\+t $>$ ifluid=std\+::nullopt) const
 \end{DoxyCompactItemize}
 
 
@@ -43,156 +38,148 @@ The quantum corrected Peng-\/\+Robinson model as developed in
 
 Ailo Aasen, Morten Hammer, Silvia Lasala, Jean-\/\+Noël Jaubert, Øivind Wilhelmsen "{}\+Accurate quantum-\/corrected cubic equations of state for helium, neon, hydrogen, deuterium and their mixtures"{} Fluid Phase Equilibria 524 (2020) 112790 \href{https://doi.org/10.1016/j.fluid.2020.112790}{\texttt{ https\+://doi.\+org/10.\+1016/j.\+fluid.\+2020.\+112790}} 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00768}{768}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00678}{678}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classteqp_1_1QuantumCorrectedPR_a9bfd85ebc5cb4b594117a6a230ee59f5}\label{classteqp_1_1QuantumCorrectedPR_a9bfd85ebc5cb4b594117a6a230ee59f5} 
-\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!QuantumCorrectedPR@{QuantumCorrectedPR}}
+\Hypertarget{classteqp_1_1QuantumCorrectedPR_a9bfd85ebc5cb4b594117a6a230ee59f5}\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!QuantumCorrectedPR@{QuantumCorrectedPR}}
 \index{QuantumCorrectedPR@{QuantumCorrectedPR}!teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}}
 \doxysubsubsection{\texorpdfstring{QuantumCorrectedPR()}{QuantumCorrectedPR()}}
-{\footnotesize\ttfamily teqp\+::\+Quantum\+Corrected\+PR\+::\+Quantum\+Corrected\+PR (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1QuantumCorrectedPR_a9bfd85ebc5cb4b594117a6a230ee59f5} 
+teqp\+::\+Quantum\+Corrected\+PR\+::\+Quantum\+Corrected\+PR (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00791}{791}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00703}{703}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classteqp_1_1QuantumCorrectedPR_a67183353dfd539a39482a2aab7aac239}\label{classteqp_1_1QuantumCorrectedPR_a67183353dfd539a39482a2aab7aac239} 
-\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!alphar@{alphar}}
+\Hypertarget{classteqp_1_1QuantumCorrectedPR_a67183353dfd539a39482a2aab7aac239}\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!alphar@{alphar}}
 \index{alphar@{alphar}!teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}}
 \doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
-{\footnotesize\ttfamily template$<$typename TType , typename Rho\+Type , typename Fractions\+Type $>$ \\
-auto teqp\+::\+Quantum\+Corrected\+PR\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Rho\+Type \&}]{rhoinit,  }\item[{const Fractions\+Type \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1QuantumCorrectedPR_a67183353dfd539a39482a2aab7aac239} 
+template$<$typename TType , typename Rho\+Type , typename Fractions\+Type $>$ \\
+auto teqp\+::\+Quantum\+Corrected\+PR\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T}{, }\item[{const Rho\+Type \&}]{rhoinit}{, }\item[{const Fractions\+Type \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00851}{851}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00763}{763}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1QuantumCorrectedPR_a489f74d5a8a17159809fcab487839a5d}\label{classteqp_1_1QuantumCorrectedPR_a489f74d5a8a17159809fcab487839a5d} 
-\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_ab@{get\_ab}}
+\Hypertarget{classteqp_1_1QuantumCorrectedPR_a489f74d5a8a17159809fcab487839a5d}\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_ab@{get\_ab}}
 \index{get\_ab@{get\_ab}!teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}}
 \doxysubsubsection{\texorpdfstring{get\_ab()}{get\_ab()}}
-{\footnotesize\ttfamily template$<$typename TType , typename Fractions\+Type $>$ \\
-auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+ab (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Fractions\+Type \&}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1QuantumCorrectedPR_a489f74d5a8a17159809fcab487839a5d} 
+template$<$typename TType , typename Fractions\+Type $>$ \\
+auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+ab (\begin{DoxyParamCaption}\item[{const TType \&}]{T}{, }\item[{const Fractions\+Type \&}]{z}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00822}{822}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00734}{734}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1QuantumCorrectedPR_a0df0d50d201fe70861300e2b6705cefd}\label{classteqp_1_1QuantumCorrectedPR_a0df0d50d201fe70861300e2b6705cefd} 
-\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_ai@{get\_ai}}
+\Hypertarget{classteqp_1_1QuantumCorrectedPR_a0df0d50d201fe70861300e2b6705cefd}\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_ai@{get\_ai}}
 \index{get\_ai@{get\_ai}!teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}}
 \doxysubsubsection{\texorpdfstring{get\_ai()}{get\_ai()}}
-{\footnotesize\ttfamily template$<$typename TType $>$ \\
-auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+ai (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{const TType \&}]{T }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1QuantumCorrectedPR_a0df0d50d201fe70861300e2b6705cefd} 
+template$<$typename TType $>$ \\
+auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+ai (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i}{, }\item[{const TType \&}]{T}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00813}{813}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00725}{725}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1QuantumCorrectedPR_ac4ed699bec78b1c76421db15223a1fbe}\label{classteqp_1_1QuantumCorrectedPR_ac4ed699bec78b1c76421db15223a1fbe} 
-\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_bi@{get\_bi}}
+\Hypertarget{classteqp_1_1QuantumCorrectedPR_ac4ed699bec78b1c76421db15223a1fbe}\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_bi@{get\_bi}}
 \index{get\_bi@{get\_bi}!teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}}
 \doxysubsubsection{\texorpdfstring{get\_bi()}{get\_bi()}}
-{\footnotesize\ttfamily template$<$typename TType $>$ \\
-auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+bi (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{const TType \&}]{T }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1QuantumCorrectedPR_ac4ed699bec78b1c76421db15223a1fbe} 
+template$<$typename TType $>$ \\
+auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+bi (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i}{, }\item[{const TType \&}]{T}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00805}{805}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00717}{717}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1QuantumCorrectedPR_aff278f38628c752a5ab4c1c748a393fb}\label{classteqp_1_1QuantumCorrectedPR_aff278f38628c752a5ab4c1c748a393fb} 
-\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_c@{get\_c}}
+\Hypertarget{classteqp_1_1QuantumCorrectedPR_aff278f38628c752a5ab4c1c748a393fb}\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_c@{get\_c}}
 \index{get\_c@{get\_c}!teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}}
 \doxysubsubsection{\texorpdfstring{get\_c()}{get\_c()}}
-{\footnotesize\ttfamily template$<$typename TType , typename Fractions\+Type $>$ \\
-auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+c (\begin{DoxyParamCaption}\item[{const TType \&}]{,  }\item[{const Fractions\+Type \&}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1QuantumCorrectedPR_aff278f38628c752a5ab4c1c748a393fb} 
+template$<$typename TType , typename Fractions\+Type $>$ \\
+auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+c (\begin{DoxyParamCaption}\item[{const TType \&}]{}{, }\item[{const Fractions\+Type \&}]{z}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00840}{840}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00752}{752}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1QuantumCorrectedPR_ad6c1ce5e3ff2e088f9beb78854ea0445}\label{classteqp_1_1QuantumCorrectedPR_ad6c1ce5e3ff2e088f9beb78854ea0445} 
-\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_kmat@{get\_kmat}}
+\Hypertarget{classteqp_1_1QuantumCorrectedPR_ad6c1ce5e3ff2e088f9beb78854ea0445}\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_kmat@{get\_kmat}}
 \index{get\_kmat@{get\_kmat}!teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}}
 \doxysubsubsection{\texorpdfstring{get\_kmat()}{get\_kmat()}}
-{\footnotesize\ttfamily auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+kmat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1QuantumCorrectedPR_ad6c1ce5e3ff2e088f9beb78854ea0445} 
+auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+kmat (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00799}{799}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00711}{711}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1QuantumCorrectedPR_adc6286a4ee1c11853fb6ee0ac5f04798}\label{classteqp_1_1QuantumCorrectedPR_adc6286a4ee1c11853fb6ee0ac5f04798} 
-\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_lmat@{get\_lmat}}
+\Hypertarget{classteqp_1_1QuantumCorrectedPR_adc6286a4ee1c11853fb6ee0ac5f04798}\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_lmat@{get\_lmat}}
 \index{get\_lmat@{get\_lmat}!teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}}
 \doxysubsubsection{\texorpdfstring{get\_lmat()}{get\_lmat()}}
-{\footnotesize\ttfamily auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+lmat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1QuantumCorrectedPR_adc6286a4ee1c11853fb6ee0ac5f04798} 
+auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+lmat (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00800}{800}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00712}{712}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1QuantumCorrectedPR_a33cce0077154530c53f1f26048ffc49c}\label{classteqp_1_1QuantumCorrectedPR_a33cce0077154530c53f1f26048ffc49c} 
-\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_pc\_Pa@{get\_pc\_Pa}}
+\Hypertarget{classteqp_1_1QuantumCorrectedPR_a33cce0077154530c53f1f26048ffc49c}\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_pc\_Pa@{get\_pc\_Pa}}
 \index{get\_pc\_Pa@{get\_pc\_Pa}!teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}}
 \doxysubsubsection{\texorpdfstring{get\_pc\_Pa()}{get\_pc\_Pa()}}
-{\footnotesize\ttfamily auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+pc\+\_\+\+Pa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1QuantumCorrectedPR_a33cce0077154530c53f1f26048ffc49c} 
+auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+pc\+\_\+\+Pa (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00802}{802}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00714}{714}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1QuantumCorrectedPR_a7a8122a16023a9793c451f7217815845}\label{classteqp_1_1QuantumCorrectedPR_a7a8122a16023a9793c451f7217815845} 
-\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_Tc\_K@{get\_Tc\_K}}
+\Hypertarget{classteqp_1_1QuantumCorrectedPR_a7a8122a16023a9793c451f7217815845}\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!get\_Tc\_K@{get\_Tc\_K}}
 \index{get\_Tc\_K@{get\_Tc\_K}!teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}}
 \doxysubsubsection{\texorpdfstring{get\_Tc\_K()}{get\_Tc\_K()}}
-{\footnotesize\ttfamily auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+\+Tc\+\_\+K (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1QuantumCorrectedPR_a7a8122a16023a9793c451f7217815845} 
+auto teqp\+::\+Quantum\+Corrected\+PR\+::get\+\_\+\+Tc\+\_\+K (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00801}{801}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00713}{713}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1QuantumCorrectedPR_ac5fd0d4bfb2ee04ff15a0330501a62cc}\label{classteqp_1_1QuantumCorrectedPR_ac5fd0d4bfb2ee04ff15a0330501a62cc} 
-\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!R@{R}}
+\Hypertarget{classteqp_1_1QuantumCorrectedPR_ac5fd0d4bfb2ee04ff15a0330501a62cc}\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!R@{R}}
 \index{R@{R}!teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}}
 \doxysubsubsection{\texorpdfstring{R()}{R()}}
-{\footnotesize\ttfamily template$<$class Vec\+Type $>$ \\
-auto teqp\+::\+Quantum\+Corrected\+PR\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1QuantumCorrectedPR_ac5fd0d4bfb2ee04ff15a0330501a62cc} 
+template$<$class Vec\+Type $>$ \\
+auto teqp\+::\+Quantum\+Corrected\+PR\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Universal gas constant, exact number. 
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00708}{708}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-
-
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00796}{796}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
-
-\Hypertarget{classteqp_1_1QuantumCorrectedPR_a59a99d09cf019d611512b3bf7125fa51}\label{classteqp_1_1QuantumCorrectedPR_a59a99d09cf019d611512b3bf7125fa51} 
-\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!superanc\_rhoLV@{superanc\_rhoLV}}
+\Hypertarget{classteqp_1_1QuantumCorrectedPR_aca0dc5a22f2258eadb3d7d85bad35681}\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!superanc\_rhoLV@{superanc\_rhoLV}}
 \index{superanc\_rhoLV@{superanc\_rhoLV}!teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}}
 \doxysubsubsection{\texorpdfstring{superanc\_rhoLV()}{superanc\_rhoLV()}}
-{\footnotesize\ttfamily auto teqp\+::\+Quantum\+Corrected\+PR\+::superanc\+\_\+rho\+LV (\begin{DoxyParamCaption}\item[{double}]{T }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1QuantumCorrectedPR_aca0dc5a22f2258eadb3d7d85bad35681} 
+auto teqp\+::\+Quantum\+Corrected\+PR\+::superanc\+\_\+rho\+LV (\begin{DoxyParamCaption}\item[{double}]{T}{, }\item[{const std\+::optional$<$ std\+::size\+\_\+t $>$}]{ifluid}{ = {\ttfamily std\+:\+:nullopt}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Return a tuple of saturated liquid and vapor densities for the EOS given the temperature Uses the superancillary equations from Bell and Deiters\+: 
-
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00869}{869}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
-
+Return a tuple of saturated liquid and vapor densities for the EOS given the temperature Uses the superancillary equations from Bell and Deiters\+:
 
 
-\doxysubsection{Member Data Documentation}
-\Hypertarget{classteqp_1_1QuantumCorrectedPR_ac8b983eeec5793ba209e19faf82c8f99}\label{classteqp_1_1QuantumCorrectedPR_ac8b983eeec5793ba209e19faf82c8f99} 
-\index{teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}!Ru@{Ru}}
-\index{Ru@{Ru}!teqp::QuantumCorrectedPR@{teqp::QuantumCorrectedPR}}
-\doxysubsubsection{\texorpdfstring{Ru}{Ru}}
-{\footnotesize\ttfamily const double teqp\+::\+Quantum\+Corrected\+PR\+::\+Ru = \mbox{\hyperlink{namespaceteqp_aed0cabbf6a82a357adc773aa850566ea}{get\+\_\+\+R\+\_\+gas}}$<$double$>$()}
+\begin{DoxyParams}{Parameters}
+{\em T} & Temperature, in K \\
+\hline
+{\em ifluid} & Index of fluid you want to get superancillary for. Must be provided in the case of mixtures \\
+\hline
+\end{DoxyParams}
 
 
-
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00793}{793}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00784}{784}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
 
 

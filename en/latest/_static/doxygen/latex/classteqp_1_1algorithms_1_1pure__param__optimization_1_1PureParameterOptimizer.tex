@@ -1,0 +1,157 @@
+\doxysection{teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::Pure\+Parameter\+Optimizer Class Reference}
+\hypertarget{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer}{}\label{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer}\index{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}}
+
+
+{\ttfamily \#include $<$pure\+\_\+param\+\_\+optimization.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a9cce2b314f0113a918ace490eed0d519}{Pure\+Parameter\+Optimizer}} (const nlohmann\+::json \mbox{\hyperlink{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a0b1bd2b4e2c339068863fa2a33922990}{jbase}}, const std\+::vector$<$ std\+::variant$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ $>$ \&pointerstrs)
+\item 
+void \mbox{\hyperlink{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a2b90ff7cf2f54f710e18366643797b09}{add\+\_\+one\+\_\+contribution}} (const \mbox{\hyperlink{namespaceteqp_1_1algorithms_1_1pure__param__optimization_a85b3afb4f6532c886de6acc135e2cf98}{Pure\+Optimization\+Contribution}} \&cont)
+\item 
+auto \mbox{\hyperlink{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a7ce9c55239c6d66a0d27e6676daf7aab}{prepare\+\_\+helper\+\_\+models}} (const auto \&model) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\nlohmann\+::json \mbox{\hyperlink{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a3c5af70e87335cc85629cc61d10f8442}{build\+\_\+\+JSON}} (const T \&x) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a0d41f7d1a552fc4bad5442e1d743888f}{prepare}} (const T \&x) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a24a509fb9a8463a2f3330f8a31e6072f}{cost\+\_\+function}} (const T \&x) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a2993f26c7aa9629924128030985d6989}{cost\+\_\+function\+\_\+threaded}} (const T \&x, std\+::size\+\_\+t Nthreads)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const nlohmann\+::json \mbox{\hyperlink{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a0b1bd2b4e2c339068863fa2a33922990}{jbase}}
+\item 
+std\+::vector$<$ std\+::vector$<$ nlohmann\+::json\+::json\+\_\+pointer $>$ $>$ \mbox{\hyperlink{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_ad41536ff95d1b432ba4170f575c52a76}{pointers}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespaceteqp_1_1algorithms_1_1pure__param__optimization_a85b3afb4f6532c886de6acc135e2cf98}{Pure\+Optimization\+Contribution}} $>$ \mbox{\hyperlink{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a06a83752e1e32e7221a92998dc433008}{contributions}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00180}{180}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a9cce2b314f0113a918ace490eed0d519}\index{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}!PureParameterOptimizer@{PureParameterOptimizer}}
+\index{PureParameterOptimizer@{PureParameterOptimizer}!teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}}
+\doxysubsubsection{\texorpdfstring{PureParameterOptimizer()}{PureParameterOptimizer()}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a9cce2b314f0113a918ace490eed0d519} 
+teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Pure\+Parameter\+Optimizer\+::\+Pure\+Parameter\+Optimizer (\begin{DoxyParamCaption}\item[{const nlohmann\+::json}]{jbase}{, }\item[{const std\+::vector$<$ std\+::variant$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ $>$ \&}]{pointerstrs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00204}{204}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a2b90ff7cf2f54f710e18366643797b09}\index{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}!add\_one\_contribution@{add\_one\_contribution}}
+\index{add\_one\_contribution@{add\_one\_contribution}!teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}}
+\doxysubsubsection{\texorpdfstring{add\_one\_contribution()}{add\_one\_contribution()}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a2b90ff7cf2f54f710e18366643797b09} 
+void teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Pure\+Parameter\+Optimizer\+::add\+\_\+one\+\_\+contribution (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceteqp_1_1algorithms_1_1pure__param__optimization_a85b3afb4f6532c886de6acc135e2cf98}{Pure\+Optimization\+Contribution}} \&}]{cont}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00206}{206}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a3c5af70e87335cc85629cc61d10f8442}\index{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}!build\_JSON@{build\_JSON}}
+\index{build\_JSON@{build\_JSON}!teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}}
+\doxysubsubsection{\texorpdfstring{build\_JSON()}{build\_JSON()}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a3c5af70e87335cc85629cc61d10f8442} 
+template$<$typename T $>$ \\
+nlohmann\+::json teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Pure\+Parameter\+Optimizer\+::build\+\_\+\+JSON (\begin{DoxyParamCaption}\item[{const T \&}]{x}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00216}{216}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a24a509fb9a8463a2f3330f8a31e6072f}\index{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}!cost\_function@{cost\_function}}
+\index{cost\_function@{cost\_function}!teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}}
+\doxysubsubsection{\texorpdfstring{cost\_function()}{cost\_function()}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a24a509fb9a8463a2f3330f8a31e6072f} 
+template$<$typename T $>$ \\
+auto teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Pure\+Parameter\+Optimizer\+::cost\+\_\+function (\begin{DoxyParamCaption}\item[{const T \&}]{x}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00239}{239}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a2993f26c7aa9629924128030985d6989}\index{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}!cost\_function\_threaded@{cost\_function\_threaded}}
+\index{cost\_function\_threaded@{cost\_function\_threaded}!teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}}
+\doxysubsubsection{\texorpdfstring{cost\_function\_threaded()}{cost\_function\_threaded()}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a2993f26c7aa9629924128030985d6989} 
+template$<$typename T $>$ \\
+auto teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Pure\+Parameter\+Optimizer\+::cost\+\_\+function\+\_\+threaded (\begin{DoxyParamCaption}\item[{const T \&}]{x}{, }\item[{std\+::size\+\_\+t}]{Nthreads}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00254}{254}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a0d41f7d1a552fc4bad5442e1d743888f}\index{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}!prepare@{prepare}}
+\index{prepare@{prepare}!teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}}
+\doxysubsubsection{\texorpdfstring{prepare()}{prepare()}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a0d41f7d1a552fc4bad5442e1d743888f} 
+template$<$typename T $>$ \\
+auto teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Pure\+Parameter\+Optimizer\+::prepare (\begin{DoxyParamCaption}\item[{const T \&}]{x}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00231}{231}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a7ce9c55239c6d66a0d27e6676daf7aab}\index{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}!prepare\_helper\_models@{prepare\_helper\_models}}
+\index{prepare\_helper\_models@{prepare\_helper\_models}!teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}}
+\doxysubsubsection{\texorpdfstring{prepare\_helper\_models()}{prepare\_helper\_models()}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a7ce9c55239c6d66a0d27e6676daf7aab} 
+auto teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Pure\+Parameter\+Optimizer\+::prepare\+\_\+helper\+\_\+models (\begin{DoxyParamCaption}\item[{const auto \&}]{model}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00211}{211}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a06a83752e1e32e7221a92998dc433008}\index{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}!contributions@{contributions}}
+\index{contributions@{contributions}!teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}}
+\doxysubsubsection{\texorpdfstring{contributions}{contributions}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a06a83752e1e32e7221a92998dc433008} 
+std\+::vector$<$\mbox{\hyperlink{namespaceteqp_1_1algorithms_1_1pure__param__optimization_a85b3afb4f6532c886de6acc135e2cf98}{Pure\+Optimization\+Contribution}}$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Pure\+Parameter\+Optimizer\+::contributions}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00202}{202}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a0b1bd2b4e2c339068863fa2a33922990}\index{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}!jbase@{jbase}}
+\index{jbase@{jbase}!teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}}
+\doxysubsubsection{\texorpdfstring{jbase}{jbase}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_a0b1bd2b4e2c339068863fa2a33922990} 
+const nlohmann\+::json teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Pure\+Parameter\+Optimizer\+::jbase}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00200}{200}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_ad41536ff95d1b432ba4170f575c52a76}\index{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}!pointers@{pointers}}
+\index{pointers@{pointers}!teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer@{teqp::algorithms::pure\_param\_optimization::PureParameterOptimizer}}
+\doxysubsubsection{\texorpdfstring{pointers}{pointers}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer_ad41536ff95d1b432ba4170f575c52a76} 
+std\+::vector$<$std\+::vector$<$nlohmann\+::json\+::json\+\_\+pointer$>$ $>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Pure\+Parameter\+Optimizer\+::pointers}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00201}{201}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{pure__param__optimization_8hpp}{pure\+\_\+param\+\_\+optimization.\+hpp}}\end{DoxyCompactItemize}

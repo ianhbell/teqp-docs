@@ -1,0 +1,56 @@
+\doxysection{teqp\+::iteration\+::Stopping\+Condition Class Reference}
+\hypertarget{classteqp_1_1iteration_1_1StoppingCondition}{}\label{classteqp_1_1iteration_1_1StoppingCondition}\index{teqp::iteration::StoppingCondition@{teqp::iteration::StoppingCondition}}
+
+
+{\ttfamily \#include $<$iteration.\+hpp$>$}
+
+Inheritance diagram for teqp\+::iteration\+::Stopping\+Condition\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.925620cm]{classteqp_1_1iteration_1_1StoppingCondition}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{Stopping\+Condition\+Reason}} \mbox{\hyperlink{classteqp_1_1iteration_1_1StoppingCondition_a0c5d01515a716cd20374122505815104}{stop}} (const \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData}{Stopping\+Data}} \&)=0
+\item 
+virtual std\+::string \mbox{\hyperlink{classteqp_1_1iteration_1_1StoppingCondition_af5f4d351f21a850f48f5ab7702305d0e}{desc}} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The base class for a stopping condition test in iteration
+
+The function stop returns either a \doxylink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcdaec21e4be818085d31ea394add83c29b4}{Stopping\+Condition\+Reason\+::keep\+\_\+going} to indicate that the stopping condition is not satisfied or another enumerated value to indicate whether successful or a failure 
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1iteration_1_1StoppingCondition_af5f4d351f21a850f48f5ab7702305d0e}\index{teqp::iteration::StoppingCondition@{teqp::iteration::StoppingCondition}!desc@{desc}}
+\index{desc@{desc}!teqp::iteration::StoppingCondition@{teqp::iteration::StoppingCondition}}
+\doxysubsubsection{\texorpdfstring{desc()}{desc()}}
+{\footnotesize\ttfamily \label{classteqp_1_1iteration_1_1StoppingCondition_af5f4d351f21a850f48f5ab7702305d0e} 
+virtual std\+::string teqp\+::iteration\+::\+Stopping\+Condition\+::desc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classteqp_1_1iteration_1_1MaxAbsErrorCondition_adbdec49473c309dbc21bce80caf9dd6d}{teqp\+::iteration\+::\+Max\+Abs\+Error\+Condition}}, \mbox{\hyperlink{classteqp_1_1iteration_1_1MinRelStepsizeCondition_a67dce0002b48cb18cbc3e9cbc7f90231}{teqp\+::iteration\+::\+Min\+Rel\+Stepsize\+Condition}}, \mbox{\hyperlink{classteqp_1_1iteration_1_1NanXDXErrorCondition_a9e3cae0fa50dff491a4ace3ce14b4f94}{teqp\+::iteration\+::\+Nan\+XDXError\+Condition}}, \mbox{\hyperlink{classteqp_1_1iteration_1_1NegativeXErrorCondition_af9591547bac91c8df75289377228d258}{teqp\+::iteration\+::\+Negative\+XError\+Condition}}, and \mbox{\hyperlink{classteqp_1_1iteration_1_1StepCountErrorCondition_a309f1b4540299255074637cdb2968b46}{teqp\+::iteration\+::\+Step\+Count\+Error\+Condition}}.
+
+\Hypertarget{classteqp_1_1iteration_1_1StoppingCondition_a0c5d01515a716cd20374122505815104}\index{teqp::iteration::StoppingCondition@{teqp::iteration::StoppingCondition}!stop@{stop}}
+\index{stop@{stop}!teqp::iteration::StoppingCondition@{teqp::iteration::StoppingCondition}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily \label{classteqp_1_1iteration_1_1StoppingCondition_a0c5d01515a716cd20374122505815104} 
+virtual \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{Stopping\+Condition\+Reason}} teqp\+::iteration\+::\+Stopping\+Condition\+::stop (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData}{Stopping\+Data}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classteqp_1_1iteration_1_1MaxAbsErrorCondition_ab9167d0f74aabc23d4eecccaea178b15}{teqp\+::iteration\+::\+Max\+Abs\+Error\+Condition}}, \mbox{\hyperlink{classteqp_1_1iteration_1_1MinRelStepsizeCondition_ad41aa223dd547608f6b1020e1b0fda0f}{teqp\+::iteration\+::\+Min\+Rel\+Stepsize\+Condition}}, \mbox{\hyperlink{classteqp_1_1iteration_1_1NanXDXErrorCondition_a03f33bba1b7f3f066c346117ddf531ed}{teqp\+::iteration\+::\+Nan\+XDXError\+Condition}}, \mbox{\hyperlink{classteqp_1_1iteration_1_1NegativeXErrorCondition_ab13f56719321eb8cc61520b9d18be15a}{teqp\+::iteration\+::\+Negative\+XError\+Condition}}, and \mbox{\hyperlink{classteqp_1_1iteration_1_1StepCountErrorCondition_a9f3c0604482112aa3338f3aadfa90ac8}{teqp\+::iteration\+::\+Step\+Count\+Error\+Condition}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{iteration_8hpp}{iteration.\+hpp}}\end{DoxyCompactItemize}

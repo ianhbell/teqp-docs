@@ -1,0 +1,178 @@
+\doxysection{teqp\+::saft\+::pcsaft\+::PCSAFTHard\+Chain\+Contribution Class Reference}
+\hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution}{}\label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution}\index{teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}}
+
+
+{\ttfamily \#include $<$pcsaft.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a5823d7b3578e0d5b7e3f1865ca62b13a}{PCSAFTHard\+Chain\+Contribution}} (const Eigen\+::\+ArrayX$<$ double $>$ \&\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_ab9760d4f5f56d8269da4f8d531bc497b}{m}}, const Eigen\+::\+ArrayX$<$ double $>$ \&\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_ad66dbdfe86acf711d79af4d073a08704}{mminus1}}, const Eigen\+::\+ArrayX$<$ double $>$ \&\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a047e62ec536229e9bc7601f196cbf793}{sigma\+\_\+\+Angstrom}}, const Eigen\+::\+ArrayX$<$ double $>$ \&\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a33087d3227b10ae614d3463b552b7b2b}{epsilon\+\_\+over\+\_\+k}}, const Eigen\+::\+Array\+XXd \&\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a2d9274a2eb26d075eeba9808d8da9b00}{kmat}}, const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_aaa3062b17f15808ff717cc50fb599eaa}{a}}, const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a7a9b22bfe82a2d1b8049bf336726e1bc}{b}})
+\item 
+\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution}{PCSAFTHard\+Chain\+Contribution}} \& \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a3866f86771d0b5be744543c78c09516e}{operator=}} (const \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution}{PCSAFTHard\+Chain\+Contribution}} \&)=delete
+\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a0dd974b9447f9a19ee5d205baa2f77f8}{eval}} (const TTYPE \&T, const Rho\+Type \&rhomolar, const Vec\+Type \&mole\+\_\+fractions) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const Eigen\+::\+ArrayX$<$ double $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_ab9760d4f5f56d8269da4f8d531bc497b}{m}}
+\begin{DoxyCompactList}\small\item\em number of segments \end{DoxyCompactList}\item 
+const Eigen\+::\+ArrayX$<$ double $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_ad66dbdfe86acf711d79af4d073a08704}{mminus1}}
+\begin{DoxyCompactList}\small\item\em m-\/1 \end{DoxyCompactList}\item 
+const Eigen\+::\+ArrayX$<$ double $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a047e62ec536229e9bc7601f196cbf793}{sigma\+\_\+\+Angstrom}}
+\item 
+const Eigen\+::\+ArrayX$<$ double $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a33087d3227b10ae614d3463b552b7b2b}{epsilon\+\_\+over\+\_\+k}}
+\begin{DoxyCompactList}\small\item\em depth of pair potential divided by Boltzman constant \end{DoxyCompactList}\item 
+const Eigen\+::\+Array\+XXd \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a2d9274a2eb26d075eeba9808d8da9b00}{kmat}}
+\begin{DoxyCompactList}\small\item\em binary interaction parameter matrix \end{DoxyCompactList}\item 
+Eigen\+::\+Array$<$ double, 3, 7 $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_aaa3062b17f15808ff717cc50fb599eaa}{a}}
+\begin{DoxyCompactList}\small\item\em The universal constants used in Eqn. A.\+18 of G\&S. \end{DoxyCompactList}\item 
+Eigen\+::\+Array$<$ double, 3, 7 $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a7a9b22bfe82a2d1b8049bf336726e1bc}{b}}
+\begin{DoxyCompactList}\small\item\em The universal constants used in Eqn. A.\+19 of G\&S. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00187}{187}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a5823d7b3578e0d5b7e3f1865ca62b13a}\index{teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}!PCSAFTHardChainContribution@{PCSAFTHardChainContribution}}
+\index{PCSAFTHardChainContribution@{PCSAFTHardChainContribution}!teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}}
+\doxysubsubsection{\texorpdfstring{PCSAFTHardChainContribution()}{PCSAFTHardChainContribution()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a5823d7b3578e0d5b7e3f1865ca62b13a} 
+teqp\+::saft\+::pcsaft\+::\+PCSAFTHard\+Chain\+Contribution\+::\+PCSAFTHard\+Chain\+Contribution (\begin{DoxyParamCaption}\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{m}{, }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{mminus1}{, }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{sigma\+\_\+\+Angstrom}{, }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{epsilon\+\_\+over\+\_\+k}{, }\item[{const Eigen\+::\+Array\+XXd \&}]{kmat}{, }\item[{const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&}]{a}{, }\item[{const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00199}{199}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a0dd974b9447f9a19ee5d205baa2f77f8}\index{teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}!eval@{eval}}
+\index{eval@{eval}!teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a0dd974b9447f9a19ee5d205baa2f77f8} 
+template$<$typename TTYPE , typename Rho\+Type , typename Vec\+Type $>$ \\
+auto teqp\+::saft\+::pcsaft\+::\+PCSAFTHard\+Chain\+Contribution\+::eval (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T}{, }\item[{const Rho\+Type \&}]{rhomolar}{, }\item[{const Vec\+Type \&}]{mole\+\_\+fractions}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Convert from molar density to number density in molecules/\+Angstrom\texorpdfstring{$^\wedge$}{\string^}3
+
+Evaluate the components of zeta
+
+Packing fraction is the 4-\/th value in zeta, at index 3
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00205}{205}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a3866f86771d0b5be744543c78c09516e}\index{teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}!operator=@{operator=}}
+\index{operator=@{operator=}!teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a3866f86771d0b5be744543c78c09516e} 
+\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution}{PCSAFTHard\+Chain\+Contribution}} \& teqp\+::saft\+::pcsaft\+::\+PCSAFTHard\+Chain\+Contribution\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution}{PCSAFTHard\+Chain\+Contribution}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_aaa3062b17f15808ff717cc50fb599eaa}\index{teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}!a@{a}}
+\index{a@{a}!teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}}
+\doxysubsubsection{\texorpdfstring{a}{a}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_aaa3062b17f15808ff717cc50fb599eaa} 
+Eigen\+::\+Array$<$double, 3, 7$>$ teqp\+::saft\+::pcsaft\+::\+PCSAFTHard\+Chain\+Contribution\+::a\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The universal constants used in Eqn. A.\+18 of G\&S. 
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00195}{195}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a7a9b22bfe82a2d1b8049bf336726e1bc}\index{teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}!b@{b}}
+\index{b@{b}!teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}}
+\doxysubsubsection{\texorpdfstring{b}{b}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a7a9b22bfe82a2d1b8049bf336726e1bc} 
+Eigen\+::\+Array$<$double, 3, 7$>$ teqp\+::saft\+::pcsaft\+::\+PCSAFTHard\+Chain\+Contribution\+::b\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The universal constants used in Eqn. A.\+19 of G\&S. 
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00196}{196}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a33087d3227b10ae614d3463b552b7b2b}\index{teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}!epsilon\_over\_k@{epsilon\_over\_k}}
+\index{epsilon\_over\_k@{epsilon\_over\_k}!teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}}
+\doxysubsubsection{\texorpdfstring{epsilon\_over\_k}{epsilon\_over\_k}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a33087d3227b10ae614d3463b552b7b2b} 
+const Eigen\+::\+ArrayX$<$double$>$ teqp\+::saft\+::pcsaft\+::\+PCSAFTHard\+Chain\+Contribution\+::epsilon\+\_\+over\+\_\+k\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+depth of pair potential divided by Boltzman constant 
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00193}{193}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a2d9274a2eb26d075eeba9808d8da9b00}\index{teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}!kmat@{kmat}}
+\index{kmat@{kmat}!teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}}
+\doxysubsubsection{\texorpdfstring{kmat}{kmat}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a2d9274a2eb26d075eeba9808d8da9b00} 
+const Eigen\+::\+Array\+XXd teqp\+::saft\+::pcsaft\+::\+PCSAFTHard\+Chain\+Contribution\+::kmat\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+binary interaction parameter matrix 
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00194}{194}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_ab9760d4f5f56d8269da4f8d531bc497b}\index{teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}!m@{m}}
+\index{m@{m}!teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}}
+\doxysubsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_ab9760d4f5f56d8269da4f8d531bc497b} 
+const Eigen\+::\+ArrayX$<$double$>$ teqp\+::saft\+::pcsaft\+::\+PCSAFTHard\+Chain\+Contribution\+::m\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+number of segments 
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00190}{190}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_ad66dbdfe86acf711d79af4d073a08704}\index{teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}!mminus1@{mminus1}}
+\index{mminus1@{mminus1}!teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}}
+\doxysubsubsection{\texorpdfstring{mminus1}{mminus1}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_ad66dbdfe86acf711d79af4d073a08704} 
+const Eigen\+::\+ArrayX$<$double$>$ teqp\+::saft\+::pcsaft\+::\+PCSAFTHard\+Chain\+Contribution\+::mminus1\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m-\/1 
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00191}{191}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a047e62ec536229e9bc7601f196cbf793}\index{teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}!sigma\_Angstrom@{sigma\_Angstrom}}
+\index{sigma\_Angstrom@{sigma\_Angstrom}!teqp::saft::pcsaft::PCSAFTHardChainContribution@{teqp::saft::pcsaft::PCSAFTHardChainContribution}}
+\doxysubsubsection{\texorpdfstring{sigma\_Angstrom}{sigma\_Angstrom}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution_a047e62ec536229e9bc7601f196cbf793} 
+const Eigen\+::\+ArrayX$<$double$>$ teqp\+::saft\+::pcsaft\+::\+PCSAFTHard\+Chain\+Contribution\+::sigma\+\_\+\+Angstrom\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00192}{192}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\mbox{\hyperlink{pcsaft_8hpp}{pcsaft.\+hpp}}\end{DoxyCompactItemize}

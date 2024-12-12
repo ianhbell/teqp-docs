@@ -1,0 +1,109 @@
+\doxysection{teqp\+::saft\+::polar\+\_\+terms\+::Gross\+Vrabec\+::Multipolar\+Contribution\+Gross\+Vrabec Class Reference}
+\hypertarget{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec}{}\label{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec}\index{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec}}
+
+
+{\ttfamily \#include $<$Gross\+Vrabec.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_a1b15be853f38a563f8edddfaf3ab4bca}{Multipolar\+Contribution\+Gross\+Vrabec}} (const Eigen\+::\+ArrayX$<$ double $>$ \&m, const Eigen\+::\+ArrayX$<$ double $>$ \&sigma\+\_\+\+Angstrom, const Eigen\+::\+ArrayX$<$ double $>$ \&epsilon\+\_\+over\+\_\+k, const Eigen\+::\+ArrayX$<$ double $>$ \&mustar2, const Eigen\+::\+ArrayX$<$ double $>$ \&nmu, const Eigen\+::\+ArrayX$<$ double $>$ \&Qstar2, const Eigen\+::\+ArrayX$<$ double $>$ \&nQ)
+\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Eta\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_af36028a49af7ac2e70eab5168cb87a90}{eval}} (const TTYPE \&T, const Rho\+Type \&rho\+\_\+\+A3, const Eta\+Type \&eta, const Vec\+Type \&mole\+\_\+fractions) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::optional$<$ \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec}{Dipolar\+Contribution\+Gross\+Vrabec}} $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_ab251ad0c368f5b25f64954e47f83fc85}{di}}
+\item 
+const std\+::optional$<$ \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1QuadrupolarContributionGross}{Quadrupolar\+Contribution\+Gross}} $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_aa2ef855cafd23e4833e81ec21922b6ba}{quad}}
+\item 
+const std\+::optional$<$ \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarQuadrupolarContributionVrabecGross}{Dipolar\+Quadrupolar\+Contribution\+Vrabec\+Gross}} $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_a55015364a519b2a252cc6c091869a93f}{diquad}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr \mbox{\hyperlink{namespaceteqp_1_1saft_1_1polar__terms_ac1bb6420b1b80dbb4ee0e39b9a52c8eb}{multipolar\+\_\+argument\+\_\+spec}} \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_a9407b8a987bf803d1fc729839e828678}{arg\+\_\+spec}} = \mbox{\hyperlink{namespaceteqp_1_1saft_1_1polar__terms_ac1bb6420b1b80dbb4ee0e39b9a52c8ebae4984baf6ecaaab75e12d45efbc846dd}{multipolar\+\_\+argument\+\_\+spec\+::\+TK\+\_\+rho\+NA3\+\_\+packingfraction\+\_\+molefractions}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{GrossVrabec_8hpp_source_l00418}{418}} of file \mbox{\hyperlink{GrossVrabec_8hpp_source}{Gross\+Vrabec.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_a1b15be853f38a563f8edddfaf3ab4bca}\index{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec}!MultipolarContributionGrossVrabec@{MultipolarContributionGrossVrabec}}
+\index{MultipolarContributionGrossVrabec@{MultipolarContributionGrossVrabec}!teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec}}
+\doxysubsubsection{\texorpdfstring{MultipolarContributionGrossVrabec()}{MultipolarContributionGrossVrabec()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_a1b15be853f38a563f8edddfaf3ab4bca} 
+teqp\+::saft\+::polar\+\_\+terms\+::\+Gross\+Vrabec\+::\+Multipolar\+Contribution\+Gross\+Vrabec\+::\+Multipolar\+Contribution\+Gross\+Vrabec (\begin{DoxyParamCaption}\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{m}{, }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{sigma\+\_\+\+Angstrom}{, }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{epsilon\+\_\+over\+\_\+k}{, }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{mustar2}{, }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{nmu}{, }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{Qstar2}{, }\item[{const Eigen\+::\+ArrayX$<$ double $>$ \&}]{nQ}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GrossVrabec_8hpp_source_l00426}{426}} of file \mbox{\hyperlink{GrossVrabec_8hpp_source}{Gross\+Vrabec.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_af36028a49af7ac2e70eab5168cb87a90}\index{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec}!eval@{eval}}
+\index{eval@{eval}!teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_af36028a49af7ac2e70eab5168cb87a90} 
+template$<$typename TTYPE , typename Rho\+Type , typename Eta\+Type , typename Vec\+Type $>$ \\
+auto teqp\+::saft\+::polar\+\_\+terms\+::\+Gross\+Vrabec\+::\+Multipolar\+Contribution\+Gross\+Vrabec\+::eval (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T}{, }\item[{const Rho\+Type \&}]{rho\+\_\+\+A3}{, }\item[{const Eta\+Type \&}]{eta}{, }\item[{const Vec\+Type \&}]{mole\+\_\+fractions}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{GrossVrabec_8hpp_source_l00440}{440}} of file \mbox{\hyperlink{GrossVrabec_8hpp_source}{Gross\+Vrabec.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_a9407b8a987bf803d1fc729839e828678}\index{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec}!arg\_spec@{arg\_spec}}
+\index{arg\_spec@{arg\_spec}!teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec}}
+\doxysubsubsection{\texorpdfstring{arg\_spec}{arg\_spec}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_a9407b8a987bf803d1fc729839e828678} 
+\mbox{\hyperlink{namespaceteqp_1_1saft_1_1polar__terms_ac1bb6420b1b80dbb4ee0e39b9a52c8eb}{multipolar\+\_\+argument\+\_\+spec}} teqp\+::saft\+::polar\+\_\+terms\+::\+Gross\+Vrabec\+::\+Multipolar\+Contribution\+Gross\+Vrabec\+::arg\+\_\+spec = \mbox{\hyperlink{namespaceteqp_1_1saft_1_1polar__terms_ac1bb6420b1b80dbb4ee0e39b9a52c8ebae4984baf6ecaaab75e12d45efbc846dd}{multipolar\+\_\+argument\+\_\+spec\+::\+TK\+\_\+rho\+NA3\+\_\+packingfraction\+\_\+molefractions}}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{GrossVrabec_8hpp_source_l00420}{420}} of file \mbox{\hyperlink{GrossVrabec_8hpp_source}{Gross\+Vrabec.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_ab251ad0c368f5b25f64954e47f83fc85}\index{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec}!di@{di}}
+\index{di@{di}!teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec}}
+\doxysubsubsection{\texorpdfstring{di}{di}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_ab251ad0c368f5b25f64954e47f83fc85} 
+const std\+::optional$<$\mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec}{Dipolar\+Contribution\+Gross\+Vrabec}}$>$ teqp\+::saft\+::polar\+\_\+terms\+::\+Gross\+Vrabec\+::\+Multipolar\+Contribution\+Gross\+Vrabec\+::di}
+
+
+
+Definition at line \mbox{\hyperlink{GrossVrabec_8hpp_source_l00422}{422}} of file \mbox{\hyperlink{GrossVrabec_8hpp_source}{Gross\+Vrabec.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_a55015364a519b2a252cc6c091869a93f}\index{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec}!diquad@{diquad}}
+\index{diquad@{diquad}!teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec}}
+\doxysubsubsection{\texorpdfstring{diquad}{diquad}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_a55015364a519b2a252cc6c091869a93f} 
+const std\+::optional$<$\mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarQuadrupolarContributionVrabecGross}{Dipolar\+Quadrupolar\+Contribution\+Vrabec\+Gross}}$>$ teqp\+::saft\+::polar\+\_\+terms\+::\+Gross\+Vrabec\+::\+Multipolar\+Contribution\+Gross\+Vrabec\+::diquad}
+
+
+
+Definition at line \mbox{\hyperlink{GrossVrabec_8hpp_source_l00424}{424}} of file \mbox{\hyperlink{GrossVrabec_8hpp_source}{Gross\+Vrabec.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_aa2ef855cafd23e4833e81ec21922b6ba}\index{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec}!quad@{quad}}
+\index{quad@{quad}!teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec@{teqp::saft::polar\_terms::GrossVrabec::MultipolarContributionGrossVrabec}}
+\doxysubsubsection{\texorpdfstring{quad}{quad}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1MultipolarContributionGrossVrabec_aa2ef855cafd23e4833e81ec21922b6ba} 
+const std\+::optional$<$\mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1QuadrupolarContributionGross}{Quadrupolar\+Contribution\+Gross}}$>$ teqp\+::saft\+::polar\+\_\+terms\+::\+Gross\+Vrabec\+::\+Multipolar\+Contribution\+Gross\+Vrabec\+::quad}
+
+
+
+Definition at line \mbox{\hyperlink{GrossVrabec_8hpp_source_l00423}{423}} of file \mbox{\hyperlink{GrossVrabec_8hpp_source}{Gross\+Vrabec.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/saft/polar\+\_\+terms/\mbox{\hyperlink{GrossVrabec_8hpp}{Gross\+Vrabec.\+hpp}}\end{DoxyCompactItemize}

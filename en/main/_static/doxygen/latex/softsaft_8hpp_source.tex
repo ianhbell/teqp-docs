@@ -1,0 +1,108 @@
+\doxysection{softsaft.\+hpp}
+\hypertarget{softsaft_8hpp_source}{}\label{softsaft_8hpp_source}\index{include/teqp/models/saft/softsaft.hpp@{include/teqp/models/saft/softsaft.hpp}}
+\mbox{\hyperlink{softsaft_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{johnson_8hpp}{teqp/models/mie/lennardjones/johnson.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8hpp}{teqp/types.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{constants_8hpp}{teqp/constants.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00007}\mbox{\hyperlink{namespaceteqp_1_1saft_1_1softsaft}{00007}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp_1_1saft_1_1softsaft}{teqp::saft::softsaft}}\{}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00009}\mbox{\hyperlink{namespaceteqp_1_1saft_1_1softsaft_1_1detail}{00009}}\ \textcolor{keyword}{namespace\ }detail\{}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00011}\mbox{\hyperlink{namespaceteqp_1_1saft_1_1softsaft_1_1detail_a79a720cf3ff2df8c9a3c40aa30d968b1}{00011}}\ \ \ \ \ \textcolor{keyword}{const}\ std::valarray<std::valarray<double>>\ \mbox{\hyperlink{namespaceteqp_1_1saft_1_1softsaft_1_1detail_a79a720cf3ff2df8c9a3c40aa30d968b1}{aij\_Johnson}}\ =\ \{}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \{\},}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \{0,\ 0.49304346593882,\ \ 2.1528349894745\ ,-\/15.955682329017,\ \ 24.035999666294\ ,\ -\/8.6437958513990\},}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \{0,-\/0.47031983115362,\ \ 1.1471647487376\ ,\ 37.889828024211,\ -\/84.667121491179\ ,\ 39.643914108411\},}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \{0,\ 5.0325486243620\ ,-\/25.915399226419\ \ ,-\/18.862251310090,\ 107.63707381726\ \ ,-\/66.602649735720\},}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \{0,-\/7.3633150434385\ ,\ 51.553565337453\ \ ,-\/40.519369256098,\ -\/38.796692647218\ ,\ 44.605139198378\},}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \{0,\ 2.9043607296043\ ,-\/24.478812869291\ \ ,\ 31.500186765040,\ \ -\/5.3368920371407,\ -\/9.5183440180133\}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00018}00018\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ RhoType>}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00021}\mbox{\hyperlink{namespaceteqp_1_1saft_1_1softsaft_1_1detail_a83e32a16866ccd021af31c0e6233bdf9}{00021}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_1_1saft_1_1softsaft_1_1detail_a83e32a16866ccd021af31c0e6233bdf9}{g\_LJ}}(\textcolor{keyword}{const}\ TType\&\ Tstar,\ \textcolor{keyword}{const}\ RhoType\&\ rhostar\_monomer)\{}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ std::common\_type\_t<TType,\ RhoType>\ summer\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 1;\ i\ <\ 6;\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 1;\ j\ <\ 6;\ ++j)\{}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ summer\ +=\ \mbox{\hyperlink{namespaceteqp_1_1saft_1_1softsaft_1_1detail_a79a720cf3ff2df8c9a3c40aa30d968b1}{aij\_Johnson}}[i][j]*\mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(rhostar\_monomer,i)*\mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(Tstar,\ 1-\/j);}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ summer;}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00030}00030\ \}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00032}\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT}{00032}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT}{SoftSAFT}}\{}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00033}00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00034}\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac1dd8c510b48ce701963dc5de34c3ae1}{00034}}\ \ \ \ \ Eigen::ArrayXd\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a4e9c8c8af3f87415ab134cea24901a1b}{m}},\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac1dd8c510b48ce701963dc5de34c3ae1}{epsilon\_over\_k}},\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_afca2b41c8fd9ac434a7040f3b9cbf481}{sigma\_m}},\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ad57c1a8460c81cd88f9496b4e0530b85}{sigma\_m3}};}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00035}\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ae70f628217cd1d106d2391dc4b9a7761}{00035}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1mie_1_1lennardjones_1_1Johnson_1_1LJ126Johnson1993}{mie::lennardjones::Johnson::LJ126Johnson1993}}\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ae70f628217cd1d106d2391dc4b9a7761}{Johnson}};}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00036}\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ab43377f9953e27e014fb323658ef1c46}{00036}}\ \ \ \ \ Eigen::ArrayXd\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ab43377f9953e27e014fb323658ef1c46}{toEig}}(\textcolor{keyword}{const}\ std::vector<double>\&x)\{\ \textcolor{keywordflow}{return}\ Eigen::Map<const\ Eigen::ArrayXd>(\&x[0],\ x.size());\ \}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00037}00037\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00038}\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac8c98e51142663d7c34a398484f79e3f}{00038}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac8c98e51142663d7c34a398484f79e3f}{SoftSAFT}}(\textcolor{keyword}{const}\ Eigen::ArrayXd\&\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a4e9c8c8af3f87415ab134cea24901a1b}{m}},\ \textcolor{keyword}{const}\ Eigen::ArrayXd\&\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac1dd8c510b48ce701963dc5de34c3ae1}{epsilon\_over\_k}},\ \textcolor{keyword}{const}\ Eigen::ArrayXd\&\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_afca2b41c8fd9ac434a7040f3b9cbf481}{sigma\_m}})\ :\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a4e9c8c8af3f87415ab134cea24901a1b}{m}}(\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a4e9c8c8af3f87415ab134cea24901a1b}{m}}),\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac1dd8c510b48ce701963dc5de34c3ae1}{epsilon\_over\_k}}(\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac1dd8c510b48ce701963dc5de34c3ae1}{epsilon\_over\_k}}),\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_afca2b41c8fd9ac434a7040f3b9cbf481}{sigma\_m}}(\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_afca2b41c8fd9ac434a7040f3b9cbf481}{sigma\_m}}),\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ad57c1a8460c81cd88f9496b4e0530b85}{sigma\_m3}}(\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_afca2b41c8fd9ac434a7040f3b9cbf481}{sigma\_m}}.\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(3))\ \{\}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00039}00039\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00040}\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a36f66b7e7bab080ffca6dff2b2858c9a}{00040}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a36f66b7e7bab080ffca6dff2b2858c9a}{SoftSAFT}}(\textcolor{keyword}{const}\ nlohmann::json\&\ j)\ :\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT}{SoftSAFT}}(\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ab43377f9953e27e014fb323658ef1c46}{toEig}}(j.at(\textcolor{stringliteral}{"{}m"{}})),\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ab43377f9953e27e014fb323658ef1c46}{toEig}}(j.at(\textcolor{stringliteral}{"{}epsilon/kB\ /\ K"{}})),\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ab43377f9953e27e014fb323658ef1c46}{toEig}}(j.at(\textcolor{stringliteral}{"{}sigma\ /\ m"{}})))\ \{\}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00041}00041\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00042}00042\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ VecType>}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00043}\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a3fb883f4eba96caaebf41e27b8b0336b}{00043}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a3fb883f4eba96caaebf41e27b8b0336b}{R}}(\textcolor{keyword}{const}\ VecType\&\ molefrac)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_aed0cabbf6a82a357adc773aa850566ea}{get\_R\_gas<decltype(molefrac[0])>}}();}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00045}00045\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00046}00046\ \ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ The\ mixture\ is\ assumed\ to\ be\ formed\ of\ homosegmented\ constituents}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ RhoType,\ \textcolor{keyword}{typename}\ MoleFracType>}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00049}\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a1c9a12092dcdc232d22856528d82c442}{00049}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a1c9a12092dcdc232d22856528d82c442}{alphar}}(\textcolor{keyword}{const}\ TType\&\ T,\ \textcolor{keyword}{const}\ RhoType\&\ rhomolar,\ \textcolor{keyword}{const}\ MoleFracType\&\ molefracs)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }resulttype\ =\ std::decay\_t<std::common\_type\_t<TType,RhoType,\textcolor{keyword}{decltype}(molefracs[0])>>;}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ std::size\_t\ N\ =\ molefracs.size();}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ get\_sigma3\ =\ [\textcolor{keyword}{this}](std::size\_t\ i,\ std::size\_t\ j)\{}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x\ =\ (\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_afca2b41c8fd9ac434a7040f3b9cbf481}{sigma\_m}}[i]\ +\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_afca2b41c8fd9ac434a7040f3b9cbf481}{sigma\_m}}[j])/2;}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x*x*x;}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ get\_epsilon\_over\_k\ =\ [\textcolor{keyword}{this}](std::size\_t\ i,\ std::size\_t\ j)\{}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sqrt(\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac1dd8c510b48ce701963dc5de34c3ae1}{epsilon\_over\_k}}[i]*\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac1dd8c510b48ce701963dc5de34c3ae1}{epsilon\_over\_k}}[j]);}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Use\ of\ vdW-\/1f\ rule\ to\ get\ the\ effective\ sigma\ and\ epsilon/k\ of\ the\ mixture}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ std::decay\_t<\textcolor{keyword}{decltype}(molefracs[0])>\ num1\ =\ 0.0,\ num2\ =\ 0.0,\ den\ =\ 0.0,\ m\_mix\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ N;\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ m\_mix\ +=\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a4e9c8c8af3f87415ab134cea24901a1b}{m}}[i]*molefracs[i];}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0U;\ j\ <\ N;\ ++j)\{}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ denentry\ =\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a4e9c8c8af3f87415ab134cea24901a1b}{m}}[i]*\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a4e9c8c8af3f87415ab134cea24901a1b}{m}}[j]*molefracs[i]*molefracs[j];}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ num1entry\ =\ denentry*get\_sigma3(i,\ j);}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ num2entry\ =\ num1entry*get\_epsilon\_over\_k(i,\ j);}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ num1\ +=\ num1entry;}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ num2\ +=\ num2entry;}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ den\ +=\ denentry;}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ sigmamix3\ =\ num1/den;}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ epskmix\ =\ num2/den/sigmamix3;}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rhoN\_monomer\ =\ rhomolar*m\_mix*N\_A;\ \textcolor{comment}{//\ Effective\ number\ density\ of\ segments\ (monomers\ per\ volume)}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Tstar\_eff\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(T/epskmix);}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rhostar\_monomer\_eff\ =\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(rhoN\_monomer*sigmamix3);}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Evaluate\ the\ contribution\ for\ the\ monomer\ based\ on}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ reduced\ temperature\ \&\ density\ from\ vdW-\/1f\ mixing\ rules}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ resulttype\ alphar\_ref\ =\ m\_mix*\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ae70f628217cd1d106d2391dc4b9a7761}{Johnson}}.\mbox{\hyperlink{classteqp_1_1mie_1_1lennardjones_1_1Johnson_1_1LJ126Johnson1993_a7199164f62cbd38c123c39528466412e}{alphar}}(Tstar\_eff,\ rhostar\_monomer\_eff,\ Eigen::ArrayXd\{0\});}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Evaluate\ the\ contribution\ for\ the\ chain}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ resulttype\ alphar\_chain\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ is\ as\ in\ Blas\ (I\ think,\ some\ subtleties\ are\ maybe\ a\ bit\ different)}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00090}00090\ \textcolor{comment}{//\ \ \ \ \ \ \ \ for\ (auto\ i\ =\ 0;\ i\ <\ N;\ ++i)\{}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00091}00091\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ auto\ rhostar\_monomer\_i\ =\ rhomolar\_monomer*sigma\_m3[i];}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00092}00092\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ alphar\_chain\ +=\ molefracs[i]*(1-\/m[i])*log(detail::g\_LJ(Tstar\_eff,\ rhostar\_monomer\_i));}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00093}00093\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ is\ as\ in\ Ghonasgi\ and\ Chapman,\ use\ the\ bulk\ effective\ monomer\ density}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00096}00096\ \ \ \ \ \ \ \ \ alphar\_chain\ =\ (1.0-\/m\_mix)*log(\mbox{\hyperlink{namespaceteqp_1_1saft_1_1softsaft_1_1detail_a83e32a16866ccd021af31c0e6233bdf9}{detail::g\_LJ}}(Tstar\_eff,\ rhostar\_monomer\_eff));}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00097}00097\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(alphar\_ref\ +\ alphar\_chain);}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00099}00099\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00100}00100\ \};}
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{softsaft_8hpp_source_l00102}00102\ \}}
+
+\end{DoxyCode}

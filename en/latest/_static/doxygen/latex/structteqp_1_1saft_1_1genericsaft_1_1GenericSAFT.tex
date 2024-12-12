@@ -1,0 +1,137 @@
+\doxysection{teqp\+::saft\+::genericsaft\+::Generic\+SAFT Struct Reference}
+\hypertarget{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT}{}\label{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT}\index{teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}}
+
+
+{\ttfamily \#include $<$genericsaft.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a6b01147de739d24513148deefdee5f12}{Two\+CLJ}} = \mbox{\hyperlink{classteqp_1_1twocenterljf_1_1Twocenterljf}{twocenterljf\+::\+Twocenterljf}}$<$\mbox{\hyperlink{classteqp_1_1twocenterljf_1_1DipolarContribution}{twocenterljf\+::\+Dipolar\+Contribution}}$>$
+\item 
+using \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a50886538ea907ef36f9c64494073e866}{Non\+Polar\+Terms}} = std\+::variant$<$\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture}{saft\+::pcsaft\+::\+PCSAFTMixture}}, \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieNonpolarMixture}{SAFTVRMie\+::\+SAFTVRMie\+Nonpolar\+Mixture}}, \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT}{saft\+::softsaft\+::\+Soft\+SAFT}}, \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a6b01147de739d24513148deefdee5f12}{Two\+CLJ}}$>$
+\item 
+using \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a3e5a54095649ca6ca37ef0093ba5c434}{Association\+Terms}} = std\+::variant$<$\mbox{\hyperlink{classteqp_1_1association_1_1Association}{association\+::\+Association}}$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a79255ac77dac2b1aebe4111d38c494d7}{Generic\+SAFT}} (const nlohmann\+::json \&j)
+\item 
+{\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a1d9a3878ebbfcc63e5b584b83c20b6f6}{R}} (const Vec\+Type \&molefrac) const
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_ad64a799467f8a7f4cd439a97127e967e}{alphar}} (const TType \&T, const Rho\+Type \&rho, const Mole\+Fractions \&molefrac) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a50886538ea907ef36f9c64494073e866}{Non\+Polar\+Terms}} \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a047d5022bcca19132f8b20efccf361d5}{nonpolar}}
+\item 
+std\+::optional$<$ \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a3e5a54095649ca6ca37ef0093ba5c434}{Association\+Terms}} $>$ \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a6223e6364613da8cff2fe2aeb74b8c1c}{association}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{genericsaft_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{genericsaft_8hpp_source}{genericsaft.\+hpp}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a3e5a54095649ca6ca37ef0093ba5c434}\index{teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}!AssociationTerms@{AssociationTerms}}
+\index{AssociationTerms@{AssociationTerms}!teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}}
+\doxysubsubsection{\texorpdfstring{AssociationTerms}{AssociationTerms}}
+{\footnotesize\ttfamily \label{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a3e5a54095649ca6ca37ef0093ba5c434} 
+using \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a3e5a54095649ca6ca37ef0093ba5c434}{teqp\+::saft\+::genericsaft\+::\+Generic\+SAFT\+::\+Association\+Terms}} = std\+::variant$<$\mbox{\hyperlink{classteqp_1_1association_1_1Association}{association\+::\+Association}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{genericsaft_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{genericsaft_8hpp_source}{genericsaft.\+hpp}}.
+
+\Hypertarget{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a50886538ea907ef36f9c64494073e866}\index{teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}!NonPolarTerms@{NonPolarTerms}}
+\index{NonPolarTerms@{NonPolarTerms}!teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}}
+\doxysubsubsection{\texorpdfstring{NonPolarTerms}{NonPolarTerms}}
+{\footnotesize\ttfamily \label{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a50886538ea907ef36f9c64494073e866} 
+using \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a50886538ea907ef36f9c64494073e866}{teqp\+::saft\+::genericsaft\+::\+Generic\+SAFT\+::\+Non\+Polar\+Terms}} = std\+::variant$<$\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture}{saft\+::pcsaft\+::\+PCSAFTMixture}}, \mbox{\hyperlink{classteqp_1_1SAFTVRMie_1_1SAFTVRMieNonpolarMixture}{SAFTVRMie\+::\+SAFTVRMie\+Nonpolar\+Mixture}}, \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT}{saft\+::softsaft\+::\+Soft\+SAFT}}, \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a6b01147de739d24513148deefdee5f12}{Two\+CLJ}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{genericsaft_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{genericsaft_8hpp_source}{genericsaft.\+hpp}}.
+
+\Hypertarget{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a6b01147de739d24513148deefdee5f12}\index{teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}!TwoCLJ@{TwoCLJ}}
+\index{TwoCLJ@{TwoCLJ}!teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}}
+\doxysubsubsection{\texorpdfstring{TwoCLJ}{TwoCLJ}}
+{\footnotesize\ttfamily \label{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a6b01147de739d24513148deefdee5f12} 
+using \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a6b01147de739d24513148deefdee5f12}{teqp\+::saft\+::genericsaft\+::\+Generic\+SAFT\+::\+Two\+CLJ}} = \mbox{\hyperlink{classteqp_1_1twocenterljf_1_1Twocenterljf}{twocenterljf\+::\+Twocenterljf}}$<$\mbox{\hyperlink{classteqp_1_1twocenterljf_1_1DipolarContribution}{twocenterljf\+::\+Dipolar\+Contribution}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{genericsaft_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{genericsaft_8hpp_source}{genericsaft.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a79255ac77dac2b1aebe4111d38c494d7}\index{teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}!GenericSAFT@{GenericSAFT}}
+\index{GenericSAFT@{GenericSAFT}!teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}}
+\doxysubsubsection{\texorpdfstring{GenericSAFT()}{GenericSAFT()}}
+{\footnotesize\ttfamily \label{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a79255ac77dac2b1aebe4111d38c494d7} 
+teqp\+::saft\+::genericsaft\+::\+Generic\+SAFT\+::\+Generic\+SAFT (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{genericsaft_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{genericsaft_8hpp_source}{genericsaft.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_ad64a799467f8a7f4cd439a97127e967e}\index{teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily \label{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_ad64a799467f8a7f4cd439a97127e967e} 
+template$<$typename TType , typename Rho\+Type , typename Mole\+Fractions $>$ \\
+auto teqp\+::saft\+::genericsaft\+::\+Generic\+SAFT\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T}{, }\item[{const Rho\+Type \&}]{rho}{, }\item[{const Mole\+Fractions \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{genericsaft_8hpp_source_l00066}{66}} of file \mbox{\hyperlink{genericsaft_8hpp_source}{genericsaft.\+hpp}}.
+
+\Hypertarget{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a1d9a3878ebbfcc63e5b584b83c20b6f6}\index{teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}!R@{R}}
+\index{R@{R}!teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily \label{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a1d9a3878ebbfcc63e5b584b83c20b6f6} 
+template$<$class Vec\+Type $>$ \\
+auto teqp\+::saft\+::genericsaft\+::\+Generic\+SAFT\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{genericsaft_8hpp_source_l00057}{57}} of file \mbox{\hyperlink{genericsaft_8hpp_source}{genericsaft.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a6223e6364613da8cff2fe2aeb74b8c1c}\index{teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}!association@{association}}
+\index{association@{association}!teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}}
+\doxysubsubsection{\texorpdfstring{association}{association}}
+{\footnotesize\ttfamily \label{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a6223e6364613da8cff2fe2aeb74b8c1c} 
+std\+::optional$<$\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a3e5a54095649ca6ca37ef0093ba5c434}{Association\+Terms}}$>$ teqp\+::saft\+::genericsaft\+::\+Generic\+SAFT\+::association}
+
+
+
+Definition at line \mbox{\hyperlink{genericsaft_8hpp_source_l00063}{63}} of file \mbox{\hyperlink{genericsaft_8hpp_source}{genericsaft.\+hpp}}.
+
+\Hypertarget{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a047d5022bcca19132f8b20efccf361d5}\index{teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}!nonpolar@{nonpolar}}
+\index{nonpolar@{nonpolar}!teqp::saft::genericsaft::GenericSAFT@{teqp::saft::genericsaft::GenericSAFT}}
+\doxysubsubsection{\texorpdfstring{nonpolar}{nonpolar}}
+{\footnotesize\ttfamily \label{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a047d5022bcca19132f8b20efccf361d5} 
+\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a50886538ea907ef36f9c64494073e866}{Non\+Polar\+Terms}} teqp\+::saft\+::genericsaft\+::\+Generic\+SAFT\+::nonpolar}
+
+
+
+Definition at line \mbox{\hyperlink{genericsaft_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{genericsaft_8hpp_source}{genericsaft.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/saft/\mbox{\hyperlink{genericsaft_8hpp}{genericsaft.\+hpp}}\end{DoxyCompactItemize}

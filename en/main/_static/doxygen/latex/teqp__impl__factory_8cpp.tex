@@ -1,7 +1,8 @@
 \doxysection{interface/\+CPP/teqp\+\_\+impl\+\_\+factory.cpp File Reference}
 \hypertarget{teqp__impl__factory_8cpp}{}\label{teqp__impl__factory_8cpp}\index{interface/CPP/teqp\_impl\_factory.cpp@{interface/CPP/teqp\_impl\_factory.cpp}}
 {\ttfamily \#include "{}teqp/cpp/teqpcpp.\+hpp"{}}\newline
-{\ttfamily \#include "{}teqp/models/fwd.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/models/vd\+W.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/models/cubics.\+hpp"{}}\newline
 {\ttfamily \#include "{}teqp/cpp/deriv\+\_\+adapter.\+hpp"{}}\newline
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
@@ -19,6 +20,58 @@ using \mbox{\hyperlink{namespaceteqp_1_1cppinterface_aaea408772075eade4e896e9b4c
 \begin{DoxyCompactItemize}
 \item 
 std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a432d204a25bfde3ea0cfc27bf3007526}{teqp\+::cppinterface\+::make\+\_\+\+SAFTVRMie}} (const nlohmann\+::json \&j)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_acaa5e0b90eb30c19ea7c95732df68dd2}{teqp\+::cppinterface\+::make\+\_\+\+PCSAFT}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a4e395933950b89af303e0cf795011ccb}{teqp\+::cppinterface\+::make\+\_\+\+PCSAFTPure\+Gross\+Sadowski2001}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a0259ba109720e0625fe172d0f2e72ae4}{teqp\+::cppinterface\+::make\+\_\+\+SOFTSAFT}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_ad949573327fb240be336537d750a3854}{teqp\+::cppinterface\+::make\+\_\+generic\+SAFT}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a8c081c3ca38d15e92d8c8b9358ad041d}{teqp\+::cppinterface\+::make\+\_\+\+GERG2004resid}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_acc19b4fa368149bb2b1aa7f883100ab8}{teqp\+::cppinterface\+::make\+\_\+\+GERG2008resid}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a10e38cd588b025ebca30301b581235fd}{teqp\+::cppinterface\+::make\+\_\+\+GERG2004idealgas}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_affcee16a7f276ab24360279bd4b67592}{teqp\+::cppinterface\+::make\+\_\+\+GERG2008idealgas}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_ad90602bf2d39dacef4137487cfba145e}{teqp\+::cppinterface\+::make\+\_\+\+LKP}} (const nlohmann\+::json \&j)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a616ee24286e7286194e541af81bf307f}{teqp\+::cppinterface\+::make\+\_\+multifluid}} (const nlohmann\+::json \&j)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d9dbda4baf19fb06070bf69b6cc4e30}{teqp\+::cppinterface\+::make\+\_\+multifluid\+\_\+association}} (const nlohmann\+::json \&j)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a1082bd868e02bd61b335be0d6ef8dc30}{teqp\+::cppinterface\+::make\+\_\+multifluid\+\_\+activity}} (const nlohmann\+::json \&j)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a51b18db73b28e5bbc2301d02e78a4955}{teqp\+::cppinterface\+::make\+\_\+multifluid\+\_\+\+ECS\+\_\+\+Huber\+Ely1994}} (const nlohmann\+::json \&j)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_aafc6ae1ae969a5ccb62aa1a0e360ceeb}{teqp\+::cppinterface\+::make\+\_\+\+Ammonia\+Water\+Tillner\+Roth}} ()
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a0f714e20fc85c6c045906c7fba950111}{teqp\+::cppinterface\+::make\+\_\+\+LJ126\+\_\+\+Thol\+JPCRD2016}} ()
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_ab7f8c689070cbe7ba0d3544530681976}{teqp\+::cppinterface\+::make\+\_\+\+LJ126\+\_\+\+Kolafa\+Nezbeda1994}} ()
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a37d9ee4db1a7f9e18a767a4f95f2dff7}{teqp\+::cppinterface\+::make\+\_\+\+LJ126\+\_\+\+Johnson1993}} ()
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a331e9096a47f0b05bdca87d89d300723}{teqp\+::cppinterface\+::make\+\_\+\+SW\+\_\+\+Espindola\+Heredia2009}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a6f4ec82309d1751821d700eee14e3034}{teqp\+::cppinterface\+::make\+\_\+\+EXP6\+\_\+\+Kataoka1992}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a007e1146a4b30caef9b49708f1543fa8}{teqp\+::cppinterface\+::make\+\_\+\+Mie\+\_\+\+Pohl2023}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_af159de96db54eb6cd302a153183e24b8}{teqp\+::cppinterface\+::make\+\_\+\+Mie\+\_\+\+Chaparro2023}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a0a54e590a6b21f6b0ed6fb5d8030a37e}{teqp\+::cppinterface\+::make\+\_\+2\+CLJF}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a101a47e26897b9a8a3e6a391a0675bb5}{teqp\+::cppinterface\+::make\+\_\+2\+CLJF\+\_\+\+Dipole}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a79da4c1d82926b040241050178ccc26a}{teqp\+::cppinterface\+::make\+\_\+2\+CLJF\+\_\+\+Quadrupole}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a97d9eb95db52ca2c2da709cdd3ffbbc4}{teqp\+::cppinterface\+::make\+\_\+\+CPA}} (const nlohmann\+::json \&spec)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_ac7c0b88da82f104f9745b9f3deed750a}{teqp\+::cppinterface\+::make\+\_\+\+Ideal\+Helmholtz}} (const nlohmann\+::json \&spec)
 \item 
 nlohmann\+::json \mbox{\hyperlink{namespaceteqp_1_1cppinterface_af204b0796feb1504c577749f82e496a2}{teqp\+::cppinterface\+::get\+\_\+model\+\_\+schema}} (const std\+::string \&kind)
 \begin{DoxyCompactList}\small\item\em Return the schema for the given model kind. \end{DoxyCompactList}\item 
@@ -38,9 +91,9 @@ const nlohmann\+::json \mbox{\hyperlink{teqp__impl__factory_8cpp_a28c6bd957a9ba2
 
 
 \doxysubsection{Variable Documentation}
-\Hypertarget{teqp__impl__factory_8cpp_a28c6bd957a9ba2826a07929c86254467}\label{teqp__impl__factory_8cpp_a28c6bd957a9ba2826a07929c86254467} 
-\index{teqp\_impl\_factory.cpp@{teqp\_impl\_factory.cpp}!model\_schema\_library@{model\_schema\_library}}
+\Hypertarget{teqp__impl__factory_8cpp_a28c6bd957a9ba2826a07929c86254467}\index{teqp\_impl\_factory.cpp@{teqp\_impl\_factory.cpp}!model\_schema\_library@{model\_schema\_library}}
 \index{model\_schema\_library@{model\_schema\_library}!teqp\_impl\_factory.cpp@{teqp\_impl\_factory.cpp}}
 \doxysubsubsection{\texorpdfstring{model\_schema\_library}{model\_schema\_library}}
-{\footnotesize\ttfamily const nlohmann\+::json model\+\_\+schema\+\_\+library\hspace{0.3cm}{\ttfamily [extern]}}
+{\footnotesize\ttfamily \label{teqp__impl__factory_8cpp_a28c6bd957a9ba2826a07929c86254467} 
+const nlohmann\+::json model\+\_\+schema\+\_\+library\hspace{0.3cm}{\ttfamily [extern]}}
 

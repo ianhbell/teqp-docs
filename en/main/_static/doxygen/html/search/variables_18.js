@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['y_0',['y',['../structteqp_1_1VLLE_1_1SelfIntersectionSolution.html#ab1af103ca60bfd76c459f16fb9664b0c',1,'teqp::VLLE::SelfIntersectionSolution']]],
-  ['yt_1',['YT',['../structteqp_1_1GERGGeneral_1_1GERG200XReducing_1_1Matrices.html#a92a7cb67cec9ab2cfe8bc4472dcd88d6',1,'teqp::GERGGeneral::GERG200XReducing::Matrices']]],
-  ['yv_2',['Yv',['../structteqp_1_1GERGGeneral_1_1GERG200XReducing_1_1Matrices.html#ae25d74f81573d8208060e78ac6840198',1,'teqp::GERGGeneral::GERG200XReducing::Matrices']]]
+  ['x_0',['x',['../structteqp_1_1iteration_1_1StoppingData.html#af550777d0603f656280b75848b07e8d7',1,'teqp::iteration::StoppingData::x'],['../structteqp_1_1VLLE_1_1SelfIntersectionSolution.html#ac429bf78088319fc36e4cb5b76218356',1,'teqp::VLLE::SelfIntersectionSolution::x']]],
+  ['xmax_1',['xmax',['../structteqp_1_1CubicSuperAncillary_1_1Chebyshev.html#a134e79bbec37de9ae5a8cec2cc9170b7',1,'teqp::CubicSuperAncillary::Chebyshev']]],
+  ['xmin_2',['xmin',['../structteqp_1_1CubicSuperAncillary_1_1Chebyshev.html#a28d3f564250d58881ad930f3cd25bb44',1,'teqp::CubicSuperAncillary::Chebyshev']]]
 ];

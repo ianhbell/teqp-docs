@@ -1,0 +1,163 @@
+\doxysection{teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::SOSPoint Struct Reference}
+\hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint}{}\label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint}\index{teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}}
+
+
+{\ttfamily \#include $<$pure\+\_\+param\+\_\+optimization.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_ab71c14eacde433fadf05c0b74466934c}{check\+\_\+fields}} () const
+\item 
+{\footnotesize template$<$typename Model $>$ }\\auto \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a7582cbd9549a950b2ce07a862d0dc584}{calculate\+\_\+contribution}} (const Model \&model) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a1e8fd838a50e8c5bde5700029c7fc7d2}{T}}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_afce42b855f2de7dabb5a66ef444b453f}{p\+\_\+exp}}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a94f13fbac6a393ed09a60ddc113882d2}{rho\+\_\+guess}}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a7c0679946f85f9dfdad1a2fe78a3bd61}{w\+\_\+exp}}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_abbe7418a0af9978138cdfea4e536e22f}{Ao20}}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a427386aeacc653096ee1b84d038e1ed2}{M}}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a8cc4eee3b60856a3548b5ace068c9bc5}{R}}
+\item 
+double \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a9061552900207cf65c9808519e22c986}{weight\+\_\+w}} =1.\+0
+\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a9ec546cadf52d25a4882f2166ee15f68}{z}} = (Eigen\+::\+Array\+Xd(1) $<$$<$ 1.\+0).finished()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00124}{124}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a7582cbd9549a950b2ce07a862d0dc584}\index{teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}!calculate\_contribution@{calculate\_contribution}}
+\index{calculate\_contribution@{calculate\_contribution}!teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}}
+\doxysubsubsection{\texorpdfstring{calculate\_contribution()}{calculate\_contribution()}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a7582cbd9549a950b2ce07a862d0dc584} 
+template$<$typename Model $>$ \\
+auto teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+SOSPoint\+::calculate\+\_\+contribution (\begin{DoxyParamCaption}\item[{const Model \&}]{model}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00140}{140}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_ab71c14eacde433fadf05c0b74466934c}\index{teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}!check\_fields@{check\_fields}}
+\index{check\_fields@{check\_fields}!teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}}
+\doxysubsubsection{\texorpdfstring{check\_fields()}{check\_fields()}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_ab71c14eacde433fadf05c0b74466934c} 
+auto teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+SOSPoint\+::check\+\_\+fields (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00133}{133}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_abbe7418a0af9978138cdfea4e536e22f}\index{teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}!Ao20@{Ao20}}
+\index{Ao20@{Ao20}!teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}}
+\doxysubsubsection{\texorpdfstring{Ao20}{Ao20}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_abbe7418a0af9978138cdfea4e536e22f} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+SOSPoint\+::\+Ao20}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00127}{127}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a427386aeacc653096ee1b84d038e1ed2}\index{teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}!M@{M}}
+\index{M@{M}!teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}}
+\doxysubsubsection{\texorpdfstring{M}{M}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a427386aeacc653096ee1b84d038e1ed2} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+SOSPoint\+::M}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00127}{127}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_afce42b855f2de7dabb5a66ef444b453f}\index{teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}!p\_exp@{p\_exp}}
+\index{p\_exp@{p\_exp}!teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}}
+\doxysubsubsection{\texorpdfstring{p\_exp}{p\_exp}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_afce42b855f2de7dabb5a66ef444b453f} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+SOSPoint\+::p\+\_\+exp}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00127}{127}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a8cc4eee3b60856a3548b5ace068c9bc5}\index{teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}!R@{R}}
+\index{R@{R}!teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}}
+\doxysubsubsection{\texorpdfstring{R}{R}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a8cc4eee3b60856a3548b5ace068c9bc5} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+SOSPoint\+::R}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00127}{127}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a94f13fbac6a393ed09a60ddc113882d2}\index{teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}!rho\_guess@{rho\_guess}}
+\index{rho\_guess@{rho\_guess}!teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}}
+\doxysubsubsection{\texorpdfstring{rho\_guess}{rho\_guess}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a94f13fbac6a393ed09a60ddc113882d2} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+SOSPoint\+::rho\+\_\+guess}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00127}{127}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a1e8fd838a50e8c5bde5700029c7fc7d2}\index{teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}!T@{T}}
+\index{T@{T}!teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}}
+\doxysubsubsection{\texorpdfstring{T}{T}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a1e8fd838a50e8c5bde5700029c7fc7d2} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+SOSPoint\+::T}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00127}{127}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a7c0679946f85f9dfdad1a2fe78a3bd61}\index{teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}!w\_exp@{w\_exp}}
+\index{w\_exp@{w\_exp}!teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}}
+\doxysubsubsection{\texorpdfstring{w\_exp}{w\_exp}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a7c0679946f85f9dfdad1a2fe78a3bd61} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+SOSPoint\+::w\+\_\+exp}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00127}{127}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a9061552900207cf65c9808519e22c986}\index{teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}!weight\_w@{weight\_w}}
+\index{weight\_w@{weight\_w}!teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}}
+\doxysubsubsection{\texorpdfstring{weight\_w}{weight\_w}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a9061552900207cf65c9808519e22c986} 
+double teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+SOSPoint\+::weight\+\_\+w =1.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00130}{130}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a9ec546cadf52d25a4882f2166ee15f68}\index{teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}!z@{z}}
+\index{z@{z}!teqp::algorithms::pure\_param\_optimization::SOSPoint@{teqp::algorithms::pure\_param\_optimization::SOSPoint}}
+\doxysubsubsection{\texorpdfstring{z}{z}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint_a9ec546cadf52d25a4882f2166ee15f68} 
+Eigen\+::\+Array\+Xd teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+SOSPoint\+::z = (Eigen\+::\+Array\+Xd(1) $<$$<$ 1.\+0).finished()}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00131}{131}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{pure__param__optimization_8hpp}{pure\+\_\+param\+\_\+optimization.\+hpp}}\end{DoxyCompactItemize}

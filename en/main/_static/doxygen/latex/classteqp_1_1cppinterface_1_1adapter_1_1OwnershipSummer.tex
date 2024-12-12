@@ -1,0 +1,150 @@
+\doxysection{teqp\+::cppinterface\+::adapter\+::Ownership\+Summer\texorpdfstring{$<$}{<} Funcs \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer}{}\label{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer}\index{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$@{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$}}
+
+
+A collection type that allows you to sum contributions from multiple EOS terms.  
+
+
+
+
+{\ttfamily \#include $<$deriv\+\_\+adapter.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_a394704702a46a8cc42caa7c27c947ef6}{Ownership\+Summer}} (Funcs \&\&...f)
+\item 
+auto \& \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_aed6fbf8eae8d5ff98fd571825c20302a}{get\+\_\+ref}} ()
+\item 
+const auto \& \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_a75866e73d3007b1a0ce69560334a828b}{get\+\_\+cref}} () const
+\item 
+{\footnotesize template$<$typename Mole\+Frac\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_a8f668cffa479bf595ddd315d41e33ec1}{R}} (const Mole\+Frac\+Type \&molefrac)
+\begin{DoxyCompactList}\small\item\em The gas constant, obtained from the first model in the tuple. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_a37a8c771053955ad4fb9b18522671561}{alphar}} (const TType \&T, const Rho\+Type \&rhomolar, const Mole\+Frac\+Type \&molefrac) const
+\begin{DoxyCompactList}\small\item\em The generic alphar function, which sums the contributions coming from the individual models passed into the constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::tuple$<$ Funcs... $>$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_aa71ce27978479c33984e34ee7be69450}{contributions}}
+\item 
+const std\+::type\+\_\+index \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_a1429af874bbdf616d9e7d6f81c933847}{index}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename... Funcs$>$\newline
+class teqp\+::cppinterface\+::adapter\+::\+Ownership\+Summer$<$ Funcs $>$}
+A collection type that allows you to sum contributions from multiple EOS terms. 
+
+Each term in the summation must support the alphar generic interface that accepts T, rho, molefrac as arguments
+
+The gas constant method is used of the FIRST function in the instance
+
+\begin{DoxyNote}{Note}
+Some information used from \href{https://stackoverflow.com/a/40749139}{\texttt{ https\+://stackoverflow.\+com/a/40749139}} regarding the tuple summation 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_a394704702a46a8cc42caa7c27c947ef6}\index{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$@{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$}!OwnershipSummer@{OwnershipSummer}}
+\index{OwnershipSummer@{OwnershipSummer}!teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$@{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$}}
+\doxysubsubsection{\texorpdfstring{OwnershipSummer()}{OwnershipSummer()}}
+{\footnotesize\ttfamily \label{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_a394704702a46a8cc42caa7c27c947ef6} 
+template$<$typename... Funcs$>$ \\
+\mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer}{teqp\+::cppinterface\+::adapter\+::\+Ownership\+Summer}}$<$ Funcs $>$\+::\+Ownership\+Summer (\begin{DoxyParamCaption}\item[{Funcs \&\&...}]{f}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00057}{57}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_a37a8c771053955ad4fb9b18522671561}\index{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$@{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$@{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily \label{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_a37a8c771053955ad4fb9b18522671561} 
+template$<$typename... Funcs$>$ \\
+template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer}{teqp\+::cppinterface\+::adapter\+::\+Ownership\+Summer}}$<$ Funcs $>$\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T}{, }\item[{const Rho\+Type \&}]{rhomolar}{, }\item[{const Mole\+Frac\+Type \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The generic alphar function, which sums the contributions coming from the individual models passed into the constructor. 
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_a75866e73d3007b1a0ce69560334a828b}\index{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$@{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$}!get\_cref@{get\_cref}}
+\index{get\_cref@{get\_cref}!teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$@{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$}}
+\doxysubsubsection{\texorpdfstring{get\_cref()}{get\_cref()}}
+{\footnotesize\ttfamily \label{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_a75866e73d3007b1a0ce69560334a828b} 
+template$<$typename... Funcs$>$ \\
+const auto \& \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer}{teqp\+::cppinterface\+::adapter\+::\+Ownership\+Summer}}$<$ Funcs $>$\+::get\+\_\+cref (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_aed6fbf8eae8d5ff98fd571825c20302a}\index{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$@{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$}!get\_ref@{get\_ref}}
+\index{get\_ref@{get\_ref}!teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$@{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$}}
+\doxysubsubsection{\texorpdfstring{get\_ref()}{get\_ref()}}
+{\footnotesize\ttfamily \label{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_aed6fbf8eae8d5ff98fd571825c20302a} 
+template$<$typename... Funcs$>$ \\
+auto \& \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer}{teqp\+::cppinterface\+::adapter\+::\+Ownership\+Summer}}$<$ Funcs $>$\+::get\+\_\+ref (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00059}{59}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_a8f668cffa479bf595ddd315d41e33ec1}\index{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$@{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$}!R@{R}}
+\index{R@{R}!teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$@{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily \label{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_a8f668cffa479bf595ddd315d41e33ec1} 
+template$<$typename... Funcs$>$ \\
+template$<$typename Mole\+Frac\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer}{teqp\+::cppinterface\+::adapter\+::\+Ownership\+Summer}}$<$ Funcs $>$\+::R (\begin{DoxyParamCaption}\item[{const Mole\+Frac\+Type \&}]{molefrac}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The gas constant, obtained from the first model in the tuple. 
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00065}{65}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_aa71ce27978479c33984e34ee7be69450}\index{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$@{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$}!contributions@{contributions}}
+\index{contributions@{contributions}!teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$@{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$}}
+\doxysubsubsection{\texorpdfstring{contributions}{contributions}}
+{\footnotesize\ttfamily \label{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_aa71ce27978479c33984e34ee7be69450} 
+template$<$typename... Funcs$>$ \\
+std\+::tuple$<$Funcs...$>$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer}{teqp\+::cppinterface\+::adapter\+::\+Ownership\+Summer}}$<$ Funcs $>$\+::contributions}
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00056}{56}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+\Hypertarget{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_a1429af874bbdf616d9e7d6f81c933847}\index{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$@{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$}!index@{index}}
+\index{index@{index}!teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$@{teqp::cppinterface::adapter::OwnershipSummer$<$ Funcs $>$}}
+\doxysubsubsection{\texorpdfstring{index}{index}}
+{\footnotesize\ttfamily \label{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer_a1429af874bbdf616d9e7d6f81c933847} 
+template$<$typename... Funcs$>$ \\
+const std\+::type\+\_\+index \mbox{\hyperlink{classteqp_1_1cppinterface_1_1adapter_1_1OwnershipSummer}{teqp\+::cppinterface\+::adapter\+::\+Ownership\+Summer}}$<$ Funcs $>$\+::index}
+
+
+
+Definition at line \mbox{\hyperlink{deriv__adapter_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{deriv__adapter_8hpp_source}{deriv\+\_\+adapter.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/cpp/\mbox{\hyperlink{deriv__adapter_8hpp}{deriv\+\_\+adapter.\+hpp}}\end{DoxyCompactItemize}

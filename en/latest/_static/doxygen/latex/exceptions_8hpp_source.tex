@@ -41,27 +41,31 @@
 \DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00037}\mbox{\hyperlink{classteqp_1_1IterationFailure_aefee8757f505b99e4073b676d4af944a}{00037}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1IterationFailure_aefee8757f505b99e4073b676d4af944a}{IterationFailure}}(\textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classteqp_1_1teqpException_a3d944f29abcf788a5e7908372c1102df}{msg}})\ :\ \mbox{\hyperlink{classteqp_1_1teqpException}{teqpException}}(100,\ \mbox{\hyperlink{classteqp_1_1teqpException_a3d944f29abcf788a5e7908372c1102df}{msg}})\ \{\};}
 \DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00038}00038\ \ \ \ \ \};}
 \DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00039}\mbox{\hyperlink{namespaceteqp_a683ee1da36b4487424000960a46c9ee9}{00039}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classteqp_1_1IterationFailure}{IterationError}}\ =\ \mbox{\hyperlink{classteqp_1_1IterationFailure}{IterationFailure}};}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00040}00040\ }
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00041}\mbox{\hyperlink{classteqp_1_1NotImplementedError}{00041}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1NotImplementedError}{NotImplementedError}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classteqp_1_1teqpException}{teqpException}}\ \{}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00042}00042\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00043}\mbox{\hyperlink{classteqp_1_1NotImplementedError_ac9b97dc6e11d99f2457988b274074b50}{00043}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1NotImplementedError_ac9b97dc6e11d99f2457988b274074b50}{NotImplementedError}}(\textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classteqp_1_1teqpException_a3d944f29abcf788a5e7908372c1102df}{msg}})\ :\ \mbox{\hyperlink{classteqp_1_1teqpException}{teqpException}}(200,\ \mbox{\hyperlink{classteqp_1_1teqpException_a3d944f29abcf788a5e7908372c1102df}{msg}})\ \{\};}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00044}00044\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00045}00045\ }
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00047}\mbox{\hyperlink{classteqp_1_1JSONValidationError}{00047}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1JSONValidationError}{JSONValidationError}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classteqp_1_1teqpException}{teqpException}}\ \{}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ errors\_to\_string(\textcolor{keyword}{const}\ std::vector<std::string>\ \&errors,\ \textcolor{keyword}{const}\ std::string\ delim\ =\ \textcolor{stringliteral}{"{}|/|\(\backslash\)\(\backslash\)|"{}})\{}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ o\ =\ \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (errors.empty())\{\ \textcolor{keywordflow}{return}\ o;\ \}}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ o\ =\ errors[0];}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 1U;\ j\ <\ errors.size();\ ++j)\{}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o\ +=\ delim\ +\ errors[j];}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ o;}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00058}00058\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00059}\mbox{\hyperlink{classteqp_1_1JSONValidationError_ab6cdc1eae2595c507cd2306b501c4b75}{00059}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1JSONValidationError_ab6cdc1eae2595c507cd2306b501c4b75}{JSONValidationError}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ errors)\ :\ \mbox{\hyperlink{classteqp_1_1teqpException}{teqpException}}(300,\ errors\_to\_string(errors))\ \{\};}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00060}00060\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00061}00061\ }
-\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00062}00062\ \};\ \textcolor{comment}{//\ namespace\ teqp}}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00040}\mbox{\hyperlink{classteqp_1_1InvalidValue}{00040}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1InvalidValue}{InvalidValue}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classteqp_1_1teqpException}{teqpException}}\ \{}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00041}00041\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00042}\mbox{\hyperlink{classteqp_1_1InvalidValue_a10944f6f81fc1e808d788c3ee5232394}{00042}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1InvalidValue_a10944f6f81fc1e808d788c3ee5232394}{InvalidValue}}(\textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classteqp_1_1teqpException_a3d944f29abcf788a5e7908372c1102df}{msg}})\ :\ \mbox{\hyperlink{classteqp_1_1teqpException}{teqpException}}(101,\ \mbox{\hyperlink{classteqp_1_1teqpException_a3d944f29abcf788a5e7908372c1102df}{msg}})\ \{\};}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00043}00043\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00045}\mbox{\hyperlink{classteqp_1_1NotImplementedError}{00045}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1NotImplementedError}{NotImplementedError}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classteqp_1_1teqpException}{teqpException}}\ \{}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00046}00046\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00047}\mbox{\hyperlink{classteqp_1_1NotImplementedError_ac9b97dc6e11d99f2457988b274074b50}{00047}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1NotImplementedError_ac9b97dc6e11d99f2457988b274074b50}{NotImplementedError}}(\textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classteqp_1_1teqpException_a3d944f29abcf788a5e7908372c1102df}{msg}})\ :\ \mbox{\hyperlink{classteqp_1_1teqpException}{teqpException}}(200,\ \mbox{\hyperlink{classteqp_1_1teqpException_a3d944f29abcf788a5e7908372c1102df}{msg}})\ \{\};}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00048}00048\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00051}\mbox{\hyperlink{classteqp_1_1JSONValidationError}{00051}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1JSONValidationError}{JSONValidationError}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classteqp_1_1teqpException}{teqpException}}\ \{}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00052}00052\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ errors\_to\_string(\textcolor{keyword}{const}\ std::vector<std::string>\ \&errors,\ \textcolor{keyword}{const}\ std::string\ delim\ =\ \textcolor{stringliteral}{"{}|/|\(\backslash\)\(\backslash\)|"{}})\{}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ o\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (errors.empty())\{\ \textcolor{keywordflow}{return}\ o;\ \}}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ o\ =\ errors[0];}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 1U;\ j\ <\ errors.size();\ ++j)\{}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o\ +=\ delim\ +\ errors[j];}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ o;}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00062}00062\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00063}\mbox{\hyperlink{classteqp_1_1JSONValidationError_ab6cdc1eae2595c507cd2306b501c4b75}{00063}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1JSONValidationError_ab6cdc1eae2595c507cd2306b501c4b75}{JSONValidationError}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ errors)\ :\ \mbox{\hyperlink{classteqp_1_1teqpException}{teqpException}}(300,\ errors\_to\_string(errors))\ \{\};}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00064}00064\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{exceptions_8hpp_source_l00066}00066\ \};\ \textcolor{comment}{//\ namespace\ teqp}}
 
 \end{DoxyCode}

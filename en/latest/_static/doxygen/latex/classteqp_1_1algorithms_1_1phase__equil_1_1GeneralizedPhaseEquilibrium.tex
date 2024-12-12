@@ -1,0 +1,242 @@
+\doxysection{teqp\+::algorithms\+::phase\+\_\+equil\+::Generalized\+Phase\+Equilibrium Class Reference}
+\hypertarget{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium}{}\label{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium}\index{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}}
+
+
+{\ttfamily \#include $<$phase\+\_\+equil.\+hpp$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_1_1CallResult}{Call\+Result}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_1_1UnpackedVariables}{Unpacked\+Variables}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a3807dc7368aa6c15ed82ae70680ac44e}{Generalized\+Phase\+Equilibrium}} (const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&residmodel, const Eigen\+::\+Array\+Xd \&\mbox{\hyperlink{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_af5ea9978642262096e1eea2b22a3d940}{zbulk}}, const \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_1_1UnpackedVariables}{Unpacked\+Variables}} \&init, const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1AbstractSpecification}{Abstract\+Specification}} $>$ $>$ \&\mbox{\hyperlink{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a39d8d1ca812e9b9f8c133c302d5adf05}{specifications}})
+\begin{DoxyCompactList}\small\item\em A helper class for doing multi-\/phase phase equilibrium calculations with additional specification equations. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_af6576f13272496a2797c98b8017e69cc}{attach\+\_\+ideal\+\_\+gas}} (const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} $>$ \&ptr)
+\item 
+auto \mbox{\hyperlink{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_ac291dcade165fe12ea18570f963424c5}{call}} (const Eigen\+::\+Array\+Xd \&x)
+\begin{DoxyCompactList}\small\item\em Call the routines to build the vector of residuals and Jacobian and cache it internally. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a7dfca08a6f5a3eaa426bb9340a87498e}{num\+\_\+\+Jacobian}} (const Eigen\+::\+Array\+Xd \&x, const Eigen\+::\+Array\+Xd \&dx)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \& \mbox{\hyperlink{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a7e754dd3559f068eff061a765c272edc}{residptr}}
+\begin{DoxyCompactList}\small\item\em The pointer for the residual portion of $\alpha$. \end{DoxyCompactList}\item 
+std\+::optional$<$ std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} $>$ $>$ \mbox{\hyperlink{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a0ba2d7bcc1aa569e0ceecc352314a781}{idealgasptr}}
+\begin{DoxyCompactList}\small\item\em The pointer for the ideal-\/gas portion of $\alpha$. \end{DoxyCompactList}\item 
+const Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_af5ea9978642262096e1eea2b22a3d940}{zbulk}}
+\begin{DoxyCompactList}\small\item\em The bulk composition of the mixture. \end{DoxyCompactList}\item 
+const std\+::size\+\_\+t \mbox{\hyperlink{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a5ab9bafa5ac440efeefbff333124f442}{Ncomponents}}
+\begin{DoxyCompactList}\small\item\em The number of components in each phase. \end{DoxyCompactList}\item 
+const std\+::size\+\_\+t \mbox{\hyperlink{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a34a85be03e70f101ada627fb8550d7d9}{Nphases}}
+\begin{DoxyCompactList}\small\item\em The number of phases. \end{DoxyCompactList}\item 
+const std\+::size\+\_\+t \mbox{\hyperlink{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a806adeff4139f4ec0d599fa15b01c609}{Nindependent}}
+\begin{DoxyCompactList}\small\item\em The number of independent variables to be solved for. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1AbstractSpecification}{Abstract\+Specification}} $>$ $>$ \mbox{\hyperlink{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a39d8d1ca812e9b9f8c133c302d5adf05}{specifications}}
+\begin{DoxyCompactList}\small\item\em The specification equations. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_1_1CallResult}{Call\+Result}} \mbox{\hyperlink{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a421f8d13f8adb241f64b86432c45838d}{res}}
+\begin{DoxyCompactList}\small\item\em The internal buffer of residual vector and Jacobian (to minimize copies) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00304}{304}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a3807dc7368aa6c15ed82ae70680ac44e}\index{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}!GeneralizedPhaseEquilibrium@{GeneralizedPhaseEquilibrium}}
+\index{GeneralizedPhaseEquilibrium@{GeneralizedPhaseEquilibrium}!teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}}
+\doxysubsubsection{\texorpdfstring{GeneralizedPhaseEquilibrium()}{GeneralizedPhaseEquilibrium()}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a3807dc7368aa6c15ed82ae70680ac44e} 
+teqp\+::algorithms\+::phase\+\_\+equil\+::\+Generalized\+Phase\+Equilibrium\+::\+Generalized\+Phase\+Equilibrium (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} \&}]{residmodel}{, }\item[{const Eigen\+::\+Array\+Xd \&}]{zbulk}{, }\item[{const \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_1_1UnpackedVariables}{Unpacked\+Variables}} \&}]{init}{, }\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1AbstractSpecification}{Abstract\+Specification}} $>$ $>$ \&}]{specifications}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A helper class for doing multi-\/phase phase equilibrium calculations with additional specification equations. 
+
+This general approach allows for a generic framework to handle multi-\/phase equilibrium. The number of phases and components are both arbitrary (within the memory available on the machine)
+
+
+\begin{DoxyParams}{Parameters}
+{\em residmodel} & The Abstract\+Model for the residual portion of the Helmholtz energy \\
+\hline
+{\em zbulk} & The bulk molar fractions \\
+\hline
+{\em init} & The pack of the initial set of arguments \\
+\hline
+{\em specifications} & The two-\/element vector of specification equations \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00370}{370}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_af6576f13272496a2797c98b8017e69cc}\index{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}!attach\_ideal\_gas@{attach\_ideal\_gas}}
+\index{attach\_ideal\_gas@{attach\_ideal\_gas}!teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}}
+\doxysubsubsection{\texorpdfstring{attach\_ideal\_gas()}{attach\_ideal\_gas()}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_af6576f13272496a2797c98b8017e69cc} 
+auto teqp\+::algorithms\+::phase\+\_\+equil\+::\+Generalized\+Phase\+Equilibrium\+::attach\+\_\+ideal\+\_\+gas (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} $>$ \&}]{ptr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00388}{388}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_ac291dcade165fe12ea18570f963424c5}\index{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}!call@{call}}
+\index{call@{call}!teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}}
+\doxysubsubsection{\texorpdfstring{call()}{call()}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_ac291dcade165fe12ea18570f963424c5} 
+auto teqp\+::algorithms\+::phase\+\_\+equil\+::\+Generalized\+Phase\+Equilibrium\+::call (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Array\+Xd \&}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Call the routines to build the vector of residuals and Jacobian and cache it internally. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The array of independent variables, first T, then molar concentrations of each phase, in order, followed by the molar phase fractions \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00396}{396}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a7dfca08a6f5a3eaa426bb9340a87498e}\index{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}!num\_Jacobian@{num\_Jacobian}}
+\index{num\_Jacobian@{num\_Jacobian}!teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}}
+\doxysubsubsection{\texorpdfstring{num\_Jacobian()}{num\_Jacobian()}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a7dfca08a6f5a3eaa426bb9340a87498e} 
+auto teqp\+::algorithms\+::phase\+\_\+equil\+::\+Generalized\+Phase\+Equilibrium\+::num\+\_\+\+Jacobian (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Array\+Xd \&}]{x}{, }\item[{const Eigen\+::\+Array\+Xd \&}]{dx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00565}{565}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a0ba2d7bcc1aa569e0ceecc352314a781}\index{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}!idealgasptr@{idealgasptr}}
+\index{idealgasptr@{idealgasptr}!teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}}
+\doxysubsubsection{\texorpdfstring{idealgasptr}{idealgasptr}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a0ba2d7bcc1aa569e0ceecc352314a781} 
+std\+::optional$<$std\+::shared\+\_\+ptr$<$const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}}$>$ $>$ teqp\+::algorithms\+::phase\+\_\+equil\+::\+Generalized\+Phase\+Equilibrium\+::idealgasptr}
+
+
+
+The pointer for the ideal-\/gas portion of $\alpha$. 
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00350}{350}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a5ab9bafa5ac440efeefbff333124f442}\index{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}!Ncomponents@{Ncomponents}}
+\index{Ncomponents@{Ncomponents}!teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}}
+\doxysubsubsection{\texorpdfstring{Ncomponents}{Ncomponents}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a5ab9bafa5ac440efeefbff333124f442} 
+const std\+::size\+\_\+t teqp\+::algorithms\+::phase\+\_\+equil\+::\+Generalized\+Phase\+Equilibrium\+::\+Ncomponents}
+
+
+
+The number of components in each phase. 
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00352}{352}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a806adeff4139f4ec0d599fa15b01c609}\index{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}!Nindependent@{Nindependent}}
+\index{Nindependent@{Nindependent}!teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}}
+\doxysubsubsection{\texorpdfstring{Nindependent}{Nindependent}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a806adeff4139f4ec0d599fa15b01c609} 
+const std\+::size\+\_\+t teqp\+::algorithms\+::phase\+\_\+equil\+::\+Generalized\+Phase\+Equilibrium\+::\+Nindependent}
+
+
+
+The number of independent variables to be solved for. 
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00354}{354}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a34a85be03e70f101ada627fb8550d7d9}\index{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}!Nphases@{Nphases}}
+\index{Nphases@{Nphases}!teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}}
+\doxysubsubsection{\texorpdfstring{Nphases}{Nphases}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a34a85be03e70f101ada627fb8550d7d9} 
+const std\+::size\+\_\+t teqp\+::algorithms\+::phase\+\_\+equil\+::\+Generalized\+Phase\+Equilibrium\+::\+Nphases}
+
+
+
+The number of phases. 
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00353}{353}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a421f8d13f8adb241f64b86432c45838d}\index{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}!res@{res}}
+\index{res@{res}!teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}}
+\doxysubsubsection{\texorpdfstring{res}{res}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a421f8d13f8adb241f64b86432c45838d} 
+\mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_1_1CallResult}{Call\+Result}} teqp\+::algorithms\+::phase\+\_\+equil\+::\+Generalized\+Phase\+Equilibrium\+::res}
+
+
+
+The internal buffer of residual vector and Jacobian (to minimize copies) 
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00356}{356}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a7e754dd3559f068eff061a765c272edc}\index{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}!residptr@{residptr}}
+\index{residptr@{residptr}!teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}}
+\doxysubsubsection{\texorpdfstring{residptr}{residptr}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a7e754dd3559f068eff061a765c272edc} 
+const \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}}\& teqp\+::algorithms\+::phase\+\_\+equil\+::\+Generalized\+Phase\+Equilibrium\+::residptr}
+
+
+
+The pointer for the residual portion of $\alpha$. 
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00349}{349}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a39d8d1ca812e9b9f8c133c302d5adf05}\index{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}!specifications@{specifications}}
+\index{specifications@{specifications}!teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}}
+\doxysubsubsection{\texorpdfstring{specifications}{specifications}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_a39d8d1ca812e9b9f8c133c302d5adf05} 
+const std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1AbstractSpecification}{Abstract\+Specification}}$>$ $>$ teqp\+::algorithms\+::phase\+\_\+equil\+::\+Generalized\+Phase\+Equilibrium\+::specifications}
+
+
+
+The specification equations. 
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00355}{355}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_af5ea9978642262096e1eea2b22a3d940}\index{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}!zbulk@{zbulk}}
+\index{zbulk@{zbulk}!teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium@{teqp::algorithms::phase\_equil::GeneralizedPhaseEquilibrium}}
+\doxysubsubsection{\texorpdfstring{zbulk}{zbulk}}
+{\footnotesize\ttfamily \label{classteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_af5ea9978642262096e1eea2b22a3d940} 
+const Eigen\+::\+Array\+Xd teqp\+::algorithms\+::phase\+\_\+equil\+::\+Generalized\+Phase\+Equilibrium\+::zbulk}
+
+
+
+The bulk composition of the mixture. 
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00351}{351}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{phase__equil_8hpp}{phase\+\_\+equil.\+hpp}}\end{DoxyCompactItemize}

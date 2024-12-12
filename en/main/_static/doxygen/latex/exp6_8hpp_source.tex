@@ -112,14 +112,15 @@
 \DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00124}00124\ \textcolor{keyword}{\ \ \ \ }\{}
 \DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00125}00125\ \ \ \ \ \ \ \ \ std::common\_type\_t<TType,\ RhoType>\ o\ =\ 0.0;}
 \DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ el\ :\ c)\{}
-\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ p\ =\ el[0],\ q\ =\ el[1],\ r\ =\ el[2],\ Apqr\ =\ el[3];}
-\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ o\ =\ o\ +\ Apqr\ *\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(rhostar,\ p)\ *\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(Tstar,\ -\/q)\ *\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(alphastar,\ r);}
-\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(o);}
-\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00131}00131\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00132}00132\ \};}
-\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00133}00133\ }
-\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00134}00134\ \}}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ p\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(el[0]);}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ q\ =\ el[1],\ r\ =\ el[2],\ Apqr\ =\ el[3];}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ o\ =\ o\ +\ Apqr\ *\ \mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(rhostar,\ p)\ *\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(Tstar,\ -\/q)\ *\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(alphastar,\ r);}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(o);}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00132}00132\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00133}00133\ \};}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00134}00134\ }
 \DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00135}00135\ \}}
+\DoxyCodeLine{\Hypertarget{exp6_8hpp_source_l00136}00136\ \}}
 
 \end{DoxyCode}

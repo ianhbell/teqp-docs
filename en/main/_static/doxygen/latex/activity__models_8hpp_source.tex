@@ -1,0 +1,178 @@
+\doxysection{activity\+\_\+models.\+hpp}
+\hypertarget{activity__models_8hpp_source}{}\label{activity__models_8hpp_source}\index{include/teqp/models/activity/activity\_models.hpp@{include/teqp/models/activity/activity\_models.hpp}}
+\mbox{\hyperlink{activity__models_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{COSMOSAC_8hpp}{teqp/models/activity/COSMOSAC.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00005}\mbox{\hyperlink{namespaceteqp_1_1activity}{00005}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models}{teqp::activity::activity\_models}}\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00010}00010\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ NumType>}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00011}\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1NullResidualHelmholtzOverRT}{00011}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1NullResidualHelmholtzOverRT}{NullResidualHelmholtzOverRT}}\ \{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00012}00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ MoleFractions>}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00014}\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1NullResidualHelmholtzOverRT_ae8d23278c21d528a284a4e4929685c66}{00014}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1NullResidualHelmholtzOverRT_ae8d23278c21d528a284a4e4929685c66}{operator\ ()\ }}(\textcolor{keyword}{const}\ TType\&\ \textcolor{comment}{/*T*/},\ \textcolor{keyword}{const}\ MoleFractions\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00015}00015\ \ \ \ \ \ \ \ \ std::common\_type\_t<TType,\ \textcolor{keyword}{decltype}(molefracs[0])>\ val\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ val;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00017}00017\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00018}00018\ \};}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00040}00040\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ NumType>}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00041}\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT}{00041}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT}{WilsonResidualHelmholtzOverRT}}\ \{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00042}00042\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00043}00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00044}\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a19185c0f10973d8ca45d0ce9a43ab45f}{00044}}\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a19185c0f10973d8ca45d0ce9a43ab45f}{b}};}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00045}\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a7f7fd90d9fe3876567223256b0333793}{00045}}\ \ \ \ \ \textcolor{keyword}{const}\ Eigen::ArrayXXd\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a7f7fd90d9fe3876567223256b0333793}{m}},\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_aa47f9ebbba813c773bf0111dbcb0ac23}{n}};}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00046}\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_ae654d99bb03e449fc2b63845a593e003}{00046}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_ae654d99bb03e449fc2b63845a593e003}{WilsonResidualHelmholtzOverRT}}(\textcolor{keyword}{const}\ std::vector<double>\&\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a19185c0f10973d8ca45d0ce9a43ab45f}{b}},\ \textcolor{keyword}{const}\ Eigen::ArrayXXd\&\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a7f7fd90d9fe3876567223256b0333793}{m}},\ \textcolor{keyword}{const}\ Eigen::ArrayXXd\&\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_aa47f9ebbba813c773bf0111dbcb0ac23}{n}})\ :\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a19185c0f10973d8ca45d0ce9a43ab45f}{b}}(\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a19185c0f10973d8ca45d0ce9a43ab45f}{b}}),\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a7f7fd90d9fe3876567223256b0333793}{m}}(\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a7f7fd90d9fe3876567223256b0333793}{m}}),\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_aa47f9ebbba813c773bf0111dbcb0ac23}{n}}(\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_aa47f9ebbba813c773bf0111dbcb0ac23}{n}})\ \{\};}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00047}00047\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ MoleFractions>}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00049}\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a4564c175641aedf586f0a08df6c19e00}{00049}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a4564c175641aedf586f0a08df6c19e00}{combinatorial}}(\textcolor{keyword}{const}\ TType\&\ \textcolor{comment}{/*T*/},\ \textcolor{keyword}{const}\ MoleFractions\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a19185c0f10973d8ca45d0ce9a43ab45f}{b}}.size()\ !=\ \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(molefracs.size()))\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}Bad\ size\ of\ molefracs"{}});}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }TYPE\ =\ std::common\_type\_t<TType,\ \textcolor{keyword}{decltype}(molefracs[0])>;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ denominator\ in\ Phi}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ TYPE\ Vtot\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ molefracs.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ v\_i\ =\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a19185c0f10973d8ca45d0ce9a43ab45f}{b}}[i];}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ Vtot\ +=\ molefracs[i]*v\_i;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ TYPE\ summer\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ molefracs.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ v\_i\ =\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a19185c0f10973d8ca45d0ce9a43ab45f}{b}}[i];}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ ratio\ phi\_i/z\_i\ is\ expressed\ like\ this\ to\ better\ handle}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ case\ of\ z\_i\ =\ 0,\ which\ would\ otherwise\ be\ a\ divide\ by\ zero}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ in\ the\ case\ that\ the\ composition\ of\ one\ component\ is\ zero}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ phi\_i\_over\_z\_i\ =\ v\_i/Vtot;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ summer\ +=\ molefracs[i]*log(phi\_i\_over\_z\_i);}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ summer;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00073}00073\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00074}00074\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType>}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00075}\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a68a7d121d1aa3116a2ddddeda3b21cdc}{00075}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a68a7d121d1aa3116a2ddddeda3b21cdc}{get\_Aij}}(std::size\_t\ i,\ std::size\_t\ j,\ \textcolor{keyword}{const}\ TType\&\ T)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a7f7fd90d9fe3876567223256b0333793}{m}}(i,j)*T\ +\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_aa47f9ebbba813c773bf0111dbcb0ac23}{n}}(i,j));}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00077}00077\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00078}00078\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00079}00079\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ MoleFractions>}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00080}\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a54d81a8d1e00547297e011fa5af90697}{00080}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a54d81a8d1e00547297e011fa5af90697}{total}}(\textcolor{keyword}{const}\ TType\&\ T,\ \textcolor{keyword}{const}\ MoleFractions\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }TYPE\ =\ std::common\_type\_t<TType,\ \textcolor{keyword}{decltype}(molefracs[0])>;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ TYPE\ summer\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ molefracs.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ v\_i\ =\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a19185c0f10973d8ca45d0ce9a43ab45f}{b}}[i];}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ TYPE\ summerj\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 0U;\ j\ <\ molefracs.size();\ ++j)\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ v\_j\ =\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a19185c0f10973d8ca45d0ce9a43ab45f}{b}}[j];}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Aij\ =\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a68a7d121d1aa3116a2ddddeda3b21cdc}{get\_Aij}}(i,j,T);}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Omega\_ji\ =\ v\_j/v\_i*exp(-\/Aij/T);}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ summerj\ +=\ molefracs[j]*Omega\_ji;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ summer\ +=\ molefracs[i]*log(summerj);}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(-\/summer);}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00097}00097\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00098}00098\ \ \ \ \ \textcolor{comment}{//\ Returns\ ares/RT}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00099}00099\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ MoleFractions>}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00100}\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_ac8a5559d282d8c30f8662148a626f35a}{00100}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_ac8a5559d282d8c30f8662148a626f35a}{operator\ ()\ }}(\textcolor{keyword}{const}\ TType\&\ T,\ \textcolor{keyword}{const}\ MoleFractions\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a54d81a8d1e00547297e011fa5af90697}{total}}(T,\ molefracs)\ -\/\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a4564c175641aedf586f0a08df6c19e00}{combinatorial}}(T,\ molefracs));}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00102}00102\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00103}00103\ \};}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00106}00106\ \textcolor{comment}{//\ \(\backslash\)note\ This\ approach\ works\ well\ except\ that...\ the\ derivatives\ at\ the\ pure\ fluid\ endpoints\ don't.\ So\ this\ is\ more\ a\ record\ as\ a\ failed\ idea}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00107}00107\ \textcolor{comment}{//\ */}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00108}00108\ \textcolor{comment}{//template<typename\ NumType>}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00109}00109\ \textcolor{comment}{//class\ BinaryBetaResidualHelmholtzOverRT\ \{}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00110}00110\ \textcolor{comment}{//\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00111}00111\ \textcolor{comment}{//public:}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00112}00112\ \textcolor{comment}{//\ \ \ \ const\ std::vector<double>\ c;}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00113}00113\ \textcolor{comment}{//\ \ \ \ BinaryBetaResidualHelmholtzOverRT(const\ std::vector<double>\&\ c)\ :\ c(c)\ \{\};}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00114}00114\ \textcolor{comment}{//\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00115}00115\ \textcolor{comment}{//\ \ \ \ //\ Returns\ ares/RT}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00116}00116\ \textcolor{comment}{//\ \ \ \ template<typename\ TType,\ typename\ MoleFractions>}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00117}00117\ \textcolor{comment}{//\ \ \ \ auto\ operator\ ()\ (const\ TType\&\ /*T*/,\ const\ MoleFractions\&\ molefracs)\ const\ \{}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00118}00118\ \textcolor{comment}{//\ \ \ \ \ \ \ \ if\ (molefracs.size()\ !=\ 2)\{}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00119}00119\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ throw\ teqp::InvalidArgument("{}Must\ be\ size\ of\ 2"{});}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00120}00120\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00121}00121\ \textcolor{comment}{//\ \ \ \ \ \ \ \ std::decay\_t<std::common\_type\_t<TType,\ decltype(molefracs[0])>>\ out\ =\ c[0]*pow(molefracs[0],\ c[1])*pow(molefracs[1],\ c[2]);}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00122}00122\ \textcolor{comment}{//\ \ \ \ \ \ \ \ return\ out;}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00123}00123\ \textcolor{comment}{//\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00124}00124\ \textcolor{comment}{//\};}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00126}00126\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ NumType>}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00127}\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT}{00127}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT}{BinaryInvariantResidualHelmholtzOverRT}}\ \{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00128}00128\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00129}00129\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00130}\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT_a8b9a81a994c2281ac18bc17a27af3ed0}{00130}}\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT_a8b9a81a994c2281ac18bc17a27af3ed0}{c}};}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00131}\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT_a54736de7681fda5b0247408d89033a64}{00131}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT_a54736de7681fda5b0247408d89033a64}{BinaryInvariantResidualHelmholtzOverRT}}(\textcolor{keyword}{const}\ std::vector<double>\&\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT_a8b9a81a994c2281ac18bc17a27af3ed0}{c}})\ :\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT_a8b9a81a994c2281ac18bc17a27af3ed0}{c}}(\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT_a8b9a81a994c2281ac18bc17a27af3ed0}{c}})\ \{\};}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00132}00132\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00133}00133\ \ \ \ \ \textcolor{comment}{//\ Returns\ ares/RT}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00134}00134\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ MoleFractions>}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00135}\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT_a161fd2acc3838bad8bd80f30396506b8}{00135}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT_a161fd2acc3838bad8bd80f30396506b8}{operator\ ()\ }}(\textcolor{keyword}{const}\ TType\&\ \textcolor{comment}{/*T*/},\ \textcolor{keyword}{const}\ MoleFractions\&\ molefracs)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (molefracs.size()\ !=\ 2)\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}Must\ be\ size\ of\ 2"{}});}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00139}00139\ \ \ \ \ \ \ \ \ std::decay\_t<std::common\_type\_t<TType,\ \textcolor{keyword}{decltype}(molefracs[0])>>\ out\ =\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT_a8b9a81a994c2281ac18bc17a27af3ed0}{c}}[0]*molefracs[0]*molefracs[1]*(\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT_a8b9a81a994c2281ac18bc17a27af3ed0}{c}}[1]\ +\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT_a8b9a81a994c2281ac18bc17a27af3ed0}{c}}[2]*molefracs[1]);}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00141}00141\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00142}00142\ \};}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00144}\mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_a39ff4bda140f94dedc2b1da4c4495191}{00144}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_a39ff4bda140f94dedc2b1da4c4495191}{ResidualHelmholtzOverRTVariant}}\ =\ std::variant<NullResidualHelmholtzOverRT<double>,\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT}{WilsonResidualHelmholtzOverRT<double>}},\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT}{BinaryInvariantResidualHelmholtzOverRT<double>}},\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3}{COSMOSAC::COSMO3}}>;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00146}\mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_a06615d6c5aacf296110c0661fa739a52}{00146}}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_a39ff4bda140f94dedc2b1da4c4495191}{ResidualHelmholtzOverRTVariant}}\ \mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_a06615d6c5aacf296110c0661fa739a52}{ares\_model\_factory}}(\textcolor{keyword}{const}\ nlohmann::json\&\ armodel)\ \{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00147}00147\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00148}00148\ \ \ \ \ std::string\ type\ =\ armodel.at(\textcolor{stringliteral}{"{}type"{}});}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00149}00149\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ \textcolor{stringliteral}{"{}Wilson"{}})\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00150}00150\ \ \ \ \ \ \ \ \ std::vector<double>\ b\ =\ armodel.at(\textcolor{stringliteral}{"{}b"{}});}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ mWilson\ =\ \mbox{\hyperlink{namespaceteqp_a0387f578fa55e79f0da380ebd38b22e9}{build\_square\_matrix}}(armodel.at(\textcolor{stringliteral}{"{}m"{}}));}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ nWilson\ =\ \mbox{\hyperlink{namespaceteqp_a0387f578fa55e79f0da380ebd38b22e9}{build\_square\_matrix}}(armodel.at(\textcolor{stringliteral}{"{}n"{}}));}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT}{WilsonResidualHelmholtzOverRT<double>}}(b,\ mWilson,\ nWilson);}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00154}00154\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00155}00155\ \textcolor{comment}{//\ \ \ \ else\ if\ (type\ ==\ "{}binaryBeta"{})\{}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00156}00156\ \textcolor{comment}{//\ \ \ \ \ \ \ \ std::vector<double>\ c\ =\ armodel.at("{}c"{});}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00157}00157\ \textcolor{comment}{//\ \ \ \ \ \ \ \ return\ BinaryBetaResidualHelmholtzOverRT<double>(c);}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00158}00158\ \textcolor{comment}{//\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00159}00159\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\ ==\ \textcolor{stringliteral}{"{}binaryInvariant"{}})\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00160}00160\ \ \ \ \ \ \ \ \ std::vector<double>\ c\ =\ armodel.at(\textcolor{stringliteral}{"{}c"{}});}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1BinaryInvariantResidualHelmholtzOverRT}{BinaryInvariantResidualHelmholtzOverRT<double>}}(c);}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00162}00162\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00163}00163\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\ ==\ \textcolor{stringliteral}{"{}COSMO-\/SAC-\/2010"{}})\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00164}00164\ \ \ \ \ \ \ \ \ std::vector<double>\ A\_COSMOSAC\_A2\ =\ armodel.at(\textcolor{stringliteral}{"{}A\_COSMOSAC\ /\ A\string^2"{}});}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00165}00165\ \ \ \ \ \ \ \ \ std::vector<double>\ V\_COSMOSAC\_A3\ =\ armodel.at(\textcolor{stringliteral}{"{}V\_COSMOSAC\ /\ A\string^3"{}});}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00166}00166\ \ \ \ \ \ \ \ \ std::vector<COSMOSAC::FluidSigmaProfiles>\ profiles;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ el\ :\ armodel.at(\textcolor{stringliteral}{"{}profiles"{}}))\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1FluidSigmaProfiles}{COSMOSAC::FluidSigmaProfiles}}\ prof;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ get\_\ =\ [](\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ j)\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile}{COSMOSAC::SigmaProfile}}\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j.at(\textcolor{stringliteral}{"{}sigma\ /\ e/A\string^2"{}}).template\ get<std::vector<double>>(),}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j.at(\textcolor{stringliteral}{"{}p(sigma)*A\ /\ A\string^2"{}}).template\ get<std::vector<double>>()}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ prof.\mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1FluidSigmaProfiles_ab4068173f965ef1e0451d1dda636b0ce}{nhb}}\ =\ get\_(el.at(\textcolor{stringliteral}{"{}nhb"{}}));}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ prof.\mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1FluidSigmaProfiles_aab852d12c8a9393f6a22bb37fba05da9}{oh}}\ =\ get\_(el.at(\textcolor{stringliteral}{"{}oh"{}}));}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ prof.\mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1FluidSigmaProfiles_a542e32d7bf820fb7b5a0a6ef57e22ac9}{ot}}\ =\ get\_(el.at(\textcolor{stringliteral}{"{}ot"{}}));}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ profiles.push\_back(prof);}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants}{COSMOSAC::COSMO3Constants}}\ constants;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (armodel.contains(\textcolor{stringliteral}{"{}constants"{}}))\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&jconstants\ =\ armodel.at(\textcolor{stringliteral}{"{}constants"{}});}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ constants.\mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants_a6900c0dd505ec0546529cf76c6be07dc}{A\_ES}}\ =\ jconstants.value(\textcolor{stringliteral}{"{}A\_ES\ /\ kcal\ A\string^4\ /(mol\ e\string^2)"{}},\ constants.\mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants_a6900c0dd505ec0546529cf76c6be07dc}{A\_ES}});}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ constants.\mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants_a032452a0d74bfb24e6181d0bee79df0e}{B\_ES}}\ =\ jconstants.value(\textcolor{stringliteral}{"{}B\_ES\ /\ kcal\ A\string^4\ K\string^2/(mol\ e\string^2)"{}},\ constants.\mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants_a032452a0d74bfb24e6181d0bee79df0e}{B\_ES}});}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ constants.\mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants_a08458b738188e06c4765be643015ba12}{fast\_Gamma}}\ =\ jconstants.value(\textcolor{stringliteral}{"{}fast\_Gamma"{}},\ constants.\mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants_a08458b738188e06c4765be643015ba12}{fast\_Gamma}});}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00187}00187\ \ \ \ \ \ \ \ \ std::cout\ <<\ constants.\mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants_a6900c0dd505ec0546529cf76c6be07dc}{A\_ES}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00188}00188\ \ \ \ \ \ \ \ \ std::cout\ <<\ constants.\mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants_a032452a0d74bfb24e6181d0bee79df0e}{B\_ES}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3}{COSMOSAC::COSMO3}}(A\_COSMOSAC\_A2,\ V\_COSMOSAC\_A3,\ profiles,\ constants);}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00190}00190\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00191}00191\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}bad\ type\ of\ ares\ model:\ "{}}\ +\ type);}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00193}00193\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00194}00194\ \};}
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{activity__models_8hpp_source_l00196}00196\ \}}
+
+\end{DoxyCode}

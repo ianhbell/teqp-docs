@@ -1,0 +1,106 @@
+\doxysection{teqp\+::iteration\+::Stopping\+Data Struct Reference}
+\hypertarget{structteqp_1_1iteration_1_1StoppingData}{}\label{structteqp_1_1iteration_1_1StoppingData}\index{teqp::iteration::StoppingData@{teqp::iteration::StoppingData}}
+
+
+{\ttfamily \#include $<$iteration.\+hpp$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_ac67902b13ce16291516fd44fc5747b71}{N}}
+\begin{DoxyCompactList}\small\item\em The number of steps that have been taken so far. \end{DoxyCompactList}\item 
+const Eigen\+::\+Array2d \& \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_af550777d0603f656280b75848b07e8d7}{x}}
+\begin{DoxyCompactList}\small\item\em The complete set of independent variables. \end{DoxyCompactList}\item 
+const Eigen\+::\+Array2d \& \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_aa494c172445f78ee0b934f7a7e14bfa8}{dx}}
+\begin{DoxyCompactList}\small\item\em The complete set of steps in independent variables. \end{DoxyCompactList}\item 
+const Eigen\+::\+Array2d \& \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_a78bd7bb736c5cd1bef5833723fb7695e}{r}}
+\begin{DoxyCompactList}\small\item\em The set of residual functions. \end{DoxyCompactList}\item 
+const std\+::vector$<$ int $>$ \& \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_a898ff812b709780134fa95283d4048bd}{nonconstant\+\_\+indices}}
+\begin{DoxyCompactList}\small\item\em The indices where the independent variable can be varied (not T or rho) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A holder class that holds references(!) to the data that is then passed to the stopping condition testing functions.
+
+This approach is used to keep the calling signature of the stopping condition functions more concise 
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structteqp_1_1iteration_1_1StoppingData_aa494c172445f78ee0b934f7a7e14bfa8}\index{teqp::iteration::StoppingData@{teqp::iteration::StoppingData}!dx@{dx}}
+\index{dx@{dx}!teqp::iteration::StoppingData@{teqp::iteration::StoppingData}}
+\doxysubsubsection{\texorpdfstring{dx}{dx}}
+{\footnotesize\ttfamily \label{structteqp_1_1iteration_1_1StoppingData_aa494c172445f78ee0b934f7a7e14bfa8} 
+const Eigen\+::\+Array2d\& teqp\+::iteration\+::\+Stopping\+Data\+::dx}
+
+
+
+The complete set of steps in independent variables. 
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{structteqp_1_1iteration_1_1StoppingData_ac67902b13ce16291516fd44fc5747b71}\index{teqp::iteration::StoppingData@{teqp::iteration::StoppingData}!N@{N}}
+\index{N@{N}!teqp::iteration::StoppingData@{teqp::iteration::StoppingData}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily \label{structteqp_1_1iteration_1_1StoppingData_ac67902b13ce16291516fd44fc5747b71} 
+const int teqp\+::iteration\+::\+Stopping\+Data\+::N}
+
+
+
+The number of steps that have been taken so far. 
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{structteqp_1_1iteration_1_1StoppingData_a898ff812b709780134fa95283d4048bd}\index{teqp::iteration::StoppingData@{teqp::iteration::StoppingData}!nonconstant\_indices@{nonconstant\_indices}}
+\index{nonconstant\_indices@{nonconstant\_indices}!teqp::iteration::StoppingData@{teqp::iteration::StoppingData}}
+\doxysubsubsection{\texorpdfstring{nonconstant\_indices}{nonconstant\_indices}}
+{\footnotesize\ttfamily \label{structteqp_1_1iteration_1_1StoppingData_a898ff812b709780134fa95283d4048bd} 
+const std\+::vector$<$int$>$\& teqp\+::iteration\+::\+Stopping\+Data\+::nonconstant\+\_\+indices}
+
+
+
+The indices where the independent variable can be varied (not T or rho) 
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{structteqp_1_1iteration_1_1StoppingData_a78bd7bb736c5cd1bef5833723fb7695e}\index{teqp::iteration::StoppingData@{teqp::iteration::StoppingData}!r@{r}}
+\index{r@{r}!teqp::iteration::StoppingData@{teqp::iteration::StoppingData}}
+\doxysubsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily \label{structteqp_1_1iteration_1_1StoppingData_a78bd7bb736c5cd1bef5833723fb7695e} 
+const Eigen\+::\+Array2d\& teqp\+::iteration\+::\+Stopping\+Data\+::r}
+
+
+
+The set of residual functions. 
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{structteqp_1_1iteration_1_1StoppingData_af550777d0603f656280b75848b07e8d7}\index{teqp::iteration::StoppingData@{teqp::iteration::StoppingData}!x@{x}}
+\index{x@{x}!teqp::iteration::StoppingData@{teqp::iteration::StoppingData}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily \label{structteqp_1_1iteration_1_1StoppingData_af550777d0603f656280b75848b07e8d7} 
+const Eigen\+::\+Array2d\& teqp\+::iteration\+::\+Stopping\+Data\+::x}
+
+
+
+The complete set of independent variables. 
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{iteration_8hpp}{iteration.\+hpp}}\end{DoxyCompactItemize}

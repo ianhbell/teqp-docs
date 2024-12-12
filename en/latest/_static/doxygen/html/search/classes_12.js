@@ -1,10 +1,20 @@
 var searchData=
 [
-  ['saftcalc_0',['SAFTCalc',['../classteqp_1_1PCSAFT_1_1SAFTCalc.html',1,'teqp::PCSAFT']]],
-  ['saftcoeffs_1',['SAFTCoeffs',['../structteqp_1_1PCSAFT_1_1SAFTCoeffs.html',1,'teqp::PCSAFT']]],
-  ['saftvrmiechaincontributionterms_2',['SAFTVRMieChainContributionTerms',['../structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms.html',1,'teqp::SAFTVRMie']]],
-  ['saftvrmiecoeffs_3',['SAFTVRMieCoeffs',['../structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs.html',1,'teqp::SAFTVRMie']]],
-  ['saftvrmiemixture_4',['SAFTVRMieMixture',['../classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture.html',1,'teqp::SAFTVRMie']]],
-  ['selfintersectionsolution_5',['SelfIntersectionSolution',['../structteqp_1_1VLLE_1_1SelfIntersectionSolution.html',1,'teqp::VLLE']]],
-  ['superancillary_6',['SuperAncillary',['../structteqp_1_1CubicSuperAncillary_1_1SuperAncillary.html',1,'teqp::CubicSuperAncillary']]]
+  ['saftcoeffs_0',['SAFTCoeffs',['../structteqp_1_1saft_1_1pcsaft_1_1SAFTCoeffs.html',1,'teqp::saft::pcsaft']]],
+  ['saftvrmiechaincontributionterms_1',['SAFTVRMieChainContributionTerms',['../structteqp_1_1SAFTVRMie_1_1SAFTVRMieChainContributionTerms.html',1,'teqp::SAFTVRMie']]],
+  ['saftvrmiecoeffs_2',['SAFTVRMieCoeffs',['../structteqp_1_1SAFTVRMie_1_1SAFTVRMieCoeffs.html',1,'teqp::SAFTVRMie']]],
+  ['saftvrmiemixture_3',['SAFTVRMieMixture',['../classteqp_1_1SAFTVRMie_1_1SAFTVRMieMixture.html',1,'teqp::SAFTVRMie']]],
+  ['saftvrmienonpolarmixture_4',['SAFTVRMieNonpolarMixture',['../classteqp_1_1SAFTVRMie_1_1SAFTVRMieNonpolarMixture.html',1,'teqp::SAFTVRMie']]],
+  ['satrholpoint_5',['SatRhoLPoint',['../structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPoint.html',1,'teqp::algorithms::pure_param_optimization']]],
+  ['satrholppoint_6',['SatRhoLPPoint',['../structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPPoint.html',1,'teqp::algorithms::pure_param_optimization']]],
+  ['satrholpwpoint_7',['SatRhoLPWPoint',['../structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint.html',1,'teqp::algorithms::pure_param_optimization']]],
+  ['selfintersectionsolution_8',['SelfIntersectionSolution',['../structteqp_1_1VLLE_1_1SelfIntersectionSolution.html',1,'teqp::VLLE']]],
+  ['sigmaprofile_9',['SigmaProfile',['../classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile.html',1,'teqp::activity::activity_models::COSMOSAC']]],
+  ['softsaft_10',['SoftSAFT',['../classteqp_1_1saft_1_1softsaft_1_1SoftSAFT.html',1,'teqp::saft::softsaft']]],
+  ['sospoint_11',['SOSPoint',['../structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint.html',1,'teqp::algorithms::pure_param_optimization']]],
+  ['specificationsidecar_12',['SpecificationSidecar',['../structteqp_1_1algorithms_1_1phase__equil_1_1SpecificationSidecar.html',1,'teqp::algorithms::phase_equil']]],
+  ['stepcounterrorcondition_13',['StepCountErrorCondition',['../classteqp_1_1iteration_1_1StepCountErrorCondition.html',1,'teqp::iteration']]],
+  ['stoppingcondition_14',['StoppingCondition',['../classteqp_1_1iteration_1_1StoppingCondition.html',1,'teqp::iteration']]],
+  ['stoppingdata_15',['StoppingData',['../structteqp_1_1iteration_1_1StoppingData.html',1,'teqp::iteration']]],
+  ['superancillary_16',['SuperAncillary',['../structteqp_1_1CubicSuperAncillary_1_1SuperAncillary.html',1,'teqp::CubicSuperAncillary']]]
 ];

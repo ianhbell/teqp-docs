@@ -9,72 +9,82 @@
 \DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00005}00005\ }
 \DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00009}\mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices}{00009}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices}{IterationMatrices}}\{}
 \DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00010}\mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_a431c75d96a7a0d00efe5f36b108f4d76}{00010}}\ \ \ \ \ std::vector<char>\ \mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_a431c75d96a7a0d00efe5f36b108f4d76}{vars}};\ }
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00011}\mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_ae109f189c44bd28a2b59205096a217d7}{00011}}\ \ \ \ \ Eigen::ArrayXXd\ \mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_ae109f189c44bd28a2b59205096a217d7}{J}};\ }
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00012}\mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_a66ed5f894eb661bc3faa5aa76b9d4484}{00012}}\ \ \ \ \ Eigen::ArrayXd\ \mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_a66ed5f894eb661bc3faa5aa76b9d4484}{v}};\ }
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00011}\mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_a5b7c30bc8d08bfe9e5c90819544a6362}{00011}}\ \ \ \ \ Eigen::Array22d\ \mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_a5b7c30bc8d08bfe9e5c90819544a6362}{J}};\ }
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00012}\mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_ad5c3500a9fa034bd430dbd43a6e81df8}{00012}}\ \ \ \ \ Eigen::Array2d\ \mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_ad5c3500a9fa034bd430dbd43a6e81df8}{v}};\ }
 \DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00013}00013\ \};}
 \DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00014}00014\ }
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00026}00026\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Array>}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00027}\mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2bcecf3d939d9f0f6b45d39dfe9e830d}{00027}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2bcecf3d939d9f0f6b45d39dfe9e830d}{build\_iteration\_Jv}}(\textcolor{keyword}{const}\ std::vector<char>\&\ vars,\ \textcolor{keyword}{const}\ Eigen::Array<double,\ 3,\ 3>\&\ Ar,\ \textcolor{keyword}{const}\ Eigen::Array<double,\ 3,\ 3>\&\ Aig,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ R,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ T,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ rho,\ \textcolor{keyword}{const}\ Array\ \&z)\{}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00028}00028\ \ \ \ \ \mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices}{IterationMatrices}}\ im;\ im.\mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_ae109f189c44bd28a2b59205096a217d7}{J}}.resize(vars.size(),\ 2);\ im.\mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_a66ed5f894eb661bc3faa5aa76b9d4484}{v}}.resize(vars.size());\ im.\mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_a431c75d96a7a0d00efe5f36b108f4d76}{vars}}\ =\ vars;}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00029}00029\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00030}00030\ \ \ \ \ \textcolor{keyword}{auto}\ A\ =\ Ar\ +\ Aig;}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00031}00031\ \ \ \ \ Eigen::ArrayXd\&\ v\ =\ im.\mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_a66ed5f894eb661bc3faa5aa76b9d4484}{v}};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00032}00032\ \ \ \ \ Eigen::ArrayXXd\&\ J\ =\ im.\mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_ae109f189c44bd28a2b59205096a217d7}{J}};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00033}00033\ \ \ \ \ \textcolor{keyword}{auto}\ Trecip\ =\ 1.0/T;}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{auto}\ dTrecipdT\ =\ -\/Trecip*Trecip;}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00035}00035\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ Define\ some\ lambda\ functions\ for\ things\ that\ *might*\ be\ needed}}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ The\ lambdas\ are\ used\ to\ get\ a\ sort\ of\ lazy\ evaluation.\ The\ lambdas\ are}}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ only\ evaluated\ on\ an\ as-\/needed\ basis.\ \ If\ the\ lambda\ is\ not\ called,}}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ no\ cost\ is\ incurred.}}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00025}00025\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Array>}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00026}\mbox{\hyperlink{namespaceteqp_1_1cppinterface_a9b3bb973011fc0d9b583a0cdde1c095b}{00026}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a9b3bb973011fc0d9b583a0cdde1c095b}{build\_iteration\_Jv}}(\textcolor{keyword}{const}\ std::vector<char>\&\ vars,\ \textcolor{keyword}{const}\ Eigen::Array<double,\ 3,\ 3>\&\ A,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ R,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ T,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ rho,\ \textcolor{keyword}{const}\ Array\ \&z)\{}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices}{IterationMatrices}}\ im;\ im.\mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_a431c75d96a7a0d00efe5f36b108f4d76}{vars}}\ =\ vars;}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00028}00028\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00029}00029\ \ \ \ \ Eigen::Array2d\&\ v\ =\ im.\mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_ad5c3500a9fa034bd430dbd43a6e81df8}{v}};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00030}00030\ \ \ \ \ Eigen::Array22d\&\ J\ =\ im.\mbox{\hyperlink{structteqp_1_1cppinterface_1_1IterationMatrices_a5b7c30bc8d08bfe9e5c90819544a6362}{J}};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00031}00031\ \ \ \ \ \textcolor{keyword}{auto}\ Trecip\ =\ 1.0/T;}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00032}00032\ \ \ \ \ \textcolor{keyword}{auto}\ dTrecipdT\ =\ -\/Trecip*Trecip;}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00033}00033\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//\ Define\ some\ lambda\ functions\ for\ things\ that\ *might*\ be\ needed}}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//\ The\ lambdas\ are\ used\ to\ get\ a\ sort\ of\ lazy\ evaluation.\ The\ lambdas\ are}}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ only\ evaluated\ on\ an\ as-\/needed\ basis.\ \ If\ the\ lambda\ is\ not\ called,}}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ no\ cost\ is\ incurred.}}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ Probably\ the\ compiler\ will\ inline\ these\ functions\ anyhow.}}
 \DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00040}00040\ \ \ \ \ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//\ Probably\ the\ compiler\ will\ inline\ these\ functions\ anyhow.}}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00042}00042\ \ \ \ \ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ Derivatives\ of\ total\ alpha;\ alpha\ =\ a/(R*T)\ =\ a*R/Trecip}}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{auto}\ alpha\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ A(0,0);\ \};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00045}00045\ \ \ \ \ \textcolor{keyword}{auto}\ dalphadTrecip\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ A(1,0)/Trecip;\ \};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00046}00046\ \ \ \ \ \textcolor{keyword}{auto}\ dalphadrho\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ A(0,1)/rho;\ \};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00047}00047\ \ \ \ \ \textcolor{keyword}{auto}\ d2alphadTrecip2\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ A(2,0)/(Trecip*Trecip);\ \};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{auto}\ d2alphadTrecipdrho\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ A(1,1)/(Trecip*rho);\ \};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00049}00049\ \ \ \ \ \textcolor{keyword}{auto}\ d2alphadrho2\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ A(0,2)/(rho*rho);\ \};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00050}00050\ \ \ \ \ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00051}00051\ \ \ \ \ \textcolor{comment}{//\ Derivatives\ of\ total\ Helmholtz\ energy\ a\ in\ terms\ of\ derivatives\ of\ alpha}}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00052}00052\ \ \ \ \ \textcolor{keyword}{auto}\ dadTrecip\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ R/(Trecip*Trecip)*(Trecip*dalphadTrecip()-\/alpha());\};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{auto}\ d2adTrecip2\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ R/(Trecip*Trecip*Trecip)*(Trecip*Trecip*d2alphadTrecip2()-\/2*Trecip*dalphadTrecip()+2*alpha());\};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00054}00054\ \ \ \ \ \textcolor{keyword}{auto}\ dadrho\ =\ [\&]()\{\textcolor{keywordflow}{return}\ R/Trecip*(dalphadrho());\};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00055}00055\ \ \ \ \ \textcolor{keyword}{auto}\ d2adrho2\ =\ [\&]()\{\textcolor{keywordflow}{return}\ R/Trecip*(d2alphadrho2());\};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00056}00056\ \ \ \ \ \textcolor{keyword}{auto}\ d2adTrecipdrho\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ R/(Trecip*Trecip)*(Trecip*d2alphadTrecipdrho()-\/dalphadrho());\};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00057}00057\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ vars.size();\ ++i)\{}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(vars[i])\{}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'T'}:}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ T;}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 0)\ =\ 1.0;}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 1)\ =\ 0.0;}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'D'}:}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ rho;}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 0)\ =\ 0.0;}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 1)\ =\ 1.0;}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'P'}:}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ rho*R*T*(1\ +\ Ar(0,1));}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 0)\ =\ rho*R*(1\ +\ Ar(0,1)\ -\/\ Ar(1,1));}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 1)\ =\ R*T*(1\ +\ 2*Ar(0,1)\ +\ Ar(0,2));}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'S'}:}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ Trecip*Trecip*dadTrecip();}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 0)\ =\ (Trecip*Trecip*d2adTrecip2()\ +\ 2*Trecip*dadTrecip())*dTrecipdT;}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 1)\ =\ Trecip*Trecip*d2adTrecipdrho();}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}bad\ var:\ "{}}\ +\ std::to\_string(vars[i]));}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00083}00083\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{return}\ im;}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00085}00085\ \}}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00086}00086\ }
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00087}00087\ \}}
-\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00088}00088\ \};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//\ Derivatives\ of\ total\ alpha;\ alpha\ =\ a/(R*T)\ =\ a*R/Trecip}}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00042}00042\ \ \ \ \ \textcolor{keyword}{auto}\ alpha\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ A(0,0);\ \};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00043}00043\ \ \ \ \ \textcolor{keyword}{auto}\ dalphadTrecip\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ A(1,0)/Trecip;\ \};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{auto}\ dalphadrho\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ A(0,1)/rho;\ \};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00045}00045\ \ \ \ \ \textcolor{keyword}{auto}\ d2alphadTrecip2\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ A(2,0)/(Trecip*Trecip);\ \};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00046}00046\ \ \ \ \ \textcolor{keyword}{auto}\ d2alphadTrecipdrho\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ A(1,1)/(Trecip*rho);\ \};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00047}00047\ \ \ \ \ \textcolor{keyword}{auto}\ d2alphadrho2\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ A(0,2)/(rho*rho);\ \};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00049}00049\ \ \ \ \ \textcolor{comment}{//\ Derivatives\ of\ total\ Helmholtz\ energy\ a\ in\ terms\ of\ derivatives\ of\ alpha}}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00050}00050\ \ \ \ \ \textcolor{keyword}{auto}\ a\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ alpha()*R*T;\ \};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{auto}\ dadTrecip\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ R/(Trecip*Trecip)*(Trecip*dalphadTrecip()-\/alpha());\};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00052}00052\ \ \ \ \ \textcolor{keyword}{auto}\ d2adTrecip2\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ R/(Trecip*Trecip*Trecip)*(Trecip*Trecip*d2alphadTrecip2()-\/2*Trecip*dalphadTrecip()+2*alpha());\};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{auto}\ dadrho\ =\ [\&]()\{\textcolor{keywordflow}{return}\ R/Trecip*(dalphadrho());\};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00054}00054\ \ \ \ \ \textcolor{keyword}{auto}\ d2adrho2\ =\ [\&]()\{\textcolor{keywordflow}{return}\ R/Trecip*(d2alphadrho2());\};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00055}00055\ \ \ \ \ \textcolor{keyword}{auto}\ d2adTrecipdrho\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ R/(Trecip*Trecip)*(Trecip*d2alphadTrecipdrho()-\/dalphadrho());\};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00056}00056\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ vars.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(vars[i])\{}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'T'}:}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ T;}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 0)\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 1)\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'D'}:}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ rho;}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 0)\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 1)\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'P'}:}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ rho*rho*dadrho();}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 0)\ =\ rho*rho*d2adTrecipdrho()*dTrecipdT;}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 1)\ =\ rho*rho*d2adrho2()\ +\ 2*rho*dadrho();}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'S'}:}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ Trecip*Trecip*dadTrecip();}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 0)\ =\ (Trecip*Trecip*d2adTrecip2()\ +\ 2*Trecip*dadTrecip())*dTrecipdT;}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 1)\ =\ Trecip*Trecip*d2adTrecipdrho();}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'H'}:}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ a()\ +\ Trecip*dadTrecip()\ +\ rho*dadrho();}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 0)\ =\ (Trecip*d2adTrecip2()\ +\ rho*d2adTrecipdrho()\ +\ 2*dadTrecip())*dTrecipdT;}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 1)\ =\ Trecip*d2adTrecipdrho()\ +\ rho*d2adrho2()\ +\ 2*dadrho();}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'U'}:}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ a()\ +\ Trecip*dadTrecip();}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 0)\ =\ (Trecip*d2adTrecip2()\ +\ 2*dadTrecip())*dTrecipdT;}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ J(i,\ 1)\ =\ Trecip*d2adTrecipdrho()\ +\ dadrho();}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}bad\ var:\ "{}}\ +\ std::to\_string(vars[i]));}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00092}00092\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{return}\ im;}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00094}00094\ \}}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00096}00096\ \}}
+\DoxyCodeLine{\Hypertarget{cpp_2derivs_8hpp_source_l00097}00097\ \};}
 
 \end{DoxyCode}

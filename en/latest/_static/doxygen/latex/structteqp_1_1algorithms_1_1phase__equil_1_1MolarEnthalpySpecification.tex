@@ -1,0 +1,71 @@
+\doxysection{teqp\+::algorithms\+::phase\+\_\+equil\+::Molar\+Enthalpy\+Specification Struct Reference}
+\hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1MolarEnthalpySpecification}{}\label{structteqp_1_1algorithms_1_1phase__equil_1_1MolarEnthalpySpecification}\index{teqp::algorithms::phase\_equil::MolarEnthalpySpecification@{teqp::algorithms::phase\_equil::MolarEnthalpySpecification}}
+
+
+Specification equation for molar enthalpy.  
+
+
+
+
+{\ttfamily \#include $<$phase\+\_\+equil.\+hpp$>$}
+
+Inheritance diagram for teqp\+::algorithms\+::phase\+\_\+equil\+::Molar\+Enthalpy\+Specification\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structteqp_1_1algorithms_1_1phase__equil_1_1MolarEnthalpySpecification}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1MolarEnthalpySpecification_a925c8efb5e2316cb98e9eb1dd72ab277}{Molar\+Enthalpy\+Specification}} (double h\+\_\+\+Jmol)
+\item 
+virtual std\+::tuple$<$ double, Eigen\+::\+Array\+Xd $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1MolarEnthalpySpecification_ad5ad9c44ab52f3f5be5a3d2e8e54b7af}{r\+\_\+\+Jacobian}} (const Eigen\+::\+Array\+Xd \&x, const \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1SpecificationSidecar}{Specification\+Sidecar}} \&sidecar) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1AbstractSpecification}{teqp\+::algorithms\+::phase\+\_\+equil\+::\+Abstract\+Specification}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1AbstractSpecification_ad17724abe6381c5d7bdfc0998d7c0962}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+Specification}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Specification equation for molar enthalpy. 
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00266}{266}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1MolarEnthalpySpecification_a925c8efb5e2316cb98e9eb1dd72ab277}\index{teqp::algorithms::phase\_equil::MolarEnthalpySpecification@{teqp::algorithms::phase\_equil::MolarEnthalpySpecification}!MolarEnthalpySpecification@{MolarEnthalpySpecification}}
+\index{MolarEnthalpySpecification@{MolarEnthalpySpecification}!teqp::algorithms::phase\_equil::MolarEnthalpySpecification@{teqp::algorithms::phase\_equil::MolarEnthalpySpecification}}
+\doxysubsubsection{\texorpdfstring{MolarEnthalpySpecification()}{MolarEnthalpySpecification()}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1MolarEnthalpySpecification_a925c8efb5e2316cb98e9eb1dd72ab277} 
+teqp\+::algorithms\+::phase\+\_\+equil\+::\+Molar\+Enthalpy\+Specification\+::\+Molar\+Enthalpy\+Specification (\begin{DoxyParamCaption}\item[{double}]{h\+\_\+\+Jmol}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00270}{270}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1MolarEnthalpySpecification_ad5ad9c44ab52f3f5be5a3d2e8e54b7af}\index{teqp::algorithms::phase\_equil::MolarEnthalpySpecification@{teqp::algorithms::phase\_equil::MolarEnthalpySpecification}!r\_Jacobian@{r\_Jacobian}}
+\index{r\_Jacobian@{r\_Jacobian}!teqp::algorithms::phase\_equil::MolarEnthalpySpecification@{teqp::algorithms::phase\_equil::MolarEnthalpySpecification}}
+\doxysubsubsection{\texorpdfstring{r\_Jacobian()}{r\_Jacobian()}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1MolarEnthalpySpecification_ad5ad9c44ab52f3f5be5a3d2e8e54b7af} 
+virtual std\+::tuple$<$ double, Eigen\+::\+Array\+Xd $>$ teqp\+::algorithms\+::phase\+\_\+equil\+::\+Molar\+Enthalpy\+Specification\+::r\+\_\+\+Jacobian (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Array\+Xd \&}]{x}{, }\item[{const \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1SpecificationSidecar}{Specification\+Sidecar}} \&}]{sidecar}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1AbstractSpecification_a0ca4329f474e39ab634b0a8f81205e88}{teqp\+::algorithms\+::phase\+\_\+equil\+::\+Abstract\+Specification}}.
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00272}{272}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{phase__equil_8hpp}{phase\+\_\+equil.\+hpp}}\end{DoxyCompactItemize}

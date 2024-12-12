@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Models &#8212; teqp 0.19.1 documentation</title>
+    <title>Models &#8212; teqp 0.22.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
     <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
-    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <script src="../_static/documentation_options.js?v=5686f5df"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -65,11 +65,13 @@
 <li class="toctree-l2"><a class="reference internal" href="model_potentials.html#Square-well">Square-well</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model_potentials.html#EXP-6">EXP-6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model_potentials.html#Lennard-Jones-Fluid">Lennard-Jones Fluid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_potentials.html#Mie-Fluid">Mie Fluid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model_potentials.html#Two-Center-Lennard-Jones-Fluid">Two-Center Lennard-Jones Fluid</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="PCSAFT.html">PC-SAFT</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="PCSAFT.html#Adjusting-k_ij">Adjusting k_ij</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCSAFT.html#Alternative-a-and-b-matrices">Alternative a and b matrices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PCSAFT.html#Superancillary">Superancillary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PCSAFT.html#Maximum-density">Maximum density</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PCSAFT.html#Polar-contributions">Polar contributions</a></li>
@@ -82,10 +84,12 @@
 <li class="toctree-l1"><a class="reference internal" href="SAFT-VR-Mie-Polar.html">SAFT-VR-Mie with polar contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Association.html">Association</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Association.html#Site-Interactions">Site Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Association.html#Simplified-analysis-for-pure-fluids">Simplified analysis for pure fluids</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Association.html#Interaction-strength">Interaction strength</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Association.html#Radial-distribution-function">Radial distribution function</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Check_Dufal_water.html">Association - Dufal et al. model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multi-fluid EOS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="multifluid.html#Ancillary-Equations">Ancillary Equations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multifluid.html#Ammonia-Water">Ammonia-Water</a></li>
@@ -95,9 +99,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multifluid_mutant.html">Multfluid mutant</a></li>
-<li class="toctree-l1"><a class="reference internal" href="REFPROP_conversion.html">REFPROP &lt;10.0 conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="REFPROP_conversion.html">REFPROP 10.0 conversion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="GERG.html">GERG</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ECS.html">Extended Corresponding States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MultifluidPlusAssociation.html">Multifluid+Association</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MultifluidPlusAC.html">Multifluid+Activity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="IdealGas.html">Ideal-gas Models</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="IdealGas.html#IdealHelmholtzConstant">IdealHelmholtzConstant</a></li>
 <li class="toctree-l2"><a class="reference internal" href="IdealGas.html#IdealHelmholtzLogT">IdealHelmholtzLogT</a></li>

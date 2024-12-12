@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Association - Dufal et al. model &#8212; teqp 0.22.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../_static/documentation_options.js?v=5686f5df"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Multi-fluid EOS" href="multifluid.html" />
+    <link rel="prev" title="Association" href="Association.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="Association---Dufal-et-al.-model">
+<h1>Association - Dufal et al. model<a class="headerlink" href="#Association---Dufal-et-al.-model" title="Link to this heading">¶</a></h1>
+<p>The following figures show the checks of the results from the model of Dufal against the models implemewnted in CoolProp or calculated values from the paper of Dufal; in the case of methanol, a different EOS is implemented than in REFPROP, but that cannot explain the large deviations.</p>
+<p>Note: There appears to be a typo in the methanol parameters as-published</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">teqp</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span><span class="o">,</span> <span class="nn">CoolProp.CoolProp</span> <span class="k">as</span> <span class="nn">CP</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Dufal_water</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;nonpolar&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;SAFT-VR-Mie&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;coeffs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Water&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;BibTeXKey&quot;</span><span class="p">:</span> <span class="s2">&quot;Dufal-2015&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+          <span class="s2">&quot;sigma_Angstrom&quot;</span><span class="p">:</span> <span class="mf">3.0555</span><span class="p">,</span>
+          <span class="s2">&quot;epsilon_over_k&quot;</span><span class="p">:</span> <span class="mf">418.00</span><span class="p">,</span>
+          <span class="s2">&quot;lambda_r&quot;</span><span class="p">:</span> <span class="mf">35.823</span><span class="p">,</span>
+          <span class="s2">&quot;lambda_a&quot;</span><span class="p">:</span> <span class="mf">6.0</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;association&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;Dufal&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;sigma / m&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.0555e-10</span><span class="p">],</span>
+      <span class="s2">&quot;epsilon / J/mol&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3475.445374388054</span><span class="p">],</span>
+      <span class="s2">&quot;lambda_r&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">35.823</span><span class="p">],</span>
+      <span class="s2">&quot;epsilon_HB / J/mol&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">13303.140189045183</span><span class="p">],</span>
+      <span class="s2">&quot;K_HB / m^3&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">496.66e-30</span><span class="p">],</span>
+      <span class="s2">&quot;kmat&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">]],</span>
+      <span class="s2">&quot;Delta_rule&quot;</span><span class="p">:</span> <span class="s2">&quot;Dufal&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;molecule_sites&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">]]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Dufal_methanol</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;nonpolar&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;SAFT-VR-Mie&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;coeffs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Methanol&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;BibTeXKey&quot;</span><span class="p">:</span> <span class="s2">&quot;Dufal-2015&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="mf">1.7989</span><span class="p">,</span>
+          <span class="s2">&quot;sigma_Angstrom&quot;</span><span class="p">:</span> <span class="mf">3.1425</span><span class="p">,</span>
+          <span class="s2">&quot;epsilon_over_k&quot;</span><span class="p">:</span> <span class="mf">276.96</span><span class="p">,</span>
+          <span class="s2">&quot;lambda_r&quot;</span><span class="p">:</span> <span class="mf">16.968</span><span class="p">,</span>
+          <span class="s2">&quot;lambda_a&quot;</span><span class="p">:</span> <span class="mf">6.0</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;association&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;Dufal&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;sigma / m&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.1425e-10</span><span class="p">],</span>
+      <span class="s2">&quot;epsilon / J/mol&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">276.96</span><span class="o">*</span><span class="mf">8.31446261815324</span><span class="p">],</span>
+      <span class="s2">&quot;lambda_r&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">16.968</span><span class="p">],</span>
+      <span class="s2">&quot;epsilon_HB / J/mol&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2156.0</span><span class="o">*</span><span class="mf">8.31446261815324</span><span class="p">],</span>
+      <span class="s2">&quot;K_HB / m^3&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">222.18e-30</span><span class="p">],</span>
+      <span class="s2">&quot;kmat&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">]],</span>
+      <span class="s2">&quot;Delta_rule&quot;</span><span class="p">:</span> <span class="s2">&quot;Dufal&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;molecule_sites&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">]]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Dufal_ammonia</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;nonpolar&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;SAFT-VR-Mie&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;coeffs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ammonia&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;BibTeXKey&quot;</span><span class="p">:</span> <span class="s2">&quot;Dufal-2015&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+          <span class="s2">&quot;sigma_Angstrom&quot;</span><span class="p">:</span> <span class="mf">3.3309</span><span class="p">,</span>
+          <span class="s2">&quot;epsilon_over_k&quot;</span><span class="p">:</span> <span class="mf">323.70</span><span class="p">,</span>
+          <span class="s2">&quot;lambda_r&quot;</span><span class="p">:</span> <span class="mf">36.832</span><span class="p">,</span>
+          <span class="s2">&quot;lambda_a&quot;</span><span class="p">:</span> <span class="mf">6.0</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;association&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;Dufal&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;sigma / m&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.3309e-10</span><span class="p">],</span>
+      <span class="s2">&quot;epsilon / J/mol&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">323.70</span><span class="o">*</span><span class="mf">8.31446261815324</span><span class="p">],</span>
+      <span class="s2">&quot;lambda_r&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">36.832</span><span class="p">],</span>
+      <span class="s2">&quot;epsilon_HB / J/mol&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1105.0</span><span class="o">*</span><span class="mf">8.31446261815324</span><span class="p">],</span>
+      <span class="s2">&quot;K_HB / m^3&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">560.73e-30</span><span class="p">],</span>
+      <span class="s2">&quot;kmat&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">]],</span>
+      <span class="s2">&quot;Delta_rule&quot;</span><span class="p">:</span> <span class="s2">&quot;Dufal&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;molecule_sites&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">]]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># Tabulated values from Dufal for non-bonded fraction for water from the Mie kernel (Eq. 30):</span>
+<span class="c1"># Note the last &quot;liquid&quot; point in Dufal is actually for the vapor phase</span>
+<span class="n">TL_Dufal</span> <span class="o">=</span> <span class="p">[</span><span class="mf">252.10</span><span class="p">,</span><span class="mf">270.00</span><span class="p">,</span><span class="mf">290.00</span><span class="p">,</span><span class="mf">300.00</span><span class="p">,</span><span class="mf">310.00</span><span class="p">,</span><span class="mf">314.14</span><span class="p">,</span><span class="mf">330.00</span><span class="p">,</span><span class="mf">348.85</span><span class="p">,</span><span class="mf">350.00</span><span class="p">,</span><span class="mf">370.00</span><span class="p">,</span><span class="mf">388.70</span><span class="p">,</span><span class="mf">390.00</span><span class="p">,</span><span class="mf">400.00</span><span class="p">,</span><span class="mf">410.00</span><span class="p">,</span><span class="mf">416.67</span><span class="p">,</span><span class="mf">430.00</span><span class="p">,</span><span class="mf">450.00</span><span class="p">,</span><span class="mf">450.00</span><span class="p">,</span><span class="mf">470.00</span><span class="p">,</span><span class="mf">476.76</span><span class="p">,</span><span class="mf">490.00</span><span class="p">,</span><span class="mf">500.00</span><span class="p">,</span><span class="mf">503.19</span><span class="p">,</span><span class="mf">510.00</span><span class="p">,</span><span class="mf">530.00</span><span class="p">,</span><span class="mf">550.00</span><span class="p">,</span><span class="mf">556.52</span><span class="p">,</span><span class="mf">570.00</span><span class="p">,</span><span class="mf">579.71</span><span class="p">,</span><span class="mf">590.00</span><span class="p">,</span><span class="mf">600.00</span><span class="p">,</span><span class="mf">610.00</span><span class="p">,</span><span class="mf">620.00</span><span class="p">]</span>
+<span class="n">XL_A_Dufal</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.060</span><span class="p">,</span><span class="mf">0.073</span><span class="p">,</span><span class="mf">0.089</span><span class="p">,</span><span class="mf">0.098</span><span class="p">,</span><span class="mf">0.106</span><span class="p">,</span><span class="mf">0.110</span><span class="p">,</span><span class="mf">0.124</span><span class="p">,</span><span class="mf">0.142</span><span class="p">,</span><span class="mf">0.143</span><span class="p">,</span><span class="mf">0.162</span><span class="p">,</span><span class="mf">0.180</span><span class="p">,</span><span class="mf">0.182</span><span class="p">,</span><span class="mf">0.192</span><span class="p">,</span><span class="mf">0.202</span><span class="p">,</span><span class="mf">0.209</span><span class="p">,</span><span class="mf">0.223</span><span class="p">,</span><span class="mf">0.245</span><span class="p">,</span><span class="mf">0.245</span><span class="p">,</span><span class="mf">0.267</span><span class="p">,</span><span class="mf">0.275</span><span class="p">,</span><span class="mf">0.290</span><span class="p">,</span><span class="mf">0.302</span><span class="p">,</span><span class="mf">0.306</span><span class="p">,</span><span class="mf">0.314</span><span class="p">,</span><span class="mf">0.339</span><span class="p">,</span><span class="mf">0.364</span><span class="p">,</span><span class="mf">0.373</span><span class="p">,</span><span class="mf">0.391</span><span class="p">,</span><span class="mf">0.405</span><span class="p">,</span><span class="mf">0.420</span><span class="p">,</span><span class="mf">0.435</span><span class="p">,</span><span class="mf">0.451</span><span class="p">,</span><span class="mf">0.468</span><span class="p">]</span>
+<span class="n">TV_Dufal</span> <span class="o">=</span> <span class="p">[</span><span class="mf">300.00</span><span class="p">,</span><span class="mf">314.14</span><span class="p">,</span><span class="mf">348.85</span><span class="p">,</span><span class="mf">350.00</span><span class="p">,</span><span class="mf">370.00</span><span class="p">,</span><span class="mf">388.70</span><span class="p">,</span><span class="mf">390.00</span><span class="p">,</span><span class="mf">400.00</span><span class="p">,</span><span class="mf">410.00</span><span class="p">,</span><span class="mf">416.67</span><span class="p">,</span><span class="mf">430.00</span><span class="p">,</span><span class="mf">450.00</span><span class="p">,</span><span class="mf">450.00</span><span class="p">,</span><span class="mf">470.00</span><span class="p">,</span><span class="mf">476.76</span><span class="p">,</span><span class="mf">490.00</span><span class="p">,</span><span class="mf">500.00</span><span class="p">,</span><span class="mf">510.00</span><span class="p">,</span><span class="mf">530.00</span><span class="p">,</span><span class="mf">550.00</span><span class="p">,</span><span class="mf">570.00</span><span class="p">,</span><span class="mf">590.00</span><span class="p">,</span><span class="mf">600.00</span><span class="p">,</span><span class="mf">610.00</span><span class="p">,</span><span class="mf">620.00</span><span class="p">,</span><span class="mf">638.60</span><span class="p">]</span>
+<span class="n">XV_A_Dufal</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.998</span><span class="p">,</span><span class="mf">0.997</span><span class="p">,</span><span class="mf">0.992</span><span class="p">,</span><span class="mf">0.992</span><span class="p">,</span><span class="mf">0.988</span><span class="p">,</span><span class="mf">0.982</span><span class="p">,</span><span class="mf">0.982</span><span class="p">,</span><span class="mf">0.979</span><span class="p">,</span><span class="mf">0.975</span><span class="p">,</span><span class="mf">0.973</span><span class="p">,</span><span class="mf">0.967</span><span class="p">,</span><span class="mf">0.958</span><span class="p">,</span><span class="mf">0.958</span><span class="p">,</span><span class="mf">0.947</span><span class="p">,</span><span class="mf">0.943</span><span class="p">,</span><span class="mf">0.935</span><span class="p">,</span><span class="mf">0.928</span><span class="p">,</span><span class="mf">0.921</span><span class="p">,</span><span class="mf">0.906</span><span class="p">,</span><span class="mf">0.890</span><span class="p">,</span><span class="mf">0.872</span><span class="p">,</span><span class="mf">0.852</span><span class="p">,</span><span class="mf">0.841</span><span class="p">,</span><span class="mf">0.829</span><span class="p">,</span><span class="mf">0.816</span><span class="p">,</span><span class="mf">0.789</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span><span class="s2">&quot;genericSAFT&quot;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">:</span><span class="n">Dufal_water</span><span class="p">})</span>
+<span class="n">anc</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">build_ancillaries</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="mi">676</span><span class="p">,</span> <span class="mi">7000</span><span class="p">,</span> <span class="mi">290</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">290</span><span class="p">,</span> <span class="mi">678</span><span class="p">):</span>
+    <span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">pure_VLE_T</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoL</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoV</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">X_A</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_assoc_calcs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhoL</span><span class="p">,</span> <span class="n">z</span><span class="p">)[</span><span class="s1">&#39;X_A&#39;</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">X_A</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+    <span class="n">X_A</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_assoc_calcs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhoV</span><span class="p">,</span> <span class="n">z</span><span class="p">)[</span><span class="s1">&#39;X_A&#39;</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">X_A</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">TL_Dufal</span><span class="p">,</span> <span class="n">XL_A_Dufal</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">TV_Dufal</span><span class="p">,</span> <span class="n">XV_A_Dufal</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$T$ / K&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;$X_A$ (non-bonded site fraction)&#39;</span><span class="p">);</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">Ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">290</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">Ts</span><span class="p">:</span>
+    <span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">pure_VLE_T</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoL</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoV</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rhoL</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rhoV</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="s1">&#39;Dmolar&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">Ts</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;Water&#39;</span><span class="p">),</span> <span class="n">Ts</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="s1">&#39;Dmolar&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">Ts</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Water&#39;</span><span class="p">),</span> <span class="n">Ts</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Water&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\rho$ / mol/m$^3$&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$T$ / K&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/models_Check_Dufal_water_3_0.png" src="../_images/models_Check_Dufal_water_3_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/models_Check_Dufal_water_3_1.png" src="../_images/models_Check_Dufal_water_3_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span><span class="s2">&quot;genericSAFT&quot;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">Dufal_methanol</span><span class="p">})</span>
+<span class="n">anc</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">build_ancillaries</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="mi">520</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">290</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+
+<span class="n">Ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">290</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">Ts</span><span class="p">:</span>
+    <span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">pure_VLE_T</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoL</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoV</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rhoL</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span><span class="s1">&#39;ko&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rhoV</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span><span class="s1">&#39;kx&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="s1">&#39;Dmolar&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">Ts</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;Methanol&#39;</span><span class="p">),</span> <span class="n">Ts</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="s1">&#39;Dmolar&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">Ts</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Methanol&#39;</span><span class="p">),</span> <span class="n">Ts</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Methanol&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\rho$ / mol/m$^3$&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$T$ / K&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/models_Check_Dufal_water_4_0.png" src="../_images/models_Check_Dufal_water_4_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span><span class="s2">&quot;genericSAFT&quot;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">Dufal_ammonia</span><span class="p">})</span>
+<span class="n">anc</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">build_ancillaries</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="mi">520</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">290</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+
+<span class="n">Ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">290</span><span class="p">,</span> <span class="mi">380</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">Ts</span><span class="p">:</span>
+    <span class="n">rhoL</span><span class="p">,</span> <span class="n">rhoV</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">pure_VLE_T</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoL</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoV</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rhoL</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span><span class="s1">&#39;ko&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rhoV</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span><span class="s1">&#39;kx&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="s1">&#39;Dmolar&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">Ts</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;Ammonia&#39;</span><span class="p">),</span> <span class="n">Ts</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">CP</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="s1">&#39;Dmolar&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">Ts</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Ammonia&#39;</span><span class="p">),</span> <span class="n">Ts</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ammonia&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\rho$ / mol/m$^3$&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$T$ / K&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/models_Check_Dufal_water_5_0.png" src="../_images/models_Check_Dufal_water_5_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ammonia+water VLE at constant temperature</span>
+
+<span class="n">ammonia</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span><span class="s2">&quot;genericSAFT&quot;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">Dufal_ammonia</span><span class="p">})</span>
+
+<span class="n">Dufal_ammoniawater</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;nonpolar&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;SAFT-VR-Mie&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;coeffs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ammonia&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;BibTeXKey&quot;</span><span class="p">:</span> <span class="s2">&quot;Dufal-2015&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+          <span class="s2">&quot;sigma_Angstrom&quot;</span><span class="p">:</span> <span class="mf">3.3309</span><span class="p">,</span>
+          <span class="s2">&quot;epsilon_over_k&quot;</span><span class="p">:</span> <span class="mf">323.70</span><span class="p">,</span>
+          <span class="s2">&quot;lambda_r&quot;</span><span class="p">:</span> <span class="mf">36.832</span><span class="p">,</span>
+          <span class="s2">&quot;lambda_a&quot;</span><span class="p">:</span> <span class="mf">6.0</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Water&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;BibTeXKey&quot;</span><span class="p">:</span> <span class="s2">&quot;Dufal-2015&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+          <span class="s2">&quot;sigma_Angstrom&quot;</span><span class="p">:</span> <span class="mf">3.0555</span><span class="p">,</span>
+          <span class="s2">&quot;epsilon_over_k&quot;</span><span class="p">:</span> <span class="mf">418.00</span><span class="p">,</span>
+          <span class="s2">&quot;lambda_r&quot;</span><span class="p">:</span> <span class="mf">35.823</span><span class="p">,</span>
+          <span class="s2">&quot;lambda_a&quot;</span><span class="p">:</span> <span class="mf">6.0</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;association&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;Dufal&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;sigma / m&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.3309e-10</span><span class="p">,</span> <span class="mf">3.0555e-10</span><span class="p">],</span>
+      <span class="s2">&quot;epsilon / J/mol&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">323.70</span><span class="o">*</span><span class="mf">8.31446261815324</span><span class="p">,</span> <span class="mf">3475.445374388054</span><span class="p">],</span>
+      <span class="s2">&quot;lambda_r&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">36.832</span><span class="p">,</span> <span class="mf">35.823</span><span class="p">],</span>
+      <span class="s2">&quot;epsilon_HB / J/mol&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1105.0</span><span class="o">*</span><span class="mf">8.31446261815324</span><span class="p">,</span> <span class="mf">13303.140189045183</span><span class="p">],</span>
+      <span class="s2">&quot;K_HB / m^3&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">560.73e-30</span><span class="p">,</span> <span class="mf">496.66e-30</span><span class="p">],</span>
+      <span class="s2">&quot;kmat&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span>
+      <span class="s2">&quot;Delta_rule&quot;</span><span class="p">:</span> <span class="s2">&quot;Dufal&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;molecule_sites&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">],[</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">]]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="mf">298.15</span>
+<span class="n">rhoL0</span><span class="p">,</span> <span class="n">rhoV0</span> <span class="o">=</span> <span class="n">ammonia</span><span class="o">.</span><span class="n">pure_VLE_T</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoL</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoV</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ammoniawater</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span><span class="s2">&quot;genericSAFT&quot;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">Dufal_ammoniawater</span><span class="p">})</span>
+<span class="n">ammoniawater</span><span class="o">.</span><span class="n">trace_VLE_isotherm_binary</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">rhoL0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">rhoV0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[{&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3009031150143573,
+   0.9532863025715441,
+   -0.026505253934592687,
+   0.00011053503374651266],
+  &#39;dt&#39;: 1e-05,
+  &#39;pL / Pa&#39;: -1348980.0114703327,
+  &#39;pV / Pa&#39;: 850585.1099931961,
+  &#39;rhoL / mol/m^3&#39;: [35515.45114721886, 0.0],
+  &#39;rhoV / mol/m^3&#39;: [487.03357583366795, 0.0],
+  &#39;t&#39;: 0.0,
+  &#39;xL_0 / mole frac.&#39;: 1.0,
+  &#39;xV_0 / mole frac.&#39;: 1.0},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.31109872729343796,
+   0.9503192359545914,
+   -0.010532216621598695,
+   6.375045523910206e-05],
+  &#39;dt&#39;: 4.5e-05,
+  &#39;pL / Pa&#39;: 530725.4885882735,
+  &#39;pV / Pa&#39;: 530725.4885943136,
+  &#39;rhoL / mol/m^3&#39;: [35626.35313673362, 9.532863025498762e-06],
+  &#39;rhoV / mol/m^3&#39;: [262.742533599565, 6.394949560729698e-10],
+  &#39;t&#39;: 1e-05,
+  &#39;xL_0 / mole frac.&#39;: 0.9999999997324209,
+  &#39;xV_0 / mole frac.&#39;: 0.9999999999975661},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3110987287489849,
+   0.9503192354218599,
+   -0.010532221696140152,
+   6.375045478498421e-05],
+  &#39;dt&#39;: 0.00020250000000000002,
+  &#39;pL / Pa&#39;: 530725.4878200889,
+  &#39;pV / Pa&#39;: 530725.4878138459,
+  &#39;rhoL / mol/m^3&#39;: [35626.35312273521, 5.2297228631004934e-05],
+  &#39;rhoV / mol/m^3&#39;: [262.74253312561655, 3.5082654315836237e-09],
+  &#39;t&#39;: 5.5e-05,
+  &#39;xL_0 / mole frac.&#39;: 0.9999999985320634,
+  &#39;xV_0 / mole frac.&#39;: 0.9999999999866476},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3110987353738346,
+   0.950319233256463,
+   -0.010532221395738667,
+   6.375045275703689e-05],
+  &#39;dt&#39;: 0.0009112500000000001,
+  &#39;pL / Pa&#39;: 530725.4843104482,
+  &#39;pV / Pa&#39;: 530725.4843017324,
+  &#39;rhoL / mol/m^3&#39;: [35626.35305973835, 0.0002447368735843725],
+  &#39;rhoV / mol/m^3&#39;: [262.7425309928432, 1.641773232019293e-08],
+  &#39;t&#39;: 0.0002575,
+  &#39;xL_0 / mole frac.&#39;: 0.999999993130454,
+  &#39;xV_0 / mole frac.&#39;: 0.999999999937514},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3110987651829838,
+   0.9503192235059291,
+   -0.010532220686610062,
+   6.375044363083975e-05],
+  &#39;dt&#39;: 0.004100625,
+  &#39;pL / Pa&#39;: 530725.4684955478,
+  &#39;pV / Pa&#39;: 530725.4684972229,
+  &#39;rhoL / mol/m^3&#39;: [35626.352776249725, 0.001110715270445871],
+  &#39;rhoV / mol/m^3&#39;: [262.74252139536407, 7.451032823686246e-08],
+  &#39;t&#39;: 0.00116875,
+  &#39;xL_0 / mole frac.&#39;: 0.9999999688232124,
+  &#39;xV_0 / mole frac.&#39;: 0.9999999997164131},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.31109889932897994,
+   0.9503191796398444,
+   -0.010532216330687407,
+   6.375040256373021e-05],
+  &#39;dt&#39;: 0.0184528125,
+  &#39;pL / Pa&#39;: 530725.397386983,
+  &#39;pV / Pa&#39;: 530725.3973768814,
+  &#39;rhoL / mol/m^3&#39;: [35626.35150054978, 0.005007617946395683],
+  &#39;rhoV / mol/m^3&#39;: [262.74247820668023, 3.359269069501529e-07],
+  &#39;t&#39;: 0.005269375,
+  &#39;xL_0 / mole frac.&#39;: 0.9999998594406379,
+  &#39;xV_0 / mole frac.&#39;: 0.9999999987214594},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3110995029837769,
+   0.9503189822425291,
+   -0.010532196764242713,
+   6.375021776229736e-05],
+  &#39;dt&#39;: 0.08303765625,
+  &#39;pL / Pa&#39;: 530725.0773146152,
+  &#39;pV / Pa&#39;: 530725.0773356715,
+  &#39;rhoL / mol/m^3&#39;: [35626.345759893484, 0.02254367776217374],
+  &#39;rhoV / mol/m^3&#39;: [262.7422838578328, 1.5122994272035906e-06],
+  &#39;t&#39;: 0.0237221875,
+  &#39;xL_0 / mole frac.&#39;: 0.9999993672193144,
+  &#39;xV_0 / mole frac.&#39;: 0.9999999942441719},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3111022194027503,
+   0.95031809395849,
+   -0.01053210870630424,
+   6.374938616736466e-05],
+  &#39;dt&#39;: 0.373669453125,
+  &#39;pL / Pa&#39;: 530723.6371623278,
+  &#39;pV / Pa&#39;: 530723.6371566487,
+  &#39;rhoL / mol/m^3&#39;: [35626.319926807926, 0.10145590185693522],
+  &#39;rhoV / mol/m^3&#39;: [262.74140929255907, 6.805933568635144e-06],
+  &#39;t&#39;: 0.10675984375,
+  &#39;xL_0 / mole frac.&#39;: 0.9999971522286573,
+  &#39;xV_0 / mole frac.&#39;: 0.9999999740964569},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3111144427047333,
+   0.9503140967646987,
+   -0.01053171245862241,
+   6.37456442239256e-05],
+  &#39;dt&#39;: 1.6815125390625,
+  &#39;pL / Pa&#39;: 530717.1564760655,
+  &#39;pV / Pa&#39;: 530717.1564786778,
+  &#39;rhoL / mol/m^3&#39;: [35626.20367512748, 0.456559997502588],
+  &#39;rhoV / mol/m^3&#39;: [262.73747383929725, 3.062643269797513e-05],
+  &#39;t&#39;: 0.480429296875,
+  &#39;xL_0 / mole frac.&#39;: 0.9999871848779961,
+  &#39;xV_0 / mole frac.&#39;: 0.9999998834333425},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3111694357864459,
+   0.950296111088445,
+   -0.010529929779497732,
+   6.372881021020651e-05],
+  &#39;dt&#39;: 5.2777905117345005,
+  &#39;pL / Pa&#39;: 530687.9960161746,
+  &#39;pV / Pa&#39;: 530687.9960124324,
+  &#39;rhoL / mol/m^3&#39;: [35625.680486052624, 2.054509945307028],
+  &#39;rhoV / mol/m^3&#39;: [262.7197661316354, 0.0001378013783841202],
+  &#39;t&#39;: 2.1619418359375002,
+  &#39;xL_0 / mole frac.&#39;: 0.9999423339725206,
+  &#39;xV_0 / mole frac.&#39;: 0.9999994754817723},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.31134191836451947,
+   0.9502396771874071,
+   -0.010524339087906304,
+   6.367602326602922e-05],
+  &#39;dt&#39;: 11.293354277652224,
+  &#39;pL / Pa&#39;: 530596.4970624149,
+  &#39;pV / Pa&#39;: 530596.49704234,
+  &#39;rhoL / mol/m^3&#39;: [35624.037743711626, 7.069824808594325],
+  &#39;rhoV / mol/m^3&#39;: [262.6642061245047, 0.00047400935551993517],
+  &#39;t&#39;: 7.439732347672001,
+  &#39;xL_0 / mole frac.&#39;: 0.9998015827940515,
+  &#39;xV_0 / mole frac.&#39;: 0.9999981953822065},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.31171035841668493,
+   0.9501190124752473,
+   -0.010512399750116204,
+   6.356332582580064e-05],
+  &#39;dt&#39;: 20.219295337907475,
+  &#39;pL / Pa&#39;: 530400.8483027518,
+  &#39;pV / Pa&#39;: 530400.8483113195,
+  &#39;rhoL / mol/m^3&#39;: [35620.51956784696, 17.800536659241242],
+  &#39;rhoV / mol/m^3&#39;: [262.54541848241206, 0.0011924885519618762],
+  &#39;t&#39;: 18.733086625324226,
+  &#39;xL_0 / mole frac.&#39;: 0.9995005225665227,
+  &#39;xV_0 / mole frac.&#39;: 0.999995457992973},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.31236784535778556,
+   0.9499032908210953,
+   -0.010491103802349255,
+   6.336242141344015e-05],
+  &#39;dt&#39;: 32.05406109192583,
+  &#39;pL / Pa&#39;: 530051.0387646854,
+  &#39;pV / Pa&#39;: 530051.0387380088,
+  &#39;rhoL / mol/m^3&#39;: [35614.21035243601, 37.00909203195248],
+  &#39;rhoV / mol/m^3&#39;: [262.33308063405644, 0.002475661269434341],
+  &#39;t&#39;: 38.9523819632317,
+  &#39;xL_0 / mole frac.&#39;: 0.9989619123101919,
+  &#39;xV_0 / mole frac.&#39;: 0.9999905629976188},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.31340453699814785,
+   0.9495621263658921,
+   -0.010457551608343767,
+   6.304618299002517e-05],
+  &#39;dt&#39;: 46.77777988037518,
+  &#39;pL / Pa&#39;: 529497.7195792794,
+  &#39;pV / Pa&#39;: 529497.7196046263,
+  &#39;rhoL / mol/m^3&#39;: [35604.181060955816, 67.45187959577942],
+  &#39;rhoV / mol/m^3&#39;: [261.9973365749719, 0.00450160846417981],
+  &#39;t&#39;: 71.00644305515753,
+  &#39;xL_0 / mole frac.&#39;: 0.9981090890986631,
+  &#39;xV_0 / mole frac.&#39;: 0.9999828184088502},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3149051477799579,
+   0.9490660650485994,
+   -0.010409042097751927,
+   6.258959691875612e-05],
+  &#39;dt&#39;: 64.35837108709012,
+  &#39;pL / Pa&#39;: 528692.9495015144,
+  &#39;pV / Pa&#39;: 528692.949511752,
+  &#39;rhoL / mol/m^3&#39;: [35589.48553843193, 111.85867700851091],
+  &#39;rhoV / mol/m^3&#39;: [261.5092922019919, 0.007440067314551471],
+  &#39;t&#39;: 117.78422293553271,
+  &#39;xL_0 / mole frac.&#39;: 0.9968668216991076,
+  &#39;xV_0 / mole frac.&#39;: 0.9999715503201266},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3169462807598973,
+   0.9483870887527648,
+   -0.010343169685654244,
+   6.19707783921092e-05],
+  &#39;dt&#39;: 84.80807950481592,
+  &#39;pL / Pa&#39;: 527590.9216072261,
+  &#39;pV / Pa&#39;: 527590.9216132702,
+  &#39;rhoL / mol/m^3&#39;: [35569.15292957848, 172.9171522275068],
+  &#39;rhoV / mol/m^3&#39;: [260.84150827902755, 0.011448261108294243],
+  &#39;t&#39;: 182.14259402262283,
+  &#39;xL_0 / mole frac.&#39;: 0.9951620834542673,
+  &#39;xV_0 / mole frac.&#39;: 0.9999561122048983},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3195953290461591,
+   0.9474986005168632,
+   -0.010257871538898754,
+   6.117151516063689e-05],
+  &#39;dt&#39;: 108.2065363028577,
+  &#39;pL / Pa&#39;: 526147.7891260535,
+  &#39;pV / Pa&#39;: 526147.7891376888,
+  &#39;rhoL / mol/m^3&#39;: [35542.16067078346, 253.31031427913294],
+  &#39;rhoV / mol/m^3&#39;: [259.96795286894064, 0.016669863420093727],
+  &#39;t&#39;: 266.95067352743877,
+  &#39;xL_0 / mole frac.&#39;: 0.9929233976447792,
+  &#39;xV_0 / mole frac.&#39;: 0.999935881348501},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3229098929901436,
+   0.946375266618026,
+   -0.010151459077644335,
+   6.017764829482899e-05],
+  &#39;dt&#39;: 134.71777827306167,
+  &#39;pL / Pa&#39;: 524321.169994995,
+  &#39;pV / Pa&#39;: 524321.1700048461,
+  &#39;rhoL / mol/m^3&#39;: [35507.39838710184, 355.7749759791602],
+  &#39;rhoV / mol/m^3&#39;: [258.8637654924597, 0.023234992065452455],
+  &#39;t&#39;: 375.15720983029644,
+  &#39;xL_0 / mole frac.&#39;: 0.9900796571352659,
+  &#39;xV_0 / mole frac.&#39;: 0.9999102504489528},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.32693750736908667,
+   0.9449928092206256,
+   -0.010022640272707873,
+   5.89793414726952e-05],
+  &#39;dt&#39;: 164.60568268475006,
+  &#39;pL / Pa&#39;: 522069.448372066,
+  &#39;pV / Pa&#39;: 522069.4483732332,
+  &#39;rhoL / mol/m^3&#39;: [35463.624176795005, 483.1752282585226],
+  &#39;rhoV / mol/m^3&#39;: [257.50490539395713, 0.03126079809831117],
+  &#39;t&#39;: 509.8749881033581,
+  &#39;xL_0 / mole frac.&#39;: 0.9865586022606898,
+  &#39;xV_0 / mole frac.&#39;: 0.9998786158908843},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.33171556830214927,
+   0.9433278067268672,
+   -0.009870536328391875,
+   5.757126319217159e-05],
+  &#39;dt&#39;: 198.25242509299477,
+  &#39;pL / Pa&#39;: 519350.9265948534,
+  &#39;pV / Pa&#39;: 519350.9266029825,
+  &#39;rhoL / mol/m^3&#39;: [35409.41304487993, 638.5890166367051],
+  &#39;rhoV / mol/m^3&#39;: [255.86771856214293, 0.04085241912014649],
+  &#39;t&#39;: 674.4806707881081,
+  &#39;xL_0 / mole frac.&#39;: 0.9822850371694126,
+  &#39;xV_0 / mole frac.&#39;: 0.9998403632243988},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3372714396833285,
+   0.9413575228149944,
+   -0.009694693540779743,
+   5.5952681178581764e-05],
+  &#39;dt&#39;: 236.1836836727786,
+  &#39;pL / Pa&#39;: 516122.8166497499,
+  &#39;pV / Pa&#39;: 516122.8166443896,
+  &#39;rhoL / mol/m^3&#39;: [35343.095399031896, 825.4101048154494],
+  &#39;rhoV / mol/m^3&#39;: [253.928420690112, 0.05210426368686329],
+  &#39;t&#39;: 872.7330958811028,
+  &#39;xL_0 / mole frac.&#39;: 0.9771787610984466,
+  &#39;xV_0 / mole frac.&#39;: 0.999794849373997},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3436227598495491,
+   0.9390597634074298,
+   -0.009495089930022167,
+   5.4127458679543876e-05],
+  &#39;dt&#39;: 279.10501882155313,
+  &#39;pL / Pa&#39;: 512340.01572176814,
+  &#39;pV / Pa&#39;: 512340.0157209673,
+  &#39;rhoL / mol/m^3&#39;: [35262.68179677486, 1047.4709930047038],
+  &#39;rhoV / mol/m^3&#39;: [251.66246879441854, 0.06510170274367937],
+  &#39;t&#39;: 1108.9167795538815,
+  &#39;xL_0 / mole frac.&#39;: 0.971152118277521,
+  &#39;xV_0 / mole frac.&#39;: 0.9997413803239149},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.35077799543634824,
+   0.9364127416392805,
+   -0.009272135592351108,
+   5.21039382724843e-05],
+  &#39;dt&#39;: 327.9559440725397,
+  &#39;pL / Pa&#39;: 507953.5643131882,
+  &#39;pV / Pa&#39;: 507953.5643367281,
+  &#39;rhoL / mol/m^3&#39;: [35165.7679125346, 1309.1961821510356],
+  &#39;rhoV / mol/m^3&#39;: [249.0437693090449, 0.07992333731136785],
+  &#39;t&#39;: 1388.0217983754346,
+  &#39;xL_0 / mole frac.&#39;: 0.964106991887573,
+  &#39;xV_0 / mole frac.&#39;: 0.9996791821104514},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3587373153874435,
+   0.9333949085860429,
+   -0.00902666520824713,
+   4.989469660316371e-05],
+  &#39;dt&#39;: 383.9925791243792,
+  &#39;pL / Pa&#39;: 502908.6190921813,
+  &#39;pV / Pa&#39;: 502908.6190713023,
+  &#39;rhoL / mol/m^3&#39;: [35049.41032651237, 1615.8007523074207],
+  &#39;rhoV / mol/m^3&#39;: [246.0436363641398, 0.09664412676029603],
+  &#39;t&#39;: 1715.9777424479744,
+  &#39;xL_0 / mole frac.&#39;: 0.9559309573089896,
+  &#39;xV_0 / mole frac.&#39;: 0.9996073615965353},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.36749389985627917,
+   0.9299846746614517,
+   -0.008759920403315455,
+   4.751614980652829e-05],
+  &#39;dt&#39;: 448.9185032596913,
+  &#39;pL / Pa&#39;: 497141.6639637947,
+  &#39;pV / Pa&#39;: 497141.66393197584,
+  &#39;rhoL / mol/m^3&#39;: [34909.95809230483, 1973.5585359240806],
+  &#39;rhoV / mol/m^3&#39;: [242.62935769177275, 0.11533984787521437],
+  &#39;t&#39;: 2099.9703215723534,
+  &#39;xL_0 / mole frac.&#39;: 0.9464921266641476,
+  &#39;xV_0 / mole frac.&#39;: 0.9995248512159307},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3770358786050042,
+   0.9261598910064105,
+   -0.00847351825560286,
+   4.4987980666992797e-05],
+  &#39;dt&#39;: 525.1019279629584,
+  &#39;pL / Pa&#39;: 490576.48795980215,
+  &#39;pV / Pa&#39;: 490576.4879610026,
+  &#39;rhoL / mol/m^3&#39;: [34742.81490748277, 2390.1809627941643],
+  &#39;rhoV / mol/m^3&#39;: [238.76212407520765, 0.13609369133517055],
+  &#39;t&#39;: 2548.8888248320445,
+  &#39;xL_0 / mole frac.&#39;: 0.9356318846143147,
+  &#39;xV_0 / mole frac.&#39;: 0.9994303277244698},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.3873492637490114,
+   0.9218968526894107,
+   -0.00816939914749836,
+   4.233233651864648e-05],
+  &#39;dt&#39;: 615.9597173718626,
+  &#39;pL / Pa&#39;: 483118.0735966861,
+  &#39;pV / Pa&#39;: 483118.07357594225,
+  &#39;rhoL / mol/m^3&#39;: [34542.087159904426, 2875.3803659980517],
+  &#39;rhoV / mol/m^3&#39;: [234.3938792016013, 0.1590064723518254],
+  &#39;t&#39;: 3073.9907527950027,
+  &#39;xL_0 / mole frac.&#39;: 0.9231540626311079,
+  &#39;xV_0 / mole frac.&#39;: 0.9993220869063497},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.39842263159141544,
+   0.9171683524054354,
+   -0.007849739847433762,
+   3.957269140624046e-05],
+  &#39;dt&#39;: 726.6967102180334,
+  &#39;pL / Pa&#39;: 474642.72560726106,
+  &#39;pV / Pa&#39;: 474642.7255858295,
+  &#39;rhoL / mol/m^3&#39;: [34300.032133079105, 3441.760829744836],
+  &#39;rhoV / mol/m^3&#39;: [229.4622219563978, 0.18421338800238815],
+  &#39;t&#39;: 3689.950470166865,
+  &#39;xL_0 / mole frac.&#39;: 0.9088077020311407,
+  &#39;xV_0 / mole frac.&#39;: 0.9991978391141751},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.41025527989717603,
+   0.9119397467476241,
+   -0.007516799127303844,
+   3.673212135999947e-05],
+  &#39;dt&#39;: 865.9077476106264,
+  &#39;pL / Pa&#39;: 464980.8547209501,
+  &#39;pV / Pa&#39;: 464980.8547601013,
+  &#39;rhoL / mol/m^3&#39;: [34006.12542716575, 4106.342235184902],
+  &#39;rhoV / mol/m^3&#39;: [223.88148960566866, 0.21191375023227818],
+  &#39;t&#39;: 4416.647180384899,
+  &#39;xL_0 / mole frac.&#39;: 0.8922572458030225,
+  &#39;xV_0 / mole frac.&#39;: 0.9990543507882929},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.42287336502017114,
+   0.9061603995379862,
+   -0.007172609091803313,
+   3.3830314941563436e-05],
+  &#39;dt&#39;: 1049.7038463535232,
+  &#39;pL / Pa&#39;: 453883.6396552026,
+  &#39;pV / Pa&#39;: 453883.63964834786,
+  &#39;rhoL / mol/m^3&#39;: [33645.3122460024, 4893.462071944016],
+  &#39;rhoV / mol/m^3&#39;: [217.52541820152535, 0.2424298133356311],
+  &#39;t&#39;: 5282.554927995526,
+  &#39;xL_0 / mole frac.&#39;: 0.8730249687866886,
+  &#39;xV_0 / mole frac.&#39;: 0.9988867511180113},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.43636811765601796,
+   0.8997423945778684,
+   -0.006818235785698247,
+   3.087713674926759e-05],
+  &#39;dt&#39;: 1315.7974418357242,
+  &#39;pL / Pa&#39;: 440947.6911216527,
+  &#39;pV / Pa&#39;: 440947.69114229275,
+  &#39;rhoL / mol/m^3&#39;: [33194.18050173683, 5841.240509616473],
+  &#39;rhoV / mol/m^3&#39;: [210.1877295865151, 0.2763434459919454],
+  &#39;t&#39;: 6332.258774349049,
+  &#39;xL_0 / mole frac.&#39;: 0.850360509550606,
+  &#39;xV_0 / mole frac.&#39;: 0.9986869804332388},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.45101552172260045,
+   0.8924927884947415,
+   -0.0064514242120567835,
+   2.7853315742402383e-05],
+  &#39;dt&#39;: 1810.2288675274342,
+  &#39;pL / Pa&#39;: 425394.7748477906,
+  &#39;pV / Pa&#39;: 425394.7748712937,
+  &#39;rhoL / mol/m^3&#39;: [32610.123462539377, 7020.259459503709],
+  &#39;rhoV / mol/m^3&#39;: [201.4659990951728, 0.31490978753200344],
+  &#39;t&#39;: 7648.056216184774,
+  &#39;xL_0 / mole frac.&#39;: 0.8228566331717445,
+  &#39;xV_0 / mole frac.&#39;: 0.9984393479577641},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.46793938060577095,
+   0.8837398337385057,
+   -0.00605324184321827,
+   2.4603113066694497e-05],
+  &#39;dt&#39;: 2459.4452407621616,
+  &#39;pL / Pa&#39;: 404948.6246905178,
+  &#39;pV / Pa&#39;: 404948.6246820389,
+  &#39;rhoL / mol/m^3&#39;: [31777.86814093376, 8627.7583937791],
+  &#39;rhoV / mol/m^3&#39;: [190.16385662179917, 0.3622535668432215],
+  &#39;t&#39;: 9458.285083712208,
+  &#39;xL_0 / mole frac.&#39;: 0.7864713621909337,
+  &#39;xV_0 / mole frac.&#39;: 0.9980986670725365},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.48476328085003006,
+   0.8746269025427289,
+   -0.005687039625699997,
+   2.1640757729143115e-05],
+  &#39;dt&#39;: 2206.2874147800967,
+  &#39;pL / Pa&#39;: 381141.33540967107,
+  &#39;pV / Pa&#39;: 381141.3353808051,
+  &#39;rhoL / mol/m^3&#39;: [30726.240805157922, 10567.20896686408],
+  &#39;rhoV / mol/m^3&#39;: [177.23257381773493, 0.4131008397780481],
+  &#39;t&#39;: 11664.572498492304,
+  &#39;xL_0 / mole frac.&#39;: 0.7440947892412758,
+  &#39;xV_0 / mole frac.&#39;: 0.9976745798028887},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.4984987778596882,
+   0.8668735172203932,
+   -0.00541047473034949,
+   1.943023662648309e-05],
+  &#39;dt&#39;: 2321.0264320528586,
+  &#39;pL / Pa&#39;: 358209.79509951174,
+  &#39;pV / Pa&#39;: 358209.795105216,
+  &#39;rhoL / mol/m^3&#39;: [29641.07565266955, 12488.112495818637],
+  &#39;rhoV / mol/m^3&#39;: [165.00381231099806, 0.45829443782398777],
+  &#39;t&#39;: 13870.859913272401,
+  &#39;xL_0 / mole frac.&#39;: 0.7035757619680888,
+  &#39;xV_0 / mole frac.&#39;: 0.9972302151421311},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5104684599811992,
+   0.8598808493704716,
+   -0.005184200825426099,
+   1.766749921251836e-05],
+  &#39;dt&#39;: 2523.6579591870377,
+  &#39;pL / Pa&#39;: 334752.5148013532,
+  &#39;pV / Pa&#39;: 334752.51479479263,
+  &#39;rhoL / mol/m^3&#39;: [28469.729496492895, 14491.827733172784],
+  &#39;rhoV / mol/m^3&#39;: [152.71892297899666, 0.50125314305867],
+  &#39;t&#39;: 16191.88634532526,
+  &#39;xL_0 / mole frac.&#39;: 0.662679179534816,
+  &#39;xV_0 / mole frac.&#39;: 0.9967285434872534},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5213013565024214,
+   0.8533580870020493,
+   -0.004987062647628024,
+   1.6219954851094346e-05],
+  &#39;dt&#39;: 2771.7257970835303,
+  &#39;pL / Pa&#39;: 309799.3171932399,
+  &#39;pV / Pa&#39;: 309799.31721945724,
+  &#39;rhoL / mol/m^3&#39;: [27167.396150654396, 16653.430851867437],
+  &#39;rhoV / mol/m^3&#39;: [139.89292776711616, 0.5439256459113281],
+  &#39;t&#39;: 18715.544304512296,
+  &#39;xL_0 / mole frac.&#39;: 0.6199653910933937,
+  &#39;xV_0 / mole frac.&#39;: 0.9961269023572351},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5312095080671894,
+   0.8472268671963656,
+   -0.004805602279398599,
+   1.5045884341440156e-05],
+  &#39;dt&#39;: 3068.9101490427965,
+  &#39;pL / Pa&#39;: 282878.16349698603,
+  &#39;pV / Pa&#39;: 282878.16347593884,
+  &#39;rhoL / mol/m^3&#39;: [25708.34129075812, 19009.985952968265],
+  &#39;rhoV / mol/m^3&#39;: [126.32777166410042, 0.5871684609990446],
+  &#39;t&#39;: 21487.270101595826,
+  &#39;xL_0 / mole frac.&#39;: 0.5748949675742799,
+  &#39;xV_0 / mole frac.&#39;: 0.9953735276522979},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.540336662731652,
+   0.841436211745165,
+   -0.004625178064250846,
+   1.4136510118179204e-05],
+  &#39;dt&#39;: 3452.0033673988805,
+  &#39;pL / Pa&#39;: 253545.28763389587,
+  &#39;pV / Pa&#39;: 253545.28759547582,
+  &#39;rhoL / mol/m^3&#39;: [24063.670912221663, 21600.92552998882],
+  &#39;rhoV / mol/m^3&#39;: [111.8596745017751, 0.6318537775909859],
+  &#39;t&#39;: 24556.180250638623,
+  &#39;xL_0 / mole frac.&#39;: 0.5269655879402054,
+  &#39;xV_0 / mole frac.&#39;: 0.9943830990008259},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5488569384171296,
+   0.8359045847560193,
+   -0.0044256245429127655,
+   1.3514716090899735e-05],
+  &#39;dt&#39;: 3588.80797336189,
+  &#39;pL / Pa&#39;: 221126.4276919216,
+  &#39;pV / Pa&#39;: 221126.42768445628,
+  &#39;rhoL / mol/m^3&#39;: [22183.26016050455, 24495.754740354692],
+  &#39;rhoV / mol/m^3&#39;: [96.23612551347789, 0.6794664580814603],
+  &#39;t&#39;: 28008.183618037503,
+  &#39;xL_0 / mole frac.&#39;: 0.4752298266709183,
+  &#39;xV_0 / mole frac.&#39;: 0.9929890903593628},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5544805551145389,
+   0.8321857692839582,
+   -0.004261364148907681,
+   1.3293987312150658e-05],
+  &#39;dt&#39;: 2933.0738963534163,
+  &#39;pL / Pa&#39;: 196495.4253091663,
+  &#39;pV / Pa&#39;: 196495.4253299148,
+  &#39;rhoL / mol/m^3&#39;: [20707.463176092035, 26726.6015965729],
+  &#39;rhoV / mol/m^3&#39;: [84.61502342792586, 0.7152717963763382],
+  &#39;t&#39;: 30683.03250867915,
+  &#39;xL_0 / mole frac.&#39;: 0.436552576198893,
+  &#39;xV_0 / mole frac.&#39;: 0.9916176101993301},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5590691963034844,
+   0.8291108859905518,
+   -0.004095399862930065,
+   1.3285368425688106e-05],
+  &#39;dt&#39;: 2552.654271119634,
+  &#39;pL / Pa&#39;: 174249.54183493555,
+  &#39;pV / Pa&#39;: 174249.54185104975,
+  &#39;rhoL / mol/m^3&#39;: [19333.154199314868, 28776.699848563694],
+  &#39;rhoV / mol/m^3&#39;: [74.29877521089828, 0.7480341834772921],
+  &#39;t&#39;: 33151.17957230288,
+  &#39;xL_0 / mole frac.&#39;: 0.4018543515030135,
+  &#39;xV_0 / mole frac.&#39;: 0.9900324318979862},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5627997877197536,
+   0.8265839069520551,
+   -0.003929825677336374,
+   1.3439587663380614e-05],
+  &#39;dt&#39;: 2225.746134706672,
+  &#39;pL / Pa&#39;: 154688.08371832967,
+  &#39;pV / Pa&#39;: 154688.08365607422,
+  &#39;rhoL / mol/m^3&#39;: [18084.591254220744, 30619.238374126016],
+  &#39;rhoV / mol/m^3&#39;: [65.36460636209489, 0.7777468228450236],
+  &#39;t&#39;: 35376.92570700955,
+  &#39;xL_0 / mole frac.&#39;: 0.37131764364778186,
+  &#39;xV_0 / mole frac.&#39;: 0.9882413191337422},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5662078522799722,
+   0.8242539868277932,
+   -0.0037460680557439463,
+   1.3751776391058605e-05],
+  &#39;dt&#39;: 2225.746134706672,
+  &#39;pL / Pa&#39;: 135714.69520623982,
+  &#39;pV / Pa&#39;: 135714.69513252738,
+  &#39;rhoL / mol/m^3&#39;: [16828.094374759086, 32456.377826371307],
+  &#39;rhoV / mol/m^3&#39;: [56.81868770349085, 0.8079775818862941],
+  &#39;t&#39;: 37602.67184171622,
+  &#39;xL_0 / mole frac.&#39;: 0.34144820109026375,
+  &#39;xV_0 / mole frac.&#39;: 0.9859791022457217},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.568630426855959,
+   0.8225852768820584,
+   -0.0035916168580053622,
+   1.410044566813708e-05],
+  &#39;dt&#39;: 1827.9191062504974,
+  &#39;pL / Pa&#39;: 121676.63196499646,
+  &#39;pV / Pa&#39;: 121676.63199552287,
+  &#39;rhoL / mol/m^3&#39;: [15861.911531940847, 33858.42688010262],
+  &#39;rhoV / mol/m^3&#39;: [50.5698423984294, 0.8316763046156722],
+  &#39;t&#39;: 39305.40258364675,
+  &#39;xL_0 / mole frac.&#39;: 0.31902259796563875,
+  &#39;xV_0 / mole frac.&#39;: 0.9838200052138459},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5710797678491014,
+   0.8208874844559244,
+   -0.0034112174333109377,
+   1.4582999929112178e-05],
+  &#39;dt&#39;: 1827.9191062504974,
+  &#39;pL / Pa&#39;: 107147.19667124748,
+  &#39;pV / Pa&#39;: 107147.19678234181,
+  &#39;rhoL / mol/m^3&#39;: [14820.240462494312, 35360.480862333374],
+  &#39;rhoV / mol/m^3&#39;: [44.167158485013566, 0.8578746465464361],
+  &#39;t&#39;: 41133.321689897246,
+  &#39;xL_0 / mole frac.&#39;: 0.2953373341638629,
+  &#39;xV_0 / mole frac.&#39;: 0.980946718150328},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5729255768224042,
+   0.8196009247178587,
+   -0.003256900057296907,
+   1.5045361597673408e-05],
+  &#39;dt&#39;: 1530.5811627154353,
+  &#39;pL / Pa&#39;: 96085.23140747845,
+  &#39;pV / Pa&#39;: 96085.23146224619,
+  &#39;rhoL / mol/m^3&#39;: [13991.558393493582, 36548.78073284068],
+  &#39;rhoV / mol/m^3&#39;: [39.3357970837063, 0.8793277882479742],
+  &#39;t&#39;: 42582.043466376665,
+  &#39;xL_0 / mole frac.&#39;: 0.27683942441540166,
+  &#39;xV_0 / mole frac.&#39;: 0.9781344011476335},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5747982464642494,
+   0.8182893579672108,
+   -0.003082572885297835,
+   1.5608993129366956e-05],
+  &#39;dt&#39;: 1530.5811627154353,
+  &#39;pL / Pa&#39;: 84888.33696313202,
+  &#39;pV / Pa&#39;: 84888.33696551636,
+  &#39;rhoL / mol/m^3&#39;: [13113.206864275073, 37802.237037662606],
+  &#39;rhoV / mol/m^3&#39;: [34.48276228634632, 0.9027776300758239],
+  &#39;t&#39;: 44112.6246290921,
+  &#39;xL_0 / mole frac.&#39;: 0.25754870937648894,
+  &#39;xV_0 / mole frac.&#39;: 0.9744873857454736},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.576284316992878,
+   0.8172440248290407,
+   -0.0029308035141548255,
+   1.6125870431254637e-05],
+  &#39;dt&#39;: 1306.6388934396384,
+  &#39;pL / Pa&#39;: 76119.12222644687,
+  &#39;pV / Pa&#39;: 76119.12237624887,
+  &#39;rhoL / mol/m^3&#39;: [12390.702962699213, 38828.809251438026],
+  &#39;rhoV / mol/m^3&#39;: [30.707517517546734, 0.9226917161367534],
+  &#39;t&#39;: 45367.9640601762,
+  &#39;xL_0 / mole frac.&#39;: 0.2419137244200311,
+  &#39;xV_0 / mole frac.&#39;: 0.9708287824048232},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5777924022256987,
+   0.8161790842220344,
+   -0.0027644401756335554,
+   1.6710865051459888e-05],
+  &#39;dt&#39;: 1306.6388934396384,
+  &#39;pL / Pa&#39;: 67424.03183662891,
+  &#39;pV / Pa&#39;: 67424.03183428312,
+  &#39;rhoL / mol/m^3&#39;: [11636.718375156595, 39895.95408650465],
+  &#39;rhoV / mol/m^3&#39;: [26.985778773349434, 0.944139751182783],
+  &#39;t&#39;: 46674.60295361584,
+  &#39;xL_0 / mole frac.&#39;: 0.22581243741655282,
+  &#39;xV_0 / mole frac.&#39;: 0.9661961150959499},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5790363994090189,
+   0.8152974877491066,
+   -0.0026180780033082853,
+   1.723377832738404e-05],
+  &#39;dt&#39;: 1098.5955261059848,
+  &#39;pL / Pa&#39;: 60480.21010826528,
+  &#39;pV / Pa&#39;: 60480.21032255881,
+  &#39;rhoL / mol/m^3&#39;: [11001.273185363889, 40792.11956218289],
+  &#39;rhoV / mol/m^3&#39;: [24.028640475516468, 0.9627832006939437],
+  &#39;t&#39;: 47773.198479721825,
+  &#39;xL_0 / mole frac.&#39;: 0.21240688438748725,
+  &#39;xV_0 / mole frac.&#39;: 0.9614754560137193},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5802645490580942,
+   0.8144243190678709,
+   -0.002466029442374356,
+   1.7777256033330482e-05],
+  &#39;dt&#39;: 1098.5955261059848,
+  &#39;pL / Pa&#39;: 53893.377753704786,
+  &#39;pV / Pa&#39;: 53893.37767332391,
+  &#39;rhoL / mol/m^3&#39;: [10364.470586774372, 41687.3215211975],
+  &#39;rhoV / mol/m^3&#39;: [21.2354451199009, 0.9820132210012396],
+  &#39;t&#39;: 48871.79400582781,
+  &#39;xL_0 / mole frac.&#39;: 0.1991184196938923,
+  &#39;xV_0 / mole frac.&#39;: 0.9557999296799238},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5814828756769346,
+   0.8135553669398291,
+   -0.0023086536900913013,
+   1.833090360490782e-05],
+  &#39;dt&#39;: 1098.5955261059848,
+  &#39;pL / Pa&#39;: 47683.3625022769,
+  &#39;pV / Pa&#39;: 47683.362665243796,
+  &#39;rhoL / mol/m^3&#39;: [9726.32471187713, 42581.56693668965],
+  &#39;rhoV / mol/m^3&#39;: [18.612255346043536, 1.0018469985041134],
+  &#39;t&#39;: 49970.3895319338,
+  &#39;xL_0 / mole frac.&#39;: 0.18594373440290685,
+  &#39;xV_0 / mole frac.&#39;: 0.9489221081390652},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5824629936847492,
+   0.8128543020213433,
+   -0.0021781461556445027,
+   1.877548702934184e-05],
+  &#39;dt&#39;: 927.893912938704,
+  &#39;pL / Pa&#39;: 42960.57706159353,
+  &#39;pV / Pa&#39;: 42960.57708306347,
+  &#39;rhoL / mol/m^3&#39;: [9210.499328719796, 43302.34225294272],
+  &#39;rhoV / mol/m^3&#39;: [16.62362274657052, 1.0182919317538874],
+  &#39;t&#39;: 50856.728594329,
+  &#39;xL_0 / mole frac.&#39;: 0.1753951805178279,
+  &#39;xV_0 / mole frac.&#39;: 0.942279965053623},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5834904846317246,
+   0.8121174165668954,
+   -0.0020385492984598035,
+   1.9227709785354956e-05],
+  &#39;dt&#39;: 927.893912938704,
+  &#39;pL / Pa&#39;: 38301.98604781926,
+  &#39;pV / Pa&#39;: 38301.98588687364,
+  &#39;rhoL / mol/m^3&#39;: [8669.559028395444, 44056.24328139755],
+  &#39;rhoV / mol/m^3&#39;: [14.66708258579654, 1.0359249222914786],
+  &#39;t&#39;: 51784.622507267704,
+  &#39;xL_0 / mole frac.&#39;: 0.16442725664859556,
+  &#39;xV_0 / mole frac.&#39;: 0.9340301581236643},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.584401169050494,
+   0.8114626377499636,
+   -0.001913312298252704,
+   1.960450976314546e-05],
+  &#39;dt&#39;: 818.3689242394056,
+  &#39;pL / Pa&#39;: 34442.99701240659,
+  &#39;pV / Pa&#39;: 34442.997054111256,
+  &#39;rhoL / mol/m^3&#39;: [8191.676303595749, 44720.5874022834],
+  &#39;rhoV / mol/m^3&#39;: [13.049921865298842, 1.051816273272517],
+  &#39;t&#39;: 52602.99143150711,
+  &#39;xL_0 / mole frac.&#39;: 0.1548162132909381,
+  &#39;xV_0 / mole frac.&#39;: 0.9254122957796552},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5853190607637178,
+   0.8108010884119935,
+   -0.0017865437754182344,
+   1.99485461349882e-05],
+  &#39;dt&#39;: 818.3689242394056,
+  &#39;pL / Pa&#39;: 30823.744954302907,
+  &#39;pV / Pa&#39;: 30823.744899385994,
+  &#39;rhoL / mol/m^3&#39;: [7713.045549640369, 45384.393046053934],
+  &#39;rhoV / mol/m^3&#39;: [11.535910509428605, 1.068003448454717],
+  &#39;t&#39;: 53421.36035574651,
+  &#39;xL_0 / mole frac.&#39;: 0.14526210215846125,
+  &#39;xV_0 / mole frac.&#39;: 0.9152641431841324},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5862469722354562,
+   0.8101306904595141,
+   -0.0016587677517761067,
+   2.0245906537262914e-05],
+  &#39;dt&#39;: 818.3689242394056,
+  &#39;pL / Pa&#39;: 27448.577561572194,
+  &#39;pV / Pa&#39;: 27448.57769463682,
+  &#39;rhoL / mol/m^3&#39;: [7233.659708147388, 46047.65381622256],
+  &#39;rhoV / mol/m^3&#39;: [10.126093780763757, 1.0844541031840274],
+  &#39;t&#39;: 54239.72927998591,
+  &#39;xL_0 / mole frac.&#39;: 0.13576353940371305,
+  &#39;xV_0 / mole frac.&#39;: 0.9032648435731816},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5870225207044815,
+   0.8095691126309268,
+   -0.0015529461496279627,
+   2.044473096525421e-05],
+  &#39;dt&#39;: 700.2979896392686,
+  &#39;pL / Pa&#39;: 24848.002737656236,
+  &#39;pV / Pa&#39;: 24848.00263228073,
+  &#39;rhoL / mol/m^3&#39;: [6837.26959819625, 46594.87195433976],
+  &#39;rhoV / mol/m^3&#39;: [9.041008036503161, 1.0982041870741426],
+  &#39;t&#39;: 54915.43189420111,
+  &#39;xL_0 / mole frac.&#39;: 0.12796173612980966,
+  &#39;xV_0 / mole frac.&#39;: 0.8916874247369609},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5878366900094536,
+   0.8089783322008688,
+   -0.001443427900327403,
+   2.0594342442742822e-05],
+  &#39;dt&#39;: 700.2979896392686,
+  &#39;pL / Pa&#39;: 22331.643412306905,
+  &#39;pV / Pa&#39;: 22331.643465697063,
+  &#39;rhoL / mol/m^3&#39;: [6425.894476773186, 47161.60526110292],
+  &#39;rhoV / mol/m^3&#39;: [7.991853886257107, 1.1125776844197839],
+  &#39;t&#39;: 55615.72988384038,
+  &#39;xL_0 / mole frac.&#39;: 0.11991405660285562,
+  &#39;xV_0 / mole frac.&#39;: 0.8777982265248585},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5886624070839611,
+   0.808377875107855,
+   -0.0013345766443252026,
+   2.06738186008332e-05],
+  &#39;dt&#39;: 700.2979896392686,
+  &#39;pL / Pa&#39;: 19997.534533560276,
+  &#39;pV / Pa&#39;: 19997.53448201051,
+  &#39;rhoL / mol/m^3&#39;: [6013.945193514779, 47727.921491631685],
+  &#39;rhoV / mol/m^3&#39;: [7.019193550542683, 1.1270321760059827],
+  &#39;t&#39;: 56316.02787347965,
+  &#39;xL_0 / mole frac.&#39;: 0.11190428551260116,
+  &#39;xV_0 / mole frac.&#39;: 0.861649773301399},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.589365086817681,
+   0.8078658590547146,
+   -0.0012441007454177069,
+   2.067633313466759e-05],
+  &#39;dt&#39;: 588.1190181574497,
+  &#39;pL / Pa&#39;: 18177.53083077073,
+  &#39;pV / Pa&#39;: 18177.53098006429,
+  &#39;rhoL / mol/m^3&#39;: [5667.535419477732, 48203.193677733165],
+  &#39;rhoV / mol/m^3&#39;: [6.260961113801422, 1.1391946867163212],
+  &#39;t&#39;: 56904.1468916371,
+  &#39;xL_0 / mole frac.&#39;: 0.10520621336404305,
+  &#39;xV_0 / mole frac.&#39;: 0.8460580131790444},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5900759848650045,
+   0.8073468882062945,
+   -0.0011548871740025197,
+   2.0611251305620783e-05],
+  &#39;dt&#39;: 588.1190181574497,
+  &#39;pL / Pa&#39;: 16484.359288066626,
+  &#39;pV / Pa&#39;: 16484.35932466689,
+  &#39;rhoL / mol/m^3&#39;: [5320.709946377388, 48678.16267721589],
+  &#39;rhoV / mol/m^3&#39;: [5.555587697342731, 1.1513392134363094],
+  &#39;t&#39;: 57492.26590979455,
+  &#39;xL_0 / mole frac.&#39;: 0.09853372279577285,
+  &#39;xV_0 / mole frac.&#39;: 0.8283358043478998},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5907943244193828,
+   0.8068214961008987,
+   -0.0010673538880648045,
+   2.0470232153995936e-05],
+  &#39;dt&#39;: 588.1190181574497,
+  &#39;pL / Pa&#39;: 14916.260550364852,
+  &#39;pV / Pa&#39;: 14916.260495803293,
+  &#39;rhoL / mol/m^3&#39;: [4973.464138267606, 49152.82453387771],
+  &#39;rhoV / mol/m^3&#39;: [4.902209715743894, 1.1634235342451755],
+  &#39;t&#39;: 58080.384927952,
+  &#39;xL_0 / mole frac.&#39;: 0.09188629518629955,
+  &#39;xV_0 / mole frac.&#39;: 0.8081942171087789},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5915186125567283,
+   0.8062907455482635,
+   -0.0009819533129046937,
+   2.0245491113598573e-05],
+  &#39;dt&#39;: 588.1190181574497,
+  &#39;pL / Pa&#39;: 13470.793446987867,
+  &#39;pV / Pa&#39;: 13470.793543688173,
+  &#39;rhoL / mol/m^3&#39;: [4625.794018364758, 49627.17575464354],
+  &#39;rhoV / mol/m^3&#39;: [4.29970757309739, 1.175400658672856],
+  &#39;t&#39;: 58668.50394610945,
+  &#39;xL_0 / mole frac.&#39;: 0.08526342498334834,
+  &#39;xV_0 / mole frac.&#39;: 0.7853191920750727},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5921332591737858,
+   0.8058395445288328,
+   -0.0009118411990735065,
+   1.998552888805086e-05],
+  &#39;dt&#39;: 496.7351732153197,
+  &#39;pL / Pa&#39;: 12343.137283086777,
+  &#39;pV / Pa&#39;: 12343.137278281123,
+  &#39;rhoL / mol/m^3&#39;: [4331.813327983636, 50027.57674450092],
+  &#39;rhoV / mol/m^3&#39;: [3.8294339540987687, 1.185395477737439],
+  &#39;t&#39;: 59165.23911932477,
+  &#39;xL_0 / mole frac.&#39;: 0.07968840934762986,
+  &#39;xV_0 / mole frac.&#39;: 0.7636219748149241},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5927484331028696,
+   0.8053872251863022,
+   -0.0008439042339889487,
+   1.9658203159165452e-05],
+  &#39;dt&#39;: 496.7351732153197,
+  &#39;pL / Pa&#39;: 11298.375736564398,
+  &#39;pV / Pa&#39;: 11298.375862191437,
+  &#39;rhoL / mol/m^3&#39;: [4037.5270934310056, 50427.7532583139],
+  &#39;rhoV / mol/m^3&#39;: [3.3934602927354747, 1.1952445270945293],
+  &#39;t&#39;: 59661.974292540086,
+  &#39;xL_0 / mole frac.&#39;: 0.07413029121223748,
+  &#39;xV_0 / mole frac.&#39;: 0.7395246427860642},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5933614696147844,
+   0.8049357489890477,
+   -0.0007784632279775192,
+   1.9262061156515676e-05],
+  &#39;dt&#39;: 496.7351732153197,
+  &#39;pL / Pa&#39;: 10333.76201364398,
+  &#39;pV / Pa&#39;: 10333.76170494049,
+  &#39;rhoL / mol/m^3&#39;: [3742.9356868037476, 50827.70520677238],
+  &#39;rhoV / mol/m^3&#39;: [2.9906268989822196, 1.2049139144789054],
+  &#39;t&#39;: 60158.709465755404,
+  &#39;xL_0 / mole frac.&#39;: 0.06858881672478861,
+  &#39;xV_0 / mole frac.&#39;: 0.7128108227161046},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5939689978789415,
+   0.8044876113192161,
+   -0.0007158486142284715,
+   1.8797588848958302e-05],
+  &#39;dt&#39;: 496.7351732153197,
+  &#39;pL / Pa&#39;: 9446.127312988043,
+  &#39;pV / Pa&#39;: 9446.127204369412,
+  &#39;rhoL / mol/m^3&#39;: [3448.040976475608, 51227.43360529587],
+  &#39;rhoV / mol/m^3&#39;: [2.6196122051581026, 1.2143694859828689],
+  &#39;t&#39;: 60655.44463897072,
+  &#39;xL_0 / mole frac.&#39;: 0.06306375944334587,
+  &#39;xV_0 / mole frac.&#39;: 0.6832615323153827},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5944864340857634,
+   0.8041053650449482,
+   -0.0006642721170611382,
+   1.8343348426760118e-05],
+  &#39;dt&#39;: 429.2827633222733,
+  &#39;pL / Pa&#39;: 8738.28260448575,
+  &#39;pV / Pa&#39;: 8738.282535776452,
+  &#39;rhoL / mol/m^3&#39;: [3192.9489500786876, 51572.70401351609],
+  &#39;rhoV / mol/m^3&#39;: [2.3234696061742564, 1.222343161792193],
+  &#39;t&#39;: 61084.727402293,
+  &#39;xL_0 / mole frac.&#39;: 0.05830203379846828,
+  &#39;xV_0 / mole frac.&#39;: 0.655271374496963},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5949935408624705,
+   0.8037302454480025,
+   -0.0006152768697421899,
+   1.7843952976915478e-05],
+  &#39;dt&#39;: 429.2827633222733,
+  &#39;pL / Pa&#39;: 8082.675639808178,
+  &#39;pV / Pa&#39;: 8082.675690617889,
+  &#39;rhoL / mol/m^3&#39;: [2937.6368941159735, 51917.81176970256],
+  &#39;rhoV / mol/m^3&#39;: [2.048921700560312, 1.230111981870446],
+  &#39;t&#39;: 61514.01016561528,
+  &#39;xL_0 / mole frac.&#39;: 0.05355232644471242,
+  &#39;xV_0 / mole frac.&#39;: 0.6248553381865354},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5954867441579178,
+   0.8033649316339588,
+   -0.0005690812790141342,
+   1.7305058409753774e-05],
+  &#39;dt&#39;: 429.2827633222733,
+  &#39;pL / Pa&#39;: 7476.492448240519,
+  &#39;pV / Pa&#39;: 7476.492468389912,
+  &#39;rhoL / mol/m^3&#39;: [2682.10999490346, 52262.76049664153],
+  &#39;rhoV / mol/m^3&#39;: [1.7948134702063887, 1.2376577022545092],
+  &#39;t&#39;: 61943.29292893755,
+  &#39;xL_0 / mole frac.&#39;: 0.04881456578037048,
+  &#39;xV_0 / mole frac.&#39;: 0.5918649735258222},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5959620706143997,
+   0.8030124118198367,
+   -0.0005259013629096971,
+   1.673447729949607e-05],
+  &#39;dt&#39;: 429.2827633222733,
+  &#39;pL / Pa&#39;: 6916.686007678509,
+  &#39;pV / Pa&#39;: 6916.686050498669,
+  &#39;rhoL / mol/m^3&#39;: [2426.375060467933, 52607.5550348037],
+  &#39;rhoV / mol/m^3&#39;: [1.559896587213542, 1.2449649632637534],
+  &#39;t&#39;: 62372.57569225983,
+  &#39;xL_0 / mole frac.&#39;: 0.04408871138709392,
+  &#39;xV_0 / mole frac.&#39;: 0.5561403153564206},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5963430331615601,
+   0.802729558594662,
+   -0.0004922340469304709,
+   1.6239848472378133e-05],
+  &#39;dt&#39;: 359.2916336455405,
+  &#39;pL / Pa&#39;: 6481.430113852024,
+  &#39;pV / Pa&#39;: 6481.4299440179775,
+  &#39;rhoL / mol/m^3&#39;: [2212.1819317823333, 52896.01949662502],
+  &#39;rhoV / mol/m^3&#39;: [1.3770623504700419, 1.2508890152860224],
+  &#39;t&#39;: 62731.86732590537,
+  &#39;xL_0 / mole frac.&#39;: 0.040142517346646533,
+  &#39;xV_0 / mole frac.&#39;: 0.5240060255353545},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5967058054134059,
+   0.8024599485732479,
+   -0.0004609491272396289,
+   1.5737257076995896e-05],
+  &#39;dt&#39;: 359.2916336455405,
+  &#39;pL / Pa&#39;: 6074.334722459316,
+  &#39;pV / Pa&#39;: 6074.334989852812,
+  &#39;rhoL / mol/m^3&#39;: [1997.8551135894254, 53184.384649636544],
+  &#39;rhoV / mol/m^3&#39;: [1.2059000999186014, 1.2566336885326235],
+  &#39;t&#39;: 63091.15895955091,
+  &#39;xL_0 / mole frac.&#39;: 0.03620467603637969,
+  &#39;xV_0 / mole frac.&#39;: 0.48969890507656133},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5970476786624347,
+   0.8022056359844706,
+   -0.00043216483421677375,
+   1.5235007009136372e-05],
+  &#39;dt&#39;: 359.2916336455405,
+  &#39;pL / Pa&#39;: 5693.261197209358,
+  &#39;pV / Pa&#39;: 5693.261236022131,
+  &#39;rhoL / mol/m^3&#39;: [1783.401627541154, 53472.655620456964],
+  &#39;rhoV / mol/m^3&#39;: [1.0455325220901805, 1.2621975816840945],
+  &#39;t&#39;: 63450.450593196445,
+  &#39;xL_0 / mole frac.&#39;: 0.03227522404533786,
+  &#39;xV_0 / mole frac.&#39;: 0.45305667260665367},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.597331231263129,
+   0.8019945341484637,
+   -0.00040882111206281337,
+   1.4797332581000133e-05],
+  &#39;dt&#39;: 318.6535554277305,
+  &#39;pL / Pa&#39;: 5375.26165702939,
+  &#39;pV / Pa&#39;: 5375.261526934074,
+  &#39;rhoL / mol/m^3&#39;: [1593.1045673389226, 53728.2472835487],
+  &#39;rhoV / mol/m^3&#39;: [0.9115966147326319, 1.2669822446024368],
+  &#39;t&#39;: 63769.104148624174,
+  &#39;xL_0 / mole frac.&#39;: 0.028797281954225446,
+  &#39;xV_0 / mole frac.&#39;: 0.4184363631486185},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5975944261863354,
+   0.8017984480784519,
+   -0.00038761242200711037,
+   1.4374308917810372e-05],
+  &#39;dt&#39;: 318.6535554277305,
+  &#39;pL / Pa&#39;: 5074.345160841942,
+  &#39;pV / Pa&#39;: 5074.345257201041,
+  &#39;rhoL / mol/m^3&#39;: [1402.720349122222, 53983.774035211456],
+  &#39;rhoV / mol/m^3&#39;: [0.7847611337132065, 1.271629581732322],
+  &#39;t&#39;: 64087.7577040519,
+  &#39;xL_0 / mole frac.&#39;: 0.02532603597166799,
+  &#39;xV_0 / mole frac.&#39;: 0.3816206364962038},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5978109500924023,
+   0.8016370316157951,
+   -0.00037053396451016383,
+   1.4014890369475072e-05],
+  &#39;dt&#39;: 284.64959855936456,
+  &#39;pL / Pa&#39;: 4818.616696089506,
+  &#39;pV / Pa&#39;: 4818.6167159779325,
+  &#39;rhoL / mol/m^3&#39;: [1232.5840885128623, 54211.982349348174],
+  &#39;rhoV / mol/m^3&#39;: [0.6769005687474493, 1.2756695859631866],
+  &#39;t&#39;: 64372.40730261127,
+  &#39;xL_0 / mole frac.&#39;: 0.02223092663001106,
+  &#39;xV_0 / mole frac.&#39;: 0.3466715739326475},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5980088238284309,
+   0.8014894386193131,
+   -0.000355271630599715,
+   1.367857727952581e-05],
+  &#39;dt&#39;: 284.64959855936456,
+  &#39;pL / Pa&#39;: 4573.9446603655815,
+  &#39;pV / Pa&#39;: 4573.944759384499,
+  &#39;rhoL / mol/m^3&#39;: [1062.388825308243, 54440.1466656901],
+  &#39;rhoV / mol/m^3&#39;: [0.5736441206828529, 1.2796104398183135],
+  &#39;t&#39;: 64657.05690117063,
+  &#39;xL_0 / mole frac.&#39;: 0.019141266536923274,
+  &#39;xV_0 / mole frac.&#39;: 0.30953336519928765},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5981624092599351,
+   0.8013748273012176,
+   -0.00034370971153424985,
+   1.3413703936996936e-05],
+  &#39;dt&#39;: 243.17623978680837,
+  &#39;pL / Pa&#39;: 4372.724250763655,
+  &#39;pV / Pa&#39;: 4372.724192672445,
+  &#39;rhoL / mol/m^3&#39;: [916.9483197805537, 54635.03569959995],
+  &#39;rhoV / mol/m^3&#39;: [0.48868421662025785, 1.2829040820296262],
+  &#39;t&#39;: 64900.23314095744,
+  &#39;xL_0 / mole frac.&#39;: 0.01650613089643489,
+  &#39;xV_0 / mole frac.&#39;: 0.2758452497076668},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5983012737341763,
+   0.8012711616082543,
+   -0.00033354083955404966,
+   1.317306012463299e-05],
+  &#39;dt&#39;: 243.17623978680837,
+  &#39;pL / Pa&#39;: 4177.838901132345,
+  &#39;pV / Pa&#39;: 4177.838755951931,
+  &#39;rhoL / mol/m^3&#39;: [771.4722479843001, 54829.89818751441],
+  &#39;rhoV / mol/m^3&#39;: [0.4063671288334522, 1.286136192361151],
+  &#39;t&#39;: 65143.40938074425,
+  &#39;xL_0 / mole frac.&#39;: 0.01387505814949758,
+  &#39;xV_0 / mole frac.&#39;: 0.24009827558071203},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5984068466070299,
+   0.8011923236341043,
+   -0.00032605957543965433,
+   1.2991083419320323e-05],
+  &#39;dt&#39;: 213.3302311660754,
+  &#39;pL / Pa&#39;: 4017.5714841485023,
+  &#39;pV / Pa&#39;: 4017.5715708503826,
+  &#39;rhoL / mol/m^3&#39;: [648.5840921341025, 54994.45236593453],
+  &#39;rhoV / mol/m^3&#39;: [0.3386513728354025, 1.2888225935562065],
+  &#39;t&#39;: 65348.78606184022,
+  &#39;xL_0 / mole frac.&#39;: 0.011656159214511259,
+  &#39;xV_0 / mole frac.&#39;: 0.2080840491637793},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5985050269088932,
+   0.8011189865405807,
+   -0.0003193814382442753,
+   1.2824762024168966e-05],
+  &#39;dt&#39;: 213.3302311660754,
+  &#39;pL / Pa&#39;: 3854.715685456991,
+  &#39;pV / Pa&#39;: 3854.715706358888,
+  &#39;rhoL / mol/m^3&#39;: [520.9151402370015, 55165.36293158016],
+  &#39;rhoV / mol/m^3&#39;: [0.26982529209167955, 1.2915758154582782],
+  &#39;t&#39;: 65562.1162930063,
+  &#39;xL_0 / mole frac.&#39;: 0.009354461427017813,
+  &#39;xV_0 / mole frac.&#39;: 0.17280972249025153},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5985695414891407,
+   0.8010707861893661,
+   -0.0003152041679566672,
+   1.2718627563624435e-05],
+  &#39;dt&#39;: 175.0822876441897,
+  &#39;pL / Pa&#39;: 3737.354094028473,
+  &#39;pV / Pa&#39;: 3737.35418530178,
+  &#39;rhoL / mol/m^3&#39;: [427.3203599544485, 55290.63198241553],
+  &#39;rhoV / mol/m^3&#39;: [0.22021743227561605, 1.2935727760690747],
+  &#39;t&#39;: 65718.48867059078,
+  &#39;xL_0 / mole frac.&#39;: 0.007669347885017275,
+  &#39;xV_0 / mole frac.&#39;: 0.1454742084218003},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5986261802879954,
+   0.8010284632489095,
+   -0.00031173610938668814,
+   1.2629061834096407e-05],
+  &#39;dt&#39;: 151.8566574926822,
+  &#39;pL / Pa&#39;: 3624.767089366913,
+  &#39;pV / Pa&#39;: 3624.766963622027,
+  &#39;rhoL / mol/m^3&#39;: [336.4192148913085, 55412.27664515368],
+  &#39;rhoV / mol/m^3&#39;: [0.17262228359771087, 1.2954972116042496],
+  &#39;t&#39;: 65870.34532808347,
+  &#39;xL_0 / mole frac.&#39;: 0.006034566543688777,
+  &#39;xV_0 / mole frac.&#39;: 0.11758054038643785},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5986714005912873,
+   0.800994668133984,
+   -0.0003091556364410519,
+   1.2561353645979331e-05],
+  &#39;dt&#39;: 134.38597339973077,
+  &#39;pL / Pa&#39;: 3526.0984677672386,
+  &#39;pV / Pa&#39;: 3526.0984779669084,
+  &#39;rhoL / mol/m^3&#39;: [255.9691631934155, 55519.921325842064],
+  &#39;rhoV / mol/m^3&#39;: [0.1309078750282962, 1.2971897071720977],
+  &#39;t&#39;: 66004.7313014832,
+  &#39;xL_0 / mole frac.&#39;: 0.004589243864133991,
+  &#39;xV_0 / mole frac.&#39;: 0.09166591741342708},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5987055212488839,
+   0.800969165572253,
+   -0.0003073629793045707,
+   1.2513594414259717e-05],
+  &#39;dt&#39;: 118.68594064338866,
+  &#39;pL / Pa&#39;: 3444.669177979231,
+  &#39;pV / Pa&#39;: 3444.6693267816872,
+  &#39;rhoL / mol/m^3&#39;: [189.09931506789962, 55609.38605807262],
+  &#39;rhoV / mol/m^3&#39;: [0.09648019263811494, 1.298589992990837],
+  &#39;t&#39;: 66116.42515131703,
+  &#39;xL_0 / mole frac.&#39;: 0.003388968603777291,
+  &#39;xV_0 / mole frac.&#39;: 0.0691579489204107},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5987303486088862,
+   0.800950607564598,
+   -0.0003061711913715325,
+   1.2481370729208965e-05],
+  &#39;dt&#39;: 100.85252843928974,
+  &#39;pL / Pa&#39;: 3380.4697770774364,
+  &#39;pV / Pa&#39;: 3380.469645429877,
+  &#39;rhoL / mol/m^3&#39;: [136.11974422943103, 55680.26165868538],
+  &#39;rhoV / mol/m^3&#39;: [0.06933637589306775, 1.2996958375454208],
+  &#39;t&#39;: 66204.91349194372,
+  &#39;xL_0 / mole frac.&#39;: 0.002438706000069053,
+  &#39;xV_0 / mole frac.&#39;: 0.050646270564314276},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.598748378904232,
+   0.8009371294589044,
+   -0.00030538244770142274,
+   1.2459734191089584e-05],
+  &#39;dt&#39;: 84.04659194652139,
+  &#39;pL / Pa&#39;: 3330.551507741213,
+  &#39;pV / Pa&#39;: 3330.551580557254,
+  &#39;rhoL / mol/m^3&#39;: [94.79143045663648, 55735.54723561499],
+  &#39;rhoV / mol/m^3&#39;: [0.04823067819379914, 1.3005566063879195],
+  &#39;t&#39;: 66273.93903056675,
+  &#39;xL_0 / mole frac.&#39;: 0.0016978480288933246,
+  &#39;xV_0 / mole frac.&#39;: 0.03575855047355097},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.598760915900108,
+   0.8009277573434599,
+   -0.00030488086559883083,
+   1.2445782926194323e-05],
+  &#39;dt&#39;: 68.74699062993632,
+  &#39;pL / Pa&#39;: 3293.868843704462,
+  &#39;pV / Pa&#39;: 3293.868769611463,
+  &#39;rhoL / mol/m^3&#39;: [64.35632567600956, 55776.25916935826],
+  &#39;rhoV / mol/m^3&#39;: [0.032720915705049224, 1.3011895813427565],
+  &#39;t&#39;: 66324.7697043097,
+  &#39;xL_0 / mole frac.&#39;: 0.0011525002922242605,
+  &#39;xV_0 / mole frac.&#39;: 0.024530068379750178},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5987691375597636,
+   0.800921611010999,
+   -0.00030457642494638866,
+   1.2437210373139627e-05],
+  &#39;dt&#39;: 55.66159312590773,
+  &#39;pL / Pa&#39;: 3268.795155584812,
+  &#39;pV / Pa&#39;: 3268.7954705178795,
+  &#39;rhoL / mol/m^3&#39;: [43.52580878173467, 55804.12264395807],
+  &#39;rhoV / mol/m^3&#39;: [0.022119762011454568, 1.3016224079167458],
+  &#39;t&#39;: 66359.55883714577,
+  &#39;xL_0 / mole frac.&#39;: 0.0007793669024143012,
+  &#39;xV_0 / mole frac.&#39;: 0.016710022928901887},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5987741145939516,
+   0.8009178902213783,
+   -0.0003044027001973449,
+   1.2432271064655064e-05],
+  &#39;dt&#39;: 45.4810505639417,
+  &#39;pL / Pa&#39;: 3253.182819068432,
+  &#39;pV / Pa&#39;: 3253.1826000225255,
+  &#39;rhoL / mol/m^3&#39;: [30.544649062974667, 55821.48630399166],
+  &#39;rhoV / mol/m^3&#39;: [0.015518556951712599, 1.3018919881882367],
+  &#39;t&#39;: 66381.2384875347,
+  &#39;xL_0 / mole frac.&#39;: 0.000546885199011803,
+  &#39;xV_0 / mole frac.&#39;: 0.011779590659086498},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5987767904525727,
+   0.8009158897502964,
+   -0.00030431284824197855,
+   1.242969974050692e-05],
+  &#39;dt&#39;: 38.61500710567866,
+  &#39;pL / Pa&#39;: 3244.6435896754265,
+  &#39;pV / Pa&#39;: 3244.643458111622,
+  &#39;rhoL / mol/m^3&#39;: [23.441780195920483, 55830.98704016519],
+  &#39;rhoV / mol/m^3&#39;: [0.011908169852298632, 1.3020394484816478],
+  &#39;t&#39;: 66393.10081222428,
+  &#39;xL_0 / mole frac.&#39;: 0.00041969420672645103,
+  &#39;xV_0 / mole frac.&#39;: 0.00906289541998478},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5987785146110021,
+   0.8009146007620732,
+   -0.0003042563294337783,
+   1.2428075658500058e-05],
+  &#39;dt&#39;: 33.80646798965863,
+  &#39;pL / Pa&#39;: 3239.0852141082287,
+  &#39;pV / Pa&#39;: 3239.085350244617,
+  &#39;rhoL / mol/m^3&#39;: [18.817419525363256, 55837.17250973514],
+  &#39;rhoV / mol/m^3&#39;: [0.009558180545270495, 1.3021354367735272],
+  &#39;t&#39;: 66400.82381364542,
+  &#39;xL_0 / mole frac.&#39;: 0.0003368917022005125,
+  &#39;xV_0 / mole frac.&#39;: 0.007286900247946734},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5987800124560969,
+   0.800913480961625,
+   -0.00030420813084009146,
+   1.2426686210185342e-05],
+  &#39;dt&#39;: 29.498269206230304,
+  &#39;pL / Pa&#39;: 3234.2202512025833,
+  &#39;pV / Pa&#39;: 3234.220197763738,
+  &#39;rhoL / mol/m^3&#39;: [14.768897118156282, 55842.58772470796],
+  &#39;rhoV / mol/m^3&#39;: [0.007501177789942682, 1.3022194619277228],
+  &#39;t&#39;: 66407.58510724334,
+  &#39;xL_0 / mole frac.&#39;: 0.0002644037958714533,
+  &#39;xV_0 / mole frac.&#39;: 0.005727311277281009},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5987813105759471,
+   0.8009125104734987,
+   -0.0003041670528011221,
+   1.2425498555073355e-05],
+  &#39;dt&#39;: 25.291391174424174,
+  &#39;pL / Pa&#39;: 3229.9757429659367,
+  &#39;pV / Pa&#39;: 3229.975664314794,
+  &#39;rhoL / mol/m^3&#39;: [11.23629848432973, 55847.31283413535],
+  &#39;rhoV / mol/m^3&#39;: [0.0057065767436762565, 1.3022927715600088],
+  &#39;t&#39;: 66413.48476108459,
+  &#39;xL_0 / mole frac.&#39;: 0.0002011562895708667,
+  &#39;xV_0 / mole frac.&#39;: 0.004362828430363507},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5987833487181318,
+   0.800910986729722,
+   -0.00030410388945649756,
+   1.2423665605005284e-05],
+  &#39;dt&#39;: 18.25272963869183,
+  &#39;pL / Pa&#39;: 3223.2575092315674,
+  &#39;pV / Pa&#39;: 3223.2575689504474,
+  &#39;rhoL / mol/m^3&#39;: [5.6440597032461985, 55854.79283062047],
+  &#39;rhoV / mol/m^3&#39;: [0.0028661503950271425, 1.3024088090568002],
+  &#39;t&#39;: 66422.82411277913,
+  &#39;xL_0 / mole frac.&#39;: 0.00010103858862270868,
+  &#39;xV_0 / mole frac.&#39;: 0.0021958211748969976},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5987847223137074,
+   0.8009099598054206,
+   -0.00030406226163505684,
+   1.2422452740469986e-05],
+  &#39;dt&#39;: 10.349278087152271,
+  &#39;pL / Pa&#39;: 3218.691937506199,
+  &#39;pV / Pa&#39;: 3218.6919741077236,
+  &#39;rhoL / mol/m^3&#39;: [1.842934382687733, 55859.87706949802],
+  &#39;rhoV / mol/m^3&#39;: [0.0009358091145513153, 1.302487671540504],
+  &#39;t&#39;: 66429.17218669238,
+  &#39;xL_0 / mole frac.&#39;: 3.29910067674197e-05,
+  &#39;xV_0 / mole frac.&#39;: 0.0007179624492271769},
+ {&#39;T / K&#39;: 298.15,
+  &#39;c&#39;: -1.0,
+  &#39;drho/dt&#39;: [-0.5987851977662909,
+   0.8009096043477506,
+   -0.00030404803280780325,
+   1.2422037222127023e-05],
+  &#39;dt&#39;: 5.045830245584106,
+  &#39;pL / Pa&#39;: 3217.1044620871544,
+  &#39;pV / Pa&#39;: 3217.1043947750622,
+  &#39;rhoL / mol/m^3&#39;: [0.5210595290886416, 55861.64515415611],
+  &#39;rhoV / mol/m^3&#39;: [0.00026457842924539255, 1.3025150948292565],
+  &#39;t&#39;: 66431.3797819755,
+  &#39;xL_0 / mole frac.&#39;: 9.327592616001912e-06,
+  &#39;xV_0 / mole frac.&#39;: 0.00020308762462007955}]
+</pre></div></div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Models</a><ul>
+      <li>Previous: <a href="Association.html" title="previous chapter">Association</a></li>
+      <li>Next: <a href="multifluid.html" title="next chapter">Multi-fluid EOS</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/Check_Dufal_water.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/Check_Dufal_water.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

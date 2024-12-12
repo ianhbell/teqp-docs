@@ -18,7 +18,7 @@
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00033}00033\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ m\_pi\ =\ 3.1415926535897932384626433;}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00035}00035\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00036}00036\ \ \ \ \ \textcolor{keyword}{auto}\ \_\_factorial(\textcolor{keywordtype}{int}\ i)\textcolor{keyword}{\ const}\{\ \textcolor{keywordflow}{return}\ tgamma(i+1);\ \}}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{double}\ \_\_factorial(\textcolor{keywordtype}{int}\ i)\textcolor{keyword}{\ const}\{\ \textcolor{keywordflow}{return}\ tgamma(i+1);\ \}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00037}00037\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00038}00038\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ lambda;}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00039}00039\ \ \ \ \ }
@@ -39,7 +39,7 @@
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00054}00054\ \ \ \ \ \};}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00055}00055\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00056}00056\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ GType>}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00057}00057\ \ \ \ \ \textcolor{keyword}{auto}\ Rn(\textcolor{keyword}{const}\ GType\ \&gn,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordtype}{double}\ Rn(\textcolor{keyword}{const}\ GType\ \&gn,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ o\ =\ gn[3];}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 4;\ j\ <\ 9;\ ++j)\{}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ o\ +=\ gn[j]*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,3)-\/1,\ j-\/2);}
@@ -48,7 +48,7 @@
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00063}00063\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00064}00064\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00065}00065\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ GType>}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00066}00066\ \ \ \ \ \textcolor{keyword}{auto}\ Qn(\textcolor{keyword}{const}\ GType\ \&gn,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordtype}{double}\ Qn(\textcolor{keyword}{const}\ GType\ \&gn,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ o\ =\ gn[9];}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ 10;\ j\ <\ 15;\ ++j)\{}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ o\ +=\ gn[j]*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,3)-\/1,\ j-\/7);}
@@ -56,12 +56,12 @@
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ o;}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00072}00072\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00073}00073\ }
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00074}00074\ \ \ \ \ \textcolor{keyword}{auto}\ gamman(\textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00074}00074\ \ \ \ \ \textcolor{keywordtype}{double}\ gamman(\textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ gn\ =\ gammanvals.at(n);}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ gn[1]*lambda\_\ +\ gn[2]*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,2)\ +\ Rn(gn,\ lambda\_)/Qn(gn,\ lambda\_);}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00077}00077\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00078}00078\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00079}00079\ \ \ \ \ \textcolor{keyword}{auto}\ phii(\textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00079}00079\ \ \ \ \ \textcolor{keywordtype}{double}\ phii(\textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ phivalsi\ =\ phivals.at(i);}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ o\ =\ 0.0;}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ n\ =\ 0;\ n\ <\ 8;\ ++n)\{}
@@ -70,24 +70,24 @@
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ o;}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00086}00086\ \ \ \ \ \};}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00087}00087\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00088}00088\ \ \ \ \ \textcolor{keyword}{auto}\ P1(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,6)\ -\/\ 18*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,4)\ +\ 32*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,3)\ -\/\ 15;\}}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00089}00089\ \ \ \ \ \textcolor{keyword}{auto}\ P2(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\textcolor{keywordflow}{return}\ -\/2*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,6)\ +\ 36*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,4)\ -\/\ 32*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,3)\ -\/\ 18*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,2)\ +\ 16;\}}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00090}00090\ \ \ \ \ \textcolor{keyword}{auto}\ P3(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\textcolor{keywordflow}{return}\ 6*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,6)\ -\/\ 18*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,4)\ +\ 18*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,2)-\/6;\}}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00091}00091\ \ \ \ \ \textcolor{keyword}{auto}\ P4(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\textcolor{keywordflow}{return}\ 32*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,3)\ -\/\ 18*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,2)\ -\/\ 48;\}}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00092}00092\ \ \ \ \ \textcolor{keyword}{auto}\ P5(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\textcolor{keywordflow}{return}\ 5*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,6)\ -\/\ 32*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,3)\ +\ 18*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,2)\ +\ 26;\};}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{double}\ P1(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,6)\ -\/\ 18*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,4)\ +\ 32*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,3)\ -\/\ 15;\}}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{double}\ P2(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\textcolor{keywordflow}{return}\ -\/2*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,6)\ +\ 36*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,4)\ -\/\ 32*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,3)\ -\/\ 18*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,2)\ +\ 16;\}}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordtype}{double}\ P3(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\textcolor{keywordflow}{return}\ 6*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,6)\ -\/\ 18*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,4)\ +\ 18*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,2)-\/6;\}}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00091}00091\ \ \ \ \ \textcolor{keywordtype}{double}\ P4(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\textcolor{keywordflow}{return}\ 32*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,3)\ -\/\ 18*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,2)\ -\/\ 48;\}}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00092}00092\ \ \ \ \ \textcolor{keywordtype}{double}\ P5(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\textcolor{keywordflow}{return}\ 5*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,6)\ -\/\ 32*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,3)\ +\ 18*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,2)\ +\ 26;\};}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00093}00093\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00094}00094\ \ \ \ \ \textcolor{keyword}{auto}\ a2i(\textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\ \textcolor{keywordflow}{return}\ -\/2*m\_pi/(3*\_\_factorial(i))*(\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,\ 3)-\/1);\ \};}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00094}00094\ \ \ \ \ \textcolor{keywordtype}{double}\ a2i(\textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\ \textcolor{keywordflow}{return}\ -\/2*m\_pi/(3*\_\_factorial(i))*(\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,\ 3)-\/1);\ \};}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00095}00095\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00096}00096\ \ \ \ \ \textcolor{keyword}{auto}\ a31(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\ \textcolor{keywordflow}{return}\ -\/\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(m\_pi/6,\ 2)*(P1(std::min(lambda\_,\ 2.0)));\};}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00096}00096\ \ \ \ \ \textcolor{keywordtype}{double}\ a31(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\ \textcolor{keywordflow}{return}\ -\/\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(m\_pi/6,\ 2)*(P1(std::min(lambda\_,\ 2.0)));\};}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00097}00097\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00098}00098\ \ \ \ \ \textcolor{keyword}{auto}\ a32(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00098}00098\ \ \ \ \ \textcolor{keywordtype}{double}\ a32(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lambda\_\ <=\ 2)}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(m\_pi/6,2)*(P2(lambda\_)\ -\/\ P1(lambda\_)/2);}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(m\_pi/6,2)*(-\/17/2\ +\ P4(lambda\_));}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00103}00103\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00104}00104\ }
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00105}00105\ \ \ \ \ \textcolor{keyword}{auto}\ a33(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00105}00105\ \ \ \ \ \textcolor{keywordtype}{double}\ a33(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lambda\_\ <=\ 2)}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(m\_pi/6,2)*(P2(lambda\_)\ -\/\ P1(lambda\_)/6\ -\/\ P3(lambda\_));}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
@@ -101,9 +101,9 @@
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(m\_pi/6,2)*(-\/17/24\ +\ 7*P4(lambda\_)/12\ -\/\ 3*P5(lambda\_)/2);}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00117}00117\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00118}00118\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00119}00119\ \ \ \ \ \textcolor{keyword}{auto}\ xi2(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\ \textcolor{keywordflow}{return}\ a32(lambda\_)/a2i(2,\ lambda\_);\ \}}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00120}00120\ \ \ \ \ \textcolor{keyword}{auto}\ xi3(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\ \textcolor{keywordflow}{return}\ a33(lambda\_)/a2i(3,\ lambda\_);\ \}}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00121}00121\ \ \ \ \ \textcolor{keyword}{auto}\ xi4(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\ \textcolor{keywordflow}{return}\ a34(lambda\_)/a2i(4,\ lambda\_);\ \}}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordtype}{double}\ xi2(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\ \textcolor{keywordflow}{return}\ a32(lambda\_)/a2i(2,\ lambda\_);\ \}}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00120}00120\ \ \ \ \ \textcolor{keywordtype}{double}\ xi3(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\ \textcolor{keywordflow}{return}\ a33(lambda\_)/a2i(3,\ lambda\_);\ \}}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00121}00121\ \ \ \ \ \textcolor{keywordtype}{double}\ xi4(\textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{\ \textcolor{keywordflow}{return}\ a34(lambda\_)/a2i(4,\ lambda\_);\ \}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00122}00122\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00123}00123\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ RhoType>}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00124}00124\ \ \ \ \ \textcolor{keyword}{auto}\ Ki(\textcolor{keywordtype}{int}\ i,\ \textcolor{keyword}{const}\ RhoType\ \&\ rhostar,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{}
@@ -112,7 +112,7 @@
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ n\ =\ 1;\ n\ <\ 5;\ ++n)\{}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ num\ +=\ thetai[n]*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,\ n);}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00130}00130\ \ \ \ \ \ \ \ \ num\ *=\ \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(rhostar,\ 2);}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00130}00130\ \ \ \ \ \ \ \ \ num\ *=\ \mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(rhostar,\ 2);}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00131}00131\ \ \ \ \ \ \ \ \ RhoType\ den\ =\ 0;}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ n\ =\ 5;\ n\ <\ 8;\ ++n)\{}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ den\ +=\ thetai[n]*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(lambda\_,\ n-\/4);}
@@ -122,36 +122,36 @@
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00137}00137\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00138}00138\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00139}00139\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ RhoType>}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00140}00140\ \ \ \ \ \textcolor{keyword}{auto}\ Chi(\textcolor{keyword}{const}\ RhoType\ \&\ rhostar,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(a2i(2,\ lambda\_)*rhostar*(1.0-\/\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(rhostar,2)/1.5129));\ \}}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00140}00140\ \ \ \ \ \textcolor{keyword}{auto}\ Chi(\textcolor{keyword}{const}\ RhoType\ \&\ rhostar,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(a2i(2,\ lambda\_)*rhostar*(1.0-\/\mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(rhostar,2)/1.5129));\ \}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00141}00141\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00142}00142\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ RhoType>}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00143}00143\ \ \ \ \ \textcolor{keyword}{auto}\ aHS(\textcolor{keyword}{const}\ RhoType\ \&\ rhostar)\textcolor{keyword}{\ const}\{}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(-\/3.0*m\_pi*rhostar*(m\_pi*rhostar-\/8.0)/\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(m\_pi*rhostar-\/6.0,\ 2));}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(-\/3.0*m\_pi*rhostar*(m\_pi*rhostar-\/8.0)/\mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(\mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(m\_pi*rhostar-\/6.0),\ 2));}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00145}00145\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00146}00146\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00147}00147\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ RhoType>}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00148}00148\ \ \ \ \ \textcolor{keyword}{auto}\ get\_a1(\textcolor{keyword}{const}\ RhoType\ \&\ rhostar,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00149}00149\ \ \ \ \ \ \ \ \ RhoType\ o\ =\ a2i(1,\ lambda\_)*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(rhostar,\ 2-\/1)\ +\ a31(lambda\_)*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(rhostar,\ 3-\/1);}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00149}00149\ \ \ \ \ \ \ \ \ RhoType\ o\ =\ a2i(1,\ lambda\_)*\mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(rhostar,\ 2-\/1)\ +\ a31(lambda\_)*\mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(rhostar,\ 3-\/1);}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 1;\ i\ <\ 5;\ ++i)\{}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ o\ =\ o\ +\ gamman(i,\ lambda\_)*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(rhostar,\ i+2);}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ o\ =\ o\ +\ gamman(i,\ lambda\_)*\mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(rhostar,\ i+2);}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(o);}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00154}00154\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00154}00154\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00155}00155\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00156}00156\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ RhoType>}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00157}00157\ \ \ \ \ \textcolor{keyword}{auto}\ get\_a2(\textcolor{keyword}{const}\ RhoType\ \&\ rhostar,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const}\{}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(Chi(rhostar,\ lambda\_)*exp(xi2(lambda\_)*rhostar\ +\ phii(1,\ lambda\_)*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(rhostar,3)\ +\ phii(2,lambda\_)*\mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{pow}}(rhostar,4)));}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00159}00159\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(Chi(rhostar,\ lambda\_)*exp(xi2(lambda\_)*rhostar\ +\ phii(1,\ lambda\_)*\mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(rhostar,3)\ +\ phii(2,lambda\_)*\mbox{\hyperlink{namespaceteqp_a98adaf39b4207a01c2b8352de2640a68}{powi}}(rhostar,4)));}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00159}00159\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00160}00160\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00161}00161\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ RhoType>}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00162}00162\ \ \ \ \ \textcolor{keyword}{auto}\ get\_a3(\textcolor{keyword}{const}\ RhoType\ \&\ rhostar,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(a2i(3,\ lambda\_)*rhostar*exp(xi3(lambda\_)*rhostar\ +\ Ki(3,\ rhostar,\ lambda\_)));}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00164}00164\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00164}00164\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00165}00165\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00166}00166\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ RhoType>}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00167}00167\ \ \ \ \ \textcolor{keyword}{auto}\ get\_a4(\textcolor{keyword}{const}\ RhoType\ \&\ rhostar,\ \textcolor{keywordtype}{double}\ lambda\_)\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_adc93f32478a2bc846371e04d6b5ac726}{forceeval}}(a2i(4,\ lambda\_)*rhostar*exp(xi4(lambda\_)*rhostar\ +\ Ki(4,\ rhostar,\ lambda\_)));}
-\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00169}00169\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00169}00169\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00170}00170\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00171}00171\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{squarewell_8hpp_source_l00172}\mbox{\hyperlink{classteqp_1_1squarewell_1_1EspindolaHeredia2009_a0258374cc1bdaec1aaf499a73e23d899}{00172}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1squarewell_1_1EspindolaHeredia2009_a0258374cc1bdaec1aaf499a73e23d899}{EspindolaHeredia2009}}(\textcolor{keywordtype}{double}\ lambda)\ :\ lambda(lambda)\{\};}

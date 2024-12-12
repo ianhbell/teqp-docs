@@ -1,0 +1,35 @@
+\doxysection{model\+\_\+factory\+\_\+multifluid.\+cpp}
+\hypertarget{model__factory__multifluid_8cpp_source}{}\label{model__factory__multifluid_8cpp_source}\index{interface/CPP/model\_factory\_multifluid.cpp@{interface/CPP/model\_factory\_multifluid.cpp}}
+\mbox{\hyperlink{model__factory__multifluid_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teqpcpp_8hpp}{teqp/cpp/teqpcpp.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{deriv__adapter_8hpp}{teqp/cpp/deriv\_adapter.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{multifluid_8hpp}{teqp/models/multifluid.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ammonia__water_8hpp}{teqp/models/ammonia\_water.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lennardjones_8hpp}{teqp/models/mie/lennardjones.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ECSHuberEly_8hpp}{teqp/models/ECSHuberEly.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00008}00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp}{teqp}}\{}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keyword}{namespace\ }cppinterface\{}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00010}\mbox{\hyperlink{namespaceteqp_1_1cppinterface_a616ee24286e7286194e541af81bf307f}{00010}}\ \ \ \ \ \ \ \ \ std::unique\_ptr<teqp::cppinterface::AbstractModel>\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a616ee24286e7286194e541af81bf307f}{make\_multifluid}}(\textcolor{keyword}{const}\ nlohmann::json\ \&j)\{}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a8815be35c71d998189588fefb08f3032}{teqp::cppinterface::adapter::make\_owned}}(\mbox{\hyperlink{namespaceteqp_a9ce99f137423d59ed25fd88cc63c57dd}{multifluidfactory}}(j));}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00013}\mbox{\hyperlink{namespaceteqp_1_1cppinterface_a51b18db73b28e5bbc2301d02e78a4955}{00013}}\ \ \ \ \ \ \ \ \ std::unique\_ptr<teqp::cppinterface::AbstractModel>\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a51b18db73b28e5bbc2301d02e78a4955}{make\_multifluid\_ECS\_HuberEly1994}}(\textcolor{keyword}{const}\ nlohmann::json\ \&j)\{}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a8815be35c71d998189588fefb08f3032}{teqp::cppinterface::adapter::make\_owned}}(\mbox{\hyperlink{classteqp_1_1ECSHuberEly_1_1ECSHuberEly1994}{ECSHuberEly::ECSHuberEly1994}}(j));}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00016}\mbox{\hyperlink{namespaceteqp_1_1cppinterface_aafc6ae1ae969a5ccb62aa1a0e360ceeb}{00016}}\ \ \ \ \ \ \ \ \ std::unique\_ptr<teqp::cppinterface::AbstractModel>\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_aafc6ae1ae969a5ccb62aa1a0e360ceeb}{make\_AmmoniaWaterTillnerRoth}}()\{}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a8815be35c71d998189588fefb08f3032}{teqp::cppinterface::adapter::make\_owned}}(AmmoniaWaterTillnerRoth());}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00019}\mbox{\hyperlink{namespaceteqp_1_1cppinterface_a0f714e20fc85c6c045906c7fba950111}{00019}}\ \ \ \ \ \ \ \ \ std::unique\_ptr<teqp::cppinterface::AbstractModel>\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a0f714e20fc85c6c045906c7fba950111}{make\_LJ126\_TholJPCRD2016}}()\{}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a8815be35c71d998189588fefb08f3032}{teqp::cppinterface::adapter::make\_owned}}(\mbox{\hyperlink{namespaceteqp_a72a0d74913275be5bbc29a3791ca5eb0}{build\_LJ126\_TholJPCRD2016}}());}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00022}\mbox{\hyperlink{namespaceteqp_1_1cppinterface_ab7f8c689070cbe7ba0d3544530681976}{00022}}\ \ \ \ \ \ \ \ \ std::unique\_ptr<teqp::cppinterface::AbstractModel>\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_ab7f8c689070cbe7ba0d3544530681976}{make\_LJ126\_KolafaNezbeda1994}}()\{}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a8815be35c71d998189588fefb08f3032}{teqp::cppinterface::adapter::make\_owned}}(\mbox{\hyperlink{classteqp_1_1mie_1_1lennardjones_1_1Kolafa_1_1LJ126KolafaNezbeda1994}{LJ126KolafaNezbeda1994}}());}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00025}\mbox{\hyperlink{namespaceteqp_1_1cppinterface_a37d9ee4db1a7f9e18a767a4f95f2dff7}{00025}}\ \ \ \ \ \ \ \ \ std::unique\_ptr<teqp::cppinterface::AbstractModel>\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a37d9ee4db1a7f9e18a767a4f95f2dff7}{make\_LJ126\_Johnson1993}}()\{}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a8815be35c71d998189588fefb08f3032}{teqp::cppinterface::adapter::make\_owned}}(\mbox{\hyperlink{classteqp_1_1mie_1_1lennardjones_1_1Johnson_1_1LJ126Johnson1993}{LJ126Johnson1993}}());}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00028}00028\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid_8cpp_source_l00029}00029\ \}}
+
+\end{DoxyCode}

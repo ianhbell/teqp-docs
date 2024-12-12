@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Model Potentials &#8212; teqp 0.19.1 documentation</title>
+    <title>Model Potentials &#8212; teqp 0.22.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
     <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
-    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../_static/documentation_options.js?v=5686f5df"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -45,6 +45,17 @@
   <section id="Model-Potentials">
 <h1>Model Potentials<a class="headerlink" href="#Model-Potentials" title="Link to this heading">¶</a></h1>
 <p>These EOS for model potentials are useful for understanding theory, and capture some (but perhaps not all) of the physics of “real” fluids.</p>
+<p>The unit systems for all model potentials covered here are reduced quantities defined by (nicely summarized in <a class="reference external" href="https://www.hsu-hh.de/thermodynamik/wp-content/uploads/sites/741/2017/10/Dissertation-K.-Meier.pdf">the appendix to the dissertation of Karsten Meier</a>):</p>
+<p>Time: $ t^* = t:nbsphinx-math:<a href="#id1"><span class="problematic" id="id2">`</span></a>frac{sqrt{epsilon/m}}{sigma}`$</p>
+<p>Velocity: <span class="math notranslate nohighlight">\(v^* = v\frac{m}{\epsilon}\)</span></p>
+<p>Temperature: <span class="math notranslate nohighlight">\(T^* = \frac{kT}{\epsilon}\)</span></p>
+<p>Particle density: <span class="math notranslate nohighlight">\(\rho^* = \rho\sigma^3\)</span></p>
+<p>Pressure: <span class="math notranslate nohighlight">\(p^* = \frac{p\sigma^3}{\epsilon}\)</span></p>
+<p>Second density virial coefficient: <span class="math notranslate nohighlight">\(B^* = \frac{B}{\sigma^3}\)</span></p>
+<p>Within the implementation for the model potentials, the value of <span class="math notranslate nohighlight">\(R\)</span> is set to 1, which has the desired cancellation in reduced units. For instance the pressure in reduced units is obtained from:</p>
+<div class="math notranslate nohighlight">
+\[p^* = \rho^*T^*(1+\Lambda^{\rm r}_{01}(T^*,\rho^*))\]</div>
+<p>In the case of chains, it is always the segment (or monomer) density that is an input to the routines.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -60,7 +71,7 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;0.19.1&#39;
+&#39;0.22.0&#39;
 </pre></div></div>
 </div>
 <section id="Square-well">
@@ -130,16 +141,49 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-LJ126_TholJPCRD2016 (1.3035125549100017, 0.3103860327864468) (1.32, 0.31)
-LJ126_KolafaNezbeda1994 (1.3396478193468193, 0.3108038977722935) (1.3396, 0.3108)
+LJ126_TholJPCRD2016 (1.303512554910004, 0.3103860327864474) (1.32, 0.31)
+LJ126_KolafaNezbeda1994 (1.3396478193468155, 0.31080389777229156) (1.3396, 0.3108)
 LJ126_Johnson1993 (1.3130000571792173, 0.3099999768607838) (1.313, 0.31)
+</pre></div></div>
+</div>
+</section>
+<section id="Mie-Fluid">
+<h2>Mie Fluid<a class="headerlink" href="#Mie-Fluid" title="Link to this heading">¶</a></h2>
+<p>The Mie potential is given by</p>
+<div class="math notranslate nohighlight">
+\[u(r) = C\epsilon \left((\sigma/r)^{\lambda_r}-(\sigma/r)^{\lambda_a}\right)\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[C = \frac{\lambda_r}{\lambda_r-\lambda_a}\left(\frac{\lambda_r}{\lambda_a}\right)^{\lambda_a/(\lambda_r-\lambda_a)}\]</div>
+<p>The SAFT-VR-Mie model can be used for this fluid, or two new models from 2023</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">kind</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;Mie_Chaparro2023&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;lambda_r&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;lambda_a&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">}],</span>
+    <span class="p">[</span><span class="s2">&quot;Mie_Pohl2023&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;lambda_r&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">}]]:</span>
+
+    <span class="n">j</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="n">kind</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">model</span> <span class="p">}</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">solve_pure_critical</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Mie_Chaparro2023 (1.3302552193659323, 0.30398356369036467)
+Mie_Pohl2023 (1.3219460984743199, 0.3044747955342046)
 </pre></div></div>
 </div>
 </section>
 <section id="Two-Center-Lennard-Jones-Fluid">
 <h2>Two-Center Lennard-Jones Fluid<a class="headerlink" href="#Two-Center-Lennard-Jones-Fluid" title="Link to this heading">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span>
@@ -169,8 +213,8 @@ LJ126_Johnson1993 (1.3130000571792173, 0.3099999768607838) (1.313, 0.31)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(2.8282972062188056, 0.2005046666634018)
-(2.832574303561834, 0.2003194655463274)
+(2.828297206218807, 0.20050466666340064)
+(2.8325743035618367, 0.20031946554633046)
 </pre></div></div>
 </div>
 </section>
@@ -190,6 +234,7 @@ LJ126_Johnson1993 (1.3130000571792173, 0.3099999768607838) (1.313, 0.31)
 <li><a class="reference internal" href="#Square-well">Square-well</a></li>
 <li><a class="reference internal" href="#EXP-6">EXP-6</a></li>
 <li><a class="reference internal" href="#Lennard-Jones-Fluid">Lennard-Jones Fluid</a></li>
+<li><a class="reference internal" href="#Mie-Fluid">Mie Fluid</a></li>
 <li><a class="reference internal" href="#Two-Center-Lennard-Jones-Fluid">Two-Center Lennard-Jones Fluid</a></li>
 </ul>
 </li>

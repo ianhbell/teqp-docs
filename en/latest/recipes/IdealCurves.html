@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Ideal Curves &#8212; teqp 0.22.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../_static/documentation_options.js?v=5686f5df"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fit Pure Fluid Parameters" href="FitPureParameters.html" />
+    <link rel="prev" title="Heat Pump Model" href="HeatPumpModel.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="Ideal-Curves">
+<h1>Ideal Curves<a class="headerlink" href="#Ideal-Curves" title="Link to this heading">¶</a></h1>
+<p>Ideal curves, sometimes known as characteristic curves or Brown’s curves in the literature, are a test of the extrapolation behavior of an EOS. These curves are defined as level set functions of a derivative, so some sort of tracing method is needed to obtain the curve. One possible method is that employed in CoolProp where a polar tracing method locks onto the curve and integrates it until termination is requested.</p>
+<p>Ideal Curve:</p>
+<div class="math notranslate nohighlight">
+\[Z=1\]</div>
+<p>Boyle Curve:</p>
+<div class="math notranslate nohighlight">
+\[\left.\frac{\partial Z}{\partial v}\right|_{T} = 0\]</div>
+<p>Joule-Inversion:</p>
+<div class="math notranslate nohighlight">
+\[\left.\frac{\partial Z}{\partial T}\right|_{v} = 0\]</div>
+<p>Joule-Thomson:</p>
+<div class="math notranslate nohighlight">
+\[\left.\frac{\partial Z}{\partial T}\right|_{p} = 0\]</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">CoolProp</span><span class="o">,</span> <span class="nn">scipy.optimize</span>
+<span class="n">CP</span> <span class="o">=</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">CoolProp</span>
+<span class="kn">import</span> <span class="nn">teqp</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Some helper classes</span>
+
+<span class="k">class</span> <span class="nc">teqpAbstractStateShim</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A shim class that exposes a CoolProp-compatible interface</span>
+<span class="sd">    so that the tracing can use either teqp or CoolProp</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gas_constant</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">,</span> <span class="n">in1</span><span class="p">,</span> <span class="n">in2</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">pair</span> <span class="o">==</span> <span class="n">CP</span><span class="o">.</span><span class="n">PT_INPUTS</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">p_</span> <span class="o">=</span> <span class="n">in1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">T_</span> <span class="o">=</span> <span class="n">in2</span>
+            <span class="c1"># Assume to be ideal gas</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">guess</span><span class="p">:</span>
+                <span class="n">rho_guess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">T_</span><span class="p">)</span>
+                <span class="n">rho</span> <span class="o">=</span> <span class="n">rho_guess</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">rho</span> <span class="o">=</span> <span class="n">guess</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+                <span class="c1"># Iterate for density a few times</span>
+                <span class="n">Ar0n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar02n</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T_</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+                <span class="n">Ar01</span> <span class="o">=</span> <span class="n">Ar0n</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="n">Ar02</span> <span class="o">=</span> <span class="n">Ar0n</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">pEOS</span> <span class="o">=</span> <span class="n">rho</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">T_</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">Ar01</span><span class="p">)</span>
+                <span class="n">dpdrho</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">T_</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">Ar01</span> <span class="o">+</span> <span class="n">Ar02</span><span class="p">)</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">pEOS</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">p_</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">p_</span>
+                <span class="n">dresdrho</span> <span class="o">=</span> <span class="n">dpdrho</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">p_</span>
+                <span class="n">change</span> <span class="o">=</span> <span class="o">-</span><span class="n">res</span><span class="o">/</span><span class="n">dresdrho</span>
+                <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">change</span><span class="o">/</span><span class="n">rho</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span> <span class="ow">or</span> <span class="nb">abs</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="n">rho</span> <span class="o">+=</span> <span class="n">change</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rhomolar_</span> <span class="o">=</span> <span class="n">rho</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;????&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_with_guesses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">,</span> <span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">,</span> <span class="n">guesses</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">pair</span><span class="p">,</span> <span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">,</span> <span class="n">guesses</span><span class="o">.</span><span class="n">rhomolar</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">keyed_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">CP</span><span class="o">.</span><span class="n">iT</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">iZ</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rhomolar_</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">T_</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">iT_triple</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">80</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">iP_critical</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">6e6</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">gas_constant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_R</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">p</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_</span>
+
+    <span class="k">def</span> <span class="nf">T</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_</span>
+
+    <span class="k">def</span> <span class="nf">rhomolar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rhomolar_</span>
+
+    <span class="k">def</span> <span class="nf">first_partial_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k1</span><span class="p">,</span> <span class="n">k2</span><span class="p">,</span> <span class="n">k3</span><span class="p">):</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="p">(</span><span class="n">k1</span><span class="p">,</span> <span class="n">k2</span><span class="p">,</span> <span class="n">k3</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">keys</span> <span class="o">==</span> <span class="p">(</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">iDmolar</span><span class="p">,</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">iT</span><span class="p">,</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">iP</span><span class="p">):</span>
+            <span class="k">return</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">first_partial_deriv</span><span class="p">(</span><span class="n">CP</span><span class="o">.</span><span class="n">iP</span><span class="p">,</span> <span class="n">CP</span><span class="o">.</span><span class="n">iT</span><span class="p">,</span> <span class="n">CP</span><span class="o">.</span><span class="n">iDmolar</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">first_partial_deriv</span><span class="p">(</span><span class="n">CP</span><span class="o">.</span><span class="n">iP</span><span class="p">,</span> <span class="n">CP</span><span class="o">.</span><span class="n">iDmolar</span><span class="p">,</span> <span class="n">CP</span><span class="o">.</span><span class="n">iT</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">keys</span> <span class="o">==</span>  <span class="p">(</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">iP</span><span class="p">,</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">iDmolar</span><span class="p">,</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">iT</span><span class="p">):</span>
+            <span class="n">Ar0n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar02n</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rhomolar_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+            <span class="n">Ar01</span> <span class="o">=</span> <span class="n">Ar0n</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="n">Ar02</span> <span class="o">=</span> <span class="n">Ar0n</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">dpdrho_T</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">T_</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">Ar01</span> <span class="o">+</span> <span class="n">Ar02</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">dpdrho_T</span>
+        <span class="k">elif</span> <span class="n">keys</span> <span class="o">==</span>  <span class="p">(</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">iP</span><span class="p">,</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">iT</span><span class="p">,</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">iDmolar</span><span class="p">):</span>
+            <span class="n">Ar01</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar01</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rhomolar_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+            <span class="n">Ar11</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar11</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rhomolar_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+            <span class="n">dpdT_rho</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">rhomolar_</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">Ar01</span> <span class="o">-</span> <span class="n">Ar11</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">dpdT_rho</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
+
+<span class="c1"># This approach was taken from CoolProp</span>
+<span class="k">class</span> <span class="nc">AbstractCurveTracer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">AS</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">T0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        p0 : Initial pressure [Pa]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">P</span> <span class="o">=</span> <span class="p">[</span><span class="n">p0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">RHO</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AS</span> <span class="o">=</span> <span class="n">AS</span>
+
+        <span class="c1"># Solve for Temperature for first point</span>
+        <span class="n">T_</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">objective_T</span><span class="p">,</span> <span class="n">T0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">T_</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T_</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">objective_T</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">rho_guess</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Base class function &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">rho_guess</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">PT_INPUTS</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">guesses</span> <span class="o">=</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">PyGuessesStructure</span><span class="p">()</span>
+            <span class="n">guesses</span><span class="o">.</span><span class="n">rhomolar</span> <span class="o">=</span> <span class="n">rho_guess</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">update_with_guesses</span><span class="p">(</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">PT_INPUTS</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">guesses</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">TPcoords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">lnT</span><span class="p">,</span> <span class="n">lnp</span><span class="p">,</span> <span class="n">rlnT</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">rlnp</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">lnT</span> <span class="o">+</span> <span class="n">rlnT</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">lnp</span> <span class="o">+</span> <span class="n">rlnp</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">obj_circle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">lnT</span><span class="p">,</span> <span class="n">lnp</span><span class="p">):</span>
+        <span class="n">T2</span><span class="p">,</span> <span class="n">P2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">TPcoords</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">lnT</span><span class="p">,</span> <span class="n">lnp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">RHO</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">guesses</span> <span class="o">=</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">PyGuessesStructure</span><span class="p">()</span>
+            <span class="n">guesses</span><span class="o">.</span><span class="n">rhomolar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">RHO</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">update_with_guesses</span><span class="p">(</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">PT_INPUTS</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">guesses</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">PT_INPUTS</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">T2</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">r</span>
+
+    <span class="k">def</span> <span class="nf">trace</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">starting_direction</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">lnT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">lnp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">P</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj_circle</span><span class="p">,</span> <span class="n">t</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">t</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">lnT</span><span class="p">,</span> <span class="n">lnp</span><span class="p">))</span>
+                <span class="n">T2</span><span class="p">,</span> <span class="n">P2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">TPcoords</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">lnT</span><span class="p">,</span> <span class="n">lnp</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T2</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">P</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">P2</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">RHO</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">rhomolar</span><span class="p">())</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">keyed_output</span><span class="p">(</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">iT_triple</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">P</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">keyed_output</span><span class="p">(</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">iP_critical</span><span class="p">):</span>
+                    <span class="k">break</span>
+            <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">VE</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">VE</span><span class="p">)</span>
+                <span class="k">break</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">P</span>
+
+<span class="k">class</span> <span class="nc">IdealCurveTracer</span><span class="p">(</span><span class="n">AbstractCurveTracer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">AbstractCurveTracer</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Z = 1 &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">keyed_output</span><span class="p">(</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">iZ</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">starting_direction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Start searching directly up ( or calculate as orthogonal to gradient ) &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span>
+
+<span class="k">class</span> <span class="nc">BoyleCurveTracer</span><span class="p">(</span><span class="n">AbstractCurveTracer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">AbstractCurveTracer</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; dZ/dv|T = 0 &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">p</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">rhomolar</span><span class="p">()</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">first_partial_deriv</span><span class="p">(</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">iP</span><span class="p">,</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">iDmolar</span><span class="p">,</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">iT</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">gas_constant</span><span class="p">()</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">T</span><span class="p">())</span>
+        <span class="c1">#print self.AS.T(), self.AS.p(), r</span>
+        <span class="k">return</span> <span class="n">r</span>
+
+    <span class="k">def</span> <span class="nf">starting_direction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Start searching directly up &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span>
+
+<span class="k">class</span> <span class="nc">JouleInversionCurveTracer</span><span class="p">(</span><span class="n">AbstractCurveTracer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">AbstractCurveTracer</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; dZ/dT|v = 0 &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">gas_constant</span><span class="p">()</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">T</span><span class="p">()</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">rhomolar</span><span class="p">()</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">first_partial_deriv</span><span class="p">(</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">iP</span><span class="p">,</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">iT</span><span class="p">,</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">iDmolar</span><span class="p">)</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">p</span><span class="p">()</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">gas_constant</span><span class="p">()</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">rhomolar</span><span class="p">())</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">gas_constant</span><span class="p">()</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">T</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span>
+        <span class="c1">#print self.AS.T(), self.AS.p(), r</span>
+        <span class="k">return</span> <span class="n">r</span>
+
+    <span class="k">def</span> <span class="nf">starting_direction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Start searching directly up &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span>
+
+<span class="k">class</span> <span class="nc">JouleThomsonCurveTracer</span><span class="p">(</span><span class="n">AbstractCurveTracer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">AbstractCurveTracer</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; dZ/dT|p = 0 &quot;&quot;&quot;</span>
+        <span class="n">dvdT__constp</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">first_partial_deriv</span><span class="p">(</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">iDmolar</span><span class="p">,</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">iT</span><span class="p">,</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">iP</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">rhomolar</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">p</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">gas_constant</span><span class="p">()</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">T</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">T</span><span class="p">()</span><span class="o">*</span><span class="n">dvdT__constp</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">rhomolar</span><span class="p">())</span>
+        <span class="c1">#print self.AS.T(), self.AS.p(), r</span>
+        <span class="k">return</span> <span class="n">r</span>
+
+    <span class="k">def</span> <span class="nf">starting_direction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Start searching directly up &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># And here is a block of code that actually does the calculations with the tracer,</span>
+<span class="c1"># with three different models for propane</span>
+
+<span class="n">backend</span> <span class="o">=</span> <span class="s1">&#39;HEOS&#39;</span>
+<span class="n">fluid</span> <span class="o">=</span> <span class="s1">&#39;Propane&#39;</span>
+<span class="n">ASCP</span> <span class="o">=</span> <span class="n">CP</span><span class="o">.</span><span class="n">AbstractState</span><span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="n">fluid</span><span class="p">)</span>
+
+<span class="n">ASteqpSAFTVRMie</span> <span class="o">=</span> <span class="n">teqpAbstractStateShim</span><span class="p">({</span><span class="s1">&#39;kind&#39;</span><span class="p">:</span> <span class="s1">&#39;SAFT-VR-Mie&#39;</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;names&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">fluid</span><span class="p">]}</span> <span class="p">})</span>
+<span class="n">ASteqpPCSAFT</span> <span class="o">=</span> <span class="n">teqpAbstractStateShim</span><span class="p">({</span><span class="s1">&#39;kind&#39;</span><span class="p">:</span> <span class="s1">&#39;PCSAFT&#39;</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;names&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">fluid</span><span class="p">]}</span> <span class="p">})</span>
+
+<span class="k">for</span> <span class="n">AS</span><span class="p">,</span><span class="n">modelabbrv</span> <span class="ow">in</span> <span class="p">[</span>
+    <span class="p">(</span><span class="n">ASCP</span><span class="p">,</span><span class="s1">&#39;HEOS&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">ASteqpSAFTVRMie</span><span class="p">,</span><span class="s1">&#39;SAFT-VR-Mie&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">ASteqpPCSAFT</span><span class="p">,</span><span class="s1">&#39;PC-SAFT&#39;</span><span class="p">)</span>
+    <span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;---- </span><span class="si">{</span><span class="n">modelabbrv</span><span class="si">}</span><span class="s1"> ----&#39;</span><span class="p">)</span>
+
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">klass</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">T0</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="p">[</span>
+        <span class="p">(</span><span class="n">IdealCurveTracer</span><span class="p">,</span> <span class="s1">&#39;Ideal Curve&#39;</span><span class="p">,</span> <span class="mf">1e5</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">BoyleCurveTracer</span><span class="p">,</span> <span class="s1">&#39;Boyle Curve&#39;</span><span class="p">,</span> <span class="mf">1e5</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">JouleInversionCurveTracer</span><span class="p">,</span> <span class="s1">&#39;Joule Inversion Curve&#39;</span><span class="p">,</span> <span class="mf">1e5</span><span class="p">,</span> <span class="mi">1800</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">JouleThomsonCurveTracer</span><span class="p">,</span> <span class="s1">&#39;Joule-Thomson Curve&#39;</span><span class="p">,</span> <span class="mf">1e5</span><span class="p">,</span> <span class="mi">1800</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
+    <span class="p">]:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+            <span class="n">tracer</span> <span class="o">=</span> <span class="n">klass</span><span class="p">(</span><span class="n">AS</span><span class="o">=</span><span class="n">AS</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="n">p0</span><span class="p">,</span> <span class="n">T0</span><span class="o">=</span><span class="n">T0</span><span class="p">)</span>
+            <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">tracer</span><span class="o">.</span><span class="n">trace</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">modelabbrv</span> <span class="o">==</span> <span class="s1">&#39;HEOS&#39;</span><span class="p">:</span>
+                <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span>
+            <span class="k">elif</span> <span class="n">modelabbrv</span> <span class="o">==</span> <span class="s1">&#39;PC-SAFT&#39;</span><span class="p">:</span>
+                <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;:&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">style</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1"> [</span><span class="si">{</span><span class="n">modelabbrv</span><span class="si">}</span><span class="s1">]&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">modelabbrv</span> <span class="o">==</span> <span class="s1">&#39;HEOS&#39;</span> <span class="ow">and</span> <span class="n">label</span> <span class="o">==</span> <span class="s1">&#39;Ideal Curve&#39;</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Saturation Curve&#39;</span><span class="p">)</span>
+                <span class="n">Tt</span> <span class="o">=</span> <span class="n">tracer</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">keyed_output</span><span class="p">(</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">iT_triple</span><span class="p">)</span>
+                <span class="n">Tc</span> <span class="o">=</span> <span class="n">tracer</span><span class="o">.</span><span class="n">AS</span><span class="o">.</span><span class="n">keyed_output</span><span class="p">(</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">iT_critical</span><span class="p">)</span>
+                <span class="n">Ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">Tt</span><span class="p">,</span> <span class="n">Tc</span> <span class="o">-</span> <span class="mf">1.e-6</span><span class="p">)</span>
+                <span class="n">ps</span> <span class="o">=</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">CoolProp</span><span class="o">.</span><span class="n">PropsSI</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">Ts</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">backend</span> <span class="o">+</span> <span class="s1">&#39;::&#39;</span> <span class="o">+</span> <span class="n">fluid</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Ts</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Saturation Curve&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">BE</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">BE</span><span class="p">)</span>
+            <span class="k">pass</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;T (K)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;p (Pa)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">1e9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;ideal_curves.pdf&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+---- HEOS ----
+Ideal Curve
+871.9188660407749
+Saturation Curve
+Boyle Curve
+871.3231023164184
+solver_rho_Tp was unable to find a solution for T=   367.236, p=4.23194e+06, with guess value    7148.15 with error: The molar density of -534.989081 mol/m3 is below the minimum of 0.000000 mol/m3
+Joule Inversion Curve
+5203.0347638747335
+Joule-Thomson Curve
+1607.8131112921665
+f(a) and f(b) must have different signs
+---- SAFT-VR-Mie ----
+Ideal Curve
+869.1678675951697
+Boyle Curve
+868.5717695687255
+The function value at x=2.8449889669026227 is NaN; solver cannot continue.
+Joule Inversion Curve
+7532.324134784955
+Joule-Thomson Curve
+1639.8924107978214
+---- PC-SAFT ----
+Ideal Curve
+937.290324467432
+Boyle Curve
+936.5094002217145
+The function value at x=2.8848878615386546 is NaN; solver cannot continue.
+Joule Inversion Curve
+Failed to converge after 50 iterations, value is 38232770.52660468.
+Joule-Thomson Curve
+1797.0614181657859
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/recipes_IdealCurves_3_1.png" src="../_images/recipes_IdealCurves_3_1.png" />
+</div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Recipes</a><ul>
+      <li>Previous: <a href="HeatPumpModel.html" title="previous chapter">Heat Pump Model</a></li>
+      <li>Next: <a href="FitPureParameters.html" title="next chapter">Fit Pure Fluid Parameters</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/recipes/IdealCurves.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/recipes/IdealCurves.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

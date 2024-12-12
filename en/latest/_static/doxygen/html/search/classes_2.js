@@ -1,12 +1,19 @@
 var searchData=
 [
-  ['chebyshev_0',['Chebyshev',['../structteqp_1_1CubicSuperAncillary_1_1Chebyshev.html',1,'teqp::CubicSuperAncillary']]],
-  ['chebyshev2deosterm_1',['Chebyshev2DEOSTerm',['../classteqp_1_1Chebyshev2DEOSTerm.html',1,'teqp']]],
-  ['codata_2',['CODATA',['../classteqp_1_1multifluid_1_1gasconstant_1_1CODATA.html',1,'teqp::multifluid::gasconstant']]],
-  ['constviewer_3',['ConstViewer',['../structteqp_1_1cppinterface_1_1adapter_1_1ConstViewer.html',1,'teqp::cppinterface::adapter']]],
-  ['correspondingstatescontribution_4',['CorrespondingStatesContribution',['../classteqp_1_1CorrespondingStatesContribution.html',1,'teqp']]],
-  ['cpaassociation_5',['CPAAssociation',['../classteqp_1_1CPA_1_1CPAAssociation.html',1,'teqp::CPA']]],
-  ['cpacubic_6',['CPACubic',['../classteqp_1_1CPA_1_1CPACubic.html',1,'teqp::CPA']]],
-  ['cpaeos_7',['CPAEOS',['../classteqp_1_1CPA_1_1CPAEOS.html',1,'teqp::CPA']]],
-  ['criticaltracing_8',['CriticalTracing',['../structteqp_1_1CriticalTracing.html',1,'teqp']]]
+  ['callresult_0',['CallResult',['../structteqp_1_1algorithms_1_1phase__equil_1_1GeneralizedPhaseEquilibrium_1_1CallResult.html',1,'teqp::algorithms::phase_equil::GeneralizedPhaseEquilibrium']]],
+  ['caloricphasederivatives_1',['CaloricPhaseDerivatives',['../structteqp_1_1algorithms_1_1phase__equil_1_1CaloricPhaseDerivatives.html',1,'teqp::algorithms::phase_equil']]],
+  ['canonicaldata_2',['CanonicalData',['../structteqp_1_1association_1_1CanonicalData.html',1,'teqp::association']]],
+  ['chaparrojcp2023_3',['ChaparroJCP2023',['../classteqp_1_1FEANN_1_1ChaparroJCP2023.html',1,'teqp::FEANN']]],
+  ['chebyshev_4',['Chebyshev',['../structteqp_1_1CubicSuperAncillary_1_1Chebyshev.html',1,'teqp::CubicSuperAncillary']]],
+  ['chebyshev2deosterm_5',['Chebyshev2DEOSTerm',['../classteqp_1_1Chebyshev2DEOSTerm.html',1,'teqp']]],
+  ['codata_6',['CODATA',['../classteqp_1_1multifluid_1_1gasconstant_1_1CODATA.html',1,'teqp::multifluid::gasconstant']]],
+  ['combinatorialconstants_7',['CombinatorialConstants',['../structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1CombinatorialConstants.html',1,'teqp::activity::activity_models::COSMOSAC']]],
+  ['constviewer_8',['ConstViewer',['../structteqp_1_1cppinterface_1_1adapter_1_1ConstViewer.html',1,'teqp::cppinterface::adapter']]],
+  ['correspondingstatescontribution_9',['CorrespondingStatesContribution',['../classteqp_1_1CorrespondingStatesContribution.html',1,'teqp']]],
+  ['cosmo3_10',['COSMO3',['../classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3.html',1,'teqp::activity::activity_models::COSMOSAC']]],
+  ['cosmo3constants_11',['COSMO3Constants',['../structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants.html',1,'teqp::activity::activity_models::COSMOSAC']]],
+  ['cpaassociation_12',['CPAAssociation',['../classteqp_1_1CPA_1_1CPAAssociation.html',1,'teqp::CPA']]],
+  ['cpacubic_13',['CPACubic',['../classteqp_1_1CPA_1_1CPACubic.html',1,'teqp::CPA']]],
+  ['cpaeos_14',['CPAEOS',['../classteqp_1_1CPA_1_1CPAEOS.html',1,'teqp::CPA']]],
+  ['criticaltracing_15',['CriticalTracing',['../structteqp_1_1CriticalTracing.html',1,'teqp']]]
 ];

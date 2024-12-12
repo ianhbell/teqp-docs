@@ -1,0 +1,82 @@
+\doxysection{genericsaft.\+hpp}
+\hypertarget{genericsaft_8hpp_source}{}\label{genericsaft_8hpp_source}\index{include/teqp/models/saft/genericsaft.hpp@{include/teqp/models/saft/genericsaft.hpp}}
+\mbox{\hyperlink{genericsaft_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{pcsaft_8hpp}{teqp/models/pcsaft.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{saftvrmie_8hpp}{teqp/models/saftvrmie.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{association_8hpp}{teqp/models/association/association.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{softsaft_8hpp}{teqp/models/saft/softsaft.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{2center__ljf_8hpp}{teqp/models/model\_potentials/2center\_ljf.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00009}\mbox{\hyperlink{namespaceteqp_1_1saft_1_1genericsaft}{00009}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp_1_1saft_1_1genericsaft}{teqp::saft::genericsaft}}\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00011}\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT}{00011}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT}{GenericSAFT}}\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00012}00012\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00013}00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00014}\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a6b01147de739d24513148deefdee5f12}{00014}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classteqp_1_1twocenterljf_1_1Twocenterljf}{TwoCLJ}}\ =\ \mbox{\hyperlink{classteqp_1_1twocenterljf_1_1Twocenterljf}{twocenterljf::Twocenterljf<twocenterljf::DipolarContribution>}};}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00015}\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a50886538ea907ef36f9c64494073e866}{00015}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a50886538ea907ef36f9c64494073e866}{NonPolarTerms}}\ =\ std::variant<saft::pcsaft::PCSAFTMixture,\ SAFTVRMie::SAFTVRMieNonpolarMixture,\ saft::softsaft::SoftSAFT,\ TwoCLJ>;}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ \ using\ PolarTerms\ =\ EOSTermContainer<>;}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00017}\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a3e5a54095649ca6ca37ef0093ba5c434}{00017}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a3e5a54095649ca6ca37ef0093ba5c434}{AssociationTerms}}\ =\ std::variant<association::Association>;}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00018}00018\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00019}00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{auto}\ make\_nonpolar(\textcolor{keyword}{const}\ nlohmann::json\ \&j)\ -\/>\ \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a50886538ea907ef36f9c64494073e866}{NonPolarTerms}}\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ std::string\ kind\ =\ j.at(\textcolor{stringliteral}{"{}kind"{}});}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (kind\ ==\ \textcolor{stringliteral}{"{}PCSAFT"{}}\ ||\ kind\ ==\ \textcolor{stringliteral}{"{}PC-\/SAFT"{}})\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_1_1saft_1_1pcsaft_a30a932c7688da7bcd916d2fe6cf7d1c7}{saft::pcsaft::PCSAFTfactory}}(j.at(\textcolor{stringliteral}{"{}model"{}}));}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (kind\ ==\ \textcolor{stringliteral}{"{}SAFTVRMie"{}}\ ||\ kind\ ==\ \textcolor{stringliteral}{"{}SAFT-\/VR-\/Mie"{}})\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_1_1SAFTVRMie_a0de37180f2ae58b35dffe75175ba0394}{SAFTVRMie::SAFTVRMieNonpolarfactory}}(j.at(\textcolor{stringliteral}{"{}model"{}}));}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (kind\ ==\ \textcolor{stringliteral}{"{}Johnson+Johnson"{}}\ ||\ kind\ ==\ \textcolor{stringliteral}{"{}softSAFT"{}})\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT}{saft::softsaft::SoftSAFT}}(j.at(\textcolor{stringliteral}{"{}model"{}}));}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (kind\ ==\ \textcolor{stringliteral}{"{}2CLJF"{}}\ ||\ kind\ ==\ \textcolor{stringliteral}{"{}2CLJ"{}})\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ model\ =\ j.at(\textcolor{stringliteral}{"{}model"{}});}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_1_1twocenterljf_a1e41de8f2b22f4030d463782dc0c9698}{twocenterljf::build\_two\_center\_model}}(model.at(\textcolor{stringliteral}{"{}author"{}}),\ model.at(\textcolor{stringliteral}{"{}L\string^*"{}}));}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Not\ valid\ nonpolar\ kind:"{}}\ +\ kind);}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00038}00038\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00039}00039\ \ \ \ \ \textcolor{keyword}{auto}\ make\_association(\textcolor{keyword}{const}\ nlohmann::json\ \&j)\ -\/>\ \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a3e5a54095649ca6ca37ef0093ba5c434}{AssociationTerms}}\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ std::string\ kind\ =\ j.at(\textcolor{stringliteral}{"{}kind"{}});}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (kind\ ==\ \textcolor{stringliteral}{"{}canonical"{}}\ ||\ kind\ ==\ \textcolor{stringliteral}{"{}Dufal"{}})\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1association_1_1Association_a7070f4a5fbc36872794d2f7d870060f8}{association::Association::factory}}(j.at(\textcolor{stringliteral}{"{}model"{}}));}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Not\ valid\ association\ kind:"{}}\ +\ kind);}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00047}00047\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00048}00048\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00049}00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00050}\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a79255ac77dac2b1aebe4111d38c494d7}{00050}}\ \ \ \ \ \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a79255ac77dac2b1aebe4111d38c494d7}{GenericSAFT}}(\textcolor{keyword}{const}\ nlohmann::json\&j)\ :\ \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a047d5022bcca19132f8b20efccf361d5}{nonpolar}}(make\_nonpolar(j.at(\textcolor{stringliteral}{"{}nonpolar"{}})))\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j.contains(\textcolor{stringliteral}{"{}association"{}}))\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a6223e6364613da8cff2fe2aeb74b8c1c}{association}}.emplace(make\_association(j.at(\textcolor{stringliteral}{"{}association"{}})));}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00055}00055\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00056}00056\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ VecType>}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00057}\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a1d9a3878ebbfcc63e5b584b83c20b6f6}{00057}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a1d9a3878ebbfcc63e5b584b83c20b6f6}{R}}(\textcolor{keyword}{const}\ VecType\&\ molefrac)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_aed0cabbf6a82a357adc773aa850566ea}{get\_R\_gas<decltype(molefrac[0])>}}();}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00059}00059\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00060}00060\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00061}\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a047d5022bcca19132f8b20efccf361d5}{00061}}\ \ \ \ \ \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a50886538ea907ef36f9c64494073e866}{NonPolarTerms}}\ \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a047d5022bcca19132f8b20efccf361d5}{nonpolar}};}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00062}00062\ \textcolor{comment}{//\ \ \ \ std::optional<PolarTerms>\ polar;}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00063}\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a6223e6364613da8cff2fe2aeb74b8c1c}{00063}}\ \ \ \ \ std::optional<AssociationTerms>\ \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a6223e6364613da8cff2fe2aeb74b8c1c}{association}};}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00064}00064\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00065}00065\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TType,\ \textcolor{keyword}{typename}\ RhoType,\ \textcolor{keyword}{typename}\ MoleFractions>}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00066}\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_ad64a799467f8a7f4cd439a97127e967e}{00066}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_ad64a799467f8a7f4cd439a97127e967e}{alphar}}(\textcolor{keyword}{const}\ TType\&\ T,\ \textcolor{keyword}{const}\ RhoType\&\ rho,\ \textcolor{keyword}{const}\ MoleFractions\&\ molefrac)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ contrib\ =\ std::visit([\&](\textcolor{keyword}{auto}\&\ t)\ \{\ \textcolor{keywordflow}{return}\ t.alphar(T,\ rho,\ molefrac);\ \},\ \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a047d5022bcca19132f8b20efccf361d5}{nonpolar}});}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a6223e6364613da8cff2fe2aeb74b8c1c}{association}})\{}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a3e5a54095649ca6ca37ef0093ba5c434}{AssociationTerms}}\&\ at\ =\ \mbox{\hyperlink{structteqp_1_1saft_1_1genericsaft_1_1GenericSAFT_a6223e6364613da8cff2fe2aeb74b8c1c}{association}}.value();}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ contrib\ +=\ std::visit([\&](\textcolor{keyword}{auto}\&\ t)\ \{\ \textcolor{keywordflow}{return}\ t.alphar(T,\ rho,\ molefrac);\ \},\ at);}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ contrib;}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00073}00073\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00074}00074\ \};}
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{genericsaft_8hpp_source_l00076}00076\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,80 @@
+\doxysection{teqp\+::iteration\+::Min\+Rel\+Stepsize\+Condition Class Reference}
+\hypertarget{classteqp_1_1iteration_1_1MinRelStepsizeCondition}{}\label{classteqp_1_1iteration_1_1MinRelStepsizeCondition}\index{teqp::iteration::MinRelStepsizeCondition@{teqp::iteration::MinRelStepsizeCondition}}
+
+
+{\ttfamily \#include $<$iteration.\+hpp$>$}
+
+Inheritance diagram for teqp\+::iteration\+::Min\+Rel\+Stepsize\+Condition\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classteqp_1_1iteration_1_1MinRelStepsizeCondition}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1iteration_1_1MinRelStepsizeCondition_a8763520d069d68f3f1cdfea278f5ea05}{Min\+Rel\+Stepsize\+Condition}} (double threshold)
+\item 
+\mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{Stopping\+Condition\+Reason}} \mbox{\hyperlink{classteqp_1_1iteration_1_1MinRelStepsizeCondition_ad41aa223dd547608f6b1020e1b0fda0f}{stop}} (const \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData}{Stopping\+Data}} \&data) override
+\item 
+std\+::string \mbox{\hyperlink{classteqp_1_1iteration_1_1MinRelStepsizeCondition_a67dce0002b48cb18cbc3e9cbc7f90231}{desc}} () override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00057}{57}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1iteration_1_1MinRelStepsizeCondition_a8763520d069d68f3f1cdfea278f5ea05}\index{teqp::iteration::MinRelStepsizeCondition@{teqp::iteration::MinRelStepsizeCondition}!MinRelStepsizeCondition@{MinRelStepsizeCondition}}
+\index{MinRelStepsizeCondition@{MinRelStepsizeCondition}!teqp::iteration::MinRelStepsizeCondition@{teqp::iteration::MinRelStepsizeCondition}}
+\doxysubsubsection{\texorpdfstring{MinRelStepsizeCondition()}{MinRelStepsizeCondition()}}
+{\footnotesize\ttfamily \label{classteqp_1_1iteration_1_1MinRelStepsizeCondition_a8763520d069d68f3f1cdfea278f5ea05} 
+teqp\+::iteration\+::\+Min\+Rel\+Stepsize\+Condition\+::\+Min\+Rel\+Stepsize\+Condition (\begin{DoxyParamCaption}\item[{double}]{threshold}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1iteration_1_1MinRelStepsizeCondition_a67dce0002b48cb18cbc3e9cbc7f90231}\index{teqp::iteration::MinRelStepsizeCondition@{teqp::iteration::MinRelStepsizeCondition}!desc@{desc}}
+\index{desc@{desc}!teqp::iteration::MinRelStepsizeCondition@{teqp::iteration::MinRelStepsizeCondition}}
+\doxysubsubsection{\texorpdfstring{desc()}{desc()}}
+{\footnotesize\ttfamily \label{classteqp_1_1iteration_1_1MinRelStepsizeCondition_a67dce0002b48cb18cbc3e9cbc7f90231} 
+std\+::string teqp\+::iteration\+::\+Min\+Rel\+Stepsize\+Condition\+::desc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classteqp_1_1iteration_1_1StoppingCondition_af5f4d351f21a850f48f5ab7702305d0e}{teqp\+::iteration\+::\+Stopping\+Condition}}.
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00075}{75}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{classteqp_1_1iteration_1_1MinRelStepsizeCondition_ad41aa223dd547608f6b1020e1b0fda0f}\index{teqp::iteration::MinRelStepsizeCondition@{teqp::iteration::MinRelStepsizeCondition}!stop@{stop}}
+\index{stop@{stop}!teqp::iteration::MinRelStepsizeCondition@{teqp::iteration::MinRelStepsizeCondition}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily \label{classteqp_1_1iteration_1_1MinRelStepsizeCondition_ad41aa223dd547608f6b1020e1b0fda0f} 
+\mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{Stopping\+Condition\+Reason}} teqp\+::iteration\+::\+Min\+Rel\+Stepsize\+Condition\+::stop (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData}{Stopping\+Data}} \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyNote}{Note}
+Initially this was implemented as Eigen operations with vector indexing, but the manual approach is MUCH faster 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{classteqp_1_1iteration_1_1StoppingCondition_a0c5d01515a716cd20374122505815104}{teqp\+::iteration\+::\+Stopping\+Condition}}.
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00066}{66}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{iteration_8hpp}{iteration.\+hpp}}\end{DoxyCompactItemize}

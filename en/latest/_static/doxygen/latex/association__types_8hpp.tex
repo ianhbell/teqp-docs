@@ -1,5 +1,13 @@
 \doxysection{include/teqp/models/association/association\+\_\+types.hpp File Reference}
 \hypertarget{association__types_8hpp}{}\label{association__types_8hpp}\index{include/teqp/models/association/association\_types.hpp@{include/teqp/models/association/association\_types.hpp}}
+{\ttfamily \#include "{}teqp/constants.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1association_1_1CanonicalData}{teqp\+::association\+::\+Canonical\+Data}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1association_1_1DufalData}{teqp\+::association\+::\+Dufal\+Data}}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -20,8 +28,13 @@ enum class \mbox{\hyperlink{namespaceteqp_1_1association_af726186090969c664533b9
 , \mbox{\hyperlink{namespaceteqp_1_1association_af726186090969c664533b95a491f1879a7c06311c696cd974a378c8077ae4575b}{teqp\+::association\+::not\+\_\+associating}}
  \}
 \item 
-enum class \mbox{\hyperlink{namespaceteqp_1_1association_a3250d1b61735bcb52ad62a47a542f13a}{teqp\+::association\+::radial\+\_\+dist}} \{ \mbox{\hyperlink{namespaceteqp_1_1association_a3250d1b61735bcb52ad62a47a542f13aa8d7e99c73cd5a10adaaf4c9f9a520368}{teqp\+::association\+::\+CS}}
-, \mbox{\hyperlink{namespaceteqp_1_1association_a3250d1b61735bcb52ad62a47a542f13aa56d721ccadb8bbfd8b47390d82a6ea4b}{teqp\+::association\+::\+KG}}
+enum class \mbox{\hyperlink{namespaceteqp_1_1association_a5b9e1d56453ee20142c4bb76af22258c}{teqp\+::association\+::radial\+\_\+dists}} \{ \mbox{\hyperlink{namespaceteqp_1_1association_a5b9e1d56453ee20142c4bb76af22258ca8d7e99c73cd5a10adaaf4c9f9a520368}{teqp\+::association\+::\+CS}}
+, \mbox{\hyperlink{namespaceteqp_1_1association_a5b9e1d56453ee20142c4bb76af22258ca56d721ccadb8bbfd8b47390d82a6ea4b}{teqp\+::association\+::\+KG}}
+ \}
+\item 
+enum class \mbox{\hyperlink{namespaceteqp_1_1association_a161dcb3e2845c52a460e50905cc30fe0}{teqp\+::association\+::\+Delta\+\_\+rules}} \{ \mbox{\hyperlink{namespaceteqp_1_1association_a161dcb3e2845c52a460e50905cc30fe0a0de8ddf24fd4424e2a0d29a21de4880e}{teqp\+::association\+::not\+\_\+set}}
+, \mbox{\hyperlink{namespaceteqp_1_1association_a161dcb3e2845c52a460e50905cc30fe0a67d8b481fc20d8735573d548306a81ba}{teqp\+::association\+::\+CR1}}
+, \mbox{\hyperlink{namespaceteqp_1_1association_a161dcb3e2845c52a460e50905cc30fe0a0e8100bbc3e2ccbed8ba7e992d428e69}{teqp\+::association\+::\+Dufal}}
  \}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
@@ -30,4 +43,6 @@ enum class \mbox{\hyperlink{namespaceteqp_1_1association_a3250d1b61735bcb52ad62a
 auto \mbox{\hyperlink{namespaceteqp_1_1association_ab32ded9ad43cf94edc6297a7c6478068}{teqp\+::association\+::get\+\_\+association\+\_\+classes}} (const std\+::string \&s)
 \item 
 auto \mbox{\hyperlink{namespaceteqp_1_1association_aee2c3faba6c39aaae73f7850cc2456ba}{teqp\+::association\+::get\+\_\+radial\+\_\+dist}} (const std\+::string \&s)
+\item 
+auto \mbox{\hyperlink{namespaceteqp_1_1association_a622a4ef1bbb031db15e374d53869afb3}{teqp\+::association\+::get\+\_\+\+Delta\+\_\+rule}} (const std\+::string \&s)
 \end{DoxyCompactItemize}

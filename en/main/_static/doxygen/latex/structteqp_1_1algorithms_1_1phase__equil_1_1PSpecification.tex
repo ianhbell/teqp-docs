@@ -1,0 +1,73 @@
+\doxysection{teqp\+::algorithms\+::phase\+\_\+equil\+::PSpecification Struct Reference}
+\hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1PSpecification}{}\label{structteqp_1_1algorithms_1_1phase__equil_1_1PSpecification}\index{teqp::algorithms::phase\_equil::PSpecification@{teqp::algorithms::phase\_equil::PSpecification}}
+
+
+Specification equation for pressure.  
+
+
+
+
+{\ttfamily \#include $<$phase\+\_\+equil.\+hpp$>$}
+
+Inheritance diagram for teqp\+::algorithms\+::phase\+\_\+equil\+::PSpecification\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structteqp_1_1algorithms_1_1phase__equil_1_1PSpecification}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1PSpecification_ab47a13660bcff45f5166aae72500eb9c}{PSpecification}} (double p\+\_\+\+Pa)
+\item 
+virtual std\+::tuple$<$ double, Eigen\+::\+Array\+Xd $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1PSpecification_a670ee19911309747178f96c9ddef5187}{r\+\_\+\+Jacobian}} (const Eigen\+::\+Array\+Xd \&x, const \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1SpecificationSidecar}{Specification\+Sidecar}} \&sidecar) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1AbstractSpecification}{teqp\+::algorithms\+::phase\+\_\+equil\+::\+Abstract\+Specification}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1AbstractSpecification_ad17724abe6381c5d7bdfc0998d7c0962}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+Specification}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Specification equation for pressure. 
+
+For the first phase, but which phase you pick doesn\textquotesingle{}t matter since all the phases must have the same pressure since they are at mechanical equilibrium 
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00141}{141}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1PSpecification_ab47a13660bcff45f5166aae72500eb9c}\index{teqp::algorithms::phase\_equil::PSpecification@{teqp::algorithms::phase\_equil::PSpecification}!PSpecification@{PSpecification}}
+\index{PSpecification@{PSpecification}!teqp::algorithms::phase\_equil::PSpecification@{teqp::algorithms::phase\_equil::PSpecification}}
+\doxysubsubsection{\texorpdfstring{PSpecification()}{PSpecification()}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1PSpecification_ab47a13660bcff45f5166aae72500eb9c} 
+teqp\+::algorithms\+::phase\+\_\+equil\+::\+PSpecification\+::\+PSpecification (\begin{DoxyParamCaption}\item[{double}]{p\+\_\+\+Pa}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00145}{145}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1PSpecification_a670ee19911309747178f96c9ddef5187}\index{teqp::algorithms::phase\_equil::PSpecification@{teqp::algorithms::phase\_equil::PSpecification}!r\_Jacobian@{r\_Jacobian}}
+\index{r\_Jacobian@{r\_Jacobian}!teqp::algorithms::phase\_equil::PSpecification@{teqp::algorithms::phase\_equil::PSpecification}}
+\doxysubsubsection{\texorpdfstring{r\_Jacobian()}{r\_Jacobian()}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1PSpecification_a670ee19911309747178f96c9ddef5187} 
+virtual std\+::tuple$<$ double, Eigen\+::\+Array\+Xd $>$ teqp\+::algorithms\+::phase\+\_\+equil\+::\+PSpecification\+::r\+\_\+\+Jacobian (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Array\+Xd \&}]{x}{, }\item[{const \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1SpecificationSidecar}{Specification\+Sidecar}} \&}]{sidecar}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1AbstractSpecification_a0ca4329f474e39ab634b0a8f81205e88}{teqp\+::algorithms\+::phase\+\_\+equil\+::\+Abstract\+Specification}}.
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00147}{147}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{phase__equil_8hpp}{phase\+\_\+equil.\+hpp}}\end{DoxyCompactItemize}

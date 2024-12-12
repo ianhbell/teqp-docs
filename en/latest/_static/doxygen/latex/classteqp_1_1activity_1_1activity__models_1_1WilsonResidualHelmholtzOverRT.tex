@@ -1,0 +1,157 @@
+\doxysection{teqp\+::activity\+::activity\+\_\+models\+::Wilson\+Residual\+Helmholtz\+Over\+RT\texorpdfstring{$<$}{<} Num\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT}{}\label{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT}\index{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}}
+
+
+{\ttfamily \#include $<$activity\+\_\+models.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_ae654d99bb03e449fc2b63845a593e003}{Wilson\+Residual\+Helmholtz\+Over\+RT}} (const std\+::vector$<$ double $>$ \&\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a19185c0f10973d8ca45d0ce9a43ab45f}{b}}, const Eigen\+::\+Array\+XXd \&\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a7f7fd90d9fe3876567223256b0333793}{m}}, const Eigen\+::\+Array\+XXd \&\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_aa47f9ebbba813c773bf0111dbcb0ac23}{n}})
+\item 
+{\footnotesize template$<$typename TType , typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a4564c175641aedf586f0a08df6c19e00}{combinatorial}} (const TType \&, const Mole\+Fractions \&molefracs) const
+\item 
+{\footnotesize template$<$typename TType $>$ }\\auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a68a7d121d1aa3116a2ddddeda3b21cdc}{get\+\_\+\+Aij}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j, const TType \&T) const
+\item 
+{\footnotesize template$<$typename TType , typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a54d81a8d1e00547297e011fa5af90697}{total}} (const TType \&T, const Mole\+Fractions \&molefracs) const
+\item 
+{\footnotesize template$<$typename TType , typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_ac8a5559d282d8c30f8662148a626f35a}{operator()}} (const TType \&T, const Mole\+Fractions \&molefracs) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ double $>$ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a19185c0f10973d8ca45d0ce9a43ab45f}{b}}
+\item 
+const Eigen\+::\+Array\+XXd \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a7f7fd90d9fe3876567223256b0333793}{m}}
+\item 
+const Eigen\+::\+Array\+XXd \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_aa47f9ebbba813c773bf0111dbcb0ac23}{n}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Num\+Type$>$\newline
+class teqp\+::activity\+::activity\+\_\+models\+::\+Wilson\+Residual\+Helmholtz\+Over\+RT$<$ Num\+Type $>$}
+\[
+ \frac{a^{E,\gamma}_{total}}{RT} = -sum_iz_i\ln\left(\sum_jz_jOmega_{ij}(T)\right)
+ \]
+
+\[
+ \frac{a^{E,\gamma}_{comb}}{RT} = -sum_iz_i\ln\left(\frac{\Omega_i}{z_i}\right)
+  \]
+
+\[
+ \frac{a^{E,\gamma}_{res}}{RT} = \frac{a^{E,\gamma}_{total}}{RT} - \frac{a^{E,\gamma}_{comb}}{RT}
+ \]
+
+Volume fraction of component $i$   \[
+ \phi_i = \frac{z_iv_i}{\sum_j z_j v_j}
+ \] with $v_i = b_i$ 
+
+Definition at line \mbox{\hyperlink{activity__models_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{activity__models_8hpp_source}{activity\+\_\+models.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_ae654d99bb03e449fc2b63845a593e003}\index{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}!WilsonResidualHelmholtzOverRT@{WilsonResidualHelmholtzOverRT}}
+\index{WilsonResidualHelmholtzOverRT@{WilsonResidualHelmholtzOverRT}!teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}}
+\doxysubsubsection{\texorpdfstring{WilsonResidualHelmholtzOverRT()}{WilsonResidualHelmholtzOverRT()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_ae654d99bb03e449fc2b63845a593e003} 
+template$<$typename Num\+Type $>$ \\
+\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT}{teqp\+::activity\+::activity\+\_\+models\+::\+Wilson\+Residual\+Helmholtz\+Over\+RT}}$<$ Num\+Type $>$\+::\+Wilson\+Residual\+Helmholtz\+Over\+RT (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{b}{, }\item[{const Eigen\+::\+Array\+XXd \&}]{m}{, }\item[{const Eigen\+::\+Array\+XXd \&}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{activity__models_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{activity__models_8hpp_source}{activity\+\_\+models.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a4564c175641aedf586f0a08df6c19e00}\index{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}!combinatorial@{combinatorial}}
+\index{combinatorial@{combinatorial}!teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}}
+\doxysubsubsection{\texorpdfstring{combinatorial()}{combinatorial()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a4564c175641aedf586f0a08df6c19e00} 
+template$<$typename Num\+Type $>$ \\
+template$<$typename TType , typename Mole\+Fractions $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT}{teqp\+::activity\+::activity\+\_\+models\+::\+Wilson\+Residual\+Helmholtz\+Over\+RT}}$<$ Num\+Type $>$\+::combinatorial (\begin{DoxyParamCaption}\item[{const TType \&}]{}{, }\item[{const Mole\+Fractions \&}]{molefracs}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{activity__models_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{activity__models_8hpp_source}{activity\+\_\+models.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a68a7d121d1aa3116a2ddddeda3b21cdc}\index{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}!get\_Aij@{get\_Aij}}
+\index{get\_Aij@{get\_Aij}!teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_Aij()}{get\_Aij()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a68a7d121d1aa3116a2ddddeda3b21cdc} 
+template$<$typename Num\+Type $>$ \\
+template$<$typename TType $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT}{teqp\+::activity\+::activity\+\_\+models\+::\+Wilson\+Residual\+Helmholtz\+Over\+RT}}$<$ Num\+Type $>$\+::get\+\_\+\+Aij (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i}{, }\item[{std\+::size\+\_\+t}]{j}{, }\item[{const TType \&}]{T}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{activity__models_8hpp_source_l00075}{75}} of file \mbox{\hyperlink{activity__models_8hpp_source}{activity\+\_\+models.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_ac8a5559d282d8c30f8662148a626f35a}\index{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_ac8a5559d282d8c30f8662148a626f35a} 
+template$<$typename Num\+Type $>$ \\
+template$<$typename TType , typename Mole\+Fractions $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT}{teqp\+::activity\+::activity\+\_\+models\+::\+Wilson\+Residual\+Helmholtz\+Over\+RT}}$<$ Num\+Type $>$\+::operator() (\begin{DoxyParamCaption}\item[{const TType \&}]{T}{, }\item[{const Mole\+Fractions \&}]{molefracs}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{activity__models_8hpp_source_l00100}{100}} of file \mbox{\hyperlink{activity__models_8hpp_source}{activity\+\_\+models.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a54d81a8d1e00547297e011fa5af90697}\index{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}!total@{total}}
+\index{total@{total}!teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}}
+\doxysubsubsection{\texorpdfstring{total()}{total()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a54d81a8d1e00547297e011fa5af90697} 
+template$<$typename Num\+Type $>$ \\
+template$<$typename TType , typename Mole\+Fractions $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT}{teqp\+::activity\+::activity\+\_\+models\+::\+Wilson\+Residual\+Helmholtz\+Over\+RT}}$<$ Num\+Type $>$\+::total (\begin{DoxyParamCaption}\item[{const TType \&}]{T}{, }\item[{const Mole\+Fractions \&}]{molefracs}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{activity__models_8hpp_source_l00080}{80}} of file \mbox{\hyperlink{activity__models_8hpp_source}{activity\+\_\+models.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a19185c0f10973d8ca45d0ce9a43ab45f}\index{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}!b@{b}}
+\index{b@{b}!teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}}
+\doxysubsubsection{\texorpdfstring{b}{b}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a19185c0f10973d8ca45d0ce9a43ab45f} 
+template$<$typename Num\+Type $>$ \\
+const std\+::vector$<$double$>$ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT}{teqp\+::activity\+::activity\+\_\+models\+::\+Wilson\+Residual\+Helmholtz\+Over\+RT}}$<$ Num\+Type $>$\+::b}
+
+
+
+Definition at line \mbox{\hyperlink{activity__models_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{activity__models_8hpp_source}{activity\+\_\+models.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a7f7fd90d9fe3876567223256b0333793}\index{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}!m@{m}}
+\index{m@{m}!teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}}
+\doxysubsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_a7f7fd90d9fe3876567223256b0333793} 
+template$<$typename Num\+Type $>$ \\
+const Eigen\+::\+Array\+XXd \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT}{teqp\+::activity\+::activity\+\_\+models\+::\+Wilson\+Residual\+Helmholtz\+Over\+RT}}$<$ Num\+Type $>$\+::m}
+
+
+
+Definition at line \mbox{\hyperlink{activity__models_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{activity__models_8hpp_source}{activity\+\_\+models.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_aa47f9ebbba813c773bf0111dbcb0ac23}\index{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}!n@{n}}
+\index{n@{n}!teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$@{teqp::activity::activity\_models::WilsonResidualHelmholtzOverRT$<$ NumType $>$}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT_aa47f9ebbba813c773bf0111dbcb0ac23} 
+template$<$typename Num\+Type $>$ \\
+const Eigen\+::\+Array\+XXd \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1WilsonResidualHelmholtzOverRT}{teqp\+::activity\+::activity\+\_\+models\+::\+Wilson\+Residual\+Helmholtz\+Over\+RT}}$<$ Num\+Type $>$\+::n}
+
+
+
+Definition at line \mbox{\hyperlink{activity__models_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{activity__models_8hpp_source}{activity\+\_\+models.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/activity/\mbox{\hyperlink{activity__models_8hpp}{activity\+\_\+models.\+hpp}}\end{DoxyCompactItemize}

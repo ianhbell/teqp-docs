@@ -27,6 +27,8 @@ namespace \mbox{\hyperlink{namespaceteqp_1_1cppinterface}{teqp\+::cppinterface}}
 \item 
 \#define \mbox{\hyperlink{teqpcpp_8hpp_a0dc12e3dd11b62bf2f28c6de447b2710}{AR0\+N\+\_\+args}}
 \item 
+\#define \mbox{\hyperlink{teqpcpp_8hpp_ac4b5387999ea5e4ba5e2788e2162a7e1}{ARN0\+\_\+args}}
+\item 
 \#define \mbox{\hyperlink{teqpcpp_8hpp_a231be4496358f8a6d0d9d41618c24103}{ISOCHORIC\+\_\+double\+\_\+args}}
 \item 
 \#define \mbox{\hyperlink{teqpcpp_8hpp_a8595f4aa8531de7895ec5ee635875372}{ISOCHORIC\+\_\+array\+\_\+args}}
@@ -38,6 +40,8 @@ namespace \mbox{\hyperlink{namespaceteqp_1_1cppinterface}{teqp\+::cppinterface}}
 \#define \mbox{\hyperlink{teqpcpp_8hpp_a57db0a1939348979cf0b385d13ef09ba}{X}}(i,  j)~virtual double get\+\_\+\+Ar \#\# i \#\# j(const double T, const double rho, const \mbox{\hyperlink{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}{REArrayd}}\& molefrac) const = 0;
 \item 
 \#define \mbox{\hyperlink{teqpcpp_8hpp_a3c23c2da17712d95e32cd500f6e10216}{X}}(i)~virtual \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} get\+\_\+\+Ar0 \#\# i \#\# n(const double T, const double rho, const \mbox{\hyperlink{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}{REArrayd}}\& molefrac) const = 0;
+\item 
+\#define \mbox{\hyperlink{teqpcpp_8hpp_a3c23c2da17712d95e32cd500f6e10216}{X}}(i)~virtual \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} get\+\_\+\+Ar \#\# i \#\# 0n(const double T, const double rho, const \mbox{\hyperlink{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}{REArrayd}}\& molefrac) const = 0;
 \item 
 \#define \mbox{\hyperlink{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(f)~virtual double f(const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\& rhovec) const = 0;
 \item 
@@ -80,16 +84,15 @@ void \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a99c55e372f03fbc42f067db77ba
 
 
 \doxysubsection{Macro Definition Documentation}
-\Hypertarget{teqpcpp_8hpp_a0dc12e3dd11b62bf2f28c6de447b2710}\label{teqpcpp_8hpp_a0dc12e3dd11b62bf2f28c6de447b2710} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!AR0N\_args@{AR0N\_args}}
+\Hypertarget{teqpcpp_8hpp_a0dc12e3dd11b62bf2f28c6de447b2710}\index{teqpcpp.hpp@{teqpcpp.hpp}!AR0N\_args@{AR0N\_args}}
 \index{AR0N\_args@{AR0N\_args}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{AR0N\_args}{AR0N\_args}}
-{\footnotesize\ttfamily \#define AR0\+N\+\_\+args}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a0dc12e3dd11b62bf2f28c6de447b2710} 
+\#define AR0\+N\+\_\+args}
 
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{teqpcpp_8hpp_a57db0a1939348979cf0b385d13ef09ba}{X}}(0)\ \(\backslash\)}
-\DoxyCodeLine{\ \ \ \ X(1)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{teqpcpp_8hpp_a57db0a1939348979cf0b385d13ef09ba}{X}}(1)\ \(\backslash\)}
 \DoxyCodeLine{\ \ \ \ X(2)\ \(\backslash\)}
 \DoxyCodeLine{\ \ \ \ X(3)\ \(\backslash\)}
 \DoxyCodeLine{\ \ \ \ X(4)\ \(\backslash\)}
@@ -101,11 +104,29 @@ void \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a99c55e372f03fbc42f067db77ba
 
 Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_ae569a3779c2805092da5bddda3faa9a3}\label{teqpcpp_8hpp_ae569a3779c2805092da5bddda3faa9a3} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!ARXY\_args@{ARXY\_args}}
+\Hypertarget{teqpcpp_8hpp_ac4b5387999ea5e4ba5e2788e2162a7e1}\index{teqpcpp.hpp@{teqpcpp.hpp}!ARN0\_args@{ARN0\_args}}
+\index{ARN0\_args@{ARN0\_args}!teqpcpp.hpp@{teqpcpp.hpp}}
+\doxysubsubsection{\texorpdfstring{ARN0\_args}{ARN0\_args}}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_ac4b5387999ea5e4ba5e2788e2162a7e1} 
+\#define ARN0\+\_\+args}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{teqpcpp_8hpp_a57db0a1939348979cf0b385d13ef09ba}{X}}(1)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(2)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(3)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(4)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
+
+\Hypertarget{teqpcpp_8hpp_ae569a3779c2805092da5bddda3faa9a3}\index{teqpcpp.hpp@{teqpcpp.hpp}!ARXY\_args@{ARXY\_args}}
 \index{ARXY\_args@{ARXY\_args}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{ARXY\_args}{ARXY\_args}}
-{\footnotesize\ttfamily \#define ARXY\+\_\+args}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_ae569a3779c2805092da5bddda3faa9a3} 
+\#define ARXY\+\_\+args}
 
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
@@ -130,11 +151,11 @@ Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00039}{39}} of file \mb
 
 Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_a8595f4aa8531de7895ec5ee635875372}\label{teqpcpp_8hpp_a8595f4aa8531de7895ec5ee635875372} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!ISOCHORIC\_array\_args@{ISOCHORIC\_array\_args}}
+\Hypertarget{teqpcpp_8hpp_a8595f4aa8531de7895ec5ee635875372}\index{teqpcpp.hpp@{teqpcpp.hpp}!ISOCHORIC\_array\_args@{ISOCHORIC\_array\_args}}
 \index{ISOCHORIC\_array\_args@{ISOCHORIC\_array\_args}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{ISOCHORIC\_array\_args}{ISOCHORIC\_array\_args}}
-{\footnotesize\ttfamily \#define ISOCHORIC\+\_\+array\+\_\+args}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a8595f4aa8531de7895ec5ee635875372} 
+\#define ISOCHORIC\+\_\+array\+\_\+args}
 
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
@@ -149,13 +170,13 @@ Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00022}{22}} of file \mb
 \end{DoxyCode}
 
 
-Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
+Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_a231be4496358f8a6d0d9d41618c24103}\label{teqpcpp_8hpp_a231be4496358f8a6d0d9d41618c24103} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!ISOCHORIC\_double\_args@{ISOCHORIC\_double\_args}}
+\Hypertarget{teqpcpp_8hpp_a231be4496358f8a6d0d9d41618c24103}\index{teqpcpp.hpp@{teqpcpp.hpp}!ISOCHORIC\_double\_args@{ISOCHORIC\_double\_args}}
 \index{ISOCHORIC\_double\_args@{ISOCHORIC\_double\_args}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{ISOCHORIC\_double\_args}{ISOCHORIC\_double\_args}}
-{\footnotesize\ttfamily \#define ISOCHORIC\+\_\+double\+\_\+args}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a231be4496358f8a6d0d9d41618c24103} 
+\#define ISOCHORIC\+\_\+double\+\_\+args}
 
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
@@ -166,13 +187,13 @@ Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00054}{54}} of file \mb
 \end{DoxyCode}
 
 
-Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
+Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00056}{56}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_a180d987324dea13296e5c966cb5f17a9}\label{teqpcpp_8hpp_a180d987324dea13296e5c966cb5f17a9} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!ISOCHORIC\_matrix\_args@{ISOCHORIC\_matrix\_args}}
+\Hypertarget{teqpcpp_8hpp_a180d987324dea13296e5c966cb5f17a9}\index{teqpcpp.hpp@{teqpcpp.hpp}!ISOCHORIC\_matrix\_args@{ISOCHORIC\_matrix\_args}}
 \index{ISOCHORIC\_matrix\_args@{ISOCHORIC\_matrix\_args}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{ISOCHORIC\_matrix\_args}{ISOCHORIC\_matrix\_args}}
-{\footnotesize\ttfamily \#define ISOCHORIC\+\_\+matrix\+\_\+args}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a180d987324dea13296e5c966cb5f17a9} 
+\#define ISOCHORIC\+\_\+matrix\+\_\+args}
 
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
@@ -182,136 +203,146 @@ Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00049}{49}} of file \mb
 \end{DoxyCode}
 
 
-Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00063}{63}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
+Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00070}{70}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_a63f88652f783b174c28db6ed17a8716a}\label{teqpcpp_8hpp_a63f88652f783b174c28db6ed17a8716a} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!ISOCHORIC\_multimatrix\_args@{ISOCHORIC\_multimatrix\_args}}
+\Hypertarget{teqpcpp_8hpp_a63f88652f783b174c28db6ed17a8716a}\index{teqpcpp.hpp@{teqpcpp.hpp}!ISOCHORIC\_multimatrix\_args@{ISOCHORIC\_multimatrix\_args}}
 \index{ISOCHORIC\_multimatrix\_args@{ISOCHORIC\_multimatrix\_args}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{ISOCHORIC\_multimatrix\_args}{ISOCHORIC\_multimatrix\_args}}
-{\footnotesize\ttfamily \#define ISOCHORIC\+\_\+multimatrix\+\_\+args~    \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(build\+\_\+\+Psir\+\_\+fgrad\+Hessian\+\_\+autodiff)}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a63f88652f783b174c28db6ed17a8716a} 
+\#define ISOCHORIC\+\_\+multimatrix\+\_\+args~    \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(build\+\_\+\+Psir\+\_\+fgrad\+Hessian\+\_\+autodiff)}
 
 
 
-Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00067}{67}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
+Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!X@{X}}
+\Hypertarget{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\index{teqpcpp.hpp@{teqpcpp.hpp}!X@{X}}
 \index{X@{X}!teqpcpp.hpp@{teqpcpp.hpp}}
-\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
-{\footnotesize\ttfamily \#define X(\begin{DoxyParamCaption}\item[{}]{f }\end{DoxyParamCaption})~virtual double f(const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\& rhovec) const = 0;}
+\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f} 
+\#define X(\begin{DoxyParamCaption}\item[{}]{f}{}\end{DoxyParamCaption})~virtual double f(const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\& rhovec) const = 0;}
 
 
 
-Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00100}{100}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
+Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00107}{107}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!X@{X}}
+\Hypertarget{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\index{teqpcpp.hpp@{teqpcpp.hpp}!X@{X}}
 \index{X@{X}!teqpcpp.hpp@{teqpcpp.hpp}}
-\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
-{\footnotesize\ttfamily \#define X(\begin{DoxyParamCaption}\item[{}]{f }\end{DoxyParamCaption})~virtual \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} f(const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\& rhovec) const = 0;}
+\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f} 
+\#define X(\begin{DoxyParamCaption}\item[{}]{f}{}\end{DoxyParamCaption})~virtual \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} f(const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\& rhovec) const = 0;}
 
 
 
-Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00100}{100}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
+Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00107}{107}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!X@{X}}
+\Hypertarget{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\index{teqpcpp.hpp@{teqpcpp.hpp}!X@{X}}
 \index{X@{X}!teqpcpp.hpp@{teqpcpp.hpp}}
-\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
-{\footnotesize\ttfamily \#define X(\begin{DoxyParamCaption}\item[{}]{f }\end{DoxyParamCaption})~virtual \mbox{\hyperlink{teqpcpp_8hpp_a5b2ba88216611e735d3c59110ffeb1f1}{EMatrixd}} f(const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\& rhovec) const = 0;}
+\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f} 
+\#define X(\begin{DoxyParamCaption}\item[{}]{f}{}\end{DoxyParamCaption})~virtual \mbox{\hyperlink{teqpcpp_8hpp_a5b2ba88216611e735d3c59110ffeb1f1}{EMatrixd}} f(const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\& rhovec) const = 0;}
 
 
 
-Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00100}{100}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
+Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00107}{107}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\label{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!X@{X}}
+\Hypertarget{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f}\index{teqpcpp.hpp@{teqpcpp.hpp}!X@{X}}
 \index{X@{X}!teqpcpp.hpp@{teqpcpp.hpp}}
-\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
-{\footnotesize\ttfamily \#define X(\begin{DoxyParamCaption}\item[{}]{f }\end{DoxyParamCaption})~virtual std\+::tuple$<$double, Eigen\+::\+Array\+Xd, Eigen\+::\+Matrix\+Xd$>$ f(const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\& rhovec) const = 0;}
+\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a3e0ee787dc4704f51dcecb65616b234f} 
+\#define X(\begin{DoxyParamCaption}\item[{}]{f}{}\end{DoxyParamCaption})~virtual std\+::tuple$<$double, Eigen\+::\+Array\+Xd, Eigen\+::\+Matrix\+Xd$>$ f(const double T, const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}\& rhovec) const = 0;}
 
 
 
-Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00100}{100}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
+Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00107}{107}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_a3c23c2da17712d95e32cd500f6e10216}\label{teqpcpp_8hpp_a3c23c2da17712d95e32cd500f6e10216} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!X@{X}}
+\Hypertarget{teqpcpp_8hpp_a3c23c2da17712d95e32cd500f6e10216}\index{teqpcpp.hpp@{teqpcpp.hpp}!X@{X}}
 \index{X@{X}!teqpcpp.hpp@{teqpcpp.hpp}}
-\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
-{\footnotesize\ttfamily \#define X(\begin{DoxyParamCaption}\item[{}]{i }\end{DoxyParamCaption})~virtual \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} get\+\_\+\+Ar0 \#\# i \#\# n(const double T, const double rho, const \mbox{\hyperlink{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}{REArrayd}}\& molefrac) const = 0;}
+\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a3c23c2da17712d95e32cd500f6e10216} 
+\#define X(\begin{DoxyParamCaption}\item[{}]{i}{}\end{DoxyParamCaption})~virtual \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} get\+\_\+\+Ar0 \#\# i \#\# n(const double T, const double rho, const \mbox{\hyperlink{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}{REArrayd}}\& molefrac) const = 0;}
 
 
 
-Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00100}{100}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
+Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00107}{107}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_a57db0a1939348979cf0b385d13ef09ba}\label{teqpcpp_8hpp_a57db0a1939348979cf0b385d13ef09ba} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!X@{X}}
+\Hypertarget{teqpcpp_8hpp_a3c23c2da17712d95e32cd500f6e10216}\index{teqpcpp.hpp@{teqpcpp.hpp}!X@{X}}
 \index{X@{X}!teqpcpp.hpp@{teqpcpp.hpp}}
-\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
-{\footnotesize\ttfamily \#define X(\begin{DoxyParamCaption}\item[{}]{i,  }\item[{}]{j }\end{DoxyParamCaption})~virtual double get\+\_\+\+Ar \#\# i \#\# j(const double T, const double rho, const \mbox{\hyperlink{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}{REArrayd}}\& molefrac) const = 0;}
+\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a3c23c2da17712d95e32cd500f6e10216} 
+\#define X(\begin{DoxyParamCaption}\item[{}]{i}{}\end{DoxyParamCaption})~virtual \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} get\+\_\+\+Ar \#\# i \#\# 0n(const double T, const double rho, const \mbox{\hyperlink{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}{REArrayd}}\& molefrac) const = 0;}
 
 
 
-Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00100}{100}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
+Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00107}{107}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
+
+\Hypertarget{teqpcpp_8hpp_a57db0a1939348979cf0b385d13ef09ba}\index{teqpcpp.hpp@{teqpcpp.hpp}!X@{X}}
+\index{X@{X}!teqpcpp.hpp@{teqpcpp.hpp}}
+\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a57db0a1939348979cf0b385d13ef09ba} 
+\#define X(\begin{DoxyParamCaption}\item[{}]{i}{, }\item[{}]{j}{}\end{DoxyParamCaption})~virtual double get\+\_\+\+Ar \#\# i \#\# j(const double T, const double rho, const \mbox{\hyperlink{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}{REArrayd}}\& molefrac) const = 0;}
+
+
+
+Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00107}{107}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
 
 
 \doxysubsection{Typedef Documentation}
-\Hypertarget{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}\label{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!EArray2@{EArray2}}
+\Hypertarget{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}\index{teqpcpp.hpp@{teqpcpp.hpp}!EArray2@{EArray2}}
 \index{EArray2@{EArray2}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{EArray2}{EArray2}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}{EArray2}} = Eigen\+::\+Array$<$double, 2, 1$>$}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b} 
+using \mbox{\hyperlink{teqpcpp_8hpp_a45cc18112d93c02493616cb4259df93b}{EArray2}} = Eigen\+::\+Array$<$double, 2, 1$>$}
 
 
 
 Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_a33b6664eaa863cb2cde7788fd750ecfb}\label{teqpcpp_8hpp_a33b6664eaa863cb2cde7788fd750ecfb} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!EArray33d@{EArray33d}}
+\Hypertarget{teqpcpp_8hpp_a33b6664eaa863cb2cde7788fd750ecfb}\index{teqpcpp.hpp@{teqpcpp.hpp}!EArray33d@{EArray33d}}
 \index{EArray33d@{EArray33d}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{EArray33d}{EArray33d}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_a33b6664eaa863cb2cde7788fd750ecfb}{EArray33d}} = Eigen\+::\+Array$<$double, 3, 3$>$}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a33b6664eaa863cb2cde7788fd750ecfb} 
+using \mbox{\hyperlink{teqpcpp_8hpp_a33b6664eaa863cb2cde7788fd750ecfb}{EArray33d}} = Eigen\+::\+Array$<$double, 3, 3$>$}
 
 
 
 Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}\label{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!EArrayd@{EArrayd}}
+\Hypertarget{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}\index{teqpcpp.hpp@{teqpcpp.hpp}!EArrayd@{EArrayd}}
 \index{EArrayd@{EArrayd}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{EArrayd}{EArrayd}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} = Eigen\+::\+ArrayX$<$double$>$}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e} 
+using \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}} = Eigen\+::\+ArrayX$<$double$>$}
 
 
 
 Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_a5b2ba88216611e735d3c59110ffeb1f1}\label{teqpcpp_8hpp_a5b2ba88216611e735d3c59110ffeb1f1} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!EMatrixd@{EMatrixd}}
+\Hypertarget{teqpcpp_8hpp_a5b2ba88216611e735d3c59110ffeb1f1}\index{teqpcpp.hpp@{teqpcpp.hpp}!EMatrixd@{EMatrixd}}
 \index{EMatrixd@{EMatrixd}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{EMatrixd}{EMatrixd}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_a5b2ba88216611e735d3c59110ffeb1f1}{EMatrixd}} = Eigen\+::\+Array$<$double, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic$>$}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a5b2ba88216611e735d3c59110ffeb1f1} 
+using \mbox{\hyperlink{teqpcpp_8hpp_a5b2ba88216611e735d3c59110ffeb1f1}{EMatrixd}} = Eigen\+::\+Array$<$double, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic$>$}
 
 
 
 Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}\label{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!REArrayd@{REArrayd}}
+\Hypertarget{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}\index{teqpcpp.hpp@{teqpcpp.hpp}!REArrayd@{REArrayd}}
 \index{REArrayd@{REArrayd}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{REArrayd}{REArrayd}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}{REArrayd}} = Eigen\+::\+Ref$<$const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}$>$}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b} 
+using \mbox{\hyperlink{teqpcpp_8hpp_a2e836160c0674880f055080b7c67f25b}{REArrayd}} = Eigen\+::\+Ref$<$const \mbox{\hyperlink{teqpcpp_8hpp_ab7ac7045619c2c82156719e1c3e31e1e}{EArrayd}}$>$}
 
 
 
 Definition at line \mbox{\hyperlink{teqpcpp_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{teqpcpp_8hpp_source}{teqpcpp.\+hpp}}.
 
-\Hypertarget{teqpcpp_8hpp_a2617f0ebcedd938ac7f4389424798499}\label{teqpcpp_8hpp_a2617f0ebcedd938ac7f4389424798499} 
-\index{teqpcpp.hpp@{teqpcpp.hpp}!REMatrixd@{REMatrixd}}
+\Hypertarget{teqpcpp_8hpp_a2617f0ebcedd938ac7f4389424798499}\index{teqpcpp.hpp@{teqpcpp.hpp}!REMatrixd@{REMatrixd}}
 \index{REMatrixd@{REMatrixd}!teqpcpp.hpp@{teqpcpp.hpp}}
 \doxysubsubsection{\texorpdfstring{REMatrixd}{REMatrixd}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{teqpcpp_8hpp_a2617f0ebcedd938ac7f4389424798499}{REMatrixd}} = Eigen\+::\+Ref$<$const Eigen\+::\+Array$<$double, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic$>$$>$}
+{\footnotesize\ttfamily \label{teqpcpp_8hpp_a2617f0ebcedd938ac7f4389424798499} 
+using \mbox{\hyperlink{teqpcpp_8hpp_a2617f0ebcedd938ac7f4389424798499}{REMatrixd}} = Eigen\+::\+Ref$<$const Eigen\+::\+Array$<$double, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic$>$$>$}
 
 
 

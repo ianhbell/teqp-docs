@@ -1,0 +1,433 @@
+\doxysection{teqp\+::saft\+::pcsaft\+::PCSAFTMixture Class Reference}
+\hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture}{}\label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+
+
+{\ttfamily \#include $<$pcsaft.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_acfd3fcb484023afa7d7fea5784fb90e8}{PCSAFTDipolar\+Contribution}} = \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec}{teqp\+::saft\+::polar\+\_\+terms\+::\+Gross\+Vrabec\+::\+Dipolar\+Contribution\+Gross\+Vrabec}}
+\item 
+using \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ae838c5ead7dc591aa7d60e853b66fc88}{PCSAFTQuadrupolar\+Contribution}} = \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1QuadrupolarContributionGross}{teqp\+::saft\+::polar\+\_\+terms\+::\+Gross\+Vrabec\+::\+Quadrupolar\+Contribution\+Gross}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a3c93ef99eec17267e13c4ea56b5e2888}{PCSAFTMixture}} (const std\+::vector$<$ std\+::string $>$ \&\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a175cb3ea678f38bd07db358ede62354d}{names}}, const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&a=\mbox{\hyperlink{namespaceteqp_1_1saft_1_1PCSAFT_1_1PCSAFTMatrices_1_1GrossSadowski2001_a7d7731b612ca767551d75565ef8a5682}{teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTMatrices\+::\+Gross\+Sadowski2001\+::a}}, const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&b=\mbox{\hyperlink{namespaceteqp_1_1saft_1_1PCSAFT_1_1PCSAFTMatrices_1_1GrossSadowski2001_ab5dcac5115652fd6efeb87fc2220d6dd}{teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTMatrices\+::\+Gross\+Sadowski2001\+::b}}, const Eigen\+::\+Array\+XXd \&\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a754f2219954bf576dca51f9c9dd6739e}{kmat}}=\{\})
+\item 
+\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aa401e464f629b4942464753c93997a77}{PCSAFTMixture}} (const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1saft_1_1pcsaft_1_1SAFTCoeffs}{SAFTCoeffs}} $>$ \&coeffs, const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&a=\mbox{\hyperlink{namespaceteqp_1_1saft_1_1PCSAFT_1_1PCSAFTMatrices_1_1GrossSadowski2001_a7d7731b612ca767551d75565ef8a5682}{teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTMatrices\+::\+Gross\+Sadowski2001\+::a}}, const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&b=\mbox{\hyperlink{namespaceteqp_1_1saft_1_1PCSAFT_1_1PCSAFTMatrices_1_1GrossSadowski2001_ab5dcac5115652fd6efeb87fc2220d6dd}{teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTMatrices\+::\+Gross\+Sadowski2001\+::b}}, const Eigen\+::\+Array\+XXd \&\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a754f2219954bf576dca51f9c9dd6739e}{kmat}}=\{\})
+\item 
+\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture}{PCSAFTMixture}} \& \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aeb539b11f3cc27bfe51e260710c856c3}{operator=}} (const \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture}{PCSAFTMixture}} \&)=delete
+\item 
+auto \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a26e58db1ac683c4036b2aaec38222746}{get\+\_\+m}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ae82a4f17fb5280887aa69e3980bbb9c2}{get\+\_\+sigma\+\_\+\+Angstrom}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a92ccff5060518dedb2785fe9dc32ca4a}{get\+\_\+epsilon\+\_\+over\+\_\+k\+\_\+K}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a6dd49a475d634c909d9fb7bce28411c7}{get\+\_\+kmat}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aa21484f9f4fb199824b6ed282d95dbd7}{get\+\_\+names}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aa906d5658a31e5fbe6b7173ecc2bf805}{get\+\_\+\+Bib\+Te\+XKeys}} () const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aaff81e1031be80615ebc44ec3d2cd6a9}{print\+\_\+info}} ()
+\item 
+{\footnotesize template$<$typename Vec\+Type $>$ }\\double \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aa97d445fa78736b4385f2239ad379c73}{max\+\_\+rhoN}} (const double T, const Vec\+Type \&mole\+\_\+fractions) const
+\item 
+{\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_add5750b3e1ebcffc3d79b645441213f1}{R}} (const Vec\+Type \&molefrac) const
+\item 
+{\footnotesize template$<$typename TTYPE , typename Rho\+Type , typename Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a9dd44edd96f1e22323d9eade356a4ac5}{alphar}} (const TTYPE \&T, const Rho\+Type \&rhomolar, const Vec\+Type \&mole\+\_\+fractions) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_afc7a4fbb76200cdea8d7d53cf0bc8902}{check\+\_\+kmat}} (Eigen\+::\+Index N)
+\item 
+auto \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a1a846f3d10d9cc8b55029134915f85ba}{get\+\_\+coeffs\+\_\+from\+\_\+names}} (const std\+::vector$<$ std\+::string $>$ \&the\+\_\+names)
+\item 
+auto \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a0537d1a3519ca5a39f345c65491695e2}{build\+\_\+hardchain}} (const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1saft_1_1pcsaft_1_1SAFTCoeffs}{SAFTCoeffs}} $>$ \&coeffs, const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&a, const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&b)
+\item 
+auto \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_af7049ef5edae28fff3854aa46412ee32}{extract\+\_\+names}} (const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1saft_1_1pcsaft_1_1SAFTCoeffs}{SAFTCoeffs}} $>$ \&coeffs)
+\item 
+auto \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ac68e00a3a321db7d6b215f78bfbbe283}{build\+\_\+dipolar}} (const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1saft_1_1pcsaft_1_1SAFTCoeffs}{SAFTCoeffs}} $>$ \&coeffs) -\/$>$ std\+::optional$<$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_acfd3fcb484023afa7d7fea5784fb90e8}{PCSAFTDipolar\+Contribution}} $>$
+\item 
+auto \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a80bacc96449a24140147d0b8f67985b5}{build\+\_\+quadrupolar}} (const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1saft_1_1pcsaft_1_1SAFTCoeffs}{SAFTCoeffs}} $>$ \&coeffs) -\/$>$ std\+::optional$<$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ae838c5ead7dc591aa7d60e853b66fc88}{PCSAFTQuadrupolar\+Contribution}} $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+ArrayX$<$ double $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a6785b3b5b264672907ca8c7718095c03}{m}}
+\begin{DoxyCompactList}\small\item\em number of segments \end{DoxyCompactList}\item 
+Eigen\+::\+ArrayX$<$ double $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ac42d5c855476f0ce8c63c8057367ce94}{mminus1}}
+\begin{DoxyCompactList}\small\item\em m-\/1 \end{DoxyCompactList}\item 
+Eigen\+::\+ArrayX$<$ double $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a8d7b5963f260d5c4ac59b8666523681d}{sigma\+\_\+\+Angstrom}}
+\item 
+Eigen\+::\+ArrayX$<$ double $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a3d30dd0766e715b654b8119d8e481c27}{epsilon\+\_\+over\+\_\+k}}
+\begin{DoxyCompactList}\small\item\em depth of pair potential divided by Boltzman constant \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a175cb3ea678f38bd07db358ede62354d}{names}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ad302c3dbf121cc2295ba605bacccc29f}{bibtex}}
+\item 
+Eigen\+::\+Array\+XXd \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a754f2219954bf576dca51f9c9dd6739e}{kmat}}
+\begin{DoxyCompactList}\small\item\em binary interaction parameter matrix \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution}{PCSAFTHard\+Chain\+Contribution}} \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ace31c9a04a04b5f564422a11a25be242}{hardchain}}
+\item 
+std\+::optional$<$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_acfd3fcb484023afa7d7fea5784fb90e8}{PCSAFTDipolar\+Contribution}} $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a6158ab4777ef0a2bd547b6a15ca6cab0}{dipolar}}
+\item 
+std\+::optional$<$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ae838c5ead7dc591aa7d60e853b66fc88}{PCSAFTQuadrupolar\+Contribution}} $>$ \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a1d5535520524c871567ce7ec01d2969c}{quadrupolar}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class used to evaluate mixtures using PC-\/\+SAFT model
+
+This is the classical Gross and Sadowski model from 2001\+: \href{https://doi.org/10.1021/ie0003887}{\texttt{ https\+://doi.\+org/10.\+1021/ie0003887}}
+
+with the errors fixed as noted in a comment\+: \href{https://doi.org/10.1021/acs.iecr.9b01515}{\texttt{ https\+://doi.\+org/10.\+1021/acs.\+iecr.\+9b01515}} 
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00303}{303}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_acfd3fcb484023afa7d7fea5784fb90e8}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!PCSAFTDipolarContribution@{PCSAFTDipolarContribution}}
+\index{PCSAFTDipolarContribution@{PCSAFTDipolarContribution}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{PCSAFTDipolarContribution}{PCSAFTDipolarContribution}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_acfd3fcb484023afa7d7fea5784fb90e8} 
+using \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_acfd3fcb484023afa7d7fea5784fb90e8}{teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::\+PCSAFTDipolar\+Contribution}} = \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1DipolarContributionGrossVrabec}{teqp\+::saft\+::polar\+\_\+terms\+::\+Gross\+Vrabec\+::\+Dipolar\+Contribution\+Gross\+Vrabec}}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00305}{305}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ae838c5ead7dc591aa7d60e853b66fc88}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!PCSAFTQuadrupolarContribution@{PCSAFTQuadrupolarContribution}}
+\index{PCSAFTQuadrupolarContribution@{PCSAFTQuadrupolarContribution}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{PCSAFTQuadrupolarContribution}{PCSAFTQuadrupolarContribution}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ae838c5ead7dc591aa7d60e853b66fc88} 
+using \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ae838c5ead7dc591aa7d60e853b66fc88}{teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::\+PCSAFTQuadrupolar\+Contribution}} = \mbox{\hyperlink{classteqp_1_1saft_1_1polar__terms_1_1GrossVrabec_1_1QuadrupolarContributionGross}{teqp\+::saft\+::polar\+\_\+terms\+::\+Gross\+Vrabec\+::\+Quadrupolar\+Contribution\+Gross}}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00306}{306}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a3c93ef99eec17267e13c4ea56b5e2888}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!PCSAFTMixture@{PCSAFTMixture}}
+\index{PCSAFTMixture@{PCSAFTMixture}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{PCSAFTMixture()}{PCSAFTMixture()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a3c93ef99eec17267e13c4ea56b5e2888} 
+teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::\+PCSAFTMixture (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{names}{, }\item[{const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&}]{a}{ = {\ttfamily \mbox{\hyperlink{namespaceteqp_1_1saft_1_1PCSAFT_1_1PCSAFTMatrices_1_1GrossSadowski2001_a7d7731b612ca767551d75565ef8a5682}{teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTMatrices\+::\+Gross\+Sadowski2001\+::a}}}, }\item[{const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&}]{b}{ = {\ttfamily \mbox{\hyperlink{namespaceteqp_1_1saft_1_1PCSAFT_1_1PCSAFTMatrices_1_1GrossSadowski2001_ab5dcac5115652fd6efeb87fc2220d6dd}{teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTMatrices\+::\+Gross\+Sadowski2001\+::b}}}, }\item[{const Eigen\+::\+Array\+XXd \&}]{kmat}{ = {\ttfamily \{\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00391}{391}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aa401e464f629b4942464753c93997a77}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!PCSAFTMixture@{PCSAFTMixture}}
+\index{PCSAFTMixture@{PCSAFTMixture}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{PCSAFTMixture()}{PCSAFTMixture()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aa401e464f629b4942464753c93997a77} 
+teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::\+PCSAFTMixture (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1saft_1_1pcsaft_1_1SAFTCoeffs}{SAFTCoeffs}} $>$ \&}]{coeffs}{, }\item[{const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&}]{a}{ = {\ttfamily \mbox{\hyperlink{namespaceteqp_1_1saft_1_1PCSAFT_1_1PCSAFTMatrices_1_1GrossSadowski2001_a7d7731b612ca767551d75565ef8a5682}{teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTMatrices\+::\+Gross\+Sadowski2001\+::a}}}, }\item[{const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&}]{b}{ = {\ttfamily \mbox{\hyperlink{namespaceteqp_1_1saft_1_1PCSAFT_1_1PCSAFTMatrices_1_1GrossSadowski2001_ab5dcac5115652fd6efeb87fc2220d6dd}{teqp\+::saft\+::\+PCSAFT\+::\+PCSAFTMatrices\+::\+Gross\+Sadowski2001\+::b}}}, }\item[{const Eigen\+::\+Array\+XXd \&}]{kmat}{ = {\ttfamily \{\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00395}{395}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a9dd44edd96f1e22323d9eade356a4ac5}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a9dd44edd96f1e22323d9eade356a4ac5} 
+template$<$typename TTYPE , typename Rho\+Type , typename Vec\+Type $>$ \\
+auto teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::alphar (\begin{DoxyParamCaption}\item[{const TTYPE \&}]{T}{, }\item[{const Rho\+Type \&}]{rhomolar}{, }\item[{const Vec\+Type \&}]{mole\+\_\+fractions}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00434}{434}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ac68e00a3a321db7d6b215f78bfbbe283}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!build\_dipolar@{build\_dipolar}}
+\index{build\_dipolar@{build\_dipolar}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{build\_dipolar()}{build\_dipolar()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ac68e00a3a321db7d6b215f78bfbbe283} 
+auto teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::build\+\_\+dipolar (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1saft_1_1pcsaft_1_1SAFTCoeffs}{SAFTCoeffs}} $>$ \&}]{coeffs}{}\end{DoxyParamCaption}) -\/$>$ std\+::optional$<$\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_acfd3fcb484023afa7d7fea5784fb90e8}{PCSAFTDipolar\+Contribution}}$>$\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00362}{362}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a0537d1a3519ca5a39f345c65491695e2}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!build\_hardchain@{build\_hardchain}}
+\index{build\_hardchain@{build\_hardchain}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{build\_hardchain()}{build\_hardchain()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a0537d1a3519ca5a39f345c65491695e2} 
+auto teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::build\+\_\+hardchain (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1saft_1_1pcsaft_1_1SAFTCoeffs}{SAFTCoeffs}} $>$ \&}]{coeffs}{, }\item[{const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&}]{a}{, }\item[{const Eigen\+::\+Array$<$ double, 3, 7 $>$ \&}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00334}{334}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a80bacc96449a24140147d0b8f67985b5}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!build\_quadrupolar@{build\_quadrupolar}}
+\index{build\_quadrupolar@{build\_quadrupolar}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{build\_quadrupolar()}{build\_quadrupolar()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a80bacc96449a24140147d0b8f67985b5} 
+auto teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::build\+\_\+quadrupolar (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1saft_1_1pcsaft_1_1SAFTCoeffs}{SAFTCoeffs}} $>$ \&}]{coeffs}{}\end{DoxyParamCaption}) -\/$>$ std\+::optional$<$\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ae838c5ead7dc591aa7d60e853b66fc88}{PCSAFTQuadrupolar\+Contribution}}$>$\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00376}{376}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_afc7a4fbb76200cdea8d7d53cf0bc8902}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!check\_kmat@{check\_kmat}}
+\index{check\_kmat@{check\_kmat}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{check\_kmat()}{check\_kmat()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_afc7a4fbb76200cdea8d7d53cf0bc8902} 
+void teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::check\+\_\+kmat (\begin{DoxyParamCaption}\item[{Eigen\+::\+Index}]{N}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00319}{319}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_af7049ef5edae28fff3854aa46412ee32}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!extract\_names@{extract\_names}}
+\index{extract\_names@{extract\_names}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{extract\_names()}{extract\_names()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_af7049ef5edae28fff3854aa46412ee32} 
+auto teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::extract\+\_\+names (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1saft_1_1pcsaft_1_1SAFTCoeffs}{SAFTCoeffs}} $>$ \&}]{coeffs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00355}{355}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aa906d5658a31e5fbe6b7173ecc2bf805}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!get\_BibTeXKeys@{get\_BibTeXKeys}}
+\index{get\_BibTeXKeys@{get\_BibTeXKeys}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{get\_BibTeXKeys()}{get\_BibTeXKeys()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aa906d5658a31e5fbe6b7173ecc2bf805} 
+auto teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::get\+\_\+\+Bib\+Te\+XKeys (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00408}{408}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a1a846f3d10d9cc8b55029134915f85ba}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!get\_coeffs\_from\_names@{get\_coeffs\_from\_names}}
+\index{get\_coeffs\_from\_names@{get\_coeffs\_from\_names}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{get\_coeffs\_from\_names()}{get\_coeffs\_from\_names()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a1a846f3d10d9cc8b55029134915f85ba} 
+auto teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::get\+\_\+coeffs\+\_\+from\+\_\+names (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{the\+\_\+names}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00330}{330}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a92ccff5060518dedb2785fe9dc32ca4a}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!get\_epsilon\_over\_k\_K@{get\_epsilon\_over\_k\_K}}
+\index{get\_epsilon\_over\_k\_K@{get\_epsilon\_over\_k\_K}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{get\_epsilon\_over\_k\_K()}{get\_epsilon\_over\_k\_K()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a92ccff5060518dedb2785fe9dc32ca4a} 
+auto teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::get\+\_\+epsilon\+\_\+over\+\_\+k\+\_\+K (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00405}{405}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a6dd49a475d634c909d9fb7bce28411c7}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!get\_kmat@{get\_kmat}}
+\index{get\_kmat@{get\_kmat}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{get\_kmat()}{get\_kmat()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a6dd49a475d634c909d9fb7bce28411c7} 
+auto teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::get\+\_\+kmat (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00406}{406}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a26e58db1ac683c4036b2aaec38222746}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!get\_m@{get\_m}}
+\index{get\_m@{get\_m}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{get\_m()}{get\_m()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a26e58db1ac683c4036b2aaec38222746} 
+auto teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::get\+\_\+m (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00403}{403}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aa21484f9f4fb199824b6ed282d95dbd7}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!get\_names@{get\_names}}
+\index{get\_names@{get\_names}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{get\_names()}{get\_names()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aa21484f9f4fb199824b6ed282d95dbd7} 
+auto teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::get\+\_\+names (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00407}{407}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ae82a4f17fb5280887aa69e3980bbb9c2}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!get\_sigma\_Angstrom@{get\_sigma\_Angstrom}}
+\index{get\_sigma\_Angstrom@{get\_sigma\_Angstrom}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{get\_sigma\_Angstrom()}{get\_sigma\_Angstrom()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ae82a4f17fb5280887aa69e3980bbb9c2} 
+auto teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::get\+\_\+sigma\+\_\+\+Angstrom (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00404}{404}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aa97d445fa78736b4385f2239ad379c73}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!max\_rhoN@{max\_rhoN}}
+\index{max\_rhoN@{max\_rhoN}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{max\_rhoN()}{max\_rhoN()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aa97d445fa78736b4385f2239ad379c73} 
+template$<$typename Vec\+Type $>$ \\
+double teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::max\+\_\+rhoN (\begin{DoxyParamCaption}\item[{const double}]{T}{, }\item[{const Vec\+Type \&}]{mole\+\_\+fractions}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00419}{419}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aeb539b11f3cc27bfe51e260710c856c3}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!operator=@{operator=}}
+\index{operator=@{operator=}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aeb539b11f3cc27bfe51e260710c856c3} 
+\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture}{PCSAFTMixture}} \& teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture}{PCSAFTMixture}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aaff81e1031be80615ebc44ec3d2cd6a9}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!print\_info@{print\_info}}
+\index{print\_info@{print\_info}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{print\_info()}{print\_info()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_aaff81e1031be80615ebc44ec3d2cd6a9} 
+auto teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::print\+\_\+info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00410}{410}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_add5750b3e1ebcffc3d79b645441213f1}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!R@{R}}
+\index{R@{R}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_add5750b3e1ebcffc3d79b645441213f1} 
+template$<$class Vec\+Type $>$ \\
+auto teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00429}{429}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ad302c3dbf121cc2295ba605bacccc29f}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!bibtex@{bibtex}}
+\index{bibtex@{bibtex}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{bibtex}{bibtex}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ad302c3dbf121cc2295ba605bacccc29f} 
+std\+::vector$<$std\+::string$>$ teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::bibtex\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00312}{312}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a6158ab4777ef0a2bd547b6a15ca6cab0}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!dipolar@{dipolar}}
+\index{dipolar@{dipolar}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{dipolar}{dipolar}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a6158ab4777ef0a2bd547b6a15ca6cab0} 
+std\+::optional$<$\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_acfd3fcb484023afa7d7fea5784fb90e8}{PCSAFTDipolar\+Contribution}}$>$ teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::dipolar\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00316}{316}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a3d30dd0766e715b654b8119d8e481c27}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!epsilon\_over\_k@{epsilon\_over\_k}}
+\index{epsilon\_over\_k@{epsilon\_over\_k}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{epsilon\_over\_k}{epsilon\_over\_k}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a3d30dd0766e715b654b8119d8e481c27} 
+Eigen\+::\+ArrayX$<$double$>$ teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::epsilon\+\_\+over\+\_\+k\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+depth of pair potential divided by Boltzman constant 
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00311}{311}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ace31c9a04a04b5f564422a11a25be242}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!hardchain@{hardchain}}
+\index{hardchain@{hardchain}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{hardchain}{hardchain}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ace31c9a04a04b5f564422a11a25be242} 
+\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTHardChainContribution}{PCSAFTHard\+Chain\+Contribution}} teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::hardchain\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00315}{315}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a754f2219954bf576dca51f9c9dd6739e}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!kmat@{kmat}}
+\index{kmat@{kmat}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{kmat}{kmat}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a754f2219954bf576dca51f9c9dd6739e} 
+Eigen\+::\+Array\+XXd teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::kmat\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+binary interaction parameter matrix 
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00313}{313}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a6785b3b5b264672907ca8c7718095c03}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!m@{m}}
+\index{m@{m}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a6785b3b5b264672907ca8c7718095c03} 
+Eigen\+::\+ArrayX$<$double$>$ teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::m\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+number of segments 
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00308}{308}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ac42d5c855476f0ce8c63c8057367ce94}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!mminus1@{mminus1}}
+\index{mminus1@{mminus1}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{mminus1}{mminus1}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ac42d5c855476f0ce8c63c8057367ce94} 
+Eigen\+::\+ArrayX$<$double$>$ teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::mminus1\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m-\/1 
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00309}{309}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a175cb3ea678f38bd07db358ede62354d}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!names@{names}}
+\index{names@{names}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{names}{names}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a175cb3ea678f38bd07db358ede62354d} 
+std\+::vector$<$std\+::string$>$ teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::names\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00312}{312}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a1d5535520524c871567ce7ec01d2969c}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!quadrupolar@{quadrupolar}}
+\index{quadrupolar@{quadrupolar}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{quadrupolar}{quadrupolar}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a1d5535520524c871567ce7ec01d2969c} 
+std\+::optional$<$\mbox{\hyperlink{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_ae838c5ead7dc591aa7d60e853b66fc88}{PCSAFTQuadrupolar\+Contribution}}$>$ teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::quadrupolar\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00317}{317}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a8d7b5963f260d5c4ac59b8666523681d}\index{teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}!sigma\_Angstrom@{sigma\_Angstrom}}
+\index{sigma\_Angstrom@{sigma\_Angstrom}!teqp::saft::pcsaft::PCSAFTMixture@{teqp::saft::pcsaft::PCSAFTMixture}}
+\doxysubsubsection{\texorpdfstring{sigma\_Angstrom}{sigma\_Angstrom}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1pcsaft_1_1PCSAFTMixture_a8d7b5963f260d5c4ac59b8666523681d} 
+Eigen\+::\+ArrayX$<$double$>$ teqp\+::saft\+::pcsaft\+::\+PCSAFTMixture\+::sigma\+\_\+\+Angstrom\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pcsaft_8hpp_source_l00310}{310}} of file \mbox{\hyperlink{pcsaft_8hpp_source}{pcsaft.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\mbox{\hyperlink{pcsaft_8hpp}{pcsaft.\+hpp}}\end{DoxyCompactItemize}

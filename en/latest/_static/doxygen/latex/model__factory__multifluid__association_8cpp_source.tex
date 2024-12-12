@@ -1,0 +1,17 @@
+\doxysection{model\+\_\+factory\+\_\+multifluid\+\_\+association.\+cpp}
+\hypertarget{model__factory__multifluid__association_8cpp_source}{}\label{model__factory__multifluid__association_8cpp_source}\index{interface/CPP/model\_factory\_multifluid\_association.cpp@{interface/CPP/model\_factory\_multifluid\_association.cpp}}
+\mbox{\hyperlink{model__factory__multifluid__association_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid__association_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teqpcpp_8hpp}{teqp/cpp/teqpcpp.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid__association_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{deriv__adapter_8hpp}{teqp/cpp/deriv\_adapter.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid__association_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{multifluid__association_8hpp}{teqp/models/multifluid\_association.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid__association_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid__association_8cpp_source_l00005}00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp}{teqp}}\{}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid__association_8cpp_source_l00006}00006\ \ \ \ \ \textcolor{keyword}{namespace\ }cppinterface\{}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid__association_8cpp_source_l00007}\mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d9dbda4baf19fb06070bf69b6cc4e30}{00007}}\ \ \ \ \ \ \ \ \ std::unique\_ptr<teqp::cppinterface::AbstractModel>\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2d9dbda4baf19fb06070bf69b6cc4e30}{make\_multifluid\_association}}(\textcolor{keyword}{const}\ nlohmann::json\ \&j)\{}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid__association_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a8815be35c71d998189588fefb08f3032}{teqp::cppinterface::adapter::make\_owned}}(\mbox{\hyperlink{classteqp_1_1MultifluidPlusAssociation}{MultifluidPlusAssociation}}(j));}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid__association_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid__association_8cpp_source_l00010}00010\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{model__factory__multifluid__association_8cpp_source_l00011}00011\ \}}
+
+\end{DoxyCode}

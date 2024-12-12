@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Cubic Plus Association (CPA) &#8212; teqp 0.19.1 documentation</title>
+    <title>Cubic Plus Association (CPA) &#8212; teqp 0.22.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
     <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
-    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../_static/documentation_options.js?v=5686f5df"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -51,9 +51,8 @@
 <h2>Cubic part<a class="headerlink" href="#Cubic-part" title="Link to this heading">¶</a></h2>
 <p>The residual contribution to <span class="math notranslate nohighlight">\(\alpha\)</span> is expressed as the sum :</p>
 <div class="math notranslate nohighlight">
-\[\alpha^{\rm r}_{\rm cub,rep} +\alpha^{\rm r}_{\rm cub,att}\]</div>
-<p>where the cubic parts come from</p>
-<p>The repulsive part of the cubic EOS contribution:</p>
+\[\alpha^{\rm r}_{\rm assoc} = \alpha^{\rm r}_{\rm cub,rep} +\alpha^{\rm r}_{\rm cub,att}\]</div>
+<p>where the cubic parts come from two separate contributions. The repulsive part of the cubic EOS contribution is:</p>
 <div class="math notranslate nohighlight">
 \[\alpha^{\rm r}_{\rm cub,rep} = -\ln(1 - b_{\rm mix}\rho)\]</div>
 <p>The attractive part of the cubic EOS contribution:</p>
@@ -65,7 +64,7 @@
 <p>The mixture models used for the <span class="math notranslate nohighlight">\(a_{\rm mix}\)</span> and <span class="math notranslate nohighlight">\(b_{\rm mix}\)</span> are the classical ones:</p>
 <div class="math notranslate nohighlight">
 \[a_{\rm mix} = \sum_i\sum_jx_ix_j(1-k_{ij})a_{ij}(T)\]</div>
-<p>with x the mole fraction, <span class="math notranslate nohighlight">\(k_{ij}\)</span> a weighting parameter</p>
+<p>with <span class="math notranslate nohighlight">\(x\)</span> the mole fraction, <span class="math notranslate nohighlight">\(k_{ij}\)</span> a weighting parameter</p>
 <div class="math notranslate nohighlight">
 \[a_{ij}(T) = \sqrt{a_ia_j}\]</div>
 <p>and</p>
@@ -74,18 +73,85 @@
 <p>and for <span class="math notranslate nohighlight">\(b\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[b_{\rm mix} = \sum_ix_ib_i\]</div>
-<p>so there are three cubic parameters per fluid that need to be obtained though fitting: <span class="math notranslate nohighlight">\(b_{i}\)</span>, <span class="math notranslate nohighlight">\(a_{0i}\)</span>, <span class="math notranslate nohighlight">\(c_{1i}\)</span>. The value of <span class="math notranslate nohighlight">\(a_{\rm ij}\)</span> depends on temperature while <span class="math notranslate nohighlight">\(b_{\rm mix}\)</span> does not.</p>
+<p>so there are three cubic parameters per fluid that need to be obtained though fitting: <span class="math notranslate nohighlight">\(b_{i}\)</span>, <span class="math notranslate nohighlight">\(a_{0i}\)</span>, <span class="math notranslate nohighlight">\(c_{1i}\)</span>. The value of <span class="math notranslate nohighlight">\(a_{ij}\)</span> depends on temperature while <span class="math notranslate nohighlight">\(b_{\rm mix}\)</span> does not.</p>
 </section>
 <section id="Association-part">
 <h2>Association part<a class="headerlink" href="#Association-part" title="Link to this heading">¶</a></h2>
-<p>For the association, one must have a solid understanding of the association approach that is being applied. To this end, a short discussion of the general approach is required.</p>
+<p>The residual contribution of the association to the Helmholtz energy <span class="math notranslate nohighlight">\(\alpha^{\rm r}_{\rm assoc}\)</span> is formulated as:</p>
+<div class="math notranslate nohighlight">
+\[\alpha^{\rm r}_{\rm assoc} = \sum_{i} x_i \sum_{A_i} \left(\ln(Y_{A_i}) - \frac{Y_{A_i}}{2} \right) + \frac{M_i}{2},\]</div>
+<p>where <span class="math notranslate nohighlight">\(x_i\)</span> is the mole fraction of molecule <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(A_i\)</span> is a site of type <span class="math notranslate nohighlight">\(A\)</span> on molecule <span class="math notranslate nohighlight">\(i\)</span> that can interact with other site types (e.g., type <span class="math notranslate nohighlight">\(B\)</span>). <span class="math notranslate nohighlight">\(Y_{A_i}\)</span> then is the monomer mole fraction of site <span class="math notranslate nohighlight">\(A_i\)</span> and <span class="math notranslate nohighlight">\(M_i\)</span> is the count of association sites of molecule <span class="math notranslate nohighlight">\(i\)</span>. The monomer mole fraction <span class="math notranslate nohighlight">\(Y_{A_i}\)</span> can be calculated with:</p>
+<div class="math notranslate nohighlight">
+\[Y_{A_i} = \frac{1}{1+\rho N_{\rm A} \sum_j \sum_{B_j} x_j Y_{B_j} \Delta_{A_i B_j}}.\]</div>
+<p><span class="math notranslate nohighlight">\(\rho\)</span> is the molar density of the mixture, <span class="math notranslate nohighlight">\(N_{\rm A}\)</span> is the Avogadro constant, <span class="math notranslate nohighlight">\(j\)</span> is the index for a molecule that can be the same as molecule <span class="math notranslate nohighlight">\(i\)</span>. <span class="math notranslate nohighlight">\(B_j\)</span> is a site of type <span class="math notranslate nohighlight">\(B\)</span> on molecule <span class="math notranslate nohighlight">\(j\)</span> and <span class="math notranslate nohighlight">\(\Delta_{A_i B_j}\)</span> is the interaction strength between the sites. The calculation of <span class="math notranslate nohighlight">\(\Delta_{A_i B_j}\)</span>, <span class="math notranslate nohighlight">\(Y_{A_i}\)</span> and <span class="math notranslate nohighlight">\(Y_{B_j}\)</span> is explained in more detail in the documentation about association.</p>
+<p>The important thing to understand is whether a site is an electron acceptor (positively charged) or electron donor (negatively charged) and how many sites are present on a molecule. For example, water is usually considered a molecule with two electron acceptor (labeled as “H” in teqp) and two electron donor (labeled as “e” in teqp) sites. The site types have to be specified.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">teqp</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">water</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;a0i / Pa m^6/mol^2&quot;</span><span class="p">:</span> <span class="mf">0.12277</span><span class="p">,</span>
+    <span class="s2">&quot;bi / m^3/mol&quot;</span><span class="p">:</span> <span class="mf">0.0000145</span><span class="p">,</span>
+    <span class="s2">&quot;c1&quot;</span><span class="p">:</span> <span class="mf">0.6736</span><span class="p">,</span>
+    <span class="s2">&quot;Tc / K&quot;</span><span class="p">:</span> <span class="mf">647.13</span><span class="p">,</span>
+    <span class="s2">&quot;epsABi / J/mol&quot;</span><span class="p">:</span> <span class="mf">16655.0</span><span class="p">,</span>
+    <span class="s2">&quot;betaABi&quot;</span><span class="p">:</span> <span class="mf">0.0692</span><span class="p">,</span>
+<span class="c1">#   here the site types are declared. &quot;e&quot; for electron donor, &quot;H&quot; for electron acceptor</span>
+    <span class="s2">&quot;sites&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">jCPA</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;cubic&quot;</span><span class="p">:</span> <span class="s2">&quot;SRK&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;radial_dist&quot;</span><span class="p">:</span> <span class="s2">&quot;CS&quot;</span><span class="p">,</span>
+<span class="c1">#     &quot;combining&quot;: &quot;CR1&quot;, # No other option is implemented yet</span>
+    <span class="s2">&quot;pures&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">water</span><span class="p">],</span>
+    <span class="s2">&quot;R_gas / J/mol/K&quot;</span><span class="p">:</span> <span class="mf">8.31446261815324</span>
+<span class="p">}</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">({</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;CPA&quot;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">jCPA</span><span class="p">,</span> <span class="s2">&quot;validate&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="mf">303.15</span> <span class="c1"># K</span>
+<span class="n">rhomolar</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># mol/m^3</span>
+<span class="n">molefracs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+
+<span class="c1"># Note: passing data back and forth in JSON format is done for convenience and flexibility, not speed</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_assoc_calcs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhomolar</span><span class="p">,</span> <span class="n">molefracs</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;D:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;∆:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;Delta&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X_A:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;X_A&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;siteid-&gt;(component, name):&#39;</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;to_CompSite&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(component, name)-&gt;siteid:&#39;</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;to_siteid&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;multiplicities:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;counts&#39;</span><span class="p">]))</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pressure in Pa: &#39;</span><span class="p">,</span><span class="n">T</span><span class="o">*</span><span class="n">rhomolar</span><span class="o">*</span><span class="n">model</span><span class="o">.</span><span class="n">get_R</span><span class="p">(</span><span class="n">molefracs</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="mi">1</span><span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">get_Ar01</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">rhomolar</span><span class="p">,</span><span class="n">molefracs</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+D: [[0 2]
+ [2 0]]
+∆: [[1.24389806e-27 1.24389806e-27]
+ [1.24389806e-27 1.24389806e-27]]
+X_A: [0.54879025 0.54879025]
+siteid-&gt;(component, name): [[0, [0, &#39;H&#39;]], [1, [0, &#39;e&#39;]]]
+(component, name)-&gt;siteid: [[[0, &#39;H&#39;], 0], [[0, &#39;e&#39;], 1]]
+multiplicities: [2 2]
+pressure in Pa:  84414.03871039051
+</pre></div></div>
 </div>
 </section>
 </section>

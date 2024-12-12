@@ -1,0 +1,22 @@
+\doxysection{teqp\+::multifluid\+::multifluid\+\_\+activity\+::Callable\+Ln\+Gamma\+Resid Concept Reference}
+\hypertarget{conceptteqp_1_1multifluid_1_1multifluid__activity_1_1CallableLnGammaResid}{}\label{conceptteqp_1_1multifluid_1_1multifluid__activity_1_1CallableLnGammaResid}\index{teqp::multifluid::multifluid\_activity::CallableLnGammaResid@{teqp::multifluid::multifluid\_activity::CallableLnGammaResid}}
+
+
+{\ttfamily \#include $<$multifluid\+\_\+activity.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ M,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptteqp_1_1multifluid_1_1multifluid__activity_1_1CallableLnGammaResid}{teqp::multifluid::multifluid\_activity::CallableLnGammaResid}}\ =\ \ \textcolor{keyword}{requires}(M\ m,\ T\ t,\ U\ u)\ \{}
+\DoxyCodeLine{\ \ \ \ \{\ m.calc\_lngamma\_resid(t,u)\ \}\ -\/>\ std::same\_as<Eigen::ArrayXd>;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{multifluid__activity_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{multifluid__activity_8hpp_source}{multifluid\+\_\+activity.\+hpp}}.
+

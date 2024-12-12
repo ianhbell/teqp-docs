@@ -1,0 +1,71 @@
+\doxysection{teqp\+::algorithms\+::phase\+\_\+equil\+::Molar\+Volume\+Specification Struct Reference}
+\hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1MolarVolumeSpecification}{}\label{structteqp_1_1algorithms_1_1phase__equil_1_1MolarVolumeSpecification}\index{teqp::algorithms::phase\_equil::MolarVolumeSpecification@{teqp::algorithms::phase\_equil::MolarVolumeSpecification}}
+
+
+Specification equation for molar volume.  
+
+
+
+
+{\ttfamily \#include $<$phase\+\_\+equil.\+hpp$>$}
+
+Inheritance diagram for teqp\+::algorithms\+::phase\+\_\+equil\+::Molar\+Volume\+Specification\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structteqp_1_1algorithms_1_1phase__equil_1_1MolarVolumeSpecification}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1MolarVolumeSpecification_a424c72a890f30aff5a0e1111cf38d71a}{Molar\+Volume\+Specification}} (double v\+\_\+m3mol)
+\item 
+virtual std\+::tuple$<$ double, Eigen\+::\+Array\+Xd $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1MolarVolumeSpecification_a485d1350415176e2e9730fcb165cdfe7}{r\+\_\+\+Jacobian}} (const Eigen\+::\+Array\+Xd \&x, const \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1SpecificationSidecar}{Specification\+Sidecar}} \&sidecar) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1AbstractSpecification}{teqp\+::algorithms\+::phase\+\_\+equil\+::\+Abstract\+Specification}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1AbstractSpecification_ad17724abe6381c5d7bdfc0998d7c0962}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+Specification}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Specification equation for molar volume. 
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00160}{160}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1MolarVolumeSpecification_a424c72a890f30aff5a0e1111cf38d71a}\index{teqp::algorithms::phase\_equil::MolarVolumeSpecification@{teqp::algorithms::phase\_equil::MolarVolumeSpecification}!MolarVolumeSpecification@{MolarVolumeSpecification}}
+\index{MolarVolumeSpecification@{MolarVolumeSpecification}!teqp::algorithms::phase\_equil::MolarVolumeSpecification@{teqp::algorithms::phase\_equil::MolarVolumeSpecification}}
+\doxysubsubsection{\texorpdfstring{MolarVolumeSpecification()}{MolarVolumeSpecification()}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1MolarVolumeSpecification_a424c72a890f30aff5a0e1111cf38d71a} 
+teqp\+::algorithms\+::phase\+\_\+equil\+::\+Molar\+Volume\+Specification\+::\+Molar\+Volume\+Specification (\begin{DoxyParamCaption}\item[{double}]{v\+\_\+m3mol}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00164}{164}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1MolarVolumeSpecification_a485d1350415176e2e9730fcb165cdfe7}\index{teqp::algorithms::phase\_equil::MolarVolumeSpecification@{teqp::algorithms::phase\_equil::MolarVolumeSpecification}!r\_Jacobian@{r\_Jacobian}}
+\index{r\_Jacobian@{r\_Jacobian}!teqp::algorithms::phase\_equil::MolarVolumeSpecification@{teqp::algorithms::phase\_equil::MolarVolumeSpecification}}
+\doxysubsubsection{\texorpdfstring{r\_Jacobian()}{r\_Jacobian()}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1MolarVolumeSpecification_a485d1350415176e2e9730fcb165cdfe7} 
+virtual std\+::tuple$<$ double, Eigen\+::\+Array\+Xd $>$ teqp\+::algorithms\+::phase\+\_\+equil\+::\+Molar\+Volume\+Specification\+::r\+\_\+\+Jacobian (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Array\+Xd \&}]{x}{, }\item[{const \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1SpecificationSidecar}{Specification\+Sidecar}} \&}]{sidecar}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1AbstractSpecification_a0ca4329f474e39ab634b0a8f81205e88}{teqp\+::algorithms\+::phase\+\_\+equil\+::\+Abstract\+Specification}}.
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00166}{166}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{phase__equil_8hpp}{phase\+\_\+equil.\+hpp}}\end{DoxyCompactItemize}

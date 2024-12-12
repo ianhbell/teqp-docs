@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>PC-SAFT &#8212; teqp 0.19.1 documentation</title>
+    <title>PC-SAFT &#8212; teqp 0.22.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
     <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
-    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../_static/documentation_options.js?v=5686f5df"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -63,7 +63,7 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;0.19.1&#39;
+&#39;0.22.0&#39;
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -102,28 +102,14 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-4.28 µs ± 7.74 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-4.3 µs ± 49.7 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-16.9 µs ± 267 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+3.56 μs ± 5.29 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+3.86 μs ± 13.3 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+15 μs ± 80 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre></div></div>
 </div>
 <p>The model parameters can be queried:</p>
@@ -180,6 +166,48 @@ array([[0.  , 0.01, 0.  ],
 </pre></div></div>
 </div>
 </section>
+<section id="Alternative-a-and-b-matrices">
+<h2>Alternative a and b matrices<a class="headerlink" href="#Alternative-a-and-b-matrices" title="Link to this heading">¶</a></h2>
+<p>In the PC-SAFT implementation of Gross and Sadowski, they have specified coefficients for the approximations used for the integrals in the perturbation theory (Eqs. A.16 to A.19)</p>
+<div class="math notranslate nohighlight">
+\[I_1 = \sum_{i=0}^6a_i(\bar m)\eta^i\]</div>
+<div class="math notranslate nohighlight">
+\[I_2 = \sum_{i=0}^6b_i(\bar m)\eta^i\]</div>
+<div class="math notranslate nohighlight">
+\[a_i(\bar m) = a_{0i} + \frac{\bar m-1}{\bar m}a_{1i} + \frac{\bar m-1}{\bar m}\frac{\bar m-2}{\bar m}a_{2i}\]</div>
+<div class="math notranslate nohighlight">
+\[b_i(\bar m) = b_{0i} + \frac{\bar m-1}{\bar m}b_{1i} + \frac{\bar m-1}{\bar m}\frac{\bar m-2}{\bar m}b_{2i}\]</div>
+<p>and they provide tabulated values in Table 1 in their paper, but other works have identified that some of the limitations of PC-SAFT can be traced back to these universal parameters. Thus, as of version 0.21, two additional options for these parameter matrices are available from the works of Liang et al:</p>
+<ul class="simple">
+<li><p>“Liang-IECR-2012”: <a class="reference external" href="https://pubs.acs.org/doi/10.1021/ie3018127">Approach to Improve Speed of Sound Calculation within PC-SAFT Framework</a></p></li>
+<li><p>“Liang-IECR-2014”: <a class="reference external" href="https://pubs.acs.org/doi/10.1021/ie503925h">New Variant of the Universal Constants in the Perturbed Chain-Statistical Associating Fluid Theory Equation of State</a></p></li>
+</ul>
+<p>and they can be selected by providing the “ab” field in the JSON data structure. Something like this:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spec</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;PCSAFT&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Methane&quot;</span><span class="p">,</span> <span class="s2">&quot;Ethane&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;ab&quot;</span><span class="p">:</span> <span class="s2">&quot;Liang-IECR-2014&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;teqp.teqp.AbstractModel at 0x7ff3a5b35c70&gt;
+</pre></div></div>
+</div>
+</section>
 <section id="Superancillary">
 <h2>Superancillary<a class="headerlink" href="#Superancillary" title="Link to this heading">¶</a></h2>
 <p>The superancillary equation for PC-SAFT has been developed, and is much more involved than that of the cubic EOS. As a consequence, the superancillary equation has been provided as a separate package rather than integrating it into to teqp to minimize the binary size of teqp. It can be installed from PYPI with: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">PCSAFTsuperanc</span></code></p>
@@ -190,7 +218,7 @@ array([[0.  , 0.01, 0.  ],
 \[\tilde\rho = \rho_{\rm N}\sigma^3\]</div>
 <p>where <span class="math notranslate nohighlight">\(\rho_{\rm N}\)</span> is the number density, and the other parameters are from the PC-SAFT model</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">PCSAFTsuperanc</span>
@@ -230,7 +258,7 @@ array([[0.  , 0.01, 0.  ],
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Ttilde crit: 2.648680568587752
-Pressures are: 227809.12314460654 227809.12314409122 Pa
+Pressures are: 227809.1231446739 227809.12314409122 Pa
 </pre></div></div>
 </div>
 </section>
@@ -238,7 +266,7 @@ Pressures are: 227809.12314460654 227809.12314409122 Pa
 <h2>Maximum density<a class="headerlink" href="#Maximum-density" title="Link to this heading">¶</a></h2>
 <p>The maximum number density allowed by the EOS is defined based on the packing fraction. To get a molar density, divide by Avogadro’s number. The function is conveniently exposed in Python:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_rhoN</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">PCSAFTEOS</span><span class="p">(</span><span class="n">coeffs</span><span class="p">)</span><span class="o">.</span><span class="n">max_rhoN</span><span class="p">(</span><span class="mf">130.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]))</span>
@@ -256,7 +284,7 @@ Pressures are: 227809.12314460654 227809.12314409122 Pa
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -272,7 +300,7 @@ Pressures are: 227809.12314460654 227809.12314409122 Pa
 <div class="math notranslate nohighlight">
 \[(\mu^*)^2_{\rm conventional} = \frac{(\mu[Cm])^2}{4\pi\epsilon_0(\varepsilon[J])(\sigma[m])^3}\]</div>
 <div class="math notranslate nohighlight">
-\[(Q^*)^2_{\rm conventional} = \frac{(\mu[Cm])^2}{4\pi\epsilon_0(\varepsilon[J])(\sigma[m])^5}\]</div>
+\[(Q^*)^2_{\rm conventional} = \frac{(Q[Cm^2])^2}{4\pi\epsilon_0(\varepsilon[J])(\sigma[m])^5}\]</div>
 <p>In the PC-SAFT formulation, the only difference is the addition of dividing the denominator by the number of segments <span class="math notranslate nohighlight">\(m\)</span></p>
 <div class="math notranslate nohighlight">
 \[(\mu^*)^2 = \frac{(\mu[Cm])^2}{4\pi\epsilon_0m(\varepsilon/k_{\rm B}[K])k_B(\sigma[m])^3}\]</div>
@@ -285,7 +313,7 @@ Pressures are: 227809.12314460654 227809.12314409122 Pa
 \[(\mu[Cm]) = (3.33564 \times 10^{-30}  Cm/D)(\mu[D])\]</div>
 <p>and <span class="math notranslate nohighlight">\(\epsilon_0=8.85419e-12\)</span> C<span class="math notranslate nohighlight">\(^2\)</span> N<span class="math notranslate nohighlight">\(^{-1}\)</span> m<span class="math notranslate nohighlight">\(^{-2}\)</span> is the permittivity of vacuum.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CO2 with quadrupolar contributions</span>
@@ -340,11 +368,11 @@ Pressures are: 227809.12314460654 227809.12314409122 Pa
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/models_PCSAFT_15_0.png" src="../_images/models_PCSAFT_15_0.png" />
+<img alt="../_images/models_PCSAFT_17_0.png" src="../_images/models_PCSAFT_17_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Acetone with dipolar contributions</span>
@@ -399,7 +427,7 @@ Pressures are: 227809.12314460654 227809.12314409122 Pa
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/models_PCSAFT_16_0.png" src="../_images/models_PCSAFT_16_0.png" />
+<img alt="../_images/models_PCSAFT_18_0.png" src="../_images/models_PCSAFT_18_0.png" />
 </div>
 </div>
 </section>
@@ -417,6 +445,7 @@ Pressures are: 227809.12314460654 227809.12314409122 Pa
     <ul>
 <li><a class="reference internal" href="#">PC-SAFT</a><ul>
 <li><a class="reference internal" href="#Adjusting-k_ij">Adjusting k_ij</a></li>
+<li><a class="reference internal" href="#Alternative-a-and-b-matrices">Alternative a and b matrices</a></li>
 <li><a class="reference internal" href="#Superancillary">Superancillary</a></li>
 <li><a class="reference internal" href="#Maximum-density">Maximum density</a></li>
 <li><a class="reference internal" href="#Polar-contributions">Polar contributions</a></li>

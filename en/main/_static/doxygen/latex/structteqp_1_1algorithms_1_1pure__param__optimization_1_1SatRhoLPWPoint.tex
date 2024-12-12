@@ -1,0 +1,211 @@
+\doxysection{teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::Sat\+Rho\+LPWPoint Struct Reference}
+\hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint}{}\label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+
+
+{\ttfamily \#include $<$pure\+\_\+param\+\_\+optimization.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a6de3db6b2026901516de8033c1050c42}{check\+\_\+fields}} () const
+\item 
+{\footnotesize template$<$typename Model $>$ }\\auto \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_af748bca8c544c4cf7c4c385a852c4c45}{calculate\+\_\+contribution}} (const Model \&model) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a5f4de090a20e3d1cb151b1036d4561b5}{T}}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a9fe4c80198b15859cb96d95953236d7a}{p\+\_\+exp}}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a261eac4af0335b8ef531436a37219f6e}{rho\+L\+\_\+exp}}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_ad03ac01b107bc86f7ab47682c65a25b4}{w\+\_\+exp}}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a4b5ee9757e2f21dd13f601a44fda6ff2}{rho\+L\+\_\+guess}}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a9f0c97d289f1c91455b52529ca02140b}{rho\+V\+\_\+guess}}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_ad432991d8e62b63214f0e9d2bce40650}{Ao20}}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a23e9b6143f9cbdfad22e2c1e82e70e31}{M}}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_ac5543a8fc3a0ff1e92f5726d3de6ff2e}{R}}
+\item 
+double \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_acf594fd2c038d0670cf42cfedc99d942}{weight\+\_\+rho}} =1.\+0
+\item 
+double \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a3e6294c403d3647fab24072220cf3d96}{weight\+\_\+p}} =1.\+0
+\item 
+double \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a44dd82c921138f9ed7ad51c62e3f75d8}{weight\+\_\+w}} =1.\+0
+\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a41808ceb364ba6be0efa0baf70117050}{z}} = (Eigen\+::\+Array\+Xd(1) $<$$<$ 1.\+0).finished()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00078}{78}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_af748bca8c544c4cf7c4c385a852c4c45}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}!calculate\_contribution@{calculate\_contribution}}
+\index{calculate\_contribution@{calculate\_contribution}!teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+\doxysubsubsection{\texorpdfstring{calculate\_contribution()}{calculate\_contribution()}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_af748bca8c544c4cf7c4c385a852c4c45} 
+template$<$typename Model $>$ \\
+auto teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint\+::calculate\+\_\+contribution (\begin{DoxyParamCaption}\item[{const Model \&}]{model}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00093}{93}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a6de3db6b2026901516de8033c1050c42}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}!check\_fields@{check\_fields}}
+\index{check\_fields@{check\_fields}!teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+\doxysubsubsection{\texorpdfstring{check\_fields()}{check\_fields()}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a6de3db6b2026901516de8033c1050c42} 
+auto teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint\+::check\+\_\+fields (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00086}{86}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_ad432991d8e62b63214f0e9d2bce40650}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}!Ao20@{Ao20}}
+\index{Ao20@{Ao20}!teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+\doxysubsubsection{\texorpdfstring{Ao20}{Ao20}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_ad432991d8e62b63214f0e9d2bce40650} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint\+::\+Ao20}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a23e9b6143f9cbdfad22e2c1e82e70e31}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}!M@{M}}
+\index{M@{M}!teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+\doxysubsubsection{\texorpdfstring{M}{M}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a23e9b6143f9cbdfad22e2c1e82e70e31} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint\+::M}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a9fe4c80198b15859cb96d95953236d7a}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}!p\_exp@{p\_exp}}
+\index{p\_exp@{p\_exp}!teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+\doxysubsubsection{\texorpdfstring{p\_exp}{p\_exp}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a9fe4c80198b15859cb96d95953236d7a} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint\+::p\+\_\+exp}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_ac5543a8fc3a0ff1e92f5726d3de6ff2e}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}!R@{R}}
+\index{R@{R}!teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+\doxysubsubsection{\texorpdfstring{R}{R}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_ac5543a8fc3a0ff1e92f5726d3de6ff2e} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint\+::R}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a261eac4af0335b8ef531436a37219f6e}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}!rhoL\_exp@{rhoL\_exp}}
+\index{rhoL\_exp@{rhoL\_exp}!teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+\doxysubsubsection{\texorpdfstring{rhoL\_exp}{rhoL\_exp}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a261eac4af0335b8ef531436a37219f6e} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint\+::rho\+L\+\_\+exp}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a4b5ee9757e2f21dd13f601a44fda6ff2}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}!rhoL\_guess@{rhoL\_guess}}
+\index{rhoL\_guess@{rhoL\_guess}!teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+\doxysubsubsection{\texorpdfstring{rhoL\_guess}{rhoL\_guess}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a4b5ee9757e2f21dd13f601a44fda6ff2} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint\+::rho\+L\+\_\+guess}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a9f0c97d289f1c91455b52529ca02140b}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}!rhoV\_guess@{rhoV\_guess}}
+\index{rhoV\_guess@{rhoV\_guess}!teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+\doxysubsubsection{\texorpdfstring{rhoV\_guess}{rhoV\_guess}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a9f0c97d289f1c91455b52529ca02140b} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint\+::rho\+V\+\_\+guess}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a5f4de090a20e3d1cb151b1036d4561b5}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}!T@{T}}
+\index{T@{T}!teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+\doxysubsubsection{\texorpdfstring{T}{T}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a5f4de090a20e3d1cb151b1036d4561b5} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint\+::T}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_ad03ac01b107bc86f7ab47682c65a25b4}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}!w\_exp@{w\_exp}}
+\index{w\_exp@{w\_exp}!teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+\doxysubsubsection{\texorpdfstring{w\_exp}{w\_exp}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_ad03ac01b107bc86f7ab47682c65a25b4} 
+std\+::optional$<$double$>$ teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint\+::w\+\_\+exp}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a3e6294c403d3647fab24072220cf3d96}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}!weight\_p@{weight\_p}}
+\index{weight\_p@{weight\_p}!teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+\doxysubsubsection{\texorpdfstring{weight\_p}{weight\_p}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a3e6294c403d3647fab24072220cf3d96} 
+double teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint\+::weight\+\_\+p =1.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00083}{83}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_acf594fd2c038d0670cf42cfedc99d942}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}!weight\_rho@{weight\_rho}}
+\index{weight\_rho@{weight\_rho}!teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+\doxysubsubsection{\texorpdfstring{weight\_rho}{weight\_rho}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_acf594fd2c038d0670cf42cfedc99d942} 
+double teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint\+::weight\+\_\+rho =1.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00083}{83}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a44dd82c921138f9ed7ad51c62e3f75d8}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}!weight\_w@{weight\_w}}
+\index{weight\_w@{weight\_w}!teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+\doxysubsubsection{\texorpdfstring{weight\_w}{weight\_w}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a44dd82c921138f9ed7ad51c62e3f75d8} 
+double teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint\+::weight\+\_\+w =1.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00083}{83}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a41808ceb364ba6be0efa0baf70117050}\index{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}!z@{z}}
+\index{z@{z}!teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint@{teqp::algorithms::pure\_param\_optimization::SatRhoLPWPoint}}
+\doxysubsubsection{\texorpdfstring{z}{z}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint_a41808ceb364ba6be0efa0baf70117050} 
+Eigen\+::\+Array\+Xd teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint\+::z = (Eigen\+::\+Array\+Xd(1) $<$$<$ 1.\+0).finished()}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00084}{84}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{pure__param__optimization_8hpp}{pure\+\_\+param\+\_\+optimization.\+hpp}}\end{DoxyCompactItemize}

@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>C++ interface &#8212; teqp 0.19.1 documentation</title>
+    <title>C++ interface &#8212; teqp 0.22.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
     <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
-    <script src="../_static/documentation_options.js?v=6f83b549"></script>
+    <script src="../_static/documentation_options.js?v=5686f5df"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -46,7 +46,7 @@
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>The abstract base class defining the public C++ interface of teqp is documented in <a class="reference external" href="../_static/doxygen/html/classteqp_1_1cppinterface_1_1AbstractModel.html">AbstractModel</a>.  This interface was developed because re-compilation of the core of <code class="docutils literal notranslate"><span class="pre">teqp</span></code> is VERY slow, due to the heavy use of templates, which makes the code very flexible, but difficult to work with when doing development. Especially users that would like to only <em>use</em> the library but not be forced to pay the price of recompilation benefit from this approach.</p>
-<p>As a user, a new model instance (a std::unique_ptr&lt;teqp::AbstactModel*&gt;) can be created by passing properly formatted JSON data structure to the <a class="reference external" href="../_static/doxygen/html/namespaceteqp_1_1cppinterface.html#a0e731ebdf104bc67dc7832e33a523d4f">make_model()</a> function.</p>
+<p>As a user, a new model instance (a std::unique_ptr&lt;teqp::AbstractModel&gt;) can be created by passing properly formatted JSON data structure to the <a class="reference external" href="../_static/doxygen/html/namespaceteqp_1_1cppinterface.html#a0e731ebdf104bc67dc7832e33a523d4f">make_model()</a> function.</p>
 </section>
 <section id="object-model">
 <h2>Object Model<a class="headerlink" href="#object-model" title="Link to this heading">¶</a></h2>

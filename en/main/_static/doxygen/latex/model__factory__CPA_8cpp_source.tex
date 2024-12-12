@@ -1,0 +1,19 @@
+\doxysection{model\+\_\+factory\+\_\+\+CPA.\+cpp}
+\hypertarget{model__factory__CPA_8cpp_source}{}\label{model__factory__CPA_8cpp_source}\index{interface/CPP/model\_factory\_CPA.cpp@{interface/CPP/model\_factory\_CPA.cpp}}
+\mbox{\hyperlink{model__factory__CPA_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{model__factory__CPA_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teqpcpp_8hpp}{teqp/cpp/teqpcpp.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{model__factory__CPA_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{deriv__adapter_8hpp}{teqp/cpp/deriv\_adapter.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{model__factory__CPA_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{CPA_8hpp}{teqp/models/CPA.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{model__factory__CPA_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{model__factory__CPA_8cpp_source_l00005}00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp}{teqp}}\{}
+\DoxyCodeLine{\Hypertarget{model__factory__CPA_8cpp_source_l00006}00006\ \ \ \ \ \textcolor{keyword}{namespace\ }cppinterface\{}
+\DoxyCodeLine{\Hypertarget{model__factory__CPA_8cpp_source_l00007}00007\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a8815be35c71d998189588fefb08f3032}{teqp::cppinterface::adapter::make\_owned}};}
+\DoxyCodeLine{\Hypertarget{model__factory__CPA_8cpp_source_l00008}00008\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{model__factory__CPA_8cpp_source_l00009}\mbox{\hyperlink{namespaceteqp_1_1cppinterface_a97d9eb95db52ca2c2da709cdd3ffbbc4}{00009}}\ \ \ \ \ \ \ \ \ std::unique\_ptr<teqp::cppinterface::AbstractModel>\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a97d9eb95db52ca2c2da709cdd3ffbbc4}{make\_CPA}}(\textcolor{keyword}{const}\ nlohmann::json\ \&spec)\{}
+\DoxyCodeLine{\Hypertarget{model__factory__CPA_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_1_1adapter_a8815be35c71d998189588fefb08f3032}{make\_owned}}(\mbox{\hyperlink{namespaceteqp_1_1CPA_aac7faad3d0f09b4600630c7ae67d56ea}{CPA::CPAfactory}}(spec));}
+\DoxyCodeLine{\Hypertarget{model__factory__CPA_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{model__factory__CPA_8cpp_source_l00012}00012\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{model__factory__CPA_8cpp_source_l00013}00013\ \}}
+
+\end{DoxyCode}

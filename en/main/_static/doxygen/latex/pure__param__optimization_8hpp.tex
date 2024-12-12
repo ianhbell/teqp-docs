@@ -1,0 +1,201 @@
+\doxysection{include/teqp/algorithms/pure\+\_\+param\+\_\+optimization.hpp File Reference}
+\hypertarget{pure__param__optimization_8hpp}{}\label{pure__param__optimization_8hpp}\index{include/teqp/algorithms/pure\_param\_optimization.hpp@{include/teqp/algorithms/pure\_param\_optimization.hpp}}
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$variant$>$}\newline
+{\ttfamily \#include "{}nlohmann/json.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/cpp/teqpcpp.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/exceptions.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/math/pow\+\_\+templates.\+hpp"{}}\newline
+{\ttfamily \#include $<$boost/asio/thread\+\_\+pool.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/asio/post.\+hpp$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPoint}{teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPoint}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1PVTNoniterativePoint}{teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+PVTNoniterative\+Point}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPPoint}{teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPPoint}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint}{teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Sat\+Rho\+LPWPoint}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint}{teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+SOSPoint}}
+\item 
+class \mbox{\hyperlink{classteqp_1_1algorithms_1_1pure__param__optimization_1_1PureParameterOptimizer}{teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Pure\+Parameter\+Optimizer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1algorithms}{teqp\+::algorithms}}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1algorithms_1_1pure__param__optimization}{teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pure__param__optimization_8hpp_a25d2389a90b05f4cf4e375530cf89fee}{stdstringify}}(s)~std\+::string(\#s)
+\item 
+\#define \mbox{\hyperlink{pure__param__optimization_8hpp_a0633b5b6f4342d82e8e7322ddb148cd8}{PVTNoniterative\+Point\+\_\+optionalfields}}~\mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(T) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(p\+\_\+exp)
+\item 
+\#define \mbox{\hyperlink{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}{X}}(field)~std\+::optional$<$double$>$ field;
+\item 
+\#define \mbox{\hyperlink{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}{X}}(field)~if (!field)\{ throw \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp\+::\+Invalid\+Argument}}("{}A field \mbox{[}"{} + stdstringify(field) + "{}\mbox{]} has not been initialized"{}); \}
+\item 
+\#define \mbox{\hyperlink{pure__param__optimization_8hpp_a850c0cb548656e0e2559d0ad8b0f7305}{Sat\+Rho\+LPPoint\+\_\+optionalfields}}~\mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(T) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(p\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+L\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+L\+\_\+guess) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+V\+\_\+guess)
+\item 
+\#define \mbox{\hyperlink{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}{X}}(field)~std\+::optional$<$double$>$ field;
+\item 
+\#define \mbox{\hyperlink{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}{X}}(field)~if (!field)\{ throw \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp\+::\+Invalid\+Argument}}("{}A field \mbox{[}"{} + stdstringify(field) + "{}\mbox{]} has not been initialized"{}); \}
+\item 
+\#define \mbox{\hyperlink{pure__param__optimization_8hpp_a238b4159a2c437f865a26d57ef025bf4}{Sat\+Rho\+LPWPoint\+\_\+optionalfields}}~\mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(T) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(p\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+L\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(w\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+L\+\_\+guess) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+V\+\_\+guess) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(Ao20) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(M) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(R)
+\item 
+\#define \mbox{\hyperlink{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}{X}}(field)~std\+::optional$<$double$>$ field;
+\item 
+\#define \mbox{\hyperlink{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}{X}}(field)~if (!field)\{ throw \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp\+::\+Invalid\+Argument}}("{}A field \mbox{[}"{} + stdstringify(field) + "{}\mbox{]} has not been initialized"{}); \}
+\item 
+\#define \mbox{\hyperlink{pure__param__optimization_8hpp_a813f6cdc3f80e3ca8be587af2ae64ccf}{SOSPoint\+\_\+fields}}~\mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(T) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(p\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+\_\+guess) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(w\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(Ao20) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(M) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(R)
+\item 
+\#define \mbox{\hyperlink{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}{X}}(field)~std\+::optional$<$double$>$ field;
+\item 
+\#define \mbox{\hyperlink{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}{X}}(field)~if (!field)\{ throw \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp\+::\+Invalid\+Argument}}("{}A field \mbox{[}"{} + stdstringify(field) + "{}\mbox{]} has not been initialized"{}); \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceteqp_1_1algorithms_1_1pure__param__optimization_a85b3afb4f6532c886de6acc135e2cf98}{teqp\+::algorithms\+::pure\+\_\+param\+\_\+optimization\+::\+Pure\+Optimization\+Contribution}} = std\+::variant$<$\mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPoint}{Sat\+Rho\+LPoint}}, \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPPoint}{Sat\+Rho\+LPPoint}}, \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SatRhoLPWPoint}{Sat\+Rho\+LPWPoint}}, \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1SOSPoint}{SOSPoint}}, \mbox{\hyperlink{structteqp_1_1algorithms_1_1pure__param__optimization_1_1PVTNoniterativePoint}{PVTNoniterative\+Point}}$>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{pure__param__optimization_8hpp_a0633b5b6f4342d82e8e7322ddb148cd8}\index{pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}!PVTNoniterativePoint\_optionalfields@{PVTNoniterativePoint\_optionalfields}}
+\index{PVTNoniterativePoint\_optionalfields@{PVTNoniterativePoint\_optionalfields}!pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}}
+\doxysubsubsection{\texorpdfstring{PVTNoniterativePoint\_optionalfields}{PVTNoniterativePoint\_optionalfields}}
+{\footnotesize\ttfamily \label{pure__param__optimization_8hpp_a0633b5b6f4342d82e8e7322ddb148cd8} 
+\#define PVTNoniterative\+Point\+\_\+optionalfields~\mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(T) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(p\+\_\+exp)}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{pure__param__optimization_8hpp_a850c0cb548656e0e2559d0ad8b0f7305}\index{pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}!SatRhoLPPoint\_optionalfields@{SatRhoLPPoint\_optionalfields}}
+\index{SatRhoLPPoint\_optionalfields@{SatRhoLPPoint\_optionalfields}!pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}}
+\doxysubsubsection{\texorpdfstring{SatRhoLPPoint\_optionalfields}{SatRhoLPPoint\_optionalfields}}
+{\footnotesize\ttfamily \label{pure__param__optimization_8hpp_a850c0cb548656e0e2559d0ad8b0f7305} 
+\#define Sat\+Rho\+LPPoint\+\_\+optionalfields~\mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(T) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(p\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+L\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+L\+\_\+guess) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+V\+\_\+guess)}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{pure__param__optimization_8hpp_a238b4159a2c437f865a26d57ef025bf4}\index{pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}!SatRhoLPWPoint\_optionalfields@{SatRhoLPWPoint\_optionalfields}}
+\index{SatRhoLPWPoint\_optionalfields@{SatRhoLPWPoint\_optionalfields}!pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}}
+\doxysubsubsection{\texorpdfstring{SatRhoLPWPoint\_optionalfields}{SatRhoLPWPoint\_optionalfields}}
+{\footnotesize\ttfamily \label{pure__param__optimization_8hpp_a238b4159a2c437f865a26d57ef025bf4} 
+\#define Sat\+Rho\+LPWPoint\+\_\+optionalfields~\mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(T) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(p\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+L\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(w\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+L\+\_\+guess) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+V\+\_\+guess) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(Ao20) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(M) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(R)}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00077}{77}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{pure__param__optimization_8hpp_a813f6cdc3f80e3ca8be587af2ae64ccf}\index{pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}!SOSPoint\_fields@{SOSPoint\_fields}}
+\index{SOSPoint\_fields@{SOSPoint\_fields}!pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}}
+\doxysubsubsection{\texorpdfstring{SOSPoint\_fields}{SOSPoint\_fields}}
+{\footnotesize\ttfamily \label{pure__param__optimization_8hpp_a813f6cdc3f80e3ca8be587af2ae64ccf} 
+\#define SOSPoint\+\_\+fields~\mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(T) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(p\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(rho\+\_\+guess) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(w\+\_\+exp) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(Ao20) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(M) \mbox{\hyperlink{critical__tracing_8hpp_a3e0ee787dc4704f51dcecb65616b234f}{X}}(R)}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00123}{123}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{pure__param__optimization_8hpp_a25d2389a90b05f4cf4e375530cf89fee}\index{pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}!stdstringify@{stdstringify}}
+\index{stdstringify@{stdstringify}!pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}}
+\doxysubsubsection{\texorpdfstring{stdstringify}{stdstringify}}
+{\footnotesize\ttfamily \label{pure__param__optimization_8hpp_a25d2389a90b05f4cf4e375530cf89fee} 
+\#define stdstringify(\begin{DoxyParamCaption}\item[{}]{s}{}\end{DoxyParamCaption})~std\+::string(\#s)}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}\index{pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}!X@{X}}
+\index{X@{X}!pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}}
+\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily \label{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0} 
+\#define X(\begin{DoxyParamCaption}\item[{}]{field}{}\end{DoxyParamCaption})~std\+::optional$<$double$>$ field;}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}\index{pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}!X@{X}}
+\index{X@{X}!pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}}
+\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily \label{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0} 
+\#define X(\begin{DoxyParamCaption}\item[{}]{field}{}\end{DoxyParamCaption})~if (!field)\{ throw \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp\+::\+Invalid\+Argument}}("{}A field \mbox{[}"{} + stdstringify(field) + "{}\mbox{]} has not been initialized"{}); \}}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}\index{pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}!X@{X}}
+\index{X@{X}!pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}}
+\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily \label{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0} 
+\#define X(\begin{DoxyParamCaption}\item[{}]{field}{}\end{DoxyParamCaption})~std\+::optional$<$double$>$ field;}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}\index{pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}!X@{X}}
+\index{X@{X}!pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}}
+\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily \label{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0} 
+\#define X(\begin{DoxyParamCaption}\item[{}]{field}{}\end{DoxyParamCaption})~if (!field)\{ throw \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp\+::\+Invalid\+Argument}}("{}A field \mbox{[}"{} + stdstringify(field) + "{}\mbox{]} has not been initialized"{}); \}}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}\index{pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}!X@{X}}
+\index{X@{X}!pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}}
+\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily \label{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0} 
+\#define X(\begin{DoxyParamCaption}\item[{}]{field}{}\end{DoxyParamCaption})~std\+::optional$<$double$>$ field;}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}\index{pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}!X@{X}}
+\index{X@{X}!pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}}
+\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily \label{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0} 
+\#define X(\begin{DoxyParamCaption}\item[{}]{field}{}\end{DoxyParamCaption})~if (!field)\{ throw \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp\+::\+Invalid\+Argument}}("{}A field \mbox{[}"{} + stdstringify(field) + "{}\mbox{]} has not been initialized"{}); \}}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}\index{pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}!X@{X}}
+\index{X@{X}!pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}}
+\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily \label{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0} 
+\#define X(\begin{DoxyParamCaption}\item[{}]{field}{}\end{DoxyParamCaption})~std\+::optional$<$double$>$ field;}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+
+\Hypertarget{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0}\index{pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}!X@{X}}
+\index{X@{X}!pure\_param\_optimization.hpp@{pure\_param\_optimization.hpp}}
+\doxysubsubsection{\texorpdfstring{X}{X}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily \label{pure__param__optimization_8hpp_a51187164ce590e08467d4730e525a6b0} 
+\#define X(\begin{DoxyParamCaption}\item[{}]{field}{}\end{DoxyParamCaption})~if (!field)\{ throw \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp\+::\+Invalid\+Argument}}("{}A field \mbox{[}"{} + stdstringify(field) + "{}\mbox{]} has not been initialized"{}); \}}
+
+
+
+Definition at line \mbox{\hyperlink{pure__param__optimization_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{pure__param__optimization_8hpp_source}{pure\+\_\+param\+\_\+optimization.\+hpp}}.
+

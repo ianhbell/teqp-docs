@@ -1,0 +1,149 @@
+\doxysection{teqp\+::iteration\+::Alpha\+Model Class Reference}
+\hypertarget{classteqp_1_1iteration_1_1AlphaModel}{}\label{classteqp_1_1iteration_1_1AlphaModel}\index{teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}}
+
+
+{\ttfamily \#include $<$iteration.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Z $>$ }\\auto \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a5e251881b6a5fb85e86427cd72cd9830}{get\+\_\+R}} (const Z \&z) const
+\item 
+auto \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a6af2ff7ba5e42bfd27e4c35a0b7aea3d}{get\+\_\+R}} (const std\+::vector$<$ double $>$ \&z) const
+\item 
+{\footnotesize template$<$typename Z $>$ }\\Eigen\+::\+Array33d \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_afaa556f35841c0955f65616733cb1d2f}{get\+\_\+deriv\+\_\+mat2}} (double T, double rho, const Z \&z) const
+\item 
+Eigen\+::\+Array33d \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_ae2153c44da4b9975da897f2f4e5fc31f}{get\+\_\+deriv\+\_\+mat2}} (double T, double rho, const std\+::vector$<$ double $>$ \&z) const
+\item 
+{\footnotesize template$<$typename Z $>$ }\\auto \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a34a8555d7fde0141428432166ee8722b}{get\+\_\+\+A00\+A10\+A01}} (double T, double rho, const Z \&z) const
+\item 
+{\footnotesize template$<$typename Array $>$ }\\auto \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_ab3b7f0cffde78b016803d530ab70708b}{get\+\_\+vals}} (const std\+::vector$<$ char $>$ \&vars, const double R, const double T, const double rho, const Array \&z) const
+\begin{DoxyCompactList}\small\item\em A convenience function for calculation of Jacobian terms of the form $ J_{i0} = \frac{\partial y}{\partial T} $ and $ J_{i1} = \frac{\partial y}{\partial \rho} $ where $y$ is one of the thermodynamic variables in vars. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} $>$ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a3568ddbbb91f98c11e1e20d47139dc56}{model\+\_\+ideal\+\_\+gas}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}} $>$ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a3348be7aada4ca6fac87e55765443607}{model\+\_\+residual}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00128}{128}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1iteration_1_1AlphaModel_a34a8555d7fde0141428432166ee8722b}\index{teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}!get\_A00A10A01@{get\_A00A10A01}}
+\index{get\_A00A10A01@{get\_A00A10A01}!teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}}
+\doxysubsubsection{\texorpdfstring{get\_A00A10A01()}{get\_A00A10A01()}}
+{\footnotesize\ttfamily \label{classteqp_1_1iteration_1_1AlphaModel_a34a8555d7fde0141428432166ee8722b} 
+template$<$typename Z $>$ \\
+auto teqp\+::iteration\+::\+Alpha\+Model\+::get\+\_\+\+A00\+A10\+A01 (\begin{DoxyParamCaption}\item[{double}]{T}{, }\item[{double}]{rho}{, }\item[{const Z \&}]{z}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00153}{153}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{classteqp_1_1iteration_1_1AlphaModel_ae2153c44da4b9975da897f2f4e5fc31f}\index{teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}!get\_deriv\_mat2@{get\_deriv\_mat2}}
+\index{get\_deriv\_mat2@{get\_deriv\_mat2}!teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}}
+\doxysubsubsection{\texorpdfstring{get\_deriv\_mat2()}{get\_deriv\_mat2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classteqp_1_1iteration_1_1AlphaModel_ae2153c44da4b9975da897f2f4e5fc31f} 
+Eigen\+::\+Array33d teqp\+::iteration\+::\+Alpha\+Model\+::get\+\_\+deriv\+\_\+mat2 (\begin{DoxyParamCaption}\item[{double}]{T}{, }\item[{double}]{rho}{, }\item[{const std\+::vector$<$ double $>$ \&}]{z}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00147}{147}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{classteqp_1_1iteration_1_1AlphaModel_afaa556f35841c0955f65616733cb1d2f}\index{teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}!get\_deriv\_mat2@{get\_deriv\_mat2}}
+\index{get\_deriv\_mat2@{get\_deriv\_mat2}!teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}}
+\doxysubsubsection{\texorpdfstring{get\_deriv\_mat2()}{get\_deriv\_mat2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classteqp_1_1iteration_1_1AlphaModel_afaa556f35841c0955f65616733cb1d2f} 
+template$<$typename Z $>$ \\
+Eigen\+::\+Array33d teqp\+::iteration\+::\+Alpha\+Model\+::get\+\_\+deriv\+\_\+mat2 (\begin{DoxyParamCaption}\item[{double}]{T}{, }\item[{double}]{rho}{, }\item[{const Z \&}]{z}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00143}{143}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{classteqp_1_1iteration_1_1AlphaModel_a6af2ff7ba5e42bfd27e4c35a0b7aea3d}\index{teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}!get\_R@{get\_R}}
+\index{get\_R@{get\_R}!teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}}
+\doxysubsubsection{\texorpdfstring{get\_R()}{get\_R()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classteqp_1_1iteration_1_1AlphaModel_a6af2ff7ba5e42bfd27e4c35a0b7aea3d} 
+auto teqp\+::iteration\+::\+Alpha\+Model\+::get\+\_\+R (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{z}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00137}{137}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{classteqp_1_1iteration_1_1AlphaModel_a5e251881b6a5fb85e86427cd72cd9830}\index{teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}!get\_R@{get\_R}}
+\index{get\_R@{get\_R}!teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}}
+\doxysubsubsection{\texorpdfstring{get\_R()}{get\_R()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classteqp_1_1iteration_1_1AlphaModel_a5e251881b6a5fb85e86427cd72cd9830} 
+template$<$typename Z $>$ \\
+auto teqp\+::iteration\+::\+Alpha\+Model\+::get\+\_\+R (\begin{DoxyParamCaption}\item[{const Z \&}]{z}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00133}{133}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{classteqp_1_1iteration_1_1AlphaModel_ab3b7f0cffde78b016803d530ab70708b}\index{teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}!get\_vals@{get\_vals}}
+\index{get\_vals@{get\_vals}!teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}}
+\doxysubsubsection{\texorpdfstring{get\_vals()}{get\_vals()}}
+{\footnotesize\ttfamily \label{classteqp_1_1iteration_1_1AlphaModel_ab3b7f0cffde78b016803d530ab70708b} 
+template$<$typename Array $>$ \\
+auto teqp\+::iteration\+::\+Alpha\+Model\+::get\+\_\+vals (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ char $>$ \&}]{vars}{, }\item[{const double}]{R}{, }\item[{const double}]{T}{, }\item[{const double}]{rho}{, }\item[{const Array \&}]{z}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A convenience function for calculation of Jacobian terms of the form $ J_{i0} = \frac{\partial y}{\partial T} $ and $ J_{i1} = \frac{\partial y}{\partial \rho} $ where $y$ is one of the thermodynamic variables in vars. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vars} & A set of chars, allowed are \textquotesingle{}H\textquotesingle{},\textquotesingle{}S\textquotesingle{},\textquotesingle{}U\textquotesingle{},\textquotesingle{}P\textquotesingle{},\textquotesingle{}T\textquotesingle{},\textquotesingle{}D\textquotesingle{} \\
+\hline
+{\em A} & The matrix of derivatives of $\alpha^{\rm ig} + \alpha^{\rm r}$, perhaps obtained from \doxylink{classteqp_1_1DerivativeHolderSquare}{teqp\+::\+Derivative\+Holder\+Square}, or via get\+\_\+deriv\+\_\+mat2 of the Abstract\+Model \\
+\hline
+{\em R} & The molar gas constant \\
+\hline
+{\em T} & Temperature \\
+\hline
+{\em rho} & Molar density \\
+\hline
+{\em z} & Mole fractions \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00170}{170}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1iteration_1_1AlphaModel_a3568ddbbb91f98c11e1e20d47139dc56}\index{teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}!model\_ideal\_gas@{model\_ideal\_gas}}
+\index{model\_ideal\_gas@{model\_ideal\_gas}!teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}}
+\doxysubsubsection{\texorpdfstring{model\_ideal\_gas}{model\_ideal\_gas}}
+{\footnotesize\ttfamily \label{classteqp_1_1iteration_1_1AlphaModel_a3568ddbbb91f98c11e1e20d47139dc56} 
+std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}}$>$ teqp\+::iteration\+::\+Alpha\+Model\+::model\+\_\+ideal\+\_\+gas}
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00130}{130}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+\Hypertarget{classteqp_1_1iteration_1_1AlphaModel_a3348be7aada4ca6fac87e55765443607}\index{teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}!model\_residual@{model\_residual}}
+\index{model\_residual@{model\_residual}!teqp::iteration::AlphaModel@{teqp::iteration::AlphaModel}}
+\doxysubsubsection{\texorpdfstring{model\_residual}{model\_residual}}
+{\footnotesize\ttfamily \label{classteqp_1_1iteration_1_1AlphaModel_a3348be7aada4ca6fac87e55765443607} 
+std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{Abstract\+Model}}$>$ teqp\+::iteration\+::\+Alpha\+Model\+::model\+\_\+residual}
+
+
+
+Definition at line \mbox{\hyperlink{iteration_8hpp_source_l00130}{130}} of file \mbox{\hyperlink{iteration_8hpp_source}{iteration.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{iteration_8hpp}{iteration.\+hpp}}\end{DoxyCompactItemize}

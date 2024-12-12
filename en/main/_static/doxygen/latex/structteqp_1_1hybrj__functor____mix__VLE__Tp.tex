@@ -24,7 +24,7 @@ int \mbox{\hyperlink{structteqp_1_1hybrj__functor____mix__VLE__Tp_a386bfa48e0b63
 \item 
 \mbox{\hyperlink{structteqp_1_1Functor_ab1d9afb59e5dd89a3cfcda2aa3f383f0}{Functor}} ()
 \item 
-\mbox{\hyperlink{structteqp_1_1Functor_aa118cb4381f177eb52b7021fe62aa796}{Functor}} (int inputs, int values)
+\mbox{\hyperlink{structteqp_1_1Functor_aa118cb4381f177eb52b7021fe62aa796}{Functor}} (int \mbox{\hyperlink{structteqp_1_1Functor_a20e2bb3e5e6dc44d2a2bf6c774b17965}{inputs}}, int \mbox{\hyperlink{structteqp_1_1Functor_a0ac25ef2d9745e7504326ff32b80497e}{values}})
 \item 
 int \mbox{\hyperlink{structteqp_1_1Functor_a20e2bb3e5e6dc44d2a2bf6c774b17965}{inputs}} () const
 \item 
@@ -54,11 +54,11 @@ enum
 \item 
 typedef double \mbox{\hyperlink{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}{Scalar}}
 \item 
-typedef Matrix$<$ \mbox{\hyperlink{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}{Scalar}}, Inputs\+At\+Compile\+Time, 1 $>$ \mbox{\hyperlink{structteqp_1_1Functor_a4c38d2ab7f7e6c4feec90fe82f15631d}{Input\+Type}}
+typedef Matrix$<$ \mbox{\hyperlink{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}{Scalar}}, \mbox{\hyperlink{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a868d5cb9eff1e987d6ecaacf91ef6f84}{Inputs\+At\+Compile\+Time}}, 1 $>$ \mbox{\hyperlink{structteqp_1_1Functor_a4c38d2ab7f7e6c4feec90fe82f15631d}{Input\+Type}}
 \item 
-typedef Matrix$<$ \mbox{\hyperlink{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}{Scalar}}, Values\+At\+Compile\+Time, 1 $>$ \mbox{\hyperlink{structteqp_1_1Functor_aaf222ec048e89e35047208ea1ec556fc}{Value\+Type}}
+typedef Matrix$<$ \mbox{\hyperlink{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}{Scalar}}, \mbox{\hyperlink{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a0c22369601e09b2f6c55c3c52c9503a3}{Values\+At\+Compile\+Time}}, 1 $>$ \mbox{\hyperlink{structteqp_1_1Functor_aaf222ec048e89e35047208ea1ec556fc}{Value\+Type}}
 \item 
-typedef Matrix$<$ \mbox{\hyperlink{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}{Scalar}}, Values\+At\+Compile\+Time, Inputs\+At\+Compile\+Time $>$ \mbox{\hyperlink{structteqp_1_1Functor_a675bc74fbcc555923391eda4e8556712}{Jacobian\+Type}}
+typedef Matrix$<$ \mbox{\hyperlink{structteqp_1_1Functor_a2b51b5750a4f4608cbf24ec46737bada}{Scalar}}, \mbox{\hyperlink{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a0c22369601e09b2f6c55c3c52c9503a3}{Values\+At\+Compile\+Time}}, \mbox{\hyperlink{structteqp_1_1Functor_a1ded3d3805749aa40cafbcd1e5d923c1a868d5cb9eff1e987d6ecaacf91ef6f84}{Inputs\+At\+Compile\+Time}} $>$ \mbox{\hyperlink{structteqp_1_1Functor_a675bc74fbcc555923391eda4e8556712}{Jacobian\+Type}}
 \end{DoxyCompactItemize}
 
 
@@ -72,12 +72,12 @@ Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00196}{196}} of file \mbox{
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{structteqp_1_1hybrj__functor____mix__VLE__Tp_a8bbe6a349d305d53e651438b801f8ea2}\label{structteqp_1_1hybrj__functor____mix__VLE__Tp_a8bbe6a349d305d53e651438b801f8ea2} 
-\index{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}!hybrj\_functor\_\_mix\_VLE\_Tp@{hybrj\_functor\_\_mix\_VLE\_Tp}}
+\Hypertarget{structteqp_1_1hybrj__functor____mix__VLE__Tp_a8bbe6a349d305d53e651438b801f8ea2}\index{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}!hybrj\_functor\_\_mix\_VLE\_Tp@{hybrj\_functor\_\_mix\_VLE\_Tp}}
 \index{hybrj\_functor\_\_mix\_VLE\_Tp@{hybrj\_functor\_\_mix\_VLE\_Tp}!teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}}
 \doxysubsubsection{\texorpdfstring{hybrj\_functor\_\_mix\_VLE\_Tp()}{hybrj\_functor\_\_mix\_VLE\_Tp()}}
-{\footnotesize\ttfamily template$<$typename Model $>$ \\
-\mbox{\hyperlink{structteqp_1_1hybrj__functor____mix__VLE__Tp}{teqp\+::hybrj\+\_\+functor\+\_\+\+\_\+mix\+\_\+\+VLE\+\_\+\+Tp}}$<$ Model $>$\+::hybrj\+\_\+functor\+\_\+\+\_\+mix\+\_\+\+VLE\+\_\+\+Tp (\begin{DoxyParamCaption}\item[{const Model \&}]{model,  }\item[{const double}]{T,  }\item[{const double}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{structteqp_1_1hybrj__functor____mix__VLE__Tp_a8bbe6a349d305d53e651438b801f8ea2} 
+template$<$typename Model $>$ \\
+\mbox{\hyperlink{structteqp_1_1hybrj__functor____mix__VLE__Tp}{teqp\+::hybrj\+\_\+functor\+\_\+\+\_\+mix\+\_\+\+VLE\+\_\+\+Tp}}$<$ Model $>$\+::hybrj\+\_\+functor\+\_\+\+\_\+mix\+\_\+\+VLE\+\_\+\+Tp (\begin{DoxyParamCaption}\item[{const Model \&}]{model}{, }\item[{const double}]{T}{, }\item[{const double}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -86,23 +86,23 @@ Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00201}{201}} of file \mbox{
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{structteqp_1_1hybrj__functor____mix__VLE__Tp_a386bfa48e0b635a919f35a54d5dd703a}\label{structteqp_1_1hybrj__functor____mix__VLE__Tp_a386bfa48e0b635a919f35a54d5dd703a} 
-\index{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}!df@{df}}
+\Hypertarget{structteqp_1_1hybrj__functor____mix__VLE__Tp_a386bfa48e0b635a919f35a54d5dd703a}\index{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}!df@{df}}
 \index{df@{df}!teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}}
 \doxysubsubsection{\texorpdfstring{df()}{df()}}
-{\footnotesize\ttfamily template$<$typename Model $>$ \\
-int \mbox{\hyperlink{structteqp_1_1hybrj__functor____mix__VLE__Tp}{teqp\+::hybrj\+\_\+functor\+\_\+\+\_\+mix\+\_\+\+VLE\+\_\+\+Tp}}$<$ Model $>$\+::df (\begin{DoxyParamCaption}\item[{const Vector\+Xd \&}]{x,  }\item[{Matrix\+Xd \&}]{J }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{structteqp_1_1hybrj__functor____mix__VLE__Tp_a386bfa48e0b635a919f35a54d5dd703a} 
+template$<$typename Model $>$ \\
+int \mbox{\hyperlink{structteqp_1_1hybrj__functor____mix__VLE__Tp}{teqp\+::hybrj\+\_\+functor\+\_\+\+\_\+mix\+\_\+\+VLE\+\_\+\+Tp}}$<$ Model $>$\+::df (\begin{DoxyParamCaption}\item[{const Vector\+Xd \&}]{x}{, }\item[{Matrix\+Xd \&}]{J}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00235}{235}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
-\Hypertarget{structteqp_1_1hybrj__functor____mix__VLE__Tp_a4fbe1d7d811641b364760ca0365a81f2}\label{structteqp_1_1hybrj__functor____mix__VLE__Tp_a4fbe1d7d811641b364760ca0365a81f2} 
-\index{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}!operator()@{operator()}}
+\Hypertarget{structteqp_1_1hybrj__functor____mix__VLE__Tp_a4fbe1d7d811641b364760ca0365a81f2}\index{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}!operator()@{operator()}}
 \index{operator()@{operator()}!teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}}
 \doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
-{\footnotesize\ttfamily template$<$typename Model $>$ \\
-int \mbox{\hyperlink{structteqp_1_1hybrj__functor____mix__VLE__Tp}{teqp\+::hybrj\+\_\+functor\+\_\+\+\_\+mix\+\_\+\+VLE\+\_\+\+Tp}}$<$ Model $>$\+::operator() (\begin{DoxyParamCaption}\item[{const Vector\+Xd \&}]{x,  }\item[{Vector\+Xd \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{structteqp_1_1hybrj__functor____mix__VLE__Tp_a4fbe1d7d811641b364760ca0365a81f2} 
+template$<$typename Model $>$ \\
+int \mbox{\hyperlink{structteqp_1_1hybrj__functor____mix__VLE__Tp}{teqp\+::hybrj\+\_\+functor\+\_\+\+\_\+mix\+\_\+\+VLE\+\_\+\+Tp}}$<$ Model $>$\+::operator() (\begin{DoxyParamCaption}\item[{const Vector\+Xd \&}]{x}{, }\item[{Vector\+Xd \&}]{r}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -111,33 +111,33 @@ Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00203}{203}} of file \mbox{
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{structteqp_1_1hybrj__functor____mix__VLE__Tp_a1aa8d68fdab3fb98d9c0009e6f697047}\label{structteqp_1_1hybrj__functor____mix__VLE__Tp_a1aa8d68fdab3fb98d9c0009e6f697047} 
-\index{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}!model@{model}}
+\Hypertarget{structteqp_1_1hybrj__functor____mix__VLE__Tp_a1aa8d68fdab3fb98d9c0009e6f697047}\index{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}!model@{model}}
 \index{model@{model}!teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}}
 \doxysubsubsection{\texorpdfstring{model}{model}}
-{\footnotesize\ttfamily template$<$typename Model $>$ \\
+{\footnotesize\ttfamily \label{structteqp_1_1hybrj__functor____mix__VLE__Tp_a1aa8d68fdab3fb98d9c0009e6f697047} 
+template$<$typename Model $>$ \\
 const Model\& \mbox{\hyperlink{structteqp_1_1hybrj__functor____mix__VLE__Tp}{teqp\+::hybrj\+\_\+functor\+\_\+\+\_\+mix\+\_\+\+VLE\+\_\+\+Tp}}$<$ Model $>$\+::model}
 
 
 
 Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00198}{198}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
-\Hypertarget{structteqp_1_1hybrj__functor____mix__VLE__Tp_a4d726759b0420138bba2a38401c87829}\label{structteqp_1_1hybrj__functor____mix__VLE__Tp_a4d726759b0420138bba2a38401c87829} 
-\index{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}!p@{p}}
+\Hypertarget{structteqp_1_1hybrj__functor____mix__VLE__Tp_a4d726759b0420138bba2a38401c87829}\index{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}!p@{p}}
 \index{p@{p}!teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}}
 \doxysubsubsection{\texorpdfstring{p}{p}}
-{\footnotesize\ttfamily template$<$typename Model $>$ \\
+{\footnotesize\ttfamily \label{structteqp_1_1hybrj__functor____mix__VLE__Tp_a4d726759b0420138bba2a38401c87829} 
+template$<$typename Model $>$ \\
 const double \mbox{\hyperlink{structteqp_1_1hybrj__functor____mix__VLE__Tp}{teqp\+::hybrj\+\_\+functor\+\_\+\+\_\+mix\+\_\+\+VLE\+\_\+\+Tp}}$<$ Model $>$\+::p}
 
 
 
 Definition at line \mbox{\hyperlink{VLE_8hpp_source_l00199}{199}} of file \mbox{\hyperlink{VLE_8hpp_source}{VLE.\+hpp}}.
 
-\Hypertarget{structteqp_1_1hybrj__functor____mix__VLE__Tp_a1bfa1322beb9744658ebbb637f96b7cd}\label{structteqp_1_1hybrj__functor____mix__VLE__Tp_a1bfa1322beb9744658ebbb637f96b7cd} 
-\index{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}!T@{T}}
+\Hypertarget{structteqp_1_1hybrj__functor____mix__VLE__Tp_a1bfa1322beb9744658ebbb637f96b7cd}\index{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}!T@{T}}
 \index{T@{T}!teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$@{teqp::hybrj\_functor\_\_mix\_VLE\_Tp$<$ Model $>$}}
 \doxysubsubsection{\texorpdfstring{T}{T}}
-{\footnotesize\ttfamily template$<$typename Model $>$ \\
+{\footnotesize\ttfamily \label{structteqp_1_1hybrj__functor____mix__VLE__Tp_a1bfa1322beb9744658ebbb637f96b7cd} 
+template$<$typename Model $>$ \\
 const double \mbox{\hyperlink{structteqp_1_1hybrj__functor____mix__VLE__Tp}{teqp\+::hybrj\+\_\+functor\+\_\+\+\_\+mix\+\_\+\+VLE\+\_\+\+Tp}}$<$ Model $>$\+::T}
 
 

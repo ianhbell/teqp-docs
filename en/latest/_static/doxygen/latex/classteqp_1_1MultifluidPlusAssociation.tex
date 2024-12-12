@@ -1,0 +1,77 @@
+\doxysection{teqp\+::Multifluid\+Plus\+Association Class Reference}
+\hypertarget{classteqp_1_1MultifluidPlusAssociation}{}\label{classteqp_1_1MultifluidPlusAssociation}\index{teqp::MultifluidPlusAssociation@{teqp::MultifluidPlusAssociation}}
+
+
+{\ttfamily \#include $<$multifluid\+\_\+association.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1MultifluidPlusAssociation_a3d3b6d56f1796b4ef5343c4b9f9a7fad}{Multifluid\+Plus\+Association}} (const nlohmann\+::json \&spec)
+\item 
+const auto \& \mbox{\hyperlink{classteqp_1_1MultifluidPlusAssociation_a84544fb747d6bb046046ea0091198cd1}{get\+\_\+association}} () const
+\item 
+{\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1MultifluidPlusAssociation_a1f668df53a3d8d98cb26332b2a4f793d}{R}} (const Vec\+Type \&molefrac) const
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1MultifluidPlusAssociation_a6443849e468744ee7b46ef7116426c06}{alphar}} (const TType \&T, const Rho\+Type \&rho, const Mole\+Fractions \&molefrac) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{multifluid__association_8hpp_source_l00010}{10}} of file \mbox{\hyperlink{multifluid__association_8hpp_source}{multifluid\+\_\+association.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1MultifluidPlusAssociation_a3d3b6d56f1796b4ef5343c4b9f9a7fad}\index{teqp::MultifluidPlusAssociation@{teqp::MultifluidPlusAssociation}!MultifluidPlusAssociation@{MultifluidPlusAssociation}}
+\index{MultifluidPlusAssociation@{MultifluidPlusAssociation}!teqp::MultifluidPlusAssociation@{teqp::MultifluidPlusAssociation}}
+\doxysubsubsection{\texorpdfstring{MultifluidPlusAssociation()}{MultifluidPlusAssociation()}}
+{\footnotesize\ttfamily \label{classteqp_1_1MultifluidPlusAssociation_a3d3b6d56f1796b4ef5343c4b9f9a7fad} 
+teqp\+::\+Multifluid\+Plus\+Association\+::\+Multifluid\+Plus\+Association (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{spec}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__association_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{multifluid__association_8hpp_source}{multifluid\+\_\+association.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1MultifluidPlusAssociation_a6443849e468744ee7b46ef7116426c06}\index{teqp::MultifluidPlusAssociation@{teqp::MultifluidPlusAssociation}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::MultifluidPlusAssociation@{teqp::MultifluidPlusAssociation}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily \label{classteqp_1_1MultifluidPlusAssociation_a6443849e468744ee7b46ef7116426c06} 
+template$<$typename TType , typename Rho\+Type , typename Mole\+Fractions $>$ \\
+auto teqp\+::\+Multifluid\+Plus\+Association\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T}{, }\item[{const Rho\+Type \&}]{rho}{, }\item[{const Mole\+Fractions \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__association_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{multifluid__association_8hpp_source}{multifluid\+\_\+association.\+hpp}}.
+
+\Hypertarget{classteqp_1_1MultifluidPlusAssociation_a84544fb747d6bb046046ea0091198cd1}\index{teqp::MultifluidPlusAssociation@{teqp::MultifluidPlusAssociation}!get\_association@{get\_association}}
+\index{get\_association@{get\_association}!teqp::MultifluidPlusAssociation@{teqp::MultifluidPlusAssociation}}
+\doxysubsubsection{\texorpdfstring{get\_association()}{get\_association()}}
+{\footnotesize\ttfamily \label{classteqp_1_1MultifluidPlusAssociation_a84544fb747d6bb046046ea0091198cd1} 
+const auto \& teqp\+::\+Multifluid\+Plus\+Association\+::get\+\_\+association (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__association_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{multifluid__association_8hpp_source}{multifluid\+\_\+association.\+hpp}}.
+
+\Hypertarget{classteqp_1_1MultifluidPlusAssociation_a1f668df53a3d8d98cb26332b2a4f793d}\index{teqp::MultifluidPlusAssociation@{teqp::MultifluidPlusAssociation}!R@{R}}
+\index{R@{R}!teqp::MultifluidPlusAssociation@{teqp::MultifluidPlusAssociation}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily \label{classteqp_1_1MultifluidPlusAssociation_a1f668df53a3d8d98cb26332b2a4f793d} 
+template$<$class Vec\+Type $>$ \\
+auto teqp\+::\+Multifluid\+Plus\+Association\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{multifluid__association_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{multifluid__association_8hpp_source}{multifluid\+\_\+association.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/\mbox{\hyperlink{multifluid__association_8hpp}{multifluid\+\_\+association.\+hpp}}\end{DoxyCompactItemize}

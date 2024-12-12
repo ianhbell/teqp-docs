@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Multifluid+Association &#8212; teqp 0.22.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../_static/documentation_options.js?v=5686f5df"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Multifluid+Activity" href="MultifluidPlusAC.html" />
+    <link rel="prev" title="Extended Corresponding States" href="ECS.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="Multifluid+Association">
+<h1>Multifluid+Association<a class="headerlink" href="#Multifluid+Association" title="Link to this heading">¶</a></h1>
+<p>Version 0.22 of teqp adds a new sort of hybrid model – a combination of multifluid model plus an association model. Conceptually the pure fluid EOS consider the self-association implicitly, so you may want to consider the association model to only allow cross-assocation, which be enforced by supplying the “self_assocation_mask” logical mask in the “options” of the model. See below</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">teqp</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+
+<span class="n">BIP</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="s2">&quot;Name1&quot;</span><span class="p">:</span> <span class="s2">&quot;Water&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Name2&quot;</span><span class="p">:</span> <span class="s2">&quot;Ammonia&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;betaT&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="s2">&quot;gammaT&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="s2">&quot;betaV&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="s2">&quot;gammaV&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="mf">0.0</span>
+<span class="p">}]</span>
+<span class="n">jmf</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Water&quot;</span><span class="p">,</span> <span class="s2">&quot;Ammonia&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;root&quot;</span><span class="p">:</span> <span class="n">teqp</span><span class="o">.</span><span class="n">get_datapath</span><span class="p">(),</span>
+    <span class="s2">&quot;BIP&quot;</span><span class="p">:</span> <span class="n">BIP</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">jassoc</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;Dufal&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;sigma / m&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.0555e-10</span><span class="p">,</span> <span class="mf">3.3309e-10</span><span class="p">],</span>
+        <span class="s2">&quot;epsilon / J/mol&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3475.445374388054</span><span class="p">,</span> <span class="mf">323.70</span><span class="o">*</span><span class="mf">8.3124462618</span><span class="p">],</span>
+        <span class="s2">&quot;lambda_r&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">35.823</span><span class="p">,</span> <span class="mf">36.832</span><span class="p">],</span>
+
+        <span class="c1"># Note the scaling factors of 0.2 on the bonding energy to yield more reasonable behavior</span>
+        <span class="s2">&quot;epsilon_HB / J/mol&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.2</span><span class="o">*</span><span class="mf">13303.140189045183</span><span class="p">,</span> <span class="mf">0.2</span><span class="o">*</span><span class="mf">1105.0</span><span class="o">*</span><span class="mf">8.314462618</span><span class="p">],</span>
+
+        <span class="s2">&quot;K_HB / m^3&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">496.66e-30</span><span class="p">,</span> <span class="mf">560.73e-30</span><span class="p">],</span>
+        <span class="s2">&quot;kmat&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]],</span>
+        <span class="s2">&quot;Delta_rule&quot;</span><span class="p">:</span> <span class="s2">&quot;Dufal&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;molecule_sites&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">],[</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">]],</span>
+        <span class="s2">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;self_association_mask&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">j</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;kind&#39;</span><span class="p">:</span> <span class="s1">&#39;multifluid-association&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;multifluid&#39;</span><span class="p">:</span> <span class="n">jmf</span><span class="p">,</span>
+        <span class="s1">&#39;association&#39;</span><span class="p">:</span> <span class="n">jassoc</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">make_model</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># model.get_assoc_calcs(300, 300, np.array([0.5, 0.5]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="mf">293.15</span> <span class="c1"># K</span>
+<span class="n">pure</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">build_multifluid_model</span><span class="p">([</span><span class="s2">&quot;Ammonia&quot;</span><span class="p">],</span> <span class="n">teqp</span><span class="o">.</span><span class="n">get_datapath</span><span class="p">())</span>
+<span class="n">anc</span> <span class="o">=</span> <span class="n">pure</span><span class="o">.</span><span class="n">build_ancillaries</span><span class="p">()</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">trace_VLE_isotherm_binary</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoL</span><span class="p">(</span><span class="n">T</span><span class="p">)]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">anc</span><span class="o">.</span><span class="n">rhoV</span><span class="p">(</span><span class="n">T</span><span class="p">)]))</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;xL_0 / mole frac.&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pL / Pa&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">1e3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;xV_0 / mole frac.&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pL / Pa&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">1e3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$x_1,y_1$ / mole frac.&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;p / kPa&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Water(1) + Ammonia(2) @ </span><span class="si">{</span><span class="n">T</span><span class="si">}</span><span class="s1"> K&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/models_MultifluidPlusAssociation_4_0.png" src="../_images/models_MultifluidPlusAssociation_4_0.png" />
+</div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Models</a><ul>
+      <li>Previous: <a href="ECS.html" title="previous chapter">Extended Corresponding States</a></li>
+      <li>Next: <a href="MultifluidPlusAC.html" title="next chapter">Multifluid+Activity</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/MultifluidPlusAssociation.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/models/MultifluidPlusAssociation.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

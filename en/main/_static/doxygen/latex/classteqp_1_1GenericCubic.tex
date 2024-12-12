@@ -7,7 +7,7 @@
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classteqp_1_1GenericCubic_a8772a9c3747ead5c04ebe8b5847f92b1}{Generic\+Cubic}} (Num\+Type \mbox{\hyperlink{classteqp_1_1GenericCubic_aa7ef9ab4f983df81f7a3fdc5c4e2c22b}{Delta1}}, Num\+Type \mbox{\hyperlink{classteqp_1_1GenericCubic_a510357d586b7c1e7ebbdebbe3788e217}{Delta2}}, Num\+Type \mbox{\hyperlink{classteqp_1_1GenericCubic_a32881a67a3127966038561365d9b7296}{OmegaA}}, Num\+Type \mbox{\hyperlink{classteqp_1_1GenericCubic_a198db5883c18f9d432a7ba97d565a58d}{OmegaB}}, int \mbox{\hyperlink{classteqp_1_1GenericCubic_a3a73a33990aa84297276b818538bee68}{superanc\+\_\+index}}, const std\+::valarray$<$ Num\+Type $>$ \&Tc\+\_\+K, const std\+::valarray$<$ Num\+Type $>$ \&pc\+\_\+\+Pa, const Alpha\+Functions \&\mbox{\hyperlink{classteqp_1_1GenericCubic_adc99f76015f10c430c0fcaeff18f8622}{alphas}}, const Eigen\+::\+Array\+XXd \&\mbox{\hyperlink{classteqp_1_1GenericCubic_abebafe6d3121b6c7a882f76be1a31163}{kmat}})
+\mbox{\hyperlink{classteqp_1_1GenericCubic_a3c8474e39ad66bb401599f2791909f82}{Generic\+Cubic}} (Num\+Type \mbox{\hyperlink{classteqp_1_1GenericCubic_aa7ef9ab4f983df81f7a3fdc5c4e2c22b}{Delta1}}, Num\+Type \mbox{\hyperlink{classteqp_1_1GenericCubic_a510357d586b7c1e7ebbdebbe3788e217}{Delta2}}, Num\+Type \mbox{\hyperlink{classteqp_1_1GenericCubic_a32881a67a3127966038561365d9b7296}{OmegaA}}, Num\+Type \mbox{\hyperlink{classteqp_1_1GenericCubic_a198db5883c18f9d432a7ba97d565a58d}{OmegaB}}, int \mbox{\hyperlink{classteqp_1_1GenericCubic_a3a73a33990aa84297276b818538bee68}{superanc\+\_\+index}}, const std\+::valarray$<$ Num\+Type $>$ \&Tc\+\_\+K, const std\+::valarray$<$ Num\+Type $>$ \&pc\+\_\+\+Pa, const Alpha\+Functions \&\mbox{\hyperlink{classteqp_1_1GenericCubic_adc99f76015f10c430c0fcaeff18f8622}{alphas}}, const Eigen\+::\+Array\+XXd \&\mbox{\hyperlink{classteqp_1_1GenericCubic_abebafe6d3121b6c7a882f76be1a31163}{kmat}}, const double R\+\_\+\+JmolK)
 \item 
 void \mbox{\hyperlink{classteqp_1_1GenericCubic_a5646f2ee45660f09e70e6018d96b895b}{set\+\_\+meta}} (const nlohmann\+::json \&j)
 \item 
@@ -18,17 +18,12 @@ auto \mbox{\hyperlink{classteqp_1_1GenericCubic_ac4d84c811e80e7c24e8c12dcde7cf0d
 auto \mbox{\hyperlink{classteqp_1_1GenericCubic_aa0b56dfaaa60a54755f2a139ce122400}{superanc\+\_\+rho\+LV}} (double T, std\+::optional$<$ std\+::size\+\_\+t $>$ ifluid=std\+::nullopt) const
 \item 
 {\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1GenericCubic_af767ee5f43435ac492a3f84c04061daf}{R}} (const Vec\+Type \&) const
-\begin{DoxyCompactList}\small\item\em Universal gas constant, exact number. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename TType , typename Comp\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1GenericCubic_a67d6abe5e68543b88681bf134b98607e}{get\+\_\+a}} (TType T, const Comp\+Type \&molefracs) const
 \item 
 {\footnotesize template$<$typename TType , typename Comp\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1GenericCubic_a46da1a3c50cf25814a3dbf6a217095db}{get\+\_\+b}} (TType, const Comp\+Type \&molefracs) const
 \item 
 {\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1GenericCubic_a66168e86d63dde6e4213de0c39dda4a5}{alphar}} (const TType \&T, const Rho\+Type \&rho, const Mole\+Frac\+Type \&molefrac) const
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-const Num\+Type \mbox{\hyperlink{classteqp_1_1GenericCubic_ac2aeaed896be55cf1c3eb583b6d30e39}{Ru}} = \mbox{\hyperlink{namespaceteqp_aed0cabbf6a82a357adc773aa850566ea}{get\+\_\+\+R\+\_\+gas}}$<$double$>$()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -61,6 +56,8 @@ const Alpha\+Functions \mbox{\hyperlink{classteqp_1_1GenericCubic_adc99f76015f10
 Eigen\+::\+Array\+XXd \mbox{\hyperlink{classteqp_1_1GenericCubic_abebafe6d3121b6c7a882f76be1a31163}{kmat}}
 \item 
 nlohmann\+::json \mbox{\hyperlink{classteqp_1_1GenericCubic_af2335a46b8146962bb18271c4da09e61}{meta}}
+\item 
+const double \mbox{\hyperlink{classteqp_1_1GenericCubic_a0a876eb2d75290bf67f56b48f09e2f4a}{m\+\_\+\+R\+\_\+\+JmolK}}
 \end{DoxyCompactItemize}
 
 
@@ -69,152 +66,148 @@ nlohmann\+::json \mbox{\hyperlink{classteqp_1_1GenericCubic_af2335a46b8146962bb1
 class teqp\+::\+Generic\+Cubic$<$ Num\+Type, Alpha\+Functions $>$}
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00136}{136}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00138}{138}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classteqp_1_1GenericCubic_a8772a9c3747ead5c04ebe8b5847f92b1}\label{classteqp_1_1GenericCubic_a8772a9c3747ead5c04ebe8b5847f92b1} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!GenericCubic@{GenericCubic}}
+\Hypertarget{classteqp_1_1GenericCubic_a3c8474e39ad66bb401599f2791909f82}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!GenericCubic@{GenericCubic}}
 \index{GenericCubic@{GenericCubic}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{GenericCubic()}{GenericCubic()}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
-\mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+Generic\+Cubic (\begin{DoxyParamCaption}\item[{Num\+Type}]{Delta1,  }\item[{Num\+Type}]{Delta2,  }\item[{Num\+Type}]{OmegaA,  }\item[{Num\+Type}]{OmegaB,  }\item[{int}]{superanc\+\_\+index,  }\item[{const std\+::valarray$<$ Num\+Type $>$ \&}]{Tc\+\_\+K,  }\item[{const std\+::valarray$<$ Num\+Type $>$ \&}]{pc\+\_\+\+Pa,  }\item[{const Alpha\+Functions \&}]{alphas,  }\item[{const Eigen\+::\+Array\+XXd \&}]{kmat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_a3c8474e39ad66bb401599f2791909f82} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+\mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+Generic\+Cubic (\begin{DoxyParamCaption}\item[{Num\+Type}]{Delta1}{, }\item[{Num\+Type}]{Delta2}{, }\item[{Num\+Type}]{OmegaA}{, }\item[{Num\+Type}]{OmegaB}{, }\item[{int}]{superanc\+\_\+index}{, }\item[{const std\+::valarray$<$ Num\+Type $>$ \&}]{Tc\+\_\+K}{, }\item[{const std\+::valarray$<$ Num\+Type $>$ \&}]{pc\+\_\+\+Pa}{, }\item[{const Alpha\+Functions \&}]{alphas}{, }\item[{const Eigen\+::\+Array\+XXd \&}]{kmat}{, }\item[{const double}]{R\+\_\+\+JmolK}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00166}{166}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00169}{169}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classteqp_1_1GenericCubic_a66168e86d63dde6e4213de0c39dda4a5}\label{classteqp_1_1GenericCubic_a66168e86d63dde6e4213de0c39dda4a5} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!alphar@{alphar}}
+\Hypertarget{classteqp_1_1GenericCubic_a66168e86d63dde6e4213de0c39dda4a5}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!alphar@{alphar}}
 \index{alphar@{alphar}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_a66168e86d63dde6e4213de0c39dda4a5} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
 template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ \\
-auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T,  }\item[{const Rho\+Type \&}]{rho,  }\item[{const Mole\+Frac\+Type \&}]{molefrac }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T}{, }\item[{const Rho\+Type \&}]{rho}{, }\item[{const Mole\+Frac\+Type \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00244}{244}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00245}{245}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1GenericCubic_a5686c8e5f70af2f558ff933f9a987353}\label{classteqp_1_1GenericCubic_a5686c8e5f70af2f558ff933f9a987353} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!check\_kmat@{check\_kmat}}
+\Hypertarget{classteqp_1_1GenericCubic_a5686c8e5f70af2f558ff933f9a987353}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!check\_kmat@{check\_kmat}}
 \index{check\_kmat@{check\_kmat}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{check\_kmat()}{check\_kmat()}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_a5686c8e5f70af2f558ff933f9a987353} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
 template$<$typename Index\+Type $>$ \\
-void \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::check\+\_\+kmat (\begin{DoxyParamCaption}\item[{Index\+Type}]{N }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+void \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::check\+\_\+kmat (\begin{DoxyParamCaption}\item[{Index\+Type}]{N}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00153}{153}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00156}{156}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1GenericCubic_a67d6abe5e68543b88681bf134b98607e}\label{classteqp_1_1GenericCubic_a67d6abe5e68543b88681bf134b98607e} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!get\_a@{get\_a}}
+\Hypertarget{classteqp_1_1GenericCubic_a67d6abe5e68543b88681bf134b98607e}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!get\_a@{get\_a}}
 \index{get\_a@{get\_a}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{get\_a()}{get\_a()}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_a67d6abe5e68543b88681bf134b98607e} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
 template$<$typename TType , typename Comp\+Type $>$ \\
-auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+a (\begin{DoxyParamCaption}\item[{TType}]{T,  }\item[{const Comp\+Type \&}]{molefracs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+a (\begin{DoxyParamCaption}\item[{TType}]{T}{, }\item[{const Comp\+Type \&}]{molefracs}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00219}{219}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00220}{220}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1GenericCubic_a02e3a25e4730020ad7063eb0606b6cde}\label{classteqp_1_1GenericCubic_a02e3a25e4730020ad7063eb0606b6cde} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!get\_ai@{get\_ai}}
+\Hypertarget{classteqp_1_1GenericCubic_a02e3a25e4730020ad7063eb0606b6cde}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!get\_ai@{get\_ai}}
 \index{get\_ai@{get\_ai}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{get\_ai()}{get\_ai()}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_a02e3a25e4730020ad7063eb0606b6cde} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
 template$<$typename TType , typename Index\+Type $>$ \\
-auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+ai (\begin{DoxyParamCaption}\item[{TType}]{,  }\item[{Index\+Type}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00147}{147}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
-
-\Hypertarget{classteqp_1_1GenericCubic_a46da1a3c50cf25814a3dbf6a217095db}\label{classteqp_1_1GenericCubic_a46da1a3c50cf25814a3dbf6a217095db} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!get\_b@{get\_b}}
-\index{get\_b@{get\_b}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
-\doxysubsubsection{\texorpdfstring{get\_b()}{get\_b()}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
-template$<$typename TType , typename Comp\+Type $>$ \\
-auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+b (\begin{DoxyParamCaption}\item[{TType}]{,  }\item[{const Comp\+Type \&}]{molefracs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00235}{235}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
-
-\Hypertarget{classteqp_1_1GenericCubic_ada310d937ac0862b4c77ce809c89c721}\label{classteqp_1_1GenericCubic_ada310d937ac0862b4c77ce809c89c721} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!get\_bi@{get\_bi}}
-\index{get\_bi@{get\_bi}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
-\doxysubsubsection{\texorpdfstring{get\_bi()}{get\_bi()}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
-template$<$typename TType , typename Index\+Type $>$ \\
-auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+bi (\begin{DoxyParamCaption}\item[{TType}]{,  }\item[{Index\+Type}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+ai (\begin{DoxyParamCaption}\item[{TType}]{}{, }\item[{Index\+Type}]{i}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
 
 
 
 Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00150}{150}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1GenericCubic_ac4d84c811e80e7c24e8c12dcde7cf0d2}\label{classteqp_1_1GenericCubic_ac4d84c811e80e7c24e8c12dcde7cf0d2} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!get\_kmat@{get\_kmat}}
+\Hypertarget{classteqp_1_1GenericCubic_a46da1a3c50cf25814a3dbf6a217095db}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!get\_b@{get\_b}}
+\index{get\_b@{get\_b}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{get\_b()}{get\_b()}}
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_a46da1a3c50cf25814a3dbf6a217095db} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+template$<$typename TType , typename Comp\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+b (\begin{DoxyParamCaption}\item[{TType}]{}{, }\item[{const Comp\+Type \&}]{molefracs}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00236}{236}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GenericCubic_ada310d937ac0862b4c77ce809c89c721}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!get\_bi@{get\_bi}}
+\index{get\_bi@{get\_bi}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{get\_bi()}{get\_bi()}}
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_ada310d937ac0862b4c77ce809c89c721} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+template$<$typename TType , typename Index\+Type $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+bi (\begin{DoxyParamCaption}\item[{TType}]{}{, }\item[{Index\+Type}]{i}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00153}{153}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GenericCubic_ac4d84c811e80e7c24e8c12dcde7cf0d2}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!get\_kmat@{get\_kmat}}
 \index{get\_kmat@{get\_kmat}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{get\_kmat()}{get\_kmat()}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
-auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+kmat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_ac4d84c811e80e7c24e8c12dcde7cf0d2} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+kmat (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00180}{180}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00183}{183}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1GenericCubic_ae91e7a508f91c8b4e679abebdb23c15f}\label{classteqp_1_1GenericCubic_ae91e7a508f91c8b4e679abebdb23c15f} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!get\_meta@{get\_meta}}
+\Hypertarget{classteqp_1_1GenericCubic_ae91e7a508f91c8b4e679abebdb23c15f}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!get\_meta@{get\_meta}}
 \index{get\_meta@{get\_meta}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{get\_meta()}{get\_meta()}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
-auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+meta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_ae91e7a508f91c8b4e679abebdb23c15f} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::get\+\_\+meta (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00179}{179}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00182}{182}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1GenericCubic_af767ee5f43435ac492a3f84c04061daf}\label{classteqp_1_1GenericCubic_af767ee5f43435ac492a3f84c04061daf} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!R@{R}}
+\Hypertarget{classteqp_1_1GenericCubic_af767ee5f43435ac492a3f84c04061daf}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!R@{R}}
 \index{R@{R}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{R()}{R()}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_af767ee5f43435ac492a3f84c04061daf} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
 template$<$class Vec\+Type $>$ \\
-auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Universal gas constant, exact number. 
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00215}{215}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-
-
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00214}{214}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
-
-\Hypertarget{classteqp_1_1GenericCubic_a5646f2ee45660f09e70e6018d96b895b}\label{classteqp_1_1GenericCubic_a5646f2ee45660f09e70e6018d96b895b} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!set\_meta@{set\_meta}}
+\Hypertarget{classteqp_1_1GenericCubic_a5646f2ee45660f09e70e6018d96b895b}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!set\_meta@{set\_meta}}
 \index{set\_meta@{set\_meta}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{set\_meta()}{set\_meta()}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
-void \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::set\+\_\+meta (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_a5646f2ee45660f09e70e6018d96b895b} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+void \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::set\+\_\+meta (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00178}{178}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00181}{181}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1GenericCubic_aa0b56dfaaa60a54755f2a139ce122400}\label{classteqp_1_1GenericCubic_aa0b56dfaaa60a54755f2a139ce122400} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!superanc\_rhoLV@{superanc\_rhoLV}}
+\Hypertarget{classteqp_1_1GenericCubic_aa0b56dfaaa60a54755f2a139ce122400}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!superanc\_rhoLV@{superanc\_rhoLV}}
 \index{superanc\_rhoLV@{superanc\_rhoLV}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{superanc\_rhoLV()}{superanc\_rhoLV()}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
-auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::superanc\+\_\+rho\+LV (\begin{DoxyParamCaption}\item[{double}]{T,  }\item[{std\+::optional$<$ std\+::size\+\_\+t $>$}]{ifluid = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_aa0b56dfaaa60a54755f2a139ce122400} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+auto \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::superanc\+\_\+rho\+LV (\begin{DoxyParamCaption}\item[{double}]{T}{, }\item[{std\+::optional$<$ std\+::size\+\_\+t $>$}]{ifluid}{ = {\ttfamily std\+:\+:nullopt}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 Return a tuple of saturated liquid and vapor densities for the EOS given the temperature Uses the superancillary equations from Bell and Deiters\+: 
 \begin{DoxyParams}{Parameters}
@@ -225,131 +218,131 @@ Return a tuple of saturated liquid and vapor densities for the EOS given the tem
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00186}{186}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00189}{189}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classteqp_1_1GenericCubic_a771ad870a3fdaf79d23c67223c8f6818}\label{classteqp_1_1GenericCubic_a771ad870a3fdaf79d23c67223c8f6818} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!ai@{ai}}
+\Hypertarget{classteqp_1_1GenericCubic_a771ad870a3fdaf79d23c67223c8f6818}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!ai@{ai}}
 \index{ai@{ai}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{ai}{ai}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_a771ad870a3fdaf79d23c67223c8f6818} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
 std\+::valarray$<$Num\+Type$>$ \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::ai\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00138}{138}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00140}{140}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1GenericCubic_adc99f76015f10c430c0fcaeff18f8622}\label{classteqp_1_1GenericCubic_adc99f76015f10c430c0fcaeff18f8622} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!alphas@{alphas}}
+\Hypertarget{classteqp_1_1GenericCubic_adc99f76015f10c430c0fcaeff18f8622}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!alphas@{alphas}}
 \index{alphas@{alphas}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{alphas}{alphas}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_adc99f76015f10c430c0fcaeff18f8622} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
 const Alpha\+Functions \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::alphas\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00143}{143}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GenericCubic_adf0102214977c02d08bc4db554ad26e3}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!bi@{bi}}
+\index{bi@{bi}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{bi}{bi}}
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_adf0102214977c02d08bc4db554ad26e3} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+std\+::valarray$<$Num\+Type$>$ \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::bi\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00140}{140}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GenericCubic_aa7ef9ab4f983df81f7a3fdc5c4e2c22b}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!Delta1@{Delta1}}
+\index{Delta1@{Delta1}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{Delta1}{Delta1}}
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_aa7ef9ab4f983df81f7a3fdc5c4e2c22b} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+const Num\+Type \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+Delta1\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
 Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00141}{141}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1GenericCubic_adf0102214977c02d08bc4db554ad26e3}\label{classteqp_1_1GenericCubic_adf0102214977c02d08bc4db554ad26e3} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!bi@{bi}}
-\index{bi@{bi}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
-\doxysubsubsection{\texorpdfstring{bi}{bi}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
-std\+::valarray$<$Num\+Type$>$ \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::bi\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00138}{138}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
-
-\Hypertarget{classteqp_1_1GenericCubic_aa7ef9ab4f983df81f7a3fdc5c4e2c22b}\label{classteqp_1_1GenericCubic_aa7ef9ab4f983df81f7a3fdc5c4e2c22b} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!Delta1@{Delta1}}
-\index{Delta1@{Delta1}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
-\doxysubsubsection{\texorpdfstring{Delta1}{Delta1}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
-const Num\+Type \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+Delta1\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00139}{139}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
-
-\Hypertarget{classteqp_1_1GenericCubic_a510357d586b7c1e7ebbdebbe3788e217}\label{classteqp_1_1GenericCubic_a510357d586b7c1e7ebbdebbe3788e217} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!Delta2@{Delta2}}
+\Hypertarget{classteqp_1_1GenericCubic_a510357d586b7c1e7ebbdebbe3788e217}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!Delta2@{Delta2}}
 \index{Delta2@{Delta2}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{Delta2}{Delta2}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_a510357d586b7c1e7ebbdebbe3788e217} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
 const Num\+Type \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+Delta2\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00139}{139}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00141}{141}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1GenericCubic_abebafe6d3121b6c7a882f76be1a31163}\label{classteqp_1_1GenericCubic_abebafe6d3121b6c7a882f76be1a31163} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!kmat@{kmat}}
+\Hypertarget{classteqp_1_1GenericCubic_abebafe6d3121b6c7a882f76be1a31163}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!kmat@{kmat}}
 \index{kmat@{kmat}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{kmat}{kmat}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_abebafe6d3121b6c7a882f76be1a31163} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
 Eigen\+::\+Array\+XXd \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::kmat\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00142}{142}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
-
-\Hypertarget{classteqp_1_1GenericCubic_af2335a46b8146962bb18271c4da09e61}\label{classteqp_1_1GenericCubic_af2335a46b8146962bb18271c4da09e61} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!meta@{meta}}
-\index{meta@{meta}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
-\doxysubsubsection{\texorpdfstring{meta}{meta}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
-nlohmann\+::json \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::meta\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
 Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00144}{144}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1GenericCubic_a32881a67a3127966038561365d9b7296}\label{classteqp_1_1GenericCubic_a32881a67a3127966038561365d9b7296} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!OmegaA@{OmegaA}}
+\Hypertarget{classteqp_1_1GenericCubic_a0a876eb2d75290bf67f56b48f09e2f4a}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!m\_R\_JmolK@{m\_R\_JmolK}}
+\index{m\_R\_JmolK@{m\_R\_JmolK}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{m\_R\_JmolK}{m\_R\_JmolK}}
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_a0a876eb2d75290bf67f56b48f09e2f4a} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+const double \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::m\+\_\+\+R\+\_\+\+JmolK\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00147}{147}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GenericCubic_af2335a46b8146962bb18271c4da09e61}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!meta@{meta}}
+\index{meta@{meta}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
+\doxysubsubsection{\texorpdfstring{meta}{meta}}
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_af2335a46b8146962bb18271c4da09e61} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+nlohmann\+::json \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::meta\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00146}{146}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+
+\Hypertarget{classteqp_1_1GenericCubic_a32881a67a3127966038561365d9b7296}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!OmegaA@{OmegaA}}
 \index{OmegaA@{OmegaA}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{OmegaA}{OmegaA}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_a32881a67a3127966038561365d9b7296} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
 const Num\+Type \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+OmegaA\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00139}{139}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00141}{141}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1GenericCubic_a198db5883c18f9d432a7ba97d565a58d}\label{classteqp_1_1GenericCubic_a198db5883c18f9d432a7ba97d565a58d} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!OmegaB@{OmegaB}}
+\Hypertarget{classteqp_1_1GenericCubic_a198db5883c18f9d432a7ba97d565a58d}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!OmegaB@{OmegaB}}
 \index{OmegaB@{OmegaB}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{OmegaB}{OmegaB}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_a198db5883c18f9d432a7ba97d565a58d} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
 const Num\+Type \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+OmegaB\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00139}{139}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00141}{141}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
-\Hypertarget{classteqp_1_1GenericCubic_ac2aeaed896be55cf1c3eb583b6d30e39}\label{classteqp_1_1GenericCubic_ac2aeaed896be55cf1c3eb583b6d30e39} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!Ru@{Ru}}
-\index{Ru@{Ru}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
-\doxysubsubsection{\texorpdfstring{Ru}{Ru}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
-const Num\+Type \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::\+Ru = \mbox{\hyperlink{namespaceteqp_aed0cabbf6a82a357adc773aa850566ea}{get\+\_\+\+R\+\_\+gas}}$<$double$>$()}
-
-
-
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00211}{211}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
-
-\Hypertarget{classteqp_1_1GenericCubic_a3a73a33990aa84297276b818538bee68}\label{classteqp_1_1GenericCubic_a3a73a33990aa84297276b818538bee68} 
-\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!superanc\_index@{superanc\_index}}
+\Hypertarget{classteqp_1_1GenericCubic_a3a73a33990aa84297276b818538bee68}\index{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}!superanc\_index@{superanc\_index}}
 \index{superanc\_index@{superanc\_index}!teqp::GenericCubic$<$ NumType, AlphaFunctions $>$@{teqp::GenericCubic$<$ NumType, AlphaFunctions $>$}}
 \doxysubsubsection{\texorpdfstring{superanc\_index}{superanc\_index}}
-{\footnotesize\ttfamily template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
+{\footnotesize\ttfamily \label{classteqp_1_1GenericCubic_a3a73a33990aa84297276b818538bee68} 
+template$<$typename Num\+Type , typename Alpha\+Functions $>$ \\
 int \mbox{\hyperlink{classteqp_1_1GenericCubic}{teqp\+::\+Generic\+Cubic}}$<$ Num\+Type, Alpha\+Functions $>$\+::superanc\+\_\+index\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
-Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00140}{140}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
+Definition at line \mbox{\hyperlink{cubics_8hpp_source_l00142}{142}} of file \mbox{\hyperlink{cubics_8hpp_source}{cubics.\+hpp}}.
 
 
 

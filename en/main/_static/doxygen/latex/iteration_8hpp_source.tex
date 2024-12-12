@@ -4,57 +4,448 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00002}00002\ }
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teqpcpp_8hpp}{teqp/cpp/teqpcpp.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cpp_2derivs_8hpp}{teqp/cpp/derivs.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00005}00005\ }
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00006}00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp}{teqp}}\ \{}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00007}\mbox{\hyperlink{namespaceteqp_1_1iteration}{00007}}\ \textcolor{keyword}{namespace\ }iteration\ \{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teqpcpp_8hpp}{teqp/cpp/teqpcpp.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cpp_2derivs_8hpp}{teqp/cpp/derivs.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exceptions_8hpp}{teqp/exceptions.hpp}}"{}}}
 \DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00008}00008\ }
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00009}00009\ \textcolor{keyword}{using\ namespace\ }cppinterface;}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00014}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator}{00014}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator}{NRIterator}}\{}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00015}00015\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00016}00016\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{AbstractModel}}\ *ar,\ *aig;}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00017}00017\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<char>\ \ vars;}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Ref<const\ Eigen::ArrayXd>\ vals;}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{double}\ T,\ rho;}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Ref<const\ Eigen::ArrayXd>\ z;}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00021}00021\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00022}00022\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00023}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_af15a9a362bbd635afe7a150b3b4cb5fc}{00023}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_af15a9a362bbd635afe7a150b3b4cb5fc}{NRIterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{AbstractModel}}*\ ar,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{AbstractModel}}*\ aig,\ \textcolor{keyword}{const}\ std::vector<char>\&\ vars,\ \textcolor{keyword}{const}\ Eigen::Ref<const\ Eigen::ArrayXd>\&\ vals,\ \textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ rho,\ \textcolor{keyword}{const}\ Eigen::Ref<const\ Eigen::ArrayXd>\&\ z)\ :\ ar(ar),\ aig(aig),\ vars(vars),\ vals(vals),\ T(T),\ rho(rho),\ z(z)\{\}}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00024}00024\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00026}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a1c429a1b2b15583bb3e13da0e693cf41}{00026}}\ \ \ \ \ std::vector<char>\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a1c429a1b2b15583bb3e13da0e693cf41}{get\_vars}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ vars;\ \}}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00028}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_ae028f002452b71bab31f76901de9ce99}{00028}}\ \ \ \ \ Eigen::ArrayXd\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_ae028f002452b71bab31f76901de9ce99}{get\_vals}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ vals;\ \}}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00030}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a49c949373f28a4d0de7a40353d58bf0c}{00030}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a49c949373f28a4d0de7a40353d58bf0c}{get\_T}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ T;\ \}}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00032}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a5b12df1e0349a9e93dc3c7dd2342e8b4}{00032}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a5b12df1e0349a9e93dc3c7dd2342e8b4}{get\_rho}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ rho;\ \}}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00034}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a048d638c0415c0941345e721a2fa0383}{00034}}\ \ \ \ \ Eigen::ArrayXd\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a048d638c0415c0941345e721a2fa0383}{get\_molefrac}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ z;\ \}}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00035}00035\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00041}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a80f7693d568d8b915fd2fc1a7573b96f}{00041}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a80f7693d568d8b915fd2fc1a7573b96f}{calc\_step}}(\textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ rho)\{}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Ar\ =\ ar-\/>\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a5f86b60b6ecc932c51e7f9fc81745f20}{get\_deriv\_mat2}}(T,\ rho,\ z);}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Aig\ =\ aig-\/>\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a5f86b60b6ecc932c51e7f9fc81745f20}{get\_deriv\_mat2}}(T,\ rho,\ z);}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ R\ =\ ar-\/>\mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel_a38884acb6a2663fe18967760e9438b68}{get\_R}}(z);}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ im\ =\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a2bcecf3d939d9f0f6b45d39dfe9e830d}{build\_iteration\_Jv}}(vars,\ Ar,\ Aig,\ R,\ T,\ rho,\ z);}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple((im.J.matrix().colPivHouseholderQr().solve((-\/(im.v-\/vals)).matrix())).eval(),\ im);}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00047}00047\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00048}00048\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00050}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a4526d5ba96b15732fabe79d6322bfa24}{00050}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a4526d5ba96b15732fabe79d6322bfa24}{take\_step}}()\{}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [dx,\ im]\ =\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a80f7693d568d8b915fd2fc1a7573b96f}{calc\_step}}(T,\ rho);}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ T\ +=\ dx(0);}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ rho\ +=\ dx(1);}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (im.v-\/vals).eval();}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00055}00055\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00056}00056\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00060}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a80e975486efc70992f8b0f3eaac11e69}{00060}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a80e975486efc70992f8b0f3eaac11e69}{take\_steps}}(\textcolor{keywordtype}{int}\ N)\{}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (N\ <=\ 0)\{}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}N\ must\ be\ greater\ than\ 0"{}});}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ N;\ ++i)\{}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a4526d5ba96b15732fabe79d6322bfa24}{take\_step}}();}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00067}00067\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00068}00068\ \};}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00069}00069\ }
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00070}00070\ }
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00071}00071\ \}}
-\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00072}00072\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <boost/multiprecision/cpp\_bin\_float.hpp>}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00011}00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceteqp}{teqp}}\ \{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00012}\mbox{\hyperlink{namespaceteqp_1_1iteration}{00012}}\ \textcolor{keyword}{namespace\ }iteration\ \{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00014}00014\ \textcolor{keyword}{using\ namespace\ }cppinterface;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00016}\mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{00016}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}}\{\mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcdac1175e4981d2e9ddb742fa99f70a7ccd}{not\_specified}},\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcdaec21e4be818085d31ea394add83c29b4}{keep\_going}},\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcda260ca9dd8a4577fc00b7bd5810298076}{success}},\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcdadf6402fd9ecc60f5a2159fdf45711cd4}{fatal}}\};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00023}\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData}{00023}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData}{StoppingData}}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00024}\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_ac67902b13ce16291516fd44fc5747b71}{00024}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_ac67902b13ce16291516fd44fc5747b71}{N}};\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00025}\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_af550777d0603f656280b75848b07e8d7}{00025}}\ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Array2d\&\ \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_af550777d0603f656280b75848b07e8d7}{x}};\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00026}\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_aa494c172445f78ee0b934f7a7e14bfa8}{00026}}\ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Array2d\&\ \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_aa494c172445f78ee0b934f7a7e14bfa8}{dx}};\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00027}\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_a78bd7bb736c5cd1bef5833723fb7695e}{00027}}\ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Array2d\&\ \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_a78bd7bb736c5cd1bef5833723fb7695e}{r}};\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00028}\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_a898ff812b709780134fa95283d4048bd}{00028}}\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\&\ \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_a898ff812b709780134fa95283d4048bd}{nonconstant\_indices}};\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00029}00029\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00037}\mbox{\hyperlink{classteqp_1_1iteration_1_1StoppingCondition}{00037}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1iteration_1_1StoppingCondition}{StoppingCondition}}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00038}00038\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00039}\mbox{\hyperlink{classteqp_1_1iteration_1_1StoppingCondition_a0c5d01515a716cd20374122505815104}{00039}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1StoppingCondition_a0c5d01515a716cd20374122505815104}{stop}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData}{StoppingData}}\&)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00040}\mbox{\hyperlink{classteqp_1_1iteration_1_1StoppingCondition_af5f4d351f21a850f48f5ab7702305d0e}{00040}}\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classteqp_1_1iteration_1_1StoppingCondition_af5f4d351f21a850f48f5ab7702305d0e}{desc}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00041}00041\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00043}\mbox{\hyperlink{classteqp_1_1iteration_1_1MaxAbsErrorCondition}{00043}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1iteration_1_1MaxAbsErrorCondition}{MaxAbsErrorCondition}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1StoppingCondition}{StoppingCondition}}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00044}00044\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordtype}{double}\ threshold;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00046}00046\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00047}\mbox{\hyperlink{classteqp_1_1iteration_1_1MaxAbsErrorCondition_a8bca03b3c51efa660c4140e99e715132}{00047}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1iteration_1_1MaxAbsErrorCondition_a8bca03b3c51efa660c4140e99e715132}{MaxAbsErrorCondition}}(\textcolor{keywordtype}{double}\ threshold)\ :\ threshold(threshold)\ \{\};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00048}\mbox{\hyperlink{classteqp_1_1iteration_1_1MaxAbsErrorCondition_ab9167d0f74aabc23d4eecccaea178b15}{00048}}\ \ \ \ \ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1MaxAbsErrorCondition_ab9167d0f74aabc23d4eecccaea178b15}{stop}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData}{StoppingData}}\&\ data)\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }s\ =\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (data.\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_a78bd7bb736c5cd1bef5833723fb7695e}{r}}.abs().maxCoeff()\ <\ threshold)\ ?\ s::success\ :\ s::keep\_going;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00051}00051\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00052}\mbox{\hyperlink{classteqp_1_1iteration_1_1MaxAbsErrorCondition_adbdec49473c309dbc21bce80caf9dd6d}{00052}}\ \ \ \ \ std::string\ \mbox{\hyperlink{classteqp_1_1iteration_1_1MaxAbsErrorCondition_adbdec49473c309dbc21bce80caf9dd6d}{desc}}()\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}MaxAbsErrorCondition"{}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00054}00054\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00055}00055\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00057}\mbox{\hyperlink{classteqp_1_1iteration_1_1MinRelStepsizeCondition}{00057}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1iteration_1_1MinRelStepsizeCondition}{MinRelStepsizeCondition}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1StoppingCondition}{StoppingCondition}}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00058}00058\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordtype}{double}\ threshold;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00060}00060\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00061}\mbox{\hyperlink{classteqp_1_1iteration_1_1MinRelStepsizeCondition_a8763520d069d68f3f1cdfea278f5ea05}{00061}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1iteration_1_1MinRelStepsizeCondition_a8763520d069d68f3f1cdfea278f5ea05}{MinRelStepsizeCondition}}(\textcolor{keywordtype}{double}\ threshold)\ :\ threshold(threshold)\ \{\};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00062}00062\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00066}\mbox{\hyperlink{classteqp_1_1iteration_1_1MinRelStepsizeCondition_ad41aa223dd547608f6b1020e1b0fda0f}{00066}}\ \ \ \ \ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1MinRelStepsizeCondition_ad41aa223dd547608f6b1020e1b0fda0f}{stop}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData}{StoppingData}}\&\ data)\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }s\ =\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ minval\ =\ 1e99;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ idx\ :\ data.\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_a898ff812b709780134fa95283d4048bd}{nonconstant\_indices}})\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ val\ =\ std::abs(data.\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_aa494c172445f78ee0b934f7a7e14bfa8}{dx}}(idx)/data.\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_af550777d0603f656280b75848b07e8d7}{x}}(idx));}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ minval\ =\ std::min(val,\ minval);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (minval\ <\ threshold)\ ?\ s::success\ :\ s::keep\_going;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00074}00074\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00075}\mbox{\hyperlink{classteqp_1_1iteration_1_1MinRelStepsizeCondition_a67dce0002b48cb18cbc3e9cbc7f90231}{00075}}\ \ \ \ \ std::string\ \mbox{\hyperlink{classteqp_1_1iteration_1_1MinRelStepsizeCondition_a67dce0002b48cb18cbc3e9cbc7f90231}{desc}}()\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}MinRelStepsizeCondition"{}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00077}00077\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00078}00078\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00080}\mbox{\hyperlink{classteqp_1_1iteration_1_1NanXDXErrorCondition}{00080}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1iteration_1_1NanXDXErrorCondition}{NanXDXErrorCondition}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1StoppingCondition}{StoppingCondition}}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00081}00081\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00085}\mbox{\hyperlink{classteqp_1_1iteration_1_1NanXDXErrorCondition_a03f33bba1b7f3f066c346117ddf531ed}{00085}}\ \ \ \ \ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NanXDXErrorCondition_a03f33bba1b7f3f066c346117ddf531ed}{stop}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData}{StoppingData}}\&\ data)\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }s\ =\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ allfinite\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ idx\ :\ data.\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_a898ff812b709780134fa95283d4048bd}{nonconstant\_indices}})\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!std::isfinite(data.\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_af550777d0603f656280b75848b07e8d7}{x}}(idx))\ ||\ !std::isfinite(data.\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_aa494c172445f78ee0b934f7a7e14bfa8}{dx}}(idx)))\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ allfinite\ =\ \textcolor{keyword}{false};\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (!allfinite)\ ?\ s::fatal\ :\ s::keep\_going;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00094}00094\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00095}\mbox{\hyperlink{classteqp_1_1iteration_1_1NanXDXErrorCondition_a9e3cae0fa50dff491a4ace3ce14b4f94}{00095}}\ \ \ \ \ std::string\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NanXDXErrorCondition_a9e3cae0fa50dff491a4ace3ce14b4f94}{desc}}()\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}NanXDXErrorCondition"{}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00097}00097\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00098}00098\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00100}\mbox{\hyperlink{classteqp_1_1iteration_1_1NegativeXErrorCondition}{00100}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1iteration_1_1NegativeXErrorCondition}{NegativeXErrorCondition}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1StoppingCondition}{StoppingCondition}}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00101}00101\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00102}\mbox{\hyperlink{classteqp_1_1iteration_1_1NegativeXErrorCondition_ab13f56719321eb8cc61520b9d18be15a}{00102}}\ \ \ \ \ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NegativeXErrorCondition_ab13f56719321eb8cc61520b9d18be15a}{stop}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData}{StoppingData}}\&\ data)\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }s\ =\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((data.\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_af550777d0603f656280b75848b07e8d7}{x}}(data.\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_a898ff812b709780134fa95283d4048bd}{nonconstant\_indices}})\ <\ 0).any())\ ?\ s::fatal\ :\ s::keep\_going;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00105}00105\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00106}\mbox{\hyperlink{classteqp_1_1iteration_1_1NegativeXErrorCondition_af9591547bac91c8df75289377228d258}{00106}}\ \ \ \ \ std::string\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NegativeXErrorCondition_af9591547bac91c8df75289377228d258}{desc}}()\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}NegativeXErrorCondition"{}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00108}00108\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00109}00109\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00111}\mbox{\hyperlink{classteqp_1_1iteration_1_1StepCountErrorCondition}{00111}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1iteration_1_1StepCountErrorCondition}{StepCountErrorCondition}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1StoppingCondition}{StoppingCondition}}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00112}00112\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00113}00113\ \ \ \ \ \textcolor{keyword}{const}\ std::size\_t\ Nmax;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00114}00114\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00115}\mbox{\hyperlink{classteqp_1_1iteration_1_1StepCountErrorCondition_a30fac9fbfe1f397105255d58b6e97bba}{00115}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1iteration_1_1StepCountErrorCondition_a30fac9fbfe1f397105255d58b6e97bba}{StepCountErrorCondition}}(\textcolor{keywordtype}{int}\ Nmax)\ :\ Nmax(Nmax)\{\}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00116}\mbox{\hyperlink{classteqp_1_1iteration_1_1StepCountErrorCondition_a9f3c0604482112aa3338f3aadfa90ac8}{00116}}\ \ \ \ \ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1StepCountErrorCondition_a9f3c0604482112aa3338f3aadfa90ac8}{stop}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData}{StoppingData}}\&\ data)\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }s\ =\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (data.\mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData_ac67902b13ce16291516fd44fc5747b71}{N}}\ >=\ Nmax)\ ?\ s::fatal\ :\ s::keep\_going;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00119}00119\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00120}\mbox{\hyperlink{classteqp_1_1iteration_1_1StepCountErrorCondition_a309f1b4540299255074637cdb2968b46}{00120}}\ \ \ \ \ std::string\ \mbox{\hyperlink{classteqp_1_1iteration_1_1StepCountErrorCondition_a309f1b4540299255074637cdb2968b46}{desc}}()\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}StepCountErrorCondition"{}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00122}00122\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00123}00123\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00128}\mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel}{00128}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel}{AlphaModel}}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00129}00129\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00130}\mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a3568ddbbb91f98c11e1e20d47139dc56}{00130}}\ \ \ \ \ std::shared\_ptr<AbstractModel>\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a3568ddbbb91f98c11e1e20d47139dc56}{model\_ideal\_gas}},\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a3348be7aada4ca6fac87e55765443607}{model\_residual}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00131}00131\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00132}00132\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Z>}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00133}\mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a5e251881b6a5fb85e86427cd72cd9830}{00133}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a5e251881b6a5fb85e86427cd72cd9830}{get\_R}}(\textcolor{keyword}{const}\ Z\&\ z)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a3348be7aada4ca6fac87e55765443607}{model\_residual}}-\/>get\_R(z);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00135}00135\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00136}00136\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00137}\mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a6af2ff7ba5e42bfd27e4c35a0b7aea3d}{00137}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a6af2ff7ba5e42bfd27e4c35a0b7aea3d}{get\_R}}(\textcolor{keyword}{const}\ std::vector<double>\&\ z)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ zz\ =\ Eigen::Map<const\ Eigen::ArrayXd>(\&z[0],\ z.size());}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a3348be7aada4ca6fac87e55765443607}{model\_residual}}-\/>get\_R(zz);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00140}00140\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00141}00141\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00142}00142\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Z>}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00143}\mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_afaa556f35841c0955f65616733cb1d2f}{00143}}\ \ \ \ \ Eigen::Array33d\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_afaa556f35841c0955f65616733cb1d2f}{get\_deriv\_mat2}}(\textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ rho,\ \textcolor{keyword}{const}\ Z\&\ z)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a3568ddbbb91f98c11e1e20d47139dc56}{model\_ideal\_gas}}-\/>get\_deriv\_mat2(T,\ rho,\ z)\ +\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a3348be7aada4ca6fac87e55765443607}{model\_residual}}-\/>get\_deriv\_mat2(T,\ rho,\ z);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00145}00145\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00146}00146\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00147}\mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_ae2153c44da4b9975da897f2f4e5fc31f}{00147}}\ \ \ \ \ Eigen::Array33d\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_ae2153c44da4b9975da897f2f4e5fc31f}{get\_deriv\_mat2}}(\textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ rho,\ \textcolor{keyword}{const}\ std::vector<double>\&\ z)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ zz\ =\ Eigen::Map<const\ Eigen::ArrayXd>(\&z[0],\ z.size());}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a3568ddbbb91f98c11e1e20d47139dc56}{model\_ideal\_gas}}-\/>get\_deriv\_mat2(T,\ rho,\ zz)\ +\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a3348be7aada4ca6fac87e55765443607}{model\_residual}}-\/>get\_deriv\_mat2(T,\ rho,\ zz);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00150}00150\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00151}00151\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00152}00152\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Z>}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00153}\mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a34a8555d7fde0141428432166ee8722b}{00153}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a34a8555d7fde0141428432166ee8722b}{get\_A00A10A01}}(\textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ rho,\ \textcolor{keyword}{const}\ Z\&\ z)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ A10\ =\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a3568ddbbb91f98c11e1e20d47139dc56}{model\_ideal\_gas}}-\/>get\_Ar10(T,\ rho,\ z)\ +\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a3348be7aada4ca6fac87e55765443607}{model\_residual}}-\/>get\_Ar10(T,\ rho,\ z);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00155}00155\ \ \ \ \ \ \ \ \ Eigen::Array2d\ A00A01\ =\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a3568ddbbb91f98c11e1e20d47139dc56}{model\_ideal\_gas}}-\/>get\_Ar01n(T,\ rho,\ z)\ +\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a3348be7aada4ca6fac87e55765443607}{model\_residual}}-\/>get\_Ar01n(T,\ rho,\ z);\ \textcolor{comment}{//\ This\ gives\ [A00,\ A01]\ at\ the\ same\ time}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(A00A01[0],\ A10,\ A00A01[1]);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00157}00157\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00158}00158\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00169}00169\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Array>}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00170}\mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_ab3b7f0cffde78b016803d530ab70708b}{00170}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_ab3b7f0cffde78b016803d530ab70708b}{get\_vals}}(\textcolor{keyword}{const}\ std::vector<char>\&\ vars,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ R,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ T,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ rho,\ \textcolor{keyword}{const}\ Array\ \&z)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00171}00171\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00172}00172\ \ \ \ \ \ \ \ \ Array\ v(2);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Trecip\ =\ 1.0/T;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dTrecipdT\ =\ -\/Trecip*Trecip;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00175}00175\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Define\ some\ lambda\ functions\ for\ things\ that\ *might*\ be\ needed}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ lambdas\ are\ used\ to\ get\ a\ sort\ of\ lazy\ evaluation.\ The\ lambdas\ are}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ only\ evaluated\ on\ an\ as-\/needed\ basis.\ \ If\ the\ lambda\ is\ not\ called,}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ no\ cost\ is\ incurred.}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Probably\ the\ compiler\ will\ inline\ these\ functions\ anyhow.}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [A00,\ A10,\ A01]\ =\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_a34a8555d7fde0141428432166ee8722b}{get\_A00A10A01}}(T,\ rho,\ z);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Derivatives\ of\ total\ alpha(Trecip,\ rho)}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ alpha\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ A00;\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dalphadTrecip\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ A10/Trecip;\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dalphadrho\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ A01/rho;\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Derivatives\ of\ total\ Helmholtz\ energy\ a\ =\ alpha*R/Trecip\ in}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ terms\ of\ derivatives\ of\ alpha(Trecip,\ rho)}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ a\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ alpha()*R*T;\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dadTrecip\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ R/(Trecip*Trecip)*(Trecip*dalphadTrecip()-\/alpha());\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dadrho\ =\ [\&]()\{\ \textcolor{keywordflow}{return}\ R/Trecip*(dalphadrho());\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00193}00193\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0;\ i\ <\ vars.size();\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(vars[i])\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'T'}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ T;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'D'}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ rho;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'P'}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ rho*rho*dadrho();\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'S'}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ Trecip*Trecip*dadTrecip();\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'H'}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ a()\ +\ Trecip*dadTrecip()\ +\ rho*dadrho();\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'U'}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v(i)\ =\ a()\ +\ Trecip*dadTrecip();\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}bad\ var:\ "{}}\ +\ std::to\_string(vars[i]));}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ v;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00213}00213\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00214}00214\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00215}00215\ \textcolor{keyword}{static\_assert}(std::is\_copy\_constructible\_v<AlphaModel>);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00217}\mbox{\hyperlink{structteqp_1_1iteration_1_1NRIteratorResult}{00217}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structteqp_1_1iteration_1_1NRIteratorResult}{NRIteratorResult}}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00218}\mbox{\hyperlink{structteqp_1_1iteration_1_1NRIteratorResult_ac30f3cc8f8773bcc821d0a34dc07c9ff}{00218}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structteqp_1_1iteration_1_1NRIteratorResult_ac30f3cc8f8773bcc821d0a34dc07c9ff}{success}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00219}\mbox{\hyperlink{structteqp_1_1iteration_1_1NRIteratorResult_aa0e6f0e3e896162cf248e5e4c3c46bfe}{00219}}\ \ \ \ \ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}}\ \mbox{\hyperlink{structteqp_1_1iteration_1_1NRIteratorResult_aa0e6f0e3e896162cf248e5e4c3c46bfe}{reason}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00220}\mbox{\hyperlink{structteqp_1_1iteration_1_1NRIteratorResult_a0275b21238c896171c1279f031328293}{00220}}\ \ \ \ \ std::string\ \mbox{\hyperlink{structteqp_1_1iteration_1_1NRIteratorResult_a0275b21238c896171c1279f031328293}{msg}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00221}\mbox{\hyperlink{structteqp_1_1iteration_1_1NRIteratorResult_a288610e44e2bc6ce1b5b0636e67b1229}{00221}}\ \ \ \ \ Eigen::Array2d\ \mbox{\hyperlink{structteqp_1_1iteration_1_1NRIteratorResult_a288610e44e2bc6ce1b5b0636e67b1229}{Trho}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00222}00222\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00228}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator}{00228}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator}{NRIterator}}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00229}00229\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00230}00230\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel}{AlphaModel}}\ alphamodel;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00231}00231\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<char>\ \ vars;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00232}00232\ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Array2d\ vals;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00233}00233\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00234}00234\ \ \ \ \ \textcolor{keyword}{const}\ Eigen::ArrayXd\ z;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00235}00235\ \ \ \ \ Eigen::Array2d\ Trho;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00236}00236\ \ \ \ \ \textcolor{keywordtype}{double}\ R;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00237}00237\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00238}00238\ \ \ \ \ std::tuple<bool,\ bool>\ relative\_error;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00239}00239\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::shared\_ptr<StoppingCondition>>\ stopping\_conditions;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00240}00240\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00241}00241\ \ \ \ \ \textcolor{keywordtype}{int}\ step\_counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00242}00242\ \ \ \ \ std::string\ msg;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00243}00243\ \ \ \ \ std::vector<int>\ nonconstant\_indices;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00244}00244\ \ \ \ \ \textcolor{keywordtype}{bool}\ isTD;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00245}00245\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00246}00246\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00247}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_addf87c842eaa2cd27fed3e6727b8175a}{00247}}\ \ \ \ \ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_addf87c842eaa2cd27fed3e6727b8175a}{NRIterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel}{AlphaModel}}\&\ alphamodel,\ \textcolor{keyword}{const}\ std::vector<char>\&\ vars,\ \textcolor{keyword}{const}\ Eigen::Array2d\&\ vals,\ \textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ rho,\ \textcolor{keyword}{const}\ Eigen::Ref<const\ Eigen::ArrayXd>\&\ z,\ \textcolor{keyword}{const}\ std::tuple<bool,\ bool>\ \&relative\_error,\ \textcolor{keyword}{const}\ std::vector<std::shared\_ptr<StoppingCondition>>\ stopping\_conditions)\ :\ alphamodel(alphamodel),\ vars(vars),\ vals(vals),\ Trho((Eigen::Array2d()\ <<\ T,rho).finished()),\ z(z),\ R(alphamodel.get\_R(z)),\ relative\_error(relative\_error),\ stopping\_conditions(stopping\_conditions)\ \{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!(vars[0]\ ==\ \textcolor{charliteral}{'T'}\ ||\ vars[1]\ ==\ \textcolor{charliteral}{'T'}))\{\ nonconstant\_indices.push\_back(0);\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!(vars[0]\ ==\ \textcolor{charliteral}{'D'}\ ||\ vars[1]\ ==\ \textcolor{charliteral}{'D'}))\{\ nonconstant\_indices.push\_back(1);\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00250}00250\ \ \ \ \ \ \ \ \ isTD\ =\ (nonconstant\_indices.size()\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00251}00251\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00252}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a710837f3f9ae433b63e256b0ac3febe1}{00252}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a710837f3f9ae433b63e256b0ac3febe1}{verbose}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00253}00253\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00255}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a1c429a1b2b15583bb3e13da0e693cf41}{00255}}\ \ \ \ \ std::vector<char>\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a1c429a1b2b15583bb3e13da0e693cf41}{get\_vars}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ vars;\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00257}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_aaece7aa2e345ec3c475eef867118ee43}{00257}}\ \ \ \ \ Eigen::Array2d\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_aaece7aa2e345ec3c475eef867118ee43}{get\_vals}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ vals;\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00259}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a49c949373f28a4d0de7a40353d58bf0c}{00259}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a49c949373f28a4d0de7a40353d58bf0c}{get\_T}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ Trho(0);\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00261}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a5b12df1e0349a9e93dc3c7dd2342e8b4}{00261}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a5b12df1e0349a9e93dc3c7dd2342e8b4}{get\_rho}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ Trho(1);\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00263}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a048d638c0415c0941345e721a2fa0383}{00263}}\ \ \ \ \ Eigen::ArrayXd\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a048d638c0415c0941345e721a2fa0383}{get\_molefrac}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ z;\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00265}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_af7369184d4d282ef9b6a95f7016a8cea}{00265}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_af7369184d4d282ef9b6a95f7016a8cea}{get\_step\_count}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ step\_counter;\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00267}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a75bcb759d706b2d9d00c8c8c61b4d504}{00267}}\ \ \ \ \ std::string\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a75bcb759d706b2d9d00c8c8c61b4d504}{get\_message}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ msg;\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00269}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_aa1073767cc148323b74ef6bd060791b7}{00269}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_aa1073767cc148323b74ef6bd060791b7}{get\_nonconstant\_indices}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ nonconstant\_indices;\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00270}00270\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00271}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_ad6ba4e785faa9cf5c6b2e90d43f81a22}{00271}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_ad6ba4e785faa9cf5c6b2e90d43f81a22}{reset}}(\textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ rho)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00272}00272\ \ \ \ \ \ \ \ \ Trho\ =\ (Eigen::Array2d()\ <<\ T,\ rho).finished();}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00273}00273\ \ \ \ \ \ \ \ \ step\_counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00274}00274\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00275}00275\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00281}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_acb735473b936e97674eff7d374285b9d}{00281}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_acb735473b936e97674eff7d374285b9d}{calc\_matrices}}(\textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ rho)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ A\ =\ alphamodel.\mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_afaa556f35841c0955f65616733cb1d2f}{get\_deriv\_mat2}}(T,\ rho,\ z);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a9b3bb973011fc0d9b583a0cdde1c095b}{build\_iteration\_Jv}}(vars,\ A,\ R,\ T,\ rho,\ z);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00284}00284\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00285}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_aad32d341cd77376c8e81fc49ad21f13f}{00285}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_aad32d341cd77376c8e81fc49ad21f13f}{calc\_step}}(\textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ rho)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00286}00286\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ im\ =\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_acb735473b936e97674eff7d374285b9d}{calc\_matrices}}(T,\ rho);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple((im.J.matrix().colPivHouseholderQr().solve((-\/(im.v-\/vals)).matrix())).eval(),\ im);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00288}00288\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00289}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a802eeec1b3fddfc15f1cafaa0afa4382}{00289}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a802eeec1b3fddfc15f1cafaa0afa4382}{calc\_just\_step}}(\textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ rho)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::get<0>(\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_aad32d341cd77376c8e81fc49ad21f13f}{calc\_step}}(T,\ rho));}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00291}00291\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00292}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a66fcc804ba5443395451c2cd0aa295ef}{00292}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a66fcc804ba5443395451c2cd0aa295ef}{calc\_vals}}(\textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ rho)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_acb735473b936e97674eff7d374285b9d}{calc\_matrices}}(T,\ rho).v;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00294}00294\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00295}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_af854b72d10a04fcce3e6cc9cf7f7e800}{00295}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_af854b72d10a04fcce3e6cc9cf7f7e800}{calc\_r}}(\textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ rho)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ im\ =\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_acb735473b936e97674eff7d374285b9d}{calc\_matrices}}(T,\ rho);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00297}00297\ \ \ \ \ \ \ \ \ Eigen::Array2d\ r\ =\ im.v-\/vals;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::get<0>(relative\_error))\{\ r(0)\ /=\ vals(0);\}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::get<1>(relative\_error))\{\ r(1)\ /=\ vals(1);\}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ r;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00301}00301\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00302}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a43e92f6a3244fde56ef28e5c8a640b19}{00302}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a43e92f6a3244fde56ef28e5c8a640b19}{calc\_J}}(\textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ rho)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ im\ =\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_acb735473b936e97674eff7d374285b9d}{calc\_matrices}}(T,\ rho);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::get<0>(relative\_error))\{\ im.J.row(0)\ /=\ vals(0);\}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::get<1>(relative\_error))\{\ im.J.row(1)\ /=\ vals(1);\}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ im.J;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00307}00307\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00309}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a0fe8e09901b10e7535861d469499a490}{00309}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a0fe8e09901b10e7535861d469499a490}{calc\_maxabsr}}(\textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ rho)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00310}00310\ \ \ \ \ \ \ \ \ Eigen::Array2d\ r\ =\ alphamodel.\mbox{\hyperlink{classteqp_1_1iteration_1_1AlphaModel_ab3b7f0cffde78b016803d530ab70708b}{get\_vals}}(vars,\ R,\ T,\ rho,\ z)-\/vals;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::get<0>(relative\_error))\{\ r(0)\ /=\ vals(0);\}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00312}00312\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::get<1>(relative\_error))\{\ r(1)\ /=\ vals(1);\}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00313}00313\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ r.abs().maxCoeff();}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00314}00314\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00315}00315\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00319}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a80e975486efc70992f8b0f3eaac11e69}{00319}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a80e975486efc70992f8b0f3eaac11e69}{take\_steps}}(\textcolor{keywordtype}{int}\ N)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00320}00320\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (N\ <=\ 0)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}N\ must\ be\ greater\ than\ 0"{}});}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00322}00322\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00323}00323\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ tic\ =\ std::chrono::steady\_clock::now();}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00324}00324\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}}\ reason\ =\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcdadf6402fd9ecc60f5a2159fdf45711cd4}{StoppingConditionReason::fatal}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00325}00325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ K\ =\ 0;\ K\ <\ N;\ ++K)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ im\ =\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_acb735473b936e97674eff7d374285b9d}{calc\_matrices}}(Trho(0),\ Trho(1));}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Array2d\ r\ =\ im.v-\/vals;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::get<0>(relative\_error))\{\ r(0)\ /=\ vals(0);\ im.J.row(0)\ /=\ vals(0);\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::get<1>(relative\_error))\{\ r(1)\ /=\ vals(1);\ im.J.row(1)\ /=\ vals(1);\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Array2d\ dTrho\ =\ im.J.matrix().fullPivLu().solve((-\/r).matrix());}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(isTD)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Trho\ +=\ dTrho;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ step\_counter++;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00337}00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ reason\ =\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcda260ca9dd8a4577fc00b7bd5810298076}{StoppingConditionReason::success}};\ msg\ =\ \textcolor{stringliteral}{"{}Only\ one\ step\ is\ needed\ for\ DT\ inputs"{}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00338}00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00339}00339\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00341}00341\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ whether\ a\ stopping\ condition\ (either\ good[complete]\ or\ bad[error])}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ stop\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData}{StoppingData}}\ data\{N,\ Trho,\ dTrho,\ r,\ nonconstant\_indices\};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00344}00344\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ condition\ :\ stopping\_conditions)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }s\ =\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ this\_reason\ =\ condition-\/>stop(data);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this\_reason\ !=\ s::keep\_going)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stop\ =\ \textcolor{keyword}{true};\ reason\ =\ this\_reason;\ msg\ =\ condition-\/>desc();\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \ \ Trho\ +=\ dTrho;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00353}00353\ \ \ \ \ \ \ \ \ \ \ \ \ step\_counter++;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00354}00354\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stop)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00355}00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00356}00356\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00357}00357\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00358}00358\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ toc\ =\ std::chrono::steady\_clock::now();}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00359}00359\ \textcolor{comment}{//\ \ \ \ \ \ \ \ std::cout\ <<\ "{}Time\ difference\ =\ "{}\ <<\ std::chrono::duration\_cast<std::chrono::nanoseconds>(toc\ -\/\ tic).count()/1e3/step\_counter\ <<\ "{}[µs/call]"{}\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00360}00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ reason;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00361}00361\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00362}00362\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00363}00363\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00367}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_af9ec06a28996477e4bcad6793c437b73}{00367}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_af9ec06a28996477e4bcad6793c437b73}{take\_steps\_logrho}}(\textcolor{keywordtype}{int}\ N)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00368}00368\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (N\ <=\ 0)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classteqp_1_1InvalidArgument}{teqp::InvalidArgument}}(\textcolor{stringliteral}{"{}N\ must\ be\ greater\ than\ 0"{}});}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00370}00370\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00371}00371\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ tic\ =\ std::chrono::steady\_clock::now();}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00372}00372\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}}\ reason\ =\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcdadf6402fd9ecc60f5a2159fdf45711cd4}{StoppingConditionReason::fatal}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00373}00373\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00374}00374\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ K\ =\ 0;\ K\ <\ N;\ ++K)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ im\ =\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_acb735473b936e97674eff7d374285b9d}{calc\_matrices}}(Trho(0),\ Trho(1));}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00376}00376\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Array2d\ r\ =\ im.v-\/vals;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00377}00377\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00378}00378\ \ \ \ \ \ \ \ \ \ \ \ \ im.J.col(1)\ *=\ Trho(1);\ \textcolor{comment}{//\ This\ will\ make\ the\ step\ be\ [dT,\ dln(rho)]\ instead\ of\ [dT,\ drho]}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00379}00379\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::get<0>(relative\_error))\{\ r(0)\ /=\ vals(0);\ im.J.row(0)\ /=\ vals(0);\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00380}00380\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::get<1>(relative\_error))\{\ r(1)\ /=\ vals(1);\ im.J.row(1)\ /=\ vals(1);\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00382}00382\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ Eigen::JacobiSVD<Eigen::Matrix2d>\ svd(im.J);}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00383}00383\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ double\ cond\ =\ svd.singularValues()(0)\ /\ svd.singularValues()(svd.singularValues().size()-\/1);}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00384}00384\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00385}00385\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Array2d\ step;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00386}00386\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{false})\{\textcolor{comment}{//cond\ >\ 1)\{}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00387}00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ idea\ in\ this\ block\ was\ to\ use\ extended\ precision\ to\ obtain\ the\ step}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00388}00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ but\ it\ seems\ to\ make\ no\ difference\ at\ all,\ because\ the\ condition\ number\ is\ a}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00389}00389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ function\ of\ the\ problem,\ but\ the\ loss\ in\ precision\ is\ only\ meaningful\ relative\ to}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00390}00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ number\ of\ digits\ of\ working\ precision\ available\ via\ the\ lost\ digits\ approximated}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00391}00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ by\ log10(kappa),\ where\ kappa\ is\ the\ condition\ number}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00392}00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }my\_float\ =\ boost::multiprecision::number<boost::multiprecision::cpp\_bin\_float<164U>>;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00393}00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<my\_float,\ 2,\ 2>\ Jmp\ =\ im.J.cast<my\_float>();}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector<my\_float,\ 2>\ rmp\ =\ r.cast<my\_float>();}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00395}00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ step\ =\ Jmp.fullPivLu().solve(-\/rmp).cast<\textcolor{keywordtype}{double}>();}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Array<my\_float,\ 2,\ -\/1>\ newvals\ =\ (Trho.cast<my\_float>()\ +\ Jmp.fullPivLu().solve(-\/rmp).array());}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00398}00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Array2d\ new\_double\ =\ (Trho\ +\ im.J.matrix().fullPivLu().solve((-\/r).matrix()).array());}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00399}00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/\ "{}}\ <<\ ((newvals-\/new\_double.cast<my\_float>())/Trho.cast<my\_float>()).cast<\textcolor{keywordtype}{double}>()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00401}00401\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ step\ =\ im.J.matrix().fullPivLu().solve((-\/r).matrix());}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Array2d\ dTrho\ =\ (Eigen::Array2d()\ <<\ step(0),\ Trho(1)*(exp(step(1))-\/1)).finished();}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ whether\ a\ stopping\ condition\ (either\ good[complete]\ or\ bad[error])}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00407}00407\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ stop\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00408}00408\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structteqp_1_1iteration_1_1StoppingData}{StoppingData}}\ data\{N,\ Trho,\ dTrho,\ r,\ nonconstant\_indices\};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00409}00409\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ condition\ :\ stopping\_conditions)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00410}00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }s\ =\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcd}{StoppingConditionReason}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00411}00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ this\_reason\ =\ condition-\/>stop(data);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00412}00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this\_reason\ !=\ s::keep\_going)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00413}00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stop\ =\ \textcolor{keyword}{true};\ reason\ =\ this\_reason;\ msg\ =\ condition-\/>desc();\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00414}00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00415}00415\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00416}00416\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00417}00417\ \ \ \ \ \ \ \ \ \ \ \ \ Trho\ +=\ dTrho;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00418}00418\ \ \ \ \ \ \ \ \ \ \ \ \ step\_counter++;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00419}00419\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00420}00420\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(nonconstant\_indices.size()\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00421}00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stop\ =\ \textcolor{keyword}{true};\ reason\ =\ \mbox{\hyperlink{namespaceteqp_1_1iteration_a48afdc10dad76b09a742e65f9e8a0bcda260ca9dd8a4577fc00b7bd5810298076}{StoppingConditionReason::success}};\ msg\ =\ \textcolor{stringliteral}{"{}Only\ one\ step\ is\ needed\ for\ DT\ inputs"{}};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00422}00422\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00423}00423\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ if(nonconstant\_indices.size()\ ==\ 2)\{}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00424}00424\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ If\ the\ step\ size\ gets\ too\ small\ on\ a\ relative\ basis\ then\ you}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00425}00425\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ need\ to\ stop}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00426}00426\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ There\ is\ a\ loss\ in\ precision\ caused\ by\ the\ Jacobian\ having\ a\ large\ condition\ number}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00427}00427\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ and\ use\ that\ to\ determine\ whether\ you\ need\ to\ stop\ stepping}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00428}00428\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00429}00429\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ The\ condition\ number\ only\ is\ meaningful\ for\ 2x2\ systems\ where\ both\ variables}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00430}00430\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ are\ being\ iterated\ for.}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00431}00431\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ ((dTrho/Trho)(nonconstant\_indices).abs().minCoeff()\ <\ 1e-\/15*cond)\{}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00432}00432\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::stringstream\ ss;\ ss\ <<\ im.J;}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00433}00433\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stop\ =\ true;\ reason\ =\ StoppingConditionReason::success;\ msg\ =\ "{}MinRelStepSize\ \string~=\ cond\ of\ "{}\ +\ std::to\_string(cond)\ +\ "{}:\ J"{}\ +\ ss.str();}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00434}00434\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00435}00435\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00436}00436\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a710837f3f9ae433b63e256b0ac3febe1}{verbose}})\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00437}00437\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ step\_counter\ <<\ "{},"{}\ <<\ r.abs().maxCoeff()\ <<\ "{},"{}\ <<\ Trho\ <<\ "{}|"{}\ <<\ (dTrho/Trho).abs().minCoeff()\ <<\ "{}cond:\ "{}\ <<\ cond\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00438}00438\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ step\_counter\ <<\ "{},"{}\ <<\ r.abs().maxCoeff()\ <<\ "{},"{}\ <<\ Trho\ <<\ "{}|"{}\ <<\ (dTrho/Trho).abs().minCoeff()\ <<\ im.J.matrix()\ <<\ im.v-\/vals\ <<\ "{}cond:\ "{}\ <<\ cond\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00439}00439\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00440}00440\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stop)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00441}00441\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00442}00442\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00443}00443\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00444}00444\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ toc\ =\ std::chrono::steady\_clock::now();}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00445}00445\ \textcolor{comment}{//\ \ \ \ \ \ \ \ std::cout\ <<\ "{}Time\ difference\ =\ "{}\ <<\ std::chrono::duration\_cast<std::chrono::nanoseconds>(toc\ -\/\ tic).count()/1e3/step\_counter\ <<\ "{}[µs/call]"{}\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00446}00446\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ reason;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00447}00447\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00448}\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a4b3d722bd0d7d560111a22c528ffdee7}{00448}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a4b3d722bd0d7d560111a22c528ffdee7}{path\_integration}}(\textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ rho,\ std::size\_t\ N)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00449}00449\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Start\ at\ the\ given\ value\ of\ T,\ rho}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00450}00450\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00451}00451\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ given\ variables}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00452}00452\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ im\ =\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_acb735473b936e97674eff7d374285b9d}{calc\_matrices}}(T,\ rho);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00453}00453\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00454}00454\ \ \ \ \ \ \ \ \ Eigen::Array2d\ vals\_current\ =\ im.v;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00455}00455\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x\_current\ =\ vals\_current(0);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00456}00456\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ y\_current\ =\ vals\_current(1);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00457}00457\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00458}00458\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assume\ (for\ now)\ a\ linear\ path\ between\ starting\ point\ and\ the\ target\ point}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00459}00459\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x\_target\ =\ vals(0);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00460}00460\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ y\_target\ =\ vals(1);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00461}00461\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dxdt\ =\ (x\_target-\/x\_current)/(1.0-\/0.0);\ \textcolor{comment}{//\ The\ 1.0\ to\ make\ clear\ what\ is\ going\ on;\ we\ are\ integrating\ from\ 0\ -\/>\ 1}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00462}00462\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dydt\ =\ (y\_target-\/y\_current)/(1.0-\/0.0);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00463}00463\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dt\ =\ 1.0/N;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00464}00464\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00465}00465\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Determine\ the\ value\ of\ the\ residual\ function\ at\ the\ end\ point}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00466}00466\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0U;\ i\ <\ N;\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00467}00467\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00468}00468\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dxdT\_\_rho\ =\ im.J(0,\ 0);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00469}00469\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dxdrho\_\_T\ =\ im.J(0,\ 1);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00470}00470\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dydT\_\_rho\ =\ im.J(1,\ 0);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00471}00471\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dydrho\_\_T\ =\ im.J(1,\ 1);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00472}00472\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00473}00473\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dxdT\_\_y\ =\ dxdT\_\_rho\ -\/\ dxdrho\_\_T*dydT\_\_rho/dydrho\_\_T;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00474}00474\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dxdrho\_\_y\ =\ dxdrho\_\_T\ -\/\ dxdT\_\_rho*dydrho\_\_T/dydT\_\_rho;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00475}00475\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00476}00476\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dydT\_\_x\ =\ dydT\_\_rho\ -\/\ dydrho\_\_T*dxdT\_\_rho/dxdrho\_\_T;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00477}00477\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dydrho\_\_x\ =\ dydrho\_\_T\ -\/\ dydT\_\_rho*dxdrho\_\_T/dxdT\_\_rho;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00478}00478\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00479}00479\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ increment\ in\ temperature\ and\ density\ along\ the\ integration\ path\ (needs\ to\ be\ adaptive\ eventually)}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00480}00480\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dTdt\ =\ dxdt/dxdT\_\_y\ +\ dydt/dydT\_\_x;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00481}00481\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ drhodt\ =\ dxdt/dxdrho\_\_y\ +\ dydt/dydrho\_\_x;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00482}00482\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00483}00483\ \ \ \ \ \ \ \ \ \ \ \ \ T\ +=\ dTdt*dt;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00484}00484\ \ \ \ \ \ \ \ \ \ \ \ \ rho\ +=\ drhodt*dt;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00485}00485\ \ \ \ \ \ \ \ \ \ \ \ \ im\ =\ \mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_acb735473b936e97674eff7d374285b9d}{calc\_matrices}}(T,\ rho);}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00486}00486\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classteqp_1_1iteration_1_1NRIterator_a710837f3f9ae433b63e256b0ac3febe1}{verbose}})\{}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00487}00487\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ (im.v-\/vals).abs().maxCoeff()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00488}00488\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00489}00489\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00490}00490\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(T,\ rho,\ im.v(0),\ im.v(1));}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00491}00491\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00492}00492\ \};}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00493}00493\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00494}00494\ }
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00495}00495\ \}}
+\DoxyCodeLine{\Hypertarget{iteration_8hpp_source_l00496}00496\ \}}
 
 \end{DoxyCode}

@@ -1,0 +1,155 @@
+\doxysection{teqp\+::saft\+::softsaft\+::Soft\+SAFT Class Reference}
+\hypertarget{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT}{}\label{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT}\index{teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}}
+
+
+{\ttfamily \#include $<$softsaft.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ab43377f9953e27e014fb323658ef1c46}{to\+Eig}} (const std\+::vector$<$ double $>$ \&x)
+\item 
+\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac8c98e51142663d7c34a398484f79e3f}{Soft\+SAFT}} (const Eigen\+::\+Array\+Xd \&\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a4e9c8c8af3f87415ab134cea24901a1b}{m}}, const Eigen\+::\+Array\+Xd \&\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac1dd8c510b48ce701963dc5de34c3ae1}{epsilon\+\_\+over\+\_\+k}}, const Eigen\+::\+Array\+Xd \&\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_afca2b41c8fd9ac434a7040f3b9cbf481}{sigma\+\_\+m}})
+\item 
+\mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a36f66b7e7bab080ffca6dff2b2858c9a}{Soft\+SAFT}} (const nlohmann\+::json \&j)
+\item 
+{\footnotesize template$<$class Vec\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a3fb883f4eba96caaebf41e27b8b0336b}{R}} (const Vec\+Type \&molefrac) const
+\item 
+{\footnotesize template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a1c9a12092dcdc232d22856528d82c442}{alphar}} (const TType \&T, const Rho\+Type \&rhomolar, const Mole\+Frac\+Type \&molefracs) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a4e9c8c8af3f87415ab134cea24901a1b}{m}}
+\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac1dd8c510b48ce701963dc5de34c3ae1}{epsilon\+\_\+over\+\_\+k}}
+\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_afca2b41c8fd9ac434a7040f3b9cbf481}{sigma\+\_\+m}}
+\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ad57c1a8460c81cd88f9496b4e0530b85}{sigma\+\_\+m3}}
+\item 
+\mbox{\hyperlink{classteqp_1_1mie_1_1lennardjones_1_1Johnson_1_1LJ126Johnson1993}{mie\+::lennardjones\+::\+Johnson\+::\+LJ126\+Johnson1993}} \mbox{\hyperlink{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ae70f628217cd1d106d2391dc4b9a7761}{Johnson}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{softsaft_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{softsaft_8hpp_source}{softsaft.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac8c98e51142663d7c34a398484f79e3f}\index{teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}!SoftSAFT@{SoftSAFT}}
+\index{SoftSAFT@{SoftSAFT}!teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}}
+\doxysubsubsection{\texorpdfstring{SoftSAFT()}{SoftSAFT()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac8c98e51142663d7c34a398484f79e3f} 
+teqp\+::saft\+::softsaft\+::\+Soft\+SAFT\+::\+Soft\+SAFT (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Array\+Xd \&}]{m}{, }\item[{const Eigen\+::\+Array\+Xd \&}]{epsilon\+\_\+over\+\_\+k}{, }\item[{const Eigen\+::\+Array\+Xd \&}]{sigma\+\_\+m}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{softsaft_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{softsaft_8hpp_source}{softsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a36f66b7e7bab080ffca6dff2b2858c9a}\index{teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}!SoftSAFT@{SoftSAFT}}
+\index{SoftSAFT@{SoftSAFT}!teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}}
+\doxysubsubsection{\texorpdfstring{SoftSAFT()}{SoftSAFT()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a36f66b7e7bab080ffca6dff2b2858c9a} 
+teqp\+::saft\+::softsaft\+::\+Soft\+SAFT\+::\+Soft\+SAFT (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{softsaft_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{softsaft_8hpp_source}{softsaft.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a1c9a12092dcdc232d22856528d82c442}\index{teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}!alphar@{alphar}}
+\index{alphar@{alphar}!teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}}
+\doxysubsubsection{\texorpdfstring{alphar()}{alphar()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a1c9a12092dcdc232d22856528d82c442} 
+template$<$typename TType , typename Rho\+Type , typename Mole\+Frac\+Type $>$ \\
+auto teqp\+::saft\+::softsaft\+::\+Soft\+SAFT\+::alphar (\begin{DoxyParamCaption}\item[{const TType \&}]{T}{, }\item[{const Rho\+Type \&}]{rhomolar}{, }\item[{const Mole\+Frac\+Type \&}]{molefracs}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{softsaft_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{softsaft_8hpp_source}{softsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a3fb883f4eba96caaebf41e27b8b0336b}\index{teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}!R@{R}}
+\index{R@{R}!teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a3fb883f4eba96caaebf41e27b8b0336b} 
+template$<$class Vec\+Type $>$ \\
+auto teqp\+::saft\+::softsaft\+::\+Soft\+SAFT\+::R (\begin{DoxyParamCaption}\item[{const Vec\+Type \&}]{molefrac}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{softsaft_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{softsaft_8hpp_source}{softsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ab43377f9953e27e014fb323658ef1c46}\index{teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}!toEig@{toEig}}
+\index{toEig@{toEig}!teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}}
+\doxysubsubsection{\texorpdfstring{toEig()}{toEig()}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ab43377f9953e27e014fb323658ef1c46} 
+Eigen\+::\+Array\+Xd teqp\+::saft\+::softsaft\+::\+Soft\+SAFT\+::to\+Eig (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{softsaft_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{softsaft_8hpp_source}{softsaft.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac1dd8c510b48ce701963dc5de34c3ae1}\index{teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}!epsilon\_over\_k@{epsilon\_over\_k}}
+\index{epsilon\_over\_k@{epsilon\_over\_k}!teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}}
+\doxysubsubsection{\texorpdfstring{epsilon\_over\_k}{epsilon\_over\_k}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ac1dd8c510b48ce701963dc5de34c3ae1} 
+Eigen\+::\+Array\+Xd teqp\+::saft\+::softsaft\+::\+Soft\+SAFT\+::epsilon\+\_\+over\+\_\+k}
+
+
+
+Definition at line \mbox{\hyperlink{softsaft_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{softsaft_8hpp_source}{softsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ae70f628217cd1d106d2391dc4b9a7761}\index{teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}!Johnson@{Johnson}}
+\index{Johnson@{Johnson}!teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}}
+\doxysubsubsection{\texorpdfstring{Johnson}{Johnson}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ae70f628217cd1d106d2391dc4b9a7761} 
+\mbox{\hyperlink{classteqp_1_1mie_1_1lennardjones_1_1Johnson_1_1LJ126Johnson1993}{mie\+::lennardjones\+::\+Johnson\+::\+LJ126\+Johnson1993}} teqp\+::saft\+::softsaft\+::\+Soft\+SAFT\+::\+Johnson}
+
+
+
+Definition at line \mbox{\hyperlink{softsaft_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{softsaft_8hpp_source}{softsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a4e9c8c8af3f87415ab134cea24901a1b}\index{teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}!m@{m}}
+\index{m@{m}!teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}}
+\doxysubsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_a4e9c8c8af3f87415ab134cea24901a1b} 
+Eigen\+::\+Array\+Xd teqp\+::saft\+::softsaft\+::\+Soft\+SAFT\+::m}
+
+
+
+Definition at line \mbox{\hyperlink{softsaft_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{softsaft_8hpp_source}{softsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_afca2b41c8fd9ac434a7040f3b9cbf481}\index{teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}!sigma\_m@{sigma\_m}}
+\index{sigma\_m@{sigma\_m}!teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}}
+\doxysubsubsection{\texorpdfstring{sigma\_m}{sigma\_m}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_afca2b41c8fd9ac434a7040f3b9cbf481} 
+Eigen\+::\+Array\+Xd teqp\+::saft\+::softsaft\+::\+Soft\+SAFT\+::sigma\+\_\+m}
+
+
+
+Definition at line \mbox{\hyperlink{softsaft_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{softsaft_8hpp_source}{softsaft.\+hpp}}.
+
+\Hypertarget{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ad57c1a8460c81cd88f9496b4e0530b85}\index{teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}!sigma\_m3@{sigma\_m3}}
+\index{sigma\_m3@{sigma\_m3}!teqp::saft::softsaft::SoftSAFT@{teqp::saft::softsaft::SoftSAFT}}
+\doxysubsubsection{\texorpdfstring{sigma\_m3}{sigma\_m3}}
+{\footnotesize\ttfamily \label{classteqp_1_1saft_1_1softsaft_1_1SoftSAFT_ad57c1a8460c81cd88f9496b4e0530b85} 
+Eigen\+::\+Array\+Xd teqp\+::saft\+::softsaft\+::\+Soft\+SAFT\+::sigma\+\_\+m3}
+
+
+
+Definition at line \mbox{\hyperlink{softsaft_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{softsaft_8hpp_source}{softsaft.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/saft/\mbox{\hyperlink{softsaft_8hpp}{softsaft.\+hpp}}\end{DoxyCompactItemize}

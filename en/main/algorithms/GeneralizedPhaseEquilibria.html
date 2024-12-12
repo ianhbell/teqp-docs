@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Generalized Phase Equilibrium &#8212; teqp 0.22.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/ntd2d.css?v=88d0a8bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../_static/documentation_options.js?v=5686f5df"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Phase equilibria" href="VLE.html" />
+    <link rel="prev" title="Algorithms" href="index.html" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+  <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" type="text/javascript" defer="defer"></script>
+  <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="Generalized-Phase-Equilibrium">
+<h1>Generalized Phase Equilibrium<a class="headerlink" href="#Generalized-Phase-Equilibrium" title="Link to this heading">¶</a></h1>
+<p>New in version 0.22 is a set of generalized routines for building the residual and Jacobian for carrying out phase equilibrium for mixtures of arbitrary number of phases and components.</p>
+<section id="Theory">
+<h2>Theory<a class="headerlink" href="#Theory" title="Link to this heading">¶</a></h2>
+<p>There is a need for generalized phase equilibrium routines capable of handling mixtures with an arbitrary number of phases and an arbitrary number of components. Furthermore, it is desired to handle generically a wide range of phase equilibrium specification problems:</p>
+<ul class="simple">
+<li><p>Bubble-point at specified <span class="math notranslate nohighlight">\(T\)</span> or <span class="math notranslate nohighlight">\(p\)</span> (saturated liquid for two phases in equilibrium)</p></li>
+<li><p>Dew-point at specified <span class="math notranslate nohighlight">\(T\)</span> or <span class="math notranslate nohighlight">\(p\)</span> (saturated vapor for two phases in equilibrium)</p></li>
+<li><p>TP flash</p></li>
+<li><p>PH flash</p></li>
+<li><p>XY flash (the more general case of any two specified thermodynamic variables selected from <span class="math notranslate nohighlight">\(T\)</span>,<span class="math notranslate nohighlight">\(p\)</span>,<span class="math notranslate nohighlight">\(\rho\)</span>,<span class="math notranslate nohighlight">\(h\)</span>,<span class="math notranslate nohighlight">\(s\)</span>,<span class="math notranslate nohighlight">\(u\)</span>)</p></li>
+</ul>
+<p>The independent variables in this formulation are:</p>
+<ul class="simple">
+<li><p>The temperature <span class="math notranslate nohighlight">\(T\)</span> (same in all phases)</p></li>
+<li><p>The molar concentrations of all components in all phases, one <span class="math notranslate nohighlight">\(\vec\rho\)</span> per phase. Molar concentration <span class="math notranslate nohighlight">\(\rho_i=x_i\rho\)</span> where <span class="math notranslate nohighlight">\(x_i\)</span> is the mole fraction</p></li>
+<li><p>The molar phase fraction for each phase (amount of substance in the phase divided by the total amount of substance)</p></li>
+</ul>
+<p>Thus there are <span class="math notranslate nohighlight">\((N+1)\pi+1\)</span> independent variables if <span class="math notranslate nohighlight">\(N\)</span> is the number of components and <span class="math notranslate nohighlight">\(\pi\)</span> the number of phases</p>
+<p>Note that pressure is NOT an independent variable. It is enforced to be equal between the phases as a specification, since the models in teqp do NOT have pressure as one of the independent variables and it is more natural to consider densities as independent variables.</p>
+<p>The specification equations that must always be satisfied are:</p>
+<ul class="simple">
+<li><p>Equality of fugacity of all components in all phases</p></li>
+<li><p>Equal pressures in all phases</p></li>
+<li><p>Material balances</p></li>
+<li><p>Summation of molar phase fractions should be 1.0</p></li>
+</ul>
+<p>This leaves two additional specification options, to be selected from:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(T\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span> of a phase</p></li>
+<li><p><span class="math notranslate nohighlight">\(v\)</span> (or equivalently <span class="math notranslate nohighlight">\(\rho\)</span>) of the overall system</p></li>
+<li><p><span class="math notranslate nohighlight">\(h\)</span>, <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(u\)</span> (WIP)</p></li>
+</ul>
+<p>Note that you must provide guess values for the values for all phases. In some cases the guess values will be trivial, for instance if you are specifying the temperature as a specification equation, you know exactly the right guess value for temperature. In other cases the guesses (especially for molar concentration) are very difficult to come by. As a user, you are responsible to find some way to determine what starting values to use as obtaining them is situation dependent.</p>
+</section>
+<section id="Implementation">
+<h2>Implementation<a class="headerlink" href="#Implementation" title="Link to this heading">¶</a></h2>
+<p>The overall class is called <code class="xref py py-meth docutils literal notranslate"><span class="pre">GeneralizedPhaseEquilibrium()</span></code> and takes in the model, the bulk composition, the initial set of variables (used to initialize the number of phases and components), and the two additional specification equations.</p>
+<p>Methods are available for building the residual vector and the Jacobian matrix. In the <code class="docutils literal notranslate"><span class="pre">call</span></code> method, no special treatment is done of the entries in the Jacobian that might be required (the use of logarithmic molar concentrations, etc.) or special handling of components that have zero mole fractions. To iterate towards the true phase equilibrium solution, you can use conventional Newton iterations:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{J}\Delta \mathbf{x} = -\mathbf{r}\]</div>
+<p>and for better stability you can take smaller steps with</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{J}\Delta \mathbf{x} = -\omega\mathbf{r}\]</div>
+<p>with <span class="math notranslate nohighlight">\(0&lt;\omega&lt;1\)</span> and update <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> with</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{x}_{\rm new} = \mathbf{x}_{\rm old} + \mathbf{\Delta x}\]</div>
+<p>After calling the call method, the residual and Jacobian can be obtained from the <code class="docutils literal notranslate"><span class="pre">res.r</span></code> and <code class="docutils literal notranslate"><span class="pre">res.J</span></code> attributes, respectively.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here is an example of generating phase equilibrium data</span>
+<span class="c1"># from an isobaric trace with the Peng-Robinson EOS and</span>
+<span class="c1"># then calculating the residuals with the new routine.</span>
+<span class="c1">#</span>
+<span class="c1"># In this case no iteration</span>
+<span class="c1"># is required since the residuals should all be close to zero</span>
+<span class="c1"># because polishing is enabled by default in the tracing routine</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+
+<span class="kn">import</span> <span class="nn">teqp</span>
+<span class="kn">from</span> <span class="nn">teqp</span> <span class="kn">import</span> <span class="n">phaseequil</span> <span class="k">as</span> <span class="n">pe</span>
+
+<span class="c1"># Get a good result from the tracing</span>
+<span class="n">Tc_K</span> <span class="o">=</span> <span class="p">[</span><span class="mf">190.564</span><span class="p">,</span> <span class="mf">154.581</span><span class="p">]</span>
+<span class="n">pc_Pa</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4599200</span><span class="p">,</span> <span class="mi">5042800</span><span class="p">]</span>
+<span class="n">acentric</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.011</span><span class="p">,</span> <span class="mf">0.022</span><span class="p">]</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">teqp</span><span class="o">.</span><span class="n">canonical_PR</span><span class="p">(</span><span class="n">Tc_K</span><span class="p">,</span> <span class="n">pc_Pa</span><span class="p">,</span> <span class="n">acentric</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">170.0</span> <span class="c1"># [K] # Note: above Tc of the second component</span>
+<span class="n">rhoL0</span><span class="p">,</span> <span class="n">rhoV0</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">superanc_rhoLV</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">ifluid</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># start off at pure of the first component</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="n">rhoL0</span><span class="o">*</span><span class="n">model</span><span class="o">.</span><span class="n">get_R</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span><span class="mi">0</span><span class="p">]))</span><span class="o">*</span><span class="n">T</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">model</span><span class="o">.</span><span class="n">get_Ar01</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhoL0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span><span class="mi">0</span><span class="p">])))</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">trace_VLE_isobar_binary</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">rhoL0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">rhoV0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="c1"># Now as a data frame</span>
+
+<span class="k">for</span> <span class="n">ir</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="c1"># Only do every fifth, and skip the first because it is infinite dilution</span>
+    <span class="c1"># which requires special treatment</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ir</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="k">5</span> != 0: continue
+
+    <span class="c1"># The initial values of the variables</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;T / K&#39;</span><span class="p">]</span>
+    <span class="n">rhovecs</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;rhoL / mol/m^3&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;rhoV / mol/m^3&#39;</span><span class="p">]]</span>
+    <span class="n">betas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+    <span class="n">unpacked</span> <span class="o">=</span> <span class="n">pe</span><span class="o">.</span><span class="n">UnpackedVariables</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">rhovecs</span><span class="p">,</span> <span class="n">betas</span><span class="p">)</span>
+
+    <span class="n">zbulk</span> <span class="o">=</span> <span class="n">rhovecs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">rhovecs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">specs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">pe</span><span class="o">.</span><span class="n">TSpecification</span><span class="p">(</span><span class="n">T</span><span class="p">),</span>
+        <span class="n">pe</span><span class="o">.</span><span class="n">BetaSpecification</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># Bubble point calculation, first phase (liquid) with index 0 is the whole mixture</span>
+        <span class="c1"># or you could consider instead to specify pressure, or ...</span>
+    <span class="p">]</span>
+    <span class="n">gpe</span> <span class="o">=</span> <span class="n">pe</span><span class="o">.</span><span class="n">GeneralizedPhaseEquilibrium</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">zbulk</span><span class="p">,</span> <span class="n">unpacked</span><span class="p">,</span> <span class="n">specs</span><span class="p">)</span>
+
+    <span class="n">Xinit</span> <span class="o">=</span> <span class="n">unpacked</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+    <span class="n">gpe</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">Xinit</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">gpe</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">r</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.7763568394002505e-15
+2.8405338525772095e-08
+1.7695128917694092e-08
+1.5366822481155396e-08
+1.816079020500183e-08
+4.330649971961975e-08
+1.5832483768463135e-08
+1.4901161193847656e-08
+1.5366822481155396e-08
+1.4901161193847656e-08
+1.6298145055770874e-08
+1.862645149230957e-09
+2.7939677238464355e-08
+9.033828973770142e-08
+2.7939677238464355e-08
+2.8405338525772095e-08
+4.7497451305389404e-08
+2.8870999813079834e-08
+1.7229467630386353e-08
+4.656612873077393e-10
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Generalized Phase Equilibrium</a><ul>
+<li><a class="reference internal" href="#Theory">Theory</a></li>
+<li><a class="reference internal" href="#Implementation">Implementation</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Algorithms</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Algorithms</a></li>
+      <li>Next: <a href="VLE.html" title="next chapter">Phase equilibria</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/algorithms/GeneralizedPhaseEquilibria.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+      &copy;2022, Ian Bell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/algorithms/GeneralizedPhaseEquilibria.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+
+  <!-- Taken from https://www.filamentgroup.com/lab/html-includes/#another-demo%3A-including-another-html-file -->
+  <iframe src="../_static/ntd2d_menu.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+  </body>
+</html>

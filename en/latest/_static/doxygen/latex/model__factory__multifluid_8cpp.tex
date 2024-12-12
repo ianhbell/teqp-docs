@@ -1,0 +1,30 @@
+\doxysection{interface/\+CPP/model\+\_\+factory\+\_\+multifluid.cpp File Reference}
+\hypertarget{model__factory__multifluid_8cpp}{}\label{model__factory__multifluid_8cpp}\index{interface/CPP/model\_factory\_multifluid.cpp@{interface/CPP/model\_factory\_multifluid.cpp}}
+{\ttfamily \#include "{}teqp/cpp/teqpcpp.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/cpp/deriv\+\_\+adapter.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/models/multifluid.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/models/ammonia\+\_\+water.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/models/mie/lennardjones.\+hpp"{}}\newline
+{\ttfamily \#include "{}teqp/models/\+ECSHuber\+Ely.\+hpp"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp}{teqp}}
+\item 
+namespace \mbox{\hyperlink{namespaceteqp_1_1cppinterface}{teqp\+::cppinterface}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a616ee24286e7286194e541af81bf307f}{teqp\+::cppinterface\+::make\+\_\+multifluid}} (const nlohmann\+::json \&j)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a51b18db73b28e5bbc2301d02e78a4955}{teqp\+::cppinterface\+::make\+\_\+multifluid\+\_\+\+ECS\+\_\+\+Huber\+Ely1994}} (const nlohmann\+::json \&j)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_aafc6ae1ae969a5ccb62aa1a0e360ceeb}{teqp\+::cppinterface\+::make\+\_\+\+Ammonia\+Water\+Tillner\+Roth}} ()
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a0f714e20fc85c6c045906c7fba950111}{teqp\+::cppinterface\+::make\+\_\+\+LJ126\+\_\+\+Thol\+JPCRD2016}} ()
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_ab7f8c689070cbe7ba0d3544530681976}{teqp\+::cppinterface\+::make\+\_\+\+LJ126\+\_\+\+Kolafa\+Nezbeda1994}} ()
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classteqp_1_1cppinterface_1_1AbstractModel}{teqp\+::cppinterface\+::\+Abstract\+Model}} $>$ \mbox{\hyperlink{namespaceteqp_1_1cppinterface_a37d9ee4db1a7f9e18a767a4f95f2dff7}{teqp\+::cppinterface\+::make\+\_\+\+LJ126\+\_\+\+Johnson1993}} ()
+\end{DoxyCompactItemize}

@@ -1,0 +1,236 @@
+\doxysection{teqp\+::activity\+::activity\+\_\+models\+::COSMOSAC\+::COSMO3 Class Reference}
+\hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3}{}\label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+
+
+{\ttfamily \#include $<$COSMOSAC.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a55be78bd5792d0d1e801145322e358d8}{COSMO3}} (const std\+::vector$<$ double $>$ \&A\+\_\+\+COSMO\+\_\+\+A2, const std\+::vector$<$ double $>$ \&V\+\_\+\+COSMO\+\_\+\+A3, const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1FluidSigmaProfiles}{Fluid\+Sigma\+Profiles}} $>$ \&Sigma\+Profiles, const \mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants}{COSMO3\+Constants}} \&constants=\mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants}{COSMO3\+Constants}}(), const \mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1CombinatorialConstants}{Combinatorial\+Constants}} \&comb\+\_\+constants=\mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1CombinatorialConstants}{Combinatorial\+Constants}}())
+\item 
+std\+::tuple$<$ Eigen\+::\+Index, Eigen\+::\+Index $>$ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_af737d6aaf5973f307ba4f5ba8871fd2e}{get\+\_\+nonzero\+\_\+bounds}} ()
+\begin{DoxyCompactList}\small\item\em Determine the left and right bounds for the psigma that is nonzero to accelerate the iterative calculations. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a33535598ea2dbde0c1c2b73cc3d6b156}{get\+\_\+psigma\+\_\+mix}} (const Mole\+Fractions \&z, \mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7}{profile\+\_\+type}} type=\mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7a07262120f9a71195e0cc379078d12384}{profile\+\_\+type\+::\+NHB\+\_\+\+PROFILE}}) const
+\item 
+\mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants}{COSMO3\+Constants}} \& \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a20eedc2974421e8cd15a1a01f7adb53b}{get\+\_\+mutable\+\_\+\+COSMO\+\_\+constants}} ()
+\begin{DoxyCompactList}\small\item\em Get access to the parameters that are in use. \end{DoxyCompactList}\item 
+std\+::tuple$<$ Eigen\+::\+Index, Eigen\+::\+Index $>$ \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a53e51eadbfa0dc1da8e77c73c44269c9}{get\+\_\+ileftw}} () const
+\item 
+double \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a57423d465eb8be4b005372f0b0f8f74c}{get\+\_\+c\+\_\+hb}} (\mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7}{profile\+\_\+type}} type1, \mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7}{profile\+\_\+type}} type2) const
+\item 
+{\footnotesize template$<$typename TType $>$ }\\auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_ac080ef56b7e77ea48f21e47aaef6a4c7}{get\+\_\+\+DELTAW}} (const TType \&T, \mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7}{profile\+\_\+type}} type\+\_\+t, \mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7}{profile\+\_\+type}} type\+\_\+s) const
+\item 
+{\footnotesize template$<$typename TType $>$ }\\auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a1792abc2d0bc7d903b285f7508b57441}{get\+\_\+\+DELTAW\+\_\+fast}} (TType T, \mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7}{profile\+\_\+type}} type\+\_\+t, \mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7}{profile\+\_\+type}} type\+\_\+s) const
+\item 
+{\footnotesize template$<$typename TType , typename PSigma $>$ }\\auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a83cbd4c55e939f9e0aaa4a12a50115b8}{get\+\_\+\+AA}} (const TType \&T, PSigma psigmas)
+\item 
+{\footnotesize template$<$typename TType , typename PSigma\+Type $>$ }\\auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a1a957173475e2d386ace4431653e4783}{get\+\_\+\+Gamma}} (const TType \&T, PSigma\+Type psigmas) const
+\item 
+{\footnotesize template$<$typename TType , typename Array $>$ }\\auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a6f0d06cb4aefd664214948ee7e1511e2}{get\+\_\+lngamma\+\_\+resid}} (std\+::size\+\_\+t i, TType T, const Array \&ln\+Gamma\+\_\+mix) const
+\item 
+{\footnotesize template$<$typename TType , typename Mole\+Fracs $>$ }\\auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a6229cc2ddffd60cc2945a8cd7062dc8a}{get\+\_\+lngamma\+\_\+resid}} (TType T, const Mole\+Fracs \&molefracs) const
+\item 
+{\footnotesize template$<$typename TType , typename Mole\+Fracs $>$ }\\auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_afff55deee76570548f1024dad770a880}{calc\+\_\+lngamma\+\_\+resid}} (TType T, const Mole\+Fracs \&molefracs) const
+\item 
+{\footnotesize template$<$typename TType , typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a1c603b99e67b8b399df339d5917d7064}{calc\+\_\+lngamma\+\_\+comb}} (const TType \&, const Mole\+Fractions \&x) const
+\item 
+{\footnotesize template$<$typename TType , typename Mole\+Fractions $>$ }\\auto \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a179bb7e644886fe7bd6b6068d16e61b5}{operator()}} (const TType \&T, const Mole\+Fractions \&molefracs) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a55be78bd5792d0d1e801145322e358d8}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}!COSMO3@{COSMO3}}
+\index{COSMO3@{COSMO3}!teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+\doxysubsubsection{\texorpdfstring{COSMO3()}{COSMO3()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a55be78bd5792d0d1e801145322e358d8} 
+teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+COSMO3\+::\+COSMO3 (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{A\+\_\+\+COSMO\+\_\+\+A2}{, }\item[{const std\+::vector$<$ double $>$ \&}]{V\+\_\+\+COSMO\+\_\+\+A3}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1FluidSigmaProfiles}{Fluid\+Sigma\+Profiles}} $>$ \&}]{Sigma\+Profiles}{, }\item[{const \mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants}{COSMO3\+Constants}} \&}]{constants}{ = {\ttfamily \mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants}{COSMO3\+Constants}}()}, }\item[{const \mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1CombinatorialConstants}{Combinatorial\+Constants}} \&}]{comb\+\_\+constants}{ = {\ttfamily \mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1CombinatorialConstants}{Combinatorial\+Constants}}()}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00080}{80}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a1c603b99e67b8b399df339d5917d7064}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}!calc\_lngamma\_comb@{calc\_lngamma\_comb}}
+\index{calc\_lngamma\_comb@{calc\_lngamma\_comb}!teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+\doxysubsubsection{\texorpdfstring{calc\_lngamma\_comb()}{calc\_lngamma\_comb()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a1c603b99e67b8b399df339d5917d7064} 
+template$<$typename TType , typename Mole\+Fractions $>$ \\
+auto teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+COSMO3\+::calc\+\_\+lngamma\+\_\+comb (\begin{DoxyParamCaption}\item[{const TType \&}]{}{, }\item[{const Mole\+Fractions \&}]{x}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+The combinatorial part of ln(γ\+\_\+i) 
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00347}{347}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_afff55deee76570548f1024dad770a880}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}!calc\_lngamma\_resid@{calc\_lngamma\_resid}}
+\index{calc\_lngamma\_resid@{calc\_lngamma\_resid}!teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+\doxysubsubsection{\texorpdfstring{calc\_lngamma\_resid()}{calc\_lngamma\_resid()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_afff55deee76570548f1024dad770a880} 
+template$<$typename TType , typename Mole\+Fracs $>$ \\
+auto teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+COSMO3\+::calc\+\_\+lngamma\+\_\+resid (\begin{DoxyParamCaption}\item[{TType}]{T}{, }\item[{const Mole\+Fracs \&}]{molefracs}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00338}{338}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a83cbd4c55e939f9e0aaa4a12a50115b8}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}!get\_AA@{get\_AA}}
+\index{get\_AA@{get\_AA}!teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+\doxysubsubsection{\texorpdfstring{get\_AA()}{get\_AA()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a83cbd4c55e939f9e0aaa4a12a50115b8} 
+template$<$typename TType , typename PSigma $>$ \\
+auto teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+COSMO3\+::get\+\_\+\+AA (\begin{DoxyParamCaption}\item[{const TType \&}]{T}{, }\item[{PSigma}]{psigmas}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00182}{182}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a57423d465eb8be4b005372f0b0f8f74c}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}!get\_c\_hb@{get\_c\_hb}}
+\index{get\_c\_hb@{get\_c\_hb}!teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+\doxysubsubsection{\texorpdfstring{get\_c\_hb()}{get\_c\_hb()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a57423d465eb8be4b005372f0b0f8f74c} 
+double teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+COSMO3\+::get\+\_\+c\+\_\+hb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7}{profile\+\_\+type}}}]{type1}{, }\item[{\mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7}{profile\+\_\+type}}}]{type2}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00127}{127}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_ac080ef56b7e77ea48f21e47aaef6a4c7}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}!get\_DELTAW@{get\_DELTAW}}
+\index{get\_DELTAW@{get\_DELTAW}!teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+\doxysubsubsection{\texorpdfstring{get\_DELTAW()}{get\_DELTAW()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_ac080ef56b7e77ea48f21e47aaef6a4c7} 
+template$<$typename TType $>$ \\
+auto teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+COSMO3\+::get\+\_\+\+DELTAW (\begin{DoxyParamCaption}\item[{const TType \&}]{T}{, }\item[{\mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7}{profile\+\_\+type}}}]{type\+\_\+t}{, }\item[{\mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7}{profile\+\_\+type}}}]{type\+\_\+s}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00149}{149}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a1792abc2d0bc7d903b285f7508b57441}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}!get\_DELTAW\_fast@{get\_DELTAW\_fast}}
+\index{get\_DELTAW\_fast@{get\_DELTAW\_fast}!teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+\doxysubsubsection{\texorpdfstring{get\_DELTAW\_fast()}{get\_DELTAW\_fast()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a1792abc2d0bc7d903b285f7508b57441} 
+template$<$typename TType $>$ \\
+auto teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+COSMO3\+::get\+\_\+\+DELTAW\+\_\+fast (\begin{DoxyParamCaption}\item[{TType}]{T}{, }\item[{\mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7}{profile\+\_\+type}}}]{type\+\_\+t}{, }\item[{\mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7}{profile\+\_\+type}}}]{type\+\_\+s}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00165}{165}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a1a957173475e2d386ace4431653e4783}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}!get\_Gamma@{get\_Gamma}}
+\index{get\_Gamma@{get\_Gamma}!teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+\doxysubsubsection{\texorpdfstring{get\_Gamma()}{get\_Gamma()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a1a957173475e2d386ace4431653e4783} 
+template$<$typename TType , typename PSigma\+Type $>$ \\
+auto teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+COSMO3\+::get\+\_\+\+Gamma (\begin{DoxyParamCaption}\item[{const TType \&}]{T}{, }\item[{PSigma\+Type}]{psigmas}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Obtain the segment activity coefficients $\Gamma$ for given a set of charge densities
+
+If fast\+\_\+\+Gamma is enabled, then only segments that have some contribution are included in the iteration (can be a significant acceleration for nonpolar+nonpolar mixtures)
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & Temperature, in K \\
+\hline
+{\em psigmas} & Charge densities, in the order of NHB, OH, OT. Length is 153. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00203}{203}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a53e51eadbfa0dc1da8e77c73c44269c9}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}!get\_ileftw@{get\_ileftw}}
+\index{get\_ileftw@{get\_ileftw}!teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+\doxysubsubsection{\texorpdfstring{get\_ileftw()}{get\_ileftw()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a53e51eadbfa0dc1da8e77c73c44269c9} 
+std\+::tuple$<$ Eigen\+::\+Index, Eigen\+::\+Index $>$ teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+COSMO3\+::get\+\_\+ileftw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00125}{125}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a6f0d06cb4aefd664214948ee7e1511e2}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}!get\_lngamma\_resid@{get\_lngamma\_resid}}
+\index{get\_lngamma\_resid@{get\_lngamma\_resid}!teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+\doxysubsubsection{\texorpdfstring{get\_lngamma\_resid()}{get\_lngamma\_resid()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a6f0d06cb4aefd664214948ee7e1511e2} 
+template$<$typename TType , typename Array $>$ \\
+auto teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+COSMO3\+::get\+\_\+lngamma\+\_\+resid (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i}{, }\item[{TType}]{T}{, }\item[{const Array \&}]{ln\+Gamma\+\_\+mix}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+The residual part of ln(γ\+\_\+i), for the i-\/th component 
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00303}{303}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a6229cc2ddffd60cc2945a8cd7062dc8a}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}!get\_lngamma\_resid@{get\_lngamma\_resid}}
+\index{get\_lngamma\_resid@{get\_lngamma\_resid}!teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+\doxysubsubsection{\texorpdfstring{get\_lngamma\_resid()}{get\_lngamma\_resid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a6229cc2ddffd60cc2945a8cd7062dc8a} 
+template$<$typename TType , typename Mole\+Fracs $>$ \\
+auto teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+COSMO3\+::get\+\_\+lngamma\+\_\+resid (\begin{DoxyParamCaption}\item[{TType}]{T}{, }\item[{const Mole\+Fracs \&}]{molefracs}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+This overload is a convenience overload, less computationally efficient, but simpler to use and more in keeping with the other contributions. It does not require the ln\+Gamma\+\_\+mix to be pre-\/calculated and passed into this function 
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00322}{322}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a20eedc2974421e8cd15a1a01f7adb53b}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}!get\_mutable\_COSMO\_constants@{get\_mutable\_COSMO\_constants}}
+\index{get\_mutable\_COSMO\_constants@{get\_mutable\_COSMO\_constants}!teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+\doxysubsubsection{\texorpdfstring{get\_mutable\_COSMO\_constants()}{get\_mutable\_COSMO\_constants()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a20eedc2974421e8cd15a1a01f7adb53b} 
+\mbox{\hyperlink{structteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3Constants}{COSMO3\+Constants}} \& teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+COSMO3\+::get\+\_\+mutable\+\_\+\+COSMO\+\_\+constants (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get access to the parameters that are in use. 
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00123}{123}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_af737d6aaf5973f307ba4f5ba8871fd2e}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}!get\_nonzero\_bounds@{get\_nonzero\_bounds}}
+\index{get\_nonzero\_bounds@{get\_nonzero\_bounds}!teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+\doxysubsubsection{\texorpdfstring{get\_nonzero\_bounds()}{get\_nonzero\_bounds()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_af737d6aaf5973f307ba4f5ba8871fd2e} 
+std\+::tuple$<$ Eigen\+::\+Index, Eigen\+::\+Index $>$ teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+COSMO3\+::get\+\_\+nonzero\+\_\+bounds (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Determine the left and right bounds for the psigma that is nonzero to accelerate the iterative calculations. 
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00088}{88}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a33535598ea2dbde0c1c2b73cc3d6b156}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}!get\_psigma\_mix@{get\_psigma\_mix}}
+\index{get\_psigma\_mix@{get\_psigma\_mix}!teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+\doxysubsubsection{\texorpdfstring{get\_psigma\_mix()}{get\_psigma\_mix()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a33535598ea2dbde0c1c2b73cc3d6b156} 
+template$<$typename Mole\+Fractions $>$ \\
+auto teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+COSMO3\+::get\+\_\+psigma\+\_\+mix (\begin{DoxyParamCaption}\item[{const Mole\+Fractions \&}]{z}{, }\item[{\mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7}{profile\+\_\+type}}}]{type}{ = {\ttfamily \mbox{\hyperlink{namespaceteqp_1_1activity_1_1activity__models_1_1COSMOSAC_a2278a75f82bf6330383f58ea7da935d7a07262120f9a71195e0cc379078d12384}{profile\+\_\+type\+::\+NHB\+\_\+\+PROFILE}}}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00104}{104}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a179bb7e644886fe7bd6b6068d16e61b5}\index{teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}!operator()@{operator()}}
+\index{operator()@{operator()}!teqp::activity::activity\_models::COSMOSAC::COSMO3@{teqp::activity::activity\_models::COSMOSAC::COSMO3}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1COSMO3_a179bb7e644886fe7bd6b6068d16e61b5} 
+template$<$typename TType , typename Mole\+Fractions $>$ \\
+auto teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+COSMO3\+::operator() (\begin{DoxyParamCaption}\item[{const TType \&}]{T}{, }\item[{const Mole\+Fractions \&}]{molefracs}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00398}{398}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/activity/\mbox{\hyperlink{COSMOSAC_8hpp}{COSMOSAC.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,150 @@
+\doxysection{teqp\+::algorithms\+::phase\+\_\+equil\+::Required\+Phase\+Derivatives Struct Reference}
+\hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives}{}\label{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives}\index{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}}
+
+
+{\ttfamily \#include $<$phase\+\_\+equil.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a311b2450f12789dba9645965d9991561}{p}} (const double T, const Eigen\+::\+Array\+Xd \&rhovec) const
+\item 
+double \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a52db6f9700f42dbd59e5f510587f8239}{dpdT}} (const double T, const Eigen\+::\+Array\+Xd \&rhovec) const
+\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_af354db0b78520bc32190b432943d4f21}{dpdrhovec}} (const double T, const Eigen\+::\+Array\+Xd \&rhovec) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a8a6a00a1c21bfe3bc299bd89ec348430}{rho}}
+\item 
+double \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a9bd91f85e2107e3e4a9f784d565e152a}{R}}
+\item 
+double \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a9a4847ed3c3c65ff37c2e7b3d44d752f}{Psir}}
+\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a0c711de55a567947fa970ec1a584a3a7}{gradient\+\_\+\+Psir}}
+\item 
+Eigen\+::\+Array\+XXd \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_afc5c51013880b9dca9c0638609569d99}{Hessian\+\_\+\+Psir}}
+\item 
+double \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a38b68d00b49a2770e10301cc03c80d68}{d\+\_\+\+Psir\+\_\+dT}}
+\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_adb932759508c827da9f8337a7ad1bdc5}{d\+\_\+gradient\+\_\+\+Psir\+\_\+dT}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_af354db0b78520bc32190b432943d4f21}\index{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}!dpdrhovec@{dpdrhovec}}
+\index{dpdrhovec@{dpdrhovec}!teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}}
+\doxysubsubsection{\texorpdfstring{dpdrhovec()}{dpdrhovec()}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_af354db0b78520bc32190b432943d4f21} 
+Eigen\+::\+Array\+Xd teqp\+::algorithms\+::phase\+\_\+equil\+::\+Required\+Phase\+Derivatives\+::dpdrhovec (\begin{DoxyParamCaption}\item[{const double}]{T}{, }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovec}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a52db6f9700f42dbd59e5f510587f8239}\index{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}!dpdT@{dpdT}}
+\index{dpdT@{dpdT}!teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}}
+\doxysubsubsection{\texorpdfstring{dpdT()}{dpdT()}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a52db6f9700f42dbd59e5f510587f8239} 
+double teqp\+::algorithms\+::phase\+\_\+equil\+::\+Required\+Phase\+Derivatives\+::dpdT (\begin{DoxyParamCaption}\item[{const double}]{T}{, }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovec}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a311b2450f12789dba9645965d9991561}\index{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}!p@{p}}
+\index{p@{p}!teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}}
+\doxysubsubsection{\texorpdfstring{p()}{p()}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a311b2450f12789dba9645965d9991561} 
+double teqp\+::algorithms\+::phase\+\_\+equil\+::\+Required\+Phase\+Derivatives\+::p (\begin{DoxyParamCaption}\item[{const double}]{T}{, }\item[{const Eigen\+::\+Array\+Xd \&}]{rhovec}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_adb932759508c827da9f8337a7ad1bdc5}\index{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}!d\_gradient\_Psir\_dT@{d\_gradient\_Psir\_dT}}
+\index{d\_gradient\_Psir\_dT@{d\_gradient\_Psir\_dT}!teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}}
+\doxysubsubsection{\texorpdfstring{d\_gradient\_Psir\_dT}{d\_gradient\_Psir\_dT}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_adb932759508c827da9f8337a7ad1bdc5} 
+Eigen\+::\+Array\+Xd teqp\+::algorithms\+::phase\+\_\+equil\+::\+Required\+Phase\+Derivatives\+::d\+\_\+gradient\+\_\+\+Psir\+\_\+dT}
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a38b68d00b49a2770e10301cc03c80d68}\index{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}!d\_Psir\_dT@{d\_Psir\_dT}}
+\index{d\_Psir\_dT@{d\_Psir\_dT}!teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}}
+\doxysubsubsection{\texorpdfstring{d\_Psir\_dT}{d\_Psir\_dT}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a38b68d00b49a2770e10301cc03c80d68} 
+double teqp\+::algorithms\+::phase\+\_\+equil\+::\+Required\+Phase\+Derivatives\+::d\+\_\+\+Psir\+\_\+dT}
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a0c711de55a567947fa970ec1a584a3a7}\index{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}!gradient\_Psir@{gradient\_Psir}}
+\index{gradient\_Psir@{gradient\_Psir}!teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}}
+\doxysubsubsection{\texorpdfstring{gradient\_Psir}{gradient\_Psir}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a0c711de55a567947fa970ec1a584a3a7} 
+Eigen\+::\+Array\+Xd teqp\+::algorithms\+::phase\+\_\+equil\+::\+Required\+Phase\+Derivatives\+::gradient\+\_\+\+Psir}
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_afc5c51013880b9dca9c0638609569d99}\index{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}!Hessian\_Psir@{Hessian\_Psir}}
+\index{Hessian\_Psir@{Hessian\_Psir}!teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}}
+\doxysubsubsection{\texorpdfstring{Hessian\_Psir}{Hessian\_Psir}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_afc5c51013880b9dca9c0638609569d99} 
+Eigen\+::\+Array\+XXd teqp\+::algorithms\+::phase\+\_\+equil\+::\+Required\+Phase\+Derivatives\+::\+Hessian\+\_\+\+Psir}
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a9a4847ed3c3c65ff37c2e7b3d44d752f}\index{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}!Psir@{Psir}}
+\index{Psir@{Psir}!teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}}
+\doxysubsubsection{\texorpdfstring{Psir}{Psir}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a9a4847ed3c3c65ff37c2e7b3d44d752f} 
+double teqp\+::algorithms\+::phase\+\_\+equil\+::\+Required\+Phase\+Derivatives\+::\+Psir}
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a9bd91f85e2107e3e4a9f784d565e152a}\index{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}!R@{R}}
+\index{R@{R}!teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}}
+\doxysubsubsection{\texorpdfstring{R}{R}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a9bd91f85e2107e3e4a9f784d565e152a} 
+double teqp\+::algorithms\+::phase\+\_\+equil\+::\+Required\+Phase\+Derivatives\+::R}
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+\Hypertarget{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a8a6a00a1c21bfe3bc299bd89ec348430}\index{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}!rho@{rho}}
+\index{rho@{rho}!teqp::algorithms::phase\_equil::RequiredPhaseDerivatives@{teqp::algorithms::phase\_equil::RequiredPhaseDerivatives}}
+\doxysubsubsection{\texorpdfstring{rho}{rho}}
+{\footnotesize\ttfamily \label{structteqp_1_1algorithms_1_1phase__equil_1_1RequiredPhaseDerivatives_a8a6a00a1c21bfe3bc299bd89ec348430} 
+double teqp\+::algorithms\+::phase\+\_\+equil\+::\+Required\+Phase\+Derivatives\+::rho}
+
+
+
+Definition at line \mbox{\hyperlink{phase__equil_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{phase__equil_8hpp_source}{phase\+\_\+equil.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/algorithms/\mbox{\hyperlink{phase__equil_8hpp}{phase\+\_\+equil.\+hpp}}\end{DoxyCompactItemize}

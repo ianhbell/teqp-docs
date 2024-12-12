@@ -4,6 +4,7 @@
 {\ttfamily \#include "{}Eigen/\+Dense"{}}\newline
 {\ttfamily \#include $<$valarray$>$}\newline
 {\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include "{}teqp/exceptions.\+hpp"{}}\newline
 {\ttfamily \#include $<$autodiff/forward/dual.\+hpp$>$}\newline
 {\ttfamily \#include $<$autodiff/forward/real.\+hpp$>$}\newline
 {\ttfamily \#include $<$autodiff/forward/dual/eigen.\+hpp$>$}\newline
@@ -15,6 +16,12 @@ struct \mbox{\hyperlink{structteqp_1_1is__container}{teqp\+::is\+\_\+container$<
 struct \mbox{\hyperlink{structteqp_1_1is__container_3_01std_1_1vector_3_01Ts_8_8_8_01_4_01_4}{teqp\+::is\+\_\+container$<$ std\+::vector$<$ Ts... $>$ $>$}}
 \item 
 struct \mbox{\hyperlink{structteqp_1_1is__container_3_01std_1_1valarray_3_01Ts_8_8_8_01_4_01_4}{teqp\+::is\+\_\+container$<$ std\+::valarray$<$ Ts... $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1is__eigen__impl}{teqp\+::is\+\_\+eigen\+\_\+impl$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1is__eigen__impl_3_01Eigen_1_1Matrix_3_01T_00_01Is_8_8_8_01_4_01_4}{teqp\+::is\+\_\+eigen\+\_\+impl$<$ Eigen\+::\+Matrix$<$ T, Is... $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structteqp_1_1is__eigen__impl_3_01Eigen_1_1Array_3_01T_00_01Is_8_8_8_01_4_01_4}{teqp\+::is\+\_\+eigen\+\_\+impl$<$ Eigen\+::\+Array$<$ T, Is... $>$ $>$}}
 \item 
 struct \mbox{\hyperlink{structteqp_1_1is__complex__t}{teqp\+::is\+\_\+complex\+\_\+t$<$ T $>$}}
 \item 
@@ -48,9 +55,13 @@ auto \mbox{\hyperlink{namespaceteqp_a54c35c0fca0f39185783efb600ccb586}{teqp\+::t
 \begin{DoxyCompactList}\small\item\em From Ulrich Deiters. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a641966211d5ef71d493fc52d3bd11a53}{teqp\+::pow\+IVi}} (const T \&x, const Eigen\+::\+Array\+Xi \&e)
 \item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a4ec6e8325a63101c6a821071f7e4c6b0}{teqp\+::pow\+IVd}} (const T \&x, const Eigen\+::\+Array\+Xd \&e)
+\item 
 auto \mbox{\hyperlink{namespaceteqp_ad47d847ff6ba42d73eb1ffc3fcf270c8}{teqp\+::pow}} (const double \&x, const double \&e)
 \item 
 auto \mbox{\hyperlink{namespaceteqp_ac6aa96ef107cd0c3798d0ea26b70b73d}{teqp\+::pow}} (const double \&x, const int \&e)
 \item 
 {\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{namespaceteqp_a241d67c75b258ca853af0cb3981b3c98}{teqp\+::pow}} (const std\+::complex$<$ T $>$ \&x, const Eigen\+::\+Array\+Xd \&e)
-\end{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{namespaceteqp_afb356b28409cb7234101015442b0b846}{teqp\+::contiguous\+\_\+dotproduct}} (const auto \&x, const auto \&y)
+\begin{DoxyCompactList}\small\item\em Take the dot-\/product of two vector-\/like objects that have contiguous memory and support the .size() method. \end{DoxyCompactList}\end{DoxyCompactItemize}

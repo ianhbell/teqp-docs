@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; teqp 0.19.1 documentation</title>
+    <title>Index &#8212; teqp 0.22.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
     <link rel="stylesheet" type="text/css" href="_static/ntd2d.css?v=88d0a8bc" />
-    <script src="_static/documentation_options.js?v=6f83b549"></script>
+    <script src="_static/documentation_options.js?v=5686f5df"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -58,6 +58,7 @@
  | <a href="#T"><strong>T</strong></a>
  | <a href="#U"><strong>U</strong></a>
  | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
  | <a href="#X"><strong>X</strong></a>
  
 </div>
@@ -76,10 +77,18 @@
       </ul></li>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel">AbstractModel (class in teqp.teqp)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/teqp.html#teqp.teqp.PureParameterOptimizer.add_one_contribution">add_one_contribution() (teqp.teqp.PureParameterOptimizer method)</a>
+</li>
       <li><a href="api/teqp.html#teqp.AmmoniaWaterTillnerRoth">AmmoniaWaterTillnerRoth() (in module teqp)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/teqp.html#teqp.teqp.SatRhoLPWPoint.Ao20">Ao20 (teqp.teqp.SatRhoLPWPoint property)</a>
+
+      <ul>
+        <li><a href="api/teqp.html#teqp.teqp.SOSPoint.Ao20">(teqp.teqp.SOSPoint property)</a>
+</li>
+      </ul></li>
       <li><a href="api/teqp.html#teqp.teqp.MixVLEpxFlags.atol">atol (teqp.teqp.MixVLEpxFlags property)</a>
 
       <ul>
@@ -112,6 +121,8 @@
         <li><a href="api/teqp.html#teqp.teqp.AbstractModel.build_d2PsirdTdrhoi_autodiff">(teqp.teqp.AbstractModel method)</a>
 </li>
       </ul></li>
+      <li><a href="api/teqp.html#teqp.teqp.PureParameterOptimizer.build_JSON">build_JSON() (teqp.teqp.PureParameterOptimizer method)</a>
+</li>
       <li><a href="api/teqp.html#teqp.build_LJ126_TholJPCRD2016">build_LJ126_TholJPCRD2016() (in module teqp)</a>
 </li>
       <li><a href="api/teqp.html#teqp.build_multifluid_ecs_mutant">build_multifluid_ecs_mutant() (in module teqp)</a>
@@ -154,11 +165,15 @@
       </ul></li>
       <li><a href="api/teqp.html#teqp.teqp.TCABOptions.calc_stability">calc_stability (teqp.teqp.TCABOptions property)</a>
 </li>
+      <li><a href="api/teqp.html#teqp.teqp.NRIterator.calc_step">calc_step() (teqp.teqp.NRIterator method)</a>
+</li>
       <li><a href="api/teqp.html#teqp.canonical_PR">canonical_PR() (in module teqp)</a>
 </li>
       <li><a href="api/teqp.html#teqp.canonical_SRK">canonical_SRK() (in module teqp)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.collect_component_json">collect_component_json() (in module teqp.teqp)</a>
+</li>
+      <li><a href="api/teqp.html#teqp.teqp.PureParameterOptimizer.contributions">contributions (teqp.teqp.PureParameterOptimizer property)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -167,6 +182,10 @@
       <li><a href="api/teqp.html#teqp.teqp.convert_FLD">convert_FLD() (in module teqp.teqp)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.convert_HMXBNC">convert_HMXBNC() (in module teqp.teqp)</a>
+</li>
+      <li><a href="api/teqp.html#teqp.teqp.PureParameterOptimizer.cost_function">cost_function() (teqp.teqp.PureParameterOptimizer method)</a>
+</li>
+      <li><a href="api/teqp.html#teqp.teqp.PureParameterOptimizer.cost_function_threaded">cost_function_threaded() (teqp.teqp.PureParameterOptimizer method)</a>
 </li>
       <li><a href="api/teqp.html#teqp.CPAfactory">CPAfactory() (in module teqp)</a>
 </li>
@@ -236,8 +255,6 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar00">get_Ar00() (teqp.teqp.AbstractModel method)</a>
 </li>
-      <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar00n">get_Ar00n() (teqp.teqp.AbstractModel method)</a>
-</li>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar01">get_Ar01() (teqp.teqp.AbstractModel method)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar01n">get_Ar01n() (teqp.teqp.AbstractModel method)</a>
@@ -260,6 +277,8 @@
 </li>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar10">get_Ar10() (teqp.teqp.AbstractModel method)</a>
 </li>
+      <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar10n">get_Ar10n() (teqp.teqp.AbstractModel method)</a>
+</li>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar11">get_Ar11() (teqp.teqp.AbstractModel method)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar12">get_Ar12() (teqp.teqp.AbstractModel method)</a>
@@ -270,6 +289,8 @@
 </li>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar20">get_Ar20() (teqp.teqp.AbstractModel method)</a>
 </li>
+      <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar20n">get_Ar20n() (teqp.teqp.AbstractModel method)</a>
+</li>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar21">get_Ar21() (teqp.teqp.AbstractModel method)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar22">get_Ar22() (teqp.teqp.AbstractModel method)</a>
@@ -277,6 +298,10 @@
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar23">get_Ar23() (teqp.teqp.AbstractModel method)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar24">get_Ar24() (teqp.teqp.AbstractModel method)</a>
+</li>
+      <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar30n">get_Ar30n() (teqp.teqp.AbstractModel method)</a>
+</li>
+      <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Ar40n">get_Ar40n() (teqp.teqp.AbstractModel method)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Arxy">get_Arxy() (teqp.teqp.AbstractModel method)</a>
 </li>
@@ -302,14 +327,14 @@
 </li>
       <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_Bnvir">get_Bnvir() (teqp.teqp.AbstractModel method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.get_chempotVLE_autodiff">get_chempotVLE_autodiff() (in module teqp)</a>
 
       <ul>
         <li><a href="api/teqp.html#teqp.teqp.AbstractModel.get_chempotVLE_autodiff">(teqp.teqp.AbstractModel method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.get_criticality_conditions">get_criticality_conditions() (in module teqp)</a>
 
       <ul>
@@ -462,6 +487,12 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.teqp.SAFTCoeffs.m">m (teqp.teqp.SAFTCoeffs property)</a>
 </li>
+      <li><a href="api/teqp.html#teqp.teqp.SatRhoLPWPoint.M">M (teqp.teqp.SatRhoLPWPoint property)</a>
+
+      <ul>
+        <li><a href="api/teqp.html#teqp.teqp.SOSPoint.M">(teqp.teqp.SOSPoint property)</a>
+</li>
+      </ul></li>
       <li><a href="api/teqp.html#teqp.make_model">make_model() (in module teqp)</a>
 </li>
       <li><a href="api/teqp.html#teqp.make_vdW1">make_vdW1() (in module teqp)</a>
@@ -579,6 +610,14 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/teqp.html#teqp.teqp.SatRhoLPPoint.p_exp">p_exp (teqp.teqp.SatRhoLPPoint property)</a>
+
+      <ul>
+        <li><a href="api/teqp.html#teqp.teqp.SatRhoLPWPoint.p_exp">(teqp.teqp.SatRhoLPWPoint property)</a>
+</li>
+        <li><a href="api/teqp.html#teqp.teqp.SOSPoint.p_exp">(teqp.teqp.SOSPoint property)</a>
+</li>
+      </ul></li>
       <li><a href="api/teqp.html#teqp.teqp.TVLEOptions.p_termination">p_termination (teqp.teqp.TVLEOptions property)</a>
 </li>
       <li><a href="api/teqp.html#teqp.PCSAFTEOS">PCSAFTEOS() (in module teqp)</a>
@@ -623,6 +662,8 @@
         <li><a href="api/teqp.html#teqp.teqp.AbstractModel.pure_VLE_T">(teqp.teqp.AbstractModel method)</a>
 </li>
       </ul></li>
+      <li><a href="api/teqp.html#teqp.teqp.PureParameterOptimizer">PureParameterOptimizer (class in teqp.teqp)</a>
+</li>
       <li><a href="api/teqp.html#teqp.teqp.MultiFluidVLEAncillaries.pV">pV (teqp.teqp.MultiFluidVLEAncillaries property)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.PVLEOptions">PVLEOptions (class in teqp.teqp)</a>
@@ -643,6 +684,14 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.teqp.MixVLEReturn.r">r (teqp.teqp.MixVLEReturn property)</a>
 </li>
+      <li><a href="api/teqp.html#teqp.teqp.SatRhoLPPoint.R">R (teqp.teqp.SatRhoLPPoint property)</a>
+
+      <ul>
+        <li><a href="api/teqp.html#teqp.teqp.SatRhoLPWPoint.R">(teqp.teqp.SatRhoLPWPoint property)</a>
+</li>
+        <li><a href="api/teqp.html#teqp.teqp.SOSPoint.R">(teqp.teqp.SOSPoint property)</a>
+</li>
+      </ul></li>
       <li><a href="api/teqp.html#teqp.teqp.PVLEOptions.rel_err">rel_err (teqp.teqp.PVLEOptions property)</a>
 
       <ul>
@@ -659,8 +708,6 @@
         <li><a href="api/teqp.html#teqp.teqp.MixVLETpFlags.reltol">(teqp.teqp.MixVLETpFlags property)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.teqp.MixVLEpxFlags.relxtol">relxtol (teqp.teqp.MixVLEpxFlags property)</a>
 
       <ul>
@@ -669,12 +716,40 @@
       </ul></li>
       <li><a href="api/teqp.html#teqp.teqp.MixVLEReturn.return_code">return_code (teqp.teqp.MixVLEReturn property)</a>
 </li>
+      <li><a href="api/teqp.html#teqp.teqp.SOSPoint.rho_guess">rho_guess (teqp.teqp.SOSPoint property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.teqp.VLLEFinderOptions.rho_trivial_threshold">rho_trivial_threshold (teqp.teqp.VLLEFinderOptions property)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.MultiFluidVLEAncillaries.rhoL">rhoL (teqp.teqp.MultiFluidVLEAncillaries property)</a>
 </li>
+      <li><a href="api/teqp.html#teqp.teqp.SatRhoLPoint.rhoL_exp">rhoL_exp (teqp.teqp.SatRhoLPoint property)</a>
+
+      <ul>
+        <li><a href="api/teqp.html#teqp.teqp.SatRhoLPPoint.rhoL_exp">(teqp.teqp.SatRhoLPPoint property)</a>
+</li>
+        <li><a href="api/teqp.html#teqp.teqp.SatRhoLPWPoint.rhoL_exp">(teqp.teqp.SatRhoLPWPoint property)</a>
+</li>
+      </ul></li>
+      <li><a href="api/teqp.html#teqp.teqp.SatRhoLPoint.rhoL_guess">rhoL_guess (teqp.teqp.SatRhoLPoint property)</a>
+
+      <ul>
+        <li><a href="api/teqp.html#teqp.teqp.SatRhoLPPoint.rhoL_guess">(teqp.teqp.SatRhoLPPoint property)</a>
+</li>
+        <li><a href="api/teqp.html#teqp.teqp.SatRhoLPWPoint.rhoL_guess">(teqp.teqp.SatRhoLPWPoint property)</a>
+</li>
+      </ul></li>
       <li><a href="api/teqp.html#teqp.teqp.MultiFluidVLEAncillaries.rhoV">rhoV (teqp.teqp.MultiFluidVLEAncillaries property)</a>
 </li>
+      <li><a href="api/teqp.html#teqp.teqp.SatRhoLPoint.rhoV_guess">rhoV_guess (teqp.teqp.SatRhoLPoint property)</a>
+
+      <ul>
+        <li><a href="api/teqp.html#teqp.teqp.SatRhoLPPoint.rhoV_guess">(teqp.teqp.SatRhoLPPoint property)</a>
+</li>
+        <li><a href="api/teqp.html#teqp.teqp.SatRhoLPWPoint.rhoV_guess">(teqp.teqp.SatRhoLPWPoint property)</a>
+</li>
+      </ul></li>
       <li><a href="api/teqp.html#teqp.teqp.MixVLEReturn.rhovecL">rhovecL (teqp.teqp.MixVLEReturn property)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.MixVLEReturn.rhovecV">rhovecV (teqp.teqp.MixVLEReturn property)</a>
@@ -687,20 +762,28 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.teqp.SAFTCoeffs">SAFTCoeffs (class in teqp.teqp)</a>
 </li>
+      <li><a href="api/teqp.html#teqp.teqp.SatRhoLPoint">SatRhoLPoint (class in teqp.teqp)</a>
+</li>
+      <li><a href="api/teqp.html#teqp.teqp.SatRhoLPPoint">SatRhoLPPoint (class in teqp.teqp)</a>
+</li>
+      <li><a href="api/teqp.html#teqp.teqp.SatRhoLPWPoint">SatRhoLPWPoint (class in teqp.teqp)</a>
+</li>
       <li><a href="api/teqp.html#teqp.teqp.SAFTCoeffs.sigma_Angstrom">sigma_Angstrom (teqp.teqp.SAFTCoeffs property)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.TCABOptions.skip_dircheck_count">skip_dircheck_count (teqp.teqp.TCABOptions property)</a>
 </li>
-      <li><a href="api/teqp.html#teqp.teqp.TCABOptions.small_T_count">small_T_count (teqp.teqp.TCABOptions property)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/teqp.html#teqp.teqp.TCABOptions.small_T_count">small_T_count (teqp.teqp.TCABOptions property)</a>
+</li>
       <li><a href="api/teqp.html#teqp.solve_pure_critical">solve_pure_critical() (in module teqp)</a>
 
       <ul>
         <li><a href="api/teqp.html#teqp.teqp.AbstractModel.solve_pure_critical">(teqp.teqp.AbstractModel method)</a>
 </li>
       </ul></li>
+      <li><a href="api/teqp.html#teqp.teqp.SOSPoint">SOSPoint (class in teqp.teqp)</a>
+</li>
       <li><a href="api/teqp.html#teqp.teqp.TCABOptions.stability_rel_drho">stability_rel_drho (teqp.teqp.TCABOptions property)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.MixVLEReturn.success">success (teqp.teqp.MixVLEReturn property)</a>
@@ -712,14 +795,22 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.teqp.MixVLEReturn.T">T (teqp.teqp.MixVLEReturn property)</a>
+
+      <ul>
+        <li><a href="api/teqp.html#teqp.teqp.SatRhoLPoint.T">(teqp.teqp.SatRhoLPoint property)</a>
 </li>
+        <li><a href="api/teqp.html#teqp.teqp.SatRhoLPPoint.T">(teqp.teqp.SatRhoLPPoint property)</a>
+</li>
+        <li><a href="api/teqp.html#teqp.teqp.SatRhoLPWPoint.T">(teqp.teqp.SatRhoLPWPoint property)</a>
+</li>
+        <li><a href="api/teqp.html#teqp.teqp.SOSPoint.T">(teqp.teqp.SOSPoint property)</a>
+</li>
+      </ul></li>
       <li><a href="api/teqp.html#teqp.teqp.VLLETracerOptions.T_limit">T_limit (teqp.teqp.VLLETracerOptions property)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.VLEAncillary.T_r">T_r (teqp.teqp.VLEAncillary property)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.TCABOptions.T_tol">T_tol (teqp.teqp.TCABOptions property)</a>
-</li>
-      <li><a href="api/teqp.html#teqp.teqp.NRIterator.take_step">take_step() (teqp.teqp.NRIterator method)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.NRIterator.take_steps">take_steps() (teqp.teqp.NRIterator method)</a>
 </li>
@@ -739,12 +830,12 @@
         <li><a href="api/teqp.html#module-teqp.teqp">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.teqp.VLLETracerOptions.terminate_composition">terminate_composition (teqp.teqp.VLLETracerOptions property)</a>
 </li>
       <li><a href="api/teqp.html#teqp.teqp.VLLETracerOptions.terminate_composition_tol">terminate_composition_tol (teqp.teqp.VLLETracerOptions property)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/teqp.html#teqp.teqp.PVLEOptions.terminate_unstable">terminate_unstable (teqp.teqp.PVLEOptions property)</a>
 
       <ul>
@@ -823,6 +914,40 @@
 </li>
       <li><a href="api/teqp.html#teqp.teqp.VLLETracerOptions">VLLETracerOptions (class in teqp.teqp)</a>
 </li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/teqp.html#teqp.teqp.SatRhoLPWPoint.w_exp">w_exp (teqp.teqp.SatRhoLPWPoint property)</a>
+
+      <ul>
+        <li><a href="api/teqp.html#teqp.teqp.SOSPoint.w_exp">(teqp.teqp.SOSPoint property)</a>
+</li>
+      </ul></li>
+      <li><a href="api/teqp.html#teqp.teqp.SatRhoLPoint.weight">weight (teqp.teqp.SatRhoLPoint property)</a>
+</li>
+      <li><a href="api/teqp.html#teqp.teqp.SatRhoLPPoint.weight_p">weight_p (teqp.teqp.SatRhoLPPoint property)</a>
+
+      <ul>
+        <li><a href="api/teqp.html#teqp.teqp.SatRhoLPWPoint.weight_p">(teqp.teqp.SatRhoLPWPoint property)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/teqp.html#teqp.teqp.SatRhoLPPoint.weight_rho">weight_rho (teqp.teqp.SatRhoLPPoint property)</a>
+
+      <ul>
+        <li><a href="api/teqp.html#teqp.teqp.SatRhoLPWPoint.weight_rho">(teqp.teqp.SatRhoLPWPoint property)</a>
+</li>
+      </ul></li>
+      <li><a href="api/teqp.html#teqp.teqp.SatRhoLPWPoint.weight_w">weight_w (teqp.teqp.SatRhoLPWPoint property)</a>
+
+      <ul>
+        <li><a href="api/teqp.html#teqp.teqp.SOSPoint.weight_w">(teqp.teqp.SOSPoint property)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 

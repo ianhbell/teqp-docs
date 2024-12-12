@@ -1,0 +1,157 @@
+\doxysection{teqp\+::activity\+::activity\+\_\+models\+::COSMOSAC\+::Sigma\+Profile Class Reference}
+\hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile}{}\label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile}\index{teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}}
+
+
+{\ttfamily \#include $<$COSMOSAC.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_aa548da2ea9e2a65cb30170d8a3293c28}{Sigma\+Profile}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a773656de42a1bbf1f7186ae163f3e693}{Sigma\+Profile}} (const Eigen\+::\+Array\+Xd \&\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a67e50b37a0814d484090bafb602c5b93}{sigma}}, const Eigen\+::\+Array\+Xd \&\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a0ba92e761ed3427bc6c40f85dcb6f461}{psigmaA}})
+\begin{DoxyCompactList}\small\item\em Copy-\/by-\/reference constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a5540648ef90e6cef61734b057ab7385d}{Sigma\+Profile}} (const std\+::vector$<$ double $>$ \&\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a67e50b37a0814d484090bafb602c5b93}{sigma}}, const std\+::vector$<$ double $>$ \&\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a0ba92e761ed3427bc6c40f85dcb6f461}{psigmaA}})
+\begin{DoxyCompactList}\small\item\em Copy-\/by-\/reference constructor with std\+::vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a3f15725a8fb901a00dc6fb123842ce1c}{Sigma\+Profile}} (Eigen\+::\+Array\+Xd \&\&\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a67e50b37a0814d484090bafb602c5b93}{sigma}}, Eigen\+::\+Array\+Xd \&\&\mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a0ba92e761ed3427bc6c40f85dcb6f461}{psigmaA}})
+\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
+const Eigen\+::\+Array\+Xd \& \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a0ba92e761ed3427bc6c40f85dcb6f461}{psigmaA}} () const
+\item 
+const Eigen\+::\+Array\+Xd \& \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a67e50b37a0814d484090bafb602c5b93}{sigma}} () const
+\item 
+const Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a0e5f0f4384d8b4984ecc73bc5798e723}{psigma}} (double A\+\_\+i) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_aa61afa75c2f72a3e3dee7ff69f1aee29}{m\+\_\+sigma}}
+\item 
+Eigen\+::\+Array\+Xd \mbox{\hyperlink{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_ade44c815bb4900760c5cc580698ccef8}{m\+\_\+psigmaA}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A single sigma profile. In this data structure (for consistency with the 2005 Virginia Tech database of COSMO-\/\+SAC parameters), the first column is the electron density in \mbox{[}e/\+A\texorpdfstring{$^\wedge$}{\string^}2\mbox{]}, and the second column is the probability of finding a segment with this electron density, multiplied by the segment area, in A\texorpdfstring{$^\wedge$}{\string^}2 
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_aa548da2ea9e2a65cb30170d8a3293c28}\index{teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}!SigmaProfile@{SigmaProfile}}
+\index{SigmaProfile@{SigmaProfile}!teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}}
+\doxysubsubsection{\texorpdfstring{SigmaProfile()}{SigmaProfile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_aa548da2ea9e2a65cb30170d8a3293c28} 
+teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+Sigma\+Profile\+::\+Sigma\+Profile (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a773656de42a1bbf1f7186ae163f3e693}\index{teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}!SigmaProfile@{SigmaProfile}}
+\index{SigmaProfile@{SigmaProfile}!teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}}
+\doxysubsubsection{\texorpdfstring{SigmaProfile()}{SigmaProfile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a773656de42a1bbf1f7186ae163f3e693} 
+teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+Sigma\+Profile\+::\+Sigma\+Profile (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Array\+Xd \&}]{sigma}{, }\item[{const Eigen\+::\+Array\+Xd \&}]{psigmaA}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copy-\/by-\/reference constructor. 
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a5540648ef90e6cef61734b057ab7385d}\index{teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}!SigmaProfile@{SigmaProfile}}
+\index{SigmaProfile@{SigmaProfile}!teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}}
+\doxysubsubsection{\texorpdfstring{SigmaProfile()}{SigmaProfile()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a5540648ef90e6cef61734b057ab7385d} 
+teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+Sigma\+Profile\+::\+Sigma\+Profile (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{sigma}{, }\item[{const std\+::vector$<$ double $>$ \&}]{psigmaA}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copy-\/by-\/reference constructor with std\+::vector. 
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a3f15725a8fb901a00dc6fb123842ce1c}\index{teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}!SigmaProfile@{SigmaProfile}}
+\index{SigmaProfile@{SigmaProfile}!teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}}
+\doxysubsubsection{\texorpdfstring{SigmaProfile()}{SigmaProfile()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a3f15725a8fb901a00dc6fb123842ce1c} 
+teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+Sigma\+Profile\+::\+Sigma\+Profile (\begin{DoxyParamCaption}\item[{Eigen\+::\+Array\+Xd \&\&}]{sigma}{, }\item[{Eigen\+::\+Array\+Xd \&\&}]{psigmaA}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Move constructor. 
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a0e5f0f4384d8b4984ecc73bc5798e723}\index{teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}!psigma@{psigma}}
+\index{psigma@{psigma}!teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}}
+\doxysubsubsection{\texorpdfstring{psigma()}{psigma()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a0e5f0f4384d8b4984ecc73bc5798e723} 
+const Eigen\+::\+Array\+Xd teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+Sigma\+Profile\+::psigma (\begin{DoxyParamCaption}\item[{double}]{A\+\_\+i}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a0ba92e761ed3427bc6c40f85dcb6f461}\index{teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}!psigmaA@{psigmaA}}
+\index{psigmaA@{psigmaA}!teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}}
+\doxysubsubsection{\texorpdfstring{psigmaA()}{psigmaA()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a0ba92e761ed3427bc6c40f85dcb6f461} 
+const Eigen\+::\+Array\+Xd \& teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+Sigma\+Profile\+::psigmaA (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a67e50b37a0814d484090bafb602c5b93}\index{teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}!sigma@{sigma}}
+\index{sigma@{sigma}!teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}}
+\doxysubsubsection{\texorpdfstring{sigma()}{sigma()}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_a67e50b37a0814d484090bafb602c5b93} 
+const Eigen\+::\+Array\+Xd \& teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+Sigma\+Profile\+::sigma (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_ade44c815bb4900760c5cc580698ccef8}\index{teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}!m\_psigmaA@{m\_psigmaA}}
+\index{m\_psigmaA@{m\_psigmaA}!teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}}
+\doxysubsubsection{\texorpdfstring{m\_psigmaA}{m\_psigmaA}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_ade44c815bb4900760c5cc580698ccef8} 
+Eigen\+::\+Array\+Xd teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+Sigma\+Profile\+::m\+\_\+psigmaA}
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+\Hypertarget{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_aa61afa75c2f72a3e3dee7ff69f1aee29}\index{teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}!m\_sigma@{m\_sigma}}
+\index{m\_sigma@{m\_sigma}!teqp::activity::activity\_models::COSMOSAC::SigmaProfile@{teqp::activity::activity\_models::COSMOSAC::SigmaProfile}}
+\doxysubsubsection{\texorpdfstring{m\_sigma}{m\_sigma}}
+{\footnotesize\ttfamily \label{classteqp_1_1activity_1_1activity__models_1_1COSMOSAC_1_1SigmaProfile_aa61afa75c2f72a3e3dee7ff69f1aee29} 
+Eigen\+::\+Array\+Xd teqp\+::activity\+::activity\+\_\+models\+::\+COSMOSAC\+::\+Sigma\+Profile\+::m\+\_\+sigma}
+
+
+
+Definition at line \mbox{\hyperlink{COSMOSAC_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{COSMOSAC_8hpp_source}{COSMOSAC.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/teqp/models/activity/\mbox{\hyperlink{COSMOSAC_8hpp}{COSMOSAC.\+hpp}}\end{DoxyCompactItemize}
